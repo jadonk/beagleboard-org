@@ -1,2 +1,21 @@
 res.data.title = "Future home of BeagleBoard.Org"
+
+var str = "";
+try
+ {
+  for (var i = 0; i < root.size(); i++) 
+   {
+    var person = root.get(i);
+    str += person.renderSkinAsString("link");
+   }
+  res.data.body = str;
+ }
+catch(e)
+ {
+  res.data.body = "Str: " + str + "<br />\n";
+  res.data.body = "Root: " + root + "<br />\n";
+  res.data.body += "Exception: " + e + "<br />\nCall stack: " + e.stack;
+ }
+
+
 renderSkin("index");
