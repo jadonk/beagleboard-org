@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Inspector.prototype.render&nbsp;()</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.Inspector.js:
+	<pre><font color="#aaaaaa">62:</font>   this.render = function() {
+<font color="#aaaaaa">63:</font>           for (var i in hopObj) {
+<font color="#aaaaaa">64:</font>               var obj = {
+<font color="#aaaaaa">65:</font>                   key: i,
+<font color="#aaaaaa">66:</font>                   value: hopObj[i]
+<font color="#aaaaaa">67:</font>               };
+<font color="#aaaaaa">68:</font>               if (hopObj[i]) {
+<font color="#aaaaaa">69:</font>                   if (obj.value._prototype &amp;&amp;
+<font color="#aaaaaa">70:</font>                        obj.value._prototype == <font color="#9999aa">&quot;HopObject&quot;</font>)
+<font color="#aaaaaa">71:</font>                      collections.push(obj);
+<font color="#aaaaaa">72:</font>                  else
+<font color="#aaaaaa">73:</font>                      properties.push(obj);
+<font color="#aaaaaa">74:</font>              }
+<font color="#aaaaaa">75:</font>          }
+<font color="#aaaaaa">76:</font>          properties.sort(keySorter);
+<font color="#aaaaaa">77:</font>          collections.sort(keySorter);
+<font color="#aaaaaa">78:</font>  
+<font color="#aaaaaa">79:</font>          var n = hopObj.size();
+<font color="#aaaaaa">80:</font>          for (var i=0; i&lt;n; i++) {
+<font color="#aaaaaa">81:</font>              var h = hopObj.get(i);
+<font color="#aaaaaa">82:</font>              var obj = {
+<font color="#aaaaaa">83:</font>                  key: i,
+<font color="#aaaaaa">84:</font>                  value: h,
+<font color="#aaaaaa">85:</font>                  id: h._id
+<font color="#aaaaaa">86:</font>              };
+<font color="#aaaaaa">87:</font>              children.push(obj);
+<font color="#aaaaaa">88:</font>          }
+<font color="#aaaaaa">89:</font>          children.sort(idSorter);
+<font color="#aaaaaa">90:</font>  
+<font color="#aaaaaa">91:</font>          res.handlers.inspector = this;
+<font color="#aaaaaa">92:</font>          renderSkin(<font color="#9999aa">&quot;helma.Inspector.main&quot;</font>);
+<font color="#aaaaaa">93:</font>          return;
+<font color="#aaaaaa">94:</font>      }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

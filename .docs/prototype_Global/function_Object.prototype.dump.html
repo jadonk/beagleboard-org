@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.Object.prototype.dump&nbsp;(recursive)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	print the contents of an object for debugging <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>Object</code>:<br/>
+the object to dump<li><b>Parameter</b> <code>Boolean</code>:<br/>
+recursive flag (if true, dump child objects, too)
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/core/Object.js:
+	<pre><font color="#aaaaaa">67:</font>   Object.prototype.dump = function(recursive) {
+<font color="#aaaaaa">68:</font>       var beginList = <font color="#9999aa">&quot;&lt;ul&gt;&quot;</font>;
+<font color="#aaaaaa">69:</font>       var endList = <font color="#9999aa">&quot;&lt;/ul&gt;&quot;</font>;
+<font color="#aaaaaa">70:</font>       var beginItem = <font color="#9999aa">&quot;&lt;li&gt;&quot;</font>;
+<font color="#aaaaaa">71:</font>       var endItem = <font color="#9999aa">&quot;&lt;/li&gt;&quot;</font>;
+<font color="#aaaaaa">72:</font>       var beginKey = <font color="#9999aa">&quot;&lt;strong&gt;&quot;</font>;
+<font color="#aaaaaa">73:</font>       var endKey = <font color="#9999aa">&quot;:&lt;/strong&gt; &quot;</font>;
+<font color="#aaaaaa">74:</font>       res.write(beginList);
+<font color="#aaaaaa">75:</font>       for (var p in this) {
+<font color="#aaaaaa">76:</font>          res.write(beginItem);
+<font color="#aaaaaa">77:</font>          res.write(beginKey);
+<font color="#aaaaaa">78:</font>          res.write(p);
+<font color="#aaaaaa">79:</font>          res.write(endKey);
+<font color="#aaaaaa">80:</font>          if (recursive &amp;&amp; typeof this[p] == <font color="#9999aa">&quot;object&quot;</font>) {
+<font color="#aaaaaa">81:</font>              var recurse = true;
+<font color="#aaaaaa">82:</font>              var types = [Function, Date, String, Number];
+<font color="#aaaaaa">83:</font>              for (var i in types) {
+<font color="#aaaaaa">84:</font>                  if (this[p] instanceof types[i]) {
+<font color="#aaaaaa">85:</font>                      recurse = false
+<font color="#aaaaaa">86:</font>                      break;
+<font color="#aaaaaa">87:</font>                  }
+<font color="#aaaaaa">88:</font>              }
+<font color="#aaaaaa">89:</font>              if (recurse == true)
+<font color="#aaaaaa">90:</font>                  this[p].dump(true);
+<font color="#aaaaaa">91:</font>              else {
+<font color="#aaaaaa">92:</font>                  res.write(this[p].toSource());
+<font color="#aaaaaa">93:</font>              }
+<font color="#aaaaaa">94:</font>          } else if (this[p]) {
+<font color="#aaaaaa">95:</font>              res.write(encode(this[p].toSource()));
+<font color="#aaaaaa">96:</font>          }
+<font color="#aaaaaa">97:</font>          res.write(endItem);
+<font color="#aaaaaa">98:</font>      }
+<font color="#aaaaaa">99:</font>      res.write(endList);
+<font color="#aaaaaa">100:</font>      return;
+<font color="#aaaaaa">101:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

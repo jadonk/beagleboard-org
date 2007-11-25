@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.HtmlSelect&nbsp;(attributes,&nbsp;children,&nbsp;selectedValue,&nbsp;firstLine)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Select list<br><br>
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.Markup.js:
+	<pre><font color="#aaaaaa">780:</font>   function HtmlSelect(attributes, children, selectedValue, firstLine) {
+<font color="#aaaaaa">781:</font>       var options = [];
+<font color="#aaaaaa">782:</font>       if (firstLine)
+<font color="#aaaaaa">783:</font>           options.push(new MarkupElement(<font color="#9999aa">&quot;option&quot;</font>, {value: <font color="#9999aa">&quot;&quot;</font>}, <font color="#9999aa">&quot;&quot;</font>));
+<font color="#aaaaaa">784:</font>       if (children instanceof Array) {
+<font color="#aaaaaa">785:</font>           for (var i in children) {
+<font color="#aaaaaa">786:</font>               var child = children[i];
+<font color="#aaaaaa">787:</font>               var value, display;
+<font color="#aaaaaa">788:</font>               if (child instanceof Array &amp;&amp; child.length == 2) {
+<font color="#aaaaaa">789:</font>                  value = child[0];
+<font color="#aaaaaa">790:</font>                  display = child[1];
+<font color="#aaaaaa">791:</font>              } else if (child.value != null &amp;&amp; child.display != null) {
+<font color="#aaaaaa">792:</font>                  value = child.value;
+<font color="#aaaaaa">793:</font>                  display = child.display;
+<font color="#aaaaaa">794:</font>              } else {
+<font color="#aaaaaa">795:</font>                  display = child;
+<font color="#aaaaaa">796:</font>                  value = i;
+<font color="#aaaaaa">797:</font>              }
+<font color="#aaaaaa">798:</font>              var attr = {value: value};
+<font color="#aaaaaa">799:</font>              if (value == selectedValue)
+<font color="#aaaaaa">800:</font>                  attr.selected = <font color="#9999aa">&quot;selected&quot;</font>;
+<font color="#aaaaaa">801:</font>              options.push(new MarkupElement(<font color="#9999aa">&quot;option&quot;</font>, attr, display));
+<font color="#aaaaaa">802:</font>          }
+<font color="#aaaaaa">803:</font>      }
+<font color="#aaaaaa">804:</font>      this.constructor(<font color="#9999aa">&quot;select&quot;</font>, attributes, options);
+<font color="#aaaaaa">805:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

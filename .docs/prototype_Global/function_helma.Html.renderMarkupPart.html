@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.renderMarkupPart&nbsp;(name,&nbsp;start,&nbsp;end,&nbsp;attr)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Static helper method that renders an arbitrary markup part. <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+name The element's name<li><b>Parameter</b> <code>{String}</code>:<br/>
+start Prefix of each rendered element<li><b>Parameter</b> <code>{String}</code>:<br/>
+end Suffix of each rendered element<li><b>Parameter</b> <code>{Object}</code>:<br/>
+attr Optional element attributes
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">52:</font>   helma.Html.renderMarkupPart = function(name, start, end, attr) {
+<font color="#aaaaaa">53:</font>       res.write(start);
+<font color="#aaaaaa">54:</font>       res.write(name);
+<font color="#aaaaaa">55:</font>       if (attr) {
+<font color="#aaaaaa">56:</font>           for (var i in attr) {
+<font color="#aaaaaa">57:</font>               if (i == <font color="#9999aa">&quot;prefix&quot;</font> || i == <font color="#9999aa">&quot;suffix&quot;</font> || 
+<font color="#aaaaaa">58:</font>                   i == <font color="#9999aa">&quot;default&quot;</font> || attr[i] == null) {
+<font color="#aaaaaa">59:</font>                   continue;
+<font color="#aaaaaa">60:</font>               }
+<font color="#aaaaaa">61:</font>              res.write(<font color="#9999aa">&quot; &quot;</font>);
+<font color="#aaaaaa">62:</font>              res.write(i);
+<font color="#aaaaaa">63:</font>              res.write(<font color="#9999aa">&quot;=\&quot;</font>&quot;);
+<font color="#aaaaaa">64:</font>              res.write(attr[i]);
+<font color="#aaaaaa">65:</font>              res.write(<font color="#9999aa">&quot;\&quot;</font>&quot;);
+<font color="#aaaaaa">66:</font>          }
+<font color="#aaaaaa">67:</font>      }
+<font color="#aaaaaa">68:</font>      res.write(end);
+<font color="#aaaaaa">69:</font>      return;
+<font color="#aaaaaa">70:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

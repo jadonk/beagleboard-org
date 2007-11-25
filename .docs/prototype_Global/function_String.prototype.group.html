@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.String.prototype.group&nbsp;(interval,&nbsp;str,&nbsp;ignoreWhiteSpace)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	function inserts a string every number of characters <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>Int</code>:<br/>
+number of characters after which insertion should take place<li><b>Parameter</b> <code>String</code>:<br/>
+string to be inserted<li><b>Parameter</b> <code>Boolean</code>:<br/>
+definitely insert at each interval position
+		<li><b>Returns</b><br>
+String resulting string
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/core/String.js:
+	<pre><font color="#aaaaaa">312:</font>   String.prototype.group = function(interval, str, ignoreWhiteSpace) {
+<font color="#aaaaaa">313:</font>       if (!interval || interval &lt; 1)
+<font color="#aaaaaa">314:</font>           interval = 20;
+<font color="#aaaaaa">315:</font>       if (!str || this.length &lt; interval)
+<font color="#aaaaaa">316:</font>           return this;
+<font color="#aaaaaa">317:</font>       res.push();
+<font color="#aaaaaa">318:</font>       for (var i=0; i&lt;this.length; i=i+interval) {
+<font color="#aaaaaa">319:</font>           var strPart = this.substring(i, i+interval);
+<font color="#aaaaaa">320:</font>           res.write(strPart);
+<font color="#aaaaaa">321:</font>          if (ignoreWhiteSpace == true || 
+<font color="#aaaaaa">322:</font>              (strPart.length == interval &amp;&amp; !/\s/g.test(strPart))) {
+<font color="#aaaaaa">323:</font>              res.write(str);
+<font color="#aaaaaa">324:</font>          }
+<font color="#aaaaaa">325:</font>      }
+<font color="#aaaaaa">326:</font>      return res.pop();
+<font color="#aaaaaa">327:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

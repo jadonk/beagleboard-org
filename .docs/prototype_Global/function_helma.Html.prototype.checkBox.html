@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.prototype.checkBox&nbsp;(param)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Renders an x/html checkbox input tag <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{Object}</code>:<br/>
+param An object containing the tag attributes
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">322:</font>   helma.Html.prototype.checkBox = function(param) {
+<font color="#aaaaaa">323:</font>       if (!param) {
+<font color="#aaaaaa">324:</font>           res.write(<font color="#9999aa">&quot;[Html.checkBox: insufficient arguments]&quot;</font>);
+<font color="#aaaaaa">325:</font>           return;
+<font color="#aaaaaa">326:</font>       }
+<font color="#aaaaaa">327:</font>       var attr = Object.prototype.reduce.call(param);
+<font color="#aaaaaa">328:</font>       attr.type = <font color="#9999aa">&quot;checkbox&quot;</font>;
+<font color="#aaaaaa">329:</font>       if (attr.selectedValue != null) {
+<font color="#aaaaaa">330:</font>           if (helma.Html.isSelected(param.value, param.selectedValue))
+<font color="#aaaaaa">331:</font>              attr.checked = <font color="#9999aa">&quot;checked&quot;</font>;
+<font color="#aaaaaa">332:</font>          else
+<font color="#aaaaaa">333:</font>              delete attr.checked;
+<font color="#aaaaaa">334:</font>          delete attr.selectedValue;
+<font color="#aaaaaa">335:</font>      }
+<font color="#aaaaaa">336:</font>      this.tag(<font color="#9999aa">&quot;input&quot;</font>, attr);
+<font color="#aaaaaa">337:</font>      return;
+<font color="#aaaaaa">338:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

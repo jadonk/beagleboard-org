@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global/helma.shell.skin</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	general parameters used in this skin:<ul><li><code>response.commands</code><li><code>response.fontface</code><li><code>response.href</code></ul><br>
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.shell.skin:
+	<pre><font color="#aaaaaa">0:</font>   &lt;style&gt;
+<font color="#aaaaaa">1:</font>       body {
+<font color="#aaaaaa">2:</font>   <font color="#33aa00">        //font: 12px <font color="#aa3300">&lt;% response.fontface %&gt;</font>; 
+<font color="#aaaaaa">3:</font>   </font>    }
+<font color="#aaaaaa">4:</font>       .commandshell {
+<font color="#aaaaaa">5:</font>           font: 12px <font color="#aa3300">&lt;% response.fontface %&gt;</font>; 
+<font color="#aaaaaa">6:</font>           border: 1px solid groove; 
+<font color="#aaaaaa">7:</font>           background-color:#eee;
+<font color="#aaaaaa">8:</font>       }
+<font color="#aaaaaa">9:</font>      .error {
+<font color="#aaaaaa">10:</font>          background-color: #ffdddd;
+<font color="#aaaaaa">11:</font>      }
+<font color="#aaaaaa">12:</font>      .command {
+<font color="#aaaaaa">13:</font>          padding-top: 5px;
+<font color="#aaaaaa">14:</font>      }
+<font color="#aaaaaa">15:</font>      .cell {
+<font color="#aaaaaa">16:</font>          font: 12px <font color="#aa3300">&lt;% response.fontface %&gt;</font>; 
+<font color="#aaaaaa">17:</font>          border-bottom: 1px solid #ddd;
+<font color="#aaaaaa">18:</font>          padding: 2px 0px 2px 0px;
+<font color="#aaaaaa">19:</font>      }
+<font color="#aaaaaa">20:</font>      .hot {
+<font color="#aaaaaa">21:</font>          background-color: #eef5ee;
+<font color="#aaaaaa">22:</font>          cursor: pointer;
+<font color="#aaaaaa">23:</font>          
+<font color="#aaaaaa">24:</font>      }
+<font color="#aaaaaa">25:</font>      .cold {
+<font color="#aaaaaa">26:</font>          background-color: #ffffff;
+<font color="#aaaaaa">27:</font>          cursor: auto;
+<font color="#aaaaaa">28:</font>      }
+<font color="#aaaaaa">29:</font>  &lt;/style&gt;
+<font color="#aaaaaa">30:</font>  &lt;script&gt;
+<font color="#aaaaaa">31:</font>      function getRequest() {
+<font color="#aaaaaa">32:</font>          return window.ActiveXObject
+<font color="#aaaaaa">33:</font>              ? new ActiveXObject( &quot;Microsoft.XMLHTTP&quot; )
+<font color="#aaaaaa">34:</font>              : new XMLHttpRequest()
+<font color="#aaaaaa">35:</font>          ;
+<font color="#aaaaaa">36:</font>      }
+<font color="#aaaaaa">37:</font>      function load( url, data, param ) {
+<font color="#aaaaaa">38:</font>          var req = getRequest();
+<font color="#aaaaaa">39:</font>          req.onreadystatechange = getHandler( req, param );
+<font color="#aaaaaa">40:</font>          req.open( data ? &quot;POST&quot; : &quot;GET&quot;, url, true );
+<font color="#aaaaaa">41:</font>          if ( data ) {
+<font color="#aaaaaa">42:</font>              req.setRequestHeader( &quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot; );
+<font color="#aaaaaa">43:</font>              var params = [];
+<font color="#aaaaaa">44:</font>              for ( var x in data )
+<font color="#aaaaaa">45:</font>                  params.push( encodeURIComponent( x ) + &quot;=&quot; + encodeURIComponent( data[ x ] ) )
+<font color="#aaaaaa">46:</font>              req.send( params.join( &quot;&amp;&quot; ) );
+<font color="#aaaaaa">47:</font>          } else {
+<font color="#aaaaaa">48:</font>              req.send();
+<font color="#aaaaaa">49:</font>          }
+<font color="#aaaaaa">50:</font>      }
+<font color="#aaaaaa">51:</font>      function handle( input, event ) {
+<font color="#aaaaaa">52:</font>          var key = event.keyCode ? event.keyCode : event.charCode;                
+<font color="#aaaaaa">53:</font>          if (( key == 13 &amp;&amp; input.value ) || event == 'enter') { // enter
+<font color="#aaaaaa">54:</font>              var command = input.value;
+<font color="#aaaaaa">55:</font>              input.value = &quot;&quot;;
+<font color="#aaaaaa">56:</font>              emitCell( command, ++id );
+<font color="#aaaaaa">57:</font>              lines.push( command );
+<font color="#aaaaaa">58:</font>              delta = 0;                    
+<font color="#aaaaaa">59:</font>              load( '<font color="#aa3300">&lt;% response.href %&gt;</font>shell', { command: command }, { id: id } );
+<font color="#aaaaaa">60:</font>              if ( hotCellId )                
+<font color="#aaaaaa">61:</font>                  cellOut( document.getElementById( hotCellId ) );
+<font color="#aaaaaa">62:</font>              window.scroll( 0, 1000000 );            
+<font color="#aaaaaa">63:</font>          } else if ( key == 38 &amp;&amp; delta &lt; lines.length ) {  // up
+<font color="#aaaaaa">64:</font>              delta++;
+<font color="#aaaaaa">65:</font>              input.value = lines[ lines.length - delta ];
+<font color="#aaaaaa">66:</font>          } else if ( key == 40 ) { // down
+<font color="#aaaaaa">67:</font>              if ( delta &gt; 0 )
+<font color="#aaaaaa">68:</font>                  delta--;
+<font color="#aaaaaa">69:</font>              input.value = lines[ lines.length - delta ] || &quot;&quot;;                
+<font color="#aaaaaa">70:</font>          }
+<font color="#aaaaaa">71:</font>      }
+<font color="#aaaaaa">72:</font>      function getHandler( req, param ) {
+<font color="#aaaaaa">73:</font>          return function() {
+<font color="#aaaaaa">74:</font>              if ( req.readyState == 4 )
+<font color="#aaaaaa">75:</font>                  document.getElementById( param.id ).innerHTML = req.responseText;
+<font color="#aaaaaa">76:</font>          }
+<font color="#aaaaaa">77:</font>      }
+<font color="#aaaaaa">78:</font>      function recallCommand( i ) {
+<font color="#aaaaaa">79:</font>          var input = document.getElementById( &quot;command&quot; );
+<font color="#aaaaaa">80:</font>          input.value = lines[ i ];
+<font color="#aaaaaa">81:</font>          input.focus();
+<font color="#aaaaaa">82:</font>      }
+<font color="#aaaaaa">83:</font>      function cellIn( cell ) {                
+<font color="#aaaaaa">84:</font>          cell.className = &quot;cell hot&quot;;
+<font color="#aaaaaa">85:</font>          hotCellId = cell.id;
+<font color="#aaaaaa">86:</font>      }
+<font color="#aaaaaa">87:</font>      function cellOut( cell ) {
+<font color="#aaaaaa">88:</font>          cell.className = &quot;cell cold&quot;;
+<font color="#aaaaaa">89:</font>          hotCellId = null;
+<font color="#aaaaaa">90:</font>      }
+<font color="#aaaaaa">91:</font>      function emitCell( command, resultId ) {
+<font color="#aaaaaa">92:</font>          var str = &quot;&quot;;
+<font color="#aaaaaa">93:</font>          str += &quot;&lt;div id=\&quot;cell&quot; + resultId + &quot;\&quot; class=\&quot;cell cold\&quot; onmouseover=\&quot;cellIn( this )\&quot; onmouseout=\&quot;cellOut( this )\&quot; onclick=\&quot;recallCommand( &quot; + lines.length + &quot; )\&quot;&gt;&quot;;
+<font color="#aaaaaa">94:</font>          str += &quot;&lt;b&gt;&quot; + command + &quot;&lt;/b&gt;&lt;br /&gt;&quot;;
+<font color="#aaaaaa">95:</font>          str += &quot;&lt;div id='&quot; + resultId + &quot;'&gt;...&lt;/div&gt;&quot;;
+<font color="#aaaaaa">96:</font>          str += &quot;&lt;/div&gt;&quot;;
+<font color="#aaaaaa">97:</font>          emit( str );
+<font color="#aaaaaa">98:</font>      }
+<font color="#aaaaaa">99:</font>     function emit( str ) {
+<font color="#aaaaaa">100:</font>         document.getElementById( &quot;result&quot; ).innerHTML += str;
+<font color="#aaaaaa">101:</font>     }
+<font color="#aaaaaa">102:</font> <font color="#33aa00">    // --
+<font color="#aaaaaa">103:</font> </font>    var id = 1;
+<font color="#aaaaaa">104:</font>     var lines = [];
+<font color="#aaaaaa">105:</font>     var delta = 0;
+<font color="#aaaaaa">106:</font>     var hotCellId = null;
+<font color="#aaaaaa">107:</font> &lt;/script&gt;
+<font color="#aaaaaa">108:</font> &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+<font color="#aaaaaa">109:</font> &lt;div class=&quot;command&quot;&gt;
+<font color="#aaaaaa">110:</font>     &lt;input type=&quot;text&quot; class=&quot;commandshell&quot; id=&quot;command&quot; onkeydown=&quot;handle( this, event )&quot; size=&quot;80&quot; /&gt;
+<font color="#aaaaaa">111:</font>     &lt;input type=&quot;submit&quot; name=&quot;evaluate&quot; value=&quot;Run Command&quot; onclick=&quot;handle( document.getElementById( 'command' ), 'enter' )&quot; /&gt;
+<font color="#aaaaaa">112:</font> &lt;/div&gt;
+<font color="#aaaaaa">113:</font> &lt;script&gt;
+<font color="#aaaaaa">114:</font>     document.getElementById( &quot;command&quot; ).focus();
+<font color="#aaaaaa">115:</font> &lt;/script&gt;
+<font color="#aaaaaa">116:</font> &lt;form name=&quot;shellform&quot; method=&quot;post&quot;&gt;
+<font color="#aaaaaa">117:</font>     &lt;div&gt;
+<font color="#aaaaaa">118:</font>         &lt;textarea class=&quot;commandshell&quot; style=&quot;background-color:#f6f6f6;&quot; name=&quot;commands&quot; rows=&quot;25&quot; cols=&quot;100&quot; 
+<font color="#aaaaaa">119:</font>             wrap=&quot;off&quot;&gt;<font color="#aa3300">&lt;% response.commands %&gt;</font>&lt;/textarea&gt;
+<font color="#aaaaaa">120:</font>     &lt;/div&gt;
+<font color="#aaaaaa">121:</font>     &lt;input type=&quot;submit&quot; name=&quot;evaluate&quot; value=&quot;Run Script&quot; /&gt;
+<font color="#aaaaaa">122:</font>     &lt;input type=&quot;submit&quot; name=&quot;done&quot; value=&quot;Done&quot; /&gt;
+<font color="#aaaaaa">123:</font> &lt;/form&gt;
+<font color="#aaaaaa">124:</font> 
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

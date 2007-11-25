@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.sqlshell.Datasource.prototype.getSchemas&nbsp;(meta)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Get an array of schema names defined in the current database.<br><br>
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.js:
+	<pre><font color="#aaaaaa">115:</font>   helma.sqlshell.Datasource.prototype.getSchemas = function(meta) {
+<font color="#aaaaaa">116:</font>   <font color="#33aa00">    // get available schemas and set up an array for the drop down box:
+<font color="#aaaaaa">117:</font>   </font>    var schemas = [];
+<font color="#aaaaaa">118:</font>       var t = meta.getSchemas();
+<font color="#aaaaaa">119:</font>       while (t.next()) {
+<font color="#aaaaaa">120:</font>           var s = t.getString(1);
+<font color="#aaaaaa">121:</font>           schemas.push([s, s]);
+<font color="#aaaaaa">122:</font>       }
+<font color="#aaaaaa">123:</font>       return schemas;
+<font color="#aaaaaa">124:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

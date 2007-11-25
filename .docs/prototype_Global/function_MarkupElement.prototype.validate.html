@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.MarkupElement.prototype.validate&nbsp;()</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Recursively validate this element and its child elements.<br><br>
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.Markup.js:
+	<pre><font color="#aaaaaa">717:</font>   MarkupElement.prototype.validate = function() {
+<font color="#aaaaaa">718:</font>   <font color="#33aa00">    // apply constraints
+<font color="#aaaaaa">719:</font>   </font>    if (this.constraints) {
+<font color="#aaaaaa">720:</font>           for (var i in this.constraints) {
+<font color="#aaaaaa">721:</font>               this.contstraints[i].apply(this);
+<font color="#aaaaaa">722:</font>           }
+<font color="#aaaaaa">723:</font>       }
+<font color="#aaaaaa">724:</font>   
+<font color="#aaaaaa">725:</font>   <font color="#33aa00">    // validate child elements
+<font color="#aaaaaa">726:</font>  </font>    for (var i in this.map) {
+<font color="#aaaaaa">727:</font>          if (typeof(this.map[i]) == <font color="#9999aa">&quot;object&quot;</font> &amp;&amp; this.map[i].validate) {
+<font color="#aaaaaa">728:</font>              this.map[i].validate();
+<font color="#aaaaaa">729:</font>          }
+<font color="#aaaaaa">730:</font>      }
+<font color="#aaaaaa">731:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

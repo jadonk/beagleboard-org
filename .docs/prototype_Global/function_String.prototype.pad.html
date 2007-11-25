@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.String.prototype.pad&nbsp;(str,&nbsp;len,&nbsp;mode)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	fills a string with another string up to a desired length <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>String</code>:<br/>
+the filling string<li><b>Parameter</b> <code>Number</code>:<br/>
+the desired length of the resulting string<li><b>Parameter</b> <code>Number</code>:<br/>
+the direction which the string will be padded in: -1: left 0: both (balance) 1: right (you can use the constants String.LEFT, String.BALANCE and String.RIGHT here as well.)
+		<li><b>Returns</b><br>
+String the resulting string
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/core/String.js:
+	<pre><font color="#aaaaaa">406:</font>   String.prototype.pad = function(str, len, mode) {
+<font color="#aaaaaa">407:</font>       if (str  == null || len == null)
+<font color="#aaaaaa">408:</font>           return this;
+<font color="#aaaaaa">409:</font>       var diff = len - this.length;
+<font color="#aaaaaa">410:</font>       if (diff == 0)
+<font color="#aaaaaa">411:</font>           return this;
+<font color="#aaaaaa">412:</font>       var left, right = 0;
+<font color="#aaaaaa">413:</font>       if (mode == null || mode == String.RIGHT)
+<font color="#aaaaaa">414:</font>           right = diff;
+<font color="#aaaaaa">415:</font>      else if (mode == String.LEFT)
+<font color="#aaaaaa">416:</font>          left = diff;
+<font color="#aaaaaa">417:</font>      else if (mode == String.BALANCE) {
+<font color="#aaaaaa">418:</font>          right = Math.round(diff / 2);
+<font color="#aaaaaa">419:</font>          left = diff - right;
+<font color="#aaaaaa">420:</font>      }
+<font color="#aaaaaa">421:</font>      res.push();
+<font color="#aaaaaa">422:</font>      for (var i=0; i&lt;left; i++)
+<font color="#aaaaaa">423:</font>          res.write(str);
+<font color="#aaaaaa">424:</font>      res.write(this);
+<font color="#aaaaaa">425:</font>      for (var i=0; i&lt;right; i++)
+<font color="#aaaaaa">426:</font>          res.write(str);
+<font color="#aaaaaa">427:</font>      return res.pop();
+<font color="#aaaaaa">428:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

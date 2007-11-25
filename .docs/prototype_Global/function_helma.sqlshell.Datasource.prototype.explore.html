@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.sqlshell.Datasource.prototype.explore&nbsp;(meta,&nbsp;schema,&nbsp;param)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.js:
+	<pre><font color="#aaaaaa">351:</font>   helma.sqlshell.Datasource.prototype.explore = function(meta, schema, param) {
+<font color="#aaaaaa">352:</font>       res.push();
+<font color="#aaaaaa">353:</font>       renderSkin(<font color="#9999aa">&quot;helma.sqlshell#explore&quot;</font>, param);
+<font color="#aaaaaa">354:</font>       if (req.data.__sqlshell_table__) {
+<font color="#aaaaaa">355:</font>           var tableStyle = { table: { <font color="#9999aa">&quot;class&quot;</font>: <font color="#9999aa">&quot;explore&quot;</font> }, td: { <font color="#9999aa">&quot;class&quot;</font>: <font color="#9999aa">&quot;explore&quot;</font> } };
+<font color="#aaaaaa">356:</font>           var t = meta.getColumns(null, schema, req.data.__sqlshell_table__, <font color="#9999aa">&quot;%&quot;</font>);
+<font color="#aaaaaa">357:</font>           var writer = new helma.Markup.TableWriter(6, tableStyle);
+<font color="#aaaaaa">358:</font>           writer.writeHeader = true;
+<font color="#aaaaaa">359:</font>           var columnNames = [<font color="#9999aa">&quot;Column Name&quot;</font>, <font color="#9999aa">&quot;Column Type&quot;</font>, <font color="#9999aa">&quot;Column Size&quot;</font>,
+<font color="#aaaaaa">360:</font>                  <font color="#9999aa">&quot;Nullable&quot;</font>, <font color="#9999aa">&quot;Default Value&quot;</font>, <font color="#9999aa">&quot;Extras&quot;</font>];
+<font color="#aaaaaa">361:</font>          for (var c in columnNames) {
+<font color="#aaaaaa">362:</font>              writer.write(columnNames[c]);
+<font color="#aaaaaa">363:</font>          }
+<font color="#aaaaaa">364:</font>          while (t.next()) {
+<font color="#aaaaaa">365:</font>              writer.write(t.getString(4));
+<font color="#aaaaaa">366:</font>              writer.write(t.getString(6));
+<font color="#aaaaaa">367:</font>              writer.write(t.getString(7));
+<font color="#aaaaaa">368:</font>              writer.write(t.getString(18));
+<font color="#aaaaaa">369:</font>              writer.write(t.getString(13));
+<font color="#aaaaaa">370:</font>              writer.write(t.getString(12));
+<font color="#aaaaaa">371:</font>          }
+<font color="#aaaaaa">372:</font>          writer.close();
+<font color="#aaaaaa">373:</font>      }
+<font color="#aaaaaa">374:</font>      return res.pop();
+<font color="#aaaaaa">375:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

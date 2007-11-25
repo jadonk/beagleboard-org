@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.prototype.table&nbsp;(headers,&nbsp;data,&nbsp;param)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Renders a complete x/html table. <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{Array}</code>:<br/>
+headers An array containing table headers<li><b>Parameter</b> <code>{Array}</code>:<br/>
+data A two-dimensional array containing the table data<li><b>Parameter</b> <code>{Object}</code>:<br/>
+param An object containing the following properties: <ul> <li><code>table</code>: Attributes to render within the opening <code>&lt;table&gt;</code> tag</li> <li><code>tr</code>: Attributes to render within each <code>&lt;tr&gt;</code> tag</li> <li><code>td</code>: Attributes to render within each <code>&lt;td&gt;</code> tag</li> <li><code>th</code>: Attributes to render within each <code>&lt;th&gt;</code> tag</li> <li><code>trHead</code>: Attributes to render within each <code>&lt;tr&gt;</code> tag in the header area of the table</li> <li><code>trEven</code>: Attributes to render within each even <code>&lt;tr&gt;</code> tag</li> <li><code>trOdd</code>: Attributes to render within each odd <code>&lt;tr&gt;</code> tag</li> <li><code>tdEven</code>: Attributes to render within each even <code>&lt;td&gt;</code> tag</li> <li><code>tdOdd</code>: Attributes to render within each odd <code>&lt;td&gt;</code> tag</li> <li><code>thEven</code>: Attributes to render within each even <code>&lt;th&gt;</code> tag</li> <li><code>thOdd</code>: Attributes to render within each odd <code>&lt;th&gt;</code> tag</li> </ul>
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">585:</font>   helma.Html.prototype.table = function(headers, data, param) {
+<font color="#aaaaaa">586:</font>       if (!param) {
+<font color="#aaaaaa">587:</font>           res.write(<font color="#9999aa">&quot;[Html.table: insufficient arguments]&quot;</font>);
+<font color="#aaaaaa">588:</font>           return;
+<font color="#aaaaaa">589:</font>       }
+<font color="#aaaaaa">590:</font>       var attr = Object.prototype.reduce.call(param);
+<font color="#aaaaaa">591:</font>       if (!attr.trHead) attr.trHead = attr.tr;
+<font color="#aaaaaa">592:</font>       if (!attr.trEven) attr.trEven = attr.tr;
+<font color="#aaaaaa">593:</font>       if (!attr.trOdd)  attr.trOdd = attr.tr;
+<font color="#aaaaaa">594:</font>      if (!attr.tdEven) attr.tdEven = attr.td;
+<font color="#aaaaaa">595:</font>      if (!attr.tdOdd)  attr.tdOdd = attr.td;
+<font color="#aaaaaa">596:</font>      if (!attr.thEven) attr.thEven = attr.th;
+<font color="#aaaaaa">597:</font>      if (!attr.thOdd)  attr.thOdd = attr.th;
+<font color="#aaaaaa">598:</font>      this.openTag(<font color="#9999aa">&quot;table&quot;</font>, attr.table);
+<font color="#aaaaaa">599:</font>      if (headers) {
+<font color="#aaaaaa">600:</font>          this.openTag(<font color="#9999aa">&quot;tr&quot;</font>, attr.trHead);
+<font color="#aaaaaa">601:</font>          for (var i in headers) {
+<font color="#aaaaaa">602:</font>              var evenOdd = i % 2 == 0 ? <font color="#9999aa">&quot;Even&quot;</font> : <font color="#9999aa">&quot;Odd&quot;</font>;
+<font color="#aaaaaa">603:</font>              this.openTag(<font color="#9999aa">&quot;th&quot;</font>, attr[<font color="#9999aa">&quot;th&quot;</font>+evenOdd]);
+<font color="#aaaaaa">604:</font>              res.write(headers[i]);
+<font color="#aaaaaa">605:</font>              this.closeTag(<font color="#9999aa">&quot;th&quot;</font>);
+<font color="#aaaaaa">606:</font>          }
+<font color="#aaaaaa">607:</font>          this.closeTag(<font color="#9999aa">&quot;tr&quot;</font>);
+<font color="#aaaaaa">608:</font>      }
+<font color="#aaaaaa">609:</font>      for (var i in data) {
+<font color="#aaaaaa">610:</font>          var evenOdd = i % 2 == 0 ? <font color="#9999aa">&quot;Even&quot;</font> : <font color="#9999aa">&quot;Odd&quot;</font>;
+<font color="#aaaaaa">611:</font>          this.openTag(<font color="#9999aa">&quot;tr&quot;</font>, attr[<font color="#9999aa">&quot;tr&quot;</font>+evenOdd]);
+<font color="#aaaaaa">612:</font>          for (var j in data[i]) {
+<font color="#aaaaaa">613:</font>              var evenOddCell = j % 2 == 0 ? <font color="#9999aa">&quot;Even&quot;</font> : <font color="#9999aa">&quot;Odd&quot;</font>;
+<font color="#aaaaaa">614:</font>              this.openTag(<font color="#9999aa">&quot;td&quot;</font>, attr[<font color="#9999aa">&quot;td&quot;</font>+evenOddCell]);
+<font color="#aaaaaa">615:</font>              res.write(data[i][j]);
+<font color="#aaaaaa">616:</font>              this.closeTag(<font color="#9999aa">&quot;td&quot;</font>);
+<font color="#aaaaaa">617:</font>          }
+<font color="#aaaaaa">618:</font>          this.closeTag(<font color="#9999aa">&quot;tr&quot;</font>);
+<font color="#aaaaaa">619:</font>      }
+<font color="#aaaaaa">620:</font>      this.closeTag(<font color="#9999aa">&quot;table&quot;</font>);
+<font color="#aaaaaa">621:</font>      return;
+<font color="#aaaaaa">622:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.String.Sorter&nbsp;(field,&nbsp;order)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	factory to create functions for sorting objects in an array <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>String</code>:<br/>
+name of the field each object is compared with<li><b>Parameter</b> <code>Number</code>:<br/>
+order (ascending or descending)
+		<li><b>Returns</b><br>
+Function ready for use in Array.prototype.sort
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/core/String.js:
+	<pre><font color="#aaaaaa">583:</font>   String.Sorter = function(field, order) {
+<font color="#aaaaaa">584:</font>       if (!order)
+<font color="#aaaaaa">585:</font>           order = 1;
+<font color="#aaaaaa">586:</font>       var key = field + <font color="#9999aa">&quot;:&quot;</font> + order;
+<font color="#aaaaaa">587:</font>       if (!String.Sorter.cache[key]) {
+<font color="#aaaaaa">588:</font>           String.Sorter.cache[key] = function(a, b) {
+<font color="#aaaaaa">589:</font>               var str1 = String(a[field] || String.NULL).toLowerCase();
+<font color="#aaaaaa">590:</font>               var str2 = String(b[field] || String.NULL).toLowerCase();
+<font color="#aaaaaa">591:</font>               if (str1 &gt; str2)
+<font color="#aaaaaa">592:</font>                  return order * 1;
+<font color="#aaaaaa">593:</font>              if (str1 &lt; str2)
+<font color="#aaaaaa">594:</font>                  return order * -1;
+<font color="#aaaaaa">595:</font>              return 0;
+<font color="#aaaaaa">596:</font>          };
+<font color="#aaaaaa">597:</font>      }
+<font color="#aaaaaa">598:</font>      return String.Sorter.cache[key];
+<font color="#aaaaaa">599:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

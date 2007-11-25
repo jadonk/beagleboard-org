@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.isSelected&nbsp;(value,&nbsp;selectedValue)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Static helper method used in helma.Html.checkBox 
+and helma.Html.dropDown to check if a current value 
+matches against one or more selected values passed 
+as argument <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+value The current value to check<li><b>Parameter</b> <code>{String|Array}</code>:<br/>
+selectedValue Either a single value to check against the current value, or an array containing values.
+		<li><b>Returns</b><br>
+True in case the value is among the selected values, false otherwise
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">85:</font>   helma.Html.isSelected = function(value, selectedValue) {
+<font color="#aaaaaa">86:</font>       if (selectedValue == null || value == null)
+<font color="#aaaaaa">87:</font>           return false;
+<font color="#aaaaaa">88:</font>       if (selectedValue instanceof Array)
+<font color="#aaaaaa">89:</font>           return selectedValue.contains(value);
+<font color="#aaaaaa">90:</font>       return value == selectedValue;
+<font color="#aaaaaa">91:</font>   }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

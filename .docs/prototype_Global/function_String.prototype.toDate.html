@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.String.prototype.toDate&nbsp;(format,&nbsp;timezone)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	parse a timestamp into a date object. This is used when users 
+want to set createtime explicitly when creating/editing stories. <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>String</code>:<br/>
+date format to be applied<li><b>Parameter</b> <code>Object</code>:<br/>
+Java TimeZone Object (optional)
+		<li><b>Returns</b><br>
+Object contains the resulting date
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/core/String.js:
+	<pre><font color="#aaaaaa">58:</font>   String.prototype.toDate = function(format, timezone) {
+<font color="#aaaaaa">59:</font>       var sdf = res.data._dateformat;
+<font color="#aaaaaa">60:</font>       if (!sdf) {
+<font color="#aaaaaa">61:</font>           sdf = new java.text.SimpleDateFormat(format);
+<font color="#aaaaaa">62:</font>           res.data._dateformat = sdf;
+<font color="#aaaaaa">63:</font>       } else if (format != sdf.toPattern())
+<font color="#aaaaaa">64:</font>           sdf.applyPattern(format);
+<font color="#aaaaaa">65:</font>       if (timezone &amp;&amp; timezone != sdf.getTimeZone())
+<font color="#aaaaaa">66:</font>           sdf.setTimeZone(timezone);
+<font color="#aaaaaa">67:</font>      try {
+<font color="#aaaaaa">68:</font>          return new Date(sdf.parse(this).getTime());
+<font color="#aaaaaa">69:</font>      } catch (err) {
+<font color="#aaaaaa">70:</font>          return null;
+<font color="#aaaaaa">71:</font>      }
+<font color="#aaaaaa">72:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

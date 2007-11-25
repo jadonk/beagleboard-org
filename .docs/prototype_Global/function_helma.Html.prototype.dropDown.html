@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.prototype.dropDown&nbsp;(param,&nbsp;options,&nbsp;selectedValue,&nbsp;firstOption)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Renders a x/html drop down select box <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{Object}</code>:<br/>
+param An object containing the tag attributes<li><b>Parameter</b> <code>{Array}</code>:<br/>
+options Either an array of strings, an array with several <code>{value: v, display: d}</code> objects, or a collection of <code>["value", "display"]</code> arrays in an array<li><b>Parameter</b> <code>{String}</code>:<br/>
+selectedValue The value to pre-select<li><b>Parameter</b> <code>{String}</code>:<br/>
+firstOption An optional first option to display in the select box (this option will always have no value)
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">460:</font>   helma.Html.prototype.dropDown = function(param, options, selectedValue, firstOption) {
+<font color="#aaaaaa">461:</font>       if (!param) {
+<font color="#aaaaaa">462:</font>           res.write(<font color="#9999aa">&quot;[Html.dropDown: insufficient arguments]&quot;</font>);
+<font color="#aaaaaa">463:</font>           return;
+<font color="#aaaaaa">464:</font>       }
+<font color="#aaaaaa">465:</font>       var attr = Object.prototype.reduce.call(param);
+<font color="#aaaaaa">466:</font>       if (!attr.size)
+<font color="#aaaaaa">467:</font>           attr.size = 1;
+<font color="#aaaaaa">468:</font>       this.openTag(<font color="#9999aa">&quot;select&quot;</font>, attr);
+<font color="#aaaaaa">469:</font>      res.write(<font color="#9999aa">&quot;\n &quot;</font>);
+<font color="#aaaaaa">470:</font>      if (firstOption) {
+<font color="#aaaaaa">471:</font>          this.openTag(<font color="#9999aa">&quot;option&quot;</font>, {value: <font color="#9999aa">&quot;&quot;</font>});
+<font color="#aaaaaa">472:</font>          res.write(firstOption);
+<font color="#aaaaaa">473:</font>          this.closeTag(<font color="#9999aa">&quot;option&quot;</font>);
+<font color="#aaaaaa">474:</font>          res.write(<font color="#9999aa">&quot;\n &quot;</font>);
+<font color="#aaaaaa">475:</font>      }
+<font color="#aaaaaa">476:</font>      for (var i in options) {
+<font color="#aaaaaa">477:</font>          var attr = new Object();
+<font color="#aaaaaa">478:</font>          var display = <font color="#9999aa">&quot;&quot;</font>;
+<font color="#aaaaaa">479:</font>          if ((options[i] instanceof Array) &amp;&amp; options[i].length &gt; 0) {
+<font color="#aaaaaa">480:</font>  <font color="#33aa00">            // option is an array
+<font color="#aaaaaa">481:</font>  </font>            attr.value = options[i][0];
+<font color="#aaaaaa">482:</font>              display = options[i][1];
+<font color="#aaaaaa">483:</font>          } else if (options[i].value != null &amp;&amp; options[i].display != null) {
+<font color="#aaaaaa">484:</font>  <font color="#33aa00">            // option is an object
+<font color="#aaaaaa">485:</font>  </font>            attr.value = options[i].value;
+<font color="#aaaaaa">486:</font>              if (options[i][<font color="#9999aa">&quot;class&quot;</font>] != null) {
+<font color="#aaaaaa">487:</font>                 attr[<font color="#9999aa">&quot;class&quot;</font>] = options[i][<font color="#9999aa">&quot;class&quot;</font>];
+<font color="#aaaaaa">488:</font>              }
+<font color="#aaaaaa">489:</font>              display = options[i].display;
+<font color="#aaaaaa">490:</font>          } else {
+<font color="#aaaaaa">491:</font>  <font color="#33aa00">            // assume option is a string
+<font color="#aaaaaa">492:</font>  </font>            attr.value = i;
+<font color="#aaaaaa">493:</font>              display = options[i];
+<font color="#aaaaaa">494:</font>          }
+<font color="#aaaaaa">495:</font>          if (helma.Html.isSelected(attr.value, selectedValue))
+<font color="#aaaaaa">496:</font>              attr.selected = <font color="#9999aa">&quot;selected&quot;</font>;
+<font color="#aaaaaa">497:</font>          this.openTag(<font color="#9999aa">&quot;option&quot;</font>, attr);
+<font color="#aaaaaa">498:</font>          res.write(display);
+<font color="#aaaaaa">499:</font>          this.closeTag(<font color="#9999aa">&quot;option&quot;</font>);
+<font color="#aaaaaa">500:</font>          res.write(<font color="#9999aa">&quot;\n &quot;</font>);
+<font color="#aaaaaa">501:</font>      }
+<font color="#aaaaaa">502:</font>      this.closeTag(<font color="#9999aa">&quot;select&quot;</font>);
+<font color="#aaaaaa">503:</font>      res.write(<font color="#9999aa">&quot;\n &quot;</font>);
+<font color="#aaaaaa">504:</font>      return;
+<font color="#aaaaaa">505:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

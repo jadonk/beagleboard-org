@@ -1,6 +1,12 @@
-<html>
- <title><% response.title %></title>
- <body bgcolor="white">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title><% response.title %></title>
+  <link rel="stylesheet" type="text/css" href="static/default.css" />
+ </head>
+ <body">
+  <div id="menu_bar"><div id="user"><% User.prompt %></div></div>
+  <hr />
   <h1><% response.title %></h1>
   <ul>
    <li><a href="http://beagle.hangerhead.com/gitweb">gitweb</a></li>
@@ -8,6 +14,7 @@
    <li><a href="http://rails.hangerhead.com">Rails</a></li>
    <li><a href="http://helma.hangerhead.com">Helma</a></li>
   </ul>
-  <% response.body %>
+  <% response.body %><br />
+  <small><a href="/create">create a new entry</a></small>
  </body>
 </html>

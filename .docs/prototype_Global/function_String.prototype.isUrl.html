@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.String.prototype.isUrl&nbsp;()</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	function checks if the string passed contains any characters that 
+are forbidden in URLs and tries to create a java.net.URL from it 
+FIXME: probably deprecated -> helma.Url <br><br>
+	
+	<ul>
+		
+		<li><b>Returns</b><br>
+Boolean
+
+		
+		<li><b>See also</b><br>
+helma.Url.PATTERN 
+
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/core/String.js:
+	<pre><font color="#aaaaaa">82:</font>   String.prototype.isUrl = function() {
+<font color="#aaaaaa">83:</font>       if (String.URLPATTERN.test(this))
+<font color="#aaaaaa">84:</font>           return true;
+<font color="#aaaaaa">85:</font>       try {
+<font color="#aaaaaa">86:</font>           return new java.net.URL(this);
+<font color="#aaaaaa">87:</font>       } catch (err) {
+<font color="#aaaaaa">88:</font>           return false;
+<font color="#aaaaaa">89:</font>       }
+<font color="#aaaaaa">90:</font>       return true;
+<font color="#aaaaaa">91:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.TableWriter&nbsp;(numberOfColumns,&nbsp;attr)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Creates a new TableWriter instance <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{Number}</code>:<br/>
+numberOfColumns The number of columns in the table<li><b>Parameter</b> <code>{Object}</code>:<br/>
+attr An object containing attributes to use when rendering the single table elements. For a description see {@link #table}.
+		<li><b>Returns</b><br>
+An instance of TableWriter
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/trimpath/trimpath-junction-1.1.18/junction_release/hop/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">830:</font>   helma.Html.TableWriter = function(numberOfColumns, attr) {
+<font color="#aaaaaa">831:</font>       if (isNaN(numberOfColumns))
+<font color="#aaaaaa">832:</font>           throw <font color="#9999aa">&quot;Illegal argument in TableWriter(): first argument must be a number&quot;</font>;
+<font color="#aaaaaa">833:</font>       if (numberOfColumns &lt; 1)
+<font color="#aaaaaa">834:</font>           throw <font color="#9999aa">&quot;Illegal argument in TableWriter(): first argument must be &gt; 1&quot;</font>;
+<font color="#aaaaaa">835:</font>       /** @private */
+<font color="#aaaaaa">836:</font>       this.ncols = numberOfColumns;
+<font color="#aaaaaa">837:</font>       /** @private */
+<font color="#aaaaaa">838:</font>       this.written = 0;
+<font color="#aaaaaa">839:</font>  <font color="#33aa00">    // if no attributes object given, create an empty one
+<font color="#aaaaaa">840:</font>  </font>    if (!attr)
+<font color="#aaaaaa">841:</font>          attr = {};
+<font color="#aaaaaa">842:</font>      if (!attr.trEven) attr.trEven = attr.tr;
+<font color="#aaaaaa">843:</font>      if (!attr.trOdd)  attr.trOdd = attr.tr;
+<font color="#aaaaaa">844:</font>      if (!attr.trHead) attr.trHead = attr.trEven;
+<font color="#aaaaaa">845:</font>      if (!attr.tdEven) attr.tdEven = attr.td;
+<font color="#aaaaaa">846:</font>      if (!attr.tdOdd)  attr.tdOdd = attr.td;
+<font color="#aaaaaa">847:</font>      if (!attr.thEven) attr.thEven = attr.th;
+<font color="#aaaaaa">848:</font>      if (!attr.thOdd)  attr.thOdd = attr.th;
+<font color="#aaaaaa">849:</font>      /** @private */
+<font color="#aaaaaa">850:</font>      this.attr = attr;
+<font color="#aaaaaa">851:</font>  
+<font color="#aaaaaa">852:</font>      /**
+<font color="#aaaaaa">853:</font>       * If set to true the first row of the table data is rendered
+<font color="#aaaaaa">854:</font>       * using &lt;code&gt;&amp;lt;th&amp;gt;&lt;/code&gt; tags (defaults to false).
+<font color="#aaaaaa">855:</font>       * @type Boolean
+<font color="#aaaaaa">856:</font>       */
+<font color="#aaaaaa">857:</font>      this.writeHeader = false;
+<font color="#aaaaaa">858:</font>  
+<font color="#aaaaaa">859:</font>      /**
+<font color="#aaaaaa">860:</font>       * If set to true the TableWriter returns the rendered table
+<font color="#aaaaaa">861:</font>       * as string, otherwise the table is written directly to response,
+<font color="#aaaaaa">862:</font>       * which is the default.
+<font color="#aaaaaa">863:</font>       * @type Boolean
+<font color="#aaaaaa">864:</font>       */
+<font color="#aaaaaa">865:</font>      this.writeString = false;
+<font color="#aaaaaa">866:</font>  
+<font color="#aaaaaa">867:</font>      this.dontEnum(<font color="#9999aa">&quot;ncols&quot;</font>, <font color="#9999aa">&quot;written&quot;</font>, <font color="#9999aa">&quot;attr&quot;</font>, <font color="#9999aa">&quot;writeHeader&quot;</font>, <font color="#9999aa">&quot;writeString&quot;</font>);
+<font color="#aaaaaa">868:</font>  
+<font color="#aaaaaa">869:</font>      return this;
+<font color="#aaaaaa">870:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>
