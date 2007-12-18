@@ -1,3 +1,9 @@
+/**
+ * Copyright Â© 2007 Jason Kridner
+ *
+ * @author Jason Kridner
+ */
+
 function firstname_macro()
  {
   return ("");

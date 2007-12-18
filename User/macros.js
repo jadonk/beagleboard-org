@@ -1,3 +1,9 @@
+/**
+ * Copyright (C) 2007 Jason Kridner
+ *
+ * @author Jason Kridner
+ */
+
 function prompt_macro (param)
  {
   function updateUserState ()
@@ -11,7 +17,10 @@ function prompt_macro (param)
      {
       var openID = req.data["openid_url"];
       var returnToURL = req.getServletRequest().getRequestURL();
-      var realm = "http://*.beaglecomputer.org";
+      if (param["realm"])
+       var realm = param["realm"];
+      else
+       var realm = "http://*.beagleboard.org";
       app.log("Requesting authorization: openID=" + openID + ", returnToURL=" + returnToURL + 
        ", realm=" + realm);
       authRequest(openID, returnToURL, realm);
