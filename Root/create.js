@@ -3,7 +3,7 @@
  *
  * @author Jason Kridner
  */
-
+/*
 function create_action ()
  {
   if (req.data.submit)
@@ -23,4 +23,5 @@ function create_action ()
   res.data.action = "create";
   renderSkin("index");
  }
+*/
 

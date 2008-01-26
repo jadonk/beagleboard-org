@@ -11,21 +11,28 @@ function main_action ()
   var str = "";
   try
    {
+    if (!root.get(0))
+     {
+      var x = new XmlPage("Future home of BeagleBoard.Org");
+      this.add(x);
+     }
     for (var i = 0; i < root.size(); i++) 
      {
-      var person = root.get(i);
-      str += person.renderSkinAsString("link");
+      var x = root.get(i);
+      str += x.renderSkinAsString("link");
+      str += "<br />";
      }
     res.data.body = str;
    }
   catch(e)
    {
     res.data.body = "Str: " + str + "<br />\n";
-    res.data.body = "Root: " + root + "<br />\n";
+    res.data.body += "Root: " + root + "<br />\n";
     res.data.body += "Exception: " + e + "<br />\nCall stack: " + e.stack;
    }
 
   res.handlers["User"] = User();
+  //res.handlers["xmlpage"] = xmlpage();
   renderSkin("index");
  }
 
