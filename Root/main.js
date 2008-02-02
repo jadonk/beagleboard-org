@@ -9,20 +9,17 @@ function main_action ()
   res.data.title = "Future home of BeagleBoard.Org"
 
   var str = "";
+  res.handlers["User"] = User();
   try
    {
-    if (!root.get(0))
+    if (!root.get("home"))
      {
-      var x = new XmlPage("Future home of BeagleBoard.Org");
+      var x = new Page("blog.hangerhead.com", "home", "Future home of BeagleBoard.org", "en-US");
       this.add(x);
      }
-    for (var i = 0; i < root.size(); i++) 
-     {
-      var x = root.get(i);
-      str += x.renderSkinAsString("link");
-      str += "<br />";
-     }
-    res.data.body = str;
+    var x = root.get("home");
+    res.handlers["Page"] = Page();
+    res.data.body = x.renderAsSkin("page");
    }
   catch(e)
    {
@@ -31,8 +28,6 @@ function main_action ()
     res.data.body += "Exception: " + e + "<br />\nCall stack: " + e.stack;
    }
 
-  res.handlers["User"] = User();
-  //res.handlers["xmlpage"] = xmlpage();
   renderSkin("index");
  }
 

@@ -49,73 +49,39 @@ SET default_tablespace = '';
 SET default_with_oids = true;
 
 --
--- Name: person; Type: TABLE; Schema: public; Owner: helma; Tablespace: 
+-- Name: PAGE; Type: TABLE; Schema: public; Owner: helma; Tablespace: 
 --
 
-CREATE TABLE person (
-    id integer DEFAULT 0 NOT NULL,
-    firstname character varying(128) DEFAULT ''::character varying NOT NULL,
-    lastname character varying(128) DEFAULT ''::character varying NOT NULL,
-    email character varying(128) DEFAULT ''::character varying NOT NULL
+CREATE TABLE PAGE (
+    ID integer DEFAULT 0 NOT NULL,
+    PAGE character varying(32) DEFAULT 'default'::character varying NOT NULL,
+    BODY character varying(1024) DEFAULT ''::character varying NOT NULL,
+    LANG character varying(8) DEFAULT 'en-US'::character varying NOT NULL,
+    "USER" character varying(64) DEFAULT ''::character varying NOT NULL,
+    "TIME" date NOT NULL,
+    PREV integer DEFAULT NULL
 );
 
 
-ALTER TABLE public.person OWNER TO helma;
+ALTER TABLE public.PAGE OWNER TO helma;
 
 --
--- Name: xmlpage; Type: TABLE; Schema: public; Owner: helma; Tablespace: 
+-- Data for Name: PAGE; Type: TABLE DATA; Schema: public; Owner: helma
 --
 
-CREATE TABLE xmlpage (
-    id integer DEFAULT 0 NOT NULL,
-    xml character varying(1024) DEFAULT ''::character varying NOT NULL,
-    username character varying(64) DEFAULT ''::character varying NOT NULL,
-    "time" date,
-    edit integer
-);
-
-
-ALTER TABLE public.xmlpage OWNER TO helma;
-
---
--- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: helma
---
-
-COPY person (id, firstname, lastname, email) FROM stdin;
-1	Asdf	Jlk	asdf@jkl.com
-0	Joex	Blowq	joex@blowqq.net
-2	Firstname1	Lastname2	Somewhere@over.the.rainbow
-3	Jacob	Jose	
+COPY PAGE (ID, PAGE, BODY, LANG, "USER", "TIME", PREV) FROM stdin;
 \.
 
 
 --
--- Data for Name: xmlpage; Type: TABLE DATA; Schema: public; Owner: helma
+-- Name: PAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: helma; Tablespace: 
 --
 
-COPY xmlpage (id, xml, username, "time", edit) FROM stdin;
-\.
+ALTER TABLE ONLY PAGE
+    ADD CONSTRAINT PAGE_pkey PRIMARY KEY (id);
 
 
---
--- Name: person_pkey; Type: CONSTRAINT; Schema: public; Owner: helma; Tablespace: 
---
-
-ALTER TABLE ONLY person
-    ADD CONSTRAINT person_pkey PRIMARY KEY (id);
-
-
-ALTER INDEX public.person_pkey OWNER TO helma;
-
---
--- Name: xmlpage_pkey; Type: CONSTRAINT; Schema: public; Owner: helma; Tablespace: 
---
-
-ALTER TABLE ONLY xmlpage
-    ADD CONSTRAINT xmlpage_pkey PRIMARY KEY (id);
-
-
-ALTER INDEX public.xmlpage_pkey OWNER TO helma;
+ALTER INDEX public.PAGE_pkey OWNER TO helma;
 
 --
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
