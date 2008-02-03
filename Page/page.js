@@ -3,7 +3,7 @@ function edit_action ()
  {
   if (!session.user || !session.user["name"]) 
    {
-    res.redirect(root.href());
+    res.redirect(root.href("login"));
     return;
    }
 
@@ -21,8 +21,9 @@ function edit_action ()
     res.redirect(x.href());
    }
 
-  res.data.action = "edit";
   res.handlers["User"] = User();
+  res.data.action = "edit";
+  res.data.title = this.uri;
   res.data.body = this.renderSkinAsString("edit");
   renderSkin("index");
  }
@@ -58,8 +59,8 @@ function create_action ()
     res.redirect(x.href());
    }
 
-  res.data.action = "create";
   res.handlers["User"] = User();
+  res.data.action = "create";
   res.data.title = this.uri;
   res.data.body = this.renderSkinAsString("edit");
   renderSkin("index");

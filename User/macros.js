@@ -187,7 +187,7 @@ function prompt_macro (param)
     promptString += '   <button type="submit">Login</button>\n';
     promptString += '  </form>\n';
     promptString += ' </li>';
-    promptString += ' <li class="last"><a href="">Register</a></li>';
+    promptString += ' <li class="last"><a href="/register">Register</a></li>';
     promptString += '</ul>\n';
    }
   return (promptString);
