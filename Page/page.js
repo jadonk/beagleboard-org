@@ -11,7 +11,7 @@ function edit_action ()
    {
     var x = new Page();
     x.user = session.user["name"];
-    x.page = req.data["page"];
+    x.uri = req.data["uri"];
     x.body = req.data["body"];
     x.lang = req.data["lang"];
     x.time = new Date();
@@ -29,41 +29,54 @@ function edit_action ()
 
 function create_action ()
  {
-  if (!session.user || !session.user["name"]) 
+  if 
+   (
+    !session.user 
+    || !session.user["name"] 
+   ) 
    {
-    res.redirect(root.href());
+    res.redirect(root.href("login"));
     return;
    }
 
-  if (req.data["submit"]) 
+  if 
+   (
+    req.data["submit"]
+    && req.data["uri"]
+    && req.data["lang"]
+    && req.data["body"]
+   )
    {
-    var x = new Page();
-    x.user = session.user["name"];
-    x.page = req.data["page"];
-    x.body = req.data["body"];
-    x.lang = req.data["lang"];
-    x.time = new Date();
+    var x = new Page
+     (
+      session.user["name"],
+      req.data["uri"],
+      req.data["body"],
+      req.data["lang"]
+     );
     root.add(x);
     res.redirect(x.href());
    }
 
   res.data.action = "create";
   res.handlers["User"] = User();
-  res.data.body = root.renderSkinAsString("edit");
+  res.data.title = this.uri;
+  res.data.body = this.renderSkinAsString("edit");
   renderSkin("index");
  }
 
 function main_action ()
  {
   res.handlers["User"] = User();
-  res.data.body = root.renderSkinAsString("page");
+  res.data.title = this.uri;
+  res.data.body = this.renderSkinAsString("page");
   renderSkin("index");
  }
 
-function constructor (user, page, body, lang)
+function constructor (user, uri, body, lang)
  {
   this.user = "" + user;
-  this.page = "" + page;
+  this.uri = "" + uri;
   this.body = "" + body;
   this.lang = "" + lang;
   this.time = new Date();

@@ -6,26 +6,39 @@
 
 function main_action ()
  {
-  res.data.title = "Future home of BeagleBoard.Org"
 
-  var str = "";
+  res.data.body = "";
   res.handlers["User"] = User();
   try
    {
-    if (!root.get("home"))
-     {
-      var x = new Page("blog.hangerhead.com", "home", "Future home of BeagleBoard.org", "en-US");
-      this.add(x);
-     }
-    var x = root.get("home");
-    res.handlers["Page"] = Page();
-    res.data.body = x.renderAsSkin("page");
+    var x = root.get("default");
+    res.data.title = "BeagleBoard.org";
+    res.data.body = x.body;
    }
   catch(e)
    {
-    res.data.body = "Str: " + str + "<br />\n";
-    res.data.body += "Root: " + root + "<br />\n";
-    res.data.body += "Exception: " + e + "<br />\nCall stack: " + e.stack;
+    try
+     {
+      res.data.body += "This: " + this + "<br />\n";
+      res.data.body += "Exception: " + e + "<br />\n"
+      res.data.body += "Call stack: " + e.stack + "<br />\n";
+      res.data.body += "Initial default page creation<br />\n";
+      var x = new Page
+       (
+        "blog.hangerhead.com", 
+        "default",
+        "Future home of BeagleBoard.org",
+        "en-US"
+       );
+      this.add(x);
+      res.data.body += x.body;
+     }
+    catch(e)
+     {
+      res.data.body += "This: " + this + "<br />\n";
+      res.data.body += "Exception: " + e + "<br />\n"
+      res.data.body += "Call stack: " + e.stack + "<br />\n";
+     }
    }
 
   renderSkin("index");
