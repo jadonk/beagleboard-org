@@ -12,8 +12,8 @@ function main_action ()
   try
    {
     var x = root.get("default");
-    res.data.title = "BeagleBoard.org";
-    res.data.body = x.body;
+    res.data.title = "" + x.uri;
+    res.data.body = "" + x.body;
    }
   catch(e)
    {
