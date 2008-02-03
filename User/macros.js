@@ -173,15 +173,14 @@ function prompt_macro (param)
    {
     promptString += '<ul>';
     promptString += ' <li>' + session.user["name"] + '</li>';
-    promptString += ' <li><form method="post"><input type="hidden" name="logout" value="true" /><button type="submit">Logout</button></form></li>';
-    //promptString += ' <li class="last"><a href="edit">Edit</a></li>';
+    promptString += ' <li class="last"><form method="post"><input type="hidden" name="logout" value="true" /><button type="submit">Logout</button></form></li>';
+    //promptString += ' <li class="last"><a href="">Edit</a></li>';
     promptString += '</ul>\n';
    }
   else
    {
     promptString += '<ul>';
     promptString += ' <li>';
-    //promptString += '  <form method="post" action="' + root.href() + '">\n';
     promptString += '  <form method="post" action="">\n';
     promptString += '   <input type="text" id="openid_url" name="openid_url" />\n';
     promptString += '   <button type="submit">Login</button>\n';
