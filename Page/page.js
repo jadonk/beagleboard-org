@@ -1,3 +1,19 @@
+function main_action ()
+ {
+  res.handlers["User"] = User();
+  res.data.title = this.uri;
+  res.data.body = this.renderSkinAsString("page");
+  renderSkin("index");
+ }
+
+function constructor (user, uri, body, lang)
+ {
+  this.user = "" + user;
+  this.uri = "" + uri;
+  this.body = "" + body;
+  this.lang = "" + lang;
+  this.time = new Date();
+ }
 
 function edit_action ()
  {
@@ -19,6 +35,7 @@ function edit_action ()
     x.add(this);
     root.removeChild(this);
     res.redirect(x.href());
+    return;
    }
 
   res.handlers["User"] = User();
@@ -57,6 +74,7 @@ function create_action ()
      );
     root.add(x);
     res.redirect(x.href());
+    return;
    }
 
   res.handlers["User"] = User();
@@ -66,20 +84,33 @@ function create_action ()
   renderSkin("index");
  }
 
-function main_action ()
+function append_action ()
  {
-  res.handlers["User"] = User();
-  res.data.title = this.uri;
-  res.data.body = this.renderSkinAsString("page");
-  renderSkin("index");
- }
+  if (!session.user || !session.user["name"]) 
+   {
+    res.redirect(root.href("login"));
+    return;
+   }
 
-function constructor (user, uri, body, lang)
- {
-  this.user = "" + user;
-  this.uri = "" + uri;
-  this.body = "" + body;
-  this.lang = "" + lang;
-  this.time = new Date();
+  if (req.data["submit"]) 
+   {
+    var x = new Page();
+    x.user = session.user["name"];
+    x.uri = this.uri;
+    x.body = this.body + req.data["body"];
+    x.lang = this.lang;
+    x.time = new Date();
+    root.add(x);
+    x.add(this);
+    root.removeChild(this);
+    res.redirect(x.href());
+    return;
+   }
+
+  res.handlers["User"] = User();
+  res.data.action = "append";
+  res.data.title = this.uri;
+  res.data.body = this.renderSkinAsString("append");
+  renderSkin("index");
  }
 

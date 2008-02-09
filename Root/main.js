@@ -18,6 +18,8 @@ function main_action ()
    }
   catch(e)
    {
+    var x = new Page("nobody", "default", "", "en-us");
+    thix.add(x);
     res.data.title = "Error: No 'default' page";
     res.data.body += "Error: Please initialize the database with a 'default' page";
    }
