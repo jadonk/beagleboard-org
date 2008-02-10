@@ -15,6 +15,23 @@ function prompt_macro (param)
      }
     else if (req.data["openid_url"])
      {
+      if (false)
+       {
+        var name = "" + req.data["openid_url"];
+        name = name.replace(/^http\:\/\//, "").replace(/\/$/, "");
+        var user = app.getUser(name);
+        if (!user)
+         {
+          user = app.registerUser(name, "password");
+         }
+        if (user)
+         {
+          app.log("Logging in as " + name);
+          session.login(user);
+         }
+        return;
+       }
+
       var openID = req.data["openid_url"];
       var returnToURL = req.getServletRequest().getRequestURL();
       if (param["realm"])
