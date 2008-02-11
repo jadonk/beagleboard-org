@@ -19,20 +19,23 @@ function edit_action ()
  {
   if (!session.user || !session.user["name"]) 
    {
-    res.redirect(root.href("login"));
+    res.redirect(root.href("login") + "?target=" + this.uri);
     return;
    }
 
   if (req.data["submit"]) 
    {
-    var x = new Page();
-    x.user = session.user["name"];
-    x.uri = req.data["uri"];
-    x.body = req.data["body"];
-    x.lang = req.data["lang"];
-    x.time = new Date();
+    var x = new Page
+     (
+      session.user["name"],
+      this.uri,
+      req.data["body"],
+      this.lang
+     );
+    app.log("Replacing '" + this.uri + "' object with " + x._id + " from " + this._id);
+    //x.history = this.history;
     root.add(x);
-    x.add(this);
+    x.history.add(this);
     root.removeChild(this);
     res.redirect(x.href());
     return;
@@ -53,7 +56,7 @@ function create_action ()
     || !session.user["name"] 
    ) 
    {
-    res.redirect(root.href("login"));
+    res.redirect(root.href("login") + "?target=default");
     return;
    }
 
@@ -79,8 +82,8 @@ function create_action ()
 
   res.handlers["User"] = User();
   res.data.action = "create";
-  res.data.title = this.uri;
-  res.data.body = this.renderSkinAsString("edit");
+  res.data.title = "Create new page";
+  res.data.body = this.renderSkinAsString("create");
   renderSkin("index");
  }
 
@@ -88,7 +91,7 @@ function append_action ()
  {
   if (!session.user || !session.user["name"]) 
    {
-    res.redirect(root.href("login"));
+    res.redirect(root.href("login") + "?target=" + this.uri);
     return;
    }
 
@@ -114,3 +117,10 @@ function append_action ()
   renderSkin("index");
  }
 
+function info_action ()
+ {
+  res.data.title = "Page information";
+  res.data.body = "<h1>Page information</h1>";
+  res.handlers["User"] = User();
+  renderSkin("index");
+ }

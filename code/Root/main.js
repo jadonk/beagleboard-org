@@ -27,3 +27,11 @@ function main_action ()
   renderSkin("index");
  }
 
+function info_action ()
+ {
+  res.data.title = "Application information";
+  res.data.body = "<h1>Application information</h1>";
+  res.data.body += "http_language = " + req.data["http_language"];
+  res.handlers["User"] = User();
+  renderSkin("index");
+ }
