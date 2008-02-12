@@ -124,7 +124,6 @@ function info_action ()
   renderSkin("index");
  }
 
-/*
 function translate_action ()
  {
   if (!session.user || !session.user["name"]) 
@@ -140,7 +139,7 @@ function translate_action ()
       session.user["name"],
       this.uri,
       req.data["body"],
-      req.data["lang"],
+      req.data["lang"]
      );
     app.log("Adding translation for '" + this.uri + "' object with " + x._id + " from " + this._id);
     this.alt.add(x);
@@ -154,4 +153,4 @@ function translate_action ()
   res.data.body = this.renderSkinAsString("translate");
   renderSkin("index");
  }
-*/
+
