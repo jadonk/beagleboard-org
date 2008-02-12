@@ -74,7 +74,14 @@ function create_action ()
       req.data["body"],
       req.data["lang"]
      );
-    root.add(x);
+    if (this.uri == "default")
+     {
+      root.add(x);
+     }
+    else
+     {
+      this.add(x);
+     }
     res.redirect(x.href());
     return;
    }
@@ -86,6 +93,7 @@ function create_action ()
   renderSkin("index");
  }
 
+/*
 function append_action ()
  {
   if (!session.user || !session.user["name"]) 
@@ -115,6 +123,7 @@ function append_action ()
   res.data.body = this.renderSkinAsString("append");
   renderSkin("index");
  }
+*/
 
 function info_action ()
  {

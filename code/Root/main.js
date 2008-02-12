@@ -6,8 +6,8 @@
 
 function main_action ()
  {
-
   res.data.body = "";
+  //res.handlers["Nav"] = Nav();
   res.handlers["User"] = User();
 
   try

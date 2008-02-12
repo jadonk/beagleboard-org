@@ -93,12 +93,12 @@ function prompt_macro (param)
       if (!openid_url.match(/^http/))
        {
         warning += '"http" not included at start of "' + openid_url + '".<br />\n';
-	openid_url = "http://" + userSuppliedString;
+        openid_url = "http://" + userSuppliedString;
        }
       if (openid_url.match(/\/$/))
        {
         warning += '"/" included at end of "' + openid_url + '".<br />\n';
-	openid_url = openid_url.substring(0,openid_url.length-1);
+        openid_url = openid_url.substring(0,openid_url.length-1);
        }
       app.log("warning: " + warning);
       var discoveries = manager.discover(openid_url);
@@ -170,7 +170,7 @@ function prompt_macro (param)
            authSuccess.getExtension(Packages.org.openid4java.message.ax.AxMessage.OPENID_NS_AX);
           var emails = fetchResp.getAttributeValues("email");
           var email = emails.get(0);
-	  return (email);
+          return (email);
          }
         return (verified);
        }
@@ -199,7 +199,7 @@ function prompt_macro (param)
     promptString += '<ul>';
     promptString += ' <li>';
     promptString += '  <form method="post" action="">\n';
-    promptString += '   <input type="text" id="openid_url" name="openid_url" />\n';
+    promptString += '   <input type="text" id="openid" name="openid_url" />\n';
     promptString += '   <button type="submit">Login</button>\n';
     promptString += '  </form>\n';
     promptString += ' </li>';
