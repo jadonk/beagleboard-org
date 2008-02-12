@@ -31,7 +31,27 @@ function info_action ()
  {
   res.data.title = "Application information";
   res.data.body = "<h1>Application information</h1>";
-  res.data.body += "http_language = " + req.data["http_language"];
+  res.data.body += "http_language = " + req.data["http_language"] + "<br />\n";
+  var lang = req.data["lang"];
+  res.data.body += "lang = " + lang + "<br />\n";
+  if (!lang)
+   {
+    lang = req.data["http_language"];
+   }
+  var langs = [];
+  for (var t in lang.split(";"))
+   {
+    for (var u in (lang.split(";")[t]).split(","))
+     {
+      var v = (lang.split(";")[t]).split(",")[u];
+      if (!v.match("q="))
+       {
+        langs[langs.length] = v;
+       }
+     }
+   }
+  res.data.body += "langs = " + langs + "<br />\n";
+  res.data.body += "req.data = " + req.data + "<br />\n";
   res.handlers["User"] = User();
   renderSkin("index");
  }

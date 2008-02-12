@@ -33,9 +33,8 @@ function edit_action ()
       this.lang
      );
     app.log("Replacing '" + this.uri + "' object with " + x._id + " from " + this._id);
-    //x.history = this.history;
     root.add(x);
-    x.history.add(this);
+    x.prev = this;
     root.removeChild(this);
     res.redirect(x.href());
     return;
@@ -124,3 +123,35 @@ function info_action ()
   res.handlers["User"] = User();
   renderSkin("index");
  }
+
+/*
+function translate_action ()
+ {
+  if (!session.user || !session.user["name"]) 
+   {
+    res.redirect(root.href("login") + "?target=" + this.uri);
+    return;
+   }
+
+  if (req.data["submit"]) 
+   {
+    var x = new Page
+     (
+      session.user["name"],
+      this.uri,
+      req.data["body"],
+      req.data["lang"],
+     );
+    app.log("Adding translation for '" + this.uri + "' object with " + x._id + " from " + this._id);
+    this.alt.add(x);
+    res.redirect(x.href());
+    return;
+   }
+
+  res.handlers["User"] = User();
+  res.data.action = "translate";
+  res.data.title = this.uri;
+  res.data.body = this.renderSkinAsString("translate");
+  renderSkin("index");
+ }
+*/
