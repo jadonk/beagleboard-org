@@ -186,12 +186,23 @@ function prompt_macro (param)
   updateUserState();
 
   var promptString = "";
+  var requestURL = ("" + req.getServletRequest().getRequestURL()).replace(/\/$/, "");
   if(session.user)
    {
     promptString += '<ul>';
     promptString += ' <li>' + session.user["name"] + '</li>';
+    if 
+     (
+      session.user["name"] == "blog.hangerhead.com"
+      && !(/\/edit$/.test(requestURL))
+     )
+     {
+      promptString += ' <li><a href="';
+      promptString += requestURL + "/edit";
+      promptString += '">Edit</a></li>';
+     }
+    promptString += ' <li><a href="/default/create">Create</a></li>';
     promptString += ' <li class="last"><form method="post"><input type="hidden" name="logout" value="true" /><button type="submit">Logout</button></form></li>';
-    //promptString += ' <li class="last"><a href="">Edit</a></li>';
     promptString += '</ul>\n';
    }
   else

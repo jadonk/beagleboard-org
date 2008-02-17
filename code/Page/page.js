@@ -23,7 +23,12 @@ function edit_action ()
     return;
    }
 
-  if (req.data["submit"]) 
+  if
+   (
+    req.data["submit"]
+    && req.data["body"]
+    && this.cleanBody()
+   )
    {
     var x = new Page
      (
@@ -65,6 +70,7 @@ function create_action ()
     && req.data["uri"]
     && req.data["lang"]
     && req.data["body"]
+    && this.cleanBody()
    )
    {
     var x = new Page
@@ -141,7 +147,12 @@ function translate_action ()
     return;
    }
 
-  if (req.data["submit"]) 
+  if 
+   (
+    req.data["submit"]
+    && req.data["lang"]
+    && this.cleanBody()
+   )
    {
     var x = new Page
      (
@@ -161,5 +172,33 @@ function translate_action ()
   res.data.title = this.uri;
   res.data.body = this.renderSkinAsString("translate");
   renderSkin("index");
+ }
+
+function cleanBody()
+ {
+  try
+   {
+    XML.prettyIndent = 1;
+    var cleaner = new Packages.org.htmlcleaner.HtmlCleaner
+     (
+      "<html><body><div>" 
+      + req.data["body"] +
+      "</div></body></html>"
+     );
+    cleaner.setOmitUnknownTags(true);
+    cleaner.clean();
+    var s = "" + cleaner.getXmlAsString();
+    var x = new XML(s);
+    req.data["body"] = "" + x..body.div;
+    //req.data["body"] += "name.localName = " + x.body.name().localName + "<br />\n";
+    //req.data["body"] += "name.uri = " + x.body.name().uri + "<br />\n";
+    return (true);
+   }
+  catch (ex)
+   {
+    return (false);
+   }
+
+  return (false);
  }
 
