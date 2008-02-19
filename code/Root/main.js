@@ -55,3 +55,26 @@ function info_action ()
   res.handlers["User"] = User();
   renderSkin("index");
  }
+
+function notfound_action ()
+ {
+  res.data.body = "";
+  //res.handlers["Nav"] = Nav();
+  res.handlers["User"] = User();
+
+  try
+   {
+    var x = root.get("notfound");
+    res.data.title = "" + x.uri;
+    res.data.body = "" + x.body;
+   }
+  catch(e)
+   {
+    res.data.title = "Page not found";
+    res.data.body += "<h1>Error: Page not found</h1>";
+    res.data.body += "<p>The requested page does not currently exist.</p>";
+   }
+
+  renderSkin("index");
+ }
+
