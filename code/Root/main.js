@@ -24,6 +24,7 @@ function main_action ()
     res.data.body += "Error: Please initialize the database with a 'default' page";
    }
 
+  //renderSkin("homepage");
   renderSkin("index");
  }
 

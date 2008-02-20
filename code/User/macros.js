@@ -202,7 +202,7 @@ function prompt_macro (param)
       promptString += '">Edit</a></li>';
      }
     promptString += ' <li><a href="/default/create">Create</a></li>';
-    promptString += ' <li class="last"><form method="post"><input type="hidden" name="logout" value="true" /><button type="submit">Logout</button></form></li>';
+    promptString += ' <li class="last"><form method="post"><input type="hidden" name="logout" value="true"></input><button type="submit">Logout</button></form></li>';
     promptString += '</ul>\n';
    }
   else
@@ -210,7 +210,7 @@ function prompt_macro (param)
     promptString += '<ul>';
     promptString += ' <li>';
     promptString += '  <form method="post" action="">\n';
-    promptString += '   <input type="text" id="openid" name="openid_url" />\n';
+    promptString += '   <input type="text" id="openid" name="openid_url"></input>\n';
     promptString += '   <button type="submit">Login</button>\n';
     promptString += '  </form>\n';
     promptString += ' </li>';
