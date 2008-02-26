@@ -189,33 +189,32 @@ function prompt_macro (param)
   var requestURL = ("" + req.getServletRequest().getRequestURL()).replace(/\/$/, "");
   if(session.user)
    {
-    promptString += '<ul>';
-    promptString += ' <li>' + session.user["name"] + '</li>';
+    promptString += '<p>';
+    promptString += session.user["name"];
+    promptString += ' <form method="post"><input type="hidden" name="logout" value="true"></input><button type="submit">Logout</button>'
+    promptString += ' </form>';
     if 
      (
       session.user["name"] == "blog.hangerhead.com"
       && !(/\/edit$/.test(requestURL))
      )
      {
-      promptString += ' <li><a href="';
+      promptString += ' &#0149 <a href="';
       promptString += requestURL + "/edit";
-      promptString += '">Edit</a></li>';
+      promptString += '">Edit</a>';
+      promptString += ' &#0149 <a href="/default/create">Create</a>';
      }
-    promptString += ' <li><a href="/default/create">Create</a></li>';
-    promptString += ' <li class="last"><form method="post"><input type="hidden" name="logout" value="true"></input><button type="submit">Logout</button></form></li>';
-    promptString += '</ul>\n';
+    promptString += '</p>\n';
    }
   else
    {
-    promptString += '<ul>';
-    promptString += ' <li>';
+    promptString += '<p>';
     promptString += '  <form method="post" action="">\n';
     promptString += '   <input type="text" id="openid" name="openid_url"></input>\n';
     promptString += '   <button type="submit">Login</button>\n';
     promptString += '  </form>\n';
-    promptString += ' </li>';
-    promptString += ' <li class="last"><a href="/register">Register</a></li>';
-    promptString += '</ul>\n';
+    promptString += ' &#0149 <a href="/register">Register</a>';
+    promptString += '</p>\n';
    }
   return (promptString);
  }
