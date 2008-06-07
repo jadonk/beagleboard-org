@@ -105,6 +105,7 @@ function prompt_macro (param)
       var discovered = manager.associate(discoveries);
       session.data["openid-disco"] = discovered;
       var realmVerifier = new Packages.org.openid4java.server.RealmVerifier();
+      app.log("realmVerifier=" + realmVerifier);
       realmVerifier.setEnforceRpId(false);
       manager.setRealmVerifier(realmVerifier);
       var authReq = manager.authenticate(discovered, returnToURL, realm);
