@@ -1,11 +1,48 @@
-This software is provided AS-IS, without any warranties expressed or implied.
+This software is provided AS-IS, without any warranties expressed or implied,
+including the implied warranties of fitness for a particular purpose and of
+merchantability.  All content is Copyright (C) 2008 by Jason Kridner, except
+where otherwise noted.  I'll provide a public license as soon as someone lets
+me know they want to do something with this code.
 
-This project may be renamed to jMCML or j1950.
+This project is called BeagleBoard.org and was built for the purpose of hosting
+http://BeagleBoard.org and evolving into a method for aggregating project
+activities useful for other open source projects.  The problem to ultimately
+address is the need of watching lots of projects related to one project, but
+not get overwhelmed by unrelated project information. At some point, this
+project may be renamed to jMCML or j1950 or something else that gives it
+meaning beyone BeagleBoard.org.
 
-This is edited remotely on aspc0021.
+The source can be cloned at http://www.beagleboad.org/beagleboard.org.git/.  It
+is also mirrored on git://repo.or.cz/beagleboard.org.git.
 
-I was unable to use WebDAV on Amazon EC2 to allow pushing the git tree for this project, so
-I have instead enabled ssh pushes at ssh://beagleboard.org/var/git/beagleboard.org.git/.  The
-source can be cloned at http://www.beagleboad.org/beagleboard.org.git/.
+============
+INSTALLATION
+============
 
-A change.
+git clone http://www.beagleboard.org/beagleboard.org.git/ beagle
+wget http://adele.helma.org/download/helma/1.6.1/helma-1.6.1.tar.gz
+tar xvzf helma-1.6.1.tar.gz
+cd helma-1.6.1
+cd apps
+ln -s ../../beagle beagle
+cd ..
+mv apps.properties apps.properties.original
+ln -s apps/beagle/config/apps.properites
+cd lib
+mv ext ext.original
+mv rhino.jar rhino.jar.original
+ln -s ../apps/beagle/lib ext
+cd ..
+cd db
+ln -s ../apps/beagle/db beagle
+cd ..
+cd ..
+
+=======
+RUNNING
+=======
+
+cd helma-1.6.1
+./start.sh
+
+
