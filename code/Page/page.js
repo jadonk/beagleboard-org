@@ -38,9 +38,9 @@ function edit_action ()
       this.lang
      );
     app.log("Replacing '" + this.uri + "' object with " + x._id + " from " + this._id);
-    root.add(x);
     x.prev = this;
     root.removeChild(this);
+    root.add(x);
     res.redirect(x.href());
     return;
    }
@@ -181,21 +181,23 @@ function cleanBody()
     XML.prettyIndent = 1;
     var cleaner = new Packages.org.htmlcleaner.HtmlCleaner
      (
-      "<html><body><div>" 
+      '<html><body><div id="body">' 
       + req.data["body"] +
-      "</div></body></html>"
+      '</div></body></html>'
      );
     cleaner.setOmitUnknownTags(true);
     cleaner.clean();
     var s = "" + cleaner.getXmlAsString();
     var x = new XML(s);
     req.data["body"] = "" + x..body.div;
-    //req.data["body"] += "name.localName = " + x.body.name().localName + "<br />\n";
-    //req.data["body"] += "name.uri = " + x.body.name().uri + "<br />\n";
+    req.data["body"] = req.data["body"]
+     .replace(/^<div id="body">/, "")
+     .replace(/<\/div>$/, "")
     return (true);
    }
   catch (ex)
    {
+    app.log("cleanBody failed with exception: " + ex);
     return (false);
    }
 

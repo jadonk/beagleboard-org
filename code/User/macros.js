@@ -15,7 +15,8 @@ function prompt_macro (param)
      }
     else if (req.data["openid_url"])
      {
-      if (false)
+      // For automatic login, without authentication, set this to 'true'.
+      if (true)
        {
         var name = "" + req.data["openid_url"];
         name = name.replace(/^http\:\/\//, "").replace(/\/$/, "");
