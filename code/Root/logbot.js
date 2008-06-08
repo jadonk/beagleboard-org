@@ -2,7 +2,6 @@
 // Uses http://www.jibble.org/logbot/ and http://www.jibble.org/pircbot.php
 // Patched with http://rbach.priv.at/Patches/LogBot-20051116.diff
 // Built into mflogbot.jar.
-
 function startLogbot() 
  {
   var logdir = new java.io.File('./apps/beagle/static/irclog');
@@ -11,7 +10,7 @@ function startLogbot()
    {
     var server = "irc.freenode.net";
     var channel = "#beagle";
-    var nick = "BeagleLogBot";
+    var nick = "BeagleLogBotTest";
     var passwd = 'BeNice';  // change password
     var joinMessage = "This channel is logged: http://beagleboard.org/irclog";
 
@@ -39,3 +38,33 @@ if (!global.logbot)
    }
  }
 
+/**
+ * Copyright (C) 2008 Jason Kridner
+ */
+
+function irclog_action ()
+ {
+  res.data.title = "irc logs";
+  res.data.body = '<script src="/static/irclog.js" type="text/javascript"> </script>\n';
+  res.data.body += '<ul id="navigation">\n';
+  res.data.body += '</ul>\n';
+  if(req.data["date"])
+   {
+    var logdate = req.data["date"];
+    res.data.title += "- " + logdate;
+    var logname = './apps/beagle/static/irclog/' + logdate + '.log';
+    var log = new java.io.File(logname);
+    var reader = new java.io.FileReader(log);
+    var bufferedReader = new java.io.BufferedReader(reader);
+    res.data.body += '<ol id="log">\n';
+    do
+     {
+      line = bufferedReader.readLine();
+      if(line)
+       res.data.body += line + "\n";
+     } while(line);
+    res.data.body += '</ol>';
+   }
+  res.handlers["User"] = User();
+  renderSkin("index");
+ }
