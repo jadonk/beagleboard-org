@@ -33,3 +33,16 @@ function action_macro (param)
   return ("" + this.href(param));
  }
 
+function breadcrumb_macro (param)
+ {
+  var breadcrumbs = [];
+  var obj = this;
+  var promptString = "";
+  do
+   {
+    var promptString = '<a href="' + obj.href + '">' + obj + '</a>' +
+     promptString;
+   } while (obj = obj._parent);
+  return (promptString);
+ }
+

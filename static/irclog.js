@@ -1,5 +1,5 @@
 /* mflogbot: $Id: script.js 2 2005-12-29 23:25:34Z RobertBachmann $ */
-/* http://rbach.priv.at/Microformats/IRC/script.js */
+/* Started from http://rbach.priv.at/Microformats/IRC/script.js */
 var cookie_name='beagleirclog';
 var log_li;
 
@@ -65,6 +65,8 @@ function CheckboxClick()
 		ShowCommand(this.checked,'(quit|part)');
 	else if (this.id == 'mode')
 		ShowCommand(this.checked,'mode');
+	else if (this.id == 'topic')
+		ShowCommand(this.checked,'topic');
 	else if (this.id == 'show_jibot')
 		ShowUser(this.checked,'jibot');
 	else if (this.id == 'show_mfbot')
@@ -79,6 +81,7 @@ function SaveSettings()
 	s+=document.getElementById('join').checked?'1':'0';
 	s+=document.getElementById('quit').checked?'1':'0';
 	s+=document.getElementById('mode').checked?'1':'0';
+	s+=document.getElementById('topic').checked?'1':'0';
 	s+=document.getElementById('show_jibot').checked?'1':'0';
 	s+=document.getElementById('show_mfbot').checked?'1':'0';
 	if (!CreateCookie(cookie_name,s,356))
@@ -202,6 +205,15 @@ window.onload=function() {
 		c3.title = s3.title = 'Show/hide when somebody uses /MODE';
 		c3.onclick = CheckboxClick;
 		s3.appendChild(c3); s3.appendChild(t3); f.appendChild(s3);
+
+		var s3a=document.createElement('span');
+		var c3a=document.createElement('input');
+		var t3a=document.createTextNode(" TOPICS's ");
+		c3a.id = 'topic'; c3a.type = 'checkbox';
+		c3a.checked = c3a.defaultChecked = true;
+		c3a.title = s3a.title = 'Show/hide when somebody uses /TOPIC';
+		c3a.onclick = CheckboxClick;
+		s3a.appendChild(c3a); s3a.appendChild(t3a); f.appendChild(s3a);
 
 		var s4=document.createElement('span');
 		var c4=document.createElement('input');
