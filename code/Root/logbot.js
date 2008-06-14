@@ -19,7 +19,7 @@ function startLogbot()
     global.logbot.joinChannel(channel);
     global.logbot.sendMessage('NickServ','IDENTIFY '+ passwd);
     global.logbot.sendMessage('ChanServ','OP #beagle');
-    global.logbot.setTopic(channel,'Welcome to #Beagle | Discussion about the OMAP3 Beagle Board - http://beagleboard.org | Beagle search tools are on #dashboard at irc.gimp.org, NOT here ;) | Log is at http://beagleboard.org/irclog');
+    //global.logbot.setTopic(channel,'Welcome to #Beagle | Discussion about the OMAP3 Beagle Board - http://beagleboard.org | Beagle search tools are on #dashboard at irc.gimp.org, NOT here ;) | Log is at http://beagleboard.org/chat');
    }
   else
    global.logbot = "Couldn't create log directory";
@@ -42,16 +42,16 @@ if (!global.logbot)
  * Copyright (C) 2008 Jason Kridner
  */
 
-function irclog_action ()
+function chat_action ()
  {
-  res.data.title = "irc logs";
+  res.data.title = "chat";
   res.data.body = '<script src="/static/irclog.js" type="text/javascript"> </script>\n';
   res.data.body += '<ul id="navigation">\n';
   res.data.body += '</ul>\n';
   if(req.data["date"])
    {
     var logdate = req.data["date"];
-    res.data.title += "- " + logdate;
+    res.data.title += " - " + logdate;
     var logname = './apps/beagle/static/irclog/' + logdate + '.log';
     var log = new java.io.File(logname);
     var reader = new java.io.FileReader(log);
