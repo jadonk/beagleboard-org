@@ -44,10 +44,12 @@ if (!global.logbot)
 
 function chat_action ()
  {
-  res.data.title = "chat";
-  res.data.body = '<script src="/static/irclog.js" type="text/javascript"> </script>\n';
-  res.data.body += '<ul id="navigation">\n';
-  res.data.body += '</ul>\n';
+  var x = root.get("chat");
+  res.handlers["User"] = User();
+  res.handlers["Page"] = Page();
+  res.data.title = x.uri;
+  //res.data.body += '<ul id="navigation">\n';
+  //res.data.body += '</ul>\n';
   if(req.data["date"])
    {
     var logdate = req.data["date"];
@@ -56,15 +58,15 @@ function chat_action ()
     var log = new java.io.File(logname);
     var reader = new java.io.FileReader(log);
     var bufferedReader = new java.io.BufferedReader(reader);
-    res.data.body += '<ol id="log">\n';
+    res.data.irclog = '<ol id="log">\n';
     do
      {
       line = bufferedReader.readLine();
       if(line)
-       res.data.body += line + "\n";
+       res.data.irclog += line + "\n";
      } while(line);
-    res.data.body += '</ol>';
+    res.data.irclog += '</ol>';
    }
-  res.handlers["User"] = User();
+  res.data.body = x.renderSkinAsString("page");
   renderSkin("index");
  }
