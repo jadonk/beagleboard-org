@@ -19,30 +19,13 @@ is also mirrored on git://repo.or.cz/beagleboard.org.git.
 INSTALLATION
 ============
 
-git clone http://www.beagleboard.org/beagleboard.org.git/ beagle
-wget http://adele.helma.org/download/helma/1.6.1/helma-1.6.1.tar.gz
-tar xvzf helma-1.6.1.tar.gz
-cd helma-1.6.1
-cd apps
-ln -s ../../beagle beagle
-cd ..
-mv apps.properties apps.properties.original
-ln -s apps/beagle/config/apps.properites
-cd lib
-mv ext ext.original
-mv rhino.jar rhino.jar.original
-ln -s ../apps/beagle/lib ext
-cd ..
-cd db
-ln -s ../apps/beagle/db beagle
-cd ..
-cd ..
+git clone http://www.beagleboard.org/beagleboard.org.git/ beagleboard.org
+./beagleboard.org/install.sh
 
 =======
 RUNNING
 =======
 
-cd helma-1.6.1
-./start.sh
+./helma-1.6.1/start.sh
 
 
