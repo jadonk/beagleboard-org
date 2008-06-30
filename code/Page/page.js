@@ -3,6 +3,24 @@ function main_action ()
   res.handlers["User"] = User();
   res.data.title = this.uri;
   res.data.body = this.renderSkinAsString("page");
+  if (this.uri == "projects")
+   {
+    res.data.body += "<h1>Current list of projects</h1>";
+    res.data.body += "<ul>\n";
+    var orderedByDate = root.get("project").getOrderedView("time desc");
+    var collection = orderedByDate.list();
+    for (var i in collection)
+     {
+      if (collection[i] instanceof Project)
+       res.data.body +=
+        '<li><a href="/project/' + collection[i].uri + '">'
+        + collection[i].uri
+        + '</a>&nbsp;&nbsp;&nbsp;&nbsp;<small>submitted by: '
+        + collection[i].user
+        + '</small></li>\n';
+     }
+    res.data.body += "</ul>\n";
+   }
   renderSkin("index");
  }
 
@@ -17,7 +35,7 @@ function constructor (user, uri, body, lang)
 
 function edit_action ()
  {
-  if (!session.user || !session.user["name"]) 
+  if (!session.user || !session.user["name"])
    {
     res.redirect(root.href("login") + "?target=" + this.uri);
     return;
@@ -57,7 +75,7 @@ function create_action ()
   if 
    (
     !session.user 
-    || !session.user["name"] 
+    || !session.user["name"]
    ) 
    {
     res.redirect(root.href("login") + "?target=default");
