@@ -15,9 +15,19 @@ function breadcrumb_macro (param)
      {
       promptString += ' &rsaquo; ';
      }
-    promptString += '<a href="' + path[i].href() + '">';
-    if (("" + path[i].uri) == "undefined")
+    if ((("" + path[i].uri) == "null") && (("" + path[i]) == "[object User]"))
      {
+      promptString += '<a href="' + path[i].href() + '">';
+      promptString += "user";
+     }
+    else if ((("" + path[i].uri) == "null") && (("" + path[i]) == "[object user]"))
+     {
+      promptString += '<a href=/user/"' + path[i].name + '">';
+      promptString += "" + path[i].name;
+     }
+    else if ((("" + path[i].uri) == "undefined") && (("" + path[i]) == "[object Root]"))
+     {
+      promptString += '<a href=/"' + path[i].name + '">';
       promptString += "BeagleBoard.org";
      }
     else
