@@ -48,25 +48,33 @@ function chat_action ()
   res.handlers["User"] = User();
   res.handlers["Page"] = Page();
   res.data.title = x.uri;
-  //res.data.body += '<ul id="navigation">\n';
-  //res.data.body += '</ul>\n';
+  res.data.body = x.renderSkinAsString("page");
   if(req.data["date"])
    {
     var logdate = req.data["date"];
     res.data.title += " - " + logdate;
     var logname = './apps/beagle/static/irclog/' + logdate + '.log';
-    var log = new java.io.File(logname);
-    var reader = new java.io.FileReader(log);
-    var bufferedReader = new java.io.BufferedReader(reader);
     res.data.irclog = '<ol id="log">\n';
-    do
+    try
      {
-      line = bufferedReader.readLine();
-      if(line)
-       res.data.irclog += line + "\n";
-     } while(line);
+      var log = new java.io.File(logname);
+      var reader = new java.io.FileReader(log);
+      var bufferedReader = new java.io.BufferedReader(reader);
+      do
+       {
+        line = bufferedReader.readLine();
+        if (line)
+         res.data.irclog += line + "\n";
+       } while (line);
+     }
+    catch (ex)
+     {
+     }
     res.data.irclog += '</ol>';
    }
-  res.data.body = x.renderSkinAsString("page");
+  else
+   {
+   }
+  res.data.body += res.data.irclog;
   renderSkin("index");
  }
