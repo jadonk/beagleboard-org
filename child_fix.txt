@@ -1,0 +1,52 @@
+/*
+Goal: remove all code related to creating child objects out of the parent type
+and into the child type.
+
+Suppose that /parent/someName/ is the normal path to an existing child of /parent/.
+We're going to make it so that /parent/new/ is the path to a new, temporary child
+object. Then you can do things like /parent/new/edit to bring up the edit form, and
+only very minor changes to your child object form and form handler will be required
+to make it double as a creation form.
+
+The code below is completely generic. In fact, I'm using it in types I call GenericList
+and GenericType respectively. These are never instantiated--other types just inherit
+these methods and can use them without modification or overloading.
+*/
+
+
+/* This code goes in the parent */
+
+function getChildElement(name) {
+	if (name == 'new') {
+		var type = eval(this.getChildrenPrototypeName());
+		var child = new type;
+		child.pseudoParent = this;
+		return child;
+	}
+	return this.get(name);
+}
+
+function getChildrenPrototypeName(){
+	// Returns the name of the Type of this objects _children 
+	// via some ugly digging in Helma's underbelly.
+	// You don't need to do this sort of thing if you're content
+	// to hardcode the type.
+	return /collection\(\s*(\w+)\s*\)/(app.getPrototype(this._prototype.toString()).getTypeProperties().getProperty('_children'))[1];
+}
+
+/* This code goes in the child */
+
+function href(action){
+	if(this.pseudoParent && this.isTransient()) {
+		return this.pseudoParent.href()+'new/'+(action || '');
+	}
+	return HopObject.prototype.href.apply(this,arguments);
+}
+
+
+/*
+Note that we've done nothing to prevent actions besides /edit from being accessed on the 
+temp object--actions which probably don't make sense for a temp object. That's not really
+an issue for my application, but you could address it several ways, including (probably 
+easiest) an onRequest handler for GenericType or the type(s) that inherit from it.
+*/

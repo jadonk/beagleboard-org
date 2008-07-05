@@ -22,12 +22,12 @@ function breadcrumb_macro (param)
      }
     else if ((("" + path[i].uri) == "null") && (("" + path[i]) == "[object user]"))
      {
-      promptString += '<a href=/user/"' + path[i].name + '">';
+      promptString += '<a href="/user/' + path[i].name + '">';
       promptString += "" + path[i].name;
      }
     else if ((("" + path[i].uri) == "undefined") && (("" + path[i]) == "[object Root]"))
      {
-      promptString += '<a href=/"' + path[i].name + '">';
+      promptString += '<a href="/">';
       promptString += "BeagleBoard.org";
      }
     else
@@ -36,13 +36,6 @@ function breadcrumb_macro (param)
      }
     promptString += '</a>';
    }
-   /*
-  do
-   {
-    var promptString = '<a href="' + obj.href() + '">' + obj + '</a>' +
-     promptString;
-   } while (obj = obj._parent);
-   */
   return (promptString);
  }
 

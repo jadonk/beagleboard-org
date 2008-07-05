@@ -17,7 +17,7 @@ function main_action ()
    }
   catch(e)
    {
-    var x = new Page("nobody", "default", "", "en-us");
+    var x = new Page("nobody", "default", "");
     root.add(x);
     res.data.title = "Error: No 'default' page";
     res.data.body += "Error: Please initialize the database with a 'default' page";
@@ -58,3 +58,42 @@ function notfound_action ()
   renderSkin("index");
  }
 
+function join_project_action ()
+ {
+  if
+   (
+    !session.user
+    || !session.user["name"]
+   )
+   {
+    res.redirect(root.href("login") + "?target=join_project");
+    return;
+   }
+  res.handlers["User"] = User();
+
+  if (req.data.submit && req.data["pname"] != "")
+   {
+     var x =
+      new Project("system",
+       req.data["pname"],
+       req.data["pfirstname"] + " " + req.data["plastname"],
+       req.data["email"],
+       req.data["pabout"],
+       req.data["pdesc"],
+       req.data["pversion"],
+       req.data["phomepage"],
+       req.data["prepository"],
+       req.data["prssfeed"],
+       req.data["pdownload"],
+       req.data["pcategory"],
+       req.data["pplatform"]
+      );
+
+     root.get("project").add(x);
+     res.data.title = "Join Project";
+     res.data.body = "Project has been added.";
+     renderSkin("index");
+    }
+   else
+    renderSkin("register_p");
+ }
