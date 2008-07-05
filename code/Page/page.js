@@ -56,17 +56,10 @@ function edit_action ()
     && this.cleanBody()
    )
    {
-    var x = new Page
-     (
-      session.user["name"],
-      this.uri,
-      req.data["body"]
-     );
-    app.log("Replacing '" + this.uri + "' object with " + x._id + " from " + this._id);
-    x.prev = this;
-    root.removeChild(this);
-    root.add(x);
-    res.redirect(x.href());
+    this.user = "" + session.user["name"];
+    this.body = req.data["body"];
+    app.log("Replacing '" + this.uri + "'");
+    res.redirect(this.href());
     return;
    }
 
