@@ -70,6 +70,8 @@ function chat_action ()
     catch (ex)
      {
      }
+    // The point of putting the values into a new variable is to try to figure out
+    // how I can put something in the page that is parsed for live replacement.
     res.data.irclog += '</ol>';
     res.data.body += res.data.irclog;
    }
