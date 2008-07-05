@@ -71,10 +71,11 @@ function chat_action ()
      {
      }
     res.data.irclog += '</ol>';
+    res.data.body += res.data.irclog;
    }
   else
    {
+    // TODO: add date listings for browsing
    }
-  res.data.body += res.data.irclog;
   renderSkin("index");
  }
