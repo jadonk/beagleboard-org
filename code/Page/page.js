@@ -3,33 +3,6 @@ function main_action ()
   res.handlers["User"] = User();
   res.data.title = this.uri;
   res.data.body = this.renderSkinAsString("page");
-  if (this.uri == "project")
-   {
-    res.data.title = this.name;
-    res.data.body += "<h1>Current list of projects</h1>";
-    res.data.body += "<ul>\n";
-    try
-     {
-      var orderedByDate = root.get("project").getOrderedView("time desc");
-      var collection = orderedByDate.list();
-     }
-    catch (ex)
-     {
-      var collection = [];
-      res.data.body += "<li>No projects currently registered</li>\n";
-     }
-    for (var i in collection)
-     {
-      if (collection[i] instanceof Project)
-       res.data.body +=
-        '<li><a href="/project/' + collection[i].uri + '">'
-        + collection[i].uri
-        + '</a>&nbsp;&nbsp;&nbsp;&nbsp;<small>submitted by: '
-        + collection[i].user
-        + '</small></li>\n';
-     }
-    res.data.body += "</ul>\n";
-   }
   renderSkin("index");
  }
 

@@ -1,0 +1,34 @@
+// project.hac: Handles action for displaying the 'project' page
+//              Creates temporary Page object; displays a list of projects
+
+  var proj = root.get("project");
+  var x = new Page("", "View Projects", "");
+  
+  x.body = proj.body;
+  x.body += "<h1>Current list of projects</h1>";
+  x.body += "<ul>\n";
+
+  try
+   {
+    var orderedByDate = proj.getOrderedView("time desc");
+    var collection = orderedByDate.list();
+   }
+  catch (ex)
+   {
+    var collection = [];
+    x.body += "<li>No projects currently registered</li>\n";
+   }
+  
+  for (var i in collection)
+   {
+    if (collection[i] instanceof Project)
+     x.body +=
+      '<li><a href="/project/' + collection[i].uri + '">'
+      + collection[i].uri
+      + '</a>&nbsp;&nbsp;&nbsp;&nbsp;<small>submitted by: '
+      + collection[i].user
+      + '</small></li>\n';
+   }
+  x.body += "</ul>\n";
+  
+  x.main_action();
