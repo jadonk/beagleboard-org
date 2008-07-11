@@ -1,11 +1,12 @@
-
+function new_action()
+ {
   if
    (
     !session.user
     || !session.user["name"]
    )
    {
-    res.redirect(root.href("login") + "?target=join_project");
+    res.redirect(root.href("login") + "?target=/project/new");
     return;
    }
   res.handlers["User"] = User();
@@ -13,7 +14,7 @@
   if (req.data.submit && req.data["pname"] != "")
    {
      var x =
-      new Project("system",
+      new Project(session.user["name"],
        req.data["pname"],
        req.data["pfirstname"] + " " + req.data["plastname"],
        req.data["email"],
@@ -29,9 +30,15 @@
       );
 
      root.get("project").add(x);
-     res.data.title = "Join Project";
+     res.data.title = "New Project";
      res.data.body = "Project has been added.";
-     renderSkin("index");
+     res.redirect = x.href();
+     return;
     }
    else
-    renderSkin("register_p");
+    {
+     res.data.title = "New Project";
+     res.data.body = this.renderSkinAsString("register_p");
+     renderSkin("index");
+    }
+ }

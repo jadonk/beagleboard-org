@@ -82,9 +82,15 @@ function create_action ()
    }
 
   res.handlers["User"] = User();
-  res.data.action = "create";
-  res.data.title = "Create new page";
-  res.data.body = this.renderSkinAsString("create");
+  res.data.title = "new";
+  if (this.create_skin)
+   {
+    res.data.body = this.renderSkinAsString(this.create_skin);
+   }
+  else
+   {
+    res.data.body = this.renderSkinAsString("create");
+   }
   renderSkin("index");
  }
 
