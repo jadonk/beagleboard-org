@@ -37,38 +37,30 @@ function info_action ()
   renderSkin("index");
  }
 
-function getChildElement(name)
+function getChildElement (name)
  {
-  if (name == 'create')
+  var x = this.get(name);
+  if (!x)
    {
-    var x = new Page("nobody", "new", "");
+    x = root.get("default").get(name);
+   }
+  if (!x)
+   {
+    var notfound_body = "<h1>Error: Page not found</h1>";
+    notfound_body += "<p>The requested page does not currently exist.</p>";
+    x = new Page("system", name, notfound_body);
     x.pseudoParent = this;
-    return (x);
    }
-  else
-   {
-    return (this.get(name));
-   }
+  return (x);
  }
 
-function notfound_action ()
+function login_action ()
  {
-  res.data.body = "";
-  res.handlers["User"] = User();
-
-  try
+  if (req.data["target"])
    {
-    var x = root.get("notfound");
-    res.data.title = "" + x.uri;
-    res.data.body = "" + x.body;
+    res.redirect(req.data["target"]);
    }
-  catch(e)
-   {
-    res.data.title = "Page not found";
-    res.data.body += "<h1>Error: Page not found</h1>";
-    res.data.body += "<p>The requested page does not currently exist.</p>";
-   }
-
-  renderSkin("index");
+  var x = root.get("login");
+  return (x.main_action());
  }
 

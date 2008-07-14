@@ -9,7 +9,6 @@ function list_action ()
    {
     var orderedByDate = this.getOrderedView("uri");
     var collection = orderedByDate.list();
-    //var collection = this._children;
    }
   catch (ex)
    {
@@ -20,13 +19,12 @@ function list_action ()
   res.data.body += "<ul>\n";
   for (var i in collection)
    {
-    //if (collection[i] instanceof Page)
-     res.data.body +=
-      '<li><a href="' + collection[i].href() + '">'
-      + collection[i].uri
-      + '</a>&nbsp;&nbsp;&nbsp;&nbsp;<small>Last updated by: '
-      + collection[i].user
-      + '</small></li>\n';
+    res.data.body +=
+     '<li><a href="' + collection[i].href() + '">'
+     + collection[i].uri
+     + '</a>&nbsp;&nbsp;&nbsp;&nbsp;<small>Last updated by: '
+     + collection[i].user
+     + '</small></li>\n';
    }
   res.data.body += "</ul>\n";
   renderSkin("index");

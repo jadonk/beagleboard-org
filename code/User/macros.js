@@ -201,10 +201,18 @@ function prompt_macro (param)
       && !(/\/edit$/.test(requestURL))
      )
      {
+      var uri = req.path.replace(/\/$/,"");
+      if (uri != "")
+       uri = "/" + uri + "/";
       promptString += ' &#0149 <a href="';
-      promptString += requestURL + "/edit";
+      if (uri != "")
+       promptString += uri + "edit";
+      else
+       promptString += "/default/edit";
       promptString += '">Edit</a>';
-      promptString += ' &#0149 <a href="/create">Create</a>';
+      promptString += ' &#0149 <a href="';
+      promptString += uri + "new/edit";
+      promptString += '">Create</a>';
      }
     promptString += '</p>\n';
    }

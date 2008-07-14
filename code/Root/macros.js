@@ -30,6 +30,11 @@ function breadcrumb_macro (param)
       promptString += '<a href="/">';
       promptString += "BeagleBoard.org";
      }
+    else if (path[i].href())
+     {
+      promptString += '<a href="' + path[i].href() + '">';
+      promptString += path[i].uri;
+     }
     else
      {
       promptString += path[i].uri;
