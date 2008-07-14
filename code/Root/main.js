@@ -37,6 +37,20 @@ function info_action ()
   renderSkin("index");
  }
 
+function getChildElement(name)
+ {
+  if (name == 'create')
+   {
+    var x = new Page("nobody", "new", "");
+    x.pseudoParent = this;
+    return (x);
+   }
+  else
+   {
+    return (this.get(name));
+   }
+ }
+
 function notfound_action ()
  {
   res.data.body = "";

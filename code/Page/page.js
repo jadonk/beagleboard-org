@@ -1,12 +1,16 @@
-function main_action ()
+function main_action()
  {
+  if (this.isTransient())
+   {
+    return (this.create_action());
+   }
   res.handlers["User"] = User();
   res.data.title = this.uri;
   res.data.body = this.renderSkinAsString("page");
   renderSkin("index");
  }
 
-function constructor (user, uri, body)
+function constructor(user, uri, body)
  {
   this.user = "" + user;
   this.uri = "" + uri;
@@ -14,7 +18,7 @@ function constructor (user, uri, body)
   this.time = new Date();
  }
 
-function edit_action ()
+function edit_action()
  {
   if (!session.user || !session.user["name"])
    {
@@ -43,7 +47,7 @@ function edit_action ()
   renderSkin("index");
  }
 
-function create_action ()
+function create_action()
  {
   if 
    (
@@ -51,7 +55,7 @@ function create_action ()
     || !session.user["name"]
    ) 
    {
-    res.redirect(root.href("login") + "?target=default");
+    res.redirect(root.href("login") + "?target=/");
     return;
    }
 
@@ -69,7 +73,7 @@ function create_action ()
       req.data["uri"],
       req.data["body"]
      );
-    if (this.uri == "default")
+    if (this.isTransient())
      {
       root.add(x);
      }
@@ -82,7 +86,7 @@ function create_action ()
    }
 
   res.handlers["User"] = User();
-  res.data.title = "new";
+  res.data.title = this.uri + " - create";
   if (this.create_skin)
    {
     res.data.body = this.renderSkinAsString(this.create_skin);
@@ -136,3 +140,19 @@ function cleanBody()
   return (false);
  }
 
+function href(action)
+ {
+  if (this.pseudoParent && this.isTransient())
+   {
+    return (this.pseudoParent.href() + 'new/' + (action || ''));
+   }
+  return HopObject.prototype.href.apply(this, arguments);
+ }
+
+
+/*
+Note that we've done nothing to prevent actions besides /edit from being accessed on the 
+temp object--actions which probably don't make sense for a temp object. That's not really
+an issue for my application, but you could address it several ways, including (probably 
+easiest) an onRequest handler for GenericType or the type(s) that inherit from it.
+*/

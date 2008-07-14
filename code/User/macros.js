@@ -204,7 +204,7 @@ function prompt_macro (param)
       promptString += ' &#0149 <a href="';
       promptString += requestURL + "/edit";
       promptString += '">Edit</a>';
-      promptString += ' &#0149 <a href="/default/create">Create</a>';
+      promptString += ' &#0149 <a href="/create">Create</a>';
      }
     promptString += '</p>\n';
    }
