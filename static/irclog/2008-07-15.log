@@ -444,3 +444,233 @@
 <li class="message">[<a href="#T18:25:03" id="T18:25:03"><abbr title="2008-07-15T18:25:03+00:00">18:25:03</abbr></a>] &lt;<cite>koen</cite>&gt; <q>or rather, I haven't found a webfrontend that will give me a file that patch and handle :)</q></li>
 <li class="message">[<a href="#T18:25:23" id="T18:25:23"><abbr title="2008-07-15T18:25:23+00:00">18:25:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>koen: would you like it in a different form? say from a ftp server?</q></li>
 <li class="join">[<a href="#T18:33:09" id="T18:33:09"><abbr title="2008-07-15T18:33:09+00:00">18:33:09</abbr></a>] <span>* jkridner|work (n=a0321898@nat/ti/x-6ccc2d77b59fc054) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:48:30" id="T18:48:30"><abbr title="2008-07-15T18:48:30+00:00">18:48:30</abbr></a>] <span>* khasi1 (n=a0393720@192.163.20.231) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T18:58:48" id="T18:58:48"><abbr title="2008-07-15T18:58:48+00:00">18:58:48</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>js: "./latency.tcf", line 84: Failed to generate config files.</q></li>
+<li class="message">[<a href="#T18:59:04" id="T18:59:04"><abbr title="2008-07-15T18:59:04+00:00">18:59:04</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>while trying to build dsp bios examples</q></li>
+<li class="message">[<a href="#T19:01:45" id="T19:01:45"><abbr title="2008-07-15T19:01:45+00:00">19:01:45</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: for sffsdr?</q></li>
+<li class="message">[<a href="#T19:02:32" id="T19:02:32"><abbr title="2008-07-15T19:02:32+00:00">19:02:32</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T19:02:34" id="T19:02:34"><abbr title="2008-07-15T19:02:34+00:00">19:02:34</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>for anything</q></li>
+<li class="message">[<a href="#T19:03:36" id="T19:03:36"><abbr title="2008-07-15T19:03:36+00:00">19:03:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>try to make an OE recipe for it :)</q></li>
+<li class="message">[<a href="#T19:05:45" id="T19:05:45"><abbr title="2008-07-15T19:05:45+00:00">19:05:45</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T19:05:59" id="T19:05:59"><abbr title="2008-07-15T19:05:59+00:00">19:05:59</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>it looks like bios unpacks as read-only everything</q></li>
+<li class="message">[<a href="#T19:06:09" id="T19:06:09"><abbr title="2008-07-15T19:06:09+00:00">19:06:09</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>so it tries to create a file and dies</q></li>
+<li class="message">[<a href="#T19:06:30" id="T19:06:30"><abbr title="2008-07-15T19:06:30+00:00">19:06:30</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I suspect we will need a ti dsp class to inherit</q></li>
+<li class="action">[<a href="#T19:06:43" id="T19:06:43"><abbr title="2008-07-15T19:06:43+00:00">19:06:43</abbr></a>] <span>* mru thinks evil things about commercial packages</span></li>
+<li class="message">[<a href="#T19:25:02" id="T19:25:02"><abbr title="2008-07-15T19:25:02+00:00">19:25:02</abbr></a>] &lt;<cite>koen</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T19:25:08" id="T19:25:08"><abbr title="2008-07-15T19:25:08+00:00">19:25:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>nice patch on linux-omap ml</q></li>
+<li class="message">[<a href="#T19:28:50" id="T19:28:50"><abbr title="2008-07-15T19:28:50+00:00">19:28:50</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>make a rw copy of a read nly directory tree</q></li>
+<li class="action">[<a href="#T19:28:54" id="T19:28:54"><abbr title="2008-07-15T19:28:54+00:00">19:28:54</abbr></a>] <span>* Crofton is feeling stupid</span></li>
+<li class="message">[<a href="#T19:29:30" id="T19:29:30"><abbr title="2008-07-15T19:29:30+00:00">19:29:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>chmod -R +w</q></li>
+<li class="message">[<a href="#T19:32:13" id="T19:32:13"><abbr title="2008-07-15T19:32:13+00:00">19:32:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>mru, thanks for confirming I am stupid</q></li>
+<li class="message">[<a href="#T19:32:46" id="T19:32:46"><abbr title="2008-07-15T19:32:46+00:00">19:32:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you might want to make that u+w</q></li>
+<li class="message">[<a href="#T19:33:07" id="T19:33:07"><abbr title="2008-07-15T19:33:07+00:00">19:33:07</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>umask is ok</q></li>
+<li class="message">[<a href="#T19:33:08" id="T19:33:08"><abbr title="2008-07-15T19:33:08+00:00">19:33:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm not sure how chmod handles umask and such things</q></li>
+<li class="message">[<a href="#T19:33:22" id="T19:33:22"><abbr title="2008-07-15T19:33:22+00:00">19:33:22</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I think it applied agaisnt umask</q></li>
+<li class="message">[<a href="#T19:33:40" id="T19:33:40"><abbr title="2008-07-15T19:33:40+00:00">19:33:40</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>now I need to point at the tools</q></li>
+<li class="message">[<a href="#T19:35:09" id="T19:35:09"><abbr title="2008-07-15T19:35:09+00:00">19:35:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: dspbios examples or dsplink examples?</q></li>
+<li class="message">[<a href="#T19:35:43" id="T19:35:43"><abbr title="2008-07-15T19:35:43+00:00">19:35:43</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>dpsbios</q></li>
+<li class="message">[<a href="#T19:36:14" id="T19:36:14"><abbr title="2008-07-15T19:36:14+00:00">19:36:14</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>not as useful as the link ones, but I am trying to get inside the TI mindset</q></li>
+<li class="message">[<a href="#T19:36:37" id="T19:36:37"><abbr title="2008-07-15T19:36:37+00:00">19:36:37</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>btw, we watched "Black Book" er "Zwartboek"</q></li>
+<li class="message">[<a href="#T19:36:39" id="T19:36:39"><abbr title="2008-07-15T19:36:39+00:00">19:36:39</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>last night</q></li>
+<li class="join">[<a href="#T19:37:57" id="T19:37:57"><abbr title="2008-07-15T19:37:57+00:00">19:37:57</abbr></a>] <span>* docelic (n=docelic@78.134.196.59) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:41:25" id="T19:41:25"><abbr title="2008-07-15T19:41:25+00:00">19:41:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>pointless nude scenes with nazis to fill up the time between them </q></li>
+<li class="message">[<a href="#T19:41:32" id="T19:41:32"><abbr title="2008-07-15T19:41:32+00:00">19:41:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>that one?</q></li>
+<li class="message">[<a href="#T19:42:55" id="T19:42:55"><abbr title="2008-07-15T19:42:55+00:00">19:42:55</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>exactly :)</q></li>
+<li class="message">[<a href="#T19:43:34" id="T19:43:34"><abbr title="2008-07-15T19:43:34+00:00">19:43:34</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>very different from the "American" movies he did</q></li>
+<li class="message">[<a href="#T19:43:48" id="T19:43:48"><abbr title="2008-07-15T19:43:48+00:00">19:43:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>like showgirls?</q></li>
+<li class="message">[<a href="#T19:43:57" id="T19:43:57"><abbr title="2008-07-15T19:43:57+00:00">19:43:57</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>Robo Cop</q></li>
+<li class="message">[<a href="#T19:44:05" id="T19:44:05"><abbr title="2008-07-15T19:44:05+00:00">19:44:05</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I didn't see show girls :)</q></li>
+<li class="action">[<a href="#T19:44:19" id="T19:44:19"><abbr title="2008-07-15T19:44:19+00:00">19:44:19</abbr></a>] <span>* koen always confuses jan de bont and paul verhoeven</span></li>
+<li class="action">[<a href="#T19:45:36" id="T19:45:36"><abbr title="2008-07-15T19:45:36+00:00">19:45:36</abbr></a>] <span>* koen checks wikipedio</span></li>
+<li class="message">[<a href="#T19:46:02" id="T19:46:02"><abbr title="2008-07-15T19:46:02+00:00">19:46:02</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ah, jan did speed and tombraider</q></li>
+<li class="message">[<a href="#T19:46:09" id="T19:46:09"><abbr title="2008-07-15T19:46:09+00:00">19:46:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>paul did showgirls, robocop and total recall</q></li>
+<li class="message">[<a href="#T19:46:19" id="T19:46:19"><abbr title="2008-07-15T19:46:19+00:00">19:46:19</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah</q></li>
+<li class="action">[<a href="#T19:48:52" id="T19:48:52"><abbr title="2008-07-15T19:48:52+00:00">19:48:52</abbr></a>] <span>* koen boots a kernel with the i2c fix</span></li>
+<li class="action">[<a href="#T19:50:06" id="T19:50:06"><abbr title="2008-07-15T19:50:06+00:00">19:50:06</abbr></a>] <span>* Crofton has built the dsp bios examples</span></li>
+<li class="message">[<a href="#T19:50:14" id="T19:50:14"><abbr title="2008-07-15T19:50:14+00:00">19:50:14</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>not that he knows what he did .....</q></li>
+<li class="message">[<a href="#T19:55:00" id="T19:55:00"><abbr title="2008-07-15T19:55:00+00:00">19:55:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>sakoman__: an unscientific test seems to show that pauls i2c race fix makes the audio driver a bit more stable</q></li>
+<li class="quit">[<a href="#T19:58:55" id="T19:58:55"><abbr title="2008-07-15T19:58:55+00:00">19:58:55</abbr></a>] <span>* BThompson (n=BThompso@nat/ti/x-8a475a4a17ecbc30) Quit ("Trillian (<a href="http://www.ceruleanstudios.com")">http://www.ceruleanstudios.com")</a></span></li>
+<li class="message">[<a href="#T20:00:16" id="T20:00:16"><abbr title="2008-07-15T20:00:16+00:00">20:00:16</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>hmmm</q></li>
+<li class="quit">[<a href="#T20:00:34" id="T20:00:34"><abbr title="2008-07-15T20:00:34+00:00">20:00:34</abbr></a>] <span>* GeneralAntilles (n=GeneralA@pdpc/supporter/active/generalantilles) Quit ()</span></li>
+<li class="message">[<a href="#T20:13:47" id="T20:13:47"><abbr title="2008-07-15T20:13:47+00:00">20:13:47</abbr></a>] &lt;<cite>sakoman__</cite>&gt; <q>koen:  does it eliminate all i2c-1 errors?</q></li>
+<li class="message">[<a href="#T20:14:15" id="T20:14:15"><abbr title="2008-07-15T20:14:15+00:00">20:14:15</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I just got the pcm_open oops again</q></li>
+<li class="message">[<a href="#T20:14:31" id="T20:14:31"><abbr title="2008-07-15T20:14:31+00:00">20:14:31</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but sysrq still worked, which is a change</q></li>
+<li class="message">[<a href="#T20:15:20" id="T20:15:20"><abbr title="2008-07-15T20:15:20+00:00">20:15:20</abbr></a>] &lt;<cite>koen</cite>&gt; <q>it doesn't magically solve all out problems</q></li>
+<li class="message">[<a href="#T20:23:46" id="T20:23:46"><abbr title="2008-07-15T20:23:46+00:00">20:23:46</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I am not motivated</q></li>
+<li class="message">[<a href="#T20:24:01" id="T20:24:01"><abbr title="2008-07-15T20:24:01+00:00">20:24:01</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>but I am close to getting the dsplink dsp side of the examples built</q></li>
+<li class="message">[<a href="#T20:40:47" id="T20:40:47"><abbr title="2008-07-15T20:40:47+00:00">20:40:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T20:40:54" id="T20:40:54"><abbr title="2008-07-15T20:40:54+00:00">20:40:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>saves me sone anguish tomorrow</q></li>
+<li class="join">[<a href="#T20:42:24" id="T20:42:24"><abbr title="2008-07-15T20:42:24+00:00">20:42:24</abbr></a>] <span>* prpplague^2 (n=dave@mail.americanmicrosystems.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:51:29" id="T20:51:29"><abbr title="2008-07-15T20:51:29+00:00">20:51:29</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>koen, basically edit makefiles</q></li>
+<li class="message">[<a href="#T20:51:58" id="T20:51:58"><abbr title="2008-07-15T20:51:58+00:00">20:51:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T20:52:22" id="T20:52:22"><abbr title="2008-07-15T20:52:22+00:00">20:52:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>roger said I also needed a different version of xdctools that what's shipped with dspbios</q></li>
+<li class="quit">[<a href="#T20:52:37" id="T20:52:37"><abbr title="2008-07-15T20:52:37+00:00">20:52:37</abbr></a>] <span>* prpplague (n=dave@mail.americanmicrosystems.com) Quit (Nick collision from services.)</span></li>
+<li class="nick-change">[<a href="#T20:52:41" id="T20:52:41"><abbr title="2008-07-15T20:52:41+00:00">20:52:41</abbr></a>] <span>* prpplague^2 is now known as prpplague</span></li>
+<li class="message">[<a href="#T20:52:52" id="T20:52:52"><abbr title="2008-07-15T20:52:52+00:00">20:52:52</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: could you add your notes to the recipe so I convert it to sed tomorrow?</q></li>
+<li class="message">[<a href="#T20:53:31" id="T20:53:31"><abbr title="2008-07-15T20:53:31+00:00">20:53:31</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>it is messy</q></li>
+<li class="message">[<a href="#T20:53:49" id="T20:53:49"><abbr title="2008-07-15T20:53:49+00:00">20:53:49</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I can see adding dsp stuff to recipes</q></li>
+<li class="message">[<a href="#T20:54:06" id="T20:54:06"><abbr title="2008-07-15T20:54:06+00:00">20:54:06</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>but we will need to decide how to install tools//dsp bios</q></li>
+<li class="message">[<a href="#T20:54:35" id="T20:54:35"><abbr title="2008-07-15T20:54:35+00:00">20:54:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>MAGIC_VAR_THAT_POINTS_TO_BIOS ?= /OE/TI/bios</q></li>
+<li class="message">[<a href="#T20:54:42" id="T20:54:42"><abbr title="2008-07-15T20:54:42+00:00">20:54:42</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and let the user override it</q></li>
+<li class="message">[<a href="#T20:54:43" id="T20:54:43"><abbr title="2008-07-15T20:54:43+00:00">20:54:43</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>and tools</q></li>
+<li class="message">[<a href="#T20:54:46" id="T20:54:46"><abbr title="2008-07-15T20:54:46+00:00">20:54:46</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T20:55:13" id="T20:55:13"><abbr title="2008-07-15T20:55:13+00:00">20:55:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>in dsplnk there is BASE_INSTALL</q></li>
+<li class="action">[<a href="#T20:55:20" id="T20:55:20"><abbr title="2008-07-15T20:55:20+00:00">20:55:20</abbr></a>] <span>* koen hugs mount --bind /very/long/path/to/where/oe/is/installed /OE</span></li>
+<li class="quit">[<a href="#T20:58:04" id="T20:58:04"><abbr title="2008-07-15T20:58:04+00:00">20:58:04</abbr></a>] <span>* docelic (n=docelic@78.134.196.59) Quit ("<a href="http://www.spinlocksolutions.com/")">http://www.spinlocksolutions.com/")</a></span></li>
+<li class="action">[<a href="#T21:06:42" id="T21:06:42"><abbr title="2008-07-15T21:06:42+00:00">21:06:42</abbr></a>] <span>* Crofton curses trailing spaces</span></li>
+<li class="message">[<a href="#T21:07:06" id="T21:07:06"><abbr title="2008-07-15T21:07:06+00:00">21:07:06</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ok, I need to figure out how to communicate my work to you</q></li>
+<li class="message">[<a href="#T21:07:13" id="T21:07:13"><abbr title="2008-07-15T21:07:13+00:00">21:07:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I was editing stuff in work :)</q></li>
+<li class="message">[<a href="#T21:09:05" id="T21:09:05"><abbr title="2008-07-15T21:09:05+00:00">21:09:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>diff -Nurd file1 edited-file1</q></li>
+<li class="message">[<a href="#T21:09:27" id="T21:09:27"><abbr title="2008-07-15T21:09:27+00:00">21:09:27</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I didn't save originals</q></li>
+<li class="message">[<a href="#T21:09:34" id="T21:09:34"><abbr title="2008-07-15T21:09:34+00:00">21:09:34</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>trouble with the samples</q></li>
+<li class="message">[<a href="#T21:09:37" id="T21:09:37"><abbr title="2008-07-15T21:09:37+00:00">21:09:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton: use git</q></li>
+<li class="message">[<a href="#T21:09:40" id="T21:09:40"><abbr title="2008-07-15T21:09:40+00:00">21:09:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for everything</q></li>
+<li class="message">[<a href="#T21:09:41" id="T21:09:41"><abbr title="2008-07-15T21:09:41+00:00">21:09:41</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I can figure something out</q></li>
+<li class="message">[<a href="#T21:09:52" id="T21:09:52"><abbr title="2008-07-15T21:09:52+00:00">21:09:52</abbr></a>] &lt;<cite>koen</cite>&gt; <q>extract it again in a different dir</q></li>
+<li class="message">[<a href="#T21:10:01" id="T21:10:01"><abbr title="2008-07-15T21:10:01+00:00">21:10:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>at work I keep everything in git</q></li>
+<li class="message">[<a href="#T21:10:16" id="T21:10:16"><abbr title="2008-07-15T21:10:16+00:00">21:10:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: I've been tempted to check the gazillion different versions of codec-engine into git to see the diffs</q></li>
+<li class="message">[<a href="#T21:12:00" id="T21:12:00"><abbr title="2008-07-15T21:12:00+00:00">21:12:00</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q><a href="http://rafb.net/p/6hyix486.html">http://rafb.net/p/6hyix486.html</a></q></li>
+<li class="message">[<a href="#T21:21:26" id="T21:21:26"><abbr title="2008-07-15T21:21:26+00:00">21:21:26</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>jkridner, ping</q></li>
+<li class="message">[<a href="#T21:27:50" id="T21:27:50"><abbr title="2008-07-15T21:27:50+00:00">21:27:50</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>[balister@localhost samples]$ ls ../../BUILD/EXPORT/RELEASE/</q></li>
+<li class="message">[<abbr title="2008-07-15T21:27:50+00:00">21:27:50</abbr>] &lt;<cite>Crofton</cite>&gt; <q>dsplink.lib        dsplinkpool.lib    hal.lib       mpcsxfer.out</q></li>
+<li class="message">[<abbr title="2008-07-15T21:27:50+00:00">21:27:50</abbr>] &lt;<cite>Crofton</cite>&gt; <q>dsplinkmpcs.lib    dsplinkringio.lib  ips.lib       ringio.map</q></li>
+<li class="message">[<abbr title="2008-07-15T21:27:50+00:00">21:27:50</abbr>] &lt;<cite>Crofton</cite>&gt; <q>dsplinknotify.lib  gen.lib            mpcsxfer.map  ringio.out</q></li>
+<li class="message">[<a href="#T21:28:07" id="T21:28:07"><abbr title="2008-07-15T21:28:07+00:00">21:28:07</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I think ringio.out is what is loaded onto the dsp?</q></li>
+<li class="message">[<a href="#T21:30:49" id="T21:30:49"><abbr title="2008-07-15T21:30:49+00:00">21:30:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>iirc the .x64P is loaded into the dsp</q></li>
+<li class="message">[<a href="#T21:31:36" id="T21:31:36"><abbr title="2008-07-15T21:31:36+00:00">21:31:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: <a href="http://rafb.net/p/7jtufs92.txt">http://rafb.net/p/7jtufs92.txt</a></q></li>
+<li class="message">[<a href="#T21:31:48" id="T21:31:48"><abbr title="2008-07-15T21:31:48+00:00">21:31:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: the .out should be the demo</q></li>
+<li class="quit">[<a href="#T21:38:26" id="T21:38:26"><abbr title="2008-07-15T21:38:26+00:00">21:38:26</abbr></a>] <span>* dschaeffer (n=daniel@timesys-gw0.cust.expedient.net) Quit ("Leaving.")</span></li>
+<li class="join">[<a href="#T21:50:26" id="T21:50:26"><abbr title="2008-07-15T21:50:26+00:00">21:50:26</abbr></a>] <span>* RogerMonk (n=a0740758@nat/ti/x-40e9fbedd82cf4a1) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:54:56" id="T21:54:56"><abbr title="2008-07-15T21:54:56+00:00">21:54:56</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ok, let's copy the .out over and see what happens</q></li>
+<li class="message">[<a href="#T21:55:17" id="T21:55:17"><abbr title="2008-07-15T21:55:17+00:00">21:55:17</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>.out.... sounds like dsp stuff!</q></li>
+<li class="message">[<a href="#T21:55:40" id="T21:55:40"><abbr title="2008-07-15T21:55:40+00:00">21:55:40</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah, I have the dsplink dsp side "built"</q></li>
+<li class="message">[<a href="#T21:56:09" id="T21:56:09"><abbr title="2008-07-15T21:56:09+00:00">21:56:09</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>what do the samples do?</q></li>
+<li class="message">[<a href="#T21:57:06" id="T21:57:06"><abbr title="2008-07-15T21:57:06+00:00">21:57:06</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>various things - mainly ripple data through the dsp and back to verify correct data passing</q></li>
+<li class="message">[<a href="#T21:57:21" id="T21:57:21"><abbr title="2008-07-15T21:57:21+00:00">21:57:21</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>different examples use different LINK constucts</q></li>
+<li class="message">[<a href="#T21:57:43" id="T21:57:43"><abbr title="2008-07-15T21:57:43+00:00">21:57:43</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>which example have you built?</q></li>
+<li class="message">[<a href="#T21:58:07" id="T21:58:07"><abbr title="2008-07-15T21:58:07+00:00">21:58:07</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ringio and mpcsxfer</q></li>
+<li class="message">[<a href="#T21:58:16" id="T21:58:16"><abbr title="2008-07-15T21:58:16+00:00">21:58:16</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>Failure: Status:[0x80008000] File:[0x206] Line:[438]</q></li>
+<li class="message">[<a href="#T21:58:17" id="T21:58:17"><abbr title="2008-07-15T21:58:17+00:00">21:58:17</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>Leaving RingIO_delete ()        status [0x80008000]</q></li>
+<li class="message">[<abbr title="2008-07-15T21:58:17+00:00">21:58:17</abbr>] &lt;<cite>Crofton</cite>&gt; <q>Entered RingIO_delete ()</q></li>
+<li class="message">[<abbr title="2008-07-15T21:58:17+00:00">21:58:17</abbr>] &lt;<cite>Crofton</cite>&gt; <q>        name    [0x271c8]</q></li>
+<li class="message">[<a href="#T21:58:22" id="T21:58:22"><abbr title="2008-07-15T21:58:22+00:00">21:58:22</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T21:58:43" id="T21:58:43"><abbr title="2008-07-15T21:58:43+00:00">21:58:43</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>can you dump complete log?</q></li>
+<li class="message">[<a href="#T21:59:12" id="T21:59:12"><abbr title="2008-07-15T21:59:12+00:00">21:59:12</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>did you reserve memory for the dsp using mem-</q></li>
+<li class="message">[<a href="#T21:59:15" id="T21:59:15"><abbr title="2008-07-15T21:59:15+00:00">21:59:15</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>mem=</q></li>
+<li class="message">[<a href="#T21:59:24" id="T21:59:24"><abbr title="2008-07-15T21:59:24+00:00">21:59:24</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q><a href="http://rafb.net/p/HyjY4Q10.html">http://rafb.net/p/HyjY4Q10.html</a></q></li>
+<li class="message">[<a href="#T21:59:26" id="T21:59:26"><abbr title="2008-07-15T21:59:26+00:00">21:59:26</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>hmmm</q></li>
+<li class="action">[<a href="#T21:59:40" id="T21:59:40"><abbr title="2008-07-15T21:59:40+00:00">21:59:40</abbr></a>] <span>* koen loves the osd2 for having 256 ram</span></li>
+<li class="message">[<a href="#T21:59:42" id="T21:59:42"><abbr title="2008-07-15T21:59:42+00:00">21:59:42</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>mem=96m</q></li>
+<li class="message">[<a href="#T21:59:54" id="T21:59:54"><abbr title="2008-07-15T21:59:54+00:00">21:59:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>dsplink driver open: /dev/dsplink: No such file or directory</q></li>
+<li class="message">[<a href="#T21:59:59" id="T21:59:59"><abbr title="2008-07-15T21:59:59+00:00">21:59:59</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T22:00:01" id="T22:00:01"><abbr title="2008-07-15T22:00:01+00:00">22:00:01</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>yep, you need to make the node</q></li>
+<li class="message">[<a href="#T22:00:13" id="T22:00:13"><abbr title="2008-07-15T22:00:13+00:00">22:00:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>stupid udevd</q></li>
+<li class="message">[<a href="#T22:00:14" id="T22:00:14"><abbr title="2008-07-15T22:00:14+00:00">22:00:14</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>mknod /dev/dsplink c 230 0 (IIRC)</q></li>
+<li class="message">[<a href="#T22:00:18" id="T22:00:18"><abbr title="2008-07-15T22:00:18+00:00">22:00:18</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: cmemk hooks into uevent so udev works</q></li>
+<li class="message">[<a href="#T22:00:27" id="T22:00:27"><abbr title="2008-07-15T22:00:27+00:00">22:00:27</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>no udev with dsplink</q></li>
+<li class="message">[<a href="#T22:00:34" id="T22:00:34"><abbr title="2008-07-15T22:00:34+00:00">22:00:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: dsplink doesn't hook into that and needs manual intervention</q></li>
+<li class="message">[<a href="#T22:00:49" id="T22:00:49"><abbr title="2008-07-15T22:00:49+00:00">22:00:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I suspect it would be a one-liner to the dsplink source to fix that</q></li>
+<li class="message">[<a href="#T22:01:52" id="T22:01:52"><abbr title="2008-07-15T22:01:52+00:00">22:01:52</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>how confident are you with the mknod?</q></li>
+<li class="message">[<a href="#T22:01:58" id="T22:01:58"><abbr title="2008-07-15T22:01:58+00:00">22:01:58</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>mknod /dev/dsplink c `awk "\\$2==\"dsplink\" {print \\$1}" /proc/devices` 0</q></li>
+<li class="message">[<a href="#T22:02:24" id="T22:02:24"><abbr title="2008-07-15T22:02:24+00:00">22:02:24</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>(off the top of my head :))</q></li>
+<li class="message">[<a href="#T22:02:28" id="T22:02:28"><abbr title="2008-07-15T22:02:28+00:00">22:02:28</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T22:02:31" id="T22:02:31"><abbr title="2008-07-15T22:02:31+00:00">22:02:31</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I looked by hanf</q></li>
+<li class="message">[<a href="#T22:02:50" id="T22:02:50"><abbr title="2008-07-15T22:02:50+00:00">22:02:50</abbr></a>] &lt;<cite>koen</cite>&gt; <q>it's int he script OE doesn't package :)</q></li>
+<li class="message">[<a href="#T22:03:06" id="T22:03:06"><abbr title="2008-07-15T22:03:06+00:00">22:03:06</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I wanted to do it using modutils :)</q></li>
+<li class="message">[<a href="#T22:03:12" id="T22:03:12"><abbr title="2008-07-15T22:03:12+00:00">22:03:12</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>bad boy Koen!</q></li>
+<li class="message">[<a href="#T22:04:10" id="T22:04:10"><abbr title="2008-07-15T22:04:10+00:00">22:04:10</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>lots more text</q></li>
+<li class="message">[<a href="#T22:04:17" id="T22:04:17"><abbr title="2008-07-15T22:04:17+00:00">22:04:17</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>paste?</q></li>
+<li class="message">[<a href="#T22:05:52" id="T22:05:52"><abbr title="2008-07-15T22:05:52+00:00">22:05:52</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://rafb.net/p/r87bHo22.html">http://rafb.net/p/r87bHo22.html</a></q></li>
+<li class="message">[<a href="#T22:05:58" id="T22:05:58"><abbr title="2008-07-15T22:05:58+00:00">22:05:58</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://rafb.net/p/6iK5d066.html\">http://rafb.net/p/6iK5d066.html\</a></q></li>
+<li class="message">[<a href="#T22:06:49" id="T22:06:49"><abbr title="2008-07-15T22:06:49+00:00">22:06:49</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>there are failures at the end of both</q></li>
+<li class="message">[<a href="#T22:07:58" id="T22:07:58"><abbr title="2008-07-15T22:07:58+00:00">22:07:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I hope Crofton|work gets it all into OE before I start packing tomorrow :)</q></li>
+<li class="message">[<a href="#T22:08:21" id="T22:08:21"><abbr title="2008-07-15T22:08:21+00:00">22:08:21</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>what target are we running on? beagle?</q></li>
+<li class="message">[<a href="#T22:08:37" id="T22:08:37"><abbr title="2008-07-15T22:08:37+00:00">22:08:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton is using sffsdr </q></li>
+<li class="message">[<a href="#T22:08:48" id="T22:08:48"><abbr title="2008-07-15T22:08:48+00:00">22:08:48</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>Davinci</q></li>
+<li class="message">[<a href="#T22:08:51" id="T22:08:51"><abbr title="2008-07-15T22:08:51+00:00">22:08:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: speaking of packing, what's your schedule for the weekend?</q></li>
+<li class="message">[<a href="#T22:09:15" id="T22:09:15"><abbr title="2008-07-15T22:09:15+00:00">22:09:15</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: I arrived on thursday, visit TI on friday and leave on monday</q></li>
+<li class="message">[<a href="#T22:09:53" id="T22:09:53"><abbr title="2008-07-15T22:09:53+00:00">22:09:53</abbr></a>] &lt;<cite>koen</cite>&gt; <q>-d somewhere</q></li>
+<li class="message">[<a href="#T22:09:55" id="T22:09:55"><abbr title="2008-07-15T22:09:55+00:00">22:09:55</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>Where is TI?</q></li>
+<li class="message">[<a href="#T22:10:01" id="T22:10:01"><abbr title="2008-07-15T22:10:01+00:00">22:10:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>northampton</q></li>
+<li class="message">[<a href="#T22:10:02" id="T22:10:02"><abbr title="2008-07-15T22:10:02+00:00">22:10:02</abbr></a>] &lt;<cite>koen</cite>&gt; <q>northampton</q></li>
+<li class="action">[<a href="#T22:10:09" id="T22:10:09"><abbr title="2008-07-15T22:10:09+00:00">22:10:09</abbr></a>] <span>* mru is in southampton</span></li>
+<li class="message">[<a href="#T22:10:24" id="T22:10:24"><abbr title="2008-07-15T22:10:24+00:00">22:10:24</abbr></a>] &lt;<cite>koen</cite>&gt; <q>southampton is a bit further away</q></li>
+<li class="message">[<a href="#T22:10:31" id="T22:10:31"><abbr title="2008-07-15T22:10:31+00:00">22:10:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: when do you suppose you'll be in wolverhampton?</q></li>
+<li class="message">[<a href="#T22:10:52" id="T22:10:52"><abbr title="2008-07-15T22:10:52+00:00">22:10:52</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>just up the road from where I was born</q></li>
+<li class="message">[<a href="#T22:10:56" id="T22:10:56"><abbr title="2008-07-15T22:10:56+00:00">22:10:56</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>sort off</q></li>
+<li class="message">[<a href="#T22:11:03" id="T22:11:03"><abbr title="2008-07-15T22:11:03+00:00">22:11:03</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>Crofton|work - what mem= have you got set</q></li>
+<li class="message">[<a href="#T22:11:12" id="T22:11:12"><abbr title="2008-07-15T22:11:12+00:00">22:11:12</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>mem=96m</q></li>
+<li class="message">[<a href="#T22:11:23" id="T22:11:23"><abbr title="2008-07-15T22:11:23+00:00">22:11:23</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>and your board has 256M?</q></li>
+<li class="message">[<a href="#T22:11:24" id="T22:11:24"><abbr title="2008-07-15T22:11:24+00:00">22:11:24</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: thursday evening till monday minus friday :) </q></li>
+<li class="message">[<a href="#T22:11:38" id="T22:11:38"><abbr title="2008-07-15T22:11:38+00:00">22:11:38</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>128M</q></li>
+<li class="message">[<a href="#T22:11:42" id="T22:11:42"><abbr title="2008-07-15T22:11:42+00:00">22:11:42</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>ah-ha</q></li>
+<li class="message">[<a href="#T22:11:55" id="T22:11:55"><abbr title="2008-07-15T22:11:55+00:00">22:11:55</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>you need to rebuild the examples if you have less that 256M</q></li>
+<li class="message">[<a href="#T22:11:57" id="T22:11:57"><abbr title="2008-07-15T22:11:57+00:00">22:11:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: I won't be there until friday evening some time</q></li>
+<li class="message">[<a href="#T22:12:09" id="T22:12:09"><abbr title="2008-07-15T22:12:09+00:00">22:12:09</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>arm or dsp?</q></li>
+<li class="message">[<a href="#T22:12:12" id="T22:12:12"><abbr title="2008-07-15T22:12:12+00:00">22:12:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'll have to see how early I can escape work</q></li>
+<li class="message">[<a href="#T22:12:14" id="T22:12:14"><abbr title="2008-07-15T22:12:14+00:00">22:12:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: RogerMonk should drop off me + lcds round that time</q></li>
+<li class="message">[<a href="#T22:13:03" id="T22:13:03"><abbr title="2008-07-15T22:13:03+00:00">22:13:03</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>mru - come and visit us in the office :) on Friday - business meeting?</q></li>
+<li class="message">[<a href="#T22:13:29" id="T22:13:29"><abbr title="2008-07-15T22:13:29+00:00">22:13:29</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>RogerMonk, what do i need to change and rebuild ....</q></li>
+<li class="message">[<a href="#T22:13:34" id="T22:13:34"><abbr title="2008-07-15T22:13:34+00:00">22:13:34</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>2 secs</q></li>
+<li class="message">[<a href="#T22:13:37" id="T22:13:37"><abbr title="2008-07-15T22:13:37+00:00">22:13:37</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>k</q></li>
+<li class="message">[<a href="#T22:13:51" id="T22:13:51"><abbr title="2008-07-15T22:13:51+00:00">22:13:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>RogerMonk: the TI office is next to the golf course? </q></li>
+<li class="message">[<a href="#T22:14:20" id="T22:14:20"><abbr title="2008-07-15T22:14:20+00:00">22:14:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>RogerMonk: I'm afraid I can't get away from work</q></li>
+<li class="message">[<a href="#T22:16:09" id="T22:16:09"><abbr title="2008-07-15T22:16:09+00:00">22:16:09</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>mru - no probs - another time.</q></li>
+<li class="message">[<a href="#T22:16:13" id="T22:16:13"><abbr title="2008-07-15T22:16:13+00:00">22:16:13</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>koen - yep</q></li>
+<li class="message">[<a href="#T22:17:01" id="T22:17:01"><abbr title="2008-07-15T22:17:01+00:00">22:17:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>maybe I can catch you in wolverhampton</q></li>
+<li class="message">[<a href="#T22:17:10" id="T22:17:10"><abbr title="2008-07-15T22:17:10+00:00">22:17:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what time do you reckon you'll be there?</q></li>
+<li class="message">[<a href="#T22:17:54" id="T22:17:54"><abbr title="2008-07-15T22:17:54+00:00">22:17:54</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>Crofton - config/all/CFG_Davinci.c</q></li>
+<li class="quit">[<a href="#T22:18:08" id="T22:18:08"><abbr title="2008-07-15T22:18:08+00:00">22:18:08</abbr></a>] <span>* prpplague (n=dave@mail.americanmicrosystems.com) Quit ("Leaving")</span></li>
+<li class="message">[<a href="#T22:18:25" id="T22:18:25"><abbr title="2008-07-15T22:18:25+00:00">22:18:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>is this like in married with child where one of the uptoms are in perpetual darkness? ;)</q></li>
+<li class="action">[<a href="#T22:18:37" id="T22:18:37"><abbr title="2008-07-15T22:18:37+00:00">22:18:37</abbr></a>] <span>* koen looks at RogerMonk </span></li>
+<li class="message">[<a href="#T22:19:13" id="T22:19:13"><abbr title="2008-07-15T22:19:13+00:00">22:19:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>this is 1.50</q></li>
+<li class="message">[<a href="#T22:19:29" id="T22:19:29"><abbr title="2008-07-15T22:19:29+00:00">22:19:29</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>CFG_Davinci_DM6446.c </q></li>
+<li class="message">[<a href="#T22:19:30" id="T22:19:30"><abbr title="2008-07-15T22:19:30+00:00">22:19:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: we should get you 1.51</q></li>
+<li class="action">[<a href="#T22:19:53" id="T22:19:53"><abbr title="2008-07-15T22:19:53+00:00">22:19:53</abbr></a>] <span>* koen should get some sleep</span></li>
+<li class="message">[<a href="#T22:19:55" id="T22:19:55"><abbr title="2008-07-15T22:19:55+00:00">22:19:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>'night all</q></li>
+<li class="message">[<a href="#T22:19:58" id="T22:19:58"><abbr title="2008-07-15T22:19:58+00:00">22:19:58</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>gn</q></li>
+<li class="message">[<a href="#T22:20:00" id="T22:20:00"><abbr title="2008-07-15T22:20:00+00:00">22:20:00</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>well, I am using 50, becuase some other peple might want to use this</q></li>
+<li class="message">[<a href="#T22:20:02" id="T22:20:02"><abbr title="2008-07-15T22:20:02+00:00">22:20:02</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>gn</q></li>
+<li class="message">[<a href="#T22:20:14" id="T22:20:14"><abbr title="2008-07-15T22:20:14+00:00">22:20:14</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I'll send you diffs, or files so you can diff</q></li>
+<li class="message">[<abbr title="2008-07-15T22:20:14+00:00">22:20:14</abbr>] &lt;<cite>RogerMonk</cite>&gt; <q>mru - not sure what time we'll be there - probably 7.30ish?</q></li>
+<li class="message">[<a href="#T22:20:39" id="T22:20:39"><abbr title="2008-07-15T22:20:39+00:00">22:20:39</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>Crofton- suggest we try this on DavinciEVM first with 256M</q></li>
+<li class="message">[<a href="#T22:20:46" id="T22:20:46"><abbr title="2008-07-15T22:20:46+00:00">22:20:46</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>you'll need to change dsp side too</q></li>
+<li class="message">[<a href="#T22:21:02" id="T22:21:02"><abbr title="2008-07-15T22:21:02+00:00">22:21:02</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I only have he sffsdr board .....</q></li>
+<li class="message">[<a href="#T22:21:05" id="T22:21:05"><abbr title="2008-07-15T22:21:05+00:00">22:21:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>RogerMonk: I should be there around that time too</q></li>
+<li class="message">[<a href="#T22:21:15" id="T22:21:15"><abbr title="2008-07-15T22:21:15+00:00">22:21:15</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>mru - sounds good - see you in the bar</q></li>
+<li class="message">[<a href="#T22:22:00" id="T22:22:00"><abbr title="2008-07-15T22:22:00+00:00">22:22:00</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>RogerMonk, let me extract some diffs for koen</q></li>
+<li class="message">[<a href="#T22:22:14" id="T22:22:14"><abbr title="2008-07-15T22:22:14+00:00">22:22:14</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>so he can see what I have done</q></li>
+<li class="message">[<a href="#T22:22:21" id="T22:22:21"><abbr title="2008-07-15T22:22:21+00:00">22:22:21</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>then we can look at this tomorrow</q></li>
+<li class="message">[<a href="#T22:22:28" id="T22:22:28"><abbr title="2008-07-15T22:22:28+00:00">22:22:28</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>do you have an OE recipe for this?</q></li>
+<li class="message">[<a href="#T22:22:37" id="T22:22:37"><abbr title="2008-07-15T22:22:37+00:00">22:22:37</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>only the GPP side</q></li>
+<li class="message">[<a href="#T22:22:44" id="T22:22:44"><abbr title="2008-07-15T22:22:44+00:00">22:22:44</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>what about the dsp side?</q></li>
+<li class="message">[<a href="#T22:22:48" id="T22:22:48"><abbr title="2008-07-15T22:22:48+00:00">22:22:48</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>not yet</q></li>
+<li class="message">[<a href="#T22:22:51" id="T22:22:51"><abbr title="2008-07-15T22:22:51+00:00">22:22:51</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>built by hand?</q></li>
+<li class="message">[<a href="#T22:22:55" id="T22:22:55"><abbr title="2008-07-15T22:22:55+00:00">22:22:55</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T22:23:14" id="T22:23:14"><abbr title="2008-07-15T22:23:14+00:00">22:23:14</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>but,  I built it :)</q></li>
+<li class="message">[<a href="#T22:23:33" id="T22:23:33"><abbr title="2008-07-15T22:23:33+00:00">22:23:33</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>ok - can you send me a rootfs and kernel binary that I can use on my davinci evm to test?</q></li>
+<li class="message">[<a href="#T22:23:41" id="T22:23:41"><abbr title="2008-07-15T22:23:41+00:00">22:23:41</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I'll extract my changes and maybe koen can make a recipe when he gets up</q></li>
+<li class="message">[<a href="#T22:24:03" id="T22:24:03"><abbr title="2008-07-15T22:24:03+00:00">22:24:03</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>a binary would be ok for now for me?</q></li>
+<li class="message">[<a href="#T22:24:27" id="T22:24:27"><abbr title="2008-07-15T22:24:27+00:00">22:24:27</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I'll do a build for the evm</q></li>
+<li class="message">[<a href="#T22:24:32" id="T22:24:32"><abbr title="2008-07-15T22:24:32+00:00">22:24:32</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>(great)</q></li>
+<li class="message">[<a href="#T22:24:35" id="T22:24:35"><abbr title="2008-07-15T22:24:35+00:00">22:24:35</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>it should go quickly</q></li>
+<li class="message">[<a href="#T22:24:39" id="T22:24:39"><abbr title="2008-07-15T22:24:39+00:00">22:24:39</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>thanks</q></li>
+<li class="message">[<a href="#T22:24:46" id="T22:24:46"><abbr title="2008-07-15T22:24:46+00:00">22:24:46</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>and upload to amethyst</q></li>
+<li class="message">[<a href="#T22:24:55" id="T22:24:55"><abbr title="2008-07-15T22:24:55+00:00">22:24:55</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the last upload was early May</q></li>
+<li class="message">[<a href="#T22:25:10" id="T22:25:10"><abbr title="2008-07-15T22:25:10+00:00">22:25:10</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>can you also tar up your kernel sources so I can build dsplink against it</q></li>
+<li class="message">[<a href="#T22:25:31" id="T22:25:31"><abbr title="2008-07-15T22:25:31+00:00">22:25:31</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the build should include dsplink</q></li>
+<li class="message">[<a href="#T22:25:48" id="T22:25:48"><abbr title="2008-07-15T22:25:48+00:00">22:25:48</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ok, let me work though a few things</q></li>
+<li class="message">[<a href="#T22:25:53" id="T22:25:53"><abbr title="2008-07-15T22:25:53+00:00">22:25:53</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>yep, but I may need to rebuild </q></li>
+<li class="message">[<a href="#T22:25:59" id="T22:25:59"><abbr title="2008-07-15T22:25:59+00:00">22:25:59</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I need to extract my changes</q></li>
+<li class="message">[<a href="#T22:26:27" id="T22:26:27"><abbr title="2008-07-15T22:26:27+00:00">22:26:27</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the kernel soources will be a git rev and defconfig that are in oe</q></li>
+<li class="message">[<a href="#T22:26:50" id="T22:26:50"><abbr title="2008-07-15T22:26:50+00:00">22:26:50</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>my wife will be home soon and it will be hard to get anything done ..</q></li>
+<li class="message">[<a href="#T22:27:07" id="T22:27:07"><abbr title="2008-07-15T22:27:07+00:00">22:27:07</abbr></a>] &lt;<cite>RogerMonk</cite>&gt; <q>I'd rather a tar of the source tree if possible? else it'll take me ages to build all the OE bits to go with it (I think)</q></li>
+<li class="message">[<a href="#T22:27:22" id="T22:27:22"><abbr title="2008-07-15T22:27:22+00:00">22:27:22</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I can try</q></li>
+<li class="message">[<a href="#T22:27:36" id="T22:27:36"><abbr title="2008-07-15T22:27:36+00:00">22:27:36</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>do a git checkout of the rev in the OE recipe</q></li>
+<li class="message">[<a href="#T22:27:42" id="T22:27:42"><abbr title="2008-07-15T22:27:42+00:00">22:27:42</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>and copy in the defconfig</q></li>
+<li class="message">[<a href="#T22:28:01" id="T22:28:01"><abbr title="2008-07-15T22:28:01+00:00">22:28:01</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>let me get started</q></li>
+<li class="quit">[<a href="#T22:31:52" id="T22:31:52"><abbr title="2008-07-15T22:31:52+00:00">22:31:52</abbr></a>] <span>* rsalveti (n=salveti@200.184.118.132) Quit (Read error: 113 (No route to host))</span></li>
+<li class="join">[<a href="#T22:43:57" id="T22:43:57"><abbr title="2008-07-15T22:43:57+00:00">22:43:57</abbr></a>] <span>* BThompson (n=BThompso@cpe-76-185-93-11.tx.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T22:44:43" id="T22:44:43"><abbr title="2008-07-15T22:44:43+00:00">22:44:43</abbr></a>] <span>* rsalveti (n=salveti@189.70.140.74) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:30:33" id="T23:30:33"><abbr title="2008-07-15T23:30:33+00:00">23:30:33</abbr></a>] <span>* jkridner|work (n=a0321898@nat/ti/x-6ccc2d77b59fc054) Quit ("Leaving.")</span></li>
+<li class="join">[<a href="#T23:34:22" id="T23:34:22"><abbr title="2008-07-15T23:34:22+00:00">23:34:22</abbr></a>] <span>* intu (n=intu@ubr1-201-91.ubr.tartu.stv.ee) has joined #beagle</span></li>
