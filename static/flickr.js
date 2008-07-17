@@ -35,3 +35,4 @@ zg_insert_badge = function()
      return false;
     }
  }
+
