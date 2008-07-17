@@ -38,8 +38,16 @@ function edit_action ()
    )
    {
     this.user = "" + session.user["name"];
-    this.body = req.data["body"];
-    this.lang = req.data["lang"];
+    var blocked_attribute = new Array();
+    blocked_attribute["uri"] = true;
+    blocked_attribute["submit"] = true;
+    blocked_attribute["user"] = true;
+    blocked_attribute["time"] = true;
+    for (var x in req.data)
+     {
+      if (!blocked_attribute[x])
+       this[x] = req.data[x];
+     }
     if (this.isTransient())
      {
       this.uri = req.data["uri"];
@@ -51,14 +59,12 @@ function edit_action ()
       app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
       this.uri = req.data["uri"];
      }
+    this.time = new Date();
     res.redirect(this.href());
     return;
    }
   res.data.title = this.uri + " - edit";
-  if (this.edit_skin)
-   res.data.body = this.renderSkinAsString(this.edit_skin);
-  else
-   res.data.body = this.renderSkinAsString("edit");
+  res.data.body = this.renderSkinAsString("edit");
   renderSkin("index");
  }
 
