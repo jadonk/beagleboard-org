@@ -3,6 +3,13 @@ function href_macro (param)
   return (this.href());
  }
 
+function uri_macro (param)
+ {
+  if (this.isTransient())
+   return ("");
+  return (this.uri);
+ }
+
 function id_macro (param)
  {
   return ("" + this._id);
@@ -20,11 +27,15 @@ function user_macro (param)
 
 function body_macro (param)
  {
+  if (this.isTransient())
+   return ("");
   return ("" + this.body);
  }
 
 function lang_macro (param)
  {
+  if (this.isTransient())
+   return ("");
   return ("" + this.lang);
  }
 
@@ -46,3 +57,8 @@ function breadcrumb_macro (param)
   return (promptString);
  }
 
+function list_macro (param)
+ {
+  if (this.list)
+   return (this.listBody());
+ }

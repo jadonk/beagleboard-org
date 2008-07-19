@@ -1,39 +1,19 @@
 function main_action ()
  {
+  if (this.isTransient())
+   {
+    return (this.notfound_action());
+   }
   res.handlers["User"] = User();
   res.data.title = this.uri;
-  res.data.body = this.renderSkinAsString("page");
-  if (this.uri == "project")
-   {
-    res.data.title = this.name;
-    res.data.body += "<h1>Current list of projects</h1>";
-    res.data.body += "<ul>\n";
-    try
-     {
-      var orderedByDate = root.get("project").getOrderedView("time desc");
-      var collection = orderedByDate.list();
-     }
-    catch (ex)
-     {
-      var collection = [];
-      res.data.body += "<li>No projects currently registered</li>\n";
-     }
-    for (var i in collection)
-     {
-      if (collection[i] instanceof Project)
-       res.data.body +=
-        '<li><a href="/project/' + collection[i].uri + '">'
-        + collection[i].uri
-        + '</a>&nbsp;&nbsp;&nbsp;&nbsp;<small>submitted by: '
-        + collection[i].user
-        + '</small></li>\n';
-     }
-    res.data.body += "</ul>\n";
-   }
+  if (this.render_skin)
+   res.data.body = this.renderSkinAsString(this.render_skin);
+  else
+   res.data.body = this.renderSkinAsString("page");
   renderSkin("index");
  }
 
-function constructor (user, uri, body)
+function constructor(user, uri, body)
  {
   this.user = "" + user;
   this.uri = "" + uri;
@@ -45,9 +25,10 @@ function edit_action ()
  {
   if (!session.user || !session.user["name"])
    {
-    res.redirect(root.href("login") + "?target=" + this.uri);
+    res.redirect(root.href("login") + "?target=" + this.href());
     return;
    }
+  res.handlers["User"] = User();
 
   if
    (
@@ -57,61 +38,35 @@ function edit_action ()
    )
    {
     this.user = "" + session.user["name"];
-    this.body = req.data["body"];
-    app.log("Replacing '" + this.uri + "'");
-    res.redirect(this.href());
-    return;
-   }
-
-  res.handlers["User"] = User();
-  res.data.action = "edit";
-  res.data.title = this.uri;
-  res.data.body = this.renderSkinAsString("edit");
-  renderSkin("index");
- }
-
-function create_action ()
- {
-  if 
-   (
-    !session.user 
-    || !session.user["name"]
-   ) 
-   {
-    res.redirect(root.href("login") + "?target=default");
-    return;
-   }
-
-  if 
-   (
-    req.data["submit"]
-    && req.data["uri"]
-    && req.data["body"]
-    && this.cleanBody()
-   )
-   {
-    var x = new Page
-     (
-      session.user["name"],
-      req.data["uri"],
-      req.data["body"]
-     );
-    if (this.uri == "default")
+    var blocked_attribute = 
      {
-      root.add(x);
+      uri: true,
+      submit: true,
+      user: true,
+      time: true
+     };
+    for (var x in req.data)
+     {
+      if (!blocked_attribute[x])
+       this[x] = req.data[x];
+     }
+    if (this.isTransient())
+     {
+      this.uri = req.data["uri"];
+      app.log("Creating '" + this.uri + "'");
+      this.pseudoParent.add(this);
      }
     else
      {
-      this.add(x);
+      app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
+      this.uri = req.data["uri"];
      }
-    res.redirect(x.href());
+    this.time = new Date();
+    res.redirect(this.href());
     return;
    }
-
-  res.handlers["User"] = User();
-  res.data.action = "create";
-  res.data.title = "Create new page";
-  res.data.body = this.renderSkinAsString("create");
+  res.data.title = this.uri + " - edit";
+  res.data.body = this.renderSkinAsString("edit");
   renderSkin("index");
  }
 
@@ -155,5 +110,52 @@ function cleanBody()
    }
 
   return (false);
+ }
+
+function href (action)
+ {
+  if (this.pseudoParent && this.isTransient())
+   {
+    return (this.pseudoParent.href() + this.uri + '/' + (action || ''));
+   }
+  return HopObject.prototype.href.apply(this, arguments);
+ }
+
+function notfound_action ()
+ {
+  res.handlers["User"] = User();
+  res.data.body = "";
+
+  try
+   {
+    var x = root.get("notfound");
+    res.data.title = "" + x.uri;
+    res.data.body += "" + x.body;
+   }
+  catch(e)
+   {
+    res.data.title = "Page not found";
+    res.data.body += "<h1>Error: Page not found</h1>";
+    res.data.body += "<p>The requested page does not currently exist.</p>";
+   }
+
+  renderSkin("index");
+ }
+
+function getChildElement (name)
+ {
+  var x = this.get(name);
+  if (!x)
+   {
+    x = root.get("default").get(name);
+   }
+  if (!x)
+   {
+    var notfound_body = "<h1>Error: Page not found</h1>";
+    notfound_body += "<p>The requested page does not currently exist.</p>";
+    x = new Page("system", name, notfound_body);
+    x.pseudoParent = this;
+   }
+  return (x);
  }
 

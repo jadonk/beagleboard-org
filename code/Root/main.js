@@ -37,63 +37,30 @@ function info_action ()
   renderSkin("index");
  }
 
-function notfound_action ()
+function getChildElement (name)
  {
-  res.data.body = "";
-  res.handlers["User"] = User();
-
-  try
+  var x = this.get(name);
+  if (!x)
    {
-    var x = root.get("notfound");
-    res.data.title = "" + x.uri;
-    res.data.body = "" + x.body;
+    x = root.get("default").get(name);
    }
-  catch(e)
+  if (!x)
    {
-    res.data.title = "Page not found";
-    res.data.body += "<h1>Error: Page not found</h1>";
-    res.data.body += "<p>The requested page does not currently exist.</p>";
+    var notfound_body = "<h1>Error: Page not found</h1>";
+    notfound_body += "<p>The requested page does not currently exist.</p>";
+    x = new Page("system", name, notfound_body);
+    x.pseudoParent = this;
    }
-
-  renderSkin("index");
+  return (x);
  }
 
-function join_project_action ()
+function login_action ()
  {
-  if
-   (
-    !session.user
-    || !session.user["name"]
-   )
+  if (req.data["target"])
    {
-    res.redirect(root.href("login") + "?target=join_project");
-    return;
+    res.redirect(req.data["target"]);
    }
-  res.handlers["User"] = User();
-
-  if (req.data.submit && req.data["pname"] != "")
-   {
-     var x =
-      new Project("system",
-       req.data["pname"],
-       req.data["pfirstname"] + " " + req.data["plastname"],
-       req.data["email"],
-       req.data["pabout"],
-       req.data["pdesc"],
-       req.data["pversion"],
-       req.data["phomepage"],
-       req.data["prepository"],
-       req.data["prssfeed"],
-       req.data["pdownload"],
-       req.data["pcategory"],
-       req.data["pplatform"]
-      );
-
-     root.get("project").add(x);
-     res.data.title = "Join Project";
-     res.data.body = "Project has been added.";
-     renderSkin("index");
-    }
-   else
-    renderSkin("register_p");
+  var x = root.get("login");
+  return (x.main_action());
  }
+
