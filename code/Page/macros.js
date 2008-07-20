@@ -57,3 +57,8 @@ function breadcrumb_macro (param)
   return (promptString);
  }
 
+function list_macro (param)
+ {
+  if (this.list)
+   return (this.listBody());
+ }

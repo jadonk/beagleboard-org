@@ -38,11 +38,13 @@ function edit_action ()
    )
    {
     this.user = "" + session.user["name"];
-    var blocked_attribute = new Array();
-    blocked_attribute["uri"] = true;
-    blocked_attribute["submit"] = true;
-    blocked_attribute["user"] = true;
-    blocked_attribute["time"] = true;
+    var blocked_attribute = 
+     {
+      uri: true,
+      submit: true,
+      user: true,
+      time: true
+     };
     for (var x in req.data)
      {
       if (!blocked_attribute[x])
