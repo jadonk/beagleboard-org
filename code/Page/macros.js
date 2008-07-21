@@ -59,6 +59,6 @@ function breadcrumb_macro (param)
 
 function list_macro (param)
  {
-  if (this.list)
+  if (this.list && this.list_children)
    return (this.listBody());
  }
