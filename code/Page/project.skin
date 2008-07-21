@@ -1,6 +1,49 @@
-URI: <% this.uri %><br />
-Project Name: <% this.pname %><br />
-Project Owner: <% this.ownername %><br />
-Summary: <% this.shortdesc %><br />
-URL: <a href="<% this.homepage %>"><% this.homepage %></a><br />
-Submitted by: <% this.user %><br />
+<style type="text/css">
+  table.tbl1
+  {
+     background-color:#FFFFFF;
+  }
+  table.tbl1 td
+  {
+     background-color:#e7e7e7;
+  }
+
+</style>
+
+<h2><% this.pname %></h2>
+
+<h2><small><b>Project Information</b></small></h2>
+
+<table class="tbl1" cellpadding="7" cellspacing="2">
+ <tr>
+    <td valign="top" align="right">Shortname/URI</td>
+	<td><% this.uri %></td>
+ </tr>
+ <tr>
+    <td valign="top" align="right">About/Summary</td>
+	<td><% this.htmlencode param="this.shortdesc" %></td>
+ </tr>
+ <tr>
+    <td valign="top" align="right">Full Description</td>
+	<td><% this.htmlencode param="this.desc" %></td>
+ </tr>
+ <% this.showProjectInfoTbl %>
+</table>
+
+<h2><small><b>Project Members</b></small></h2>
+ <% this.showProjectMembers %>
+
+<table class="tbl1" cellpadding="5">
+ <tr>
+    <td valign="top" align="right"><small>Projected created on: </small></td>
+	<td><small><% this.time %></small></td>
+ </tr>
+ <tr>
+    <td valign="top" align="right"><small>Submitted by: </small></td>
+	<td><small><a href="<% this.registrant %>"><% this.registrant %></a></small></td>
+ </tr>
+ <tr>
+    <td valign="top" align="right"><small>Last updated on: </small></td>
+	<td><small><% this.updatetime %></small></td>
+ </tr>
+</table>
