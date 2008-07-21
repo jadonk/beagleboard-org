@@ -66,7 +66,10 @@ function edit_action ()
     return;
    }
   res.data.title = this.uri + " - edit";
-  res.data.body = this.renderSkinAsString("edit");
+  if (this.edit_skin)
+   res.data.body = this.renderSkinAsString(this.edit_skin);
+  else
+   res.data.body = this.renderSkinAsString("edit");
   renderSkin("index");
  }
 

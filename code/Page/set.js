@@ -6,4 +6,5 @@ function set_action ()
    this.render_skin = req.data["render_skin"];
   if (req.data["edit_skin"])
    this.edit_skin = req.data["edit_skin"];
+  res.redirect(this.href());
  }
