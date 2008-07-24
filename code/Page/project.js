@@ -180,7 +180,7 @@ function showProjectInfoTbl_macro (param)
    }
 
   if (""+this.homepage != "")
-   str +=  "<tr>\n" +
+   str += "<tr>\n"
     + "  <td valign=\"top\" align=\"right\">Homepage</td>\n"
     + "  <td><a href=\"" + fixUrl(this.homepage) + "\" target=\"_blank\">"
     + fixUrl(this.homepage) + "</a></td>"
