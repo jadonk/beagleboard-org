@@ -1,40 +1,45 @@
 <style type="text/css">
-  table.membertbl 
-  {
-     border-style:solid; 
-	 border-color: #C95701;
-     display:none;
-		 margin-bottom:20px
-  }
+ table.membertbl 
+ {
+  border-style:solid; 
+  border-color:#C95701;
+  display:none;
+  margin-bottom:20px;
+ }
 </style>
 
 <script type="text/javascript">
-  numMembers = <% this.numMembers %>;
-  function SynchronizeSelection(sel, val) {
-     for (i=0;i<sel.options.length;i++) {
-	    if (sel.options[i].value == val)
-		  sel.selectedIndex = i;
-	 }
-  }
-  function RemoveMember(userid,name,role)
+ numMembers = <% this.numMembers %>;
+ function SynchronizeSelection (sel, val)
   {
-    userid.value = "";
-	name.value = "";
-	role.selectedIndex = 0;
+   for (i=0;i<sel.options.length;i++)
+    {
+     if (sel.options[i].value == val)
+      sel.selectedIndex = i;
+    }
   }
-  function AddMember()
+ function RemoveMember (userid,name,role)
   {
-    var objList;
-    nCurMember = 0;
-
-    if (numMembers >= 10) return;
-    objList = document.theForm.getElementsByTagName("table");
-    for (i=0;i<objList.length;i++) {
-			if (objList[i].className == "membertbl") {
-				if (nCurMember++ < numMembers) objList[i].style.display="block";
+   userid.value = "";
+   name.value = "";
+   role.selectedIndex = 0;
+  }
+ function AddMember()
+  {
+   var objList;
+   nCurMember = 0;
+   if (numMembers >= 10)
+    return;
+   objList = document.theForm.getElementsByTagName("table");
+   for (i=0;i<objList.length;i++)
+    {
+     if (objList[i].className == "membertbl")
+      {
+       if (nCurMember++ < numMembers)
+        objList[i].style.display="block";
       }
     }
-	  numMembers++;
+   numMembers++;
   }  
 </script>
 
@@ -49,7 +54,7 @@
      <tr>
       <td align="right" width="250"><font color="orange">*</font>Registrant</td>
       <td><input name="registrant" type="text" size="50" value="<% this.registrant %>" readonly style="color:#CCC" />
-	  </td>
+      </td>
      </tr>
      <tr>
       <td align="right"><font color="orange">*</font>Project shortname/URI</td>
@@ -90,15 +95,16 @@
      <tr>
       <td align="right">Repository</td>
       <td>
-	     <select name="repository">
-		   <option value=""></option>
-		   <option value="CVS">CVS</option>
-		   <option value="Bitkeeper">Bitkeeper</option>
-		   <option value="Subversion">Subversion</option>
-		   <option value="Other">Other</option>
-		 </select>
-		 <script>SynchronizeSelection(document.theForm.repository,"<% this.repository %>")</script>
-	  </td>
+       <select name="repository">
+        <option value=""></option>
+        <option value="CVS">CVS</option>
+        <option value="Bitkeeper">Bitkeeper</option>
+        <option value="Subversion">Subversion</option>
+        <option value="GIT">GIT</option>
+        <option value="Other">Other</option>
+       </select>
+       <script>SynchronizeSelection(document.theForm.repository,"<% this.repository %>")</script>
+      </td>
      </tr>
      <tr>
       <td align="right">Repository URL</td>
@@ -106,306 +112,13 @@
      </tr>
     </table>
 
-    <h2>Project Members</h2>
-    <p><a href="#" onClick="AddMember();return false;">Add another member</a></p>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid1">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid1,"<% this.memberuserid1 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername1" type="text" size="30" value="<% this.membername1 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole1">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole1,"<% this.memberrole1 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid1,document.theForm.membername1,document.theForm.memberrole1);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid2">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid2,"<% this.memberuserid2 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername2" type="text" size="30" value="<% this.membername2 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole2">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole2,"<% this.memberrole2 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid2,document.theForm.membername2,document.theForm.memberrole2);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid3">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid3,"<% this.memberuserid3 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername3" type="text" size="30" value="<% this.membername3 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole3">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole3,"<% this.memberrole3 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid3,document.theForm.membername3,document.theForm.memberrole3);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid4">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid4,"<% this.memberuserid4 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername4" type="text" size="30" value="<% this.membername4 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole4">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole4,"<% this.memberrole4 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid4,document.theForm.membername4,document.theForm.memberrole4);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid5">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid5,"<% this.memberuserid5 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername5" type="text" size="30" value="<% this.membername5 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole5">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole5,"<% this.memberrole5 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid5,document.theForm.membername5,document.theForm.memberrole5);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid6">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid6,"<% this.memberuserid6 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername6" type="text" size="30" value="<% this.membername6 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole6">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole6,"<% this.memberrole6 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid6,document.theForm.membername6,document.theForm.memberrole6);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid7">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid7,"<% this.memberuserid7 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername7" type="text" size="30" value="<% this.membername7 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole7">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole7,"<% this.memberrole7 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid7,document.theForm.membername7,document.theForm.memberrole7);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid8">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid8,"<% this.memberuserid8 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername8" type="text" size="30" value="<% this.membername8 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole8">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole8,"<% this.memberrole8 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid8,document.theForm.membername8,document.theForm.memberrole8);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid9">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid9,"<% this.memberuserid9 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername9" type="text" size="30" value="<% this.membername9 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole9">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole9,"<% this.memberrole9 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid9,document.theForm.membername9,document.theForm.memberrole9);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-
-    <table class="membertbl" cellpadding="3" cellspacing="0">
-	  <tr>
-	    <td>UserId</td>
-		  <td><select name="memberuserid10">
-          <% this.userslist %>
-        </select>
-		    <script>SynchronizeSelection(document.theForm.memberuserid10,"<% this.memberuserid10 %>")</script>
-      </td>
-
-	    <td>Name</td>
-		  <td><input name="membername10" type="text" size="30" value="<% this.membername10 %>" /></td>
-	  </tr>
-	  <tr>
-	    <td>Select Role</td>
-		  <td colspan="2">
-	     <select name="memberrole10">
-		   <option value="Owner/Maintainer">Owner/Maintainer</option>
-		   <option value="Developer">Developer</option>
-		   <option value="Documenter">Documenter</option>
-		   <option value="Translator">Translator</option>
-		   <option value="Tester">Tester</option>
-		   <option value="Helper">Helper</option>
-		 </select>
-		  <script>SynchronizeSelection(document.theForm.memberrole10,"<% this.memberrole10 %>")</script>
-		  </td>
-      <td align="right"><a href="#" onClick="RemoveMember(document.theForm.memberuserid10,document.theForm.membername10,document.theForm.memberrole10);return false;">remove this member</a></td>
-	  </tr>
-	</table>
-	
-	<table width="800" align="center">
-	  <tr>
-	    <td><input name="submit" type="submit" value="Save" /></td><td><input type="button" value="Cancel" onClick="self.location='/project'" /></td>
-	  </tr>	
-	</table>
-	<script>if (numMembers==0) numMembers++;AddMember();</script>
+    <table width="800" align="center">
+     <tr>
+      <td><input name="submit" type="submit" value="Save" /></td><td><input type="button" value="Cancel" onClick="self.location='/project'" /></td>
+     </tr>	
+    </table>
    </form>
   </td>
  </tr>
 </table>
+
