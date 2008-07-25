@@ -61,6 +61,8 @@ function edit_action ()
       app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
       this.uri = req.data["uri"];
      }
+    var runtime = Packages.java.lang.Runtime.getRuntime();
+    runtime.exec("scripts/beagle/edit.sh");
     this.time = new Date();
     res.redirect(this.href());
     return;
