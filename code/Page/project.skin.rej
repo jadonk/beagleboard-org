@@ -1,0 +1,43 @@
+***************
+*** 1,6 ****
+- URI: <% this.uri %><br />
+- Project Name: <% this.pname %><br />
+- Project Owner: <% this.ownername %><br />
+- Summary: <% this.shortdesc %><br />
+- URL: <a href="<% this.homepage %>"><% this.homepage %></a><br />
+- Submitted by: <% this.user %><br />
+--- 1,34 ----
++ <h1><% this.pname %></h1>
++ 
++ <h2>Project Information</h2>
++ <br />
++ <table class="tblstandard">
++  <tr>
++     <td valign="top" class="tbl3" align="right">Shortname/URI</td>
++ 	<td class="tbl5" width="400"><% this.uri %></td>
++  </tr>
++  <tr>
++     <td valign="top" class="tbl3" align="right">About/Summary</td>
++ 	<td class="tbl5"><% this.htmlencode param="this.shortdesc" %></td>
++  </tr>
++  <tr>
++     <td valign="top" class="tbl3" align="right">Full Description</td>
++ 	<td class="tbl5"><% this.htmlencode param="this.desc" %></td>
++  </tr>
++  <% this.showProjectInfoTbl %>
++ </table>
++ <br /><br />
++ <table class="tblstandard">
++  <tr>
++     <td valign="top" class="tbl4" align="right"><small>Projected created on: </small></td>
++ 	<td width="400"><small><% this.time %></small></td>
++  </tr>
++  <tr>
++     <td valign="top" class="tbl4" align="right"><small>Submitted by: </small></td>
++ 	<td><small><a href="<% this.registrant %>"><% this.registrant %></a></small></td>
++  </tr>
++  <tr>
++     <td valign="top" class="tbl4" align="right"><small>Last updated on: </small></td>
++ 	<td><small><% this.updatetime %></small></td>
++  </tr>
++ </table>

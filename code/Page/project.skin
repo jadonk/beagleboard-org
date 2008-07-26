@@ -1,48 +1,33 @@
-<style type="text/css">
- table.tbl1
-  {
-   background-color:#FFFFFF;
-  }
- table.tbl1 td
- {
-  background-color:#e7e7e7;
- }
-</style>
-
 <h1><% this.pname %></h1>
-
-<h2><small><b>Project Information</b></small></h2>
-
-<table class="tbl1" cellpadding="7" cellspacing="2">
+<h2>Project Information</h2>
+<br />
+<table class="tblstandard">
  <tr>
-  <td valign="top" align="right">Shortname/URI</td>
-  <td><% this.uri %></td>
+  <td valign="top" class="tbl3" align="right">Shortname/URI</td>
+  <td class="tbl5" width="400"><% this.uri %></td>
  </tr>
  <tr>
-  <td valign="top" align="right">About/Summary</td>
-  <td><% this.htmlencode param="this.shortdesc" %></td>
+  <td valign="top" class="tbl3" align="right">About/Summary</td>
+  <td class="tbl5"><% this.htmlencode param="this.shortdesc" %></td>
  </tr>
  <tr>
   <td valign="top" align="right">Full Description</td>
-  <td><% this.htmlencode param="this.desc" %></td>
+  <td class="tbl5"><% this.body %></td>
  </tr>
  <% this.showProjectInfoTbl %>
 </table>
-
-<h2><small><b>Project Members</b></small></h2>
-<% this.showProjectMembers %>
-
-<table class="tbl1" cellpadding="5">
+<br /><br />
+<table class="tblstandard">
  <tr>
-  <td valign="top" align="right"><small>Projected created on: </small></td>
-  <td><small><% this.time %></small></td>
+  <td valign="top" class="tbl4" align="right"><small>Projected created on: </small></td>
+  <td width="400"><small><% this.time %></small></td>
  </tr>
  <tr>
-  <td valign="top" align="right"><small>Submitted by: </small></td>
+  <td valign="top" class="tbl4" align="right"><small>Submitted by: </small></td>
   <td><small><a href="<% this.registrant %>"><% this.registrant %></a></small></td>
  </tr>
  <tr>
-  <td valign="top" align="right"><small>Last updated on: </small></td>
+  <td valign="top" class="tbl4" align="right"><small>Last updated on: </small></td>
   <td><small><% this.updatetime %></small></td>
  </tr>
 </table>
