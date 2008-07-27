@@ -82,7 +82,7 @@ function edit_project_action ()
     res.redirect(this.href());
     return;
    }
-  else 
+  else if(req.data["submit"])
    {
     if (!req.data["desc"]) this.errmsg = "* Full Description is a required field";
     if (!req.data["shortdesc"]) this.errmsg = "* Short Description/Summary is a required field";

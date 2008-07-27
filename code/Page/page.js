@@ -133,9 +133,10 @@ function notfound_action ()
 
   try
    {
-    var x = root.get("notfound");
+    var x = root.get("login");
     res.data.title = "" + x.uri;
     res.data.body += "" + x.body;
+    res.data.lang += "" + x.lang;
    }
   catch(e)
    {
