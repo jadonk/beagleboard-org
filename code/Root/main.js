@@ -55,11 +55,8 @@ function getChildElement (name)
 
 function login_action ()
  {
-  if (req.data["target"])
-   {
-    res.redirect(req.data["target"]);
-   }
-  var x = root.get("login");
-  return (x.main_action());
+  var user = User();
+  res.handlers["User"] = user;
+  return (user.login_action())
  }
 
