@@ -187,7 +187,7 @@ function prompt_macro (param)
 
   updateUserState();
 
-  var promptString = "";
+  var promptString = '<div class="login">';
   var requestURL = ("" + req.getServletRequest().getRequestURL()).replace(/\/$/, "");
   if(session.user)
    {
@@ -204,10 +204,10 @@ function prompt_macro (param)
       if (uri != "")
        uri = "/" + uri + "/";
       promptString += ' | <a href="';
-      if (uri != "")
-       promptString += uri + "edit";
-      else
+      if (uri == "")
        promptString += "/default/edit";
+      else
+       promptString += uri + "edit";
       promptString += '">Edit</a>';
       promptString += ' | <a href="';
       promptString += uri + "new/edit";
@@ -222,6 +222,7 @@ function prompt_macro (param)
     promptString += '  </form>\n';
     promptString += ' | <a href="/register">Register</a>';
    }
+  promptString += '</div>';
   return (promptString);
  }
 
