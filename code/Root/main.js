@@ -53,10 +53,3 @@ function getChildElement (name)
   return (x);
  }
 
-function login_action ()
- {
-  var user = User();
-  res.handlers["User"] = user;
-  return (user.login_action())
- }
-
