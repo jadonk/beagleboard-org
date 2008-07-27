@@ -191,7 +191,6 @@ function prompt_macro (param)
   var requestURL = ("" + req.getServletRequest().getRequestURL()).replace(/\/$/, "");
   if(session.user)
    {
-    promptString += '<p>';
     promptString += session.user["name"];
     promptString += ' <form method="post"><input type="hidden" name="logout" value="true"></input><button type="submit">Logout</button>'
     promptString += ' </form>';
@@ -204,27 +203,24 @@ function prompt_macro (param)
       var uri = req.path.replace(/\/$/,"");
       if (uri != "")
        uri = "/" + uri + "/";
-      promptString += ' &#0149 <a href="';
+      promptString += ' | <a href="';
       if (uri != "")
        promptString += uri + "edit";
       else
        promptString += "/default/edit";
       promptString += '">Edit</a>';
-      promptString += ' &#0149 <a href="';
+      promptString += ' | <a href="';
       promptString += uri + "new/edit";
       promptString += '">Create</a>';
      }
-    promptString += '</p>\n';
    }
   else
    {
-    promptString += '<p>';
     promptString += '  <form method="post" action="">\n';
     promptString += '   <input type="text" id="openid" name="openid_url"></input>\n';
     promptString += '   <button type="submit">Login</button>\n';
     promptString += '  </form>\n';
-    promptString += ' &#0149 <a href="/register">Register</a>';
-    promptString += '</p>\n';
+    promptString += ' | <a href="/register">Register</a>';
    }
   return (promptString);
  }
