@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="212" name="hardware" prototype="Page" created="1215204791002" lastModified="1217182009708">
+  <hopobject id="212" name="hardware" prototype="Page" created="1215204791002" lastModified="1217182505913">
   <hop:parent idref="0" prototyperef="Root"/>
     <http_browser>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1</http_browser>
     <lang>en-us</lang>
     <uri>hardware</uri>
     <http_host>beagleboard.org:8081</http_host>
-    <time type="date">27.07.2008 13:06:49 CDT</time>
+    <time type="date">27.07.2008 13:15:05 CDT</time>
     <prev idref="211" prototyperef="Page"/>
     <http_remotehost>76.31.18.64</http_remotehost>
     <hopsession>76.31.18.adyuyki50spn</hopsession>
@@ -56,7 +56,32 @@
    &lt;a href=&quot;http://elinux.org/BeagleBoard&quot;&gt;eLinux Wiki Entry&lt;/a&gt;
   &lt;/li&gt;
  &lt;/ul&gt;
- &lt;script type=&quot;text/javascript&quot; src=&quot;http://del.icio.us/feeds/js/jadon/beagleboard%2Bperipheral%2Bverified?count=100;title=Verified%20BeagleBoard%20Peripherals;bullet=%E2%80%A2&quot;&gt;&amp;lt;a href=&quot;http://del.icio.us/jadon/beagleboard%2Bperipheral%2Bverified&quot;&gt;Verified BeagleBoard Peripherals&amp;lt;/a&gt;&lt;/script&gt;
+ &lt;div id=&quot;container&quot;&gt;
+  &lt;h2&gt;
+   &lt;a href=&quot;http://del.icio.us/jadon/beagleboard+peripheral+verified&quot;&gt;Verified Beagle Board Peripherals&lt;/a&gt;
+  &lt;/h2&gt;
+ &lt;/div&gt;
+ &lt;script type=&quot;text/javascript&quot; src=&quot;http://del.icio.us/feeds/json/jadon/beagleboard+peripheral+verified?count=20&quot;/&gt;
+ &lt;script type=&quot;text/javascript&quot;&gt;function showImage(img){ return (function(){ img.style.display=&apos;inline&apos;; }) }
+
+    var ul = document.createElement(&apos;ul&apos;)
+    for (var i=0, post; post = Delicious.posts[i]; i++) {
+        var li = document.createElement(&apos;li&apos;)
+        var a = document.createElement(&apos;a&apos;)
+        a.style.marginLeft = &apos;20px&apos;
+        var img = document.createElement(&apos;img&apos;)
+        img.style.position = &apos;absolute&apos;
+        img.style.display = &apos;none&apos;
+        img.height = img.width = 16
+        img.src = post.u.split(&apos;/&apos;).splice(0,3).join(&apos;/&apos;)+&apos;/favicon.ico&apos;
+        img.onload = showImage(img);
+        a.setAttribute(&apos;href&apos;, post.u)
+        a.appendChild(document.createTextNode(post.d))
+        li.appendChild(img)
+        li.appendChild(a)
+        ul.appendChild(li)
+    }
+    document.getElementById(&apos;container&apos;).appendChild(ul)&lt;/script&gt;
  &lt;p&gt;
   For an unverified list of peripherals, visit
   &lt;a href=&quot;http://del.icio.us/tag/beagleboard%2Bperipheral&quot;&gt;del.icio.us/tag/beagleboard+peripheral&lt;/a&gt;
