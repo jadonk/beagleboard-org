@@ -40,7 +40,6 @@ function edit_project_action ()
 
   this.uri = cleanField(this.uri);
   this.lang = cleanField(this.lang);
-  this.registrant = cleanField(this.registrant);
   this.pname = cleanField(this.pname);
   this.shortdesc = cleanField(this.shortdesc);
   this.homepage = cleanField(this.homepage);
@@ -52,11 +51,10 @@ function edit_project_action ()
     && req.data["uri"]
     && req.data["body"]
     && req.data["pname"]
-    && req.data["registrant"]
     && req.data["shortdesc"]
    )
    {
-    this.user = "" + sessin.user["name"];
+    this.user = "" + session.user["name"];
     this.time = new Date();
     this.body = req.data["body"];
     this.lang = req.data["lang"];
@@ -70,7 +68,7 @@ function edit_project_action ()
     if (this.isTransient())
      {
       this.uri = req.data["uri"];
-      this.registrant = req.data["registrant"];
+      this.registrant = "" + session.user["name"];
       app.log("Creating '" + this.uri + "'");
       this.pseudoParent.add(this);
      }
@@ -84,11 +82,9 @@ function edit_project_action ()
    }
   else if(req.data["submit"])
    {
-    if (!req.data["desc"]) this.errmsg = "* Full Description is a required field";
     if (!req.data["shortdesc"]) this.errmsg = "* Short Description/Summary is a required field";
     if (!req.data["pname"]) this.errmsg = "* Project Name is a required field";
     if (!req.data["uri"]) this.errmsg = "* Project Shortname/URI is a required field";
-    if (!req.data["registrant"]) this.errmsg = "* Registrant is a required field";
    }
   res.data.title = this.uri + " - edit_project";
   if (this.edit_skin)
