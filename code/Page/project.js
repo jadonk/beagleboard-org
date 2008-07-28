@@ -8,6 +8,11 @@ function homepage_macro (param)
   return ("" + this.homepage);
  }
 
+function updatetime_macro (param)
+ {
+  return ("" + this.updatetime);
+ }
+
 function shortdesc_macro (param)
  {
   return ("" + this.shortdesc);
