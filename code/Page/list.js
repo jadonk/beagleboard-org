@@ -32,7 +32,7 @@ function listBody ()
   body += "<ul>\n";
   for (var i in collection)
    {
-    if (collection[i].render_skin = "project")
+    if (collection[i].render_skin == "project")
      {
       body +=
        '<li><a href="' + collection[i].href() + '">'
