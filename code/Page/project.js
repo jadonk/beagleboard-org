@@ -55,7 +55,6 @@ function edit_project_action ()
    )
    {
     this.user = "" + session.user["name"];
-    this.time = new Date();
     this.body = req.data["body"];
     this.lang = req.data["lang"];
     this.pname = req.data["pname"];
@@ -67,6 +66,7 @@ function edit_project_action ()
     this.edit_skin = "edit_project";
     if (this.isTransient())
      {
+      this.time = new Date();
       this.uri = req.data["uri"];
       this.registrant = "" + session.user["name"];
       app.log("Creating '" + this.uri + "'");
@@ -82,9 +82,10 @@ function edit_project_action ()
    }
   else if(req.data["submit"])
    {
-    if (!req.data["shortdesc"]) this.errmsg = "* Short Description/Summary is a required field";
-    if (!req.data["pname"]) this.errmsg = "* Project Name is a required field";
-    if (!req.data["uri"]) this.errmsg = "* Project Shortname/URI is a required field";
+    if (!req.data["body"]) this.errmsg += "* Full Description is a required field<br />\n";
+    if (!req.data["shortdesc"]) this.errmsg += "* About/Summary is a required field<br />\n";
+    if (!req.data["pname"]) this.errmsg += "* Project Name is a required field<br />\n";
+    if (!req.data["uri"]) this.errmsg += "* Project Shortname/URI is a required field<br />\n";
    }
   res.data.title = this.uri + " - edit_project";
   if (this.edit_skin)
