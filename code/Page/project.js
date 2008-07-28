@@ -72,7 +72,6 @@ function edit_project_action ()
     if (this.isTransient())
      {
       this.time = new Date();
-      this.updatetime = new Date();
       this.uri = req.data["uri"];
       this.registrant = "" + session.user["name"];
       app.log("Creating '" + this.uri + "'");
