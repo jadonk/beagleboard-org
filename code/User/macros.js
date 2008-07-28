@@ -154,17 +154,17 @@ function prompt_macro (param)
       if (verified != null)
        {
         var name = "" + verified;
-	name = name.replace(/^http\:\/\//, "").replace(/\/$/, "");
+	       name = name.replace(/^http\:\/\//, "").replace(/\/$/, "");
         var user = app.getUser(name);
         if (!user)
-	 {
-	  user = app.registerUser(name, "password");
-	 }
+	        {
+	         user = app.registerUser(name, "password");
+	        }
         if (user)
-	 {
-	  app.log("Logging in as " + name);
-	  session.login(user);
-	 }
+	        {
+	         app.log("Logging in as " + name);
+	         session.login(user);
+	        }
         authSuccess = verification.getAuthResponse();
         if (authSuccess.hasExtension(Packages.org.openid4java.message.ax.AxMessage.OPENID_NS_AX))
          {
@@ -187,11 +187,10 @@ function prompt_macro (param)
 
   updateUserState();
 
-  var promptString = "";
+  var promptString = '<div class="login">';
   var requestURL = ("" + req.getServletRequest().getRequestURL()).replace(/\/$/, "");
   if(session.user)
    {
-    promptString += '<p>';
     promptString += session.user["name"];
     promptString += ' <form method="post"><input type="hidden" name="logout" value="true"></input><button type="submit">Logout</button>'
     promptString += ' </form>';
@@ -204,28 +203,26 @@ function prompt_macro (param)
       var uri = req.path.replace(/\/$/,"");
       if (uri != "")
        uri = "/" + uri + "/";
-      promptString += ' &#0149 <a href="';
-      if (uri != "")
-       promptString += uri + "edit";
-      else
+      promptString += ' | <a href="';
+      if (uri == "")
        promptString += "/default/edit";
+      else
+       promptString += uri + "edit";
       promptString += '">Edit</a>';
-      promptString += ' &#0149 <a href="';
+      promptString += ' | <a href="';
       promptString += uri + "new/edit";
       promptString += '">Create</a>';
      }
-    promptString += '</p>\n';
    }
   else
    {
-    promptString += '<p>';
     promptString += '  <form method="post" action="">\n';
     promptString += '   <input type="text" id="openid" name="openid_url"></input>\n';
     promptString += '   <button type="submit">Login</button>\n';
     promptString += '  </form>\n';
-    promptString += ' &#0149 <a href="/register">Register</a>';
-    promptString += '</p>\n';
+    promptString += ' | <a href="/register">Register</a>';
    }
+  promptString += '</div>';
   return (promptString);
  }
 

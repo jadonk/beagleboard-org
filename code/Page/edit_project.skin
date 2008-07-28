@@ -1,77 +1,53 @@
-<table border="0" width="944" id="table2" cellspacing="10" cellpadding="0">
- <tr>
-  <td>
-   <form method="POST">
-    <h1>Register a Beagle Board related project</h1>
-    <h2>Owner Information</h2>
-    <table>
-     <tr>
-      <td align="right"><font color="orange">*</font>Owner Name</td>
-      <td><input name="ownername" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right">Email</td>
-      <td><input name="owneremail" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right">Re-enter email</td>
-      <td><input name="confirmemail" type="text" size="50" /></td>
-     </tr>
-    </table>
-    <h2>Project Information</h2>
-    <table>
-     <tr>
-      <td align="right"><font color="orange">*</font>URI</td>
-      <td><input name="uri" type="text" size="20" /></td>
-     </tr>
-     <tr>
-      <td align="right"><font color="orange">*</font>Project Name</td>
-      <td><input name="pname" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right"><font color="orange">*</font>About/Summary</td>
-      <td><textarea name="shortdesc" cols="45" rows="4"></textarea></td>
-     </tr>
-     <tr>
-      <td align="right"><font color="orange">*</font>Description</td>
-      <td><textarea name="desc" cols="45" rows="4"></textarea></td>
-     </tr>
-     <tr>
-      <td align="right">Version</td>
-      <td><input name="version" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right"><font color="orange">*</font>Project URL</td>
-      <td><input name="homepage" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right">Repository</td>
-      <td><input name="repository" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right">RSS feed</td>
-      <td><input name="rssfeed" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right">Download link</td>
-      <td><input name="downloadlink" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right"><font color="orange">*</font>Category</td>
-      <td><input name="category" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td align="right">Target platform / OS</td>
-      <td><input name="platform" type="text" size="50" /></td>
-     </tr>
-     <tr>
-      <td colspan="2" align="center"><p>&nbsp;</p></td>
-     </tr>
-     <tr>
-      <td colspan="2" align="center"><input name="submit" type="submit" value="Submit" /></td>
-     </tr>
-    </table>
-   </form>
-  </td>
- </tr>
-</table>
+<form method="post">
+ <h1>Register a Beagle Board related project</h1>
+ <h2>Project Information</h2>
+ <p align="center"><font color="red"><% this.errmsg %></font></p>
+ <table>
+  <tr>
+   <td align="right" width="200"><font color="orange">*</font>Registrant</td>
+   <td>&nbsp;</td>
+   <td>
+    <input name="registrant" type="text" style="width:350px;color:#CCCCCC" value="<% this.registrant %>" readonly />
+   </td>
+  </tr>
+  <tr>
+   <td align="right"><font color="orange">*</font>Project shortname/URI</td>
+   <td>&nbsp;</td>
+   <td><input name="uri" type="text" style="width:200px;" maxlength="30" value="<% this.uri %>" /></td>
+  </tr>
+  <tr>
+   <td align="right"><font color="orange">*</font>Project Name</td>
+   <td>&nbsp;</td>
+   <td><input name="pname" type="text" style="width:350px;" value="<% this.pname %>" /></td>
+  </tr>
+  <tr>
+   <td align="right" valign="top"><font color="orange">*</font>Short Description/Summary</td>
+   <td>&nbsp;</td>
+   <td><textarea name="shortdesc" style="width:350px;" rows="4"><% this.shortdesc %></textarea></td>
+  </tr>
+  <tr>
+   <td align="right" valign="top"><font color="orange">*</font>Full Description</td>
+   <td>&nbsp;</td>
+   <td><textarea name="body" style="width:350px;" rows="4"><% this.body %></textarea></td>
+  </tr>
+  <tr>
+   <td align="right"><font color="orange"></font>Homepage/URL</td>
+   <td>&nbsp;</td>
+   <td><input name="homepage" type="text" style="width:350px;" value="<% this.homepage %>" /></td>
+  </tr>
+  <tr>
+   <td align="right">RSS feed</td>
+   <td>&nbsp;</td>
+   <td><input name="rssfeed" type="text" style="width:350px;" value="<% this.rssfeed %>" /></td>
+  </tr>
+  <tr>
+   <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+   <td align="right"></td>
+   <td>&nbsp;</td>
+   <td><input class="btn1" name="submit" type="submit" value="Save" /></td>
+  </tr>
+ </table>
+</form>
+

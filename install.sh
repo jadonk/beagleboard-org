@@ -20,5 +20,8 @@ mkdir db
 cd db
 ln -s ../apps/beagle/db beagle
 cd ..
+cd scripts
+ln -s ../apps/beagle/scripts beagle
+cd ..
 cd ..
 

@@ -23,8 +23,7 @@ function main_action ()
     res.data.body += "Error: Please initialize the database with a 'default' page";
    }
 
-  //renderSkin("homepage");
-  renderSkin("index");
+  renderSkin("homepage");
  }
 
 function info_action ()
@@ -52,15 +51,5 @@ function getChildElement (name)
     x.pseudoParent = this;
    }
   return (x);
- }
-
-function login_action ()
- {
-  if (req.data["target"])
-   {
-    res.redirect(req.data["target"]);
-   }
-  var x = root.get("login");
-  return (x.main_action());
  }
 

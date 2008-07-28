@@ -10,7 +10,7 @@ function startLogbot()
    {
     var server = "irc.freenode.net";
     var channel = "#beagle";
-    var nick = "BeagleLogBot_";
+    var nick = "BeagleBot";
     var passwd = 'BeNice';  // change password
     var joinMessage = "This channel is logged: http://beagleboard.org/irclog";
 
@@ -30,7 +30,10 @@ if (!global.logbot)
   defineLibraryScope('logbot');
   try
    {
-    startLogbot();
+    if (true)
+     startLogbot();
+    else
+     global.logbot = "disabled";
    }
   catch(ex)
    {

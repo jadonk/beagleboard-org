@@ -61,6 +61,8 @@ function edit_action ()
       app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
       this.uri = req.data["uri"];
      }
+    var runtime = Packages.java.lang.Runtime.getRuntime();
+    runtime.exec("scripts/beagle/edit.sh");
     this.time = new Date();
     res.redirect(this.href());
     return;
@@ -131,9 +133,10 @@ function notfound_action ()
 
   try
    {
-    var x = root.get("notfound");
+    var x = root.get("login");
     res.data.title = "" + x.uri;
     res.data.body += "" + x.body;
+    res.data.lang += "" + x.lang;
    }
   catch(e)
    {
