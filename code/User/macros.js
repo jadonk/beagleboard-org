@@ -200,7 +200,10 @@ function prompt_macro (param)
     promptString += ' </form>';
     if 
      (
-      session.user["name"] == "blog.hangerhead.com"
+      (
+       session.user["name"] == "blog.hangerhead.com"
+       || session.user["name"] == this.registrant
+      )
       && !(/\/edit$/.test(requestURL))
      )
      {
@@ -213,9 +216,11 @@ function prompt_macro (param)
       else
        promptString += uri + "edit";
       promptString += '">Edit</a>';
+      /*
       promptString += ' | <a href="';
       promptString += uri + "new/edit";
       promptString += '">Create</a>';
+      */
      }
    }
   else

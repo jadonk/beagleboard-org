@@ -41,7 +41,6 @@ function htmlencode_macro (param)
  
 function edit_project_action ()
  {
-
   if (!session.user || !session.user["name"])
    {
     res.redirect(root.href("login") + "?target=" + this.href());
