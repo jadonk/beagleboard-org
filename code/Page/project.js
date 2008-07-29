@@ -3,6 +3,17 @@ function ownername_macro (param)
   return ("" + this.ownername);
  }
 
+function edit_macro (param)
+ {
+  var uri = req.path.replace(/\/$/,"");
+  if (uri != "")
+   uri = "/" + uri + "/";
+  promptString = '<a href="' + uri + 'edit">Edit</a>';
+  if (session.user && session.user["name"] == this.registrant && uri != "")
+   return (promptString);
+  return ("");
+ }
+
 function registrant_macro (param)
  {
   if (this.registrant)
