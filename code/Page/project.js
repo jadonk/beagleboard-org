@@ -5,9 +5,9 @@ function ownername_macro (param)
 
 function registrant_macro (param)
  {
-  if (this.registerant)
+  if (this.registrant)
    {
-    return ("" + this.registerant);
+    return ("" + this.registrant);
    }
   else if (session.user && session.user["name"])
    {
