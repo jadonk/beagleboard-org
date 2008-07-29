@@ -3,7 +3,7 @@ function ownername_macro (param)
   return ("" + this.ownername);
  }
 
-function registerant_macro (param)
+function registrant_macro (param)
  {
   if (this.registerant)
    {
