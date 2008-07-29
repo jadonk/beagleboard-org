@@ -3,6 +3,22 @@ function ownername_macro (param)
   return ("" + this.ownername);
  }
 
+function registerant_macro (param)
+ {
+  if (this.registerant)
+   {
+    return ("" + this.registerant);
+   }
+  else if (session.user && session.user["name"])
+   {
+    return ("" + session.user["name"]);
+   }
+  else
+   {
+    return ("Please login first");
+   }
+ }
+
 function homepage_macro (param)
  {
   return ("" + this.homepage);
