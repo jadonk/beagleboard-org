@@ -111,7 +111,6 @@ function prompt_macro (param)
       manager.setRealmVerifier(realmVerifier);
       var authReq = manager.authenticate(discovered, returnToURL, realm);
       app.log("authReq=" + authReq);
-      var destinationURL = "" + authReq.getDestinationUrl(true);
       var fetch = Packages.org.openid4java.message.ax.FetchRequest.createFetchRequest();
       fetch.addAttribute
        (
@@ -122,14 +121,19 @@ function prompt_macro (param)
       authReq.addExtension(fetch);
       if (!discovered.isVersion2())
        {
+        var destinationURL = "" + authReq.getDestinationUrl(true);
         app.log("Redirecting to " + destinationURL);
         res.redirect(destinationURL);
         return (null);
        }
       else
        {
-        app.log("Discovery is not version 2.  Redirecting to " + destinationURL);
-        res.redirect(destinationURL);
+        res.message = authReq.getOPEndpoint();
+        session.data["parameterMap"] = authReq.getParameterMap();
+        var destinationURL = "" + authReq.getDestinationUrl(false);
+        session.data["destinationURL"] = destinationURL;
+        app.log("Discovery is version 2.  Redirecting to /redirect");
+        res.redirect("/redirect");
         return (null);
        }
      }
