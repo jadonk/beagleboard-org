@@ -1,67 +1,309 @@
 /**
- * Copyright Â© 2007 Jason Kridner
+ * Copyright (c) 2007, 2008 Texas Instruments, Jason Kridner, and Michael Sandoval
  */
 
 * {
-	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+	font-family: Verdana, Lucida, "Lucida Grande", sans-serif;
+}
+
+:focus {
+	font-weight: bold; 
+}
+
+:link {
+	text-decoration: none;
+}
+
+:visited {
+	text-decoration: none;
+	color: #CC9902
+}
+
+:link:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+:visited:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+body {
+	background-color: #dcdcdc; 
+}
+
+a {
+	color: #C95701
 }
 
 button {
-	text-decoration: underline;
+	text-decoration: none;
 	border-style: none;
 	background-color: transparent;
 	padding: 0px;
 }
 
 button:hover {
+	text-decoration: underline;
 	cursor: pointer;
 }
 
-#title {
-	font-size: medium;
-	text-align: center;
-}
-
-a {
-	color: black;
-}
-
-hr {
-	border-top: 1px solid gray;
-	border-bottom: 0px;
-	margin-top: 2px;
-	margin-bottom: 2px;
-	height: 0px;
-	left: 0px;
-	width: 100%;
-	position: absolute;
-}
-
-#menu_bar * {
-	font-size: small;
-	display: inline;
-}
-
-#user ul li:after {
-	content: " | ";
-}
-
-#user ul li.last:after {
-	content: "";
-}
-
-#user {
-	margin: 0pt;
-	padding: 4px 5px 5px;
-	position: absolute;
-	right: 0pt;
-	top: 0pt;
-}
-
-input#openid_url {
+input#openid {
 	border-style: solid;
 	border-width: 1px;
 	background: #FFFFFF url(openid-prompt-bg.gif) no-repeat;
 	padding: 1px 1px 1px 18px;
+}
+
+.createtime {
+	font-size: small;
+}
+
+#outerframe {
+	border:0;
+	width:963px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+}
+
+.box {
+	width:963px;
+}
+
+.box .backgroundbottomright {
+	background:#fff url(graphics/body_right.png) no-repeat bottom right;
+}
+
+.box .head {
+	background: url(graphics/head_right.png) no-repeat top right;
+	width:963px;
+	height:130px;
+	font-size:10pt;
+}
+
+.box .head * {
+	padding-right:5px;
+	padding-top:4px;
+}
+
+.box .head .nav {
+	float: right;
+	text-align: right;
+}
+
+.box .head .nav * {
+	color:#fff;
+}
+
+.box .head .nav input {
+	color:#000;
+}
+
+.box .head .breadcrumb {
+	background:url(graphics/head_left.png) no-repeat top left;
+	height:50px;
+	padding-top:94px;
+	padding-left:20px;
+	float:left;
+}
+
+.box .head .breadcrumb * {
+	vertical-align:text-bottom;
+}
+
+.box .body {
+	padding-left:50px;
+	padding-right:50px;
+	background: url(graphics/box_left.png) no-repeat bottom left; 
+	font-size:10pt;
+	border:0;
+}
+
+.box .body .navpanel {
+	width:263px;
+	vertical-align:top;
+	margin-right:20px;
+	margin-top:10px;
+	margin-bottom:10px;
+	float:left;
+}
+
+.navpanel .backgroundbottomright {
+	background:#fff url(graphics/navpanel_right.png) no-repeat bottom right;
+}
+
+.box .body .navpanel .navpanelhead {
+	background: url(graphics/navpanelhead_right.png) no-repeat top right;
+	font-size:10pt;
+	color:#fff; 
+	border:0;
+}
+
+.box .body .navpanel .navpanelhead h2 {
+	background: url(graphics/navpanelhead_left.png) no-repeat top left; 
+	padding-left:10px;
+	padding-right:10px; 
+	padding-top:5px;
+	padding-bottom:5px; 
+}
+
+.box .body .navpanel .navpanelbody {
+	background:url(graphics/navpanel_left.png) no-repeat bottom left; 
+	padding-top:0;
+	padding-bottom:10px;
+	padding-left:10px;
+	padding-right:10px; 
+	width: 87%;
+	color:#C95701;
+}
+
+h1 { 
+	margin-top:0;
+	font-size:18pt; 
+	color: #C95701; 
+	font-weight: bold; 
+}
+
+h2 { 
+	margin-top: 0;
+	font-size: 14pt; 
+	color: #C95701; 
+	font-weight: bold;
+}
+
+h2 a {
+	font-size: 14pt; 
+	color: #C95701; 
+	font-weight: bold 
+}
+
+h2 a:hover {
+	font-size: 14pt; 
+	color: #018EA3 
+}
+
+h2 a:visited {
+	font-size: 14pt; 
+	color: #CC9902
+}
+.byline{ 
+	font-size: 13pt;
+	color: #929292; font-weight: bold 
+}
+
+p { 
+	font-size: 11px; 
+	color: #0F0F0F; 
+	line-height:150% }
+
+
+.navhead {
+	color:#FFFFFF; 
+	font-size:10pt;
+	font-weight:bold
+}
+
+.navboxbody p { 
+	font-size: 12px; 
+	color: #C95701; 
+
+
+}
+.navboxbody a            { 
+	font-size:12px; 
+	color: #C95701; 
+	font-weight:normal;
+	text-decoration: none; color: #C95701;
+}
+.navboxbody a:hover {
+	color:#C95701; 
+	font-size:12px;
+	font-weight:normal;
+	text-decoration: underline; color: #C95701;
+}
+.navboxbody a:visited {
+	color:#C95701; 
+	font-size:12px;
+	font-weight:normal;
+	text-decoration: underline; color: #C95701;
+}
+
+.breadcrumb { 
+	height:144px;
+	float:left;
+	font-size: 9px; 
+	color:#000; 
+	position:absolute;
+	vertical-align:bottom;
+}
+
+.breadcrumb a            { 
+	font-size: 9px; 
+	color: #C95701; 
+	font-weight:normal;
+	text-decoration: underline; color: #C95701;
+	line-height:100%; 
+}
+
+.breadcrumb a:hover {
+	color:#C95701; 
+	font-size:9px;
+	font-weight:normal;
+	text-decoration: underline; color: #C95701;
+	line-height:100%; 
+
+}
+
+.breadcrumb a:visited {
+	color:#C95701; 
+	font-size:9px;
+	font-weight:normal;
+	text-decoration: underline; color: #C95701;
+	line-height:100%; 
+}
+
+.footer { 
+	font-size: 10px; 
+	color: #929292; 
+	line-height:150%;
+}
+
+.footer * {
+	text-align: left;
+	display: inline;
+}
+
+.footer a            { 
+	font-size: 10px; 
+	color: #929292; 
+	font-weight:normal;
+	text-decoration: underline; color: #929292;
+}
+
+.footer a:hover {
+	font-size: 10px; 
+	color: #929292; 
+	font-weight:normal;
+	text-decoration: underline; color: #929292;
+}
+
+.footer a:visited {
+	font-size: 10px; 
+	color: #929292; 
+	font-weight:normal;
+}
+
+.alist * {
+	display: inline;
+}
+
+.alist ul li:after {
+	content: " | ";
+}
+
+.alist ul li.last:after {
+	content: "";
 }
 
