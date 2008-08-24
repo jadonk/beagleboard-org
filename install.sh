@@ -1,27 +1,28 @@
-#!/bin/sh
+#!/bin/bash
 # Invoke as beagleboard.org/install.sh (from one directory up).
 # It is assumed you have already run the following command to fetch code:
 # git clone http://www.beagleboard.org/beagleboard.org.git/ beagleboard.org
 # 
-wget http://adele.helma.org/download/helma/1.6.1/helma-1.6.1.tar.gz
-tar xvzf helma-1.6.1.tar.gz
+[ -d beagleboard.org ] || echo "Run one directory above beagleboard.org" && exit -1
+[ -e helma-1.6.1.tar.gz ] || wget http://adele.helma.org/download/helma/1.6.1/helma-1.6.1.tar.gz
+[ -e helma-1.6.1 ] || tar xvzf helma-1.6.1.tar.gz
 cd helma-1.6.1
 cd apps
-ln -s ../../beagleboard.org beagle
+[ -e beagle ] || ln -s ../../beagleboard.org beagle
 cd ..
-mv apps.properties apps.properties.original
-ln -s apps/beagle/config/apps.properties
+[ -f apps.properties ] && mv apps.properties apps.properties.original
+[ -L apps.properties ] || ln -s apps/beagle/config/apps.properties
 cd lib
 mv ext ext.original
-mv rhino.jar rhino.jar.original
-ln -s ../apps/beagle/lib ext
+[ -e rhino.jar ] && mv rhino.jar rhino.jar.original
+[ -L ext ] || ln -s ../apps/beagle/lib ext
 cd ..
-mkdir db
+[ -d db ] || mkdir db
 cd db
-ln -s ../apps/beagle/db beagle
+[ -L beagle ] || ln -s ../apps/beagle/db beagle
 cd ..
 cd scripts
-ln -s ../apps/beagle/scripts beagle
+[ -L beagle ] || ln -s ../apps/beagle/scripts beagle
 cd ..
 cd ..
 
