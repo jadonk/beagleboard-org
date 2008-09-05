@@ -142,21 +142,25 @@ function showProjectInfoTbl_macro (param)
     return (param);
    }
 	
-  if ("" + this.homepage != "")
-   str += "<tr>\n"
-    + "  <td valign=\"top\" class=\"tbl3\" align=\"right\">Homepage</td>\n"
-    + "  <td class=\"tbl5\"><a href=\"" + fixUrl(this.homepage) + "\" target=\"_blank\">"
-    + fixUrl(this.homepage)
-    + "</a></td>"
-    + "</tr>";
+  if (("" + this.homepage) != "")
+   {
+    str += "<tr>\n"
+     + "  <td valign=\"top\" class=\"tbl3\" align=\"right\">Homepage</td>\n"
+     + "  <td class=\"tbl5\"><a href=\"" + fixUrl(this.homepage) + "\" target=\"_blank\">"
+     + fixUrl(this.homepage)
+     + "</a></td>"
+     + "</tr>";
+   }
 
-   if ("" + this.rssfeed != "")
+  if (("" + this.rssfeed) != "")
+   {
     str += "<tr>\n"
      + "  <td valign=\"top\" class=\"tbl3\" align=\"right\">RSS Feed</td>\n"
      + "  <td class=\"tbl5\"><a href=\"" + fixUrl(this.rssfeed) + "\" target=\"_blank\">"
      + fixUrl(this.rssfeed)
      + "</a></td>"
      + "</tr>";
+   }
 
   return (str);
  }

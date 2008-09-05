@@ -37,18 +37,34 @@ function listBody ()
       body +=
        '<li><a href="' + collection[i].href() + '">'
        + collection[i].pname
-       + '</a><small>&nbsp;&nbsp;&nbsp;' 
-       + '- [<a href="'
-       + fixUrl(collection[i].homepage)
-       + '" target="_blank">homepage</a>]&nbsp;[<a href="'
-       + fixUrl(collection[i].rssfeed)
-       + '" target="_blank">rss</a>]<br>'
+       + '</a><small> ' 
+       ;
+      if (("" + collection[i].homepage) != "")
+       {
+        body += ''
+         + '- '
+	 + '[<a href="'
+         + fixUrl(collection[i].homepage)
+         + '" target="_blank">homepage</a>] '
+	 ;
+       }
+      if (("" + collection[i].rssfeed) != "")
+       {
+        body += ''
+         + '- '
+	 + '[<a href="'
+         + fixUrl(collection[i].rssfeed)
+         + '" target="_blank">rss</a>]'
+	 ;
+       }
+      body += '<br>'
        + encode(collection[i].shortdesc)
        + '<br>Last updated by: '
        + collection[i].registrant
        + ' on '
        + collection[i].updatetime
-       + '</small></li>\n';
+       + '</small></li>\n'
+       ;
      }
     else
      {
