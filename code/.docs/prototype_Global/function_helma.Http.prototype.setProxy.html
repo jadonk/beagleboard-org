@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http.prototype.setProxy&nbsp;(proxyString)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Sets the proxy host and port for later use. The argument must 
+be in <code>host:port</code> format (eg. "proxy.example.com:3128"). <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+proxyString The proxy to use for this request
+		
+		
+		<li><b>See also</b><br>
+#getProxy 
+
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">117:</font>   this.setProxy = function(proxyString) {
+<font color="#aaaaaa">118:</font>           var idx = proxyString.indexOf(<font color="#9999aa">&quot;:&quot;</font>);
+<font color="#aaaaaa">119:</font>           var host = proxyString.substring(0, idx);
+<font color="#aaaaaa">120:</font>           var port = proxyString.substring(idx+1);
+<font color="#aaaaaa">121:</font>           if (java.lang.Class.forName(<font color="#9999aa">&quot;java.net.Proxy&quot;</font>) != null) {
+<font color="#aaaaaa">122:</font>   <font color="#33aa00">            // construct a proxy instance
+<font color="#aaaaaa">123:</font>   </font>            var socket = new java.net.InetSocketAddress(host, port);
+<font color="#aaaaaa">124:</font>               proxy = new java.net.Proxy(java.net.Proxy.Type.HTTP, socket);
+<font color="#aaaaaa">125:</font>           } else {
+<font color="#aaaaaa">126:</font>  <font color="#33aa00">            // the pre jdk1.5 way: set the system properties
+<font color="#aaaaaa">127:</font>  </font>            var sys = java.lang.System.getProperties();
+<font color="#aaaaaa">128:</font>              if (host) {
+<font color="#aaaaaa">129:</font>                  app.logger.warn(<font color="#9999aa">&quot;[Helma Http Client] WARNING: setting system http proxy to &quot;</font> + host + <font color="#9999aa">&quot;:&quot;</font> + port);
+<font color="#aaaaaa">130:</font>                  sys.put(<font color="#9999aa">&quot;http.proxySet&quot;</font>, <font color="#9999aa">&quot;true&quot;</font>);
+<font color="#aaaaaa">131:</font>                  sys.put(<font color="#9999aa">&quot;http.proxyHost&quot;</font>, host);
+<font color="#aaaaaa">132:</font>                  sys.put(<font color="#9999aa">&quot;http.proxyPort&quot;</font>, port);
+<font color="#aaaaaa">133:</font>              }
+<font color="#aaaaaa">134:</font>          }
+<font color="#aaaaaa">135:</font>          return;
+<font color="#aaaaaa">136:</font>      }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

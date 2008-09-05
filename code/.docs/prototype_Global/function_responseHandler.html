@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.responseHandler&nbsp;(connection,&nbsp;result)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">61:</font>   var responseHandler = function(connection, result) {
+<font color="#aaaaaa">62:</font>          var input;
+<font color="#aaaaaa">63:</font>          try {
+<font color="#aaaaaa">64:</font>             input = new java.io.BufferedInputStream(connection.getInputStream());
+<font color="#aaaaaa">65:</font>          } catch (error) {
+<font color="#aaaaaa">66:</font>             input = new java.io.BufferedInputStream(connection.getErrorStream());
+<font color="#aaaaaa">67:</font>          }
+<font color="#aaaaaa">68:</font>          if (input) {
+<font color="#aaaaaa">69:</font>             var body = new java.io.ByteArrayOutputStream();
+<font color="#aaaaaa">70:</font>            var buf = java.lang.reflect.Array.newInstance(java.lang.Byte.TYPE, 1024);
+<font color="#aaaaaa">71:</font>            var len;
+<font color="#aaaaaa">72:</font>            var currentSize = 0;
+<font color="#aaaaaa">73:</font>            while ((len = input.read(buf)) &gt; -1) {
+<font color="#aaaaaa">74:</font>               body.write(buf, 0, len);
+<font color="#aaaaaa">75:</font>               currentSize += len;
+<font color="#aaaaaa">76:</font>               if (maxResponseSize &amp;&amp; currentSize &gt; maxResponseSize) {
+<font color="#aaaaaa">77:</font>                  throw new Error(<font color="#9999aa">&quot;Maximum allowed response size is exceeded&quot;</font>);
+<font color="#aaaaaa">78:</font>               }
+<font color="#aaaaaa">79:</font>            }
+<font color="#aaaaaa">80:</font>            try {
+<font color="#aaaaaa">81:</font>               input.close();
+<font color="#aaaaaa">82:</font>            } catch (error) {
+<font color="#aaaaaa">83:</font>  <font color="#33aa00">             // safe to ignore 
+<font color="#aaaaaa">84:</font>  </font>          }
+<font color="#aaaaaa">85:</font>            if (binaryMode &amp;&amp; (result.code &gt;= 200 &amp;&amp; result.code &lt; 300)) {
+<font color="#aaaaaa">86:</font>  <font color="#33aa00">             // only honor binaryMode if the request succeeded
+<font color="#aaaaaa">87:</font>  </font>             result.content = body.toByteArray();
+<font color="#aaaaaa">88:</font>            } else {
+<font color="#aaaaaa">89:</font>               result.content = result.charset ?
+<font color="#aaaaaa">90:</font>                        body.toString(result.charset) :
+<font color="#aaaaaa">91:</font>                        body.toString();
+<font color="#aaaaaa">92:</font>            }
+<font color="#aaaaaa">93:</font>  <font color="#33aa00">          // adjust content length
+<font color="#aaaaaa">94:</font>  </font>          if (result.content) {
+<font color="#aaaaaa">95:</font>               result.length = result.content.length;
+<font color="#aaaaaa">96:</font>            }
+<font color="#aaaaaa">97:</font>         }
+<font color="#aaaaaa">98:</font>      }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http.Cookie.parse&nbsp;(cookieStr)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Parses the cookie string passed as argument into an instance of helma.Http <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+cookieStr The cookie string as received from the remote server
+		<li><b>Returns</b><br>
+An instance of helma.Http.Cookie containing the cookie parameters
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">765:</font>   helma.Http.Cookie.parse = function(cookieStr) {
+<font color="#aaaaaa">766:</font>       if (cookieStr != null) {
+<font color="#aaaaaa">767:</font>           var cookie = new helma.Http.Cookie;
+<font color="#aaaaaa">768:</font>           var m, key, value;
+<font color="#aaaaaa">769:</font>           while ((m = helma.Http.Cookie.PATTERN.exec(cookieStr)) != null) {
+<font color="#aaaaaa">770:</font>               key = m[1].trim();
+<font color="#aaaaaa">771:</font>               value = m[2] ? m[2].trim() : <font color="#9999aa">&quot;&quot;</font>;
+<font color="#aaaaaa">772:</font>               switch (key.toLowerCase()) {
+<font color="#aaaaaa">773:</font>                   case <font color="#9999aa">&quot;expires&quot;</font>:
+<font color="#aaaaaa">774:</font>  <font color="#33aa00">                    // try to parse the expires date string into a date object
+<font color="#aaaaaa">775:</font>  </font>                    try {
+<font color="#aaaaaa">776:</font>                          cookie.expires = helma.Http.Cookie.DATEFORMAT.parse(value);
+<font color="#aaaaaa">777:</font>                      } catch (e) {
+<font color="#aaaaaa">778:</font>  <font color="#33aa00">                        // ignore
+<font color="#aaaaaa">779:</font>  </font>                    }
+<font color="#aaaaaa">780:</font>                      break;
+<font color="#aaaaaa">781:</font>                  case <font color="#9999aa">&quot;domain&quot;</font>:
+<font color="#aaaaaa">782:</font>                  case <font color="#9999aa">&quot;path&quot;</font>:
+<font color="#aaaaaa">783:</font>                      cookie[key.toLowerCase()] = value;
+<font color="#aaaaaa">784:</font>                      break;
+<font color="#aaaaaa">785:</font>                  case <font color="#9999aa">&quot;secure&quot;</font>:
+<font color="#aaaaaa">786:</font>                      break;
+<font color="#aaaaaa">787:</font>                  default:
+<font color="#aaaaaa">788:</font>                      cookie.name = key;
+<font color="#aaaaaa">789:</font>                      cookie.value = value;
+<font color="#aaaaaa">790:</font>                      break;
+<font color="#aaaaaa">791:</font>              }
+<font color="#aaaaaa">792:</font>          }
+<font color="#aaaaaa">793:</font>          return cookie;
+<font color="#aaaaaa">794:</font>      }
+<font color="#aaaaaa">795:</font>      return null;
+<font color="#aaaaaa">796:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

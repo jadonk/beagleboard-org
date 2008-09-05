@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.sqlshell.Datasource.prototype.getTables&nbsp;(meta,&nbsp;schema)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Get table names and set up an array for the drop down box<br><br>
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.js:
+	<pre><font color="#aaaaaa">129:</font>   helma.sqlshell.Datasource.prototype.getTables = function(meta, schema) {
+<font color="#aaaaaa">130:</font>       var tables = [[<font color="#9999aa">&quot;&quot;</font>, <font color="#9999aa">&quot;&quot;</font>]];
+<font color="#aaaaaa">131:</font>       var t = meta.getTables (null, schema, <font color="#9999aa">&quot;%&quot;</font>, null);
+<font color="#aaaaaa">132:</font>       while (t.next()) {
+<font color="#aaaaaa">133:</font>           var table = t.getString (3);
+<font color="#aaaaaa">134:</font>           tables.push([table, table]);
+<font color="#aaaaaa">135:</font>       }
+<font color="#aaaaaa">136:</font>       return tables;
+<font color="#aaaaaa">137:</font>   }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

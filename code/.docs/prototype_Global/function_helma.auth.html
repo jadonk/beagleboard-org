@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.auth&nbsp;(realm)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Performs basic admin level access checking for the specifed realm <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>String</code>:<br/>
+realm for which access should be checked and bootstrapped
+		<li><b>Returns</b><br>
+true if access id verified, otherwise renders login form with bootstrapping instructions
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.auth.js:
+	<pre><font color="#aaaaaa">10:</font>   helma.auth = function(realm) {
+<font color="#aaaaaa">11:</font>   
+<font color="#aaaaaa">12:</font>   <font color="#33aa00">    // helper function, checks if the client host matches an allowed host pattern,
+<font color="#aaaaaa">13:</font>   </font><font color="#33aa00">    // hostnames are converted, wildcards are only allowed in ip-addresses
+<font color="#aaaaaa">14:</font>   </font>    var hostIsAllowed = function() {
+<font color="#aaaaaa">15:</font>           if (!getProperty(realm+'AccessAllowed'))
+<font color="#aaaaaa">16:</font>               return true;
+<font color="#aaaaaa">17:</font>           else if (getProperty(realm+'AccessAllowed') == 'false')
+<font color="#aaaaaa">18:</font>               return false;
+<font color="#aaaaaa">19:</font>          var filter = new Packages.helma.util.InetAddressFilter();
+<font color="#aaaaaa">20:</font>          var str = getProperty(realm+'AccessAllowed');
+<font color="#aaaaaa">21:</font>          if (str != null &amp;&amp; str != <font color="#9999aa">&quot;&quot;</font>) {
+<font color="#aaaaaa">22:</font>              var arr = str.split(<font color="#9999aa">&quot;,&quot;</font>);
+<font color="#aaaaaa">23:</font>              for (var i in arr) {
+<font color="#aaaaaa">24:</font>                  str = new java.lang.String(arr[i]);
+<font color="#aaaaaa">25:</font>                  try {
+<font color="#aaaaaa">26:</font>                      filter.addAddress(str.trim());
+<font color="#aaaaaa">27:</font>                  } catch (a) {
+<font color="#aaaaaa">28:</font>                      try {
+<font color="#aaaaaa">29:</font>                          str = java.net.InetAddress.getByName(str.trim()).getHostAddress();
+<font color="#aaaaaa">30:</font>                          filter.addAddress(str);
+<font color="#aaaaaa">31:</font>                      } catch (b) {
+<font color="#aaaaaa">32:</font>                          app.log(<font color="#9999aa">&quot;error using address &quot;</font> + arr[i] + <font color="#9999aa">&quot;: &quot;</font> + b);
+<font color="#aaaaaa">33:</font>                      }
+<font color="#aaaaaa">34:</font>                  }
+<font color="#aaaaaa">35:</font>              }
+<font color="#aaaaaa">36:</font>          }
+<font color="#aaaaaa">37:</font>          return filter.matches(java.net.InetAddress.getByName(req.data.http_remotehost));
+<font color="#aaaaaa">38:</font>      }
+<font color="#aaaaaa">39:</font>      
+<font color="#aaaaaa">40:</font>  <font color="#33aa00">    // Check if current session is authenticated for this realm
+<font color="#aaaaaa">41:</font>  </font>    if (session.data[realm+'Authenticated'] &amp;&amp; hostIsAllowed())
+<font color="#aaaaaa">42:</font>          return true;
+<font color="#aaaaaa">43:</font>      
+<font color="#aaaaaa">44:</font>  <font color="#33aa00">    // Otherwise, guide to properly configure access authentication for this realm
+<font color="#aaaaaa">45:</font>  </font>    res.data.fontface = 'Trebuchet MS, Verdana, sans-serif';
+<font color="#aaaaaa">46:</font>      res.data.href = path[path.length-1].href(req.action);
+<font color="#aaaaaa">47:</font>      var pw = getProperty('adminAccess');
+<font color="#aaaaaa">48:</font>      var param = {};
+<font color="#aaaaaa">49:</font>      var accessAllowed = true;
+<font color="#aaaaaa">50:</font>      if (req.data.username &amp;&amp; req.data.password) {
+<font color="#aaaaaa">51:</font>          if (pw &amp;&amp; hostIsAllowed()) {
+<font color="#aaaaaa">52:</font>              if (pw == Packages.helma.util.MD5Encoder.encode(req.data.username + <font color="#9999aa">&quot;-&quot;</font> + req.data.password)) {
+<font color="#aaaaaa">53:</font>                  session.data[realm+'Authenticated'] = true;
+<font color="#aaaaaa">54:</font>                  res.redirect(res.data.href);
+<font color="#aaaaaa">55:</font>              } else {
+<font color="#aaaaaa">56:</font>                  param.message = 'Sorry, wrong password!';
+<font color="#aaaaaa">57:</font>              }
+<font color="#aaaaaa">58:</font>          } else {
+<font color="#aaaaaa">59:</font>              param.message = 'Currently, '+ realm + ' access is not allowed!&lt;br /&gt;';
+<font color="#aaaaaa">60:</font>              if (!pw) param.message += '\
+<font color="#aaaaaa">61:</font>                  The adminAccess property is not set.&lt;br /&gt;\
+<font color="#aaaaaa">62:</font>                  Before proceeding, add the following line to your app.properties or server.properties file:\
+<font color="#aaaaaa">63:</font>                  &lt;br /&gt;&lt;br /&gt;adminAccess='
+<font color="#aaaaaa">64:</font>                  + Packages.helma.util.MD5Encoder.encode(req.data.username + <font color="#9999aa">&quot;-&quot;</font> + req.data.password);
+<font color="#aaaaaa">65:</font>              else param.message += 'The '+ realm +'AccessAllowed property does not match your host.&lt;br /&gt;\
+<font color="#aaaaaa">66:</font>                  Before proceeding, remove this property from your app.properties or server.properties file \
+<font color="#aaaaaa">67:</font>                  or include your host as follows:&lt;br /&gt;&lt;br /&gt;'
+<font color="#aaaaaa">68:</font>                  + realm +'AccessAllowed=' + req.data.http_remotehost;
+<font color="#aaaaaa">69:</font>          }
+<font color="#aaaaaa">70:</font>      }
+<font color="#aaaaaa">71:</font>      res.data.header = 'Authentication for '+ realm +' access';
+<font color="#aaaaaa">72:</font>      renderSkin('helma.auth.login', param);
+<font color="#aaaaaa">73:</font>      return false;
+<font color="#aaaaaa">74:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

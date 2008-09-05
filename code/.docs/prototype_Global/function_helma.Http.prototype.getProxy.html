@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http.prototype.getProxy&nbsp;()</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Returns the proxy in <code>host:port</code> format <br><br>
+	
+	<ul>
+		
+		<li><b>Returns</b><br>
+The proxy defined for this request
+
+		
+		<li><b>See also</b><br>
+#setProxy 
+
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">144:</font>   this.getProxy = function() {
+<font color="#aaaaaa">145:</font>           if (proxy != null) {
+<font color="#aaaaaa">146:</font>               return proxy.address().getHostName() + <font color="#9999aa">&quot;:&quot;</font> + proxy.address().getPort();
+<font color="#aaaaaa">147:</font>           } else if (sys.get(<font color="#9999aa">&quot;http.proxySet&quot;</font>) == <font color="#9999aa">&quot;true&quot;</font>) {
+<font color="#aaaaaa">148:</font>               return sys.get(<font color="#9999aa">&quot;http.proxyHost&quot;</font>) + <font color="#9999aa">&quot;:&quot;</font> + sys.get(<font color="#9999aa">&quot;http.proxyPort&quot;</font>);
+<font color="#aaaaaa">149:</font>           } else {
+<font color="#aaaaaa">150:</font>               return null;
+<font color="#aaaaaa">151:</font>           }
+<font color="#aaaaaa">152:</font>       }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

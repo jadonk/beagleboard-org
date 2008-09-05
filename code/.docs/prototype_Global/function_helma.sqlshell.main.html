@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.sqlshell.main&nbsp;()</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Main action to set the Helma Dbsource, display forms, perform queries.<br><br>
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.js:
+	<pre><font color="#aaaaaa">57:</font>   helma.sqlshell.main = function() {
+<font color="#aaaaaa">58:</font>   <font color="#33aa00">    // If done, end sqlshell session
+<font color="#aaaaaa">59:</font>   </font>    if (req.data.done) {
+<font color="#aaaaaa">60:</font>           helma.invalidate('sqlshell');
+<font color="#aaaaaa">61:</font>           if (session.data.sqlShellReturnUrl) {
+<font color="#aaaaaa">62:</font>               var targetUrl = session.data.sqlShellReturnUrl;
+<font color="#aaaaaa">63:</font>               delete session.data.sqlShellReturnUrl;
+<font color="#aaaaaa">64:</font>           } else {
+<font color="#aaaaaa">65:</font>               var targetUrl = path.href();
+<font color="#aaaaaa">66:</font>          }
+<font color="#aaaaaa">67:</font>          res.redirect(targetUrl);
+<font color="#aaaaaa">68:</font>      }
+<font color="#aaaaaa">69:</font>      
+<font color="#aaaaaa">70:</font>  <font color="#33aa00">    // Check if sqlshell is called from the shell tool
+<font color="#aaaaaa">71:</font>  </font>    if (req.data.introFrom) {
+<font color="#aaaaaa">72:</font>          session.data.sqlShellReturnUrl = req.data.introFrom;
+<font color="#aaaaaa">73:</font>          if (session.data.shellAuthenticated) 
+<font color="#aaaaaa">74:</font>              session.data.sqlshellAuthenticated = true;
+<font color="#aaaaaa">75:</font>      }
+<font color="#aaaaaa">76:</font>  
+<font color="#aaaaaa">77:</font>  <font color="#33aa00">    // Check authentication
+<font color="#aaaaaa">78:</font>  </font>    if (!helma.auth('sqlshell'))
+<font color="#aaaaaa">79:</font>          res.abort();
+<font color="#aaaaaa">80:</font>  
+<font color="#aaaaaa">81:</font>  <font color="#33aa00">    // Handle authenticated requests
+<font color="#aaaaaa">82:</font>  </font>    res.handlers.html = helma.sqlshell.html;
+<font color="#aaaaaa">83:</font>      var param = {};
+<font color="#aaaaaa">84:</font>      param.datasource = req.data.datasource;
+<font color="#aaaaaa">85:</font>      res.data.fontface = 'Verdana, sans-serif';
+<font color="#aaaaaa">86:</font>      /* if (req.data.schema)
+<font color="#aaaaaa">87:</font>          session.data.sqlshellSchema = req.data.schema;
+<font color="#aaaaaa">88:</font>      if (req.data.datasource)
+<font color="#aaaaaa">89:</font>          session.data.sqlshellDatasource = req.data.datasource; */
+<font color="#aaaaaa">90:</font>      var dsource = req.data.datasource ?
+<font color="#aaaaaa">91:</font>          helma.sqlshell.getDatasource(req.data.datasource) : null;
+<font color="#aaaaaa">92:</font>      if (dsource) {
+<font color="#aaaaaa">93:</font>          (new helma.sqlshell.Datasource(dsource)).main();
+<font color="#aaaaaa">94:</font>      } else {
+<font color="#aaaaaa">95:</font>          if (req.data.datasource &amp;&amp; req.isPost()) {
+<font color="#aaaaaa">96:</font>              param.message = <font color="#9999aa">&quot;Sorry, data source &quot;</font> + req.data.datasource +
+<font color="#aaaaaa">97:</font>                              <font color="#9999aa">&quot; is not defined for this application.&quot;</font>;
+<font color="#aaaaaa">98:</font>          }
+<font color="#aaaaaa">99:</font>          res.data.header = <font color="#9999aa">&quot;Choose data source&quot;</font>;
+<font color="#aaaaaa">100:</font>          res.data.datasources = helma.sqlshell.getDatasources();
+<font color="#aaaaaa">101:</font>          res.data.body = renderSkinAsString(<font color="#9999aa">&quot;helma.sqlshell.selectdb&quot;</font>, param);
+<font color="#aaaaaa">102:</font>          renderSkin(<font color="#9999aa">&quot;helma.sqlshell.page&quot;</font>);
+<font color="#aaaaaa">103:</font>      }
+<font color="#aaaaaa">104:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.Date.prototype.equals&nbsp;(date,&nbsp;extend)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	checks if a date object equals another date object <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>Object</code>:<br/>
+Date object to compare<li><b>Parameter</b> <code>Int</code>:<br/>
+indicating how far the comparison should go
+		<li><b>Returns</b><br>
+Boolean
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/core/Date.js:
+	<pre><font color="#aaaaaa">165:</font>   Date.prototype.equals = function(date, extend) {
+<font color="#aaaaaa">166:</font>       if (!extend)
+<font color="#aaaaaa">167:</font>           var extend = Date.ONEDAY;
+<font color="#aaaaaa">168:</font>       switch (extend) {
+<font color="#aaaaaa">169:</font>           case Date.ONESECOND:
+<font color="#aaaaaa">170:</font>               if (this.getSeconds() != date.getSeconds())
+<font color="#aaaaaa">171:</font>                   return false;
+<font color="#aaaaaa">172:</font>           case Date.ONEMINUTE:
+<font color="#aaaaaa">173:</font>               if (this.getMinutes() != date.getMinutes())
+<font color="#aaaaaa">174:</font>                  return false;
+<font color="#aaaaaa">175:</font>          case Date.ONEHOUR:
+<font color="#aaaaaa">176:</font>              if (this.getHours() != date.getHours())
+<font color="#aaaaaa">177:</font>                  return false;
+<font color="#aaaaaa">178:</font>          case Date.ONEDAY:
+<font color="#aaaaaa">179:</font>              if (this.getDate() != date.getDate())
+<font color="#aaaaaa">180:</font>                  return false;
+<font color="#aaaaaa">181:</font>          case Date.ONEMONTH:
+<font color="#aaaaaa">182:</font>              if (this.getMonth() != date.getMonth())
+<font color="#aaaaaa">183:</font>                  return false;
+<font color="#aaaaaa">184:</font>          case Date.ONEYEAR:
+<font color="#aaaaaa">185:</font>              if (this.getFullYear() != date.getFullYear())
+<font color="#aaaaaa">186:</font>                  return false;
+<font color="#aaaaaa">187:</font>      }
+<font color="#aaaaaa">188:</font>      return true;
+<font color="#aaaaaa">189:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

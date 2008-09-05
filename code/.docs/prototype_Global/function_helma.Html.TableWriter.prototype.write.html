@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.TableWriter.prototype.write&nbsp;(text,&nbsp;attr)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Writes a single table cell to response. <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+text The content of the table cess<li><b>Parameter</b> <code>{Object}</code>:<br/>
+attr An optional object containig attributes to render for this table cell
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">886:</font>   helma.Html.TableWriter.prototype.write = function(text, attr) {
+<font color="#aaaaaa">887:</font>   <font color="#33aa00">    // set up some variables
+<font color="#aaaaaa">888:</font>   </font>    var isHeaderRow = (this.writeHeader &amp;&amp; this.written &lt; this.ncols);
+<font color="#aaaaaa">889:</font>       var isNewRow = (this.written % this.ncols == 0);
+<font color="#aaaaaa">890:</font>       var isEvenRow = ((this.written / this.ncols) % 2 == 0);
+<font color="#aaaaaa">891:</font>       var isEvenCol = ((this.written % this.ncols) % 2 == 0);
+<font color="#aaaaaa">892:</font>   <font color="#33aa00">    // write out table and table row tags
+<font color="#aaaaaa">893:</font>   </font>    if (this.written == 0) {
+<font color="#aaaaaa">894:</font>           if (this.writeString)
+<font color="#aaaaaa">895:</font>              res.push();
+<font color="#aaaaaa">896:</font>          helma.Html.prototype.openTag.call(this, <font color="#9999aa">&quot;table&quot;</font>, this.attr.table);
+<font color="#aaaaaa">897:</font>          helma.Html.prototype.openTag.call(this, <font color="#9999aa">&quot;tr&quot;</font>, this.attr.trHead);
+<font color="#aaaaaa">898:</font>      } else if (isNewRow) {
+<font color="#aaaaaa">899:</font>          helma.Html.prototype.closeTag.call(this, <font color="#9999aa">&quot;tr&quot;</font>);
+<font color="#aaaaaa">900:</font>          if (isEvenRow)
+<font color="#aaaaaa">901:</font>               helma.Html.prototype.openTag.call(this, <font color="#9999aa">&quot;tr&quot;</font>, this.attr.trEven);
+<font color="#aaaaaa">902:</font>          else
+<font color="#aaaaaa">903:</font>               helma.Html.prototype.openTag.call(this, <font color="#9999aa">&quot;tr&quot;</font>, this.attr.trOdd);
+<font color="#aaaaaa">904:</font>      }
+<font color="#aaaaaa">905:</font>  <font color="#33aa00">    // get the attribute object for the table cell
+<font color="#aaaaaa">906:</font>  </font>    if (!attr) {
+<font color="#aaaaaa">907:</font>  <font color="#33aa00">        // no explicit attribute given
+<font color="#aaaaaa">908:</font>  </font>        if (isEvenCol) {
+<font color="#aaaaaa">909:</font>              attr = isHeaderRow ? this.attr.thEven : this.attr.tdEven;
+<font color="#aaaaaa">910:</font>          } else {
+<font color="#aaaaaa">911:</font>              attr = isHeaderRow ? this.attr.thOdd : this.attr.tdOdd;
+<font color="#aaaaaa">912:</font>          }
+<font color="#aaaaaa">913:</font>      }
+<font color="#aaaaaa">914:</font>  <font color="#33aa00">    // write out table cell tag
+<font color="#aaaaaa">915:</font>  </font>    helma.Html.prototype.openTag.call(this, isHeaderRow ? <font color="#9999aa">&quot;th&quot;</font> : <font color="#9999aa">&quot;td&quot;</font>, attr);
+<font color="#aaaaaa">916:</font>  <font color="#33aa00">    // write out table cell contents
+<font color="#aaaaaa">917:</font>  </font>    if (text) {
+<font color="#aaaaaa">918:</font>          res.write(text);
+<font color="#aaaaaa">919:</font>      }
+<font color="#aaaaaa">920:</font>  <font color="#33aa00">    // close table cell
+<font color="#aaaaaa">921:</font>  </font>    helma.Html.prototype.closeTag.call(this, isHeaderRow ? <font color="#9999aa">&quot;th&quot;</font> : <font color="#9999aa">&quot;td&quot;</font>);
+<font color="#aaaaaa">922:</font>      if (attr &amp;&amp; !isNaN(attr.colspan)) {
+<font color="#aaaaaa">923:</font>          this.written += attr.colspan;
+<font color="#aaaaaa">924:</font>      } else {
+<font color="#aaaaaa">925:</font>          this.written += 1;
+<font color="#aaaaaa">926:</font>      }
+<font color="#aaaaaa">927:</font>      return;
+<font color="#aaaaaa">928:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

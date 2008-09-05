@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.prototype.radioButton&nbsp;(param)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Renders an x/html radiobutton input tag <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{Object}</code>:<br/>
+param An object containing the tag attributes
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">360:</font>   helma.Html.prototype.radioButton = function(param) {
+<font color="#aaaaaa">361:</font>       if (!param) {
+<font color="#aaaaaa">362:</font>           res.write(<font color="#9999aa">&quot;[Html.radioButton: insufficient arguments]&quot;</font>);
+<font color="#aaaaaa">363:</font>           return;
+<font color="#aaaaaa">364:</font>       }
+<font color="#aaaaaa">365:</font>       var attr = Object.prototype.reduce.call(param);
+<font color="#aaaaaa">366:</font>       attr.type = <font color="#9999aa">&quot;radio&quot;</font>;
+<font color="#aaaaaa">367:</font>       if (attr.selectedValue != null) {
+<font color="#aaaaaa">368:</font>           if (attr.value == attr.selectedValue)
+<font color="#aaaaaa">369:</font>              attr.checked = <font color="#9999aa">&quot;checked&quot;</font>;
+<font color="#aaaaaa">370:</font>          else
+<font color="#aaaaaa">371:</font>              delete attr.checked;
+<font color="#aaaaaa">372:</font>          delete attr.selectedValue;
+<font color="#aaaaaa">373:</font>      }
+<font color="#aaaaaa">374:</font>      this.tag(<font color="#9999aa">&quot;input&quot;</font>, attr);
+<font color="#aaaaaa">375:</font>      return;
+<font color="#aaaaaa">376:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

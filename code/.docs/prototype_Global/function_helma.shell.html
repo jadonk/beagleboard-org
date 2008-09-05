@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.shell&nbsp;(realm)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Checks shell access, renders the shell skin and evaluates submitted shell commands and scripts<br><br>
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.shell.js:
+	<pre><font color="#aaaaaa">8:</font>   helma.shell = function(realm) {
+<font color="#aaaaaa">9:</font>       if (req.data.done) {
+<font color="#aaaaaa">10:</font>           helma.invalidate('shell');
+<font color="#aaaaaa">11:</font>           helma.invalidate('sqlshell');
+<font color="#aaaaaa">12:</font>           helma.invalidate('inspector');
+<font color="#aaaaaa">13:</font>           res.redirect(this.href());
+<font color="#aaaaaa">14:</font>       }
+<font color="#aaaaaa">15:</font>       if (!helma.auth('shell')) 
+<font color="#aaaaaa">16:</font>           res.abort();
+<font color="#aaaaaa">17:</font>      res.data.fontface = 'Trebuchet MS, Verdana, sans-serif';
+<font color="#aaaaaa">18:</font>      res.data.href = this.href();
+<font color="#aaaaaa">19:</font>      res.data.commands = encodeForm(req.data.commands);
+<font color="#aaaaaa">20:</font>      var evalcode = req.data.command || req.data.commands;
+<font color="#aaaaaa">21:</font>      if (!evalcode &amp;&amp; helma.Inspector) {
+<font color="#aaaaaa">22:</font>          if (!session.data.inspectorAuthenticated) 
+<font color="#aaaaaa">23:</font>              session.data.inspectorAuthenticated = true;
+<font color="#aaaaaa">24:</font>          evalcode = '(new helma.Inspector(this)).action();<font color="#9999aa">&quot;&lt;hr&gt;&quot;</font>;';
+<font color="#aaaaaa">25:</font>      }
+<font color="#aaaaaa">26:</font>      if (evalcode) {
+<font color="#aaaaaa">27:</font>          try {
+<font color="#aaaaaa">28:</font>              var startTime = new Date();
+<font color="#aaaaaa">29:</font>              var evalResult = eval(evalcode);	
+<font color="#aaaaaa">30:</font>              var stopTime = new Date();
+<font color="#aaaaaa">31:</font>              res.write(evalResult);
+<font color="#aaaaaa">32:</font>              if (req.data.commands) {
+<font color="#aaaaaa">33:</font>                  res.write('&lt;br /&gt;&lt;br /&gt;')
+<font color="#aaaaaa">34:</font>                  res.write('&lt;span style=<font color="#9999aa">&quot;font-family:'+res.data.fontface+'; color:grey; font-size:11px&quot;</font>&gt;')
+<font color="#aaaaaa">35:</font>                  res.write('Script evaluated in ' + (stopTime.getTime() - startTime.getTime()) +' milliseconds.');
+<font color="#aaaaaa">36:</font>                  res.write('&lt;/span&gt;&lt;hr /&gt;');
+<font color="#aaaaaa">37:</font>              } else if (!req.data.command) {
+<font color="#aaaaaa">38:</font>                  res.write('&lt;hr /&gt;');
+<font color="#aaaaaa">39:</font>              }
+<font color="#aaaaaa">40:</font>          } catch ( e ) {
+<font color="#aaaaaa">41:</font>              res.write('&lt;span class=<font color="#9999aa">&quot;error&quot;</font>&gt;');
+<font color="#aaaaaa">42:</font>              if ( e.javaException ) {
+<font color="#aaaaaa">43:</font>                  var s = new java.io.StringWriter();
+<font color="#aaaaaa">44:</font>                  e.javaException.printStackTrace( new java.io.PrintWriter( s ) );
+<font color="#aaaaaa">45:</font>                  res.write( s.toString() );
+<font color="#aaaaaa">46:</font>              } else {
+<font color="#aaaaaa">47:</font>                  res.write( format( e + '&lt;br /&gt;' + e.fileName + ', lineNumber = ' + e.lineNumber ) );
+<font color="#aaaaaa">48:</font>              }
+<font color="#aaaaaa">49:</font>              res.write('&lt;/span&gt;');
+<font color="#aaaaaa">50:</font>              if (req.data.commands) res.write('&lt;hr /&gt;');
+<font color="#aaaaaa">51:</font>          }
+<font color="#aaaaaa">52:</font>      }
+<font color="#aaaaaa">53:</font>      if (!req.data.command) renderSkin('helma.shell');
+<font color="#aaaaaa">54:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.sqlshell.Datasource.prototype.query&nbsp;(con,&nbsp;param)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.js:
+	<pre><font color="#aaaaaa">362:</font>   helma.sqlshell.Datasource.prototype.query = function(con, param) {
+<font color="#aaaaaa">363:</font>   <font color="#33aa00">    // some SQL has been submitted - evaluate it
+<font color="#aaaaaa">364:</font>   </font>    if (req.data.sql) {
+<font color="#aaaaaa">365:</font>           var query = req.data.sql.trim();
+<font color="#aaaaaa">366:</font>   
+<font color="#aaaaaa">367:</font>           con.setReadOnly(false);
+<font color="#aaaaaa">368:</font>           var stmt = con.createStatement();
+<font color="#aaaaaa">369:</font>           var value;
+<font color="#aaaaaa">370:</font>           try {
+<font color="#aaaaaa">371:</font>              value = stmt.execute(query);
+<font color="#aaaaaa">372:</font>              if (!value) {
+<font color="#aaaaaa">373:</font>                  param.updated = stmt.getUpdateCount();
+<font color="#aaaaaa">374:</font>              } else {
+<font color="#aaaaaa">375:</font>                  var rs = stmt.getResultSet();
+<font color="#aaaaaa">376:</font>                  var rsmeta = rs.getMetaData();
+<font color="#aaaaaa">377:</font>                  var ncol = rsmeta.getColumnCount();
+<font color="#aaaaaa">378:</font>  
+<font color="#aaaaaa">379:</font>                  res.push();
+<font color="#aaaaaa">380:</font>                  var tableStyle = { table: { <font color="#9999aa">&quot;class&quot;</font>: <font color="#9999aa">&quot;query&quot;</font> }, td: { <font color="#9999aa">&quot;class&quot;</font>: <font color="#9999aa">&quot;query&quot;</font> } };
+<font color="#aaaaaa">381:</font>                  var writer = new helma.Markup.TableWriter(ncol, tableStyle);
+<font color="#aaaaaa">382:</font>                  writer.writeHeader = true;
+<font color="#aaaaaa">383:</font>                  for (var i=1; i&lt;=ncol; i++) {
+<font color="#aaaaaa">384:</font>                      writer.write(rsmeta.getColumnName(i));
+<font color="#aaaaaa">385:</font>                  }
+<font color="#aaaaaa">386:</font>  
+<font color="#aaaaaa">387:</font>                  while (rs.next()) {
+<font color="#aaaaaa">388:</font>                      for (var i=1; i&lt;=ncol; i++) {
+<font color="#aaaaaa">389:</font>                          writer.write(encode(rs.getString(i)));
+<font color="#aaaaaa">390:</font>                      }
+<font color="#aaaaaa">391:</font>                  }
+<font color="#aaaaaa">392:</font>  
+<font color="#aaaaaa">393:</font>                  writer.close();
+<font color="#aaaaaa">394:</font>                  param.resultset = res.pop();
+<font color="#aaaaaa">395:</font>              }
+<font color="#aaaaaa">396:</font>          } catch (error) {
+<font color="#aaaaaa">397:</font>              param.message = <font color="#9999aa">&quot;Error: &quot;</font> + error;
+<font color="#aaaaaa">398:</font>          }
+<font color="#aaaaaa">399:</font>      }
+<font color="#aaaaaa">400:</font>      return renderSkinAsString(this.getSkin(<font color="#9999aa">&quot;query&quot;</font>), param);
+<font color="#aaaaaa">401:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

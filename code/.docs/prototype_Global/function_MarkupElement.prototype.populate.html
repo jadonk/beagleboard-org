@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.MarkupElement.prototype.populate&nbsp;(obj)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Recursively populate this object and its child objects, 
+reading values from the argument object.<br><br>
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.Markup.js:
+	<pre><font color="#aaaaaa">697:</font>   MarkupElement.prototype.populate = function(obj) {
+<font color="#aaaaaa">698:</font>   <font color="#33aa00">    // if no object passed populate from req.data
+<font color="#aaaaaa">699:</font>   </font>    if (!obj)
+<font color="#aaaaaa">700:</font>           obj = req.data;
+<font color="#aaaaaa">701:</font>   
+<font color="#aaaaaa">702:</font>   <font color="#33aa00">    // set value
+<font color="#aaaaaa">703:</font>   </font>    if (this.name &amp;&amp; this._type != <font color="#9999aa">&quot;submit&quot;</font>)
+<font color="#aaaaaa">704:</font>           this.value = obj[this.name];
+<font color="#aaaaaa">705:</font>   
+<font color="#aaaaaa">706:</font>  <font color="#33aa00">    // populate named child elements
+<font color="#aaaaaa">707:</font>  </font>    for (var i in this.map) {
+<font color="#aaaaaa">708:</font>          if (typeof(this.map[i]) == <font color="#9999aa">&quot;object&quot;</font> &amp;&amp; this.map[i].populate) {
+<font color="#aaaaaa">709:</font>              this.map[i].populate(obj);
+<font color="#aaaaaa">710:</font>          }
+<font color="#aaaaaa">711:</font>      }
+<font color="#aaaaaa">712:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

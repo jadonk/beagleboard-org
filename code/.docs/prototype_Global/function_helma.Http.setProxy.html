@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http.setProxy&nbsp;(proxyString)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Sets the global http proxy setting. If no proxy definition 
+is passed to this method, any existing proxy setting is 
+cleared. Internally this method sets the system properties 
+<code>http.proxySet</code>, <code>http.proxyHost</code> and 
+<code>http.proxyPort</code>. Keep in mind that this is valid for 
+the whole Java Virtual Machine, therefor using this method 
+can potentially influence other running Helma applications too! <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+proxyString A proxy definition in <code>host:port</code> format (eg. "proxy.example.com:3128");
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">631:</font>   helma.Http.setProxy = function(proxyString) {
+<font color="#aaaaaa">632:</font>       var sys = java.lang.System.getProperties();
+<font color="#aaaaaa">633:</font>       if (proxyString) {
+<font color="#aaaaaa">634:</font>           var idx = proxyString.indexOf(<font color="#9999aa">&quot;:&quot;</font>);
+<font color="#aaaaaa">635:</font>           var host = proxyString.substring(0, idx);
+<font color="#aaaaaa">636:</font>           var port = proxyString.substring(idx+1);
+<font color="#aaaaaa">637:</font>           if (!port)
+<font color="#aaaaaa">638:</font>               port = <font color="#9999aa">&quot;3128&quot;</font>;
+<font color="#aaaaaa">639:</font>           else if (typeof port == <font color="#9999aa">&quot;number&quot;</font>)
+<font color="#aaaaaa">640:</font>              port = port.toString();
+<font color="#aaaaaa">641:</font>          app.logger.info(<font color="#9999aa">&quot;helma.Http.setProxy &quot;</font> + proxyString);
+<font color="#aaaaaa">642:</font>          sys.put(<font color="#9999aa">&quot;http.proxySet&quot;</font>, <font color="#9999aa">&quot;true&quot;</font>);
+<font color="#aaaaaa">643:</font>          sys.put(<font color="#9999aa">&quot;http.proxyHost&quot;</font>, host);
+<font color="#aaaaaa">644:</font>          sys.put(<font color="#9999aa">&quot;http.proxyPort&quot;</font>, port);
+<font color="#aaaaaa">645:</font>      } else {
+<font color="#aaaaaa">646:</font>          sys.put(<font color="#9999aa">&quot;http.proxySet&quot;</font>, <font color="#9999aa">&quot;false&quot;</font>);
+<font color="#aaaaaa">647:</font>          sys.put(<font color="#9999aa">&quot;http.proxyHost&quot;</font>, <font color="#9999aa">&quot;&quot;</font>);
+<font color="#aaaaaa">648:</font>          sys.put(<font color="#9999aa">&quot;http.prodyPort&quot;</font>, <font color="#9999aa">&quot;&quot;</font>);
+<font color="#aaaaaa">649:</font>      }
+<font color="#aaaaaa">650:</font>      return;
+<font color="#aaaaaa">651:</font>      
+<font color="#aaaaaa">652:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.String.prototype.isHexColor&nbsp;()</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	function checks a string for a valid color value in hexadecimal format. 
+it may also contain # as first character <br><br>
+	
+	<ul>
+		
+		<li><b>Returns</b><br>
+Boolean false, if string length (without #) > 6 or < 6 or contains any character which is not a valid hex value
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/core/String.js:
+	<pre><font color="#aaaaaa">123:</font>   String.prototype.isHexColor = function() {
+<font color="#aaaaaa">124:</font>       var str = this;
+<font color="#aaaaaa">125:</font>       if (this.indexOf(<font color="#9999aa">&quot;#&quot;</font>) == 0)
+<font color="#aaaaaa">126:</font>           str = this.substring(1);
+<font color="#aaaaaa">127:</font>       if (str.length != 6)
+<font color="#aaaaaa">128:</font>           return false;
+<font color="#aaaaaa">129:</font>       return !String.HEXPATTERN.test(str);
+<font color="#aaaaaa">130:</font>   }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http.prototype.getUrl&nbsp;(url,&nbsp;opt)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Executes a http request <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+url The url to request<li><b>Parameter</b> <code>{Date|String}</code>:<br/>
+opt If this argument is a string, it is used as value for the "If-None-Match" request header field. If it is a Date instance it is used as "IfModifiedSince" condition for this request.
+		<li><b>Returns</b><br>
+A result object containing the following properties: <ul> <li><code>url</code>: (String) The Url of the request</li> <li><code>location</code>: (String) The value of the location header field</li> <li><code>code</code>: (Number) The HTTP response code</li> <li><code>message</code>: (String) An optional HTTP response message</li> <li><code>length</code>: (Number) The content length of the response</li> <li><code>type</code>: (String) The mimetype of the response</li> <li><code>charset</code>: (String) The character set of the response</li> <li><code>encoding</code>: (String) An optional encoding to use with the response</li> <li><code>lastModified</code>: (String) The value of the lastModified response header field</li> <li><code>eTag</code>: (String) The eTag as received from the remote server</li> <li><code>cookie</code>: (helma.Http.Cookie) An object containing the cookie parameters, if the remote server has set the "Set-Cookie" header field</li> <li><code>headers</code>: (java.util.Map) A map object containing the headers, access them using get("headername") <li><code>content</code>: (String|ByteArray) The response received from the server. Can be either a string or a byte array (see #setBinaryMode)</li> </ul>
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">478:</font>   this.getUrl = function(url, opt) {
+<font color="#aaaaaa">479:</font>           if (typeof url == <font color="#9999aa">&quot;string&quot;</font>) {
+<font color="#aaaaaa">480:</font>               if (!(url = helma.Http.evalUrl(url)))
+<font color="#aaaaaa">481:</font>                   throw new Error(<font color="#9999aa">&quot;'&quot;</font> + url + <font color="#9999aa">&quot;' is not a valid URL.&quot;</font>);
+<font color="#aaaaaa">482:</font>           } else if (!(url instanceof java.net.URL)) {
+<font color="#aaaaaa">483:</font>               throw new Error(<font color="#9999aa">&quot;'&quot;</font> + url + <font color="#9999aa">&quot;' is not a valid URL.&quot;</font>);
+<font color="#aaaaaa">484:</font>           }
+<font color="#aaaaaa">485:</font>           
+<font color="#aaaaaa">486:</font>           var conn = proxy ? url.openConnection(proxy) : url.openConnection();
+<font color="#aaaaaa">487:</font>  <font color="#33aa00">        // Note: we must call setInstanceFollowRedirects() instead of
+<font color="#aaaaaa">488:</font>  </font><font color="#33aa00">        // static method setFollowRedirects(), as the latter will
+<font color="#aaaaaa">489:</font>  </font><font color="#33aa00">        // set the default value for all url connections, and will not work for
+<font color="#aaaaaa">490:</font>  </font><font color="#33aa00">        // url connections that have already been created.
+<font color="#aaaaaa">491:</font>  </font>        conn.setInstanceFollowRedirects(followRedirects);
+<font color="#aaaaaa">492:</font>          conn.setAllowUserInteraction(false);
+<font color="#aaaaaa">493:</font>          conn.setRequestMethod(method);
+<font color="#aaaaaa">494:</font>          conn.setRequestProperty(<font color="#9999aa">&quot;User-Agent&quot;</font>, userAgent);
+<font color="#aaaaaa">495:</font>  
+<font color="#aaaaaa">496:</font>          if (opt) {
+<font color="#aaaaaa">497:</font>              if (opt instanceof Date)
+<font color="#aaaaaa">498:</font>                  conn.setIfModifiedSince(opt.getTime());
+<font color="#aaaaaa">499:</font>              else if ((typeof opt == <font color="#9999aa">&quot;string&quot;</font>) &amp;&amp; (opt.length &gt; 0))
+<font color="#aaaaaa">500:</font>                  conn.setRequestProperty(<font color="#9999aa">&quot;If-None-Match&quot;</font>, opt);
+<font color="#aaaaaa">501:</font>          }
+<font color="#aaaaaa">502:</font>  
+<font color="#aaaaaa">503:</font>          var userinfo;
+<font color="#aaaaaa">504:</font>          if (userinfo = url.getUserInfo()) {
+<font color="#aaaaaa">505:</font>             userinfo = userinfo.split(/:/, 2);
+<font color="#aaaaaa">506:</font>             this.setCredentials(userinfo[0], userinfo[1]);
+<font color="#aaaaaa">507:</font>          }
+<font color="#aaaaaa">508:</font>          if (credentials != null) {
+<font color="#aaaaaa">509:</font>              conn.setRequestProperty(<font color="#9999aa">&quot;Authorization&quot;</font>, <font color="#9999aa">&quot;Basic &quot;</font> + credentials);
+<font color="#aaaaaa">510:</font>          }
+<font color="#aaaaaa">511:</font>  <font color="#33aa00">        // set timeouts
+<font color="#aaaaaa">512:</font>  </font>        if (parseFloat(java.lang.System.getProperty(<font color="#9999aa">&quot;java.specification.version&quot;</font>), 10) &gt;= 1.5) {
+<font color="#aaaaaa">513:</font>              conn.setConnectTimeout(timeout.connect);
+<font color="#aaaaaa">514:</font>              conn.setReadTimeout(timeout.socket);
+<font color="#aaaaaa">515:</font>          }
+<font color="#aaaaaa">516:</font>  <font color="#33aa00">        // set header fields
+<font color="#aaaaaa">517:</font>  </font>        for (var i in headers) {
+<font color="#aaaaaa">518:</font>              conn.setRequestProperty(i, headers[i]);
+<font color="#aaaaaa">519:</font>          }
+<font color="#aaaaaa">520:</font>  <font color="#33aa00">        // set cookies
+<font color="#aaaaaa">521:</font>  </font>        if (cookies != null) {
+<font color="#aaaaaa">522:</font>              var arr = [];
+<font color="#aaaaaa">523:</font>              for (var i in cookies) {
+<font color="#aaaaaa">524:</font>                  arr[arr.length] = cookies[i].getFieldValue();
+<font color="#aaaaaa">525:</font>              }
+<font color="#aaaaaa">526:</font>              conn.setRequestProperty(<font color="#9999aa">&quot;Cookie&quot;</font>, arr.join(<font color="#9999aa">&quot;;&quot;</font>));
+<font color="#aaaaaa">527:</font>          }
+<font color="#aaaaaa">528:</font>  <font color="#33aa00">        // set content
+<font color="#aaaaaa">529:</font>  </font>        if (content) {
+<font color="#aaaaaa">530:</font>              conn.setRequestProperty(<font color="#9999aa">&quot;Content-Length&quot;</font>, content.length);
+<font color="#aaaaaa">531:</font>              conn.setDoOutput(true);
+<font color="#aaaaaa">532:</font>              var out = new java.io.OutputStreamWriter(conn.getOutputStream());
+<font color="#aaaaaa">533:</font>              out.write(content);
+<font color="#aaaaaa">534:</font>              out.flush();
+<font color="#aaaaaa">535:</font>              out.close();
+<font color="#aaaaaa">536:</font>          }
+<font color="#aaaaaa">537:</font>  
+<font color="#aaaaaa">538:</font>          var result = {
+<font color="#aaaaaa">539:</font>              url: conn.getURL(),
+<font color="#aaaaaa">540:</font>              location: conn.getHeaderField(<font color="#9999aa">&quot;location&quot;</font>),
+<font color="#aaaaaa">541:</font>              code: conn.getResponseCode(),
+<font color="#aaaaaa">542:</font>              message: conn.getResponseMessage(),
+<font color="#aaaaaa">543:</font>              length: conn.getContentLength(),
+<font color="#aaaaaa">544:</font>              type: conn.getContentType(),
+<font color="#aaaaaa">545:</font>              encoding: conn.getContentEncoding(),
+<font color="#aaaaaa">546:</font>              lastModified: null,
+<font color="#aaaaaa">547:</font>              eTag: conn.getHeaderField(<font color="#9999aa">&quot;ETag&quot;</font>),
+<font color="#aaaaaa">548:</font>              cookies: null,
+<font color="#aaaaaa">549:</font>              headers: conn.getHeaderFields(),
+<font color="#aaaaaa">550:</font>              content: null,
+<font color="#aaaaaa">551:</font>          }
+<font color="#aaaaaa">552:</font>  
+<font color="#aaaaaa">553:</font>  <font color="#33aa00">        // parse all <font color="#9999aa">&quot;Set-Cookie&quot;</font> header fields into an array of
+<font color="#aaaaaa">554:</font>  </font><font color="#33aa00">        // helma.Http.Cookie instances
+<font color="#aaaaaa">555:</font>  </font>        var setCookies = conn.getHeaderFields().get(<font color="#9999aa">&quot;Set-Cookie&quot;</font>);
+<font color="#aaaaaa">556:</font>          if (setCookies != null) {
+<font color="#aaaaaa">557:</font>              var arr = [];
+<font color="#aaaaaa">558:</font>              var cookie;
+<font color="#aaaaaa">559:</font>              for (var i=0; i&lt;setCookies.size(); i++) {
+<font color="#aaaaaa">560:</font>                  if ((cookie = helma.Http.Cookie.parse(setCookies.get(i))) != null) {
+<font color="#aaaaaa">561:</font>                      arr.push(cookie);
+<font color="#aaaaaa">562:</font>                  }
+<font color="#aaaaaa">563:</font>              }
+<font color="#aaaaaa">564:</font>              if (arr.length &gt; 0) {
+<font color="#aaaaaa">565:</font>                  result.cookies = arr;
+<font color="#aaaaaa">566:</font>              }
+<font color="#aaaaaa">567:</font>          }
+<font color="#aaaaaa">568:</font>  
+<font color="#aaaaaa">569:</font>          var lastmod = conn.getLastModified();
+<font color="#aaaaaa">570:</font>          if (lastmod) {
+<font color="#aaaaaa">571:</font>              result.lastModified = new Date(lastmod);
+<font color="#aaaaaa">572:</font>          }
+<font color="#aaaaaa">573:</font>  
+<font color="#aaaaaa">574:</font>          if (maxResponseSize &amp;&amp; result.length &gt; maxResponseSize) {
+<font color="#aaaaaa">575:</font>             throw new Error(<font color="#9999aa">&quot;Maximum allowed response size is exceeded&quot;</font>);
+<font color="#aaaaaa">576:</font>          }
+<font color="#aaaaaa">577:</font> 
+<font color="#aaaaaa">578:</font>         if (result.type &amp;&amp; result.type.indexOf(<font color="#9999aa">&quot;charset=&quot;</font>) != -1) {
+<font color="#aaaaaa">579:</font>            var charset = result.type.substring(result.type.indexOf(<font color="#9999aa">&quot;charset=&quot;</font>) + 8);
+<font color="#aaaaaa">580:</font>            charset = charset.replace('&quot;', ' ').trim();
+<font color="#aaaaaa">581:</font>            result.charset = charset;
+<font color="#aaaaaa">582:</font>         }
+<font color="#aaaaaa">583:</font> 
+<font color="#aaaaaa">584:</font> <font color="#33aa00">        // invoke response handler
+<font color="#aaaaaa">585:</font> </font>        responseHandler(conn, result);
+<font color="#aaaaaa">586:</font> 
+<font color="#aaaaaa">587:</font>         conn.disconnect();
+<font color="#aaaaaa">588:</font>         return result;
+<font color="#aaaaaa">589:</font>     }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

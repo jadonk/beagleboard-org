@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global/helma.sqlshell.main.skin</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	general parameters used in this skin:<ul><li><code>param.body</code><li><code>request.datasource</code><li><code>request.schema</code><li><code>request.tab</code></ul><br>
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.main.skin:
+	<pre><font color="#aaaaaa">0:</font>   &lt;h3&gt;Helma Sql Shell&lt;/h3&gt;
+<font color="#aaaaaa">1:</font>   
+<font color="#aaaaaa">2:</font>   &lt;div style=&quot;float:right;&quot;&gt;
+<font color="#aaaaaa">3:</font>   &lt;form method=&quot;get&quot; action=&quot;<font color="#aa3300">&lt;% datasource.href %&gt;</font>&quot; name=&quot;datasource&quot;&gt;
+<font color="#aaaaaa">4:</font>      &lt;input type=&quot;hidden&quot; name=&quot;tab&quot; value=&quot;<font color="#aa3300">&lt;% request.tab %&gt;</font>&quot;&gt;
+<font color="#aaaaaa">5:</font>      <font color="#aa3300">&lt;% html.select name=&quot;datasource&quot; options=&quot;response.datasources&quot;
+<font color="#aaaaaa">6:</font>         prefix=&quot;Data Source: &quot; onchange=&quot;document.forms.datasource.submit(); %&gt;</font>
+<font color="#aaaaaa">7:</font>         &amp;nbsp;&amp;nbsp;
+<font color="#aaaaaa">8:</font>      <font color="#aa3300">&lt;% html.select name=&quot;schema&quot; options=&quot;response.schemas&quot;
+<font color="#aaaaaa">9:</font>        prefix=&quot;Schema: &quot;  onchange=&quot;document.forms.datasource.submit(); %&gt;</font>
+<font color="#aaaaaa">10:</font>  &lt;/form&gt;
+<font color="#aaaaaa">11:</font>  &lt;/div&gt;
+<font color="#aaaaaa">12:</font>  
+<font color="#aaaaaa">13:</font>  &lt;form method=&quot;post&quot; action=&quot;<font color="#aa3300">&lt;% datasource.href %&gt;</font>&quot; name=&quot;tab&quot;&gt;
+<font color="#aaaaaa">14:</font>  
+<font color="#aaaaaa">15:</font>  &lt;div class=&quot;tabs&quot;&gt;
+<font color="#aaaaaa">16:</font>  <font color="#aa3300">&lt;% html.tablink name=&quot;explore&quot; %&gt;</font>
+<font color="#aaaaaa">17:</font>  <font color="#aa3300">&lt;% html.tablink name=&quot;query&quot; %&gt;</font>
+<font color="#aaaaaa">18:</font>  <font color="#aa3300">&lt;% html.tablink name=&quot;map&quot; %&gt;</font>
+<font color="#aaaaaa">19:</font>  &lt;/div&gt;
+<font color="#aaaaaa">20:</font>  
+<font color="#aaaaaa">21:</font>  &lt;input type=&quot;hidden&quot; name=&quot;datasource&quot; value=&quot;<font color="#aa3300">&lt;% request.datasource %&gt;</font>&quot;&gt;
+<font color="#aaaaaa">22:</font>  &lt;input type=&quot;hidden&quot; name=&quot;schema&quot; value=&quot;<font color="#aa3300">&lt;% request.schema %&gt;</font>&quot;&gt;
+<font color="#aaaaaa">23:</font>  &lt;input type=&quot;hidden&quot; name=&quot;tab&quot; value=&quot;<font color="#aa3300">&lt;% request.tab %&gt;</font>&quot;&gt;
+<font color="#aaaaaa">24:</font>  
+<font color="#aaaaaa">25:</font>  <font color="#aa3300">&lt;% param.body %&gt;</font>
+<font color="#aaaaaa">26:</font>  
+<font color="#aaaaaa">27:</font>  &lt;p&gt;&lt;input type=&quot;submit&quot; name=&quot;done&quot; value=&quot;Done&quot; /&gt;&lt;/p&gt;
+<font color="#aaaaaa">28:</font>  
+<font color="#aaaaaa">29:</font>  &lt;/form&gt;
+<font color="#aaaaaa">30:</font>  
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

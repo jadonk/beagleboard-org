@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.prototype.submit&nbsp;(param)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Renders an x/html submit input tag <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{Object}</code>:<br/>
+param An object containing the tag attributes
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">395:</font>   helma.Html.prototype.submit = function(param) {
+<font color="#aaaaaa">396:</font>       if (!param) {
+<font color="#aaaaaa">397:</font>           res.write(<font color="#9999aa">&quot;[Html.submit: insufficient arguments]&quot;</font>);
+<font color="#aaaaaa">398:</font>           return;
+<font color="#aaaaaa">399:</font>       }
+<font color="#aaaaaa">400:</font>       var attr = Object.prototype.reduce.call(param);
+<font color="#aaaaaa">401:</font>       attr.type = <font color="#9999aa">&quot;submit&quot;</font>;
+<font color="#aaaaaa">402:</font>       if (!attr.name)
+<font color="#aaaaaa">403:</font>           attr.name = attr.type;
+<font color="#aaaaaa">404:</font>      attr.value = (attr.value != null) ? encodeForm(attr.value) : attr.type;
+<font color="#aaaaaa">405:</font>      this.tag(<font color="#9999aa">&quot;input&quot;</font>, attr);
+<font color="#aaaaaa">406:</font>      return;  
+<font color="#aaaaaa">407:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

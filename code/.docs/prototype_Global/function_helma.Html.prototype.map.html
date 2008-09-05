@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Html.prototype.map&nbsp;(name,&nbsp;param)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Renders an image map based on an array containing the map parameters. <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+name The name of the image map<li><b>Parameter</b> <code>{Array}</code>:<br/>
+param An array containing objects, where each of them contains the attributes for a single image map entry
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Html.js:
+	<pre><font color="#aaaaaa">535:</font>   helma.Html.prototype.map = function(name, param) {
+<font color="#aaaaaa">536:</font>       if (!name || !param) {
+<font color="#aaaaaa">537:</font>           res.write(<font color="#9999aa">&quot;[Html.map: insufficient arguments]&quot;</font>);
+<font color="#aaaaaa">538:</font>           return;
+<font color="#aaaaaa">539:</font>       }
+<font color="#aaaaaa">540:</font>       this.openTag(<font color="#9999aa">&quot;map&quot;</font>, {name: name});
+<font color="#aaaaaa">541:</font>       var attr = Object.prototype.reduce.call(param);
+<font color="#aaaaaa">542:</font>       for (var i in areas) {
+<font color="#aaaaaa">543:</font>           if (!areas[i].alt)
+<font color="#aaaaaa">544:</font>              areas[i].alt = <font color="#9999aa">&quot;&quot;</font>;
+<font color="#aaaaaa">545:</font>          if (!areas[i].shape)
+<font color="#aaaaaa">546:</font>              areas[i].shape = <font color="#9999aa">&quot;rect&quot;</font>;
+<font color="#aaaaaa">547:</font>          this.openTag(<font color="#9999aa">&quot;area&quot;</font>, areas[i]);
+<font color="#aaaaaa">548:</font>      }
+<font color="#aaaaaa">549:</font>      this.closeTag(<font color="#9999aa">&quot;map&quot;</font>);
+<font color="#aaaaaa">550:</font>      return;
+<font color="#aaaaaa">551:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

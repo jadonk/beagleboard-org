@@ -1,0 +1,660 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http&nbsp;()</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Creates a new instance of helma.Http <br><br>
+	
+	<ul>
+		
+		<li><b>Returns</b><br>
+A newly created helma.Http instance
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">44:</font>   helma.Http = function() {
+<font color="#aaaaaa">45:</font>       var self = this;
+<font color="#aaaaaa">46:</font>       var proxy = null;
+<font color="#aaaaaa">47:</font>       var content = <font color="#9999aa">&quot;&quot;</font>;
+<font color="#aaaaaa">48:</font>       var userAgent = <font color="#9999aa">&quot;Helma Http Client&quot;</font>;
+<font color="#aaaaaa">49:</font>       var method = <font color="#9999aa">&quot;GET&quot;</font>;
+<font color="#aaaaaa">50:</font>       var cookies = null;
+<font color="#aaaaaa">51:</font>       var credentials = null;
+<font color="#aaaaaa">52:</font>       var followRedirects = true;
+<font color="#aaaaaa">53:</font>      var binaryMode = false;
+<font color="#aaaaaa">54:</font>      var headers = {};
+<font color="#aaaaaa">55:</font>      var timeout = {
+<font color="#aaaaaa">56:</font>          <font color="#9999aa">&quot;connect&quot;</font>: 0,
+<font color="#aaaaaa">57:</font>          <font color="#9999aa">&quot;socket&quot;</font>: 0
+<font color="#aaaaaa">58:</font>      };
+<font color="#aaaaaa">59:</font>      var maxResponseSize = null;
+<font color="#aaaaaa">60:</font>  
+<font color="#aaaaaa">61:</font>      var responseHandler = function(connection, result) {
+<font color="#aaaaaa">62:</font>         var input;
+<font color="#aaaaaa">63:</font>         try {
+<font color="#aaaaaa">64:</font>            input = new java.io.BufferedInputStream(connection.getInputStream());
+<font color="#aaaaaa">65:</font>         } catch (error) {
+<font color="#aaaaaa">66:</font>            input = new java.io.BufferedInputStream(connection.getErrorStream());
+<font color="#aaaaaa">67:</font>         }
+<font color="#aaaaaa">68:</font>         if (input) {
+<font color="#aaaaaa">69:</font>            var body = new java.io.ByteArrayOutputStream();
+<font color="#aaaaaa">70:</font>            var buf = java.lang.reflect.Array.newInstance(java.lang.Byte.TYPE, 1024);
+<font color="#aaaaaa">71:</font>            var len;
+<font color="#aaaaaa">72:</font>            var currentSize = 0;
+<font color="#aaaaaa">73:</font>            while ((len = input.read(buf)) &gt; -1) {
+<font color="#aaaaaa">74:</font>               body.write(buf, 0, len);
+<font color="#aaaaaa">75:</font>               currentSize += len;
+<font color="#aaaaaa">76:</font>               if (maxResponseSize &amp;&amp; currentSize &gt; maxResponseSize) {
+<font color="#aaaaaa">77:</font>                  throw new Error(<font color="#9999aa">&quot;Maximum allowed response size is exceeded&quot;</font>);
+<font color="#aaaaaa">78:</font>               }
+<font color="#aaaaaa">79:</font>            }
+<font color="#aaaaaa">80:</font>            try {
+<font color="#aaaaaa">81:</font>               input.close();
+<font color="#aaaaaa">82:</font>            } catch (error) {
+<font color="#aaaaaa">83:</font>  <font color="#33aa00">             // safe to ignore 
+<font color="#aaaaaa">84:</font>  </font>          }
+<font color="#aaaaaa">85:</font>            if (binaryMode &amp;&amp; (result.code &gt;= 200 &amp;&amp; result.code &lt; 300)) {
+<font color="#aaaaaa">86:</font>  <font color="#33aa00">             // only honor binaryMode if the request succeeded
+<font color="#aaaaaa">87:</font>  </font>             result.content = body.toByteArray();
+<font color="#aaaaaa">88:</font>            } else {
+<font color="#aaaaaa">89:</font>               result.content = result.charset ?
+<font color="#aaaaaa">90:</font>                        body.toString(result.charset) :
+<font color="#aaaaaa">91:</font>                        body.toString();
+<font color="#aaaaaa">92:</font>            }
+<font color="#aaaaaa">93:</font>  <font color="#33aa00">          // adjust content length
+<font color="#aaaaaa">94:</font>  </font>          if (result.content) {
+<font color="#aaaaaa">95:</font>               result.length = result.content.length;
+<font color="#aaaaaa">96:</font>            }
+<font color="#aaaaaa">97:</font>         }
+<font color="#aaaaaa">98:</font>      };
+<font color="#aaaaaa">99:</font>  
+<font color="#aaaaaa">100:</font>      /** @private */
+<font color="#aaaaaa">101:</font>      var setTimeout = function(type, value) {
+<font color="#aaaaaa">102:</font>          var v = java.lang.System.getProperty(<font color="#9999aa">&quot;java.specification.version&quot;</font>);
+<font color="#aaaaaa">103:</font>          if (parseFloat(v, 10) &gt;= 1.5) {
+<font color="#aaaaaa">104:</font>              timeout[type] = value;
+<font color="#aaaaaa">105:</font>          } else {
+<font color="#aaaaaa">106:</font>              app.logger.warn(<font color="#9999aa">&quot;helma.Http: Timeouts can only be set with Java Runtime version &gt;= 1.5&quot;</font>);
+<font color="#aaaaaa">107:</font>          }
+<font color="#aaaaaa">108:</font>          return true;
+<font color="#aaaaaa">109:</font>      }
+<font color="#aaaaaa">110:</font>  
+<font color="#aaaaaa">111:</font>      /**
+<font color="#aaaaaa">112:</font>       * Sets the proxy host and port for later use. The argument must
+<font color="#aaaaaa">113:</font>       * be in &lt;code&gt;host:port&lt;/code&gt; format (eg. <font color="#9999aa">&quot;proxy.example.com:3128&quot;</font>).
+<font color="#aaaaaa">114:</font>       * @param {String} proxyString The proxy to use for this request
+<font color="#aaaaaa">115:</font>       * @see #getProxy
+<font color="#aaaaaa">116:</font>       */
+<font color="#aaaaaa">117:</font>      this.setProxy = function(proxyString) {
+<font color="#aaaaaa">118:</font>          var idx = proxyString.indexOf(<font color="#9999aa">&quot;:&quot;</font>);
+<font color="#aaaaaa">119:</font>          var host = proxyString.substring(0, idx);
+<font color="#aaaaaa">120:</font>          var port = proxyString.substring(idx+1);
+<font color="#aaaaaa">121:</font>          if (java.lang.Class.forName(<font color="#9999aa">&quot;java.net.Proxy&quot;</font>) != null) {
+<font color="#aaaaaa">122:</font>  <font color="#33aa00">            // construct a proxy instance
+<font color="#aaaaaa">123:</font>  </font>            var socket = new java.net.InetSocketAddress(host, port);
+<font color="#aaaaaa">124:</font>              proxy = new java.net.Proxy(java.net.Proxy.Type.HTTP, socket);
+<font color="#aaaaaa">125:</font>          } else {
+<font color="#aaaaaa">126:</font>  <font color="#33aa00">            // the pre jdk1.5 way: set the system properties
+<font color="#aaaaaa">127:</font>  </font>            var sys = java.lang.System.getProperties();
+<font color="#aaaaaa">128:</font>              if (host) {
+<font color="#aaaaaa">129:</font>                  app.logger.warn(<font color="#9999aa">&quot;[Helma Http Client] WARNING: setting system http proxy to &quot;</font> + host + <font color="#9999aa">&quot;:&quot;</font> + port);
+<font color="#aaaaaa">130:</font>                  sys.put(<font color="#9999aa">&quot;http.proxySet&quot;</font>, <font color="#9999aa">&quot;true&quot;</font>);
+<font color="#aaaaaa">131:</font>                  sys.put(<font color="#9999aa">&quot;http.proxyHost&quot;</font>, host);
+<font color="#aaaaaa">132:</font>                  sys.put(<font color="#9999aa">&quot;http.proxyPort&quot;</font>, port);
+<font color="#aaaaaa">133:</font>              }
+<font color="#aaaaaa">134:</font>          }
+<font color="#aaaaaa">135:</font>          return;
+<font color="#aaaaaa">136:</font>      };
+<font color="#aaaaaa">137:</font>  
+<font color="#aaaaaa">138:</font>      /**
+<font color="#aaaaaa">139:</font>       * Returns the proxy in &lt;code&gt;host:port&lt;/code&gt; format
+<font color="#aaaaaa">140:</font>       * @return The proxy defined for this request
+<font color="#aaaaaa">141:</font>       * @type String
+<font color="#aaaaaa">142:</font>       * @see #setProxy
+<font color="#aaaaaa">143:</font>      */
+<font color="#aaaaaa">144:</font>     this.getProxy = function() {
+<font color="#aaaaaa">145:</font>         if (proxy != null) {
+<font color="#aaaaaa">146:</font>             return proxy.address().getHostName() + <font color="#9999aa">&quot;:&quot;</font> + proxy.address().getPort();
+<font color="#aaaaaa">147:</font>         } else if (sys.get(<font color="#9999aa">&quot;http.proxySet&quot;</font>) == <font color="#9999aa">&quot;true&quot;</font>) {
+<font color="#aaaaaa">148:</font>             return sys.get(<font color="#9999aa">&quot;http.proxyHost&quot;</font>) + <font color="#9999aa">&quot;:&quot;</font> + sys.get(<font color="#9999aa">&quot;http.proxyPort&quot;</font>);
+<font color="#aaaaaa">149:</font>         } else {
+<font color="#aaaaaa">150:</font>             return null;
+<font color="#aaaaaa">151:</font>         }
+<font color="#aaaaaa">152:</font>     };
+<font color="#aaaaaa">153:</font> 
+<font color="#aaaaaa">154:</font>     /**
+<font color="#aaaaaa">155:</font>      * Sets the credentials for basic http authentication
+<font color="#aaaaaa">156:</font>      * @param {String} username The username
+<font color="#aaaaaa">157:</font>      * @param {String} password The password
+<font color="#aaaaaa">158:</font>      */
+<font color="#aaaaaa">159:</font>     this.setCredentials = function(username, password) {
+<font color="#aaaaaa">160:</font>         var str = new java.lang.String(username + <font color="#9999aa">&quot;:&quot;</font> + password);
+<font color="#aaaaaa">161:</font>         credentials = (new Packages.sun.misc.BASE64Encoder()).encode(str.getBytes());
+<font color="#aaaaaa">162:</font>         return;
+<font color="#aaaaaa">163:</font>     }
+<font color="#aaaaaa">164:</font> 
+<font color="#aaaaaa">165:</font>     /**
+<font color="#aaaaaa">166:</font>      * Sets the content to send to the remote server within this request.
+<font color="#aaaaaa">167:</font>      * @param {String|Object} stringOrObject The content of the request, which
+<font color="#aaaaaa">168:</font>      * can be either a string or an object. In the latter case all properties
+<font color="#aaaaaa">169:</font>      * and their values are concatenated into a single string.
+<font color="#aaaaaa">170:</font>      * If a property is an array, then for each value the propertyname and value pair is added.
+<font color="#aaaaaa">171:</font>      * If the name of an array property ends with <font color="#9999aa">&quot;_array&quot;</font> then the _array part is removed.  
+<font color="#aaaaaa">172:</font>      */
+<font color="#aaaaaa">173:</font>     this.setContent = function(stringOrObject) {
+<font color="#aaaaaa">174:</font>         if (stringOrObject != null) {
+<font color="#aaaaaa">175:</font>             if (stringOrObject.constructor == Object) {
+<font color="#aaaaaa">176:</font>                 res.push();
+<font color="#aaaaaa">177:</font>                 var value;
+<font color="#aaaaaa">178:</font>                 for (var key in stringOrObject) {
+<font color="#aaaaaa">179:</font>                     value = stringOrObject[key];
+<font color="#aaaaaa">180:</font>                     if (value instanceof Array) {
+<font color="#aaaaaa">181:</font>                         if (key.substring(key.length - 6) == <font color="#9999aa">&quot;_array&quot;</font>) 
+<font color="#aaaaaa">182:</font>                             key = key.substring(0,key.length - 6); 
+<font color="#aaaaaa">183:</font>                         for (var i = 0; i &lt; value.length; i++) {
+<font color="#aaaaaa">184:</font>                             res.write(encodeURIComponent(key));
+<font color="#aaaaaa">185:</font>                             res.write(<font color="#9999aa">&quot;=&quot;</font>);
+<font color="#aaaaaa">186:</font>                             res.write(encodeURIComponent(value[i]));
+<font color="#aaaaaa">187:</font>                             res.write(<font color="#9999aa">&quot;&amp;&quot;</font>);
+<font color="#aaaaaa">188:</font>                         }        
+<font color="#aaaaaa">189:</font>                     } else {
+<font color="#aaaaaa">190:</font>                        res.write(encodeURIComponent(key));
+<font color="#aaaaaa">191:</font>                        res.write(<font color="#9999aa">&quot;=&quot;</font>);
+<font color="#aaaaaa">192:</font>                        res.write(encodeURIComponent(value));
+<font color="#aaaaaa">193:</font>                        res.write(<font color="#9999aa">&quot;&amp;&quot;</font>);
+<font color="#aaaaaa">194:</font>                     }
+<font color="#aaaaaa">195:</font>                 }               
+<font color="#aaaaaa">196:</font>                 content = res.pop();
+<font color="#aaaaaa">197:</font>                 content = content.substring(0, content.length-1);
+<font color="#aaaaaa">198:</font>             } else {
+<font color="#aaaaaa">199:</font>                 content = stringOrObject.toString();
+<font color="#aaaaaa">200:</font>             }
+<font color="#aaaaaa">201:</font>         } else {
+<font color="#aaaaaa">202:</font>            content = null;
+<font color="#aaaaaa">203:</font>         }
+<font color="#aaaaaa">204:</font>         return;
+<font color="#aaaaaa">205:</font>     };
+<font color="#aaaaaa">206:</font>     
+<font color="#aaaaaa">207:</font>     /**
+<font color="#aaaaaa">208:</font>      * Sets the request method to use.
+<font color="#aaaaaa">209:</font>      * @param {String} m The method to use (&lt;code&gt;GET&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt; ...)
+<font color="#aaaaaa">210:</font>      * @see #getMethod
+<font color="#aaaaaa">211:</font>      */
+<font color="#aaaaaa">212:</font>     this.setMethod = function(m) {
+<font color="#aaaaaa">213:</font>         method = m;
+<font color="#aaaaaa">214:</font>         return;
+<font color="#aaaaaa">215:</font>     };
+<font color="#aaaaaa">216:</font> 
+<font color="#aaaaaa">217:</font>     /**
+<font color="#aaaaaa">218:</font>      * Returns the currently defined request method.
+<font color="#aaaaaa">219:</font>      * @returns The method used
+<font color="#aaaaaa">220:</font>      * @type String
+<font color="#aaaaaa">221:</font>      * @see #setMethod
+<font color="#aaaaaa">222:</font>      */
+<font color="#aaaaaa">223:</font>     this.getMethod = function() {
+<font color="#aaaaaa">224:</font>         return method;
+<font color="#aaaaaa">225:</font>     };
+<font color="#aaaaaa">226:</font> 
+<font color="#aaaaaa">227:</font>     /**
+<font color="#aaaaaa">228:</font>      * Sets a single HTTP request header field
+<font color="#aaaaaa">229:</font>      * @param {String} name The name of the header field
+<font color="#aaaaaa">230:</font>      * @param {String} value The value of the header field
+<font color="#aaaaaa">231:</font>      * @see #getHeader
+<font color="#aaaaaa">232:</font>      */
+<font color="#aaaaaa">233:</font>     this.setHeader = function(name, value) {
+<font color="#aaaaaa">234:</font>         headers[name] = value;
+<font color="#aaaaaa">235:</font>         return;
+<font color="#aaaaaa">236:</font>     };
+<font color="#aaaaaa">237:</font> 
+<font color="#aaaaaa">238:</font>     /**
+<font color="#aaaaaa">239:</font>      * Returns the value of the request header field with the given name
+<font color="#aaaaaa">240:</font>      * @param {String} name The name of the request header field
+<font color="#aaaaaa">241:</font>      * @returns The value of the request header field
+<font color="#aaaaaa">242:</font>      * @type String
+<font color="#aaaaaa">243:</font>      * @see #setHeader
+<font color="#aaaaaa">244:</font>      */
+<font color="#aaaaaa">245:</font>     this.getHeader = function(name) {
+<font color="#aaaaaa">246:</font>         return headers[name];
+<font color="#aaaaaa">247:</font>     };
+<font color="#aaaaaa">248:</font> 
+<font color="#aaaaaa">249:</font>     /**
+<font color="#aaaaaa">250:</font>      * Adds a cookie with the name and value passed as arguments
+<font color="#aaaaaa">251:</font>      * to the list of cookies to send to the remote server.
+<font color="#aaaaaa">252:</font>      * @param {String} name The name of the cookie
+<font color="#aaaaaa">253:</font>      * @param {String} value The value of the cookie
+<font color="#aaaaaa">254:</font>      * @see #getCookie
+<font color="#aaaaaa">255:</font>      * @see #getCookies
+<font color="#aaaaaa">256:</font>      */
+<font color="#aaaaaa">257:</font>     this.setCookie = function(name, value) {
+<font color="#aaaaaa">258:</font>         if (name != null &amp;&amp; value != null) {
+<font color="#aaaaaa">259:</font> <font color="#33aa00">            // store the cookie in the cookies map
+<font color="#aaaaaa">260:</font> </font>            if (!cookies) {
+<font color="#aaaaaa">261:</font>                 cookies = {};
+<font color="#aaaaaa">262:</font>             }
+<font color="#aaaaaa">263:</font>             cookies[name] = new helma.Http.Cookie(name, value);
+<font color="#aaaaaa">264:</font>         }
+<font color="#aaaaaa">265:</font>         return;
+<font color="#aaaaaa">266:</font>     };
+<font color="#aaaaaa">267:</font> 
+<font color="#aaaaaa">268:</font>     /**
+<font color="#aaaaaa">269:</font>      * Returns the value of the cookie with the given name
+<font color="#aaaaaa">270:</font>      * @param {String} name The name of the cookie
+<font color="#aaaaaa">271:</font>      * @returns The value of the cookie
+<font color="#aaaaaa">272:</font>      * @type String
+<font color="#aaaaaa">273:</font>      * @see #setCookie
+<font color="#aaaaaa">274:</font>      */
+<font color="#aaaaaa">275:</font>     this.getCookie = function(name) {
+<font color="#aaaaaa">276:</font>         return (cookies != null) ? cookies[name] : null;
+<font color="#aaaaaa">277:</font>     };
+<font color="#aaaaaa">278:</font> 
+<font color="#aaaaaa">279:</font>     /**
+<font color="#aaaaaa">280:</font>      * Adds the cookies passed as argument to the list of cookies to send
+<font color="#aaaaaa">281:</font>      * to the remote server.
+<font color="#aaaaaa">282:</font>      * @param {Array} cookies An array containing objects with the properties
+<font color="#aaaaaa">283:</font>      * <font color="#9999aa">&quot;name&quot;</font> (the name of the cookie) and <font color="#9999aa">&quot;value&quot;</font> (the value of the cookie) set. 
+<font color="#aaaaaa">284:</font>      */
+<font color="#aaaaaa">285:</font>     this.setCookies = function(cookies) {
+<font color="#aaaaaa">286:</font>         if (cookies != null) {
+<font color="#aaaaaa">287:</font>             for (var i=0; i&lt;cookies.length; i++) {
+<font color="#aaaaaa">288:</font>                 this.setCookie(cookies[i].name, cookies[i].value);
+<font color="#aaaaaa">289:</font>             }
+<font color="#aaaaaa">290:</font>         }
+<font color="#aaaaaa">291:</font>         return;
+<font color="#aaaaaa">292:</font>     };
+<font color="#aaaaaa">293:</font> 
+<font color="#aaaaaa">294:</font>     /**
+<font color="#aaaaaa">295:</font>      * Returns all cookies set for this client
+<font color="#aaaaaa">296:</font>      * @return An object containing all cookies, where the property
+<font color="#aaaaaa">297:</font>      * name is the name of the cookie, and the value is the cookie value
+<font color="#aaaaaa">298:</font>      * @see #setCookie
+<font color="#aaaaaa">299:</font>      */
+<font color="#aaaaaa">300:</font>     this.getCookies = function() {
+<font color="#aaaaaa">301:</font>         return cookies;
+<font color="#aaaaaa">302:</font>     };
+<font color="#aaaaaa">303:</font> 
+<font color="#aaaaaa">304:</font>     /**
+<font color="#aaaaaa">305:</font>      * Sets the connection timeout to the amount of milliseconds
+<font color="#aaaaaa">306:</font>      * passed as argument
+<font color="#aaaaaa">307:</font>      * @param {Number} timeout The connection timeout in milliseconds
+<font color="#aaaaaa">308:</font>      * @see #getTimeout
+<font color="#aaaaaa">309:</font>      */
+<font color="#aaaaaa">310:</font>     this.setTimeout = function(timeout) {
+<font color="#aaaaaa">311:</font>         setTimeout(<font color="#9999aa">&quot;connect&quot;</font>, timeout);
+<font color="#aaaaaa">312:</font>         return;
+<font color="#aaaaaa">313:</font>     };
+<font color="#aaaaaa">314:</font> 
+<font color="#aaaaaa">315:</font>     /**
+<font color="#aaaaaa">316:</font>      * Sets the read timeout (the maximum time a request may take after
+<font color="#aaaaaa">317:</font>      * the connection has been successfully established) to the amount of
+<font color="#aaaaaa">318:</font>      * milliseconds passed as argument.
+<font color="#aaaaaa">319:</font>      * @param {Number} timeout The read timeout in milliseconds
+<font color="#aaaaaa">320:</font>      * @see #getReadTimeout
+<font color="#aaaaaa">321:</font>      */
+<font color="#aaaaaa">322:</font>     this.setReadTimeout = function(timeout) {
+<font color="#aaaaaa">323:</font>         setTimeout(<font color="#9999aa">&quot;socket&quot;</font>, timeout);
+<font color="#aaaaaa">324:</font>         return true;
+<font color="#aaaaaa">325:</font>     };
+<font color="#aaaaaa">326:</font> 
+<font color="#aaaaaa">327:</font>     /**
+<font color="#aaaaaa">328:</font>      * Returns the connection timeout
+<font color="#aaaaaa">329:</font>      * @returns The connection timeout in milliseconds
+<font color="#aaaaaa">330:</font>      * @type Number
+<font color="#aaaaaa">331:</font>      * @see #setTimeout
+<font color="#aaaaaa">332:</font>      */
+<font color="#aaaaaa">333:</font>     this.getTimeout = function() {
+<font color="#aaaaaa">334:</font>         return timeout.connect;
+<font color="#aaaaaa">335:</font>     };
+<font color="#aaaaaa">336:</font> 
+<font color="#aaaaaa">337:</font>     /**
+<font color="#aaaaaa">338:</font>      * Returns the read timeout (the maximum time a request may take after
+<font color="#aaaaaa">339:</font>      * the connection has been successfully established).
+<font color="#aaaaaa">340:</font>      * @returns The read timeout in milliseconds
+<font color="#aaaaaa">341:</font>      * @type Number
+<font color="#aaaaaa">342:</font>      * @see #setReadTimeout
+<font color="#aaaaaa">343:</font>      */
+<font color="#aaaaaa">344:</font>     this.getReadTimeout = function() {
+<font color="#aaaaaa">345:</font>         return timeout.socket;
+<font color="#aaaaaa">346:</font>     };
+<font color="#aaaaaa">347:</font> 
+<font color="#aaaaaa">348:</font>     /**
+<font color="#aaaaaa">349:</font>      * Enables or disables following redirects
+<font color="#aaaaaa">350:</font>      * @param {Boolean} value If false this client won't follow redirects (the default is
+<font color="#aaaaaa">351:</font>      * to follow them)
+<font color="#aaaaaa">352:</font>      * @see #getFollowRedirects
+<font color="#aaaaaa">353:</font>      */
+<font color="#aaaaaa">354:</font>     this.setFollowRedirects = function(value) {
+<font color="#aaaaaa">355:</font>         followRedirects = value;
+<font color="#aaaaaa">356:</font>         return;
+<font color="#aaaaaa">357:</font>     };
+<font color="#aaaaaa">358:</font> 
+<font color="#aaaaaa">359:</font>     /**
+<font color="#aaaaaa">360:</font>      * Returns true if the client follows redirects
+<font color="#aaaaaa">361:</font>      * @returns True if the client follows redirects, false otherwise.
+<font color="#aaaaaa">362:</font>      * @see #setFollowRedirects
+<font color="#aaaaaa">363:</font>      */
+<font color="#aaaaaa">364:</font>     this.getFollowRedirects = function() {
+<font color="#aaaaaa">365:</font>         return followRedirects;
+<font color="#aaaaaa">366:</font>     };
+<font color="#aaaaaa">367:</font> 
+<font color="#aaaaaa">368:</font>     /**
+<font color="#aaaaaa">369:</font>      * Sets the HTTP <font color="#9999aa">&quot;User-Agent&quot;</font> header field to the string passed as argument
+<font color="#aaaaaa">370:</font>      * @param {String} agent The string to use as value of the
+<font color="#aaaaaa">371:</font>      * <font color="#9999aa">&quot;User-Agent&quot;</font> header field (defaults to <font color="#9999aa">&quot;Helma Http Client&quot;</font>)
+<font color="#aaaaaa">372:</font>      * @see #getUserAgent
+<font color="#aaaaaa">373:</font>      */
+<font color="#aaaaaa">374:</font>     this.setUserAgent = function(agent) {
+<font color="#aaaaaa">375:</font>         userAgent = agent;
+<font color="#aaaaaa">376:</font>         return;
+<font color="#aaaaaa">377:</font>     };
+<font color="#aaaaaa">378:</font> 
+<font color="#aaaaaa">379:</font>     /**
+<font color="#aaaaaa">380:</font>      * Returns the value of the HTTP <font color="#9999aa">&quot;User-Agent&quot;</font> header field
+<font color="#aaaaaa">381:</font>      * @returns The value of the field
+<font color="#aaaaaa">382:</font>      * @type String
+<font color="#aaaaaa">383:</font>      * @see #setUserAgent
+<font color="#aaaaaa">384:</font>      */
+<font color="#aaaaaa">385:</font>     this.getUserAgent = function() {
+<font color="#aaaaaa">386:</font>         return userAgent;
+<font color="#aaaaaa">387:</font>     };
+<font color="#aaaaaa">388:</font> 
+<font color="#aaaaaa">389:</font>     /**
+<font color="#aaaaaa">390:</font>      * Switches content text encoding on or off. Depending on this
+<font color="#aaaaaa">391:</font>      * the content received from the remote server will be either a
+<font color="#aaaaaa">392:</font>      * string or a byte array.
+<font color="#aaaaaa">393:</font>      * @param {Boolean} mode If true binary mode is activated
+<font color="#aaaaaa">394:</font>      * @see #getBinaryMode
+<font color="#aaaaaa">395:</font>      */
+<font color="#aaaaaa">396:</font>     this.setBinaryMode = function(mode) {
+<font color="#aaaaaa">397:</font>         binaryMode = mode;
+<font color="#aaaaaa">398:</font>         return;
+<font color="#aaaaaa">399:</font>     };
+<font color="#aaaaaa">400:</font> 
+<font color="#aaaaaa">401:</font>     /**
+<font color="#aaaaaa">402:</font>      * Returns the currently defined binary mode of this client
+<font color="#aaaaaa">403:</font>      * @returns The binary mode of this client
+<font color="#aaaaaa">404:</font>      * @type Boolean
+<font color="#aaaaaa">405:</font>      * @see #setBinaryMode
+<font color="#aaaaaa">406:</font>      */
+<font color="#aaaaaa">407:</font>     this.getBinaryMode = function() {
+<font color="#aaaaaa">408:</font>         return binaryMode;
+<font color="#aaaaaa">409:</font>     };
+<font color="#aaaaaa">410:</font> 
+<font color="#aaaaaa">411:</font>     /**
+<font color="#aaaaaa">412:</font>      * Sets the max allowed size for the response stream
+<font color="#aaaaaa">413:</font>      * @param {Integer} Size in Byte
+<font color="#aaaaaa">414:</font>      */
+<font color="#aaaaaa">415:</font>     this.setMaxResponseSize = function(size) {
+<font color="#aaaaaa">416:</font>         maxResponseSize = size;
+<font color="#aaaaaa">417:</font>         return;
+<font color="#aaaaaa">418:</font>      };
+<font color="#aaaaaa">419:</font> 
+<font color="#aaaaaa">420:</font>     /**
+<font color="#aaaaaa">421:</font>      * Returns the currently set max response size
+<font color="#aaaaaa">422:</font>      * @returns The max responsesize
+<font color="#aaaaaa">423:</font>      * @type Integer
+<font color="#aaaaaa">424:</font>      * @see #setMaxResponseSize
+<font color="#aaaaaa">425:</font>      */
+<font color="#aaaaaa">426:</font>     this.getMaxResponseSize = function() {
+<font color="#aaaaaa">427:</font>        return maxResponseSize;
+<font color="#aaaaaa">428:</font>     };
+<font color="#aaaaaa">429:</font> 
+<font color="#aaaaaa">430:</font>     /**
+<font color="#aaaaaa">431:</font>      * Overloads the default response handler.
+<font color="#aaaaaa">432:</font>      * Use this do implement your own response handling, like storing the response directly to the harddisk
+<font color="#aaaaaa">433:</font>      * The handler function gets two parameter, first is the java.net.URLConnection and second is the result object.
+<font color="#aaaaaa">434:</font>      * Note that custom response handler functions should check the HTTP status code before reading
+<font color="#aaaaaa">435:</font>      * the response. The status code for successful requests is 200. Response bodies for requests with
+<font color="#aaaaaa">436:</font>      * status codes less than 400 can be read from the connection's input stream, while response bodies
+<font color="#aaaaaa">437:</font>      * with 4xx or 5xx status codes must be read using the error stream.
+<font color="#aaaaaa">438:</font>      * @param {function} Response handler function
+<font color="#aaaaaa">439:</font>      */
+<font color="#aaaaaa">440:</font>     this.setResponseHandler = function(callback) {
+<font color="#aaaaaa">441:</font>        responseHandler = callback;
+<font color="#aaaaaa">442:</font>        return;
+<font color="#aaaaaa">443:</font>     };
+<font color="#aaaaaa">444:</font> 
+<font color="#aaaaaa">445:</font>     /**
+<font color="#aaaaaa">446:</font>      * Get the response handler. This is the function used to read the HTTP response body.
+<font color="#aaaaaa">447:</font>      * @returns The response handler function
+<font color="#aaaaaa">448:</font>      */
+<font color="#aaaaaa">449:</font>     this.getResponseHandler = function() {
+<font color="#aaaaaa">450:</font>        return responseHandler;
+<font color="#aaaaaa">451:</font>     }
+<font color="#aaaaaa">452:</font> 
+<font color="#aaaaaa">453:</font>     /**
+<font color="#aaaaaa">454:</font>      * Executes a http request
+<font color="#aaaaaa">455:</font>      * @param {String} url The url to request
+<font color="#aaaaaa">456:</font>      * @param {Date|String} opt If this argument is a string, it is used
+<font color="#aaaaaa">457:</font>      * as value for the <font color="#9999aa">&quot;If-None-Match&quot;</font> request header field. If it is a
+<font color="#aaaaaa">458:</font>      * Date instance it is used as <font color="#9999aa">&quot;IfModifiedSince&quot;</font> condition for this request.
+<font color="#aaaaaa">459:</font>      * @return A result object containing the following properties:
+<font color="#aaaaaa">460:</font>      * &lt;ul&gt;
+<font color="#aaaaaa">461:</font>      * &lt;li&gt;&lt;code&gt;url&lt;/code&gt;: (String) The Url of the request&lt;/li&gt;
+<font color="#aaaaaa">462:</font>      * &lt;li&gt;&lt;code&gt;location&lt;/code&gt;: (String) The value of the location header field&lt;/li&gt;
+<font color="#aaaaaa">463:</font>      * &lt;li&gt;&lt;code&gt;code&lt;/code&gt;: (Number) The HTTP response code&lt;/li&gt;
+<font color="#aaaaaa">464:</font>      * &lt;li&gt;&lt;code&gt;message&lt;/code&gt;: (String) An optional HTTP response message&lt;/li&gt;
+<font color="#aaaaaa">465:</font>      * &lt;li&gt;&lt;code&gt;length&lt;/code&gt;: (Number) The content length of the response&lt;/li&gt;
+<font color="#aaaaaa">466:</font>      * &lt;li&gt;&lt;code&gt;type&lt;/code&gt;: (String) The mimetype of the response&lt;/li&gt;
+<font color="#aaaaaa">467:</font>      * &lt;li&gt;&lt;code&gt;charset&lt;/code&gt;: (String) The character set of the response&lt;/li&gt;
+<font color="#aaaaaa">468:</font>      * &lt;li&gt;&lt;code&gt;encoding&lt;/code&gt;: (String) An optional encoding to use with the response&lt;/li&gt;
+<font color="#aaaaaa">469:</font>      * &lt;li&gt;&lt;code&gt;lastModified&lt;/code&gt;: (String) The value of the lastModified response header field&lt;/li&gt;
+<font color="#aaaaaa">470:</font>      * &lt;li&gt;&lt;code&gt;eTag&lt;/code&gt;: (String) The eTag as received from the remote server&lt;/li&gt;
+<font color="#aaaaaa">471:</font>      * &lt;li&gt;&lt;code&gt;cookie&lt;/code&gt;: (helma.Http.Cookie) An object containing the cookie parameters, if the remote
+<font color="#aaaaaa">472:</font>            server has set the <font color="#9999aa">&quot;Set-Cookie&quot;</font> header field&lt;/li&gt;
+<font color="#aaaaaa">473:</font>      * &lt;li&gt;&lt;code&gt;headers&lt;/code&gt;: (java.util.Map) A map object containing the headers, access them using get(<font color="#9999aa">&quot;headername&quot;</font>)
+<font color="#aaaaaa">474:</font>      * &lt;li&gt;&lt;code&gt;content&lt;/code&gt;: (String|ByteArray) The response received from the server. Can be either
+<font color="#aaaaaa">475:</font>            a string or a byte array (see #setBinaryMode)&lt;/li&gt;
+<font color="#aaaaaa">476:</font>      * &lt;/ul&gt;
+<font color="#aaaaaa">477:</font>      */
+<font color="#aaaaaa">478:</font>     this.getUrl = function(url, opt) {
+<font color="#aaaaaa">479:</font>         if (typeof url == <font color="#9999aa">&quot;string&quot;</font>) {
+<font color="#aaaaaa">480:</font>             if (!(url = helma.Http.evalUrl(url)))
+<font color="#aaaaaa">481:</font>                 throw new Error(<font color="#9999aa">&quot;'&quot;</font> + url + <font color="#9999aa">&quot;' is not a valid URL.&quot;</font>);
+<font color="#aaaaaa">482:</font>         } else if (!(url instanceof java.net.URL)) {
+<font color="#aaaaaa">483:</font>             throw new Error(<font color="#9999aa">&quot;'&quot;</font> + url + <font color="#9999aa">&quot;' is not a valid URL.&quot;</font>);
+<font color="#aaaaaa">484:</font>         }
+<font color="#aaaaaa">485:</font>         
+<font color="#aaaaaa">486:</font>         var conn = proxy ? url.openConnection(proxy) : url.openConnection();
+<font color="#aaaaaa">487:</font> <font color="#33aa00">        // Note: we must call setInstanceFollowRedirects() instead of
+<font color="#aaaaaa">488:</font> </font><font color="#33aa00">        // static method setFollowRedirects(), as the latter will
+<font color="#aaaaaa">489:</font> </font><font color="#33aa00">        // set the default value for all url connections, and will not work for
+<font color="#aaaaaa">490:</font> </font><font color="#33aa00">        // url connections that have already been created.
+<font color="#aaaaaa">491:</font> </font>        conn.setInstanceFollowRedirects(followRedirects);
+<font color="#aaaaaa">492:</font>         conn.setAllowUserInteraction(false);
+<font color="#aaaaaa">493:</font>         conn.setRequestMethod(method);
+<font color="#aaaaaa">494:</font>         conn.setRequestProperty(<font color="#9999aa">&quot;User-Agent&quot;</font>, userAgent);
+<font color="#aaaaaa">495:</font> 
+<font color="#aaaaaa">496:</font>         if (opt) {
+<font color="#aaaaaa">497:</font>             if (opt instanceof Date)
+<font color="#aaaaaa">498:</font>                 conn.setIfModifiedSince(opt.getTime());
+<font color="#aaaaaa">499:</font>             else if ((typeof opt == <font color="#9999aa">&quot;string&quot;</font>) &amp;&amp; (opt.length &gt; 0))
+<font color="#aaaaaa">500:</font>                 conn.setRequestProperty(<font color="#9999aa">&quot;If-None-Match&quot;</font>, opt);
+<font color="#aaaaaa">501:</font>         }
+<font color="#aaaaaa">502:</font> 
+<font color="#aaaaaa">503:</font>         var userinfo;
+<font color="#aaaaaa">504:</font>         if (userinfo = url.getUserInfo()) {
+<font color="#aaaaaa">505:</font>            userinfo = userinfo.split(/:/, 2);
+<font color="#aaaaaa">506:</font>            this.setCredentials(userinfo[0], userinfo[1]);
+<font color="#aaaaaa">507:</font>         }
+<font color="#aaaaaa">508:</font>         if (credentials != null) {
+<font color="#aaaaaa">509:</font>             conn.setRequestProperty(<font color="#9999aa">&quot;Authorization&quot;</font>, <font color="#9999aa">&quot;Basic &quot;</font> + credentials);
+<font color="#aaaaaa">510:</font>         }
+<font color="#aaaaaa">511:</font> <font color="#33aa00">        // set timeouts
+<font color="#aaaaaa">512:</font> </font>        if (parseFloat(java.lang.System.getProperty(<font color="#9999aa">&quot;java.specification.version&quot;</font>), 10) &gt;= 1.5) {
+<font color="#aaaaaa">513:</font>             conn.setConnectTimeout(timeout.connect);
+<font color="#aaaaaa">514:</font>             conn.setReadTimeout(timeout.socket);
+<font color="#aaaaaa">515:</font>         }
+<font color="#aaaaaa">516:</font> <font color="#33aa00">        // set header fields
+<font color="#aaaaaa">517:</font> </font>        for (var i in headers) {
+<font color="#aaaaaa">518:</font>             conn.setRequestProperty(i, headers[i]);
+<font color="#aaaaaa">519:</font>         }
+<font color="#aaaaaa">520:</font> <font color="#33aa00">        // set cookies
+<font color="#aaaaaa">521:</font> </font>        if (cookies != null) {
+<font color="#aaaaaa">522:</font>             var arr = [];
+<font color="#aaaaaa">523:</font>             for (var i in cookies) {
+<font color="#aaaaaa">524:</font>                 arr[arr.length] = cookies[i].getFieldValue();
+<font color="#aaaaaa">525:</font>             }
+<font color="#aaaaaa">526:</font>             conn.setRequestProperty(<font color="#9999aa">&quot;Cookie&quot;</font>, arr.join(<font color="#9999aa">&quot;;&quot;</font>));
+<font color="#aaaaaa">527:</font>         }
+<font color="#aaaaaa">528:</font> <font color="#33aa00">        // set content
+<font color="#aaaaaa">529:</font> </font>        if (content) {
+<font color="#aaaaaa">530:</font>             conn.setRequestProperty(<font color="#9999aa">&quot;Content-Length&quot;</font>, content.length);
+<font color="#aaaaaa">531:</font>             conn.setDoOutput(true);
+<font color="#aaaaaa">532:</font>             var out = new java.io.OutputStreamWriter(conn.getOutputStream());
+<font color="#aaaaaa">533:</font>             out.write(content);
+<font color="#aaaaaa">534:</font>             out.flush();
+<font color="#aaaaaa">535:</font>             out.close();
+<font color="#aaaaaa">536:</font>         }
+<font color="#aaaaaa">537:</font> 
+<font color="#aaaaaa">538:</font>         var result = {
+<font color="#aaaaaa">539:</font>             url: conn.getURL(),
+<font color="#aaaaaa">540:</font>             location: conn.getHeaderField(<font color="#9999aa">&quot;location&quot;</font>),
+<font color="#aaaaaa">541:</font>             code: conn.getResponseCode(),
+<font color="#aaaaaa">542:</font>             message: conn.getResponseMessage(),
+<font color="#aaaaaa">543:</font>             length: conn.getContentLength(),
+<font color="#aaaaaa">544:</font>             type: conn.getContentType(),
+<font color="#aaaaaa">545:</font>             encoding: conn.getContentEncoding(),
+<font color="#aaaaaa">546:</font>             lastModified: null,
+<font color="#aaaaaa">547:</font>             eTag: conn.getHeaderField(<font color="#9999aa">&quot;ETag&quot;</font>),
+<font color="#aaaaaa">548:</font>             cookies: null,
+<font color="#aaaaaa">549:</font>             headers: conn.getHeaderFields(),
+<font color="#aaaaaa">550:</font>             content: null,
+<font color="#aaaaaa">551:</font>         }
+<font color="#aaaaaa">552:</font> 
+<font color="#aaaaaa">553:</font> <font color="#33aa00">        // parse all <font color="#9999aa">&quot;Set-Cookie&quot;</font> header fields into an array of
+<font color="#aaaaaa">554:</font> </font><font color="#33aa00">        // helma.Http.Cookie instances
+<font color="#aaaaaa">555:</font> </font>        var setCookies = conn.getHeaderFields().get(<font color="#9999aa">&quot;Set-Cookie&quot;</font>);
+<font color="#aaaaaa">556:</font>         if (setCookies != null) {
+<font color="#aaaaaa">557:</font>             var arr = [];
+<font color="#aaaaaa">558:</font>             var cookie;
+<font color="#aaaaaa">559:</font>             for (var i=0; i&lt;setCookies.size(); i++) {
+<font color="#aaaaaa">560:</font>                 if ((cookie = helma.Http.Cookie.parse(setCookies.get(i))) != null) {
+<font color="#aaaaaa">561:</font>                     arr.push(cookie);
+<font color="#aaaaaa">562:</font>                 }
+<font color="#aaaaaa">563:</font>             }
+<font color="#aaaaaa">564:</font>             if (arr.length &gt; 0) {
+<font color="#aaaaaa">565:</font>                 result.cookies = arr;
+<font color="#aaaaaa">566:</font>             }
+<font color="#aaaaaa">567:</font>         }
+<font color="#aaaaaa">568:</font> 
+<font color="#aaaaaa">569:</font>         var lastmod = conn.getLastModified();
+<font color="#aaaaaa">570:</font>         if (lastmod) {
+<font color="#aaaaaa">571:</font>             result.lastModified = new Date(lastmod);
+<font color="#aaaaaa">572:</font>         }
+<font color="#aaaaaa">573:</font> 
+<font color="#aaaaaa">574:</font>         if (maxResponseSize &amp;&amp; result.length &gt; maxResponseSize) {
+<font color="#aaaaaa">575:</font>            throw new Error(<font color="#9999aa">&quot;Maximum allowed response size is exceeded&quot;</font>);
+<font color="#aaaaaa">576:</font>         }
+<font color="#aaaaaa">577:</font> 
+<font color="#aaaaaa">578:</font>         if (result.type &amp;&amp; result.type.indexOf(<font color="#9999aa">&quot;charset=&quot;</font>) != -1) {
+<font color="#aaaaaa">579:</font>            var charset = result.type.substring(result.type.indexOf(<font color="#9999aa">&quot;charset=&quot;</font>) + 8);
+<font color="#aaaaaa">580:</font>            charset = charset.replace('&quot;', ' ').trim();
+<font color="#aaaaaa">581:</font>            result.charset = charset;
+<font color="#aaaaaa">582:</font>         }
+<font color="#aaaaaa">583:</font> 
+<font color="#aaaaaa">584:</font> <font color="#33aa00">        // invoke response handler
+<font color="#aaaaaa">585:</font> </font>        responseHandler(conn, result);
+<font color="#aaaaaa">586:</font> 
+<font color="#aaaaaa">587:</font>         conn.disconnect();
+<font color="#aaaaaa">588:</font>         return result;
+<font color="#aaaaaa">589:</font>     }
+<font color="#aaaaaa">590:</font> 
+<font color="#aaaaaa">591:</font>     /** @ignore */
+<font color="#aaaaaa">592:</font>     this.toString = function() {
+<font color="#aaaaaa">593:</font>         return <font color="#9999aa">&quot;[Helma Http Client]&quot;</font>;
+<font color="#aaaaaa">594:</font>     };
+<font color="#aaaaaa">595:</font> 
+<font color="#aaaaaa">596:</font>     for (var i in this)
+<font color="#aaaaaa">597:</font>         this.dontEnum(i);
+<font color="#aaaaaa">598:</font> 
+<font color="#aaaaaa">599:</font>     return this;
+<font color="#aaaaaa">600:</font> }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

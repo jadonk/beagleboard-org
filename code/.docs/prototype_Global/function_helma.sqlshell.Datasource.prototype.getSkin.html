@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.sqlshell.Datasource.prototype.getSkin&nbsp;(name)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.js:
+	<pre><font color="#aaaaaa">592:</font>   helma.sqlshell.Datasource.prototype.getSkin = function(name) {
+<font color="#aaaaaa">593:</font>       switch (name) {
+<font color="#aaaaaa">594:</font>       case <font color="#9999aa">&quot;query&quot;</font>: return createSkin('&lt;div class=<font color="#9999aa">&quot;activetab&quot;</font>&gt;SQL:&lt;br&gt;\
+<font color="#aaaaaa">595:</font>           &lt;textarea cols=<font color="#9999aa">&quot;60&quot;</font> rows=<font color="#9999aa">&quot;6&quot;</font> wrap=<font color="#9999aa">&quot;virtual&quot;</font>\
+<font color="#aaaaaa">596:</font>           name=<font color="#9999aa">&quot;sql&quot;</font>&gt;<font color="#aa3300">&lt;% request.sql encode=<font color="#9999aa">&quot;form&quot;</font> %&gt;</font>&lt;/textarea&gt;&lt;br&gt;\
+<font color="#aaaaaa">597:</font>           &lt;input type=<font color="#9999aa">&quot;submit&quot;</font> value=<font color="#9999aa">&quot;Submit&quot;</font>&gt; \
+<font color="#aaaaaa">598:</font>           &lt;input type=<font color="#9999aa">&quot;reset&quot;</font> value=<font color="#9999aa">&quot;Reset&quot;</font>&gt;&lt;/div&gt;\
+<font color="#aaaaaa">599:</font>           <font color="#aa3300">&lt;% param.message prefix=<font color="#9999aa">&quot;&lt;p style=\'color: red\'&gt;&quot;</font> suffix=<font color="#9999aa">&quot;&lt;/p&gt;&quot;</font> %&gt;</font>\
+<font color="#aaaaaa">600:</font>           <font color="#aa3300">&lt;% param.updated prefix=<font color="#9999aa">&quot;&lt;p&gt;&lt;span style=\'background-color: yellow\'&gt;&quot;</font>\
+<font color="#aaaaaa">601:</font>          prefix=<font color="#9999aa">&quot;Statement executed, &quot;</font>\
+<font color="#aaaaaa">602:</font>          suffix=<font color="#9999aa">&quot; row(s) affected&lt;/span&gt;&lt;/p&gt;&quot;</font> %&gt;</font>\
+<font color="#aaaaaa">603:</font>          <font color="#aa3300">&lt;% param.resultset %&gt;</font>');
+<font color="#aaaaaa">604:</font>  
+<font color="#aaaaaa">605:</font>      case <font color="#9999aa">&quot;explore&quot;</font>: return createSkin('&lt;div class=<font color="#9999aa">&quot;activetab&quot;</font>&gt;Describe Table \
+<font color="#aaaaaa">606:</font>          <font color="#aa3300">&lt;% html.select name=<font color="#9999aa">&quot;__sqlshell_table__&quot;</font> options=<font color="#9999aa">&quot;response.tables&quot;</font> \
+<font color="#aaaaaa">607:</font>          onchange=<font color="#9999aa">&quot;document.forms.tab.submit();&quot;</font> %&gt;</font>\
+<font color="#aaaaaa">608:</font>          &lt;input type=<font color="#9999aa">&quot;submit&quot;</font> value=<font color="#9999aa">&quot;Submit&quot;</font>&gt;&lt;/div&gt;\
+<font color="#aaaaaa">609:</font>          <font color="#aa3300">&lt;% param.tableheader prefix=<font color="#9999aa">&quot;&lt;h4&gt;&quot;</font> suffix=<font color="#9999aa">&quot;&lt;/h4&gt;&quot;</font> %&gt;</font>\
+<font color="#aaaaaa">610:</font>          <font color="#aa3300">&lt;% param.tableinfo %&gt;</font>');
+<font color="#aaaaaa">611:</font>  
+<font color="#aaaaaa">612:</font>      case <font color="#9999aa">&quot;map&quot;</font>: return createSkin('&lt;div class=<font color="#9999aa">&quot;activetab&quot;</font>&gt;Prototype \
+<font color="#aaaaaa">613:</font>          <font color="#aa3300">&lt;% html.select name=<font color="#9999aa">&quot;__sqlshell_prototype__&quot;</font> options=<font color="#9999aa">&quot;response.prototypes&quot;</font> \
+<font color="#aaaaaa">614:</font>          onchange=<font color="#9999aa">&quot;document.forms.tab.submit();&quot;</font> %&gt;</font>\
+<font color="#aaaaaa">615:</font>          &lt;a onclick=<font color="#9999aa">&quot;openPopup(\<font color="#9999aa">''</font> +this.href() + '&amp;action=newproto\', \'newproto\',500,250); return false;&quot;</font> \
+<font color="#aaaaaa">616:</font>          href=<font color="#9999aa">&quot;?popup=newproto&quot;</font>&gt;[new]&lt;/a&gt;\
+<font color="#aaaaaa">617:</font>          <font color="#aa3300">&lt;% param.tableSelect %&gt;</font> \
+<font color="#aaaaaa">618:</font>          &lt;input type=<font color="#9999aa">&quot;hidden&quot;</font> name=<font color="#9999aa">&quot;previousProto&quot;</font> value=<font color="#9999aa">&quot;<font color="#aa3300">&lt;% request.__sqlshell_prototype__ %&gt;</font>&quot;</font>&gt;\
+<font color="#aaaaaa">619:</font>          &lt;input type=<font color="#9999aa">&quot;submit&quot;</font> value=<font color="#9999aa">&quot;Set&quot;</font>&gt;\
+<font color="#aaaaaa">620:</font>          &lt;input type=<font color="#9999aa">&quot;reset&quot;</font> value=<font color="#9999aa">&quot;Reset&quot;</font>&gt;\
+<font color="#aaaaaa">621:</font>          &lt;/div&gt;');
+<font color="#aaaaaa">622:</font>  
+<font color="#aaaaaa">623:</font>      case <font color="#9999aa">&quot;newproto&quot;</font>: return createSkin('&lt;form method=<font color="#9999aa">&quot;POST&quot;</font> action=<font color="#9999aa">&quot;' + this.href() + '&amp;action=createproto&quot;</font>&gt;\
+<font color="#aaaaaa">624:</font>          Prototype Name: &lt;br&gt;&lt;input name=<font color="#9999aa">&quot;protoname&quot;</font>&gt;&lt;br&gt;\
+<font color="#aaaaaa">625:</font>          Create in Repository: &lt;br&gt;<font color="#aa3300">&lt;% html.select name=<font color="#9999aa">&quot;repository&quot;</font> options=<font color="#9999aa">&quot;app.repositories&quot;</font> %&gt;</font>&lt;br&gt;&lt;br&gt;\
+<font color="#aaaaaa">626:</font>          &lt;input type=<font color="#9999aa">&quot;submit&quot;</font> name=<font color="#9999aa">&quot;create&quot;</font> value=<font color="#9999aa">&quot;Create Prototype&quot;</font>&gt;\
+<font color="#aaaaaa">627:</font>          &lt;/form&gt;');
+<font color="#aaaaaa">628:</font>  
+<font color="#aaaaaa">629:</font>      case <font color="#9999aa">&quot;extras&quot;</font>:  return createSkin('&lt;form name=<font color="#9999aa">&quot;extras&quot;</font>&gt;\
+<font color="#aaaaaa">630:</font>          &lt;h4&gt;Extra parameters for ' + req.data.col + '&lt;/h4&gt;\
+<font color="#aaaaaa">631:</font>          &lt;table&gt;\
+<font color="#aaaaaa">632:</font>          &lt;script type=<font color="#9999aa">&quot;text/javascript&quot;</font>&gt;\
+<font color="#aaaaaa">633:</font>              var localColumns = <font color="#aa3300">&lt;% param.localColumns %&gt;</font>;\
+<font color="#aaaaaa">634:</font>              var targetColumns = <font color="#aa3300">&lt;% param.targetColumns %&gt;</font>;\
+<font color="#aaaaaa">635:</font>              extraEditor(<font color="#9999aa">&quot;' + req.data.col + '&quot;</font>, localColumns, targetColumns);\
+<font color="#aaaaaa">636:</font>          &lt;/script&gt;\
+<font color="#aaaaaa">637:</font>          &lt;/table&gt;\
+<font color="#aaaaaa">638:</font>          &lt;input type=<font color="#9999aa">&quot;submit&quot;</font> value=<font color="#9999aa">&quot;Apply&quot;</font> \
+<font color="#aaaaaa">639:</font>          onclick=<font color="#9999aa">&quot;applyExtras(\<font color="#9999aa">''</font> + req.data.col + '\'); return false;&quot;</font>&gt;\
+<font color="#aaaaaa">640:</font>          &lt;/form&gt;');
+<font color="#aaaaaa">641:</font>  
+<font color="#aaaaaa">642:</font>      case <font color="#9999aa">&quot;generate&quot;</font>: return createSkin('&lt;form method=<font color="#9999aa">&quot;POST&quot;</font> action=<font color="#9999aa">&quot;' + this.href() + '&amp;action=generate&quot;</font>&gt;\
+<font color="#aaaaaa">643:</font>          Create type.properties in Repository: &lt;br&gt;<font color="#aa3300">&lt;% html.select name=<font color="#9999aa">&quot;__sqlshell_repository__&quot;</font>\
+<font color="#aaaaaa">644:</font>          options=<font color="#9999aa">&quot;response.repositories&quot;</font> %&gt;</font>&lt;br&gt;&lt;br&gt;\
+<font color="#aaaaaa">645:</font>          &lt;input type=<font color="#9999aa">&quot;submit&quot;</font> name=<font color="#9999aa">&quot;__sqlshell_create__&quot;</font> value=<font color="#9999aa">&quot;Create Type Mapping&quot;</font>&gt;\
+<font color="#aaaaaa">646:</font>          <font color="#aa3300">&lt;% param.data %&gt;</font>\
+<font color="#aaaaaa">647:</font>          &lt;/form&gt;');
+<font color="#aaaaaa">648:</font>  
+<font color="#aaaaaa">649:</font>      case <font color="#9999aa">&quot;closePopup&quot;</font>: return createSkin('&lt;!DOCTYPE html PUBLIC <font color="#9999aa">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</font>&gt;\
+<font color="#aaaaaa">650:</font>          &lt;!--\
+<font color="#aaaaaa">651:</font>             This is an empty page that closes the current popup window and\
+<font color="#aaaaaa">652:</font>             optionally refreshes the parent page (passed as parentUrl).\
+<font color="#aaaaaa">653:</font>          --&gt;\
+<font color="#aaaaaa">654:</font>          &lt;html&gt;\
+<font color="#aaaaaa">655:</font>          &lt;head&gt;\
+<font color="#aaaaaa">656:</font>          &lt;title&gt;closing window&lt;/title&gt;\
+<font color="#aaaaaa">657:</font>          &lt;script&gt;\
+<font color="#aaaaaa">658:</font>              var parentUrl = <font color="#9999aa">&quot;<font color="#aa3300">&lt;% param.parentUrl %&gt;</font>&quot;</font>;\
+<font color="#aaaaaa">659:</font>              function doClose() {\
+<font color="#aaaaaa">660:</font>                 if (parentUrl)\
+<font color="#aaaaaa">661:</font>                     opener.location.href = parentUrl;\
+<font color="#aaaaaa">662:</font>                 window.close();\
+<font color="#aaaaaa">663:</font>              }\
+<font color="#aaaaaa">664:</font>              setTimeout(<font color="#9999aa">&quot;doClose()&quot;</font>, 150000);\
+<font color="#aaaaaa">665:</font>          &lt;/script&gt;\
+<font color="#aaaaaa">666:</font>          &lt;/head&gt;\
+<font color="#aaaaaa">667:</font>          &lt;body&gt;\
+<font color="#aaaaaa">668:</font>          <font color="#aa3300">&lt;% param.message %&gt;</font>\
+<font color="#aaaaaa">669:</font>          &lt;/body&gt;\
+<font color="#aaaaaa">670:</font>          &lt;/html&gt;');
+<font color="#aaaaaa">671:</font>  
+<font color="#aaaaaa">672:</font>      default: return createSkin(<font color="#9999aa">&quot;No skin defined for &quot;</font> + name);
+<font color="#aaaaaa">673:</font>      }
+<font color="#aaaaaa">674:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

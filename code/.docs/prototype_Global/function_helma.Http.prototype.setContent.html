@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http.prototype.setContent&nbsp;(stringOrObject)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Sets the content to send to the remote server within this request. <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String|Object}</code>:<br/>
+stringOrObject The content of the request, which can be either a string or an object. In the latter case all properties and their values are concatenated into a single string. If a property is an array, then for each value the propertyname and value pair is added. If the name of an array property ends with "_array" then the _array part is removed.
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">173:</font>   this.setContent = function(stringOrObject) {
+<font color="#aaaaaa">174:</font>           if (stringOrObject != null) {
+<font color="#aaaaaa">175:</font>               if (stringOrObject.constructor == Object) {
+<font color="#aaaaaa">176:</font>                   res.push();
+<font color="#aaaaaa">177:</font>                   var value;
+<font color="#aaaaaa">178:</font>                   for (var key in stringOrObject) {
+<font color="#aaaaaa">179:</font>                       value = stringOrObject[key];
+<font color="#aaaaaa">180:</font>                       if (value instanceof Array) {
+<font color="#aaaaaa">181:</font>                           if (key.substring(key.length - 6) == <font color="#9999aa">&quot;_array&quot;</font>) 
+<font color="#aaaaaa">182:</font>                              key = key.substring(0,key.length - 6); 
+<font color="#aaaaaa">183:</font>                          for (var i = 0; i &lt; value.length; i++) {
+<font color="#aaaaaa">184:</font>                              res.write(encodeURIComponent(key));
+<font color="#aaaaaa">185:</font>                              res.write(<font color="#9999aa">&quot;=&quot;</font>);
+<font color="#aaaaaa">186:</font>                              res.write(encodeURIComponent(value[i]));
+<font color="#aaaaaa">187:</font>                              res.write(<font color="#9999aa">&quot;&amp;&quot;</font>);
+<font color="#aaaaaa">188:</font>                          }        
+<font color="#aaaaaa">189:</font>                      } else {
+<font color="#aaaaaa">190:</font>                         res.write(encodeURIComponent(key));
+<font color="#aaaaaa">191:</font>                         res.write(<font color="#9999aa">&quot;=&quot;</font>);
+<font color="#aaaaaa">192:</font>                         res.write(encodeURIComponent(value));
+<font color="#aaaaaa">193:</font>                         res.write(<font color="#9999aa">&quot;&amp;&quot;</font>);
+<font color="#aaaaaa">194:</font>                      }
+<font color="#aaaaaa">195:</font>                  }               
+<font color="#aaaaaa">196:</font>                  content = res.pop();
+<font color="#aaaaaa">197:</font>                  content = content.substring(0, content.length-1);
+<font color="#aaaaaa">198:</font>              } else {
+<font color="#aaaaaa">199:</font>                  content = stringOrObject.toString();
+<font color="#aaaaaa">200:</font>              }
+<font color="#aaaaaa">201:</font>          } else {
+<font color="#aaaaaa">202:</font>             content = null;
+<font color="#aaaaaa">203:</font>          }
+<font color="#aaaaaa">204:</font>          return;
+<font color="#aaaaaa">205:</font>      }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

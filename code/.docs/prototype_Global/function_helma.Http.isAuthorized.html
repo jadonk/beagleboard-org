@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http.isAuthorized&nbsp;(name,&nbsp;pwd)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Static helper method to check if a request issued agains a 
+Helma application is authorized or not. <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+name The username to check req.username against<li><b>Parameter</b> <code>{String}</code>:<br/>
+pwd The password to check req.password against
+		<li><b>Returns</b><br>
+True if the request is authorized, false otherwise. In the latter case the current response is reset and the response code is set to "401" ("Authentication required").
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">682:</font>   helma.Http.isAuthorized = function(name, pwd) {
+<font color="#aaaaaa">683:</font>       if (!req.username || !req.password || 
+<font color="#aaaaaa">684:</font>           req.username != name || req.password != pwd) {
+<font color="#aaaaaa">685:</font>           res.reset();
+<font color="#aaaaaa">686:</font>           res.status = 401;
+<font color="#aaaaaa">687:</font>           res.realm = <font color="#9999aa">&quot;Helma Http Authorization&quot;</font>;
+<font color="#aaaaaa">688:</font>           res.write(<font color="#9999aa">&quot;Authorization required.&quot;</font>);
+<font color="#aaaaaa">689:</font>           return false;
+<font color="#aaaaaa">690:</font>       } else {
+<font color="#aaaaaa">691:</font>          return true;
+<font color="#aaaaaa">692:</font>      }
+<font color="#aaaaaa">693:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

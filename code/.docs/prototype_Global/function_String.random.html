@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.String.random&nbsp;(len,&nbsp;mode)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	creates a random string (numbers and chars) <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>len</code>:<br/>
+length of key<li><b>Parameter</b> <code>mode</code>:<br/>
+determines which letters to use. null or 0 = all letters; 1 = skip 0, 1, l and o which can easily be mixed with numbers; 2 = use numbers only
+		<li><b>Returns</b><br>
+random string
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/core/String.js:
+	<pre><font color="#aaaaaa">630:</font>   String.random = function(len, mode) {
+<font color="#aaaaaa">631:</font>       if (mode == 2) {
+<font color="#aaaaaa">632:</font>           var x = Math.random() * Math.pow(10,len);
+<font color="#aaaaaa">633:</font>           return Math.floor(x);
+<font color="#aaaaaa">634:</font>       }
+<font color="#aaaaaa">635:</font>       var keystr = String.NULL;
+<font color="#aaaaaa">636:</font>       for (var i=0; i&lt;len; i++) {
+<font color="#aaaaaa">637:</font>           var x = Math.floor((Math.random() * 36));
+<font color="#aaaaaa">638:</font>           if (mode == 1) {
+<font color="#aaaaaa">639:</font>  <font color="#33aa00">            // skip 0,1
+<font color="#aaaaaa">640:</font>  </font>            x = (x&lt;2) ? x + 2 : x;
+<font color="#aaaaaa">641:</font>  <font color="#33aa00">            // don't use the letters l (charCode 21+87) and o (24+87)
+<font color="#aaaaaa">642:</font>  </font>            x = (x==21) ? 22 : x;
+<font color="#aaaaaa">643:</font>              x = (x==24) ? 25 : x;
+<font color="#aaaaaa">644:</font>          }
+<font color="#aaaaaa">645:</font>          if (x&lt;10) {
+<font color="#aaaaaa">646:</font>              keystr += String(x);
+<font color="#aaaaaa">647:</font>          }    else    {
+<font color="#aaaaaa">648:</font>              keystr += String.fromCharCode(x+87);
+<font color="#aaaaaa">649:</font>          }
+<font color="#aaaaaa">650:</font>      }
+<font color="#aaaaaa">651:</font>      return keystr;
+<font color="#aaaaaa">652:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

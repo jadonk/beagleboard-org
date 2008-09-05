@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>&lt;%&nbsp;Global.html.select&nbsp;%&gt;</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.js:
+	<pre><font color="#aaaaaa">708:</font>   select_macro: function(param) {
+<font color="#aaaaaa">709:</font>           if (!param.name) {
+<font color="#aaaaaa">710:</font>               throw <font color="#9999aa">&quot;dropDown macro requires name attribute&quot;</font>;
+<font color="#aaaaaa">711:</font>           }
+<font color="#aaaaaa">712:</font>           if (!param.options) {
+<font color="#aaaaaa">713:</font>               throw <font color="#9999aa">&quot;dropDown macro requires options attribute&quot;</font>;
+<font color="#aaaaaa">714:</font>           }
+<font color="#aaaaaa">715:</font>           var opts = param.options.split(<font color="#9999aa">&quot;.&quot;</font>);
+<font color="#aaaaaa">716:</font>           if (opts.length != 2) {
+<font color="#aaaaaa">717:</font>              throw <font color="#9999aa">&quot;options attribute must be of the form 'handler.options'&quot;</font>;
+<font color="#aaaaaa">718:</font>          }
+<font color="#aaaaaa">719:</font>          var handler = this.getHandler(opts[0]);
+<font color="#aaaaaa">720:</font>          if (!handler) {
+<font color="#aaaaaa">721:</font>              throw <font color="#9999aa">&quot;handler '&quot;</font>+opts[0]+<font color="#9999aa">&quot; not found - &quot;</font> +
+<font color="#aaaaaa">722:</font>                    <font color="#9999aa">&quot;valid options are (response|request|session|app)&quot;</font>;
+<font color="#aaaaaa">723:</font>          }
+<font color="#aaaaaa">724:</font>          var options = handler[opts[1]];
+<font color="#aaaaaa">725:</font>          if (!options) {
+<font color="#aaaaaa">726:</font>              throw param.options+<font color="#9999aa">&quot; is not defined &quot;</font>;
+<font color="#aaaaaa">727:</font>          }
+<font color="#aaaaaa">728:</font>          if (options.length == 0) {
+<font color="#aaaaaa">729:</font>              return;
+<font color="#aaaaaa">730:</font>          }
+<font color="#aaaaaa">731:</font>          var attr = {};
+<font color="#aaaaaa">732:</font>          for (var i in param) {
+<font color="#aaaaaa">733:</font>              if (i != <font color="#9999aa">&quot;options&quot;</font> &amp;&amp; i != <font color="#9999aa">&quot;prefix&quot;</font> &amp;&amp; i != <font color="#9999aa">&quot;suffix&quot;</font>) {
+<font color="#aaaaaa">734:</font>                  attr[i] = param[i];
+<font color="#aaaaaa">735:</font>              }
+<font color="#aaaaaa">736:</font>          }
+<font color="#aaaaaa">737:</font>          helma.Markup.select(attr, options, req.data[param.name], param.firstoption);
+<font color="#aaaaaa">738:</font>      }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

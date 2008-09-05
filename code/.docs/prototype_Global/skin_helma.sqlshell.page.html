@@ -1,0 +1,309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global/helma.sqlshell.page.skin</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	general parameters used in this skin:<ul><li><code>response.body</code><li><code>response.fontface</code><li><code>response.header</code><li><code>response.tabcolor</code><li><code>response.title</code></ul><br>
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.sqlshell.page.skin:
+	<pre><font color="#aaaaaa">0:</font>   &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
+<font color="#aaaaaa">1:</font>   &lt;html&gt;
+<font color="#aaaaaa">2:</font>   &lt;head&gt;
+<font color="#aaaaaa">3:</font>   
+<font color="#aaaaaa">4:</font>   &lt;title&gt;Helma SqlShell <font color="#aa3300">&lt;% response.title %&gt;</font>&lt;/title&gt;
+<font color="#aaaaaa">5:</font>   
+<font color="#aaaaaa">6:</font>   &lt;style type=&quot;text/css&quot;&gt;
+<font color="#aaaaaa">7:</font>   body {
+<font color="#aaaaaa">8:</font>       background-color: #ffffff;
+<font color="#aaaaaa">9:</font>      margin: 20px;
+<font color="#aaaaaa">10:</font>      font: 12px <font color="#aa3300">&lt;% response.fontface %&gt;</font>; 
+<font color="#aaaaaa">11:</font>  }
+<font color="#aaaaaa">12:</font>  
+<font color="#aaaaaa">13:</font>  h1, h2, h3 {
+<font color="#aaaaaa">14:</font>      border-bottom: 1px solid #cccc99;
+<font color="#aaaaaa">15:</font>      font-family: <font color="#aa3300">&lt;% response.fontface %&gt;</font>;
+<font color="#aaaaaa">16:</font>  }
+<font color="#aaaaaa">17:</font>  
+<font color="#aaaaaa">18:</font>  pre {
+<font color="#aaaaaa">19:</font>      padding: 10px;
+<font color="#aaaaaa">20:</font>      border: 1px solid black;
+<font color="#aaaaaa">21:</font>      background-color: #ccccff;
+<font color="#aaaaaa">22:</font>      overflow: auto;
+<font color="#aaaaaa">23:</font>  }
+<font color="#aaaaaa">24:</font>  
+<font color="#aaaaaa">25:</font>  table {
+<font color="#aaaaaa">26:</font>      border: 1px solid <font color="#aa3300">&lt;% response.tabcolor %&gt;</font>;
+<font color="#aaaaaa">27:</font>      border-collapse:collapse;
+<font color="#aaaaaa">28:</font>      margin-bottom: 1em;
+<font color="#aaaaaa">29:</font>  }
+<font color="#aaaaaa">30:</font>  
+<font color="#aaaaaa">31:</font>  th {
+<font color="#aaaaaa">32:</font>      text-align: left;
+<font color="#aaaaaa">33:</font>      background-color: white;
+<font color="#aaaaaa">34:</font>      padding-right: 2em;
+<font color="#aaaaaa">35:</font>  }
+<font color="#aaaaaa">36:</font>  
+<font color="#aaaaaa">37:</font>  td {
+<font color="#aaaaaa">38:</font>      font: 12px <font color="#aa3300">&lt;% response.fontface %&gt;</font>;
+<font color="#aaaaaa">39:</font>      border-top: 1px solid <font color="#aa3300">&lt;% response.tabcolor %&gt;</font>;
+<font color="#aaaaaa">40:</font>      padding: 2px;
+<font color="#aaaaaa">41:</font>      max-height: 40em;
+<font color="#aaaaaa">42:</font>      overflow: auto;
+<font color="#aaaaaa">43:</font>  }
+<font color="#aaaaaa">44:</font>  
+<font color="#aaaaaa">45:</font>  .tabs {
+<font color="#aaaaaa">46:</font>      padding-top: 1em;
+<font color="#aaaaaa">47:</font>  }
+<font color="#aaaaaa">48:</font>  
+<font color="#aaaaaa">49:</font>  .activetab {
+<font color="#aaaaaa">50:</font>      background-color: <font color="#aa3300">&lt;% response.tabcolor %&gt;</font>;
+<font color="#aaaaaa">51:</font>      color: black;
+<font color="#aaaaaa">52:</font>  }
+<font color="#aaaaaa">53:</font>  
+<font color="#aaaaaa">54:</font>  .passivetab {
+<font color="#aaaaaa">55:</font>      color: #666;
+<font color="#aaaaaa">56:</font>  }
+<font color="#aaaaaa">57:</font>  
+<font color="#aaaaaa">58:</font>  div.activetab {
+<font color="#aaaaaa">59:</font>      padding: 0.8em;
+<font color="#aaaaaa">60:</font>      margin-bottom: 1em;
+<font color="#aaaaaa">61:</font>  }
+<font color="#aaaaaa">62:</font>  
+<font color="#aaaaaa">63:</font>  a.tab {
+<font color="#aaaaaa">64:</font>      font-size: 13px;
+<font color="#aaaaaa">65:</font>      text-decoration: none;
+<font color="#aaaaaa">66:</font>      padding: 0.4em;
+<font color="#aaaaaa">67:</font>      line-height: 2em;
+<font color="#aaaaaa">68:</font>  }
+<font color="#aaaaaa">69:</font>  
+<font color="#aaaaaa">70:</font>  &lt;/style&gt;
+<font color="#aaaaaa">71:</font>  
+<font color="#aaaaaa">72:</font>  &lt;script type=&quot;text/javascript&quot;&gt;
+<font color="#aaaaaa">73:</font>      function toggleEditor(elem) {
+<font color="#aaaaaa">74:</font>          var colname = elem.name.substring(8);
+<font color="#aaaaaa">75:</font>          var chooser = document.getElementById(&quot;refedit_&quot; + colname);
+<font color="#aaaaaa">76:</font>          var link = document.getElementById(&quot;extralink_&quot; + colname);
+<font color="#aaaaaa">77:</font>          if (elem.value == &quot;0&quot;) {
+<font color="#aaaaaa">78:</font>              if (chooser) chooser.style.display = &quot;none&quot;;
+<font color="#aaaaaa">79:</font>              if (link) link.style.display = &quot;none&quot;;
+<font color="#aaaaaa">80:</font>          } else {
+<font color="#aaaaaa">81:</font>              if (chooser) chooser.style.display = &quot;inline&quot;;
+<font color="#aaaaaa">82:</font>              if (link) link.style.display = &quot;inline&quot;;
+<font color="#aaaaaa">83:</font>          }
+<font color="#aaaaaa">84:</font>      }
+<font color="#aaaaaa">85:</font>  
+<font color="#aaaaaa">86:</font>      function openPopup(url, name, width, height) {
+<font color="#aaaaaa">87:</font>          if (isNaN(width)) width = 500;
+<font color="#aaaaaa">88:</font>          if (isNaN(height)) height = 500;
+<font color="#aaaaaa">89:</font>  <font color="#33aa00">        // create reasonable screen location for popup
+<font color="#aaaaaa">90:</font>  </font>        var position = &quot;,left=&quot; +
+<font color="#aaaaaa">91:</font>                         Math.floor((screen.availWidth - width) / 2) +
+<font color="#aaaaaa">92:</font>                         &quot;,top=&quot; +
+<font color="#aaaaaa">93:</font>                         Math.floor((screen.availHeight - height) / 2) +
+<font color="#aaaaaa">94:</font>                         &quot;,scrollbars=yes,resizable=yes&quot;;
+<font color="#aaaaaa">95:</font>          var popup = window.open(url, name, 'width=' + width + ',height=' + height + position);
+<font color="#aaaaaa">96:</font>          popup.focus();
+<font color="#aaaaaa">97:</font>      }
+<font color="#aaaaaa">98:</font>  
+<font color="#aaaaaa">99:</font>     function openExtraEditor(url, name, width, height) {
+<font color="#aaaaaa">100:</font>         var target = document.getElementsByName(&quot;target_&quot; + name)[0];
+<font color="#aaaaaa">101:</font>         url += &quot;&amp;target=&quot; + target.value;
+<font color="#aaaaaa">102:</font>         var table = document.getElementsByName(&quot;__sqlshell_table__&quot;)[0];
+<font color="#aaaaaa">103:</font>         url += &quot;&amp;table=&quot; + table.value;
+<font color="#aaaaaa">104:</font>         openPopup(url, &quot;extras&quot;, width, height);
+<font color="#aaaaaa">105:</font>     }
+<font color="#aaaaaa">106:</font> 
+<font color="#aaaaaa">107:</font>     function submitFormToPopup(form, url, name, width, height) {
+<font color="#aaaaaa">108:</font>         openPopup(null, name, width, height);
+<font color="#aaaaaa">109:</font>         var prevTarget = form.target;
+<font color="#aaaaaa">110:</font>         var prevAction = form.action;
+<font color="#aaaaaa">111:</font>         form.target = name;
+<font color="#aaaaaa">112:</font>         form.action = url;
+<font color="#aaaaaa">113:</font>         form.submit();
+<font color="#aaaaaa">114:</font>         form.target = prevTarget;
+<font color="#aaaaaa">115:</font>         form.action = prevAction;
+<font color="#aaaaaa">116:</font>     }
+<font color="#aaaaaa">117:</font> 
+<font color="#aaaaaa">118:</font>     function appendTableRow(parent) {
+<font color="#aaaaaa">119:</font>         var row = document.createElement(&quot;tr&quot;);
+<font color="#aaaaaa">120:</font>         var table = document.getElementById(parent);
+<font color="#aaaaaa">121:</font>         if (row &amp;&amp; table) {
+<font color="#aaaaaa">122:</font>             var colname = &quot;collection_&quot; + (colcount++);
+<font color="#aaaaaa">123:</font>             table.appendChild(row);
+<font color="#aaaaaa">124:</font>             row.innerHTML = rowtemplate.replace(/\$\$\$/g, colname);
+<font color="#aaaaaa">125:</font>         }
+<font color="#aaaaaa">126:</font>         return false;
+<font color="#aaaaaa">127:</font>     }
+<font color="#aaaaaa">128:</font> 
+<font color="#aaaaaa">129:</font>     function extraEditor(propname, localCols, targetCols) {
+<font color="#aaaaaa">130:</font>         var type = opener.document.getElementsByName(&quot;maptype_&quot; + propname)[0];
+<font color="#aaaaaa">131:</font>         for (var i in mappingOptions) {
+<font color="#aaaaaa">132:</font>             var fieldname = propname + '_' + i;
+<font color="#aaaaaa">133:</font>             if (!type || parseInt(type.value) &lt; mappingOptions[i]) continue;
+<font color="#aaaaaa">134:</font>             var field = opener.document.getElementById(fieldname);
+<font color="#aaaaaa">135:</font>             if (field) {
+<font color="#aaaaaa">136:</font>                 document.write(&quot;&lt;tr&gt;&lt;td&gt;&quot; + i + &quot;&lt;/td&gt;&lt;td&gt;&quot;);
+<font color="#aaaaaa">137:</font>                 if (i in {foreign: 1, accessname: 1, group:1} &amp;&amp; targetCols) {
+<font color="#aaaaaa">138:</font>                     writeSelect(fieldname, field.value, targetCols);
+<font color="#aaaaaa">139:</font>                 } else if (i == &quot;local&quot; &amp;&amp; localCols) {
+<font color="#aaaaaa">140:</font>                     writeSelect(fieldname, field.value, localCols);
+<font color="#aaaaaa">141:</font>                 } else {
+<font color="#aaaaaa">142:</font>                     document.write(&quot;&lt;input name=\'&quot; + fieldname + &quot;\' value=\'&quot; + field.value + &quot;\'&gt;&quot;);
+<font color="#aaaaaa">143:</font>                 }
+<font color="#aaaaaa">144:</font>                 document.write(&quot;&lt;/td&gt;&lt;/tr&gt;&quot;);
+<font color="#aaaaaa">145:</font>             } else document.write(fieldname + &quot;&lt;br&gt;&quot;);
+<font color="#aaaaaa">146:</font>         }
+<font color="#aaaaaa">147:</font>     }
+<font color="#aaaaaa">148:</font> 
+<font color="#aaaaaa">149:</font>     function writeSelect(name, value, options) {
+<font color="#aaaaaa">150:</font>         document.write(&quot;&lt;select name=\'&quot; + name + &quot;\'&gt;&quot;);
+<font color="#aaaaaa">151:</font>         document.write(&quot;&lt;option value=''&gt;&quot;);
+<font color="#aaaaaa">152:</font>         for (var i in options) {
+<font color="#aaaaaa">153:</font>             document.write(&quot;&lt;option value=\'&quot; + options[i] + &quot;\'&quot;);
+<font color="#aaaaaa">154:</font>             document.write(value == options[i] ? &quot; selected=\'selected=\'&gt;&quot; : &quot;&gt;&quot;);
+<font color="#aaaaaa">155:</font>             document.write(options[i]);
+<font color="#aaaaaa">156:</font>             document.write(&quot;&lt;/option&gt;&quot;);
+<font color="#aaaaaa">157:</font>         }
+<font color="#aaaaaa">158:</font>         document.write(&quot;&lt;/select&gt;&quot;);
+<font color="#aaaaaa">159:</font>     }
+<font color="#aaaaaa">160:</font> 
+<font color="#aaaaaa">161:</font>     var mappingOptions = {
+<font color="#aaaaaa">162:</font>         local: 1,
+<font color="#aaaaaa">163:</font>         foreign: 1,
+<font color="#aaaaaa">164:</font>         order: 2,
+<font color="#aaaaaa">165:</font>         accessname: 2,
+<font color="#aaaaaa">166:</font>         group: 2,
+<font color="#aaaaaa">167:</font>         group_order: 2,
+<font color="#aaaaaa">168:</font>         group_prototype: 2,
+<font color="#aaaaaa">169:</font>         filter: 2,
+<font color="#aaaaaa">170:</font>         filter_additionalTables: 2,
+<font color="#aaaaaa">171:</font>         loadmode: 1,
+<font color="#aaaaaa">172:</font>         cachemode: 2,
+<font color="#aaaaaa">173:</font>         maxsize: 2,
+<font color="#aaaaaa">174:</font>         hints: 2,
+<font color="#aaaaaa">175:</font>         logicalOperator: 2,
+<font color="#aaaaaa">176:</font>         readonly: 2,
+<font color="#aaaaaa">177:</font>         &quot;private&quot;: 2
+<font color="#aaaaaa">178:</font>     }
+<font color="#aaaaaa">179:</font> 
+<font color="#aaaaaa">180:</font>     function applyExtras(propname) {
+<font color="#aaaaaa">181:</font>         if (opener &amp;&amp; opener.document) {
+<font color="#aaaaaa">182:</font>             for (var i=0; i&lt;document.extras.elements.length; i++) {
+<font color="#aaaaaa">183:</font>                 var e = document.extras.elements[i];
+<font color="#aaaaaa">184:</font>                 if (!e || !e.name || e.name.indexOf(propname) != 0) {
+<font color="#aaaaaa">185:</font>                     continue;
+<font color="#aaaaaa">186:</font>                 }
+<font color="#aaaaaa">187:</font>                 var e2 = opener.document.getElementById(e.name);
+<font color="#aaaaaa">188:</font>                 if (e2) {
+<font color="#aaaaaa">189:</font>                     e2.value = e.value;
+<font color="#aaaaaa">190:</font>                 }
+<font color="#aaaaaa">191:</font>             }
+<font color="#aaaaaa">192:</font>         } else {
+<font color="#aaaaaa">193:</font>             alert(&quot;Error applying changes: opener.document is not defined&quot;);
+<font color="#aaaaaa">194:</font>         }
+<font color="#aaaaaa">195:</font>         window.close();
+<font color="#aaaaaa">196:</font>     }
+<font color="#aaaaaa">197:</font> 
+<font color="#aaaaaa">198:</font> &lt;/script&gt;
+<font color="#aaaaaa">199:</font> 
+<font color="#aaaaaa">200:</font> &lt;/head&gt;
+<font color="#aaaaaa">201:</font> &lt;body&gt;
+<font color="#aaaaaa">202:</font> <font color="#aa3300">&lt;% response.header prefix=&quot;&lt;h3&gt;&quot; suffix=&quot;&lt;/h3&gt;&quot; %&gt;</font>
+<font color="#aaaaaa">203:</font> 
+<font color="#aaaaaa">204:</font> <font color="#aa3300">&lt;% response.body %&gt;</font>
+<font color="#aaaaaa">205:</font> &lt;/body&gt;
+<font color="#aaaaaa">206:</font> &lt;/html&gt;
+<font color="#aaaaaa">207:</font> 
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

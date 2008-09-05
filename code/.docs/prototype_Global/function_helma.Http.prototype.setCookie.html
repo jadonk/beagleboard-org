@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Http.prototype.setCookie&nbsp;(name,&nbsp;value)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	Adds a cookie with the name and value passed as arguments 
+to the list of cookies to send to the remote server. <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>{String}</code>:<br/>
+name The name of the cookie<li><b>Parameter</b> <code>{String}</code>:<br/>
+value The value of the cookie
+		
+		
+		<li><b>See also</b><br>
+#getCookie 
+<li><b>See also</b><br>
+#getCookies 
+
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/helma/Http.js:
+	<pre><font color="#aaaaaa">257:</font>   this.setCookie = function(name, value) {
+<font color="#aaaaaa">258:</font>           if (name != null &amp;&amp; value != null) {
+<font color="#aaaaaa">259:</font>   <font color="#33aa00">            // store the cookie in the cookies map
+<font color="#aaaaaa">260:</font>   </font>            if (!cookies) {
+<font color="#aaaaaa">261:</font>                   cookies = {};
+<font color="#aaaaaa">262:</font>               }
+<font color="#aaaaaa">263:</font>               cookies[name] = new helma.Http.Cookie(name, value);
+<font color="#aaaaaa">264:</font>           }
+<font color="#aaaaaa">265:</font>           return;
+<font color="#aaaaaa">266:</font>      }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

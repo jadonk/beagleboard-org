@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.helma.Inspector.prototype.action&nbsp;()</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	
+	
+	<ul>
+		
+		
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in helmaTools.zip/Global/helma.Inspector.js:
+	<pre><font color="#aaaaaa">96:</font>   this.action = function() {
+<font color="#aaaaaa">97:</font>           if (req.data.done) {
+<font color="#aaaaaa">98:</font>               helma.invalidate('inspector');
+<font color="#aaaaaa">99:</font>               res.redirect(path.href());
+<font color="#aaaaaa">100:</font>           }
+<font color="#aaaaaa">101:</font>           if (!helma.auth('inspector'))
+<font color="#aaaaaa">102:</font>               res.abort();
+<font color="#aaaaaa">103:</font>           if (req.data.cancel)
+<font color="#aaaaaa">104:</font>               res.redirect(req.action);
+<font color="#aaaaaa">105:</font>          else if (req.data.save) {
+<font color="#aaaaaa">106:</font>              if (req.data.type == <font color="#9999aa">&quot;date&quot;</font>) {
+<font color="#aaaaaa">107:</font>                  hopObj[req.data.key] = new Date(
+<font color="#aaaaaa">108:</font>                      req.data.y, req.data.M-1, req.data.d,
+<font color="#aaaaaa">109:</font>                      req.data.H, req.data.m, req.data.s
+<font color="#aaaaaa">110:</font>                  );
+<font color="#aaaaaa">111:</font>              } else
+<font color="#aaaaaa">112:</font>                  hopObj[req.data.key] = req.data[req.data.key];
+<font color="#aaaaaa">113:</font>              res.redirect(req.action);
+<font color="#aaaaaa">114:</font>          };
+<font color="#aaaaaa">115:</font>          this.render();
+<font color="#aaaaaa">116:</font>      }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>

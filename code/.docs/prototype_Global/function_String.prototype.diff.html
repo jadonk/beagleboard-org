@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+
+	body, p, td, th, li {
+		font-family: verdana, sans-serif;
+		font-size: 10pt;
+	}
+
+	big.top {
+		font-size: 18pt;
+		font-weight: bold;
+	}
+
+	big {
+		font-size: 13pt;
+		font-weight: bold;
+	}
+	
+	a {
+		font-weight:bold;
+		color: #cc3333;
+		text-decoration:none;
+	}
+	a:hover	{
+		text-decoration:underline;
+	}
+
+	.navig	{
+		font-size: 9px;
+		text-decoration: none;
+		font-weight:normal;
+	}
+	
+	li {
+		padding-bottom: 5px;
+	}
+	
+
+	.mainbox	{
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+		border-bottom-width:1px;
+		border-bottom-style:dotted;
+	}	
+
+	.headline {
+		font-weight:bold;
+		background:#dfdfdf;
+		border-color:#999999;
+		padding-top:5px;
+		padding-bottom:5px;
+	}	
+
+	</style>
+</head>
+
+<body>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td class="headline">
+	<big><tt>Global.String.prototype.diff&nbsp;(mod,&nbsp;separator)</tt></big><br>
+	</td>
+</tr>
+
+<tr>
+	<td class="mainbox">
+	function compares a string with the one passed as argument 
+using diff <br><br>
+	
+	<ul>
+		<li><b>Parameter</b> <code>String</code>:<br/>
+String to compare against String object value<li><b>Parameter</b> <code>String</code>:<br/>
+Optional regular expression string to use for splitting. If not defined, newlines will be used.
+		<li><b>Returns</b><br>
+Object Array containing one JS object for each line with the following properties: .num Line number .value String line if unchanged .deleted Obj Array containing deleted lines .inserted Obj Array containing added lines
+
+		
+		
+		
+		
+	</ul>
+	</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellspacing="1" cellpadding="5">
+<tr>
+	<td>Sourcecode in /root/helma-1.6.1/modules/core/String.js:
+	<pre><font color="#aaaaaa">461:</font>   String.prototype.diff = function(mod, separator) {
+<font color="#aaaaaa">462:</font>   <font color="#33aa00">    // if no separator use line separator
+<font color="#aaaaaa">463:</font>   </font>    var regexp = (typeof(separator) == <font color="#9999aa">&quot;undefined&quot;</font>) ?
+<font color="#aaaaaa">464:</font>           new RegExp(<font color="#9999aa">&quot;\r\n|\r|\n&quot;</font>) :
+<font color="#aaaaaa">465:</font>           new RegExp(separator);
+<font color="#aaaaaa">466:</font>   <font color="#33aa00">    // split both strings into arrays
+<font color="#aaaaaa">467:</font>   </font>    var orig = this.split(regexp);
+<font color="#aaaaaa">468:</font>       var mod = mod.split(regexp);
+<font color="#aaaaaa">469:</font>   <font color="#33aa00">    // create the Diff object
+<font color="#aaaaaa">470:</font>  </font>    var diff = new Packages.helma.util.Diff(orig, mod);
+<font color="#aaaaaa">471:</font>  <font color="#33aa00">    // get the diff.
+<font color="#aaaaaa">472:</font>  </font>    var d = diff.diff();
+<font color="#aaaaaa">473:</font>      if (!d)
+<font color="#aaaaaa">474:</font>          return null;
+<font color="#aaaaaa">475:</font>  
+<font color="#aaaaaa">476:</font>      var max = Math.max(orig.length, mod.length);
+<font color="#aaaaaa">477:</font>      var result = new Array();
+<font color="#aaaaaa">478:</font>      for (var i=0;i&lt;max;i++) {
+<font color="#aaaaaa">479:</font>          var line = result[i];
+<font color="#aaaaaa">480:</font>          if (!line) {
+<font color="#aaaaaa">481:</font>              line = new Object();
+<font color="#aaaaaa">482:</font>              line.num = (i+1);
+<font color="#aaaaaa">483:</font>              result[i] = line;
+<font color="#aaaaaa">484:</font>          }
+<font color="#aaaaaa">485:</font>          if (d &amp;&amp; i == d.line1) {
+<font color="#aaaaaa">486:</font>              if (d.deleted) {
+<font color="#aaaaaa">487:</font>                  var del = new Array();
+<font color="#aaaaaa">488:</font>                  for (var j=d.line0; j&lt;d.line0+d.deleted; j++)
+<font color="#aaaaaa">489:</font>                      del[del.length] = orig[j];
+<font color="#aaaaaa">490:</font>                  line.deleted = del;
+<font color="#aaaaaa">491:</font>              }
+<font color="#aaaaaa">492:</font>              if (d.inserted) {
+<font color="#aaaaaa">493:</font>                  var ins = new Array();
+<font color="#aaaaaa">494:</font>                  for (var j=d.line1; j&lt;d.line1+d.inserted; j++)
+<font color="#aaaaaa">495:</font>                      ins[ins.length] = mod[j];
+<font color="#aaaaaa">496:</font>                  line.inserted = ins;
+<font color="#aaaaaa">497:</font>              }
+<font color="#aaaaaa">498:</font>              i = d.line1 + d.inserted -1;
+<font color="#aaaaaa">499:</font>              d = d.link;
+<font color="#aaaaaa">500:</font>          } else {
+<font color="#aaaaaa">501:</font>              line.value = mod[i];
+<font color="#aaaaaa">502:</font>          }
+<font color="#aaaaaa">503:</font>      }
+<font color="#aaaaaa">504:</font>      return result;
+<font color="#aaaaaa">505:</font>  }
+</pre>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>
