@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221517230631">
+  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221518921451">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.2) Gecko/2008090514 Firefox/3.0.2</http_browser>
     <lang>en-us</lang>
     <uri>angstrom</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">15.09.2008 17:20:30 CDT</time>
+    <time type="date">15.09.2008 17:48:41 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.msm9l1l5077d</hopsession>
@@ -91,6 +91,17 @@ Calling ioctl() to re-read partition table
  mmcblk0: p1 p2
 root@beagleboard:/media/hdd# FAT: bogus number of reserved sectors
 VFS: Can&apos;t find a valid FAT filesystem on dev mmcblk0p2.&lt;/pre&gt;
+   &lt;pre&gt;umount&lt;/pre&gt;
+   &lt;pre&gt;root@beagleboard:/media/hdd# opkg update; opkg install dosfstools
+root@beagleboard:/media/hdd# root@beagleboard:/media/hdd# mkfs.msdos -F 32 /dev/mmcblk0p1 -n SDCARD_X
+mkfs.msdos 2.11 (12 Mar 2005)
+root@beagleboard:/media/hdd# mount /dev/mmcblk0p1/ /media/mmcblk0p1/
+root@beagleboard:/media/hdd# cp mlo /media/mmcblk0p1/MLO
+root@beagleboard:/media/hdd# cp u-boot.bin /media/mmcblk0p1/
+root@beagleboard:/media/hdd# cp uImage /media/mmcblk0p1/
+root@beagleboard:/media/hdd# opkg install e2fsprogs
+root@beagleboard:/media/hdd# opkg install e2fsprogs-mke2fs
+root@beagleboard:/media/hdd# mkfs.ext3 /dev/mmcblk0p2&lt;/pre&gt;
   &lt;/li&gt;
  &lt;/ul&gt;
  &lt;h2&gt;Write &apos;dd&apos; image to the card&lt;/h2&gt;
