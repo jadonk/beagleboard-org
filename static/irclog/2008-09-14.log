@@ -498,3 +498,109 @@
 <li class="nick-change">[<a href="#T22:51:48" id="T22:51:48"><abbr title="2008-09-14T22:51:48+00:00">22:51:48</abbr></a>] <span>* Olipro_ is now known as Olipro</span></li>
 <li class="quit">[<a href="#T22:56:14" id="T22:56:14"><abbr title="2008-09-14T22:56:14+00:00">22:56:14</abbr></a>] <span>* krassel (n=erik@c83-249-88-121.bredband.comhem.se) Quit ("Ex-Chat")</span></li>
 <li class="join">[<a href="#T22:59:59" id="T22:59:59"><abbr title="2008-09-14T22:59:59+00:00">22:59:59</abbr></a>] <span>* guillaum1 (n=gl@AMontsouris-153-1-54-161.w86-212.abo.wanadoo.fr) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:00:52" id="T23:00:52"><abbr title="2008-09-14T23:00:52+00:00">23:00:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the IVA documentation is confusing</q></li>
+<li class="quit">[<a href="#T23:02:09" id="T23:02:09"><abbr title="2008-09-14T23:02:09+00:00">23:02:09</abbr></a>] <span>* geraint (n=gnorth@tu008.demon.co.uk) Quit ()</span></li>
+<li class="part">[<a href="#T23:07:51" id="T23:07:51"><abbr title="2008-09-14T23:07:51+00:00">23:07:51</abbr></a>] <span>* RogerMonk (n=a0740758@nat/ti/x-a85d645406b2d1db) has left #beagle</span></li>
+<li class="message">[<a href="#T23:12:19" id="T23:12:19"><abbr title="2008-09-14T23:12:19+00:00">23:12:19</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>if I BLX from ARM to Thumb and I give the assembler a label to BLX to, it will automatically set the T bit right?</q></li>
+<li class="message">[<a href="#T23:12:25" id="T23:12:25"><abbr title="2008-09-14T23:12:25+00:00">23:12:25</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>because if I try BLX GoHere+1 it just bitches about misalignment</q></li>
+<li class="message">[<a href="#T23:12:48" id="T23:12:48"><abbr title="2008-09-14T23:12:48+00:00">23:12:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if in doubt, examine the machine code</q></li>
+<li class="message">[<a href="#T23:13:05" id="T23:13:05"><abbr title="2008-09-14T23:13:05+00:00">23:13:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the assembler should know the target code type</q></li>
+<li class="message">[<a href="#T23:13:06" id="T23:13:06"><abbr title="2008-09-14T23:13:06+00:00">23:13:06</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>FF FF FF FA</q></li>
+<li class="message">[<a href="#T23:13:12" id="T23:13:12"><abbr title="2008-09-14T23:13:12+00:00">23:13:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what's that?</q></li>
+<li class="message">[<a href="#T23:13:22" id="T23:13:22"><abbr title="2008-09-14T23:13:22+00:00">23:13:22</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>a BLX directly to the following instruction</q></li>
+<li class="message">[<a href="#T23:13:41" id="T23:13:41"><abbr title="2008-09-14T23:13:41+00:00">23:13:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>in arm or thumb mode?</q></li>
+<li class="message">[<a href="#T23:13:51" id="T23:13:51"><abbr title="2008-09-14T23:13:51+00:00">23:13:51</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>ARM</q></li>
+<li class="message">[<a href="#T23:14:19" id="T23:14:19"><abbr title="2008-09-14T23:14:19+00:00">23:14:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what instruction did you use?</q></li>
+<li class="message">[<a href="#T23:14:43" id="T23:14:43"><abbr title="2008-09-14T23:14:43+00:00">23:14:43</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>BLX ThumbCode</q></li>
+<li class="message">[<a href="#T23:14:50" id="T23:14:50"><abbr title="2008-09-14T23:14:50+00:00">23:14:50</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>.thumb</q></li>
+<li class="message">[<a href="#T23:14:53" id="T23:14:53"><abbr title="2008-09-14T23:14:53+00:00">23:14:53</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>ThumbCode:</q></li>
+<li class="message">[<a href="#T23:14:59" id="T23:14:59"><abbr title="2008-09-14T23:14:59+00:00">23:14:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T23:15:01" id="T23:15:01"><abbr title="2008-09-14T23:15:01+00:00">23:15:01</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>PUSH {R0}</q></li>
+<li class="message">[<a href="#T23:15:44" id="T23:15:44"><abbr title="2008-09-14T23:15:44+00:00">23:15:44</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>hm, crashy</q></li>
+<li class="message">[<a href="#T23:15:49" id="T23:15:49"><abbr title="2008-09-14T23:15:49+00:00">23:15:49</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>fucking assembler</q></li>
+<li class="message">[<a href="#T23:15:54" id="T23:15:54"><abbr title="2008-09-14T23:15:54+00:00">23:15:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that doesn't look like a blx instruction</q></li>
+<li class="message">[<a href="#T23:16:32" id="T23:16:32"><abbr title="2008-09-14T23:16:32+00:00">23:16:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hold on.. it's little endian</q></li>
+<li class="message">[<a href="#T23:16:39" id="T23:16:39"><abbr title="2008-09-14T23:16:39+00:00">23:16:39</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T23:17:00" id="T23:17:00"><abbr title="2008-09-14T23:17:00+00:00">23:17:00</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>it will interpret it as 0xFAFFFFFF of course</q></li>
+<li class="message">[<a href="#T23:17:20" id="T23:17:20"><abbr title="2008-09-14T23:17:20+00:00">23:17:20</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>it's just the byte order of the binary file view from a hex editor</q></li>
+<li class="message">[<a href="#T23:17:29" id="T23:17:29"><abbr title="2008-09-14T23:17:29+00:00">23:17:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, of course</q></li>
+<li class="message">[<a href="#T23:17:34" id="T23:17:34"><abbr title="2008-09-14T23:17:34+00:00">23:17:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I just wasn't thinking</q></li>
+<li class="message">[<a href="#T23:18:13" id="T23:18:13"><abbr title="2008-09-14T23:18:13+00:00">23:18:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so it's doing a branch to pc-4 and switching to thumb mode</q></li>
+<li class="message">[<a href="#T23:18:24" id="T23:18:24"><abbr title="2008-09-14T23:18:24+00:00">23:18:24</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>no, it's crashing</q></li>
+<li class="message">[<a href="#T23:18:26" id="T23:18:26"><abbr title="2008-09-14T23:18:26+00:00">23:18:26</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>I just tried it</q></li>
+<li class="message">[<a href="#T23:18:39" id="T23:18:39"><abbr title="2008-09-14T23:18:39+00:00">23:18:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and since pc is current instruction+8, that looks correct</q></li>
+<li class="message">[<a href="#T23:18:44" id="T23:18:44"><abbr title="2008-09-14T23:18:44+00:00">23:18:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>something else must be wrong</q></li>
+<li class="message">[<a href="#T23:19:10" id="T23:19:10"><abbr title="2008-09-14T23:19:10+00:00">23:19:10</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>I wouldn't be too sure</q></li>
+<li class="message">[<a href="#T23:19:23" id="T23:19:23"><abbr title="2008-09-14T23:19:23+00:00">23:19:23</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>I don't trust the assembler to be clever enough to set the T bit</q></li>
+<li class="message">[<a href="#T23:19:46" id="T23:19:46"><abbr title="2008-09-14T23:19:46+00:00">23:19:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>blx immediate always switches mode</q></li>
+<li class="message">[<a href="#T23:19:56" id="T23:19:56"><abbr title="2008-09-14T23:19:56+00:00">23:19:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's nothing the assembler can do about that</q></li>
+<li class="message">[<a href="#T23:20:08" id="T23:20:08"><abbr title="2008-09-14T23:20:08+00:00">23:20:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the encoding you quoted is BLX #-4</q></li>
+<li class="message">[<a href="#T23:21:09" id="T23:21:09"><abbr title="2008-09-14T23:21:09+00:00">23:21:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>why are you using blx?</q></li>
+<li class="message">[<a href="#T23:21:33" id="T23:21:33"><abbr title="2008-09-14T23:21:33+00:00">23:21:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it will set LR to the same address</q></li>
+<li class="message">[<a href="#T23:21:42" id="T23:21:42"><abbr title="2008-09-14T23:21:42+00:00">23:21:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which is kind of useless</q></li>
+<li class="message">[<a href="#T23:22:05" id="T23:22:05"><abbr title="2008-09-14T23:22:05+00:00">23:22:05</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T23:22:10" id="T23:22:10"><abbr title="2008-09-14T23:22:10+00:00">23:22:10</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>but BX requires a register</q></li>
+<li class="message">[<a href="#T23:22:18" id="T23:22:18"><abbr title="2008-09-14T23:22:18+00:00">23:22:18</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>so BLX will give you 2 for the price of 1</q></li>
+<li class="message">[<a href="#T23:22:23" id="T23:22:23"><abbr title="2008-09-14T23:22:23+00:00">23:22:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>right</q></li>
+<li class="quit">[<a href="#T23:23:21" id="T23:23:21"><abbr title="2008-09-14T23:23:21+00:00">23:23:21</abbr></a>] <span>* zedstar (n=john@82-44-200-69.cable.ubr08.haye.blueyonder.co.uk) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T23:24:12" id="T23:24:12"><abbr title="2008-09-14T23:24:12+00:00">23:24:12</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>BLX does not always switch mode</q></li>
+<li class="join">[<a href="#T23:24:17" id="T23:24:17"><abbr title="2008-09-14T23:24:17+00:00">23:24:17</abbr></a>] <span>* cmonex (i=xy6091@pool-1774.adsl.interware.hu) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:24:24" id="T23:24:24"><abbr title="2008-09-14T23:24:24+00:00">23:24:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>blx immediate always switches</q></li>
+<li class="message">[<a href="#T23:24:27" id="T23:24:27"><abbr title="2008-09-14T23:24:27+00:00">23:24:27</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>there is no way BLX could always switch mode</q></li>
+<li class="message">[<a href="#T23:24:32" id="T23:24:32"><abbr title="2008-09-14T23:24:32+00:00">23:24:32</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>do you realise how mode switching works?</q></li>
+<li class="message">[<a href="#T23:24:43" id="T23:24:43"><abbr title="2008-09-14T23:24:43+00:00">23:24:43</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>if you look at the target address to branch to in binary</q></li>
+<li class="message">[<a href="#T23:24:45" id="T23:24:45"><abbr title="2008-09-14T23:24:45+00:00">23:24:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>blx register switches based on the lsb of the target address</q></li>
+<li class="message">[<a href="#T23:24:52" id="T23:24:52"><abbr title="2008-09-14T23:24:52+00:00">23:24:52</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>the smallest bit will be 1 for thumb, 0 for ARM</q></li>
+<li class="message">[<a href="#T23:25:01" id="T23:25:01"><abbr title="2008-09-14T23:25:01+00:00">23:25:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, for blx register</q></li>
+<li class="message">[<a href="#T23:25:03" id="T23:25:03"><abbr title="2008-09-14T23:25:03+00:00">23:25:03</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>are you saying BLX cannot do a branch to an address with the least bit set to zero?</q></li>
+<li class="message">[<a href="#T23:25:04" id="T23:25:04"><abbr title="2008-09-14T23:25:04+00:00">23:25:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not blx immediate</q></li>
+<li class="message">[<a href="#T23:25:31" id="T23:25:31"><abbr title="2008-09-14T23:25:31+00:00">23:25:31</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>[01:24:26] &lt;Olipro&gt; do you realise how mode switching works?</q></li>
+<li class="message">[<a href="#T23:25:49" id="T23:25:49"><abbr title="2008-09-14T23:25:49+00:00">23:25:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm saying that blx to an immediate offset always switches mode</q></li>
+<li class="message">[<a href="#T23:25:50" id="T23:25:50"><abbr title="2008-09-14T23:25:50+00:00">23:25:50</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>maybe he meant the T bit will always be fiddled with..</q></li>
+<li class="message">[<a href="#T23:25:52" id="T23:25:52"><abbr title="2008-09-14T23:25:52+00:00">23:25:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no matter what the lsb</q></li>
+<li class="message">[<a href="#T23:26:01" id="T23:26:01"><abbr title="2008-09-14T23:26:01+00:00">23:26:01</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>so mru is this what you meant</q></li>
+<li class="message">[<a href="#T23:26:11" id="T23:26:11"><abbr title="2008-09-14T23:26:11+00:00">23:26:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm not sure what either of you mean</q></li>
+<li class="message">[<a href="#T23:26:21" id="T23:26:21"><abbr title="2008-09-14T23:26:21+00:00">23:26:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but I'm quite sure I know how mode switching works</q></li>
+<li class="message">[<a href="#T23:26:26" id="T23:26:26"><abbr title="2008-09-14T23:26:26+00:00">23:26:26</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>I'm sure you know</q></li>
+<li class="message">[<a href="#T23:26:29" id="T23:26:29"><abbr title="2008-09-14T23:26:29+00:00">23:26:29</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>he's a bit weird at times</q></li>
+<li class="message">[<a href="#T23:26:39" id="T23:26:39"><abbr title="2008-09-14T23:26:39+00:00">23:26:39</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>by always switching you mean the T bit always gets set?</q></li>
+<li class="message">[<a href="#T23:26:45" id="T23:26:45"><abbr title="2008-09-14T23:26:45+00:00">23:26:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's toggled</q></li>
+<li class="message">[<a href="#T23:26:50" id="T23:26:50"><abbr title="2008-09-14T23:26:50+00:00">23:26:50</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>either to 0 or 1</q></li>
+<li class="quit">[<a href="#T23:26:56" id="T23:26:56"><abbr title="2008-09-14T23:26:56+00:00">23:26:56</abbr></a>] <span>* flo_lap (n=fuchs@g227114108.adsl.alicedsl.de) Quit (Read error: 113 (No route to host))</span></li>
+<li class="message">[<a href="#T23:26:57" id="T23:26:57"><abbr title="2008-09-14T23:26:57+00:00">23:26:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>blx immediate in arm mode switches to thumb</q></li>
+<li class="message">[<a href="#T23:27:07" id="T23:27:07"><abbr title="2008-09-14T23:27:07+00:00">23:27:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>blx immediate in thumb mode switches to arm</q></li>
+<li class="message">[<a href="#T23:27:16" id="T23:27:16"><abbr title="2008-09-14T23:27:16+00:00">23:27:16</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>ah you mean immediate..</q></li>
+<li class="message">[<a href="#T23:27:24" id="T23:27:24"><abbr title="2008-09-14T23:27:24+00:00">23:27:24</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>the man is correct</q></li>
+<li class="message">[<a href="#T23:27:25" id="T23:27:25"><abbr title="2008-09-14T23:27:25+00:00">23:27:25</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>BLX label always changes the state.</q></li>
+<li class="message">[<a href="#T23:27:28" id="T23:27:28"><abbr title="2008-09-14T23:27:28+00:00">23:27:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>blx register copies the lsb to the thumb bit</q></li>
+<li class="message">[<a href="#T23:27:30" id="T23:27:30"><abbr title="2008-09-14T23:27:30+00:00">23:27:30</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q><a href="http://www.keil.com/support/man/docs/armasm/armasm_cihfddaf.htm">http://www.keil.com/support/man/docs/armasm/armasm_cihfddaf.htm</a></q></li>
+<li class="message">[<a href="#T23:27:40" id="T23:27:40"><abbr title="2008-09-14T23:27:40+00:00">23:27:40</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>so Olipro</q></li>
+<li class="message">[<a href="#T23:27:48" id="T23:27:48"><abbr title="2008-09-14T23:27:48+00:00">23:27:48</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>next time dont start to go at anyone like that.</q></li>
+<li class="message">[<a href="#T23:28:03" id="T23:28:03"><abbr title="2008-09-14T23:28:03+00:00">23:28:03</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>"go"</q></li>
+<li class="message">[<a href="#T23:28:05" id="T23:28:05"><abbr title="2008-09-14T23:28:05+00:00">23:28:05</abbr></a>] &lt;<cite>Olipro</cite>&gt; <q>I wasn't going at him</q></li>
+<li class="message">[<a href="#T23:28:09" id="T23:28:09"><abbr title="2008-09-14T23:28:09+00:00">23:28:09</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>yeah, sure</q></li>
+<li class="message">[<a href="#T23:28:15" id="T23:28:15"><abbr title="2008-09-14T23:28:15+00:00">23:28:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hey, it's ok</q></li>
+<li class="message">[<a href="#T23:28:32" id="T23:28:32"><abbr title="2008-09-14T23:28:32+00:00">23:28:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm rather thick-skinned</q></li>
+<li class="message">[<a href="#T23:28:36" id="T23:28:36"><abbr title="2008-09-14T23:28:36+00:00">23:28:36</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>=)</q></li>
+<li class="message">[<a href="#T23:29:38" id="T23:29:38"><abbr title="2008-09-14T23:29:38+00:00">23:29:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and I know what thumb coding can do to your temper ;-)</q></li>
+<li class="message">[<a href="#T23:30:08" id="T23:30:08"><abbr title="2008-09-14T23:30:08+00:00">23:30:08</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>oh, thumb is better than mips.</q></li>
+<li class="message">[<a href="#T23:30:24" id="T23:30:24"><abbr title="2008-09-14T23:30:24+00:00">23:30:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>mips32 or mips16e?</q></li>
+<li class="message">[<a href="#T23:30:42" id="T23:30:42"><abbr title="2008-09-14T23:30:42+00:00">23:30:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>mips16e is a right pita</q></li>
+<li class="message">[<a href="#T23:30:50" id="T23:30:50"><abbr title="2008-09-14T23:30:50+00:00">23:30:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>even without buggy compilers</q></li>
+<li class="message">[<a href="#T23:31:01" id="T23:31:01"><abbr title="2008-09-14T23:31:01+00:00">23:31:01</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>dont get me started on mips compilers</q></li>
+<li class="message">[<a href="#T23:31:05" id="T23:31:05"><abbr title="2008-09-14T23:31:05+00:00">23:31:05</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>=p</q></li>
+<li class="message">[<a href="#T23:34:42" id="T23:34:42"><abbr title="2008-09-14T23:34:42+00:00">23:34:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>have you ever used any ST chips?</q></li>
+<li class="quit">[<a href="#T23:35:15" id="T23:35:15"><abbr title="2008-09-14T23:35:15+00:00">23:35:15</abbr></a>] <span>* Olipro (n=Olipro@uncyclopedia/Olipro) Quit ("Leaving")</span></li>
+<li class="message">[<a href="#T23:35:24" id="T23:35:24"><abbr title="2008-09-14T23:35:24+00:00">23:35:24</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>no, why?</q></li>
+<li class="message">[<a href="#T23:35:36" id="T23:35:36"><abbr title="2008-09-14T23:35:36+00:00">23:35:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you had, everything else would seem like paradise</q></li>
+<li class="message">[<a href="#T23:36:24" id="T23:36:24"><abbr title="2008-09-14T23:36:24+00:00">23:36:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>some of their compilers can't even handle a double assignment like a = b = 0;</q></li>
+<li class="message">[<a href="#T23:37:48" id="T23:37:48"><abbr title="2008-09-14T23:37:48+00:00">23:37:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the st20 cpu has the most bizarre programming model ever</q></li>
+<li class="message">[<a href="#T23:38:26" id="T23:38:26"><abbr title="2008-09-14T23:38:26+00:00">23:38:26</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>hmm..</q></li>
+<li class="message">[<a href="#T23:38:30" id="T23:38:30"><abbr title="2008-09-14T23:38:30+00:00">23:38:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's a stack pointer, program counter, and a 3-element operand stack</q></li>
+<li class="message">[<abbr title="2008-09-14T23:38:30+00:00">23:38:30</abbr>] &lt;<cite>cmonex</cite>&gt; <q>how about some pic compilers</q></li>
+<li class="message">[<a href="#T23:38:40" id="T23:38:40"><abbr title="2008-09-14T23:38:40+00:00">23:38:40</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>I'm not sure what ST20 is, btw</q></li>
+<li class="message">[<a href="#T23:38:45" id="T23:38:45"><abbr title="2008-09-14T23:38:45+00:00">23:38:45</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>but those are similar bad =)</q></li>
+<li class="message">[<a href="#T23:39:05" id="T23:39:05"><abbr title="2008-09-14T23:39:05+00:00">23:39:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>well, pic doesn't pretend to be a general-purpose cpu</q></li>
+<li class="message">[<a href="#T23:41:45" id="T23:41:45"><abbr title="2008-09-14T23:41:45+00:00">23:41:45</abbr></a>] &lt;<cite>cmonex</cite>&gt; <q>heh</q></li>
+<li class="join">[<a href="#T23:42:39" id="T23:42:39"><abbr title="2008-09-14T23:42:39+00:00">23:42:39</abbr></a>] <span>* Olipro (n=Olipro@uncyclopedia/Olipro) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:49:47" id="T23:49:47"><abbr title="2008-09-14T23:49:47+00:00">23:49:47</abbr></a>] <span>* Olipro_ (n=Olipro@uncyclopedia/Olipro) has joined #beagle</span></li>
