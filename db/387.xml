@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221511766309">
+  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221517230631">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.2) Gecko/2008090514 Firefox/3.0.2</http_browser>
     <lang>en-us</lang>
     <uri>angstrom</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">15.09.2008 15:49:26 CDT</time>
+    <time type="date">15.09.2008 17:20:30 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.msm9l1l5077d</hopsession>
@@ -31,6 +31,66 @@ saveenv&lt;/pre&gt;
 flash_eraseall /dev/mtd4
 mount -t jffs2 /dev/mtdblock4 /media/hdd
 cp /media/mmcblk0p1/* /media/hdd/&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;pre&gt;Command (m for help): p
+
+Disk /dev/mmcblk0: 4026 MB, 4026531840 bytes
+255 heads, 63 sectors/track, 489 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+        Device Boot      Start         End      Blocks  Id System
+/dev/mmcblk0p1   *           1         490     3932128+  c Win95 FAT32 (LBA)
+Partition 1 has different physical/logical endings:
+     phys=(488, 254, 63) logical=(489, 135, 30)
+
+Command (m for help): d
+Selected partition 1
+
+Command (m for help): n
+Command action
+   e   extended
+   p   primary partition (1-4)
+p
+Partition number (1-4): 1
+First cylinder (1-489, default 1): Using default value 1
+Last cylinder or +size or +sizeM or +sizeK (1-489, default 489): +25
+
+Command (m for help): a
+Partition number (1-4): 1
+
+Command (m for help): n
+Command action
+   e   extended
+   p   primary partition (1-4)
+p
+Partition number (1-4): 2
+First cylinder (27-489, default 27): Using default value 27
+Last cylinder or +size or +sizeM or +sizeK (27-489, default 489): Using default
+value 489
+
+Command (m for help): t
+Partition number (1-4): 1
+Hex code (type L to list codes): c
+Changed system type of partition 1 to c (Win95 FAT32 (LBA))
+
+Command (m for help): p
+
+Disk /dev/mmcblk0: 4026 MB, 4026531840 bytes
+255 heads, 63 sectors/track, 489 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+        Device Boot      Start         End      Blocks  Id System
+/dev/mmcblk0p1   *           1          26      208813+  c Win95 FAT32 (LBA)
+/dev/mmcblk0p2              27         489     3719047+ 83 Linux
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table
+ mmcblk0: p1 p2
+root@beagleboard:/media/hdd# FAT: bogus number of reserved sectors
+VFS: Can&apos;t find a valid FAT filesystem on dev mmcblk0p2.&lt;/pre&gt;
   &lt;/li&gt;
  &lt;/ul&gt;
  &lt;h2&gt;Write &apos;dd&apos; image to the card&lt;/h2&gt;
