@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221525564308">
+  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221525803702">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.2) Gecko/2008090514 Firefox/3.0.2</http_browser>
     <lang>en-us</lang>
     <uri>angstrom</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">15.09.2008 19:39:24 CDT</time>
+    <time type="date">15.09.2008 19:43:23 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.msm9l1l5077d</hopsession>
@@ -33,6 +33,7 @@ mount -t jffs2 /dev/mtdblock4 /media/hdd
 cp /media/mmcblk0p1/* /media/hdd/&lt;/pre&gt;
   &lt;/li&gt;
   &lt;li&gt;
+   Re-partition the SD card
    &lt;pre&gt;Command (m for help): p
 
 Disk /dev/mmcblk0: 4026 MB, 4026531840 bytes
@@ -92,24 +93,30 @@ Calling ioctl() to re-read partition table
 root@beagleboard:/media/hdd# FAT: bogus number of reserved sectors
 VFS: Can&apos;t find a valid FAT filesystem on dev mmcblk0p2.&lt;/pre&gt;
    &lt;pre&gt;umount&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   Format the partitions on the SD card
    &lt;pre&gt;root@beagleboard:/media/hdd# opkg update; opkg install dosfstools
 root@beagleboard:/media/hdd# root@beagleboard:/media/hdd# mkfs.msdos -F 32 /dev/mmcblk0p1 -n SDCARD_X
 mkfs.msdos 2.11 (12 Mar 2005)
-root@beagleboard:/media/hdd# mount /dev/mmcblk0p1/ /media/mmcblk0p1/
-root@beagleboard:/media/hdd# cp mlo /media/mmcblk0p1/MLO
-root@beagleboard:/media/hdd# cp u-boot.bin /media/mmcblk0p1/
-root@beagleboard:/media/hdd# cp uImage /media/mmcblk0p1/
 root@beagleboard:/media/hdd# opkg install e2fsprogs
 root@beagleboard:/media/hdd# opkg install e2fsprogs-mke2fs
 root@beagleboard:/media/hdd# mkfs.ext3 /dev/mmcblk0p2&lt;/pre&gt;
-   root@beagleboard:/media/hdd# mkdir /media/mmcblk0p2
+  &lt;/li&gt;
+  &lt;li&gt;
+   Copy files onto SD card
+   &lt;pre&gt;root@beagleboard:/media/hdd# mount /dev/mmcblk0p1/ /media/mmcblk0p1/
+root@beagleboard:/media/hdd# cp mlo /media/mmcblk0p1/MLO
+root@beagleboard:/media/hdd# cp u-boot.bin /media/mmcblk0p1/
+root@beagleboard:/media/hdd# cp uImage /media/mmcblk0p1/
+root@beagleboard:/media/hdd# mkdir /media/mmcblk0p2
 root@beagleboard:/media/hdd# mount /dev/mmcblk0p2 /media/mmcblk0p2
 kjournald starting.  Commit interval 5 seconds
 EXT3 FS on mmcblk0p2, internal journal
 EXT3-fs: mounted filesystem with ordered data mode.
 root@beagleboard:/media/hdd# cd /media/mmcblk0p2
 root@beagleboard:/media/mmcblk0p2# tar xvjf /media/hdd/Angstrom-Beagleboard-demo-image
--glibc-ipk-2008.1-test-20080911-beagleboard.rootfs.tar.bz2
+-glibc-ipk-2008.1-test-20080911-beagleboard.rootfs.tar.bz2&lt;/pre&gt;
   &lt;/li&gt;
  &lt;/ul&gt;
  &lt;h2&gt;Write &apos;dd&apos; image to the card&lt;/h2&gt;
