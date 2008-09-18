@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221755305973">
+  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221756659395">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.2) Gecko/2008090514 Firefox/3.0.2</http_browser>
     <lang>en-us</lang>
     <uri>angstrom</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">18.09.2008 11:28:25 CDT</time>
+    <time type="date">18.09.2008 11:50:59 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.msm9l1l5077d</hopsession>
@@ -120,7 +120,7 @@ EXT3 FS on mmcblk0p2, internal journal
 EXT3-fs: mounted filesystem with ordered data mode.
 root@beagleboard:/media/hdd# cd /media/mmcblk0p2
 root@beagleboard:/media/mmcblk0p2# tar xvjf /media/hdd/Angstrom-Beagleboard-demo-image
--glibc-ipk-2008.1-test-20080911-beagleboard.rootfs.tar.bz2
+-glibc-ipk-2008.1-test-20080917-beagleboard.rootfs.tar.bz2
 root@beagleboard:/media/mmcblk0p2# cd /media/hdd
 root@beagleboard:/media/hdd# sync&lt;/pre&gt;
   &lt;/li&gt;
@@ -132,7 +132,8 @@ saveenv&lt;/pre&gt;
   &lt;/li&gt;
   &lt;li&gt;
    Install useful apps
-   &lt;pre&gt;opkg install vim screen tar bash
+   &lt;pre&gt;opkg update
+opkg install vim screen tar bash
 opkg install mtd-utils e2fsprogs e2fsprogs-e2fsck e2fsprogs-mke2fs dosfstools
 opkg install git task-native-sdk cpp imagemagick
 opkg install quake2 sugar smbfs&lt;/pre&gt;
@@ -212,9 +213,7 @@ root@beagleboard:~# kjournald starting.  Commit interval 5 seconds
 EXT3 FS on mmcblk0p2, internal journal
 EXT3-fs: mounted filesystem with ordered data mode.
 
-root@beagleboard:~# opkg install e2fsprogs
-
-root@beagleboard:~# opkg install e2fsprogs-e2fsck
+root@beagleboard:~# opkg install e2fsprogs e2fsprogs-e2fsck
 
 root@beagleboard:~# fsck.ext3 -f /dev/mmcblk0p2
 e2fsck 1.38 (30-Jun-2005)
