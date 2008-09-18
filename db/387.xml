@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221739313338">
+  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1221739578481">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.2) Gecko/2008090514 Firefox/3.0.2</http_browser>
     <lang>en-us</lang>
     <uri>angstrom</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">18.09.2008 07:01:53 CDT</time>
+    <time type="date">18.09.2008 07:06:18 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.msm9l1l5077d</hopsession>
@@ -216,6 +216,19 @@ Calling ioctl() to re-read partition table
 root@beagleboard:~# kjournald starting.  Commit interval 5 seconds
 EXT3 FS on mmcblk0p2, internal journal
 EXT3-fs: mounted filesystem with ordered data mode.&lt;/pre&gt;
+   root@beagleboard:~# opkg install e2fsprogs
+root@beagleboard:~# opkg install e2fsprogs-e2fsck
+root@beagleboard:~# fsck.ext3 -f /dev/mmcblk0p2
+e2fsck 1.38 (30-Jun-2005)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/dev/mmcblk0p2: 21678/94752 files (1.2% non-contiguous), 346421/377524 blocks
+root@beagleboard:~# resize2fs /dev/mmcblk0p2
+resize2fs 1.38 (30-Jun-2005)
+Resizing the filesystem on /dev/mmcblk0p2 to 3807404 (1k) blocks.
   &lt;/li&gt;
  &lt;/ul&gt;
 </body>
