@@ -1,19 +1,108 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1222257073862">
+  <hopobject id="387" name="angstrom" prototype="Page" created="1221511249530" lastModified="1222257324428">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.2) Gecko/2008090514 Firefox/3.0.2</http_browser>
     <lang>en-us</lang>
     <uri>angstrom</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">24.09.2008 06:51:13 CDT</time>
+    <time type="date">24.09.2008 06:55:24 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.msm9l1l5077d</hopsession>
     <user>blog.hangerhead.com</user>
     <body>
  &lt;h1&gt;Angtrom Demo from Windows&lt;/h1&gt;
+ &lt;h2&gt;Use existing &apos;dd&apos; image to the card&lt;/h2&gt;
+ &lt;ul&gt;
+  &lt;li&gt;
+   Download
+   &lt;a href=&quot;http://www.chrysocome.net/dd&quot;&gt;dd for Windows&lt;/a&gt;
+   from
+   &lt;a href=&quot;http://www.chrysocome.net/downloads/dd-0.5.zip&quot;&gt;http://www.chrysocome.net/downloads/dd-0.5.zip&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   Download compressed dd image from
+   &lt;a href=&quot;http://s3.amazonaws.com/beagle/angstrom-demo-20080917.img.gz&quot;&gt;http://s3.amazonaws.com/beagle/angstrom-demo-20080917.img.gz&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   From the Beagle u-boot prompt, setup u-boot for booting kernel from uImage file on the first partition of the SD card and rootfs on the second partition on the SD card
+   &lt;pre&gt;setenv bootargs &apos;console=ttyS2,115200n8 console=tty0 root=/dev/mmcblk0p2 rootwait video=omapfb:vram:2M,vram:4M nohz=off&apos;
+setenv bootcmd &apos;mmcinit;fatload mmc 0 84000000 uImage;bootm 84000000&apos;
+saveenv&lt;/pre&gt;
+  &lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;h2&gt;Resize &apos;dd&apos; image to use the rest of the card (currently broken)&lt;/h2&gt;
+ &lt;ul&gt;
+  &lt;li&gt;
+   Boot ramdisk
+   &lt;pre&gt;setenv bootargs &apos;console=ttyS2,115200n8 console=tty0 root=/dev/ram0 rw ramdisk_size=32768 initrd=0x81600000,32M nohz=off&apos;
+setenv bootcmd &apos;mmcinit;fatload mmc 0 80300000 uImage;fatload mmc 0 81600000 angstrom-console-rd.gz;bootm 80300000&apos;
+saveenv&lt;/pre&gt;
+   Hold user button and press reset
+  &lt;/li&gt;
+  &lt;li&gt;
+   Resize ext3 partition
+   &lt;pre&gt;root@beagleboard:~# umount /media/mmcblk0p1/
+root@beagleboard:~# umount /media/mmcblk0p2/
+root@beagleboard:~# fdisk /dev/mmcblk0
+
+Command (m for help): p
+
+Disk /dev/mmcblk0: 4026 MB, 4026531840 bytes
+255 heads, 63 sectors/track, 489 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+        Device Boot      Start         End      Blocks  Id System
+/dev/mmcblk0p1   *           1          15      120456   c Win95 FAT32 (LBA)
+/dev/mmcblk0p2              16          62      377527+ 83 Linux
+
+Command (m for help): d
+Partition number (1-4): 2
+
+Command (m for help): n
+Command action
+   e   extended
+   p   primary partition (1-4)
+p
+Partition number (1-4): 2
+First cylinder (16-489, default 16): Using default value 16
+Last cylinder or +size or +sizeM or +sizeK (16-489, default 489): Using default
+value 489
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table
+ mmcblk0: p1 p2
+root@beagleboard:~# kjournald starting.  Commit interval 5 seconds
+EXT3 FS on mmcblk0p2, internal journal
+EXT3-fs: mounted filesystem with ordered data mode.
+
+root@beagleboard:~# opkg install e2fsprogs e2fsprogs-e2fsck
+
+root@beagleboard:~# fsck.ext3 -f /dev/mmcblk0p2
+e2fsck 1.38 (30-Jun-2005)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/dev/mmcblk0p2: 21678/94752 files (1.2% non-contiguous), 346421/377524 blocks
+
+root@beagleboard:~# resize2fs /dev/mmcblk0p2
+resize2fs 1.38 (30-Jun-2005)
+Resizing the filesystem on /dev/mmcblk0p2 to 3807404 (1k) blocks.
+
+root@beagleboard:~# resize2fs -d 1 -p /dev/mmcblk0p2
+resize2fs 1.38 (30-Jun-2005)
+Resizing the filesystem on /dev/mmcblk0p2 to 3807404 (1k) blocks.
+Begin pass 1 (max = 418)
+Extending the inode table     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Segmentation fault&lt;/pre&gt;
+  &lt;/li&gt;
+ &lt;/ul&gt;
  &lt;h2&gt;Build the &apos;dd&apos; image if you don&apos;t already have it&lt;/h2&gt;
  &lt;ul&gt;
   &lt;li&gt;
@@ -172,89 +261,6 @@ Written by John Newbigin
 This program is covered by the GPL.  See copying.txt for details
 240912+0 records in
 240912+0 records out&lt;/pre&gt;
-  &lt;/li&gt;
- &lt;/ul&gt;
- &lt;h2&gt;Use existing &apos;dd&apos; image to the card&lt;/h2&gt;
- &lt;ul&gt;
-  &lt;li&gt;
-   Download image from
-   &lt;a href=&quot;http://s3.amazonaws.com/beagle/angstrom-demo-20080917.img.gz&quot;&gt;http://s3.amazonaws.com/beagle/angstrom-demo-20080917.img.gz&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   Setup u-boot for booting kernel from uImage file on the first partition of the SD card and rootfs on the second partition on the SD card
-   &lt;pre&gt;setenv bootargs &apos;console=ttyS2,115200n8 console=tty0 root=/dev/mmcblk0p2 rootwait video=omapfb:vram:2M,vram:4M nohz=off&apos;
-setenv bootcmd &apos;mmcinit;fatload mmc 0 84000000 uImage;bootm 84000000&apos;
-saveenv&lt;/pre&gt;
-  &lt;/li&gt;
- &lt;/ul&gt;
- &lt;h2&gt;Resize &apos;dd&apos; image to use the rest of the card (currently broken)&lt;/h2&gt;
- &lt;ul&gt;
-  &lt;li&gt;
-   Boot ramdisk
-   &lt;pre&gt;setenv bootargs &apos;console=ttyS2,115200n8 console=tty0 root=/dev/ram0 rw ramdisk_size=32768 initrd=0x81600000,32M nohz=off&apos;
-setenv bootcmd &apos;mmcinit;fatload mmc 0 80300000 uImage;fatload mmc 0 81600000 angstrom-console-rd.gz;bootm 80300000&apos;
-saveenv&lt;/pre&gt;
-   Hold user button and press reset
-  &lt;/li&gt;
-  &lt;li&gt;
-   Resize ext3 partition
-   &lt;pre&gt;root@beagleboard:~# umount /media/mmcblk0p1/
-root@beagleboard:~# umount /media/mmcblk0p2/
-root@beagleboard:~# fdisk /dev/mmcblk0
-
-Command (m for help): p
-
-Disk /dev/mmcblk0: 4026 MB, 4026531840 bytes
-255 heads, 63 sectors/track, 489 cylinders
-Units = cylinders of 16065 * 512 = 8225280 bytes
-
-        Device Boot      Start         End      Blocks  Id System
-/dev/mmcblk0p1   *           1          15      120456   c Win95 FAT32 (LBA)
-/dev/mmcblk0p2              16          62      377527+ 83 Linux
-
-Command (m for help): d
-Partition number (1-4): 2
-
-Command (m for help): n
-Command action
-   e   extended
-   p   primary partition (1-4)
-p
-Partition number (1-4): 2
-First cylinder (16-489, default 16): Using default value 16
-Last cylinder or +size or +sizeM or +sizeK (16-489, default 489): Using default
-value 489
-
-Command (m for help): w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table
- mmcblk0: p1 p2
-root@beagleboard:~# kjournald starting.  Commit interval 5 seconds
-EXT3 FS on mmcblk0p2, internal journal
-EXT3-fs: mounted filesystem with ordered data mode.
-
-root@beagleboard:~# opkg install e2fsprogs e2fsprogs-e2fsck
-
-root@beagleboard:~# fsck.ext3 -f /dev/mmcblk0p2
-e2fsck 1.38 (30-Jun-2005)
-Pass 1: Checking inodes, blocks, and sizes
-Pass 2: Checking directory structure
-Pass 3: Checking directory connectivity
-Pass 4: Checking reference counts
-Pass 5: Checking group summary information
-/dev/mmcblk0p2: 21678/94752 files (1.2% non-contiguous), 346421/377524 blocks
-
-root@beagleboard:~# resize2fs /dev/mmcblk0p2
-resize2fs 1.38 (30-Jun-2005)
-Resizing the filesystem on /dev/mmcblk0p2 to 3807404 (1k) blocks.
-
-root@beagleboard:~# resize2fs -d 1 -p /dev/mmcblk0p2
-resize2fs 1.38 (30-Jun-2005)
-Resizing the filesystem on /dev/mmcblk0p2 to 3807404 (1k) blocks.
-Begin pass 1 (max = 418)
-Extending the inode table     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-Segmentation fault&lt;/pre&gt;
   &lt;/li&gt;
  &lt;/ul&gt;
 </body>
