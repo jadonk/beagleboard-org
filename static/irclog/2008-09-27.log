@@ -6,3 +6,27 @@
 <li class="join">[<a href="#T00:31:02" id="T00:31:02"><abbr title="2008-09-27T00:31:02+00:00">00:31:02</abbr></a>] <span>* fenn (n=pz@76.252.185.215) has joined #beagle</span></li>
 <li class="message">[<a href="#T00:44:15" id="T00:44:15"><abbr title="2008-09-27T00:44:15+00:00">00:44:15</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>how do you handle PLE setup between context switches?</q></li>
 <li class="quit">[<a href="#T00:44:30" id="T00:44:30"><abbr title="2008-09-27T00:44:30+00:00">00:44:30</abbr></a>] <span>* felipec (n=felipec@a88-113-6-167.elisa-laajakaista.fi) Quit ("Leaving")</span></li>
+<li class="message">[<a href="#T01:12:37" id="T01:12:37"><abbr title="2008-09-27T01:12:37+00:00">01:12:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I don't</q></li>
+<li class="join">[<a href="#T01:13:55" id="T01:13:55"><abbr title="2008-09-27T01:13:55+00:00">01:13:55</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:16:26" id="T01:16:26"><abbr title="2008-09-27T01:16:26+00:00">01:16:26</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>i think we found the dangerous :)</q></li>
+<li class="message">[<a href="#T01:16:48" id="T01:16:48"><abbr title="2008-09-27T01:16:48+00:00">01:16:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it won't do any serious harm</q></li>
+<li class="message">[<a href="#T01:17:03" id="T01:17:03"><abbr title="2008-09-27T01:17:03+00:00">01:17:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it might load some unnecessary data into the cache</q></li>
+<li class="message">[<a href="#T01:17:32" id="T01:17:32"><abbr title="2008-09-27T01:17:32+00:00">01:17:32</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>i was thinking more if 2 processes set up different stuff</q></li>
+<li class="message">[<a href="#T01:17:40" id="T01:17:40"><abbr title="2008-09-27T01:17:40+00:00">01:17:40</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>and you run them at the same time</q></li>
+<li class="message">[<a href="#T01:18:01" id="T01:18:01"><abbr title="2008-09-27T01:18:01+00:00">01:18:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>then something unpredictable will happen</q></li>
+<li class="message">[<a href="#T01:18:37" id="T01:18:37"><abbr title="2008-09-27T01:18:37+00:00">01:18:37</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>on an embedded system, it's probably an ok comprimise</q></li>
+<li class="message">[<a href="#T01:18:46" id="T01:18:46"><abbr title="2008-09-27T01:18:46+00:00">01:18:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's no possibility of bypassing memory protection</q></li>
+<li class="message">[<a href="#T01:19:02" id="T01:19:02"><abbr title="2008-09-27T01:19:02+00:00">01:19:02</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>koen, ping</q></li>
+<li class="message">[<a href="#T01:19:11" id="T01:19:11"><abbr title="2008-09-27T01:19:11+00:00">01:19:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it would be easy enough to stop the ple on a context switch</q></li>
+<li class="message">[<a href="#T01:19:36" id="T01:19:36"><abbr title="2008-09-27T01:19:36+00:00">01:19:36</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>how hard would it be to save and restore if needed?</q></li>
+<li class="message">[<a href="#T01:19:58" id="T01:19:58"><abbr title="2008-09-27T01:19:58+00:00">01:19:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or better, on mmu changes</q></li>
+<li class="message">[<a href="#T01:20:18" id="T01:20:18"><abbr title="2008-09-27T01:20:18+00:00">01:20:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>save and restore would be possible</q></li>
+<li class="message">[<a href="#T01:20:21" id="T01:20:21"><abbr title="2008-09-27T01:20:21+00:00">01:20:21</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>more or less the same thing</q></li>
+<li class="message">[<a href="#T01:20:52" id="T01:20:52"><abbr title="2008-09-27T01:20:52+00:00">01:20:52</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>just make it part of the system call gateway</q></li>
+<li class="message">[<a href="#T01:21:20" id="T01:21:20"><abbr title="2008-09-27T01:21:20+00:00">01:21:20</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>something like you might do for a floating point co-proc</q></li>
+<li class="message">[<a href="#T01:21:26" id="T01:21:26"><abbr title="2008-09-27T01:21:26+00:00">01:21:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's no need to suspend it during system calls</q></li>
+<li class="message">[<a href="#T01:22:08" id="T01:22:08"><abbr title="2008-09-27T01:22:08+00:00">01:22:08</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>not during</q></li>
+<li class="message">[<a href="#T01:22:34" id="T01:22:34"><abbr title="2008-09-27T01:22:34+00:00">01:22:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>on a context switch, the ple would be stopped, and the state saved</q></li>
+<li class="action">[<a href="#T01:24:50" id="T01:24:50"><abbr title="2008-09-27T01:24:50+00:00">01:24:50</abbr></a>] <span>* stillson goes to the opera</span></li>
+<li class="quit">[<a href="#T01:33:40" id="T01:33:40"><abbr title="2008-09-27T01:33:40+00:00">01:33:40</abbr></a>] <span>* rsalveti (n=salveti@200.184.118.132) Quit (Remote closed the connection)</span></li>
+<li class="quit">[<a href="#T01:53:51" id="T01:53:51"><abbr title="2008-09-27T01:53:51+00:00">01:53:51</abbr></a>] <span>* TAK2004 (n=Administ@dslb-088-072-203-081.pools.arcor-ip.net) Quit (Read error: 104 (Connection reset by peer))</span></li>
