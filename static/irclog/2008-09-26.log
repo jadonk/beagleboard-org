@@ -579,3 +579,40 @@
 <li class="quit">[<a href="#T22:50:41" id="T22:50:41"><abbr title="2008-09-26T22:50:41+00:00">22:50:41</abbr></a>] <span>* likewise (n=likewise@82-171-51-231.ip.telfort.nl) Quit ()</span></li>
 <li class="quit">[<a href="#T22:55:26" id="T22:55:26"><abbr title="2008-09-26T22:55:26+00:00">22:55:26</abbr></a>] <span>* dcramer (n=davec@dcdsl.ebox.com) Quit ()</span></li>
 <li class="join">[<a href="#T22:57:06" id="T22:57:06"><abbr title="2008-09-26T22:57:06+00:00">22:57:06</abbr></a>] <span>* john280z (n=johnm@user-0c2h5av.cable.mindspring.com) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T23:01:40" id="T23:01:40"><abbr title="2008-09-26T23:01:40+00:00">23:01:40</abbr></a>] <span>* florian_ is now known as flo_lap</span></li>
+<li class="message">[<a href="#T23:17:05" id="T23:17:05"><abbr title="2008-09-26T23:17:05+00:00">23:17:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>remember the discussions about memcpy speed?</q></li>
+<li class="quit">[<a href="#T23:18:25" id="T23:18:25"><abbr title="2008-09-26T23:18:25+00:00">23:18:25</abbr></a>] <span>* rsalveti (n=salveti@200.184.118.132) Quit (Read error: 113 (No route to host))</span></li>
+<li class="join">[<a href="#T23:18:42" id="T23:18:42"><abbr title="2008-09-26T23:18:42+00:00">23:18:42</abbr></a>] <span>* rsalveti (n=salveti@200.184.118.132) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:20:09" id="T23:20:09"><abbr title="2008-09-26T23:20:09+00:00">23:20:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I've pushed it to 400 MB/s</q></li>
+<li class="quit">[<a href="#T23:20:15" id="T23:20:15"><abbr title="2008-09-26T23:20:15+00:00">23:20:15</abbr></a>] <span>* Ragha (n=Ragha@nat/ti/x-65ec85e6f215076c) Quit ("If you can't laugh at yourself, make fun of other people.")</span></li>
+<li class="message">[<a href="#T23:22:33" id="T23:22:33"><abbr title="2008-09-26T23:22:33+00:00">23:22:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>using the preload engine</q></li>
+<li class="quit">[<a href="#T23:36:35" id="T23:36:35"><abbr title="2008-09-26T23:36:35+00:00">23:36:35</abbr></a>] <span>* hli (i=chaton@vig91-2-82-232-97-149.fbx.proxad.net) Quit ("ChatZilla 0.9.83 [Firefox 3.0.1/2008070208]")</span></li>
+<li class="message">[<a href="#T23:38:09" id="T23:38:09"><abbr title="2008-09-26T23:38:09+00:00">23:38:09</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>is that where you use the memory hint assembly instruction?</q></li>
+<li class="message">[<a href="#T23:38:53" id="T23:38:53"><abbr title="2008-09-26T23:38:53+00:00">23:38:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that too</q></li>
+<li class="message">[<a href="#T23:39:02" id="T23:39:02"><abbr title="2008-09-26T23:39:02+00:00">23:39:02</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>what's the preload engine?</q></li>
+<li class="message">[<a href="#T23:39:09" id="T23:39:09"><abbr title="2008-09-26T23:39:09+00:00">23:39:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the preload engine is a special unit that can load large chunks of data into the L2 cache</q></li>
+<li class="message">[<a href="#T23:39:21" id="T23:39:21"><abbr title="2008-09-26T23:39:21+00:00">23:39:21</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>ahh</q></li>
+<li class="message">[<a href="#T23:39:24" id="T23:39:24"><abbr title="2008-09-26T23:39:24+00:00">23:39:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q><a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0344b/Babjbfdb.html">http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0344b/Babjbfdb.html</a></q></li>
+<li class="message">[<a href="#T23:39:32" id="T23:39:32"><abbr title="2008-09-26T23:39:32+00:00">23:39:32</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>perfect, thank you</q></li>
+<li class="message">[<a href="#T23:40:59" id="T23:40:59"><abbr title="2008-09-26T23:40:59+00:00">23:40:59</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>do you know the minimum size to move that makes it worth using the preload engine?</q></li>
+<li class="message">[<a href="#T23:41:33" id="T23:41:33"><abbr title="2008-09-26T23:41:33+00:00">23:41:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>a few kB</q></li>
+<li class="message">[<a href="#T23:42:10" id="T23:42:10"><abbr title="2008-09-26T23:42:10+00:00">23:42:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I ran my tests on 8MB buffers</q></li>
+<li class="message">[<a href="#T23:42:20" id="T23:42:20"><abbr title="2008-09-26T23:42:20+00:00">23:42:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>preloading 4kB blocks</q></li>
+<li class="message">[<a href="#T23:42:22" id="T23:42:22"><abbr title="2008-09-26T23:42:22+00:00">23:42:22</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>even though you invalidate the entire L2 cache?</q></li>
+<li class="message">[<a href="#T23:42:38" id="T23:42:38"><abbr title="2008-09-26T23:42:38+00:00">23:42:38</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>do you invalidate the entire l2 cache?</q></li>
+<li class="message">[<a href="#T23:42:43" id="T23:42:43"><abbr title="2008-09-26T23:42:43+00:00">23:42:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T23:43:05" id="T23:43:05"><abbr title="2008-09-26T23:43:05+00:00">23:43:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you tell the PLE which cache way to use</q></li>
+<li class="message">[<a href="#T23:43:18" id="T23:43:18"><abbr title="2008-09-26T23:43:18+00:00">23:43:18</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>how many way cache is it?</q></li>
+<li class="message">[<a href="#T23:43:21" id="T23:43:21"><abbr title="2008-09-26T23:43:21+00:00">23:43:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>8</q></li>
+<li class="message">[<a href="#T23:43:51" id="T23:43:51"><abbr title="2008-09-26T23:43:51+00:00">23:43:51</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>that sounds like it would be really great for video</q></li>
+<li class="message">[<a href="#T23:43:57" id="T23:43:57"><abbr title="2008-09-26T23:43:57+00:00">23:43:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it does</q></li>
+<li class="message">[<a href="#T23:44:13" id="T23:44:13"><abbr title="2008-09-26T23:44:13+00:00">23:44:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>next step is to try it with omapfbplay</q></li>
+<li class="message">[<a href="#T23:44:15" id="T23:44:15"><abbr title="2008-09-26T23:44:15+00:00">23:44:15</abbr></a>] &lt;<cite>stillson</cite>&gt; <q>not small enough for networking</q></li>
+<li class="action">[<a href="#T23:44:34" id="T23:44:34"><abbr title="2008-09-26T23:44:34+00:00">23:44:34</abbr></a>] <span>* stillson is a former networking programmer</span></li>
+<li class="message">[<a href="#T23:45:16" id="T23:45:16"><abbr title="2008-09-26T23:45:16+00:00">23:45:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you know ahead of time what memory you'll need, it should probably be useful for smaller sizes too</q></li>
+<li class="action">[<a href="#T23:45:27" id="T23:45:27"><abbr title="2008-09-26T23:45:27+00:00">23:45:27</abbr></a>] <span>* pbrook_ would hazard aguess that it's probably most worthwhile when you exceed L1 cache size.</span></li>
+<li class="nick-change">[<a href="#T23:45:52" id="T23:45:52"><abbr title="2008-09-26T23:45:52+00:00">23:45:52</abbr></a>] <span>* pbrook_ is now known as pbrook</span></li>
+<li class="quit">[<a href="#T23:47:40" id="T23:47:40"><abbr title="2008-09-26T23:47:40+00:00">23:47:40</abbr></a>] <span>* ciskje (n=francesc@host39-37-dynamic.11-87-r.retail.telecomitalia.it) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T23:50:43" id="T23:50:43"><abbr title="2008-09-26T23:50:43+00:00">23:50:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I hacked the kernel to enable userspace access to the PLE</q></li>
+<li class="message">[<a href="#T23:50:54" id="T23:50:54"><abbr title="2008-09-26T23:50:54+00:00">23:50:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I don't know how dangerous that might be</q></li>
+<li class="quit">[<a href="#T23:54:55" id="T23:54:55"><abbr title="2008-09-26T23:54:55+00:00">23:54:55</abbr></a>] <span>* nathan__ (n=nathan@adsl-69-107-14-210.dsl.pltn13.pacbell.net) Quit ("leaving")</span></li>
