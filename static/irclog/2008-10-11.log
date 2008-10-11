@@ -77,3 +77,90 @@
 <li class="join">[<a href="#T11:56:43" id="T11:56:43"><abbr title="2008-10-11T11:56:43+00:00">11:56:43</abbr></a>] <span>* zuh (i=1a0b5dbf@emperor.pingu.fi) has joined #beagle</span></li>
 <li class="join">[<a href="#T11:58:23" id="T11:58:23"><abbr title="2008-10-11T11:58:23+00:00">11:58:23</abbr></a>] <span>* feig (n=ejf3@c-76-118-153-30.hsd1.ma.comcast.net) has joined #beagle</span></li>
 <li class="join">[<a href="#T11:58:44" id="T11:58:44"><abbr title="2008-10-11T11:58:44+00:00">11:58:44</abbr></a>] <span>* kulve (i=a729a748@emperor.pingu.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:22:35" id="T12:22:35"><abbr title="2008-10-11T12:22:35+00:00">12:22:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh dear, 2008q3 can't even compile a trivial copy loop correctly</q></li>
+<li class="message">[<a href="#T12:23:04" id="T12:23:04"><abbr title="2008-10-11T12:23:04+00:00">12:23:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for (i = 0; i &lt; len; i++) dst[i] = src[i];</q></li>
+<li class="message">[<a href="#T12:23:56" id="T12:23:56"><abbr title="2008-10-11T12:23:56+00:00">12:23:56</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>their 2008qX toolchains haven't really succeeded..</q></li>
+<li class="quit">[<a href="#T12:24:00" id="T12:24:00"><abbr title="2008-10-11T12:24:00+00:00">12:24:00</abbr></a>] <span>* woski (n=dleme@65.182.51.67) Quit (Read error: 104 (Connection reset by peer))</span></li>
+<li class="message">[<a href="#T12:24:16" id="T12:24:16"><abbr title="2008-10-11T12:24:16+00:00">12:24:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>seems -ftree-vectorize is on by default</q></li>
+<li class="message">[<a href="#T12:24:20" id="T12:24:20"><abbr title="2008-10-11T12:24:20+00:00">12:24:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and it's oh so broken</q></li>
+<li class="join">[<a href="#T12:24:36" id="T12:24:36"><abbr title="2008-10-11T12:24:36+00:00">12:24:36</abbr></a>] <span>* woski (n=dleme@65.182.51.67) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:25:03" id="T12:25:03"><abbr title="2008-10-11T12:25:03+00:00">12:25:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it tries to use neon to load/store 8 bytes at a time</q></li>
+<li class="join">[<a href="#T12:25:16" id="T12:25:16"><abbr title="2008-10-11T12:25:16+00:00">12:25:16</abbr></a>] <span>* Xenion (n=robert@p579FC994.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:25:23" id="T12:25:23"><abbr title="2008-10-11T12:25:23+00:00">12:25:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>this fails if src and dst are not both 8-byte aligned</q></li>
+<li class="message">[<a href="#T12:25:29" id="T12:25:29"><abbr title="2008-10-11T12:25:29+00:00">12:25:29</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>"Improved support for NEON and, in particular, auto-vectorization using</q></li>
+<li class="message">[<abbr title="2008-10-11T12:25:29+00:00">12:25:29</abbr>] &lt;<cite>kulve</cite>&gt; <q>NEON."</q></li>
+<li class="message">[<a href="#T12:25:38" id="T12:25:38"><abbr title="2008-10-11T12:25:38+00:00">12:25:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>rotfl</q></li>
+<li class="message">[<a href="#T12:26:39" id="T12:26:39"><abbr title="2008-10-11T12:26:39+00:00">12:26:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's back to 2007q3 here</q></li>
+<li class="message">[<a href="#T12:27:36" id="T12:27:36"><abbr title="2008-10-11T12:27:36+00:00">12:27:36</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mrc3: 2008q1 doesn't work correctly either?</q></li>
+<li class="message">[<a href="#T12:27:42" id="T12:27:42"><abbr title="2008-10-11T12:27:42+00:00">12:27:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>never tried it</q></li>
+<li class="message">[<a href="#T12:27:43" id="T12:27:43"><abbr title="2008-10-11T12:27:43+00:00">12:27:43</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>yeah, it doesn't</q></li>
+<li class="message">[<a href="#T12:27:47" id="T12:27:47"><abbr title="2008-10-11T12:27:47+00:00">12:27:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>everybody said it was broken</q></li>
+<li class="message">[<a href="#T12:28:01" id="T12:28:01"><abbr title="2008-10-11T12:28:01+00:00">12:28:01</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>that's what I've been using</q></li>
+<li class="message">[<a href="#T12:28:19" id="T12:28:19"><abbr title="2008-10-11T12:28:19+00:00">12:28:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>brave man, and lucky</q></li>
+<li class="message">[<a href="#T12:28:27" id="T12:28:27"><abbr title="2008-10-11T12:28:27+00:00">12:28:27</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>felipec: people say that it compiles broken NEON</q></li>
+<li class="message">[<a href="#T12:28:48" id="T12:28:48"><abbr title="2008-10-11T12:28:48+00:00">12:28:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if 2008q3 does broken neon, I wouldn't expect better from 2008q1</q></li>
+<li class="message">[<a href="#T12:29:08" id="T12:29:08"><abbr title="2008-10-11T12:29:08+00:00">12:29:08</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>kulve: I'm not compiling NEON stuff</q></li>
+<li class="message">[<a href="#T12:29:20" id="T12:29:20"><abbr title="2008-10-11T12:29:20+00:00">12:29:20</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>ah, maybe that's why I couldn't compile omapfbplay</q></li>
+<li class="message">[<a href="#T12:29:22" id="T12:29:22"><abbr title="2008-10-11T12:29:22+00:00">12:29:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>-mfpu=neon is enough to trigger it</q></li>
+<li class="quit">[<a href="#T12:30:51" id="T12:30:51"><abbr title="2008-10-11T12:30:51+00:00">12:30:51</abbr></a>] <span>* woski (n=dleme@65.182.51.67) Quit (Read error: 104 (Connection reset by peer))</span></li>
+<li class="quit">[<a href="#T12:31:01" id="T12:31:01"><abbr title="2008-10-11T12:31:01+00:00">12:31:01</abbr></a>] <span>* Xenion (n=robert@p579FC994.dip.t-dialin.net) Quit ("Verlassend")</span></li>
+<li class="join">[<a href="#T12:31:18" id="T12:31:18"><abbr title="2008-10-11T12:31:18+00:00">12:31:18</abbr></a>] <span>* Xenion (n=robert@p579FC994.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:31:24" id="T12:31:24"><abbr title="2008-10-11T12:31:24+00:00">12:31:24</abbr></a>] <span>* woski (n=dleme@65.182.51.67) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:32:06" id="T12:32:06"><abbr title="2008-10-11T12:32:06+00:00">12:32:06</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: how about sending a mail to the cs ml?</q></li>
+<li class="message">[<a href="#T12:35:00" id="T12:35:00"><abbr title="2008-10-11T12:35:00+00:00">12:35:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>won't they just tell me to buy the supported version or shut up?</q></li>
+<li class="message">[<a href="#T12:35:13" id="T12:35:13"><abbr title="2008-10-11T12:35:13+00:00">12:35:13</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>probably :-)</q></li>
+<li class="message">[<a href="#T12:35:52" id="T12:35:52"><abbr title="2008-10-11T12:35:52+00:00">12:35:52</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>ICBW, but I though someone at ARM was supposed to be testing these things. </q></li>
+<li class="message">[<a href="#T12:36:06" id="T12:36:06"><abbr title="2008-10-11T12:36:06+00:00">12:36:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'll notify ARM</q></li>
+<li class="message">[<a href="#T12:36:14" id="T12:36:14"><abbr title="2008-10-11T12:36:14+00:00">12:36:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>they usually listen</q></li>
+<li class="message">[<a href="#T12:36:36" id="T12:36:36"><abbr title="2008-10-11T12:36:36+00:00">12:36:36</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>mru: who do you notify at ARM?</q></li>
+<li class="message">[<a href="#T12:36:59" id="T12:36:59"><abbr title="2008-10-11T12:36:59+00:00">12:36:59</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>They (and all our paying customers) get a 1-month preview release so they can shout and get things fixed before the final public release goes out.</q></li>
+<li class="message">[<a href="#T12:38:34" id="T12:38:34"><abbr title="2008-10-11T12:38:34+00:00">12:38:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>kulve: where did you find that bit you quoted above?</q></li>
+<li class="message">[<a href="#T12:38:45" id="T12:38:45"><abbr title="2008-10-11T12:38:45+00:00">12:38:45</abbr></a>] &lt;<cite>kulve</cite>&gt; <q><a href="http://www.codesourcery.com/archives/arm-gnu-announce/msg00024.html">http://www.codesourcery.com/archives/arm-gnu-announce/msg00024.html</a></q></li>
+<li class="message">[<a href="#T12:39:00" id="T12:39:00"><abbr title="2008-10-11T12:39:00+00:00">12:39:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>pbrook: are you with codesourcery?</q></li>
+<li class="message">[<a href="#T12:39:06" id="T12:39:06"><abbr title="2008-10-11T12:39:06+00:00">12:39:06</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>Yes</q></li>
+<li class="message">[<a href="#T12:39:25" id="T12:39:25"><abbr title="2008-10-11T12:39:25+00:00">12:39:25</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>mru: and something similar in <a href="http://www.codesourcery.com/gnu_toolchains/arm">http://www.codesourcery.com/gnu_toolchains/arm</a></q></li>
+<li class="action">[<a href="#T12:39:31" id="T12:39:31"><abbr title="2008-10-11T12:39:31+00:00">12:39:31</abbr></a>] <span>* pbrook was the release manager for all but the last release.</span></li>
+<li class="message">[<a href="#T12:39:34" id="T12:39:34"><abbr title="2008-10-11T12:39:34+00:00">12:39:34</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>"Better NEON vectorization!"</q></li>
+<li class="message">[<a href="#T12:39:41" id="T12:39:41"><abbr title="2008-10-11T12:39:41+00:00">12:39:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yeah, I saw that</q></li>
+<li class="message">[<a href="#T12:39:53" id="T12:39:53"><abbr title="2008-10-11T12:39:53+00:00">12:39:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>maybe it is better</q></li>
+<li class="message">[<a href="#T12:39:58" id="T12:39:58"><abbr title="2008-10-11T12:39:58+00:00">12:39:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>just not yet working</q></li>
+<li class="message">[<a href="#T12:43:21" id="T12:43:21"><abbr title="2008-10-11T12:43:21+00:00">12:43:21</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>If noone reports bugs, we can't fix it.</q></li>
+<li class="message">[<a href="#T12:43:31" id="T12:43:31"><abbr title="2008-10-11T12:43:31+00:00">12:43:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>consider it reported</q></li>
+<li class="message">[<a href="#T12:43:47" id="T12:43:47"><abbr title="2008-10-11T12:43:47+00:00">12:43:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and people have been complaining about 2008q1 for months</q></li>
+<li class="message">[<a href="#T12:43:49" id="T12:43:49"><abbr title="2008-10-11T12:43:49+00:00">12:43:49</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>"ffmpeg broke" isn't what I consider to be a decent bugreport.</q></li>
+<li class="message">[<a href="#T12:44:17" id="T12:44:17"><abbr title="2008-10-11T12:44:17+00:00">12:44:17</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>We don't do updates to the lite releases. Most those bugs were fixed in our product toolcahins fairly quickly.</q></li>
+<li class="message">[<a href="#T12:44:39" id="T12:44:39"><abbr title="2008-10-11T12:44:39+00:00">12:44:39</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>mru: back to old topic. Did you notice my question yesterday (15:54 UTC) about scaling with omapfb?</q></li>
+<li class="message">[<a href="#T12:44:59" id="T12:44:59"><abbr title="2008-10-11T12:44:59+00:00">12:44:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>pbrook: and you've still not fixed them in the lite release, it would seem</q></li>
+<li class="message">[<a href="#T12:45:19" id="T12:45:19"><abbr title="2008-10-11T12:45:19+00:00">12:45:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what's the point in publishing known-broken compilers?</q></li>
+<li class="message">[<a href="#T12:45:29" id="T12:45:29"><abbr title="2008-10-11T12:45:29+00:00">12:45:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>do you think it will make people more willing to pay?</q></li>
+<li class="message">[<a href="#T12:45:32" id="T12:45:32"><abbr title="2008-10-11T12:45:32+00:00">12:45:32</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>mru: We aren't aware of any open bugs.</q></li>
+<li class="message">[<a href="#T12:45:37" id="T12:45:37"><abbr title="2008-10-11T12:45:37+00:00">12:45:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>now you are</q></li>
+<li class="message">[<a href="#T12:45:40" id="T12:45:40"><abbr title="2008-10-11T12:45:40+00:00">12:45:40</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>No.</q></li>
+<li class="message">[<a href="#T12:45:47" id="T12:45:47"><abbr title="2008-10-11T12:45:47+00:00">12:45:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I just fucking told you</q></li>
+<li class="message">[<a href="#T12:45:56" id="T12:45:56"><abbr title="2008-10-11T12:45:56+00:00">12:45:56</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>You said that ffmpeg is busted.</q></li>
+<li class="message">[<a href="#T12:45:58" id="T12:45:58"><abbr title="2008-10-11T12:45:58+00:00">12:45:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it can't compile a bloody copy loop</q></li>
+<li class="message">[<a href="#T12:46:03" id="T12:46:03"><abbr title="2008-10-11T12:46:03+00:00">12:46:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>scroll up a few pages</q></li>
+<li class="message">[<a href="#T12:46:15" id="T12:46:15"><abbr title="2008-10-11T12:46:15+00:00">12:46:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ffmpeg is fine, the compiler is busted</q></li>
+<li class="message">[<a href="#T12:46:25" id="T12:46:25"><abbr title="2008-10-11T12:46:25+00:00">12:46:25</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>15:25 &lt; mru&gt; it tries to use neon to load/store 8 bytes at a time</q></li>
+<li class="message">[<abbr title="2008-10-11T12:46:25+00:00">12:46:25</abbr>] &lt;<cite>kulve</cite>&gt; <q>15:25 &lt; mru&gt; this fails if src and dst are not both 8-byte aligned</q></li>
+<li class="message">[<a href="#T12:46:33" id="T12:46:33"><abbr title="2008-10-11T12:46:33+00:00">12:46:33</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>Well, I'm pretty sure our test work ok.</q></li>
+<li class="message">[<a href="#T12:46:44" id="T12:46:44"><abbr title="2008-10-11T12:46:44+00:00">12:46:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>see, no point reporting bugs</q></li>
+<li class="message">[<a href="#T12:46:49" id="T12:46:49"><abbr title="2008-10-11T12:46:49+00:00">12:46:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>"our tests work"</q></li>
+<li class="message">[<a href="#T12:46:50" id="T12:46:50"><abbr title="2008-10-11T12:46:50+00:00">12:46:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>bah</q></li>
+<li class="message">[<a href="#T12:47:06" id="T12:47:06"><abbr title="2008-10-11T12:47:06+00:00">12:47:06</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>Any I'm pretty sure our tests will over the code you quoted.</q></li>
+<li class="message">[<abbr title="2008-10-11T12:47:06+00:00">12:47:06</abbr>] &lt;<cite>mru</cite>&gt; <q>what did you test? produces any output at all?</q></li>
+<li class="message">[<a href="#T12:47:24" id="T12:47:24"><abbr title="2008-10-11T12:47:24+00:00">12:47:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you must be wrong then</q></li>
+<li class="message">[<a href="#T12:47:29" id="T12:47:29"><abbr title="2008-10-11T12:47:29+00:00">12:47:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>because it *does* fail here</q></li>
+<li class="message">[<a href="#T12:52:40" id="T12:52:40"><abbr title="2008-10-11T12:52:40+00:00">12:52:40</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: not just cs is on the ml, if you can send code that doesn't compile correctly other people will be interested</q></li>
+<li class="message">[<a href="#T12:55:06" id="T12:55:06"><abbr title="2008-10-11T12:55:06+00:00">12:55:06</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>and my guess is that cs would be interested in fixing it too</q></li>
+<li class="message">[<a href="#T12:55:35" id="T12:55:35"><abbr title="2008-10-11T12:55:35+00:00">12:55:35</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>mru: I just tried your code, and it looks fine. gcc aligns the source pointer, and uses vst1 for the destination store.</q></li>
+<li class="message">[<a href="#T12:55:48" id="T12:55:48"><abbr title="2008-10-11T12:55:48+00:00">12:55:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's the load that fails</q></li>
+<li class="message">[<a href="#T12:56:01" id="T12:56:01"><abbr title="2008-10-11T12:56:01+00:00">12:56:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it uses vldm there</q></li>
+<li class="message">[<a href="#T12:56:06" id="T12:56:06"><abbr title="2008-10-11T12:56:06+00:00">12:56:06</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>Yes.</q></li>
+<li class="message">[<a href="#T12:56:15" id="T12:56:15"><abbr title="2008-10-11T12:56:15+00:00">12:56:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and vldm requires strict alignment</q></li>
+<li class="message">[<a href="#T12:56:22" id="T12:56:22"><abbr title="2008-10-11T12:56:22+00:00">12:56:22</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>Yes.</q></li>
+<li class="message">[<a href="#T12:56:27" id="T12:56:27"><abbr title="2008-10-11T12:56:27+00:00">12:56:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and it doesn't check it</q></li>
+<li class="message">[<a href="#T12:57:14" id="T12:57:14"><abbr title="2008-10-11T12:57:14+00:00">12:57:14</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>Mine certainly does.</q></li>
+<li class="message">[<a href="#T12:57:34" id="T12:57:34"><abbr title="2008-10-11T12:57:34+00:00">12:57:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>maybe you're using the pay-for version</q></li>
+<li class="message">[<a href="#T12:57:39" id="T12:57:39"><abbr title="2008-10-11T12:57:39+00:00">12:57:39</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>It peels sufficient iterations of the loop that the inner vector loop is always known to be aligned.</q></li>
+<li class="message">[<a href="#T12:57:52" id="T12:57:52"><abbr title="2008-10-11T12:57:52+00:00">12:57:52</abbr></a>] &lt;<cite>pbrook</cite>&gt; <q>No. I'm using the 2008q3 binaries.</q></li>
