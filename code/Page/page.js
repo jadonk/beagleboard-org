@@ -6,6 +6,12 @@ function main_action ()
    }
   res.handlers["User"] = User();
   res.data.title = this.uri;
+  if (this.render_skin == "homepage")
+   {
+    res.data.body = this.body;
+    this.renderSkin(this.render_skin);
+    return;
+   }
   if (this.render_skin)
    res.data.body = this.renderSkinAsString(this.render_skin);
   else
