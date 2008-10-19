@@ -66,6 +66,16 @@ function listBody ()
        + '</small></li>\n'
        ;
      }
+    else if (collection[i].render_skin == "rss")
+     {
+      body +=
+       '<li class="rss"><a href="' + collection[i].href() + '">'
+       + collection[i].uri
+       + '</a>'
+       + '<div>'
+       + collection[i].body
+       + '</div></li>\n';
+     }
     else
      {
       body +=
