@@ -10,3 +10,114 @@
 <li class="quit">[<a href="#T01:47:27" id="T01:47:27"><abbr title="2008-10-25T01:47:27+00:00">01:47:27</abbr></a>] <span>* nabax (n=nabax@89.129.96.71) Quit (Remote closed the connection)</span></li>
 <li class="part">[<a href="#T01:50:59" id="T01:50:59"><abbr title="2008-10-25T01:50:59+00:00">01:50:59</abbr></a>] <span>* smackpotato (n=user@bas4-sudbury98-1279293616.dsl.bell.ca) has left #beagle</span></li>
 <li class="message">[<a href="#T02:00:01" id="T02:00:01"><abbr title="2008-10-25T02:00:01+00:00">02:00:01</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>well, swcs032 says that the TPS65950 supports "all standard audio sample rates through I2S/TDM format interfaces".</q></li>
+<li class="message">[<a href="#T02:00:36" id="T02:00:36"><abbr title="2008-10-25T02:00:36+00:00">02:00:36</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T02:01:08" id="T02:01:08"><abbr title="2008-10-25T02:01:08+00:00">02:01:08</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I'm not sure what that includes, but I'd guess if you can make the McBSP output a sample rate that is valid relative to the codec spec ranges, you have a pretty good shot of it working.</q></li>
+<li class="message">[<a href="#T02:01:38" id="T02:01:38"><abbr title="2008-10-25T02:01:38+00:00">02:01:38</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>not exactly the most helpful statement in the world, I suppose.</q></li>
+<li class="message">[<a href="#T02:01:44" id="T02:01:44"><abbr title="2008-10-25T02:01:44+00:00">02:01:44</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I need to do some resmapling</q></li>
+<li class="message">[<a href="#T02:02:30" id="T02:02:30"><abbr title="2008-10-25T02:02:30+00:00">02:02:30</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>are there some particular rates you are trying to use?</q></li>
+<li class="message">[<a href="#T02:02:56" id="T02:02:56"><abbr title="2008-10-25T02:02:56+00:00">02:02:56</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>do you mean you are trying to avoid resampling?</q></li>
+<li class="message">[<a href="#T02:03:07" id="T02:03:07"><abbr title="2008-10-25T02:03:07+00:00">02:03:07</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>how would you resample within the ADC/DAC?</q></li>
+<li class="message">[<a href="#T02:03:17" id="T02:03:17"><abbr title="2008-10-25T02:03:17+00:00">02:03:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hehehe</q></li>
+<li class="message">[<a href="#T02:03:24" id="T02:03:24"><abbr title="2008-10-25T02:03:24+00:00">02:03:24</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>do you mean sample rate conversion or actual resampling?</q></li>
+<li class="message">[<a href="#T02:03:55" id="T02:03:55"><abbr title="2008-10-25T02:03:55+00:00">02:03:55</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>ds2: are you laughing that the uselessness of my response?  :)</q></li>
+<li class="message">[<a href="#T02:05:05" id="T02:05:05"><abbr title="2008-10-25T02:05:05+00:00">02:05:05</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>Crofton: what do you mean by resampling?  Do you mean you will run the ADC to resample or do digital sample rate conversion?</q></li>
+<li class="message">[<a href="#T02:05:13" id="T02:05:13"><abbr title="2008-10-25T02:05:13+00:00">02:05:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I need powers of two</q></li>
+<li class="message">[<abbr title="2008-10-25T02:05:13+00:00">02:05:13</abbr>] &lt;<cite>Crofton</cite>&gt; <q>but I think I can resample my input file</q></li>
+<li class="message">[<abbr title="2008-10-25T02:05:13+00:00">02:05:13</abbr>] &lt;<cite>Crofton</cite>&gt; <q>well, I have a file at 256 ksps</q></li>
+<li class="message">[<a href="#T02:05:14" id="T02:05:14"><abbr title="2008-10-25T02:05:14+00:00">02:05:14</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I want to decimate by an intger</q></li>
+<li class="message">[<a href="#T02:05:16" id="T02:05:16"><abbr title="2008-10-25T02:05:16+00:00">02:05:16</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>sort off</q></li>
+<li class="message">[<a href="#T02:05:20" id="T02:05:20"><abbr title="2008-10-25T02:05:20+00:00">02:05:20</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I am going to change the input rate to 4*48k</q></li>
+<li class="message">[<a href="#T02:05:22" id="T02:05:22"><abbr title="2008-10-25T02:05:22+00:00">02:05:22</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>than the fm demod can downsample by 4</q></li>
+<li class="message">[<a href="#T02:05:32" id="T02:05:32"><abbr title="2008-10-25T02:05:32+00:00">02:05:32</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>working in a hotel room sucks :)</q></li>
+<li class="message">[<a href="#T02:05:44" id="T02:05:44"><abbr title="2008-10-25T02:05:44+00:00">02:05:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>jkridner: kind of... the best way to determine these things seems to be to try it</q></li>
+<li class="message">[<a href="#T02:06:31" id="T02:06:31"><abbr title="2008-10-25T02:06:31+00:00">02:06:31</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>ds2: clearly.</q></li>
+<li class="message">[<a href="#T02:06:59" id="T02:06:59"><abbr title="2008-10-25T02:06:59+00:00">02:06:59</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>can the TWL4030 ADC work at 4*48k?</q></li>
+<li class="message">[<a href="#T02:07:05" id="T02:07:05"><abbr title="2008-10-25T02:07:05+00:00">02:07:05</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I didn't think it could.</q></li>
+<li class="message">[<a href="#T02:08:44" id="T02:08:44"><abbr title="2008-10-25T02:08:44+00:00">02:08:44</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I'm confused by the path...</q></li>
+<li class="message">[<a href="#T02:09:02" id="T02:09:02"><abbr title="2008-10-25T02:09:02+00:00">02:09:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I doubt it can go that fast</q></li>
+<li class="message">[<a href="#T02:09:05" id="T02:09:05"><abbr title="2008-10-25T02:09:05+00:00">02:09:05</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>file --&gt; fm demod --&gt; TWL4030?  that doesn't make sense.</q></li>
+<li class="message">[<a href="#T02:09:34" id="T02:09:34"><abbr title="2008-10-25T02:09:34+00:00">02:09:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: are you trying to do undersampling of a bandwidth limited signal?</q></li>
+<li class="message">[<a href="#T02:10:23" id="T02:10:23"><abbr title="2008-10-25T02:10:23+00:00">02:10:23</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>indeed, when you say decimate, do you really mean filter?</q></li>
+<li class="message">[<a href="#T02:10:33" id="T02:10:33"><abbr title="2008-10-25T02:10:33+00:00">02:10:33</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>well, I guess that is typically implied.</q></li>
+<li class="message">[<a href="#T02:10:54" id="T02:10:54"><abbr title="2008-10-25T02:10:54+00:00">02:10:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it has to be prefiltered</q></li>
+<li class="message">[<a href="#T02:11:45" id="T02:11:45"><abbr title="2008-10-25T02:11:45+00:00">02:11:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if the TWL4030 front end don't have poles and other nasties that will roll off the signal before it hits the ADC, it might work</q></li>
+<li class="message">[<a href="#T02:12:10" id="T02:12:10"><abbr title="2008-10-25T02:12:10+00:00">02:12:10</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>well, the confusing part to me is that he's talking about a file.  the file might really be at 256ksps, in which case you can simply digitally filter it.</q></li>
+<li class="message">[<a href="#T02:12:47" id="T02:12:47"><abbr title="2008-10-25T02:12:47+00:00">02:12:47</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I cannot tell where the resampling is taking place in his description.</q></li>
+<li class="message">[<a href="#T02:13:22" id="T02:13:22"><abbr title="2008-10-25T02:13:22+00:00">02:13:22</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I cannot even tell if he is talking about using the TWL4030 as an output or input.  I'd assume input based on having an fm demod, vs. mod.</q></li>
+<li class="message">[<a href="#T02:13:29" id="T02:13:29"><abbr title="2008-10-25T02:13:29+00:00">02:13:29</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>no, I have a file of FM samples at 256 ksps</q></li>
+<li class="message">[<abbr title="2008-10-25T02:13:29+00:00">02:13:29</abbr>] &lt;<cite>Crofton</cite>&gt; <q>smapled rf</q></li>
+<li class="message">[<a href="#T02:13:34" id="T02:13:34"><abbr title="2008-10-25T02:13:34+00:00">02:13:34</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I need to demod and playback at 48ksps</q></li>
+<li class="message">[<a href="#T02:13:36" id="T02:13:36"><abbr title="2008-10-25T02:13:36+00:00">02:13:36</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>so, I need to resample by 3/8</q></li>
+<li class="message">[<a href="#T02:13:40" id="T02:13:40"><abbr title="2008-10-25T02:13:40+00:00">02:13:40</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>but, my demod only decimates</q></li>
+<li class="message">[<a href="#T02:13:42" id="T02:13:42"><abbr title="2008-10-25T02:13:42+00:00">02:13:42</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>so I resmaple the file by 3/4</q></li>
+<li class="message">[<a href="#T02:13:47" id="T02:13:47"><abbr title="2008-10-25T02:13:47+00:00">02:13:47</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>software demod?</q></li>
+<li class="message">[<a href="#T02:13:52" id="T02:13:52"><abbr title="2008-10-25T02:13:52+00:00">02:13:52</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>so the input data is at 192k</q></li>
+<li class="message">[<a href="#T02:14:43" id="T02:14:43"><abbr title="2008-10-25T02:14:43+00:00">02:14:43</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>this is just a one-time thing?</q></li>
+<li class="message">[<a href="#T02:14:56" id="T02:14:56"><abbr title="2008-10-25T02:14:56+00:00">02:14:56</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>audacity?</q></li>
+<li class="message">[<a href="#T02:14:57" id="T02:14:57"><abbr title="2008-10-25T02:14:57+00:00">02:14:57</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>then the demod  reduces the rate to 48 by divide by 4 :)</q></li>
+<li class="message">[<abbr title="2008-10-25T02:14:57+00:00">02:14:57</abbr>] &lt;<cite>Crofton</cite>&gt; <q>the file came from a board that samples rf</q></li>
+<li class="message">[<a href="#T02:14:58" id="T02:14:58"><abbr title="2008-10-25T02:14:58+00:00">02:14:58</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah demod runs in beagle</q></li>
+<li class="message">[<a href="#T02:15:00" id="T02:15:00"><abbr title="2008-10-25T02:15:00+00:00">02:15:00</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>when I get it all sorted out, I'll post something</q></li>
+<li class="message">[<a href="#T02:15:06" id="T02:15:06"><abbr title="2008-10-25T02:15:06+00:00">02:15:06</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>not really</q></li>
+<li class="message">[<a href="#T02:15:18" id="T02:15:18"><abbr title="2008-10-25T02:15:18+00:00">02:15:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: you just need to play the demodulated signal out?</q></li>
+<li class="message">[<a href="#T02:15:32" id="T02:15:32"><abbr title="2008-10-25T02:15:32+00:00">02:15:32</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the input file I got from someone else</q></li>
+<li class="message">[<abbr title="2008-10-25T02:15:32+00:00">02:15:32</abbr>] &lt;<cite>Crofton</cite>&gt; <q>right</q></li>
+<li class="message">[<abbr title="2008-10-25T02:15:32+00:00">02:15:32</abbr>] &lt;<cite>Crofton</cite>&gt; <q>but the input rate is "akward"</q></li>
+<li class="message">[<a href="#T02:15:48" id="T02:15:48"><abbr title="2008-10-25T02:15:48+00:00">02:15:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T02:15:58" id="T02:15:58"><abbr title="2008-10-25T02:15:58+00:00">02:15:58</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>not an integer mulitple of 48k</q></li>
+<li class="message">[<a href="#T02:16:02" id="T02:16:02"><abbr title="2008-10-25T02:16:02+00:00">02:16:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>in that case, you might be able to do it assuming you use the beagle as a master</q></li>
+<li class="message">[<a href="#T02:16:13" id="T02:16:13"><abbr title="2008-10-25T02:16:13+00:00">02:16:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and can get the right clock out the McBSP</q></li>
+<li class="message">[<a href="#T02:16:19" id="T02:16:19"><abbr title="2008-10-25T02:16:19+00:00">02:16:19</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>well, you can brute force upsample by 3, filter, then downsample by 8, right?</q></li>
+<li class="message">[<a href="#T02:16:22" id="T02:16:22"><abbr title="2008-10-25T02:16:22+00:00">02:16:22</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I will use gnuradio on my laptop to resample</q></li>
+<li class="message">[<a href="#T02:16:41" id="T02:16:41"><abbr title="2008-10-25T02:16:41+00:00">02:16:41</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>file source-&gt; resampler-&gt; file sinnk</q></li>
+<li class="message">[<a href="#T02:16:42" id="T02:16:42"><abbr title="2008-10-25T02:16:42+00:00">02:16:42</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the file is in a gnu radio format</q></li>
+<li class="message">[<a href="#T02:16:47" id="T02:16:47"><abbr title="2008-10-25T02:16:47+00:00">02:16:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or get just octave running on the DSP ;)</q></li>
+<li class="message">[<a href="#T02:17:22" id="T02:17:22"><abbr title="2008-10-25T02:17:22+00:00">02:17:22</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>right :)</q></li>
+<li class="message">[<abbr title="2008-10-25T02:17:22+00:00">02:17:22</abbr>] &lt;<cite>Crofton</cite>&gt; <q>not in the next three days</q></li>
+<li class="message">[<a href="#T02:17:27" id="T02:17:27"><abbr title="2008-10-25T02:17:27+00:00">02:17:27</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>all the rates you talk about seem to be nice multiples of 48ksps, so the DAC should have no problem at all.</q></li>
+<li class="message">[<a href="#T02:17:40" id="T02:17:40"><abbr title="2008-10-25T02:17:40+00:00">02:17:40</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>except for 256K :)</q></li>
+<li class="message">[<a href="#T02:17:50" id="T02:17:50"><abbr title="2008-10-25T02:17:50+00:00">02:17:50</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>ah.</q></li>
+<li class="message">[<a href="#T02:18:11" id="T02:18:11"><abbr title="2008-10-25T02:18:11+00:00">02:18:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>don't think the TWL4030 cares if it is a slave device</q></li>
+<li class="message">[<a href="#T02:18:27" id="T02:18:27"><abbr title="2008-10-25T02:18:27+00:00">02:18:27</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>this wouldn't be a problem if I had been home last week</q></li>
+<li class="message">[<a href="#T02:19:27" id="T02:19:27"><abbr title="2008-10-25T02:19:27+00:00">02:19:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>are you using the ALSA SOC driver to output?</q></li>
+<li class="message">[<a href="#T02:20:01" id="T02:20:01"><abbr title="2008-10-25T02:20:01+00:00">02:20:01</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I guess you were trying to avoid upsampling by 3 and downsampling by 16?</q></li>
+<li class="message">[<a href="#T02:20:08" id="T02:20:08"><abbr title="2008-10-25T02:20:08+00:00">02:20:08</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T02:20:27" id="T02:20:27"><abbr title="2008-10-25T02:20:27+00:00">02:20:27</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I need to keep the signal processing to a minimum so it works :)</q></li>
+<li class="message">[<a href="#T02:21:07" id="T02:21:07"><abbr title="2008-10-25T02:21:07+00:00">02:21:07</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>so you were lookign for a 42.67ksps DAC rate.</q></li>
+<li class="message">[<a href="#T02:21:17" id="T02:21:17"><abbr title="2008-10-25T02:21:17+00:00">02:21:17</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>well</q></li>
+<li class="message">[<a href="#T02:21:33" id="T02:21:33"><abbr title="2008-10-25T02:21:33+00:00">02:21:33</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>too little bandwidth there?</q></li>
+<li class="message">[<a href="#T02:21:34" id="T02:21:34"><abbr title="2008-10-25T02:21:34+00:00">02:21:34</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>64k</q></li>
+<li class="message">[<abbr title="2008-10-25T02:21:34+00:00">02:21:34</abbr>] &lt;<cite>Crofton</cite>&gt; <q>32k</q></li>
+<li class="message">[<a href="#T02:21:46" id="T02:21:46"><abbr title="2008-10-25T02:21:46+00:00">02:21:46</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>32K is fine</q></li>
+<li class="message">[<a href="#T02:21:52" id="T02:21:52"><abbr title="2008-10-25T02:21:52+00:00">02:21:52</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the output is audio</q></li>
+<li class="message">[<a href="#T02:22:07" id="T02:22:07"><abbr title="2008-10-25T02:22:07+00:00">02:22:07</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I'm sure 32k would work, though I don't know the config.</q></li>
+<li class="message">[<a href="#T02:22:13" id="T02:22:13"><abbr title="2008-10-25T02:22:13+00:00">02:22:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the information in FM is wide, like 100khz or so</q></li>
+<li class="message">[<a href="#T02:22:24" id="T02:22:24"><abbr title="2008-10-25T02:22:24+00:00">02:22:24</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>thus the high input rate</q></li>
+<li class="message">[<a href="#T02:22:33" id="T02:22:33"><abbr title="2008-10-25T02:22:33+00:00">02:22:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: couldn't you start with a NFM signal instead of broadcast?</q></li>
+<li class="message">[<abbr title="2008-10-25T02:22:33+00:00">02:22:33</abbr>] &lt;<cite>Crofton</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T02:22:58" id="T02:22:58"><abbr title="2008-10-25T02:22:58+00:00">02:22:58</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>if I can get gr built on the laptop I can solve the problem</q></li>
+<li class="message">[<abbr title="2008-10-25T02:22:58+00:00">02:22:58</abbr>] &lt;<cite>Crofton</cite>&gt; <q>ds2 not in three days</q></li>
+<li class="message">[<a href="#T02:23:03" id="T02:23:03"><abbr title="2008-10-25T02:23:03+00:00">02:23:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T02:23:07" id="T02:23:07"><abbr title="2008-10-25T02:23:07+00:00">02:23:07</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>a lot of which is travel</q></li>
+<li class="message">[<a href="#T02:23:13" id="T02:23:13"><abbr title="2008-10-25T02:23:13+00:00">02:23:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>it works now, just pitch is wrong :)</q></li>
+<li class="quit">[<a href="#T02:23:25" id="T02:23:25"><abbr title="2008-10-25T02:23:25+00:00">02:23:25</abbr></a>] <span>* tulpe (n=ask@p54AF6F20.dip.t-dialin.net) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T02:23:32" id="T02:23:32"><abbr title="2008-10-25T02:23:32+00:00">02:23:32</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the internet is not fast in this motel</q></li>
+<li class="message">[<a href="#T02:23:42" id="T02:23:42"><abbr title="2008-10-25T02:23:42+00:00">02:23:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: hack the ALSA driver...that might be the easiest assuming the SOC stuff allows for master mode on the OMAP side</q></li>
+<li class="join">[<abbr title="2008-10-25T02:23:42+00:00">02:23:42</abbr>] <span>* tulpe (n=ask@p54AF5BED.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T02:24:00" id="T02:24:00"><abbr title="2008-10-25T02:24:00+00:00">02:24:00</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T02:24:08" id="T02:24:08"><abbr title="2008-10-25T02:24:08+00:00">02:24:08</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>my hacking skills in that area are poor</q></li>
+<li class="message">[<a href="#T02:24:14" id="T02:24:14"><abbr title="2008-10-25T02:24:14+00:00">02:24:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the reference TI driver allows for both modes</q></li>
+<li class="message">[<a href="#T02:24:19" id="T02:24:19"><abbr title="2008-10-25T02:24:19+00:00">02:24:19</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I am sticking with what I am good at :)</q></li>
+<li class="message">[<a href="#T02:24:58" id="T02:24:58"><abbr title="2008-10-25T02:24:58+00:00">02:24:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why the choice of broadcast FM?</q></li>
+<li class="message">[<a href="#T02:25:08" id="T02:25:08"><abbr title="2008-10-25T02:25:08+00:00">02:25:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if you want hard, why not a CDMA signal ;)</q></li>
+<li class="message">[<a href="#T02:25:32" id="T02:25:32"><abbr title="2008-10-25T02:25:32+00:00">02:25:32</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>that is the file I have :)</q></li>
+<li class="message">[<a href="#T02:25:52" id="T02:25:52"><abbr title="2008-10-25T02:25:52+00:00">02:25:52</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>all these things in time ...</q></li>
+<li class="message">[<a href="#T02:25:53" id="T02:25:53"><abbr title="2008-10-25T02:25:53+00:00">02:25:53</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah, thought there might be some other reason other then luck</q></li>
+<li class="message">[<a href="#T02:28:24" id="T02:28:24"><abbr title="2008-10-25T02:28:24+00:00">02:28:24</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: do you know off hand how fast does the USRP sample at?</q></li>
+<li class="message">[<a href="#T02:29:15" id="T02:29:15"><abbr title="2008-10-25T02:29:15+00:00">02:29:15</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>it samples at 64Mhz</q></li>
+<li class="message">[<a href="#T02:29:31" id="T02:29:31"><abbr title="2008-10-25T02:29:31+00:00">02:29:31</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>but you need to downsample in the fpga to transfer over usb</q></li>
+<li class="message">[<a href="#T02:29:55" id="T02:29:55"><abbr title="2008-10-25T02:29:55+00:00">02:29:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what's the sample rate as seen on the USB side?</q></li>
+<li class="message">[<a href="#T02:30:22" id="T02:30:22"><abbr title="2008-10-25T02:30:22+00:00">02:30:22</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>you can get a max of about 6MHz of rf to the pc</q></li>
+<li class="message">[<a href="#T02:30:27" id="T02:30:27"><abbr title="2008-10-25T02:30:27+00:00">02:30:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>got friend who does spectrum analyzers.... trying to figure out if there is a simple tap inside it to use it as a receiver</q></li>
+<li class="quit">[<a href="#T02:39:51" id="T02:39:51"><abbr title="2008-10-25T02:39:51+00:00">02:39:51</abbr></a>] <span>* bullwood42 (n=bullwood@99.171.171.142) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="join">[<a href="#T02:40:31" id="T02:40:31"><abbr title="2008-10-25T02:40:31+00:00">02:40:31</abbr></a>] <span>* bullwood42 (n=bullwood@adsl-99-171-171-142.dsl.aus2tx.sbcglobal.net) has joined #beagle</span></li>
