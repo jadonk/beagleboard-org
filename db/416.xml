@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="416" name="esc" prototype="Page" created="1225156342780" lastModified="1225169169549">
+  <hopobject id="416" name="esc" prototype="Page" created="1225156342780" lastModified="1225169413562">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3</http_browser>
     <lang>en-us</lang>
     <uri>esc</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">27.10.2008 23:46:09 CDT</time>
+    <time type="date">27.10.2008 23:50:13 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.3ut8whdro4vy</hopsession>
@@ -29,12 +29,14 @@
   should now point to this location.
  &lt;/p&gt;
  &lt;h2&gt;Angstrom Demo&lt;/h2&gt;
+ &lt;h3&gt;Step 1: Format an SD card&lt;/h3&gt;
  &lt;p&gt;
   Information on formatting the SD cards can be found at:
   &lt;a href=&quot;http://code.google.com/p/beagleboard/wiki/BeagleBoardDiagnostics&quot;&gt;BeagleBoardDiagnostics.&lt;/a&gt;
   Specifically, this utility can be used to format the SD cards:
   &lt;a href=&quot;http://selfdestruct.net/misc/usbboot/SP27213.exe&quot;&gt;SP27213.exe.&lt;/a&gt;
  &lt;/p&gt;
+ &lt;h3&gt;Step 2: Download the SD card contents&lt;/h3&gt;
  &lt;p&gt;The following content files can be downloaded from this site:&lt;/p&gt;
  &lt;ul&gt;
   &lt;li&gt;
@@ -104,7 +106,13 @@
    &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/u-boot_fw.tgz&quot;&gt;u-boot_fw.tgz&lt;/a&gt;
    - The files built by Frank during the class to set the environment on the flash (mtd2) from within Angstrom Linux, rather than from the u-boot serial prompt.
   &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/copyfiles.bat&quot;&gt;copyfiles.bat&lt;/a&gt;
+  &lt;/li&gt;
  &lt;/ul&gt;
+ &lt;h3&gt;Step 3: Copy files to the SD card&lt;/h3&gt;
+ &lt;p&gt;All of the files should be copied to the SD card in order.  At least the MLO file should be copied onto the SD card first, immediately after formatting the card.&lt;/p&gt;
+ &lt;h3&gt;Additional notes&lt;/h3&gt;
  &lt;p&gt;Additional source information to be provided upon request or sooner at this location.&lt;/p&gt;
  &lt;p&gt;From the U-Boot prompt (OMAP3 beagleboard.org #) on the serial port, if you have the Angstrom demo installed into the NAND flash, configure the Beagle Board to execute it with the following commands:&lt;/p&gt;
  &lt;pre&gt;setenv bootargs &apos;console=ttyS2,115200n8 console=tty0 root=/dev/mtdblock4 rw rootfstype=jffs2 nohz=off&apos;
