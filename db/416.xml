@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="416" name="esc" prototype="Page" created="1225156342780" lastModified="1225161080401">
+  <hopobject id="416" name="esc" prototype="Page" created="1225156342780" lastModified="1225161546204">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3</http_browser>
     <lang>en-us</lang>
     <uri>esc</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">27.10.2008 21:31:20 CDT</time>
+    <time type="date">27.10.2008 21:39:06 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.3ut8whdro4vy</hopsession>
@@ -28,6 +28,7 @@
   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/readme.txt&quot;&gt;readme.txt&lt;/a&gt;
   should now point to this location.
  &lt;/p&gt;
+ &lt;h2&gt;Angstrom Demo&lt;/h2&gt;
  &lt;p&gt;
   Information on formatting the SD cards can be found at:
   &lt;a href=&quot;http://code.google.com/p/beagleboard/wiki/BeagleBoardDiagnostics&quot;&gt;BeagleBoardDiagnostics.&lt;/a&gt;
@@ -38,21 +39,31 @@
  &lt;ul&gt;
   &lt;li&gt;
    &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/BeagleBoard101_20081025.ppt&quot;&gt;BeagleBoard101_20081025.ppt&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/boot.sh&quot;&gt;boot.sh&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/bootable.sh&quot;&gt;bootable.sh&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/ignorenv.txt&quot;&gt;ignorenv.txt&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/mkubootcmd&quot;&gt;mkubootcmd&lt;/a&gt;
+   - The slides used during the presentation.
   &lt;/li&gt;
   &lt;li&gt;
    &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/MLO&quot;&gt;MLO&lt;/a&gt;
+   - This
+   &lt;b&gt;must&lt;/b&gt;
+   be the first file copied to the SD.  It is the file loaded by the ROM boot-loader and it loads u-boot.bin off of the SD card.
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/boot.sh&quot;&gt;boot.sh&lt;/a&gt;
+   - These commands executed automatically by ramdisk.gz and are used to install the Angstrom demo on to the on-board flash.
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/bootable.sh&quot;&gt;bootable.sh&lt;/a&gt;
+   - Some commands to &quot;fix-up&quot; the MV Linux SD card.
+   &lt;b&gt;This &quot;fix-up&quot; doesn&apos;t work.&lt;/b&gt;
+   It is recommended you simply configure the environment variables in flash to boot the SD card, rather than try to make the SD card itself bootable.  There are still some links fixed-up here that you might want to apply on your MV   Linux SD card.
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/ignorenv.txt&quot;&gt;ignorenv.txt&lt;/a&gt;
+   - This is the patch used to hack u-boot.
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/mkubootcmd&quot;&gt;mkubootcmd&lt;/a&gt;
+   - This is the script that builds
   &lt;/li&gt;
   &lt;li&gt;
    &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/ramdisk.gz&quot;&gt;ramdisk.gz&lt;/a&gt;
@@ -80,6 +91,11 @@
   &lt;/li&gt;
   &lt;li&gt;
    &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/u-boot.tgz&quot;&gt;u-boot.tgz&lt;/a&gt;
+   - The hacked u-boot sources described in the presentation.
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;http://jkridner.s3.amazonaws.com/esc/u-boot_fw.tgz&quot;&gt;u-boot_fw.tgz&lt;/a&gt;
+   - The files built by Frank during the class to set the environment on the flash (mtd2) from within Angstrom Linux, rather than from the u-boot serial prompt.
   &lt;/li&gt;
  &lt;/ul&gt;
  &lt;p&gt;Additional source information to be provided upon request or sooner at this location.&lt;/p&gt;
