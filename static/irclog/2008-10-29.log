@@ -123,3 +123,34 @@
 <li class="message">[<a href="#T08:39:31" id="T08:39:31"><abbr title="2008-10-29T08:39:31+00:00">08:39:31</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>does linux-fbdev have their own kernel tree somewhere..?</q></li>
 <li class="message">[<a href="#T08:40:10" id="T08:40:10"><abbr title="2008-10-29T08:40:10+00:00">08:40:10</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>i.e. should I test against their tree, or is the linux-omap ok?</q></li>
 <li class="join">[<a href="#T08:55:50" id="T08:55:50"><abbr title="2008-10-29T08:55:50+00:00">08:55:50</abbr></a>] <span>* wiking (n=wiking@213.47.71.51) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:00:11" id="T09:00:11"><abbr title="2008-10-29T09:00:11+00:00">09:00:11</abbr></a>] <span>* guillaum1 (n=gl@AMontsouris-153-1-79-42.w90-2.abo.wanadoo.fr) Quit ("Leaving.")</span></li>
+<li class="join">[<a href="#T09:00:46" id="T09:00:46"><abbr title="2008-10-29T09:00:46+00:00">09:00:46</abbr></a>] <span>* guillaum1 (n=gzba4143@AMontsouris-153-1-79-42.w90-2.abo.wanadoo.fr) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:07:29" id="T09:07:29"><abbr title="2008-10-29T09:07:29+00:00">09:07:29</abbr></a>] <span>* abitos (n=nixgibts@dslb-084-057-150-029.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:09:33" id="T09:09:33"><abbr title="2008-10-29T09:09:33+00:00">09:09:33</abbr></a>] <span>* jsync (n=jess@59.160.172.220) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:15:48" id="T09:15:48"><abbr title="2008-10-29T09:15:48+00:00">09:15:48</abbr></a>] <span>* vu3rdd (i=7aa7fed7@gateway/web/ajax/mibbit.com/x-53bfc5eecb2f4a57) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:17:33" id="T09:17:33"><abbr title="2008-10-29T09:17:33+00:00">09:17:33</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>felipec: do you have the dspbridge working with the 2.6.27-omap1?</q></li>
+<li class="message">[<a href="#T09:17:35" id="T09:17:35"><abbr title="2008-10-29T09:17:35+00:00">09:17:35</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>I get:</q></li>
+<li class="message">[<a href="#T09:17:36" id="T09:17:36"><abbr title="2008-10-29T09:17:36+00:00">09:17:36</abbr></a>] &lt;<cite>kulve</cite>&gt; <q># ./ping.out </q></li>
+<li class="message">[<abbr title="2008-10-29T09:17:36+00:00">09:17:36</abbr>] &lt;<cite>kulve</cite>&gt; <q>DSP device detected !! </q></li>
+<li class="message">[<abbr title="2008-10-29T09:17:36+00:00">09:17:36</abbr>] &lt;<cite>kulve</cite>&gt; <q>DSPNode_Allocate failed: 0x8000801d</q></li>
+<li class="message">[<a href="#T09:20:04" id="T09:20:04"><abbr title="2008-10-29T09:20:04+00:00">09:20:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>kulve: did you reserve 14MB for dma?</q></li>
+<li class="message">[<a href="#T09:20:12" id="T09:20:12"><abbr title="2008-10-29T09:20:12+00:00">09:20:12</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T09:20:29" id="T09:20:29"><abbr title="2008-10-29T09:20:29+00:00">09:20:29</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>and booted with:</q></li>
+<li class="message">[<abbr title="2008-10-29T09:20:29+00:00">09:20:29</abbr>] &lt;<cite>kulve</cite>&gt; <q>Kernel command line: console=ttyS2,115200n8 root=/dev/mmcblk0p2 rw rootdelay=1 video=omapfb:vram:2M,vram:4M</q></li>
+<li class="message">[<a href="#T09:22:32" id="T09:22:32"><abbr title="2008-10-29T09:22:32+00:00">09:22:32</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>no need for a mem=xxx?</q></li>
+<li class="message">[<a href="#T09:25:15" id="T09:25:15"><abbr title="2008-10-29T09:25:15+00:00">09:25:15</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>testing</q></li>
+<li class="message">[<a href="#T09:26:10" id="T09:26:10"><abbr title="2008-10-29T09:26:10+00:00">09:26:10</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>same thing with mem=96M</q></li>
+<li class="part">[<a href="#T09:29:44" id="T09:29:44"><abbr title="2008-10-29T09:29:44+00:00">09:29:44</abbr></a>] <span>* vu3rdd (i=7aa7fed7@gateway/web/ajax/mibbit.com/x-53bfc5eecb2f4a57) has left #beagle</span></li>
+<li class="message">[<a href="#T09:34:06" id="T09:34:06"><abbr title="2008-10-29T09:34:06+00:00">09:34:06</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>I have not used bridge yet...</q></li>
+<li class="message">[<a href="#T09:36:08" id="T09:36:08"><abbr title="2008-10-29T09:36:08+00:00">09:36:08</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>strace output of the ping:</q></li>
+<li class="message">[<a href="#T09:36:09" id="T09:36:09"><abbr title="2008-10-29T09:36:09+00:00">09:36:09</abbr></a>] &lt;<cite>kulve</cite>&gt; <q><a href="http://pastebin.com/mfee2025">http://pastebin.com/mfee2025</a></q></li>
+<li class="message">[<a href="#T09:36:25" id="T09:36:25"><abbr title="2008-10-29T09:36:25+00:00">09:36:25</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>line 31 seems odd</q></li>
+<li class="join">[<a href="#T09:43:54" id="T09:43:54"><abbr title="2008-10-29T09:43:54+00:00">09:43:54</abbr></a>] <span>* kozak|work (i=cbc8c84a@gateway/web/ajax/mibbit.com/x-fa31489c193cba20) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:46:13" id="T09:46:13"><abbr title="2008-10-29T09:46:13+00:00">09:46:13</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T09:46:32" id="T09:46:32"><abbr title="2008-10-29T09:46:32+00:00">09:46:32</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>what is ioctl 18?</q></li>
+<li class="message">[<a href="#T09:46:36" id="T09:46:36"><abbr title="2008-10-29T09:46:36+00:00">09:46:36</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>what is ioctl 0x18?</q></li>
+<li class="message">[<a href="#T09:49:19" id="T09:49:19"><abbr title="2008-10-29T09:49:19+00:00">09:49:19</abbr></a>] &lt;<cite>kulve</cite>&gt; <q><a href="http://4869037.web.fc2.com/tidspbridge-20081021.tgz">http://4869037.web.fc2.com/tidspbridge-20081021.tgz</a></q></li>
+<li class="message">[<a href="#T09:49:22" id="T09:49:22"><abbr title="2008-10-29T09:49:22+00:00">09:49:22</abbr></a>] &lt;<cite>kulve</cite>&gt; <q>there's the patches..</q></li>
+<li class="message">[<a href="#T09:58:03" id="T09:58:03"><abbr title="2008-10-29T09:58:03+00:00">09:58:03</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>0x18 seems to be CMD_NODE_ALLOCATE_OFFSET</q></li>
+<li class="message">[<a href="#T09:58:12" id="T09:58:12"><abbr title="2008-10-29T09:58:12+00:00">09:58:12</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>that would be the allocate command</q></li>
+<li class="message">[<a href="#T09:58:22" id="T09:58:22"><abbr title="2008-10-29T09:58:22+00:00">09:58:22</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>which the error msg below seems to confirm</q></li>
