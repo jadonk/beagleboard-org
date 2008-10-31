@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="416" name="esc" prototype="Page" created="1225156342780" lastModified="1225470469524">
+  <hopobject id="416" name="esc" prototype="Page" created="1225156342780" lastModified="1225470861995">
   <hop:parent idref="386" prototyperef="Page"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3</http_browser>
     <lang>en-us</lang>
     <uri>esc</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">31.10.2008 11:27:49 CDT</time>
+    <time type="date">31.10.2008 11:34:21 CDT</time>
     <pseudoparent idref="386" prototyperef="Page"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.91.75.3ut8whdro4vy</hopsession>
@@ -78,6 +78,7 @@
  &lt;/ul&gt;
  &lt;hr/&gt;
  &lt;h1&gt;Booting the MV Linux SD card&lt;/h1&gt;
+ &lt;p&gt;As shipped, the Beagle Boards are not configured to boot the kernel and root file system on the SD cards, nor are the SD cards configured with a boot-loader that can be executed by holding the USER button.  It is simple to configure the boot-loader loaded onto the Beagle Boards to boot the SD cards provided with the demo image that was generated using MontaVista Linux.&lt;/p&gt;
  &lt;ol&gt;
   &lt;li&gt;
    Connect to the Beagle Board serial port.  Adapters can be found on the
@@ -85,6 +86,12 @@
    Basic instructions can be found in the
    &lt;a href=&quot;http://www.beagleboard.org/uploads/BBSRM_B5.pdf&quot;&gt;System Reference Manual.&lt;/a&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+   At the &quot;OMAP3 beagleboard.org #&quot; prompt, give the following commands:
+   &lt;pre&gt;setenv bootcmd &apos;mmcinit;fatload mmc 0 80200000 uImage;bootm 80200000&apos;
+saveenv&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove power, have the SD card and other system peripherals connected, apply power and you should get to the &quot;login:&quot; prompt.  Be aware that the system will turn off the monitor due to inactivity and there is not a trival way to disable this time-out.  Pressing any key on the USB keyboard will bring the monitor output back on.&lt;/li&gt;
  &lt;/ol&gt;
  &lt;hr/&gt;
  &lt;a name=&quot;esc-100&quot;/&gt;
