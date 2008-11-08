@@ -234,3 +234,65 @@
 <li class="message">[<a href="#T12:54:44" id="T12:54:44"><abbr title="2008-11-08T12:54:44+00:00">12:54:44</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>aaah damn who wrote the Makefile for tiopenmax</q></li>
 <li class="quit">[<a href="#T12:59:34" id="T12:59:34"><abbr title="2008-11-08T12:59:34+00:00">12:59:34</abbr></a>] <span>* Psychiatras (i=1000@212.122.84.232) Quit (Read error: 104 (Connection reset by peer))</span></li>
 <li class="quit">[<a href="#T12:59:42" id="T12:59:42"><abbr title="2008-11-08T12:59:42+00:00">12:59:42</abbr></a>] <span>* llauren (n=llauren@mask.teknologforeningen.fi) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T13:01:28" id="T13:01:28"><abbr title="2008-11-08T13:01:28+00:00">13:01:28</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: which one? the one I have in github?</q></li>
+<li class="message">[<a href="#T13:01:39" id="T13:01:39"><abbr title="2008-11-08T13:01:39+00:00">13:01:39</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>noup the one from omapzoom</q></li>
+<li class="message">[<a href="#T13:01:55" id="T13:01:55"><abbr title="2008-11-08T13:01:55+00:00">13:01:55</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: it comes from TI's build system</q></li>
+<li class="message">[<a href="#T13:02:01" id="T13:02:01"><abbr title="2008-11-08T13:02:01+00:00">13:02:01</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>...</q></li>
+<li class="message">[<a href="#T13:02:09" id="T13:02:09"><abbr title="2008-11-08T13:02:09+00:00">13:02:09</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>nice that it's not much consistent </q></li>
+<li class="message">[<a href="#T13:03:11" id="T13:03:11"><abbr title="2008-11-08T13:03:11+00:00">13:03:11</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: I hate the TI makefiles, I usually rewrite them</q></li>
+<li class="message">[<a href="#T13:03:36" id="T13:03:36"><abbr title="2008-11-08T13:03:36+00:00">13:03:36</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: well sounds like the dma approach is the way to go</q></li>
+<li class="message">[<a href="#T13:04:11" id="T13:04:11"><abbr title="2008-11-08T13:04:11+00:00">13:04:11</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>felipec, in what sence ? :)</q></li>
+<li class="message">[<a href="#T13:04:18" id="T13:04:18"><abbr title="2008-11-08T13:04:18+00:00">13:04:18</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>felipec, i mean i'd really like to have it....</q></li>
+<li class="message">[<a href="#T13:04:30" id="T13:04:30"><abbr title="2008-11-08T13:04:30+00:00">13:04:30</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>felipec, as there is a dma controller inside the IVA</q></li>
+<li class="message">[<a href="#T13:04:52" id="T13:04:52"><abbr title="2008-11-08T13:04:52+00:00">13:04:52</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>and it's purpose is to fetch things from memory... and not the CPU's</q></li>
+<li class="message">[<a href="#T13:05:12" id="T13:05:12"><abbr title="2008-11-08T13:05:12+00:00">13:05:12</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: do you need the code the dma stuff in the arm side or also in the dsp side?</q></li>
+<li class="message">[<a href="#T13:05:46" id="T13:05:46"><abbr title="2008-11-08T13:05:46+00:00">13:05:46</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>you have any code? :D</q></li>
+<li class="message">[<a href="#T13:06:39" id="T13:06:39"><abbr title="2008-11-08T13:06:39+00:00">13:06:39</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: I have code that uses the cpu, I think</q></li>
+<li class="join">[<a href="#T13:07:19" id="T13:07:19"><abbr title="2008-11-08T13:07:19+00:00">13:07:19</abbr></a>] <span>* JoeyBorn (n=jborn@h-64-105-84-39.chcgilgm.dynamic.covad.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:08:02" id="T13:08:02"><abbr title="2008-11-08T13:08:02+00:00">13:08:02</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>oh... dunno if the driver is available at all for the dma controller... but yeah basically there needs to be a support for the dma controller on the arm side, so that it can start the bus arbitration </q></li>
+<li class="message">[<a href="#T13:08:26" id="T13:08:26"><abbr title="2008-11-08T13:08:26+00:00">13:08:26</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>as far as i see...</q></li>
+<li class="message">[<a href="#T13:10:02" id="T13:10:02"><abbr title="2008-11-08T13:10:02+00:00">13:10:02</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: yes, but I wonder if the same is required in the dsp side</q></li>
+<li class="message">[<a href="#T13:10:14" id="T13:10:14"><abbr title="2008-11-08T13:10:14+00:00">13:10:14</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T13:10:25" id="T13:10:25"><abbr title="2008-11-08T13:10:25+00:00">13:10:25</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>lemme check that example code</q></li>
+<li class="message">[<a href="#T13:10:26" id="T13:10:26"><abbr title="2008-11-08T13:10:26+00:00">13:10:26</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T13:10:56" id="T13:10:56"><abbr title="2008-11-08T13:10:56+00:00">13:10:56</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>but yeah somehow it woudl need to control the dma + signaling</q></li>
+<li class="message">[<a href="#T13:11:04" id="T13:11:04"><abbr title="2008-11-08T13:11:04+00:00">13:11:04</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>right now I'm doing this in arm side</q></li>
+<li class="message">[<a href="#T13:11:05" id="T13:11:05"><abbr title="2008-11-08T13:11:05+00:00">13:11:05</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>however it is designed by TI</q></li>
+<li class="message">[<a href="#T13:11:11" id="T13:11:11"><abbr title="2008-11-08T13:11:11+00:00">13:11:11</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>DSPProcessor_FlushMemory (buffer-&gt;handle, buffer-&gt;data, buffer-&gt;size, 0);</q></li>
+<li class="message">[<a href="#T13:11:19" id="T13:11:19"><abbr title="2008-11-08T13:11:19+00:00">13:11:19</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>DSPProcessor_InvalidateMemory (buffer-&gt;handle, buffer-&gt;data, buffer-&gt;size);</q></li>
+<li class="message">[<a href="#T13:11:58" id="T13:11:58"><abbr title="2008-11-08T13:11:58+00:00">13:11:58</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>and in dsp side</q></li>
+<li class="message">[<a href="#T13:12:05" id="T13:12:05"><abbr title="2008-11-08T13:12:05+00:00">13:12:05</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>BCACHE_inv (input, size, 1);</q></li>
+<li class="message">[<a href="#T13:12:12" id="T13:12:12"><abbr title="2008-11-08T13:12:12+00:00">13:12:12</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>BCACHE_wbInv (output, size, 1);</q></li>
+<li class="message">[<a href="#T13:12:35" id="T13:12:35"><abbr title="2008-11-08T13:12:35+00:00">13:12:35</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T13:12:54" id="T13:12:54"><abbr title="2008-11-08T13:12:54+00:00">13:12:54</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>yeah but this is the thing... you are pushing the data from the cpu afaik with FlushMemory</q></li>
+<li class="message">[<a href="#T13:13:04" id="T13:13:04"><abbr title="2008-11-08T13:13:04+00:00">13:13:04</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>as the header says</q></li>
+<li class="message">[<a href="#T13:14:24" id="T13:14:24"><abbr title="2008-11-08T13:14:24+00:00">13:14:24</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: yeap</q></li>
+<li class="message">[<a href="#T13:14:32" id="T13:14:32"><abbr title="2008-11-08T13:14:32+00:00">13:14:32</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>just checking your library</q></li>
+<li class="message">[<a href="#T13:14:45" id="T13:14:45"><abbr title="2008-11-08T13:14:45+00:00">13:14:45</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: I think the put the wrong strmcopy_dyn.c in the package</q></li>
+<li class="message">[<a href="#T13:14:53" id="T13:14:53"><abbr title="2008-11-08T13:14:53+00:00">13:14:53</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>hmm well anyways</q></li>
+<li class="message">[<a href="#T13:15:00" id="T13:15:00"><abbr title="2008-11-08T13:15:00+00:00">13:15:00</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>             if (pAttrIn-&gt;lMode == STRMMODE_LDMA) {</q></li>
+<li class="message">[<abbr title="2008-11-08T13:15:00+00:00">13:15:00</abbr>] &lt;<cite>wiking</cite>&gt; <q>                        /* No System-DMA support */</q></li>
+<li class="message">[<abbr title="2008-11-08T13:15:00+00:00">13:15:00</abbr>] &lt;<cite>wiking</cite>&gt; <q>                        status = DSP_ENOTIMPL;</q></li>
+<li class="message">[<a href="#T13:15:01" id="T13:15:01"><abbr title="2008-11-08T13:15:01+00:00">13:15:01</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>:))</q></li>
+<li class="message">[<a href="#T13:15:05" id="T13:15:05"><abbr title="2008-11-08T13:15:05+00:00">13:15:05</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T13:15:09" id="T13:15:09"><abbr title="2008-11-08T13:15:09+00:00">13:15:09</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>lemme dig</q></li>
+<li class="message">[<a href="#T13:16:10" id="T13:16:10"><abbr title="2008-11-08T13:16:10+00:00">13:16:10</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>ah, no, it's in strcopyExecute.c</q></li>
+<li class="message">[<a href="#T13:16:20" id="T13:16:20"><abbr title="2008-11-08T13:16:20+00:00">13:16:20</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>the dsp code is different too</q></li>
+<li class="message">[<a href="#T13:17:45" id="T13:17:45"><abbr title="2008-11-08T13:17:45+00:00">13:17:45</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>hmm i'm checking samples/dsp/dpdma.c</q></li>
+<li class="message">[<a href="#T13:18:54" id="T13:18:54"><abbr title="2008-11-08T13:18:54+00:00">13:18:54</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: that doesn't communicate with arm</q></li>
+<li class="message">[<a href="#T13:19:04" id="T13:19:04"><abbr title="2008-11-08T13:19:04+00:00">13:19:04</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>yeah i seee that it's with two dsps</q></li>
+<li class="message">[<a href="#T13:20:08" id="T13:20:08"><abbr title="2008-11-08T13:20:08+00:00">13:20:08</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>dsp tasks</q></li>
+<li class="quit">[<a href="#T13:21:09" id="T13:21:09"><abbr title="2008-11-08T13:21:09+00:00">13:21:09</abbr></a>] <span>* abitos (n=nixgibts@dslb-084-057-198-203.pools.arcor-ip.net) Quit (Nick collision from services.)</span></li>
+<li class="join">[<a href="#T13:21:25" id="T13:21:25"><abbr title="2008-11-08T13:21:25+00:00">13:21:25</abbr></a>] <span>* abitos (n=nixgibts@dslb-084-057-201-214.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T13:29:22" id="T13:29:22"><abbr title="2008-11-08T13:29:22+00:00">13:29:22</abbr></a>] <span>* FuL|OUT is now known as fulgas</span></li>
+<li class="nick-change">[<a href="#T13:29:30" id="T13:29:30"><abbr title="2008-11-08T13:29:30+00:00">13:29:30</abbr></a>] <span>* fulgas is now known as FuL|OUT</span></li>
+<li class="message">[<a href="#T13:35:14" id="T13:35:14"><abbr title="2008-11-08T13:35:14+00:00">13:35:14</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>wooooo</q></li>
+<li class="message">[<a href="#T13:35:19" id="T13:35:19"><abbr title="2008-11-08T13:35:19+00:00">13:35:19</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>strange segfaults</q></li>
+<li class="message">[<a href="#T13:38:03" id="T13:38:03"><abbr title="2008-11-08T13:38:03+00:00">13:38:03</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T13:38:11" id="T13:38:11"><abbr title="2008-11-08T13:38:11+00:00">13:38:11</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>bridgedriver is dying</q></li>
+<li class="join">[<a href="#T13:42:58" id="T13:42:58"><abbr title="2008-11-08T13:42:58+00:00">13:42:58</abbr></a>] <span>* fulgas266 (n=fn@a83-132-158-61.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T13:43:10" id="T13:43:10"><abbr title="2008-11-08T13:43:10+00:00">13:43:10</abbr></a>] <span>* fulgas266 is now known as fulgas</span></li>
+<li class="quit">[<a href="#T13:54:34" id="T13:54:34"><abbr title="2008-11-08T13:54:34+00:00">13:54:34</abbr></a>] <span>* FuL|OUT (n=fn@a83-132-158-61.cpe.netcabo.pt) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T13:54:58" id="T13:54:58"><abbr title="2008-11-08T13:54:58+00:00">13:54:58</abbr></a>] &lt;<cite>wiking</cite>&gt; <q>felipec, seems ioctl does not recognize this command</q></li>
+<li class="message">[<a href="#T13:55:35" id="T13:55:35"><abbr title="2008-11-08T13:55:35+00:00">13:55:35</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>wiking: weird</q></li>
+<li class="join">[<a href="#T13:59:23" id="T13:59:23"><abbr title="2008-11-08T13:59:23+00:00">13:59:23</abbr></a>] <span>* emeb (n=ericb@ip72-223-95-46.ph.ph.cox.net) has joined #beagle</span></li>
