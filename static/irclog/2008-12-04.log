@@ -52,3 +52,62 @@
 <li class="join">[<a href="#T01:52:37" id="T01:52:37"><abbr title="2008-12-04T01:52:37+00:00">01:52:37</abbr></a>] <span>* khasim (n=a0393720@192.163.20.231) has joined #beagle</span></li>
 <li class="quit">[<a href="#T01:58:08" id="T01:58:08"><abbr title="2008-12-04T01:58:08+00:00">01:58:08</abbr></a>] <span>* DJWillis (n=djwillis@82-46-19-72.cable.ubr02.bath.blueyonder.co.uk) Quit (Read error: 110 (Connection timed out))</span></li>
 <li class="join">[<a href="#T01:58:22" id="T01:58:22"><abbr title="2008-12-04T01:58:22+00:00">01:58:22</abbr></a>] <span>* rsalveti (n=salveti@189.70.53.119) has joined #beagle</span></li>
+<li class="join">[<a href="#T02:06:48" id="T02:06:48"><abbr title="2008-12-04T02:06:48+00:00">02:06:48</abbr></a>] <span>* Wowbagger_ (n=wowbagge@d154-20-138-76.bchsia.telus.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T02:20:24" id="T02:20:24"><abbr title="2008-12-04T02:20:24+00:00">02:20:24</abbr></a>] <span>* emeb (n=ericb@ip72-223-90-212.ph.ph.cox.net) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T02:28:05" id="T02:28:05"><abbr title="2008-12-04T02:28:05+00:00">02:28:05</abbr></a>] <span>* macneib (n=macneib@70.29.45.147) has joined #beagle</span></li>
+<li class="message">[<a href="#T02:31:32" id="T02:31:32"><abbr title="2008-12-04T02:31:32+00:00">02:31:32</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: can I run the main card at 1.8v so I can test if it works before I stick level translators in place?</q></li>
+<li class="message">[<a href="#T02:34:22" id="T02:34:22"><abbr title="2008-12-04T02:34:22+00:00">02:34:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: what do you mean? why would you need to add stuff for a working slot?</q></li>
+<li class="quit">[<a href="#T02:37:47" id="T02:37:47"><abbr title="2008-12-04T02:37:47+00:00">02:37:47</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) Quit ()</span></li>
+<li class="quit">[<a href="#T02:39:40" id="T02:39:40"><abbr title="2008-12-04T02:39:40+00:00">02:39:40</abbr></a>] <span>* macneib (n=macneib@70.29.45.147) Quit ()</span></li>
+<li class="message">[<a href="#T02:44:42" id="T02:44:42"><abbr title="2008-12-04T02:44:42+00:00">02:44:42</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: I want to add a second card slot</q></li>
+<li class="message">[<a href="#T02:45:10" id="T02:45:10"><abbr title="2008-12-04T02:45:10+00:00">02:45:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you should be able to run rs-mmc's at 1.8V </q></li>
+<li class="message">[<a href="#T02:45:24" id="T02:45:24"><abbr title="2008-12-04T02:45:24+00:00">02:45:24</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I have sdhc 16gb </q></li>
+<li class="quit">[<a href="#T02:45:48" id="T02:45:48"><abbr title="2008-12-04T02:45:48+00:00">02:45:48</abbr></a>] <span>* macneib1 (n=macneib@70.29.45.147) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T02:45:50" id="T02:45:50"><abbr title="2008-12-04T02:45:50+00:00">02:45:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>check to specs to see if the SDHC cards are spec'ed for 1.8V</q></li>
+<li class="message">[<a href="#T02:46:07" id="T02:46:07"><abbr title="2008-12-04T02:46:07+00:00">02:46:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or turn on the info frm the mmc driver and see if the card claims it is 1.8V capable</q></li>
+<li class="message">[<a href="#T02:46:29" id="T02:46:29"><abbr title="2008-12-04T02:46:29+00:00">02:46:29</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>not sure how to do that</q></li>
+<li class="message">[<a href="#T02:46:36" id="T02:46:36"><abbr title="2008-12-04T02:46:36+00:00">02:46:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the way it works is - card insert, driver probes card, driver adjust voltage based on card, and then proceeds on</q></li>
+<li class="message">[<a href="#T02:46:55" id="T02:46:55"><abbr title="2008-12-04T02:46:55+00:00">02:46:55</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>to save power consumption?</q></li>
+<li class="message">[<a href="#T02:47:06" id="T02:47:06"><abbr title="2008-12-04T02:47:06+00:00">02:47:06</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>it seems like it would be easier to just use a translator so it runs at 3.3</q></li>
+<li class="message">[<a href="#T02:47:13" id="T02:47:13"><abbr title="2008-12-04T02:47:13+00:00">02:47:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T02:47:17" id="T02:47:17"><abbr title="2008-12-04T02:47:17+00:00">02:47:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you can do that</q></li>
+<li class="message">[<a href="#T02:47:27" id="T02:47:27"><abbr title="2008-12-04T02:47:27+00:00">02:47:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there are call backs to set the voltage</q></li>
+<li class="message">[<a href="#T02:47:38" id="T02:47:38"><abbr title="2008-12-04T02:47:38+00:00">02:47:38</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>will the secondary slot run at the same speed as the primary?</q></li>
+<li class="message">[<a href="#T02:47:48" id="T02:47:48"><abbr title="2008-12-04T02:47:48+00:00">02:47:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>for the existing slot, look in mmc-twl4030 in arch/arm/mach-omap2</q></li>
+<li class="message">[<a href="#T02:48:01" id="T02:48:01"><abbr title="2008-12-04T02:48:01+00:00">02:48:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I think so, but not sure</q></li>
+<li class="message">[<a href="#T02:48:20" id="T02:48:20"><abbr title="2008-12-04T02:48:20+00:00">02:48:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the only platform that I know has a working second slot is a 2420 based N800</q></li>
+<li class="message">[<a href="#T02:48:26" id="T02:48:26"><abbr title="2008-12-04T02:48:26+00:00">02:48:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>never tried the second slot on the SDP</q></li>
+<li class="message">[<a href="#T02:48:51" id="T02:48:51"><abbr title="2008-12-04T02:48:51+00:00">02:48:51</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>the pandora?</q></li>
+<li class="message">[<a href="#T02:49:05" id="T02:49:05"><abbr title="2008-12-04T02:49:05+00:00">02:49:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>don't have a pandora on hand =)</q></li>
+<li class="message">[<a href="#T02:49:49" id="T02:49:49"><abbr title="2008-12-04T02:49:49+00:00">02:49:49</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I could ask someone who does</q></li>
+<li class="message">[<a href="#T02:50:24" id="T02:50:24"><abbr title="2008-12-04T02:50:24+00:00">02:50:24</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>anyway, I can't find mmc-twl4030</q></li>
+<li class="message">[<a href="#T02:50:48" id="T02:50:48"><abbr title="2008-12-04T02:50:48+00:00">02:50:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>are you using top of the tree?</q></li>
+<li class="message">[<a href="#T02:51:02" id="T02:51:02"><abbr title="2008-12-04T02:51:02+00:00">02:51:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>for older kernels, I think it is split between hsmmc and the board file</q></li>
+<li class="message">[<a href="#T02:52:00" id="T02:52:00"><abbr title="2008-12-04T02:52:00+00:00">02:52:00</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>which tree?</q></li>
+<li class="message">[<a href="#T02:52:16" id="T02:52:16"><abbr title="2008-12-04T02:52:16+00:00">02:52:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>l-o tree</q></li>
+<li class="message">[<a href="#T02:52:58" id="T02:52:58"><abbr title="2008-12-04T02:52:58+00:00">02:52:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wheeee camera is doing something</q></li>
+<li class="message">[<a href="#T02:53:06" id="T02:53:06"><abbr title="2008-12-04T02:53:06+00:00">02:53:06</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>usb camera?</q></li>
+<li class="message">[<a href="#T02:53:10" id="T02:53:10"><abbr title="2008-12-04T02:53:10+00:00">02:53:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T02:53:54" id="T02:53:54"><abbr title="2008-12-04T02:53:54+00:00">02:53:54</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I want to mount an IR camera on my head and wear a head mounted display</q></li>
+<li class="message">[<a href="#T02:54:11" id="T02:54:11"><abbr title="2008-12-04T02:54:11+00:00">02:54:11</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>like the predator</q></li>
+<li class="message">[<abbr title="2008-12-04T02:54:11+00:00">02:54:11</abbr>] &lt;<cite>ds2</cite>&gt; <q>poorman's NV?</q></li>
+<li class="message">[<a href="#T02:54:20" id="T02:54:20"><abbr title="2008-12-04T02:54:20+00:00">02:54:20</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>nv?</q></li>
+<li class="message">[<a href="#T02:54:27" id="T02:54:27"><abbr title="2008-12-04T02:54:27+00:00">02:54:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>night vision</q></li>
+<li class="message">[<a href="#T02:54:59" id="T02:54:59"><abbr title="2008-12-04T02:54:59+00:00">02:54:59</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T02:55:11" id="T02:55:11"><abbr title="2008-12-04T02:55:11+00:00">02:55:11</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>well it's very versitile</q></li>
+<li class="message">[<a href="#T02:56:03" id="T02:56:03"><abbr title="2008-12-04T02:56:03+00:00">02:56:03</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>they are making displays that can become transparent so you see through them too</q></li>
+<li class="message">[<a href="#T02:56:12" id="T02:56:12"><abbr title="2008-12-04T02:56:12+00:00">02:56:12</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>that would be better than using a camera</q></li>
+<li class="message">[<a href="#T02:56:14" id="T02:56:14"><abbr title="2008-12-04T02:56:14+00:00">02:56:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is a lag in the updates and that comes a tripping hazard ;)</q></li>
+<li class="message">[<a href="#T02:56:23" id="T02:56:23"><abbr title="2008-12-04T02:56:23+00:00">02:56:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and no, I will not comment on how i know that ;)</q></li>
+<li class="message">[<a href="#T02:56:34" id="T02:56:34"><abbr title="2008-12-04T02:56:34+00:00">02:56:34</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T02:56:49" id="T02:56:49"><abbr title="2008-12-04T02:56:49+00:00">02:56:49</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I'm about to try it right now.. I have a webcame and a head mounted display</q></li>
+<li class="message">[<a href="#T02:57:01" id="T02:57:01"><abbr title="2008-12-04T02:57:01+00:00">02:57:01</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>only problem is the display is vga so I can't use the beagle</q></li>
+<li class="message">[<a href="#T02:57:21" id="T02:57:21"><abbr title="2008-12-04T02:57:21+00:00">02:57:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that's the nice thing about an NTSC camera + NTSC HMD ;)</q></li>
+<li class="message">[<a href="#T02:57:44" id="T02:57:44"><abbr title="2008-12-04T02:57:44+00:00">02:57:44</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>if you had hardware acceleration, you could do incredible effects</q></li>
+<li class="message">[<a href="#T02:58:30" id="T02:58:30"><abbr title="2008-12-04T02:58:30+00:00">02:58:30</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>especially if you used stereo</q></li>
+<li class="message">[<a href="#T02:58:31" id="T02:58:31"><abbr title="2008-12-04T02:58:31+00:00">02:58:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T02:58:40" id="T02:58:40"><abbr title="2008-12-04T02:58:40+00:00">02:58:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>i much rather have a monocular display</q></li>
+<li class="message">[<a href="#T02:58:45" id="T02:58:45"><abbr title="2008-12-04T02:58:45+00:00">02:58:45</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>with enough processing power, you could have the computer map the world in 3d</q></li>
+<li class="message">[<a href="#T02:58:50" id="T02:58:50"><abbr title="2008-12-04T02:58:50+00:00">02:58:50</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>then insert things there that aren't.. </q></li>
+<li class="message">[<a href="#T02:59:06" id="T02:59:06"><abbr title="2008-12-04T02:59:06+00:00">02:59:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>green screen rooms!</q></li>
+<li class="message">[<a href="#T02:59:08" id="T02:59:08"><abbr title="2008-12-04T02:59:08+00:00">02:59:08</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>it would appeal to people who like to see hallucinations</q></li>
