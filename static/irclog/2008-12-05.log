@@ -621,3 +621,53 @@
 <li class="quit">[<a href="#T18:58:34" id="T18:58:34"><abbr title="2008-12-05T18:58:34+00:00">18:58:34</abbr></a>] <span>* tulpe (n=ask@p54AF422F.dip.t-dialin.net) Quit (Read error: 110 (Connection timed out))</span></li>
 <li class="join">[<a href="#T18:58:38" id="T18:58:38"><abbr title="2008-12-05T18:58:38+00:00">18:58:38</abbr></a>] <span>* tulpe (n=ask@p54AF4A7B.dip.t-dialin.net) has joined #beagle</span></li>
 <li class="message">[<a href="#T18:58:47" id="T18:58:47"><abbr title="2008-12-05T18:58:47+00:00">18:58:47</abbr></a>] &lt;<cite>gcohler</cite>&gt; <q>sakoman:  Understood.  I'm not sure why it fails, but the uboot on demo/beagleboard fails.  So that's exactly what I'm seeing.</q></li>
+<li class="message">[<a href="#T19:00:33" id="T19:00:33"><abbr title="2008-12-05T19:00:33+00:00">19:00:33</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>mru, balrog will do it when he has time</q></li>
+<li class="message">[<a href="#T19:00:48" id="T19:00:48"><abbr title="2008-12-05T19:00:48+00:00">19:00:48</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>even though he's not ARM maintainer</q></li>
+<li class="message">[<a href="#T19:01:00" id="T19:01:00"><abbr title="2008-12-05T19:01:00+00:00">19:01:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>can't someone else just apply the patches?</q></li>
+<li class="message">[<a href="#T19:02:01" id="T19:02:01"><abbr title="2008-12-05T19:02:01+00:00">19:02:01</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>I don't know, I remember posting a patch for a missing break in a switch that never got applied</q></li>
+<li class="message">[<a href="#T19:02:15" id="T19:02:15"><abbr title="2008-12-05T19:02:15+00:00">19:02:15</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>any committer could see it was OK</q></li>
+<li class="message">[<a href="#T19:03:19" id="T19:03:19"><abbr title="2008-12-05T19:03:19+00:00">19:03:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>can qemu be built with a gcc from this decade now?</q></li>
+<li class="message">[<a href="#T19:03:28" id="T19:03:28"><abbr title="2008-12-05T19:03:28+00:00">19:03:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T19:03:40" id="T19:03:40"><abbr title="2008-12-05T19:03:40+00:00">19:03:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and does it actually work?</q></li>
+<li class="message">[<a href="#T19:03:45" id="T19:03:45"><abbr title="2008-12-05T19:03:45+00:00">19:03:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T19:03:53" id="T19:03:53"><abbr title="2008-12-05T19:03:53+00:00">19:03:53</abbr></a>] &lt;<cite>koen</cite>&gt; <q>last I tried to built it with gcc4 it went up in flames</q></li>
+<li class="message">[<a href="#T19:04:01" id="T19:04:01"><abbr title="2008-12-05T19:04:01+00:00">19:04:01</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>use svn version</q></li>
+<li class="message">[<a href="#T19:04:17" id="T19:04:17"><abbr title="2008-12-05T19:04:17+00:00">19:04:17</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>only powerpc still requires gcc3 but that should be sorted out this weekend</q></li>
+<li class="message">[<a href="#T19:04:25" id="T19:04:25"><abbr title="2008-12-05T19:04:25+00:00">19:04:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>great</q></li>
+<li class="message">[<a href="#T19:04:32" id="T19:04:32"><abbr title="2008-12-05T19:04:32+00:00">19:04:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>finally x86 emulation for beagle :)</q></li>
+<li class="message">[<a href="#T19:04:47" id="T19:04:47"><abbr title="2008-12-05T19:04:47+00:00">19:04:47</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>hum don't put your hopes too high</q></li>
+<li class="message">[<abbr title="2008-12-05T19:04:47+00:00">19:04:47</abbr>] &lt;<cite>mru</cite>&gt; <q>you might have to disable randomize_va_space</q></li>
+<li class="message">[<a href="#T19:04:58" id="T19:04:58"><abbr title="2008-12-05T19:04:58+00:00">19:04:58</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>the ARM backend is not very well tested</q></li>
+<li class="message">[<a href="#T19:05:03" id="T19:05:03"><abbr title="2008-12-05T19:05:03+00:00">19:05:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that is /proc/sys/kernel/randomize_va_space</q></li>
+<li class="message">[<a href="#T19:05:24" id="T19:05:24"><abbr title="2008-12-05T19:05:24+00:00">19:05:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it randomly fails to run ffmpeg with that enabled</q></li>
+<li class="message">[<a href="#T19:06:54" id="T19:06:54"><abbr title="2008-12-05T19:06:54+00:00">19:06:54</abbr></a>] &lt;<cite>bkero</cite>&gt; <q>Why would you want to emulate x86?</q></li>
+<li class="message">[<a href="#T19:08:21" id="T19:08:21"><abbr title="2008-12-05T19:08:21+00:00">19:08:21</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>bkero, because it can be done :)</q></li>
+<li class="message">[<a href="#T19:08:53" id="T19:08:53"><abbr title="2008-12-05T19:08:53+00:00">19:08:53</abbr></a>] &lt;<cite>bkero</cite>&gt; <q>You could also emulate 68k on it :P</q></li>
+<li class="message">[<a href="#T19:09:01" id="T19:09:01"><abbr title="2008-12-05T19:09:01+00:00">19:09:01</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>perhaps also to run plugins in your browser (though that'd require some serious hacking)</q></li>
+<li class="message">[<a href="#T19:09:17" id="T19:09:17"><abbr title="2008-12-05T19:09:17+00:00">19:09:17</abbr></a>] &lt;<cite>ldesnogu_</cite>&gt; <q>qemu has coldfire :)</q></li>
+<li class="message">[<a href="#T19:09:24" id="T19:09:24"><abbr title="2008-12-05T19:09:24+00:00">19:09:24</abbr></a>] &lt;<cite>bkero</cite>&gt; <q>gnash :P</q></li>
+<li class="join">[<a href="#T19:13:35" id="T19:13:35"><abbr title="2008-12-05T19:13:35+00:00">19:13:35</abbr></a>] <span>* valhalla (n=valhalla@81-174-21-31.dynamic.ngi.it) has joined #beagle</span></li>
+<li class="part">[<a href="#T19:16:39" id="T19:16:39"><abbr title="2008-12-05T19:16:39+00:00">19:16:39</abbr></a>] <span>* dirk2 (n=dirk@p5B0430C6.dip0.t-ipconnect.de) has left #beagle</span></li>
+<li class="quit">[<a href="#T19:23:53" id="T19:23:53"><abbr title="2008-12-05T19:23:53+00:00">19:23:53</abbr></a>] <span>* bazbel1 (n=a0192809@nat/ti/x-20e10ef30c54ad66) Quit ("Leaving.")</span></li>
+<li class="quit">[<a href="#T19:28:17" id="T19:28:17"><abbr title="2008-12-05T19:28:17+00:00">19:28:17</abbr></a>] <span>* tulpe (n=ask@p54AF4A7B.dip.t-dialin.net) Quit (Read error: 145 (Connection timed out))</span></li>
+<li class="join">[<a href="#T19:28:37" id="T19:28:37"><abbr title="2008-12-05T19:28:37+00:00">19:28:37</abbr></a>] <span>* tulpe (n=ask@p54AF6054.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T19:29:47" id="T19:29:47"><abbr title="2008-12-05T19:29:47+00:00">19:29:47</abbr></a>] <span>* pk87 (n=Marlies@DSL01.83.171.171.120.ip-pool.NEFkom.net) has joined #beagle</span></li>
+<li class="part">[<a href="#T19:30:35" id="T19:30:35"><abbr title="2008-12-05T19:30:35+00:00">19:30:35</abbr></a>] <span>* pk87 (n=Marlies@DSL01.83.171.171.120.ip-pool.NEFkom.net) has left #beagle</span></li>
+<li class="join">[<a href="#T19:30:40" id="T19:30:40"><abbr title="2008-12-05T19:30:40+00:00">19:30:40</abbr></a>] <span>* jkridner|work (n=a0321898@nat/ti/x-4e0c4a175a23ee6a) has joined #beagle</span></li>
+<li class="join">[<a href="#T19:33:09" id="T19:33:09"><abbr title="2008-12-05T19:33:09+00:00">19:33:09</abbr></a>] <span>* alecrim (n=alecrim@189.2.128.130) has joined #beagle</span></li>
+<li class="quit">[<a href="#T19:34:48" id="T19:34:48"><abbr title="2008-12-05T19:34:48+00:00">19:34:48</abbr></a>] <span>* nemequ (n=nemequ@ip68-111-215-155.sd.sd.cox.net) Quit ("Ex-Chat")</span></li>
+<li class="join">[<a href="#T19:35:48" id="T19:35:48"><abbr title="2008-12-05T19:35:48+00:00">19:35:48</abbr></a>] <span>* Fl1pFl0p (n=flipflop@146.244.179.183) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:42:13" id="T19:42:13"><abbr title="2008-12-05T19:42:13+00:00">19:42:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>anyone priced out the CPU module on the EVM?</q></li>
+<li class="join">[<a href="#T19:45:51" id="T19:45:51"><abbr title="2008-12-05T19:45:51+00:00">19:45:51</abbr></a>] <span>* hli (i=chaton@vig91-2-82-232-97-149.fbx.proxad.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:46:42" id="T19:46:42"><abbr title="2008-12-05T19:46:42+00:00">19:46:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>n/m....650 BAH</q></li>
+<li class="message">[<a href="#T19:47:33" id="T19:47:33"><abbr title="2008-12-05T19:47:33+00:00">19:47:33</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>650 BAH?</q></li>
+<li class="message">[<a href="#T19:48:08" id="T19:48:08"><abbr title="2008-12-05T19:48:08+00:00">19:48:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>$650!!, Bah!</q></li>
+<li class="quit">[<a href="#T19:48:21" id="T19:48:21"><abbr title="2008-12-05T19:48:21+00:00">19:48:21</abbr></a>] <span>* ceyusa (n=ceyusa@cm216016.red83-165.mundo-r.com) Quit ("Ex-Chat")</span></li>
+<li class="message">[<a href="#T19:48:24" id="T19:48:24"><abbr title="2008-12-05T19:48:24+00:00">19:48:24</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T19:48:25" id="T19:48:25"><abbr title="2008-12-05T19:48:25+00:00">19:48:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>better with punctuation? =)</q></li>
+<li class="message">[<a href="#T19:51:19" id="T19:51:19"><abbr title="2008-12-05T19:51:19+00:00">19:51:19</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T19:51:43" id="T19:51:43"><abbr title="2008-12-05T19:51:43+00:00">19:51:43</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: that the one from logicpd?</q></li>
+<li class="message">[<a href="#T19:51:55" id="T19:51:55"><abbr title="2008-12-05T19:51:55+00:00">19:51:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I thought the dollar had dropped to the point that it was renamed as the bah</q></li>
+<li class="message">[<a href="#T19:51:56" id="T19:51:56"><abbr title="2008-12-05T19:51:56+00:00">19:51:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: no, minstral</q></li>
+<li class="message">[<a href="#T19:52:11" id="T19:52:11"><abbr title="2008-12-05T19:52:11+00:00">19:52:11</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ahh</q></li>
+<li class="message">[<a href="#T19:52:38" id="T19:52:38"><abbr title="2008-12-05T19:52:38+00:00">19:52:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>remembered the module on the EVM was removeable so thought I'd look it up</q></li>
