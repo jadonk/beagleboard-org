@@ -23,7 +23,7 @@
     <p>
      Timestamps are in UTC.
     </p>
-    <ol class="log">
+    <ol id="log">
     
 <?php
         readfile($date . ".log");
