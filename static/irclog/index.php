@@ -5,13 +5,21 @@
 
     $date = $_GET['date'];
     if (isset($date) && preg_match("/^\d\d\d\d-\d\d-\d\d$/", $date)) {
+      $log_date = new DateTime($date);
+      $log_date->modify("-1 day");
+      $previous_log = $log_date->format("Y-m-d");
+      $log_date->modify("+2 days");
+      $next_log = $log_date->format("Y-m-d");
 ?>
 
-    <div>
-     <a href="./">Index</a>
-    </div>
+    <h1>IRC Log for <?php echo($date); ?></h1>
 
-    <h2>IRC Log for <?php echo($date); ?></h2>
+    <ul id="navigation">
+     <li><a href="/irclogs/index.php">Index</a></li>
+     <li><a rel="previous" href="/irclogs/index.php?date=<?php echo($previous_log); ?>"><?php echo($previous_log); ?></a></li>
+     <li><a rel="next" href="/irclogs/index.php?date=<?php echo($next_log); ?>"><?php echo($next_log); ?></a></li>
+    </ul>
+
     <p>
      Timestamps are in UTC.
     </p>
