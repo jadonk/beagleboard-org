@@ -1,0 +1,368 @@
+LogBot 0.1.0: Patches for mflogbot (2005-11-16)
+
+SUMMARY
+
+        This patch reflects the the changes to LogBot made
+	for "mflogbot".
+        The latest version can be found on 
+        http://rbach.priv.at/Patches/
+	
+AUTHOR
+
+        Robert Bachmann <http://rbach.priv.at/>
+
+APPLY THE PATCH
+ 
+        wget http://www.jibble.org/files/LogBot-0.1.0.zip
+        unzip LogBot-0.1.0.zip
+        wget http://rbach.priv.at/Patches/LogBot-20051116.diff
+        patch -p0 < LogBot-20051116.diff
+        cd org/jibble/logbot
+	javac -classpath .:../../../lib/pircbot.jar LogBot.java LogBotMain.java
+
+NOTES
+
+        (added 2005-11-22)
+
+	The latest source code of mflogbot can be found on
+	http://rbach.priv.at/Microformats-IRC/Source/
+
+--- org/jibble/logbot/LogBot.java	2004-05-28 19:17:24.000000000 +0200
++++ org/jibble/logbot/LogBot.java	2005-11-16 19:29:01.741245152 +0100
+@@ -10,40 +10,88 @@
+ 
+     private static final Pattern urlPattern = Pattern.compile("(?i:\\b((http|https|ftp|irc)://[^\\s]+))");
+     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+-    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("H:mm");
+-    
+-    public static final String GREEN = "irc-green";
+-    public static final String BLACK = "irc-black";
+-    public static final String BROWN = "irc-brown";
+-    public static final String NAVY = "irc-navy";
+-    public static final String BRICK = "irc-brick";
+-    public static final String RED = "irc-red";
++    private static final SimpleDateFormat LINKTIME_FORMAT = new SimpleDateFormat("'T'HH:mm:ss");
++    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat
++     ("'<abbr title=\"'yyyy-MM-dd'T'HH:mm:ss'+00:00\">'HH:mm:ss'</abbr>'" );
++    
++    public static final int ACTION       = 0;
++    public static final int JOIN         = 1;
++    public static final int KICK         = 2;
++    public static final int MESSAGE      = 3;
++    public static final int MODE         = 4;
++    public static final int NICK         = 5;
++    public static final int NOTICE       = 6;
++    public static final int PART         = 7;
++    public static final int QUIT         = 8;
++    public static final int TOPIC        = 9;
++    public static final int TOPIC_CHANGE = 10;
+     
++    private String old_linktime = ""; /* this should be local to append() */
++
+     public LogBot(String name, File outDir, String joinMessage) {
+         setName(name);
+         setVerbose(true);
+         this.outDir = outDir;
+         this.joinMessage = joinMessage;
++	DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC")); 
++	TIME_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC")); 
++	LINKTIME_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC")); 
+     }
+-    
+-    public void append(String color, String line) {
++
++    public void append(int type, String line, String s) {
+         line = Colors.removeFormattingAndColors(line);
+         
+         line = line.replaceAll("&", "&amp;");
+         line = line.replaceAll("<", "&lt;");
+-        line = line.replaceAll(">", "&gt;");
+-        
++        line = line.replaceAll(">", "&gt;");        
++
+         Matcher matcher = urlPattern.matcher(line);
+         line = matcher.replaceAll("<a href=\"$1\">$1</a>");
+-        
+-                
++                        
+         try {
+             Date now = new Date();
+             String date = DATE_FORMAT.format(now);
+             String time = TIME_FORMAT.format(now);
++            String linktime = LINKTIME_FORMAT.format(now);
++
+             File file = new File(outDir, date + ".log");
+             BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+-            String entry = "<span class=\"irc-date\">[" + time + "]</span> <span class=\"" + color + "\">" + line + "</span><br />";
++
++	    String entry = "<li class=\"";
++
++            switch (type) {
++                case ACTION      : entry += "action"; break;
++                case JOIN        : entry += "join"; break;
++                case KICK        : entry += "kick"; break;
++                case MESSAGE     : entry += "message"; break;
++                case MODE        : entry += "mode"; break;
++                case NICK        : entry += "nick-change"; break;
++                case NOTICE      : entry += "notice"; break;
++                case PART        : entry += "part"; break;
++                case QUIT        : entry += "quit"; break;
++                case TOPIC       : entry += "topic"; break;
++                case TOPIC_CHANGE: entry += "topic topic-change"; break;
++                // no default
++            }
++
++            if (linktime.equals(old_linktime))
++                 entry += "\">[" + time;
++            else
++                 entry += "\">[<a href=\"#" + linktime + "\" id=\"" + linktime + "\">" + time + "</a>";
++
++            old_linktime = linktime;
++
++	    if (type != MESSAGE) {
++                entry += "] <span>" + line + "</span></li>";
++            } else {
++                s = Colors.removeFormattingAndColors(s);
++                s = s.replaceAll("&", "&amp;");
++                s = s.replaceAll("<", "&lt;");
++                s = s.replaceAll(">", "&gt;");        
++
++                entry += "] &lt;<cite>" + s + "</cite>&gt; <q>" + line + "</q></li>";
++            }
++
+             writer.write(entry);
+             writer.newLine();
+             writer.flush();
+@@ -55,83 +103,72 @@
+     }
+     
+     public void onAction(String sender, String login, String hostname, String target, String action) {
+-        append(BRICK, "* " + sender + " " + action);
++        append(ACTION, "* " + sender + " " + action,"");
+     }
+     
+     public void onJoin(String channel, String sender, String login, String hostname) {
+-        append(GREEN, "* " + sender + " (" + login + "@" + hostname + ") has joined " + channel);
+-        if (sender.equals(getNick())) {
+-            sendNotice(channel, joinMessage);
+-        }
+-        else {
+-            sendNotice(sender, joinMessage);
+-        }
++	append(JOIN, "* " + sender + " (" + login + "@" + hostname + ") has joined " + channel,"");
+     }
+     
+     public void onMessage(String channel, String sender, String login, String hostname, String message) {
+-        append(BLACK, "<" + sender + "> " + message);
+-        
+-        message = message.toLowerCase();
+-        if (message.startsWith(getNick().toLowerCase()) && message.indexOf("help") > 0) {
+-            sendMessage(channel, joinMessage);
+-        }
++        append(MESSAGE,message,sender);
+     }
+     
+     public void onMode(String channel, String sourceNick, String sourceLogin, String sourceHostname, String mode) {
+-        append(GREEN, "* " + sourceNick + " sets mode " + mode);
++        append(MODE, "* " + sourceNick + " sets mode " + mode,"");
+     }
+     
+     public void onNickChange(String oldNick, String login, String hostname, String newNick) {
+-        append(GREEN, "* " + oldNick + " is now known as " + newNick);
++        append(NICK, "* " + oldNick + " is now known as " + newNick,"");
+     }
+     
+     public void onNotice(String sourceNick, String sourceLogin, String sourceHostname, String target, String notice) {
+-        append(BROWN, "-" + sourceNick + "- " + notice);
++//        append(NOTICE, "-" + sourceNick + "- " + notice,"");
+     }
+     
+     public void onPart(String channel, String sender, String login, String hostname) {
+-        append(GREEN, "* " + sender + " (" + login + "@" + hostname + ") has left " + channel);
++        append(PART, "* " + sender + " (" + login + "@" + hostname + ") has left " + channel,"");
+     }
+     
+     public void onPing(String sourceNick, String sourceLogin, String sourceHostname, String target, String pingValue) {
+-        append(RED, "[" + sourceNick + " PING]");
++	;
+     }
+     
+     public void onPrivateMessage(String sender, String login, String hostname, String message) {
+-         append(BLACK, "<- *" + sender + "* " + message);
++	;
+     }
+     
+     public void onQuit(String sourceNick, String sourceLogin, String sourceHostname, String reason) {
+-        append(NAVY, "* " + sourceNick + " (" + sourceLogin + "@" + sourceHostname + ") Quit (" + reason + ")");
++        append(QUIT, "* " + sourceNick + " (" + sourceLogin + "@" + sourceHostname + ") Quit (" + reason + ")","");
+     }
+     
+     public void onTime(String sourceNick, String sourceLogin, String sourceHostname, String target) {
+-        append(RED, "[" + sourceNick + " TIME]");
++	;
+     }
+     
+     public void onTopic(String channel, String topic, String setBy, long date, boolean changed) {
+         if (changed) {
+-            append(GREEN, "* " + setBy + " changes topic to '" + topic + "'");
++            append(TOPIC_CHANGE, "* " + setBy + " changes topic to '" + topic + "'","");
+         }
+         else {
+-            append(GREEN, "* Topic is '" + topic + "'");
+-            append(GREEN, "* Set by " + setBy + " on " + new Date(date));
++            append(TOPIC, "* Topic is '" + topic + "'","");
++            append(TOPIC, "* Set by " + setBy + " on " + new Date(date),"");
+         }
+     }
+     
+     public void onVersion(String sourceNick, String sourceLogin, String sourceHostname, String target) {
+-        append(RED, "[" + sourceNick + " VERSION]");
++	;
+     }
+     
+     public void onKick(String channel, String kickerNick, String kickerLogin, String kickerHostname, String recipientNick, String reason) {
+-        append(GREEN, "* " + recipientNick + " was kicked from " + channel + " by " + kickerNick);
+-        if (recipientNick.equalsIgnoreCase(getNick())) {
++        append(KICK, "* " + recipientNick + " was kicked from " + channel + " by " + kickerNick,"");
++        /* if (recipientNick.equalsIgnoreCase(getNick())) {
+             joinChannel(channel);
+-        }
++        } */
+     }
+     
+     public void onDisconnect() {
+-        append(NAVY, "* Disconnected.");
++        // append(DISCONNECT, "* Disconnected.");
+         while (!isConnected()) {
+             try {
+                 reconnect();
+@@ -163,4 +200,4 @@
+     private File outDir;
+     private String joinMessage;
+     
+-}
+\ No newline at end of file
++}
+--- org/jibble/logbot/LogBotMain.java	2004-05-28 19:08:32.000000000 +0200
++++ org/jibble/logbot/LogBotMain.java	2005-11-16 19:32:43.962600040 +0100
+@@ -13,6 +13,7 @@
+         String server = p.getProperty("Server", "localhost");
+         String channel = p.getProperty("Channel", "#test");
+         String nick = p.getProperty("Nick", "LogBot");
++        String password = p.getProperty("Password", "");
+         String joinMessage = p.getProperty("JoinMessage", "This channel is logged.");
+         
+         File outDir = new File(p.getProperty("OutputDir", "./output/"));
+@@ -40,8 +41,8 @@
+         writer.close();
+         
+         LogBot bot = new LogBot(nick, outDir, joinMessage);
+-        bot.connect(server);
++        bot.connect(server,6667,password);
+         bot.joinChannel(channel);
+     }
+     
+-}
+\ No newline at end of file
++}
+--- html/footer.inc.php	2004-05-28 19:19:02.000000000 +0200
++++ html/footer.inc.php	2005-11-16 20:10:33.755838520 +0100
+@@ -3,7 +3,7 @@
+  <a href="irc://<?php echo($server . "/" . substr($channel, 1)); ?>"><?php echo($server); ?></a>
+  using the <a href="http://www.jibble.org/logbot/">Java IRC LogBot</a>.
+ </p>
+-
++<p>See <a href="http://microformats.org/wiki/mflogbot">http://microformats.org/wiki/mflogbot</a> for more information.</p>
+ </body>
+ 
+-</html>
+\ No newline at end of file
++</html>
+diff -u html/header.inc.php html2/header.inc.php
+--- html/header.inc.php	2004-05-28 17:13:30.000000000 +0200
++++ html2/header.inc.php	2005-11-16 20:14:56.086958128 +0100
+@@ -16,19 +16,24 @@
+ 
+ <style type="text/css">
+ body {
+-    background: #ffffff;
+     font-family: Verdana, Arial, Helvetica, sans-serif;
+     font-size: 12px;
+     color: #000000;
+ }
+-.irc-date  {font-family: Courier New, Courier, mono;}
+-.irc-green {color: #009200;}
+-.irc-black {color: #000000;}
+-.irc-brown {color: #7b0000;}
+-.irc-navy  {color: #00007b;}
+-.irc-brick {color: #9c009c;}
+-.irc-red   {color: #ff0000;}
+-}
++cite,q{font-style:normal}
++ol,li{margin:0;padding:0;}
++ol{list-style-type: disc;}
++ol.log{list-style-type:none;}
++q:before,q:after{content:""};
++cite{font-style:normal;}
++abbr{font-family: Courier New, Courier, mono; border:0;}
++.topic span, .mode span, .nick-change span, .join span {color: #009200;}
++.message {}
++.notice span {color: #7b0000;}
++.part span, .quit span {color: #00007b;}
++.action span {color: #9c009c;}
++.topic-change span {font-weight:bold;}
++.ping span {color: #ff0000;}
+ </style>
+ 
+ </head>
+--- html/index.php	2004-05-29 19:09:04.000000000 +0200
++++ html/index.php	2005-11-16 20:15:17.730667784 +0100
+@@ -7,20 +7,20 @@
+     if (isset($date) && preg_match("/^\d\d\d\d-\d\d-\d\d$/", $date)) {
+ ?>
+ 
+-    <p>
++    <div>
+      <a href="./">Index</a>
+-    </p>
++    </div>
+ 
+     <h2>IRC Log for <?php echo($date); ?></h2>
+     <p>
+-     Timestamps are in GMT/BST.
++     Timestamps are in UTC.
+     </p>
+-    <p>
++    <ol class="log">
+     
+ <?php
+         readfile($date . ".log");
+ ?>
+-    </p>
++    </ol>
+ <?php
+     }
+     else {
+@@ -34,7 +34,7 @@
+         
+         rsort($filearray);
+ ?>
+-    <ul>
++    <ol>
+ <?php
+         
+         
+@@ -45,10 +45,10 @@
+ <?php
+         }
+ ?>
+-    </ul>
++    </ol>
+ <?php
+     }
+ 
+     include("footer.inc.php");
+ 
+-?>
+\ No newline at end of file
++?>
