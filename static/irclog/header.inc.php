@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="description" content="IRC Log for <?php echo($channel); ?>" />
 <meta name="keywords" content="IRC Log for <?php echo($channel); ?>" />
-<script src="/irclogs/script.js" type="text/javascript"> </script>
+<script src="/static/irclog/script.js" type="text/javascript"> </script>
 
 <style type="text/css">
 body {
