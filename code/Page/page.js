@@ -6,10 +6,10 @@ function main_action ()
    }
   res.handlers["User"] = User();
   res.data.title = this.uri;
-  if (this.render_skin == "homepage")
+  if (this.render_skin == "homepage" || this.render_skin == "bare")
    {
     res.data.body = this.body;
-    this.renderSkin(this.render_skin);
+    renderSkin(this.render_skin);
     return;
    }
   if (this.render_skin)
@@ -29,6 +29,8 @@ function constructor(user, uri, body)
 
 function edit_action ()
  {
+  var saveEdit = false;
+
   if (!session.user || !session.user["name"])
    {
     res.redirect(root.href("login") + "?target=" + this.href());
@@ -40,10 +42,17 @@ function edit_action ()
    (
     req.data["submit"]
     && req.data["body"]
-    && this.cleanBody()
    )
    {
     this.user = "" + session.user["name"];
+    if ((this.render_skin == "bare") && (this.user == "blog.hangerhead.com"))
+     {
+      saveEdit = true;
+     }
+    else if (this.cleanBody())
+     {
+      saveEdit = true;
+     }
     var blocked_attribute = 
      {
       uri: true,
@@ -56,22 +65,25 @@ function edit_action ()
       if (!blocked_attribute[x])
        this[x] = req.data[x];
      }
-    if (this.isTransient())
+    if (saveEdit)
      {
-      this.uri = req.data["uri"];
-      app.log("Creating '" + this.uri + "'");
-      this.pseudoParent.add(this);
+      if (this.isTransient())
+       {
+        this.uri = req.data["uri"];
+        app.log("Creating '" + this.uri + "'");
+        this.pseudoParent.add(this);
+       }
+      else
+       {
+        app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
+        this.uri = req.data["uri"];
+       }
+      var runtime = Packages.java.lang.Runtime.getRuntime();
+      runtime.exec("scripts/beagle/edit.sh");
+      this.time = new Date();
+      res.redirect(this.href());
+      return;
      }
-    else
-     {
-      app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
-      this.uri = req.data["uri"];
-     }
-    var runtime = Packages.java.lang.Runtime.getRuntime();
-    runtime.exec("scripts/beagle/edit.sh");
-    this.time = new Date();
-    res.redirect(this.href());
-    return;
    }
   res.data.title = this.uri + " - edit";
   if (this.edit_skin)
