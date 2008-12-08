@@ -1,21 +1,83 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="448" name="canvas.html" prototype="Page" created="1228422694896" lastModified="1228755845646">
+  <hopobject id="448" name="canvas.html" prototype="Page" created="1228422694896" lastModified="1228755953385">
   <hop:parent idref="0" prototyperef="Root"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <beagleirclog>000000</beagleirclog>
     <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
     <uri>canvas.html</uri>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4</http_browser>
-    <time type="date">08.12.2008 11:04:05 CST</time>
+    <time type="date">08.12.2008 11:05:53 CST</time>
     <hopsession>127.0.0.192.91.75.3ut8whdro4vy</hopsession>
-    <body>
- &lt;script type=&quot;text/javascript&quot; src=&quot;http://www.google.com/friendconnect/script/friendconnect.js&quot;/&gt;
- &lt;div class=&quot;container&quot;&gt;
+    <body>&lt;html&gt;
+
+&lt;head&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+ /*
+  These styles are customizable.  
+  Provide  .canvas-gadget (the div that holds the canvas mode gadget) 
+  at least 500px width so that  the gadget has sufficient screen real estate
+*/
+body {
+  margin: 0;
+  font-family:arial, sans-serif;
+  text-align:center;
+}
+.container {
+  width:652px;
+  margin:0 auto;
+  text-align:left;
+}
+.fc-sign-in-header {
+  text-align:left;
+  font-size: 13px;
+  padding:3px 10px;
+  border-bottom:1px solid #000000;
+}
+.signin {
+  text-align:left;
+  float:right;
+  font-size: 13px;
+  height: 32px;
+}
+.go-back {
+  text-align:left;
+  margin:5px auto 15px auto;
+}
+.go-back a, .go-back a:visited {
+  font-weight:bold;
+}
+.canvas-gadget {
+  text-align:left;
+  width:650px; /* ALLOW AT LEAST 500px WIDTH*/
+  margin:10px auto 10px auto;
+  border:1px solid #cccccc;
+}
+.site-header {
+  margin-top: 10px;
+}
+.section-title {
+  font-size: 2em;
+}
+.clear {
+  clear:both;
+  font-size:1px;
+  height:1px;
+  line-height:0;
+  margin:0;
+  padding:0;
+}
+&lt;/style&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.google.com/friendconnect/script/friendconnect.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
   &lt;div class=&quot;fc-sign-in-header&quot;&gt;
-   &lt;div class=&quot;signin&quot; id=&quot;gadget-signin&quot;/&gt;
-   &lt;script type=&quot;text/javascript&quot;&gt;var skin = {};
+    &lt;!--REQUIRED SO VISITORS CAN SIGN IN--&gt;
+    &lt;div class=&quot;signin&quot; id=&quot;gadget-signin&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+    var skin = {};
     skin[&apos;BORDER_COLOR&apos;] = &apos;#cccccc&apos;;
     skin[&apos;ENDCAP_BG_COLOR&apos;] = &apos;#e0ecff&apos;;
     skin[&apos;ENDCAP_TEXT_COLOR&apos;] = &apos;#333333&apos;;
@@ -28,17 +90,25 @@
     skin[&apos;CONTENT_SECONDARY_TEXT_COLOR&apos;] = &apos;#666666&apos;;
     skin[&apos;CONTENT_HEADLINE_COLOR&apos;] = &apos;#333333&apos;;
     skin[&apos;ALIGNMENT&apos;] = &apos;right&apos;;
-    google.friendconnect.container.renderCanvasSignInGadget({&apos;id&apos;: &apos;gadget-signin&apos;}, skin);&lt;/script&gt;
-   &lt;div class=&quot;clear&quot;/&gt;
+    google.friendconnect.container.renderCanvasSignInGadget({&apos;id&apos;: &apos;gadget-signin&apos;}, skin);
+    &lt;/script&gt;
+
+    &lt;!--END REQUIRED--&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;site-header&quot;&gt;
-   &lt;span class=&quot;section-title&quot;&gt;Site Name&lt;/span&gt;
-  &lt;/div&gt;
+
+  &lt;div class=&quot;site-header&quot;&gt;&lt;span class=&quot;section-title&quot;&gt;Site Name&lt;/span&gt;&lt;/div&gt;
   &lt;div class=&quot;go-back&quot;&gt;
-   &lt;a href=&quot;javascript:google.friendconnect.container.goBackToSite();&quot;&gt;?? Return home&lt;/a&gt;
+    &lt;!--REQUIRED SO VISITORS CAN RETURN TO REFERRING PAGE--&gt;
+    &lt;a href=&quot;javascript:google.friendconnect.container.goBackToSite();&quot;&gt;
+    &amp;lsaquo;&amp;lsaquo; Return home&lt;/a&gt;
+
+    &lt;!--END REQUIRED--&gt;
   &lt;/div&gt;
-  &lt;div id=&quot;gadget-canvas&quot; class=&quot;canvas-gadget&quot;/&gt;
-  &lt;script type=&quot;text/javascript&quot;&gt;var skin = {};
+  &lt;!-- REQUIRED - THIS IS WHERE THE GADGET IS PRESENTED. ALLOW AT LEAST 500px WIDTH --&gt;
+  &lt;div id=&quot;gadget-canvas&quot; class=&quot;canvas-gadget&quot;&gt;&lt;/div&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+  var skin = {};
   skin[&apos;BORDER_COLOR&apos;] = &apos;#cccccc&apos;;
   skin[&apos;ENDCAP_BG_COLOR&apos;] = &apos;#e0ecff&apos;;
   skin[&apos;ENDCAP_TEXT_COLOR&apos;] = &apos;#333333&apos;;
@@ -50,9 +120,12 @@
   skin[&apos;CONTENT_SECONDARY_LINK_COLOR&apos;] = &apos;#7777cc&apos;;
   skin[&apos;CONTENT_SECONDARY_TEXT_COLOR&apos;] = &apos;#666666&apos;;
   skin[&apos;CONTENT_HEADLINE_COLOR&apos;] = &apos;#333333&apos;;
-  google.friendconnect.container.renderUrlCanvasGadget({&apos;id&apos;: &apos;gadget-canvas&apos;}, skin);&lt;/script&gt;
- &lt;/div&gt;
-</body>
+  google.friendconnect.container.renderUrlCanvasGadget({&apos;id&apos;: &apos;gadget-canvas&apos;}, skin);
+  &lt;/script&gt;
+  &lt;!--END REQUIRED--&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</body>
     <pseudoparent idref="0" prototyperef="Root"/>
     <render_skin>bare</render_skin>
     <http_referer>http://beagleboard.org/canvas.html/edit</http_referer>
