@@ -19,5 +19,7 @@
 
 <body>
 
-<h1><?php echo($channel); ?> IRC Log</h1>
+<h1><?php echo($channel); ?> IRC Log
+on <a href="http://beagleboard.org">BeagleBoard.org</a></h1>
+<p>Join the chat at <a href="http://beagleboard.org/chat">beagleboard.org/chat</a></p>
 
