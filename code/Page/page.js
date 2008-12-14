@@ -51,6 +51,7 @@ function edit_action ()
      }
     else if (this.cleanBody())
      {
+      this.is_xhtml = true;
       saveEdit = true;
      }
     var blocked_attribute = 
