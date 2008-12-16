@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="457" name="dojotest" prototype="Page" created="1229350459051" lastModified="1229400278075">
+  <hopobject id="457" name="dojotest" prototype="Page" created="1229350459051" lastModified="1229400361233">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,7 +9,7 @@
     <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4</http_browser>
     <uri>dojotest</uri>
-    <time type="date">15.12.2008 22:04:38 CST</time>
+    <time type="date">15.12.2008 22:06:01 CST</time>
     <hopsession>127.0.0.192.91.75.3ut8whdro4vy</hopsession>
     <body>
  Test some things with the dojo library.
@@ -31,7 +31,7 @@ dojo.require(&quot;dojox.image.SlideShow&quot;);&lt;/script&gt;
    });&lt;/script&gt;
  &lt;/button&gt;
  &lt;div dojotype=&quot;dojox.image.SlideShow&quot; id=&quot;slideshow1&quot; slideshowinterval=&quot;3&quot; imagewidth=&quot;600&quot; imageheight=&quot;300&quot; fixedheight=&quot;true&quot;&gt;titleTemplate=&quot;My title is &apos;${title}&apos;, this is image ${current} out of ${total}&quot;&lt;/div&gt;
- &lt;script&gt;images = {    identifier: &apos;title&apos;,
+ &lt;script type=&quot;text/javascript&quot;&gt;images = {    identifier: &apos;title&apos;,
    label: &apos;title&apos;,
    items: [
  {
@@ -55,8 +55,8 @@ dojo.require(&quot;dojox.image.SlideShow&quot;);&lt;/script&gt;
    &quot;link&quot;:&quot;http://beagleboard.org&quot;
  }
 ]};
-var imageItemStore = new dojo.data.ItemFileReadStore({data: images});&lt;/script&gt;
- &lt;script type=&quot;text/javascript&quot;&gt;dojo.addOnLoad(function() {
+imageItemStore = new dojo.data.ItemFileReadStore({data: images});&lt;/script&gt;
+ dojo.addOnLoad(function() {
   //Define the request, saying that 5 records should be fetched at a time, 
   //and to start at record 0
   var request= {count:5, start:0};
@@ -68,7 +68,7 @@ var imageItemStore = new dojo.data.ItemFileReadStore({data: images});&lt;/script
   //Call the setDataStore function, passing it the data store, the request object, 
   //and the name map.
   dijit.byId(&apos;slideshow1&apos;).setDataStore(imageItemStore, request, itemNameMap);
-});&lt;/script&gt;
+});
 </body>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_referer>http://beagleboard.org/dojotest/edit</http_referer>
