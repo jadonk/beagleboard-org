@@ -1,58 +1,39 @@
-if(!dojo._hasResource["dojox.rpc.JsonRPC"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dojox.rpc.JsonRPC"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dojox.rpc.JsonRPC"]){
+dojo._hasResource["dojox.rpc.JsonRPC"]=true;
 dojo.provide("dojox.rpc.JsonRPC");
-
-dojox.rpc.envelopeRegistry.register(
-	"JSON-RPC-1.0",function(str){return str == "JSON-RPC-1.0"},{
-		serialize: function(smd, method, data, options){
-			//not converted to json it self. This  will be done, if appropriate, at the 
-			//transport level
-	                var d = dojox.rpc.toOrdered(method, data);
-					d = dojox.rpc.toJson({id: this._requestId++, method: method.name, params: d});
-	
-	                return {
-	                        data: d,
-	                        contentType: 'application/json',
-	                        transport:"POST"
-	                }
-		},
-
-		deserialize: function(results){
-			var obj = dojox.rpc.resolveJson(results);
-			if (obj.error) {
-				var e = new Error(obj.error);
-				e._rpcErrorObject = obj.error;
-				return e;
-			}
-			return obj.result || true;
-		}
-	}
-);
-
-dojox.rpc.envelopeRegistry.register(
-	"JSON-RPC-1.2",function(str){return str == "JSON-RPC-1.2"},{
-		serialize: function(smd, method, data, options){
-	                var trans = method.transport || smd.transport || "POST";
-	                var d = dojox.rpc.toNamed(method, data);
-	
-			d = dojox.rpc.toJson({id: this._requestId++, method: method.name, params: data});
-	                return {
-	                        data: d,
-	                        contentType: 'application/json',
-	                        transport:"POST"
-	                }
-		},
-	
-		deserialize: function(results){
-			var obj = dojox.rpc.resolveJson(results);
-			if (obj.error) {
-				var e = new Error(obj.error.message);
-				e._rpcErrorObject = obj.error;
-				return e;
-			}
-			return obj.result || true;
-		}
-	}
-);
-
+dojo.require("dojox.rpc.Service");
+(function(){
+function jsonRpcEnvelope(_1){
+return {serialize:function(_2,_3,_4,_5){
+var d={id:this._requestId++,method:_3.name,params:_4};
+if(_1){
+d.jsonrpc=_1;
+}
+return {data:dojo.toJson(d),handleAs:"json",contentType:"application/json",transport:"POST"};
+},deserialize:function(_7){
+if("Error"==_7.name){
+_7=dojo.fromJson(_7.responseText);
+}
+if(_7.error){
+var e=new Error(_7.error.message||_7.error);
+e._rpcErrorObject=_7.error;
+return e;
+}
+return _7.result;
+}};
+};
+dojox.rpc.envelopeRegistry.register("JSON-RPC-1.0",function(_9){
+return _9=="JSON-RPC-1.0";
+},dojo.mixin({namedParams:false},jsonRpcEnvelope()));
+dojox.rpc.envelopeRegistry.register("JSON-RPC-2.0",function(_a){
+return _a=="JSON-RPC-2.0";
+},jsonRpcEnvelope("2.0"));
+})();
 }

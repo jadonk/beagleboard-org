@@ -1,42 +1,40 @@
-if(!dojo._hasResource["dojox.string.tokenize"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dojox.string.tokenize"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dojox.string.tokenize"]){
+dojo._hasResource["dojox.string.tokenize"]=true;
 dojo.provide("dojox.string.tokenize");
-
-dojox.string.tokenize = function(/*String*/ str, /*RegExp*/ re, /*Function?*/ parseDelim, /*Object?*/ instance){
-	// summary:
-	//		Split a string by a regular expression with the ability to capture the delimeters
-	// parseDelim:
-	//		Each group (excluding the 0 group) is passed as a parameter. If the function returns
-	//		a value, it's added to the list of tokens.
-	// instance:
-	//		Used as the "this" instance when calling parseDelim
-	var tokens = [];
-	var match, content, lastIndex = 0;
-	while(match = re.exec(str)){
-		content = str.slice(lastIndex, re.lastIndex - match[0].length);
-		if(content.length){
-			tokens.push(content);
-		}
-		if(parseDelim){
-			if(dojo.isOpera){
-				var copy = match.slice(0);
-				while(copy.length < match.length){
-					copy.push(null);
-				}
-				match = copy;
-			}
-			var parsed = parseDelim.apply(instance, match.slice(1).concat(tokens.length));
-			if(typeof parsed != "undefined"){
-				tokens.push(parsed);
-			}
-		}
-		lastIndex = re.lastIndex;
-	}
-	content = str.slice(lastIndex);
-	if(content.length){
-		tokens.push(content);
-	}
-	return tokens;
+dojox.string.tokenize=function(_1,re,_3,_4){
+var _5=[];
+var _6,_7,_8=0;
+while(_6=re.exec(_1)){
+_7=_1.slice(_8,re.lastIndex-_6[0].length);
+if(_7.length){
+_5.push(_7);
 }
-
+if(_3){
+if(dojo.isOpera){
+var _9=_6.slice(0);
+while(_9.length<_6.length){
+_9.push(null);
+}
+_6=_9;
+}
+var _a=_3.apply(_4,_6.slice(1).concat(_5.length));
+if(typeof _a!="undefined"){
+_5.push(_a);
+}
+}
+_8=re.lastIndex;
+}
+_7=_1.slice(_8);
+if(_7.length){
+_5.push(_7);
+}
+return _5;
+};
 }

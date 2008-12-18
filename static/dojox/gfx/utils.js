@@ -1,87 +1,84 @@
-if(!dojo._hasResource["dojox.gfx.utils"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dojox.gfx.utils"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dojox.gfx.utils"]){
+dojo._hasResource["dojox.gfx.utils"]=true;
 dojo.provide("dojox.gfx.utils");
-
 dojo.require("dojox.gfx");
-
-dojox.gfx.utils.serialize = function(
-	/* dojox.gfx.Surface || dojox.gfx.Shape */ object
-){
-	var t = {}, v, isSurface = object instanceof dojox.gfx.Surface;	
-	if(isSurface || object instanceof dojox.gfx.Group){
-		t.children = [];		
-		for(var i = 0; i < object.children.length; ++i){		
-			t.children.push(dojox.gfx.utils.serialize(object.children[i]));			
-		}		
-		if(isSurface){
-			return t.children;	// Array			
-		}		
-	}else{	
-		t.shape = object.getShape();		
-	}	
-	if(object.getTransform){	
-		v = object.getTransform();		
-		if(v){ t.transform = v; }		
-	}	
-	if(object.getStroke){	
-		v = object.getStroke();		
-		if(v){ t.stroke = v; }		
-	}	
-	if(object.getFill){	
-		v = object.getFill();		
-		if(v){ t.fill = v; }		
-	}	
-	if(object.getFont){	
-		v = object.getFont();		 
-		if(v){ t.font = v; }		
-	}	
-	return t;	// Object	
-};
-
-dojox.gfx.utils.toJson = function(
-	/* dojox.gfx.Surface || dojox.gfx.Shape */ object, 
-	/* Boolean? */ prettyPrint
-){
-	return dojo.toJson(dojox.gfx.utils.serialize(object), prettyPrint);	// String
-};
-
-dojox.gfx.utils.deserialize = function(
-	/* dojox.gfx.Surface || dojox.gfx.Shape */ parent, 
-	/* dojox.gfx.Shape || Array */ object
-){
-	if(object instanceof Array){
-		var t = [];
-		for(var i = 0; i < object.length; ++i){
-			t.push(dojox.gfx.utils.deserialize(parent, object[i]));
-		}
-		return t;	// Array
-	}
-	var shape = ("shape" in object) ? parent.createShape(object.shape) : parent.createGroup();
-	if("transform" in object){
-		shape.setTransform(object.transform);
-	}
-	if("stroke" in object){
-		shape.setStroke(object.stroke);
-	}
-	if("fill" in object){
-		shape.setFill(object.fill);
-	}
-	if("font" in object){
-		shape.setFont(object.font);
-	}
-	if("children" in object){
-		for(var i = 0; i < object.children.length; ++i){
-			dojox.gfx.utils.deserialize(shape, object.children[i]);
-		}
-	}
-	return shape;	// dojox.gfx.Shape
-};
-
-dojox.gfx.utils.fromJson = function(
-	/* dojox.gfx.Surface || dojox.gfx.Shape */ parent, 
-	/* String */ json
-){
-	return dojox.gfx.utils.deserialize(parent, dojo.fromJson(json));	// Array || dojox.gfx.Shape
-};
-
+(function(){
+var d=dojo,g=dojox.gfx,gu=g.utils;
+dojo.mixin(gu,{forEach:function(_4,f,o){
+o=o||d.global;
+f.call(o,_4);
+if(_4 instanceof g.Surface||_4 instanceof g.Group){
+d.forEach(_4.children,function(_7){
+gu.inspect(_7,f,o);
+});
+}
+},serialize:function(_8){
+var t={},v,_b=_8 instanceof g.Surface;
+if(_b||_8 instanceof g.Group){
+t.children=d.map(_8.children,gu.serialize);
+if(_b){
+return t.children;
+}
+}else{
+t.shape=_8.getShape();
+}
+if(_8.getTransform){
+v=_8.getTransform();
+if(v){
+t.transform=v;
+}
+}
+if(_8.getStroke){
+v=_8.getStroke();
+if(v){
+t.stroke=v;
+}
+}
+if(_8.getFill){
+v=_8.getFill();
+if(v){
+t.fill=v;
+}
+}
+if(_8.getFont){
+v=_8.getFont();
+if(v){
+t.font=v;
+}
+}
+return t;
+},toJson:function(_c,_d){
+return d.toJson(gu.serialize(_c),_d);
+},deserialize:function(_e,_f){
+if(_f instanceof Array){
+return d.map(_f,d.hitch(null,gu.serialize,_e));
+}
+var _10=("shape" in _f)?_e.createShape(_f.shape):_e.createGroup();
+if("transform" in _f){
+_10.setTransform(_f.transform);
+}
+if("stroke" in _f){
+_10.setStroke(_f.stroke);
+}
+if("fill" in _f){
+_10.setFill(_f.fill);
+}
+if("font" in _f){
+_10.setFont(_f.font);
+}
+if("children" in _f){
+d.forEach(_f.children,d.hitch(null,gu.deserialize,_10));
+}
+return _10;
+},fromJson:function(_11,_12){
+return gu.deserialize(_11,d.fromJson(_12));
+}});
+})();
 }

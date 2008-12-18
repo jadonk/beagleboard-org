@@ -1,80 +1,88 @@
-if(!dojo._hasResource["dojox.help.console"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dojox.help.console"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dojox.help.console"]){
+dojo._hasResource["dojox.help.console"]=true;
 dojo.provide("dojox.help.console");
 dojo.require("dojox.help._base");
-
-dojo.mixin(dojox.help, {
-	_plainText: function(str){
-		return str.replace(/(<[^>]*>|&[^;]{2,6};)/g, '');
-	},
-	_displayLocated: function(located){
-		var obj = {};
-		dojo.forEach(located, function(item){ obj[item[0]] = (+dojo.isFF) ? { toString: function(){ return "Click to view"; }, item: item[1] } : item[1]; });
-		console.dir(obj);
-	},
-	_displayHelp: function(loading, obj){
-		if(loading){
-			var message = "Help for: " + obj.name;
-			console.log(message);
-			var underline = "";
-			for(var i = 0; i < message.length; i++){
-				underline += "=";
-			}
-			console.log(underline);
-		}else if(!obj){
-			console.log("No documentation for this object");
-		}else{
-			var anything = false;
-			for(var attribute in obj){
-				var value = obj[attribute];
-				if(attribute == "returns" && obj.type != "Function" && obj.type != "Constructor"){
-					continue;
-				}
-				if(value && (!dojo.isArray(value) || value.length)){
-					anything = true;
-					console.info(attribute.toUpperCase());
-					value = dojo.isString(value) ? dojox.help._plainText(value) : value;
-					if(attribute == "returns"){
-						var returns = dojo.map(value.types || [], "return item.title;").join("|");
-						if(value.summary){
-							if(returns){
-								returns += ": ";
-							}
-							returns += dojox.help._plainText(value.summary);
-						}
-						console.log(returns || "Uknown");
-					}else if(attribute == "parameters"){
-						for(var j = 0, parameter; parameter = value[j]; j++){
-							var type = dojo.map(parameter.types, "return item.title").join("|");
-							console.log((type) ? (parameter.name + ": " + type) : parameter.name);
-							var summary = "";
-							if(parameter.optional){
-								summary += "Optional. ";
-							}
-							if(parameter.repating){
-								summary += "Repeating. ";
-							}
-							summary += dojox.help._plainText(parameter.summary);
-							if(summary){
-								summary = "  - " + summary;
-								for(var k = 0; k < parameter.name.length; k++){
-									summary = " " + summary;
-								}
-								console.log(summary);
-							}
-						}
-					}else{
-						console.log(value);
-					}
-				}
-			}
-			if(!anything){
-				console.log("No documentation for this object");
-			}
-		}
-	}
+dojo.mixin(dojox.help,{_plainText:function(_1){
+return _1.replace(/(<[^>]*>|&[^;]{2,6};)/g,"");
+},_displayLocated:function(_2){
+var _3={};
+dojo.forEach(_2,function(_4){
+_3[_4[0]]=(+dojo.isFF)?{toString:function(){
+return "Click to view";
+},item:_4[1]}:_4[1];
 });
 
-dojox.help.init();
+},_displayHelp:function(_5,_6){
+if(_5){
+var _7="Help for: "+_6.name;
 
+var _8="";
+for(var i=0;i<_7.length;i++){
+_8+="=";
+}
+
+}else{
+if(!_6){
+
+}else{
+var _a=false;
+for(var _b in _6){
+var _c=_6[_b];
+if(_b=="returns"&&_6.type!="Function"&&_6.type!="Constructor"){
+continue;
+}
+if(_c&&(!dojo.isArray(_c)||_c.length)){
+_a=true;
+
+_c=dojo.isString(_c)?dojox.help._plainText(_c):_c;
+if(_b=="returns"){
+var _d=dojo.map(_c.types||[],"return item.title;").join("|");
+if(_c.summary){
+if(_d){
+_d+=": ";
+}
+_d+=dojox.help._plainText(_c.summary);
+}
+
+}else{
+if(_b=="parameters"){
+for(var j=0,_f;_f=_c[j];j++){
+var _10=dojo.map(_f.types,"return item.title").join("|");
+
+var _11="";
+if(_f.optional){
+_11+="Optional. ";
+}
+if(_f.repating){
+_11+="Repeating. ";
+}
+_11+=dojox.help._plainText(_f.summary);
+if(_11){
+_11="  - "+_11;
+for(var k=0;k<_f.name.length;k++){
+_11=" "+_11;
+}
+
+}
+}
+}else{
+
+}
+}
+}
+}
+if(!_a){
+
+}
+}
+}
+}});
+dojox.help.init();
 }

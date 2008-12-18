@@ -36,7 +36,8 @@ class Storage{
 		// preload the System Settings finished button movie for offline
 		// access so it is in the cache
 		_root.createEmptyMovieClip("_settingsBackground", 1);
-		_root._settingsBackground.loadMovie(DojoExternalInterface.dojoPath + "storage_dialog.swf");
+		_root._settingsBackground.loadMovie(DojoExternalInterface.dojoPath 
+																				+ "../dojox/storage/storage_dialog.swf");
 	}
 
   //  FIXME: Whoever added this Flush code did not document why it
@@ -97,10 +98,6 @@ class Storage{
 		postWrite(so, keyNames, namespace);
 	}
 	
-	//  FIXME: Whoever added this code did not document what the
-	//  put/get multiple functionality is and why it exists. Please
-	//  also put your name and a bug number so I know who to contact.
-	//  -- Brad Neuberg
 	public function putMultiple(metaKey, metaValue, metaLengths, namespace){
 		// Get the SharedObject for these values and save it
 		so = SharedObject.getLocal(namespace);
@@ -110,10 +107,15 @@ class Storage{
 		var lengths = metaLengths.split(",");
 		
 		//	Loop through the array and write the values
-		for(var i=0;i<keys.length;i++){
+		for(var i = 0; i < keys.length; i++){
 			so.data[keys[i]] = metaValue.slice(0,lengths[i]);
 			metaValue = metaValue.slice(lengths[i]);
 		}
+		
+		// Save the namespace
+		// FIXME: Tie this into the flush/no-flush stuff below; right now
+		// we immediately write out this namespace. -- Brad Neuberg
+    addNamespace(namespace, null);
 		
 		//	Do all the flush/no-flush stuff
 		postWrite(so, keys, namespace);
@@ -214,7 +216,8 @@ class Storage{
 		// to hide the Flash dialog. Instead, we need to load a movie in the
 		// background that we can show a close button on.
 		_root.createEmptyMovieClip("_settingsBackground", 1);
-		_root._settingsBackground.loadMovie(DojoExternalInterface.dojoPath + "storage_dialog.swf");
+		_root._settingsBackground.loadMovie(DojoExternalInterface.dojoPath 
+																				+ "../dojox/storage/storage_dialog.swf");
 	}
 	
 	public function clear(namespace){

@@ -1,45 +1,41 @@
-if(!dojo._hasResource["dijit._base.sniff"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dijit._base.sniff"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dijit._base.sniff"]){
+dojo._hasResource["dijit._base.sniff"]=true;
 dojo.provide("dijit._base.sniff");
-
-// ported from dojo.html.applyBrowserClass (style.js)
-
-//	summary:
-//		Applies pre-set class names based on browser & version to the
-//		top-level HTML node.  Simply doing a require on this module will
-//		establish this CSS.  Modified version of Morris' CSS hack.
 (function(){
-	var d = dojo;
-	var ie = d.isIE;
-	var opera = d.isOpera;
-	var maj = Math.floor;
-	var ff = d.isFF;
-	var classes = {
-		dj_ie: ie,
-//		dj_ie55: ie == 5.5,
-		dj_ie6: maj(ie) == 6,
-		dj_ie7: maj(ie) == 7,
-		dj_iequirks: ie && d.isQuirks,
-// NOTE: Opera not supported by dijit
-		dj_opera: opera,
-		dj_opera8: maj(opera) == 8,
-		dj_opera9: maj(opera) == 9,
-		dj_khtml: d.isKhtml,
-		dj_safari: d.isSafari,
-		dj_gecko: d.isMozilla,
-		dj_ff2: maj(ff) == 2
-	}; // no dojo unsupported browsers
-
-	for(var p in classes){
-		if(classes[p]){
-			var html = dojo.doc.documentElement; //TODO browser-specific DOM magic needed?
-			if(html.className){
-				html.className += " " + p;
-			}else{
-				html.className = p;
-			}
-		}
-	}
+var d=dojo;
+var ie=d.isIE;
+var _3=d.isOpera;
+var _4=Math.floor;
+var ff=d.isFF;
+var _6=d.boxModel.replace(/-/,"");
+var _7={dj_ie:ie,dj_ie6:_4(ie)==6,dj_ie7:_4(ie)==7,dj_iequirks:ie&&d.isQuirks,dj_opera:_3,dj_opera8:_4(_3)==8,dj_opera9:_4(_3)==9,dj_khtml:d.isKhtml,dj_safari:d.isSafari,dj_gecko:d.isMozilla,dj_ff2:_4(ff)==2,dj_ff3:_4(ff)==3};
+_7["dj_"+_6]=true;
+var _8=dojo.doc.documentElement;
+for(var p in _7){
+if(_7[p]){
+if(_8.className){
+_8.className+=" "+p;
+}else{
+_8.className=p;
+}
+}
+}
+dojo._loaders.unshift(function(){
+if(!dojo._isBodyLtr()){
+_8.className+=" dijitRtl";
+for(var p in _7){
+if(_7[p]){
+_8.className+=" "+p+"-rtl";
+}
+}
+}
+});
 })();
-
 }

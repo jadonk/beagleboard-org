@@ -1,145 +1,50 @@
-if(!dojo._hasResource["dojo._base.window"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dojo._base.window"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dojo._base.window"]){
+dojo._hasResource["dojo._base.window"]=true;
 dojo.provide("dojo._base.window");
-
-dojo._gearsObject = function(){
-	// summary: 
-	//		factory method to get a Google Gears plugin instance to
-	//		expose in the browser runtime environment, if present
-	var factory;
-	var results;
-	
-	var gearsObj = dojo.getObject("google.gears");
-	if(gearsObj){ return gearsObj; } // already defined elsewhere
-	
-	if(typeof GearsFactory != "undefined"){ // Firefox
-		factory = new GearsFactory();
-	}else{
-		if(dojo.isIE){
-			// IE
-			try{
-				factory = new ActiveXObject("Gears.Factory");
-			}catch(e){
-				// ok to squelch; there's no gears factory.  move on.
-			}
-		}else if(navigator.mimeTypes["application/x-googlegears"]){
-			// Safari?
-			factory = document.createElement("object");
-			factory.setAttribute("type", "application/x-googlegears");
-			factory.setAttribute("width", 0);
-			factory.setAttribute("height", 0);
-			factory.style.display = "none";
-			document.documentElement.appendChild(factory);
-		}
-	}
-
-	// still nothing?
-	if(!factory){ return null; }
-	
-	// define the global objects now; don't overwrite them though if they
-	// were somehow set internally by the Gears plugin, which is on their
-	// dev roadmap for the future
-	dojo.setObject("google.gears.factory", factory);
-	return dojo.getObject("google.gears");
+dojo.doc=window["document"]||null;
+dojo.body=function(){
+return dojo.doc.body||dojo.doc.getElementsByTagName("body")[0];
 };
-
-/*=====
-dojo.isGears = {
-	// summary: True if client is using Google Gears
+dojo.setContext=function(_1,_2){
+dojo.global=_1;
+dojo.doc=_2;
 };
-=====*/
-// see if we have Google Gears installed, and if
-// so, make it available in the runtime environment
-// and in the Google standard 'google.gears' global object
-dojo.isGears = (!!dojo._gearsObject())||0;
-
-/*=====
-dojo.doc = {
-	// summary:
-	//		Alias for the current document. 'dojo.doc' can be modified
-	//		for temporary context shifting. Also see dojo.withDoc().
-	// description:
-	//    Refer to dojo.doc rather
-	//    than referring to 'window.document' to ensure your code runs
-	//    correctly in managed contexts.
-	// example:
-	// 	|	n.appendChild(dojo.doc.createElement('div'));
+dojo._fireCallback=function(_3,_4,_5){
+if(_4&&dojo.isString(_3)){
+_3=_4[_3];
 }
-=====*/
-dojo.doc = window["document"] || null;
-
-dojo.body = function(){
-	// summary:
-	//		Return the body element of the document
-	//		return the body object associated with dojo.doc
-	// example:
-	// 	|	dojo.body().appendChild(dojo.doc.createElement('div'));
-
-	// Note: document.body is not defined for a strict xhtml document
-	// Would like to memoize this, but dojo.doc can change vi dojo.withDoc().
-	return dojo.doc.body || dojo.doc.getElementsByTagName("body")[0]; // Node
-}
-
-dojo.setContext = function(/*Object*/globalObject, /*DocumentElement*/globalDocument){
-	// summary:
-	//		changes the behavior of many core Dojo functions that deal with
-	//		namespace and DOM lookup, changing them to work in a new global
-	//		context (e.g., an iframe). The varibles dojo.global and dojo.doc
-	//		are modified as a result of calling this function and the result of
-	//		`dojo.body()` likewise differs.
-	dojo.global = globalObject;
-	dojo.doc = globalDocument;
+return _3.apply(_4,_5||[]);
 };
-
-dojo._fireCallback = function(callback, context, cbArguments){
-	if(context && dojo.isString(callback)){
-		callback = context[callback];
-	}
-	return callback.apply(context, cbArguments || [ ]);
+dojo.withGlobal=function(_6,_7,_8,_9){
+var _a;
+var _b=dojo.global;
+var _c=dojo.doc;
+try{
+dojo.setContext(_6,_6.document);
+_a=dojo._fireCallback(_7,_8,_9);
 }
-
-dojo.withGlobal = function(	/*Object*/globalObject, 
-							/*Function*/callback, 
-							/*Object?*/thisObject, 
-							/*Array?*/cbArguments){
-	// summary:
-	//		Call callback with globalObject as dojo.global and
-	//		globalObject.document as dojo.doc. If provided, globalObject
-	//		will be executed in the context of object thisObject
-	// description:
-	//		When callback() returns or throws an error, the dojo.global
-	//		and dojo.doc will be restored to its previous state.
-	var rval;
-	var oldGlob = dojo.global;
-	var oldDoc = dojo.doc;
-	try{
-		dojo.setContext(globalObject, globalObject.document);
-		rval = dojo._fireCallback(callback, thisObject, cbArguments);
-	}finally{
-		dojo.setContext(oldGlob, oldDoc);
-	}
-	return rval;
+finally{
+dojo.setContext(_b,_c);
 }
-
-dojo.withDoc = function(	/*Object*/documentObject, 
-							/*Function*/callback, 
-							/*Object?*/thisObject, 
-							/*Array?*/cbArguments){
-	// summary:
-	//		Call callback with documentObject as dojo.doc. If provided,
-	//		callback will be executed in the context of object thisObject
-	// description:
-	//		When callback() returns or throws an error, the dojo.doc will
-	//		be restored to its previous state.
-	var rval;
-	var oldDoc = dojo.doc;
-	try{
-		dojo.doc = documentObject;
-		rval = dojo._fireCallback(callback, thisObject, cbArguments);
-	}finally{
-		dojo.doc = oldDoc;
-	}
-	return rval;
+return _a;
 };
-
+dojo.withDoc=function(_d,_e,_f,_10){
+var _11;
+var _12=dojo.doc;
+try{
+dojo.doc=_d;
+_11=dojo._fireCallback(_e,_f,_10);
+}
+finally{
+dojo.doc=_12;
+}
+return _11;
+};
 }

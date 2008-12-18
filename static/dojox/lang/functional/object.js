@@ -1,48 +1,69 @@
-if(!dojo._hasResource["dojox.lang.functional.object"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dojox.lang.functional.object"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dojox.lang.functional.object"]){
+dojo._hasResource["dojox.lang.functional.object"]=true;
 dojo.provide("dojox.lang.functional.object");
-
 dojo.require("dojox.lang.functional.lambda");
-
-// This module adds high-level functions and related constructs:
-//	- object/dictionary helpers
-
-// Defined methods:
-//	- take any valid lambda argument as the functional argument
-
 (function(){
-	var d = dojo, df = dojox.lang.functional, empty = {};
-
-	d.mixin(df, {
-		// object helpers
-		forIn: function(/*Object*/ obj, /*Function|String|Array*/ f, /*Object?*/ o){
-			// summary: iterates over all object members skipping members, which 
-			//	are present in the empty object (IE and/or 3rd-party libraries).
-			o = o || d.global; f = df.lambda(f);
-			for(var i in obj){
-				if(i in empty){ continue; }
-				f.call(o, obj[i], i, obj);
-			}
-		},
-		keys: function(/*Object*/ obj){
-			// summary: returns an array of all keys in the object
-			var t = [];
-			for(var i in obj){
-				if(i in empty){ continue; }
-				t.push(i);
-			}
-			return	t; // Array
-		},
-		values: function(/*Object*/ obj){
-			// summary: returns an array of all values in the object
-			var t = [];
-			for(var i in obj){
-				if(i in empty){ continue; }
-				t.push(obj[i]);
-			}
-			return	t; // Array
-		}
-	});
+var d=dojo,df=dojox.lang.functional,_3={};
+d.mixin(df,{keys:function(_4){
+var t=[];
+for(var i in _4){
+if(i in _3){
+continue;
+}
+t.push(i);
+}
+return t;
+},values:function(_7){
+var t=[];
+for(var i in _7){
+if(i in _3){
+continue;
+}
+t.push(_7[i]);
+}
+return t;
+},filterIn:function(_a,f,o){
+o=o||d.global;
+f=df.lambda(f);
+var t={},v;
+for(var i in _a){
+if(i in _3){
+continue;
+}
+v=_a[i];
+if(f.call(o,v,i,_a)){
+t[i]=v;
+}
+}
+return t;
+},forIn:function(obj,f,o){
+o=o||d.global;
+f=df.lambda(f);
+for(var i in obj){
+if(i in _3){
+continue;
+}
+f.call(o,obj[i],i,obj);
+}
+return o;
+},mapIn:function(obj,f,o){
+o=o||d.global;
+f=df.lambda(f);
+var t={};
+for(var i in obj){
+if(i in _3){
+continue;
+}
+t[i]=f.call(o,obj[i],i,obj);
+}
+return t;
+}});
 })();
-
 }

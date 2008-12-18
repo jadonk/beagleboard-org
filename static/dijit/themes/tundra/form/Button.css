@@ -1,21 +1,22 @@
 
 .tundra .dijitButtonNode {
 	
-	
-	border:1px solid #c0c0c0;
-	border-bottom:1px solid #9b9b9b;
-	border-right:1px solid #9b9b9b;
-	padding: 0.2em;
-	background:#fff url("../images/buttonEnabled.png") repeat-x bottom left;
+	border: 1px solid #c0c0c0; 
+	border-bottom: 1px solid #9b9b9b; 
+	padding: 0.1em 0.2em 0.2em 0.2em; 
+	background: #fff url("../images/buttonEnabled.png") repeat-x bottom left;
 }
-.dj_ie .tundra .dijitButtonNode {
-	zoom: 1;
-}
+.tundra .dijitButtonNode button { 
+	border: 0px; 
+	background-color: transparent; 
+} 
+ 
 .tundra .dijitButtonText {
+	text-align: center; 
 	padding: 0 0.3em;
 }
-.tundra .dijitComboBox .dijitButtonNode {
-	border: 0px;
+.tundra .dijitDisabled .dijitButtonText {
+	color: #7F7F7F;
 }
 .tundra .dijitArrowButton {
 	color: #111;
@@ -25,7 +26,7 @@
 }
 .dj_ff2 .tundra .dijitComboButton .dijitButtonContentsFocused,
 .dj_ff2 .tundra .dijitComboButton .dijitDownArrowButtonFocused {
-	border: 1px black dotted !important;
+	border: 1px solid transparent; 
 }
 .tundra .dijitButtonDisabled .dijitButtonNode,
 .tundra .dijitToggleButtonDisabled .dijitButtonNode,
@@ -35,19 +36,12 @@
 .tundra .dijitSpinnerDisabled,
 .tundra .dijitSpinnerDisabled .dijitButtonNode {
 	
-	border-color: #d5d5d5 #bdbdbd #bdbdbd #d5d5d5;
 	
+	border-color: #d5d5d5 #d5d5d5 #bdbdbd #d5d5d5; 
 	background:#e4e4e4 url("../images/buttonDisabled.png") top repeat-x;
-	opacity: 0.60; 
-}
-.dj_ie .tundra .dijitButtonDisabled .dijitButtonNode *,
-.dj_ie .tundra .dijitToggleButtonDisabled .dijitButtonNode *,
-.dj_ie .tundra .dijitDropDownButtonDisabled .dijitButtonNode *,
-.dj_ie .tundra .dijitComboButtonDisabled .dijitButtonNode *,
-.dj_ie .tundra .dijitSpinnerDisabled .dijitButtonNode * {
-	filter: gray() alpha(opacity=50); 
 }
 .tundra .dijitButtonHover .dijitButtonNode,
+.tundra .dijitButtonNodeHover,
 .tundra .dijitToggleButtonHover .dijitButtonNode,
 .tundra .dijitDropDownButtonHover .dijitButtonNode,
 .tundra .dijitComboButtonHover .dijitButtonContents,
@@ -57,10 +51,9 @@
 .tundra .dijitSpinnerDownArrowHover .dijitDownArrowButton {
 	
 	
-	border-color:#a5beda;
-	border-bottom-color:#5c7590;
-	border-right-color:#5c7590;
-	color:#000;
+	border-color:		#a5beda; 
+	border-bottom-color:#5c7590; 
+	color:#243C5F;
 	background:#fcfdff url("../images/buttonHover.png") repeat-x bottom;
 }
 .tundra .dijitSpinnerUpArrowActive .dijitUpArrowButton,
@@ -76,18 +69,43 @@
 	background: #ededed url("../images/buttonActive.png") bottom repeat-x;
 }
 .tundra .dijitArrowButtonInner {
-	background:url("../images/arrowDown.png") no-repeat center center;
+	background-image:url("../images/spriteArrows.png");
+	background-position: left top;
+	width: 7px;
+	height: 7px;
+	font-size: 1px;
+	margin: 0px 4px 0px 5px;
 }
-.tundra .dijitUpArrowButton .dijitArrowButtonInner { background-image:url("../images/arrowUp.png"); }
 .dj_ie6 .tundra .dijitArrowButtonInner {
-	background-image:url("../images/arrowDown.gif");
+	background-image:url("../images/spriteArrows.gif");
 }
-.dj_ie6 .tundra .dijitUpArrowButton .dijitArrowButtonInner {
-	background-image:url("../images/arrowUp.gif");
+.tundra .dijitDisabled .dijitArrowButtonInner {
+	background-position: -28px top;
+}
+.tundra .dijitUpArrowButton .dijitArrowButtonInner { 
+	background-position: -21px top; 
+}
+.tundra .dijitDisabled .dijitUpArrowButton .dijitArrowButtonInner { 
+	background-position: -49px top; 
 }
 .tundra .dijitComboBox .dijitArrowButton .dijitArrowButtonInner {
-	background:url("../images/comboArrowDown.gif") no-repeat center center;
+	background-image: url("../images/comboArrowDown.gif");
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center center;
+	height: auto;
+	font-size: 100%;
+	font-size: inherit;
 }
 .tundra .dijitComboBoxHover .dijitArrowButtonInner {
 	
+}
+.tundra .dijitSpinner .dijitArrowButtonInner {
+	display: block;  
+	position:absolute;
+	top: 50%; 
+	margin-top: -4px; 
+	left: 50%;
+	margin-left: -4px; 
+	line-height: 2px;
 }

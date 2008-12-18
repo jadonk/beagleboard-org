@@ -1,101 +1,91 @@
-if(!dojo._hasResource["dojox.string.Builder"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dojox.string.Builder"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dojox.string.Builder"]){
+dojo._hasResource["dojox.string.Builder"]=true;
 dojo.provide("dojox.string.Builder");
-
-(function(){
-	dojox.string.Builder = function(/*String?*/str){
-		// summary:
-		//		A fast buffer for creating large strings
-		// str: The initial string to seed the buffer with
-		this.b = dojo.isIE ? [] : "";
-		if(str){ this.append(str); }
-	};
-	
-	var m = {
-	 	append: function(/*String*/s){ 
-			// summary: Append all arguments to the end of the buffer 
-			return this.appendArray(dojo._toArray(arguments)); // dojox.string.Builder
-		},
-		concat: function(/*String*/s){
-			return this.append(s);
-		},
-		appendArray: function(/*Array*/strings) {
-			this.b = String.prototype.concat.apply(this.b, strings);
-			return this;
-		},
-		clear: function(){
-			// summary: Remove all characters from the buffer
-			this._clear();
-			this.length = 0;
-			return this;
-		},
-		replace: function(oldStr,newStr){
-			// summary: Replace instances of one string with another in the buffer
-			var s = this.toString();
-			s = s.replace(oldStr,newStr);
-			this._reset(s);
-			this.length = s.length;
-			return this;
-		},
-		remove: function(start, len){
-			// summary: Remove len characters starting at index start
-			if(len == 0){ return this; }
-			var s = this.toString();
-			this.clear();
-			if(start > 0){
-				this.append(s.substring(0, start));
-			}
-			if(start+len < s.length){
-				this.append(s.substring(start+len));
-			}
-			return this;
-		},
-		insert: function(index, str){
-			// summary: Insert string str starting at index
-			var s = this.toString();
-			this.clear();
-			if(index == 0){
-				this.append(str);
-				this.append(s);
-				return this;
-			}else{
-				this.append(s.substring(0, index));
-				this.append(str);
-				this.append(s.substring(index));
-			}
-			return this;
-		},
-		toString: function(){
-			return this.b;
-		},
-		_clear: function(){
-			this.b = "";
-		},
-		_reset: function(s){
-			this.b = s;
-		}
-	}; // will hold methods for Builder
-	
-	if(dojo.isIE){
-		dojo.mixin(m, {
-			toString: function(){ 
-				// Summary: Get the buffer as a string
-				return this.b.join(""); 
-			},
-			appendArray: function(strings){
-				this.b = this.b.concat(strings);
-				return this;
-			},
-			_clear: function(){
-				this.b = [];
-			},
-			_reset: function(s){
-				this.b = [ s ];
-			}
-		});
-	}
-	
-	dojo.extend(dojox.string.Builder, m);
-})();
-
+dojox.string.Builder=function(_1){
+var b="";
+this.length=0;
+this.append=function(s){
+if(arguments.length>1){
+var _4="",l=arguments.length;
+switch(l){
+case 9:
+_4=""+arguments[8]+_4;
+case 8:
+_4=""+arguments[7]+_4;
+case 7:
+_4=""+arguments[6]+_4;
+case 6:
+_4=""+arguments[5]+_4;
+case 5:
+_4=""+arguments[4]+_4;
+case 4:
+_4=""+arguments[3]+_4;
+case 3:
+_4=""+arguments[2]+_4;
+case 2:
+b+=""+arguments[0]+arguments[1]+_4;
+break;
+default:
+var i=0;
+while(i<arguments.length){
+_4+=arguments[i++];
+}
+b+=_4;
+}
+}else{
+b+=s;
+}
+this.length=b.length;
+return this;
+};
+this.concat=function(s){
+return this.append.apply(this,arguments);
+};
+this.appendArray=function(_8){
+return this.append.apply(this,_8);
+};
+this.clear=function(){
+b="";
+this.length=0;
+return this;
+};
+this.replace=function(_9,_a){
+b=b.replace(_9,_a);
+this.length=b.length;
+return this;
+};
+this.remove=function(_b,_c){
+if(_c===undefined){
+_c=b.length;
+}
+if(_c==0){
+return this;
+}
+b=b.substr(0,_b)+b.substr(_b+_c);
+this.length=b.length;
+return this;
+};
+this.insert=function(_d,_e){
+if(_d==0){
+b=_e+b;
+}else{
+b=b.slice(0,_d)+_e+b.slice(_d);
+}
+this.length=b.length;
+return this;
+};
+this.toString=function(){
+return b;
+};
+if(_1){
+this.append(_1);
+}
+};
 }

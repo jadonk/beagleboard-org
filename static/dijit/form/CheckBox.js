@@ -1,133 +1,64 @@
-if(!dojo._hasResource["dijit.form.CheckBox"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dijit.form.CheckBox"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dijit.form.CheckBox"]){
+dojo._hasResource["dijit.form.CheckBox"]=true;
 dojo.provide("dijit.form.CheckBox");
-
 dojo.require("dijit.form.Button");
-
-dojo.declare(
-	"dijit.form.CheckBox",
-	dijit.form.ToggleButton,
-	{
-		// summary:
-		// 		Same as an HTML checkbox, but with fancy styling.
-		//
-		// description:
-		// User interacts with real html inputs.
-		// On onclick (which occurs by mouse click, space-bar, or
-		// using the arrow keys to switch the selected radio button),
-		// we update the state of the checkbox/radio.
-		//
-		// There are two modes:
-		//   1. High contrast mode
-		//   2. Normal mode
-		// In case 1, the regular html inputs are shown and used by the user.
-		// In case 2, the regular html inputs are invisible but still used by
-		// the user. They are turned quasi-invisible and overlay the background-image.
-
-		templateString:"<div class=\"dijitReset dijitInline\" waiRole=\"presentation\"\n\t><input\n\t \ttype=\"${type}\" name=\"${name}\"\n\t\tclass=\"dijitReset dijitCheckBoxInput\"\n\t\tdojoAttachPoint=\"focusNode\"\n\t \tdojoAttachEvent=\"onmouseover:_onMouse,onmouseout:_onMouse,onclick:_onClick\"\n/></div>\n",
-
-		baseClass: "dijitCheckBox",
-
-		//	Value of "type" attribute for <input>
-		type: "checkbox",
-
-		// value: Value
-		//	equivalent to value field on normal checkbox (if checked, the value is passed as
-		//	the value when form is submitted)
-		value: "on",
-
-		setValue: function(/*String or Boolean*/ newValue){
-			// summary:
-			//		When passed a boolean, controls whether or not the CheckBox is checked.
-			//		If passed a string, changes the value attribute of the CheckBox (the one
-			//		specified as "value" when the CheckBox was constructed (ex: <input
-			//		dojoType="dijit.CheckBox" value="chicken">)
-			if(typeof newValue == "string"){
-				this.setAttribute('value', newValue);
-				newValue = true;
-			}
-			this.setAttribute('checked', newValue);
-		},
-
-		_getValueDeprecated: false, // remove when _FormWidget:_getValueDeprecated is removed
-		getValue: function(){
-			// summary:
-			//		If the CheckBox is checked, returns the value attribute.
-			//		Otherwise returns false.
-			return (this.checked ? this.value : false);
-		},
-
-		reset: function(){
-			this.inherited(arguments);
-			this.setAttribute('value', this._resetValueAttr);
-		},
-
-		postCreate: function(){
-			this.inherited(arguments);
-			this._resetValueAttr = this.value;
-		}
-	}
-);
-
-dojo.declare(
-	"dijit.form.RadioButton",
-	dijit.form.CheckBox,
-	{
-		// summary:
-		// 		Same as an HTML radio, but with fancy styling.
-		//
-		// description:
-		// Implementation details
-		//
-		// Specialization:
-		// We keep track of dijit radio groups so that we can update the state
-		// of all the siblings (the "context") in a group based on input
-		// events. We don't rely on browser radio grouping.
-
-		type: "radio",
-		baseClass: "dijitRadio",
-
-		// This shared object keeps track of all widgets, grouped by name
-		_groups: {},
-
-		postCreate: function(){
-			// add this widget to _groups
-			(this._groups[this.name] = this._groups[this.name] || []).push(this);
-
-			this.inherited(arguments);
-		},
-
-		uninitialize: function(){
-			// remove this widget from _groups
-			dojo.forEach(this._groups[this.name], function(widget, i, arr){
-				if(widget === this){
-					arr.splice(i, 1);
-					return;
-				}
-			}, this);
-		},
-
-		setAttribute: function(/*String*/ attr, /*anything*/ value){
-			// If I am being checked then have to deselect currently checked radio button
-			this.inherited(arguments);
-			switch(attr){
-				case "checked":
-					if(this.checked){
-						dojo.forEach(this._groups[this.name], function(widget){
-							if(widget != this && widget.checked){
-								widget.setAttribute('checked', false);
-							}
-						}, this);
-					}
-			}
-		},
-
-		_clicked: function(/*Event*/ e){
-			if(!this.checked){
-				this.setAttribute('checked', true);
-			}
-		}
-	}
-);
-
+dojo.declare("dijit.form.CheckBox",dijit.form.ToggleButton,{templateString:"<div class=\"dijitReset dijitInline\" waiRole=\"presentation\"\n\t><input\n\t \ttype=\"${type}\" name=\"${name}\"\n\t\tclass=\"dijitReset dijitCheckBoxInput\"\n\t\tdojoAttachPoint=\"focusNode\"\n\t \tdojoAttachEvent=\"onmouseover:_onMouse,onmouseout:_onMouse,onclick:_onClick\"\n/></div>\n",baseClass:"dijitCheckBox",type:"checkbox",value:"on",_setValueAttr:function(_1){
+if(typeof _1=="string"){
+this.value=_1;
+dojo.attr(this.focusNode,"value",_1);
+_1=true;
+}
+if(this._created){
+this.attr("checked",_1);
+}
+},_getValueAttr:function(){
+return (this.checked?this.value:false);
+},postMixInProperties:function(){
+if(this.value==""){
+this.value="on";
+}
+this.inherited(arguments);
+},_fillContent:function(_2){
+},reset:function(){
+this._hasBeenBlurred=false;
+this.attr("checked",this.params.checked||false);
+this.value=this.params.value||"on";
+dojo.attr(this.focusNode,"value",this.value);
+},_onFocus:function(){
+if(this.id){
+dojo.query("label[for='"+this.id+"']").addClass("dijitFocusedLabel");
+}
+},_onBlur:function(){
+if(this.id){
+dojo.query("label[for='"+this.id+"']").removeClass("dijitFocusedLabel");
+}
+}});
+dojo.declare("dijit.form.RadioButton",dijit.form.CheckBox,{type:"radio",baseClass:"dijitRadio",_setCheckedAttr:function(_3){
+this.inherited(arguments);
+if(!this._created){
+return;
+}
+if(_3){
+var _4=this;
+dojo.query("INPUT[type=radio][name="+this.name+"]",this.focusNode.form||dojo.doc).forEach(function(_5){
+if(_5!=_4.focusNode&&_5.form==_4.focusNode.form){
+var _6=dijit.getEnclosingWidget(_5);
+if(_6&&_6.checked){
+_6.attr("checked",false);
+}
+}
+});
+}
+},_clicked:function(e){
+if(!this.checked){
+this.attr("checked",true);
+}
+}});
 }

@@ -1,117 +1,77 @@
-if(!dojo._hasResource["dijit.form._Spinner"]){ //_hasResource checks added by build. Do not use _hasResource directly in your code.
-dojo._hasResource["dijit.form._Spinner"] = true;
+/*
+	Copyright (c) 2004-2008, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["dijit.form._Spinner"]){
+dojo._hasResource["dijit.form._Spinner"]=true;
 dojo.provide("dijit.form._Spinner");
-
 dojo.require("dijit.form.ValidationTextBox");
-
-dojo.declare(
-	"dijit.form._Spinner",
-	dijit.form.RangeBoundTextBox,
-	{
-
-		// summary: Mixin for validation widgets with a spinner
-		// description: This class basically (conceptually) extends dijit.form.ValidationTextBox.
-		//	It modifies the template to have up/down arrows, and provides related handling code.
-
-		// defaultTimeout: Number
-		//	  number of milliseconds before a held key or button becomes typematic
-		defaultTimeout: 500,
-
-		// timeoutChangeRate: Number
-		//	  fraction of time used to change the typematic timer between events
-		//	  1.0 means that each typematic event fires at defaultTimeout intervals
-		//	  < 1.0 means that each typematic event fires at an increasing faster rate
-		timeoutChangeRate: 0.90,
-
-		// smallDelta: Number
-		//	  adjust the value by this much when spinning using the arrow keys/buttons
-		smallDelta: 1,
-		// largeDelta: Number
-		//	  adjust the value by this much when spinning using the PgUp/Dn keys
-		largeDelta: 10,
-
-		templateString:"<div class=\"dijit dijitReset dijitInlineTable dijitLeft\"\n\tid=\"widget_${id}\"\n\tdojoAttachEvent=\"onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse\" waiRole=\"presentation\"\n\t><div class=\"dijitInputLayoutContainer\"\n\t\t><div class=\"dijitReset dijitSpinnerButtonContainer\"\n\t\t\t>&nbsp;<div class=\"dijitReset dijitLeft dijitButtonNode dijitArrowButton dijitUpArrowButton\"\n\t\t\t\tdojoAttachPoint=\"upArrowNode\"\n\t\t\t\tdojoAttachEvent=\"onmouseenter:_onMouse,onmouseleave:_onMouse\"\n\t\t\t\tstateModifier=\"UpArrow\"\n\t\t\t\t><div class=\"dijitArrowButtonInner\">&thinsp;</div\n\t\t\t\t><div class=\"dijitArrowButtonChar\">&#9650;</div\n\t\t\t></div\n\t\t\t><div class=\"dijitReset dijitLeft dijitButtonNode dijitArrowButton dijitDownArrowButton\"\n\t\t\t\tdojoAttachPoint=\"downArrowNode\"\n\t\t\t\tdojoAttachEvent=\"onmouseenter:_onMouse,onmouseleave:_onMouse\"\n\t\t\t\tstateModifier=\"DownArrow\"\n\t\t\t\t><div class=\"dijitArrowButtonInner\">&thinsp;</div\n\t\t\t\t><div class=\"dijitArrowButtonChar\">&#9660;</div\n\t\t\t></div\n\t\t></div\n\t\t><div class=\"dijitReset dijitValidationIcon\"><br></div\n\t\t><div class=\"dijitReset dijitValidationIconText\">&Chi;</div\n\t\t><div class=\"dijitReset dijitInputField\"\n\t\t\t><input class='dijitReset' dojoAttachPoint=\"textbox,focusNode\" type=\"${type}\" dojoAttachEvent=\"onfocus:_update,onkeyup:_onkeyup,onkeypress:_onKeyPress\"\n\t\t\t\twaiRole=\"spinbutton\" autocomplete=\"off\" name=\"${name}\"\n\t\t/></div\n\t></div\n></div>\n",
-		baseClass: "dijitSpinner",
-
-		adjust: function(/* Object */ val, /*Number*/ delta){
-			// summary: user replaceable function used to adjust a primitive value(Number/Date/...) by the delta amount specified
-			// the val is adjusted in a way that makes sense to the object type
-			return val;
-		},
-
-		_arrowState: function(/*Node*/ node, /*Boolean*/ pressed){
-			this._active = pressed;
-			this.stateModifier = node.getAttribute("stateModifier") || "";
-			this._setStateClass();
-		},
-
-		_arrowPressed: function(/*Node*/ nodePressed, /*Number*/ direction){
-			if(this.disabled || this.readOnly){ return; }
-			this._arrowState(nodePressed, true);
-			this.setValue(this.adjust(this.getValue(), direction*this.smallDelta), false);
-			dijit.selectInputText(this.textbox, this.textbox.value.length);
-		},
-
-		_arrowReleased: function(/*Node*/ node){
-			this._wheelTimer = null;
-			if(this.disabled || this.readOnly){ return; }
-			this._arrowState(node, false);
-		},
-
-		_typematicCallback: function(/*Number*/ count, /*DOMNode*/ node, /*Event*/ evt){
-			if(node == this.textbox){ node = (evt.keyCode == dojo.keys.UP_ARROW) ? this.upArrowNode : this.downArrowNode; }
-			if(count == -1){ this._arrowReleased(node); }
-			else{ this._arrowPressed(node, (node == this.upArrowNode) ? 1 : -1); }
-		},
-
-		_wheelTimer: null,
-		_mouseWheeled: function(/*Event*/ evt){
-			dojo.stopEvent(evt);
-			var scrollAmount = 0;
-			if(typeof evt.wheelDelta == 'number'){ // IE
-				scrollAmount = evt.wheelDelta;
-			}else if(typeof evt.detail == 'number'){ // Mozilla+Firefox
-				scrollAmount = -evt.detail;
-			}
-			var node, dir;
-			if(scrollAmount > 0){
-				node = this.upArrowNode;
-				dir = +1;
-			}else if(scrollAmount < 0){
-				node = this.downArrowNode;
-				dir = -1;
-			}else{ return; }
-			this._arrowPressed(node, dir);
-			if(this._wheelTimer != null){
-				clearTimeout(this._wheelTimer);
-			}
-			var _this = this;
-			this._wheelTimer = setTimeout(function(){_this._arrowReleased(node);}, 50);
-		},
-
-		postCreate: function(){
-			this.inherited('postCreate', arguments);
-
-			// extra listeners
-			this.connect(this.textbox, dojo.isIE ? "onmousewheel" : 'DOMMouseScroll', "_mouseWheeled");
-			this._connects.push(dijit.typematic.addListener(this.upArrowNode, this.textbox, {keyCode:dojo.keys.UP_ARROW,ctrlKey:false,altKey:false,shiftKey:false}, this, "_typematicCallback", this.timeoutChangeRate, this.defaultTimeout));
-			this._connects.push(dijit.typematic.addListener(this.downArrowNode, this.textbox, {keyCode:dojo.keys.DOWN_ARROW,ctrlKey:false,altKey:false,shiftKey:false}, this, "_typematicCallback", this.timeoutChangeRate, this.defaultTimeout));
-			if(dojo.isIE){
-				// When spinner is moved from hidden to visible, call _setStateClass to remind IE to render it. (#6123)
-				var _this = this;
-				this.connect(this.domNode, "onresize", 
-					function(){ setTimeout(dojo.hitch(_this,
-						function(){
-							// cause the IE expressions to rerun
-							this.upArrowNode.style.behavior = '';
-							this.downArrowNode.style.behavior = '';
-							// cause IE to rerender
-							this._setStateClass();
-						}), 0);
-					}
-				);
-			}
-		}
+dojo.declare("dijit.form._Spinner",dijit.form.RangeBoundTextBox,{defaultTimeout:500,timeoutChangeRate:0.9,smallDelta:1,largeDelta:10,templateString:"<div class=\"dijit dijitReset dijitInlineTable dijitLeft\"\n\tid=\"widget_${id}\"\n\tdojoAttachEvent=\"onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse\" waiRole=\"presentation\"\n\t><div class=\"dijitInputLayoutContainer\"\n\t\t><div class=\"dijitReset dijitSpinnerButtonContainer\"\n\t\t\t>&nbsp;<div class=\"dijitReset dijitLeft dijitButtonNode dijitArrowButton dijitUpArrowButton\"\n\t\t\t\tdojoAttachPoint=\"upArrowNode\"\n\t\t\t\tdojoAttachEvent=\"onmouseenter:_onMouse,onmouseleave:_onMouse\"\n\t\t\t\tstateModifier=\"UpArrow\"\n\t\t\t\t><div class=\"dijitArrowButtonInner\">&thinsp;</div\n\t\t\t\t><div class=\"dijitArrowButtonChar\">&#9650;</div\n\t\t\t></div\n\t\t\t><div class=\"dijitReset dijitLeft dijitButtonNode dijitArrowButton dijitDownArrowButton\"\n\t\t\t\tdojoAttachPoint=\"downArrowNode\"\n\t\t\t\tdojoAttachEvent=\"onmouseenter:_onMouse,onmouseleave:_onMouse\"\n\t\t\t\tstateModifier=\"DownArrow\"\n\t\t\t\t><div class=\"dijitArrowButtonInner\">&thinsp;</div\n\t\t\t\t><div class=\"dijitArrowButtonChar\">&#9660;</div\n\t\t\t></div\n\t\t></div\n\t\t><div class=\"dijitReset dijitValidationIcon\"><br></div\n\t\t><div class=\"dijitReset dijitValidationIconText\">&Chi;</div\n\t\t><div class=\"dijitReset dijitInputField\"\n\t\t\t><input class='dijitReset' dojoAttachPoint=\"textbox,focusNode\" type=\"${type}\" dojoAttachEvent=\"onfocus:_update,onkeyup:_update,onkeypress:_onKeyPress\"\n\t\t\t\twaiRole=\"spinbutton\" autocomplete=\"off\" name=\"${name}\"\n\t\t/></div\n\t></div\n></div>\n",baseClass:"dijitSpinner",adjust:function(_1,_2){
+return _1;
+},_arrowState:function(_3,_4){
+this._active=_4;
+this.stateModifier=_3.getAttribute("stateModifier")||"";
+this._setStateClass();
+},_arrowPressed:function(_5,_6,_7){
+if(this.disabled||this.readOnly){
+return;
+}
+this._arrowState(_5,true);
+this._setValueAttr(this.adjust(this.attr("value"),_6*_7),false);
+dijit.selectInputText(this.textbox,this.textbox.value.length);
+},_arrowReleased:function(_8){
+this._wheelTimer=null;
+if(this.disabled||this.readOnly){
+return;
+}
+this._arrowState(_8,false);
+},_typematicCallback:function(_9,_a,_b){
+var _c=this.smallDelta;
+if(_a==this.textbox){
+k=dojo.keys;
+var _d=_b.charOrCode;
+_c=(_d==k.PAGE_UP||_d==k.PAGE_DOWN)?this.largeDelta:this.smallDelta;
+_a=(_d==k.UP_ARROW||_d==k.PAGE_UP)?this.upArrowNode:this.downArrowNode;
+}
+if(_9==-1){
+this._arrowReleased(_a);
+}else{
+this._arrowPressed(_a,(_a==this.upArrowNode)?1:-1,_c);
+}
+},_wheelTimer:null,_mouseWheeled:function(_e){
+dojo.stopEvent(_e);
+var _f=_e.detail?(_e.detail*-1):(_e.wheelDelta/120);
+if(_f!==0){
+var _10=this[(_f>0?"upArrowNode":"downArrowNode")];
+this._arrowPressed(_10,_f,this.smallDelta);
+if(!this._wheelTimer){
+clearTimeout(this._wheelTimer);
+}
+this._wheelTimer=setTimeout(dojo.hitch(this,"_arrowReleased",_10),50);
+}
+},postCreate:function(){
+this.inherited("postCreate",arguments);
+this.connect(this.domNode,!dojo.isMozilla?"onmousewheel":"DOMMouseScroll","_mouseWheeled");
+this._connects.push(dijit.typematic.addListener(this.upArrowNode,this.textbox,{charOrCode:dojo.keys.UP_ARROW,ctrlKey:false,altKey:false,shiftKey:false},this,"_typematicCallback",this.timeoutChangeRate,this.defaultTimeout));
+this._connects.push(dijit.typematic.addListener(this.downArrowNode,this.textbox,{charOrCode:dojo.keys.DOWN_ARROW,ctrlKey:false,altKey:false,shiftKey:false},this,"_typematicCallback",this.timeoutChangeRate,this.defaultTimeout));
+this._connects.push(dijit.typematic.addListener(this.upArrowNode,this.textbox,{charOrCode:dojo.keys.PAGE_UP,ctrlKey:false,altKey:false,shiftKey:false},this,"_typematicCallback",this.timeoutChangeRate,this.defaultTimeout));
+this._connects.push(dijit.typematic.addListener(this.downArrowNode,this.textbox,{charOrCode:dojo.keys.PAGE_DOWN,ctrlKey:false,altKey:false,shiftKey:false},this,"_typematicCallback",this.timeoutChangeRate,this.defaultTimeout));
+if(dojo.isIE){
+var _11=this;
+this.connect(this.domNode,"onresize",function(){
+setTimeout(dojo.hitch(_11,function(){
+var sz=this.upArrowNode.parentNode.offsetHeight;
+if(sz){
+this.upArrowNode.style.height=sz>>1;
+this.downArrowNode.style.height=sz-(sz>>1);
+this.focusNode.parentNode.style.height=sz;
+}
+this._setStateClass();
+}),0);
 });
-
+}
+}});
 }
