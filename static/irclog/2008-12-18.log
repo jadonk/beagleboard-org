@@ -45,3 +45,90 @@
 <li class="message">[<a href="#T00:53:47" id="T00:53:47"><abbr title="2008-12-18T00:53:47+00:00">00:53:47</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>well it didn't work on the beagle for a different reason</q></li>
 <li class="join">[<a href="#T00:58:19" id="T00:58:19"><abbr title="2008-12-18T00:58:19+00:00">00:58:19</abbr></a>] <span>* n6pfk (n=mike@c-76-104-40-104.hsd1.va.comcast.net) has joined #beagle</span></li>
 <li class="message">[<a href="#T00:58:56" id="T00:58:56"><abbr title="2008-12-18T00:58:56+00:00">00:58:56</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Hi, Are the source listings of the boot rom available?</q></li>
+<li class="message">[<a href="#T01:00:55" id="T01:00:55"><abbr title="2008-12-18T01:00:55+00:00">01:00:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T01:01:55" id="T01:01:55"><abbr title="2008-12-18T01:01:55+00:00">01:01:55</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Is there a list of what the boot rom configures?</q></li>
+<li class="nick-change">[<a href="#T01:02:12" id="T01:02:12"><abbr title="2008-12-18T01:02:12+00:00">01:02:12</abbr></a>] <span>* fulgas is now known as FuL|OUT</span></li>
+<li class="join">[<a href="#T01:02:19" id="T01:02:19"><abbr title="2008-12-18T01:02:19+00:00">01:02:19</abbr></a>] <span>* Beagle6 (n=Beagle6@c-69-142-105-149.hsd1.nj.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:03:07" id="T01:03:07"><abbr title="2008-12-18T01:03:07+00:00">01:03:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I don't think it configures much</q></li>
+<li class="message">[<a href="#T01:03:20" id="T01:03:20"><abbr title="2008-12-18T01:03:20+00:00">01:03:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>all it does is read X-Loader into SRAM and jump to it </q></li>
+<li class="message">[<a href="#T01:03:45" id="T01:03:45"><abbr title="2008-12-18T01:03:45+00:00">01:03:45</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>There are a few things mentioned in the harware manual.</q></li>
+<li class="message">[<a href="#T01:04:04" id="T01:04:04"><abbr title="2008-12-18T01:04:04+00:00">01:04:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>which one?</q></li>
+<li class="message">[<a href="#T01:04:51" id="T01:04:51"><abbr title="2008-12-18T01:04:51+00:00">01:04:51</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>The beagleboard reference manual.</q></li>
+<li class="message">[<a href="#T01:05:05" id="T01:05:05"><abbr title="2008-12-18T01:05:05+00:00">01:05:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>besides, it is safer to have U-boot do it then to expect much from the bootrom</q></li>
+<li class="message">[<a href="#T01:05:32" id="T01:05:32"><abbr title="2008-12-18T01:05:32+00:00">01:05:32</abbr></a>] &lt;<cite>Beagle6</cite>&gt; <q>? Just got a beagle board today, user doc PDF BBSRM_latest.pdf - section 12.2 says - I can use USB (hyperterm) to talk to the board, does not seem to work. Lights light, but nothing else. If i RESET+USR WinXP says found OMAP3439 ... and wants a driver. Is that what i need?</q></li>
+<li class="message">[<a href="#T01:05:57" id="T01:05:57"><abbr title="2008-12-18T01:05:57+00:00">01:05:57</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Well, my board is supposed to arrive on Monday and I am trying to understand it as much as possible.</q></li>
+<li class="message">[<a href="#T01:06:24" id="T01:06:24"><abbr title="2008-12-18T01:06:24+00:00">01:06:24</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>are we both talking about the same thing (Boot Rom)?</q></li>
+<li class="message">[<a href="#T01:07:00" id="T01:07:00"><abbr title="2008-12-18T01:07:00+00:00">01:07:00</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Yes.</q></li>
+<li class="message">[<a href="#T01:07:33" id="T01:07:33"><abbr title="2008-12-18T01:07:33+00:00">01:07:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>okay... unless you are writing a bootloader.... the Bootrom shouldn't matter too much; all it does is act on SYSBOOT's config</q></li>
+<li class="message">[<a href="#T01:08:27" id="T01:08:27"><abbr title="2008-12-18T01:08:27+00:00">01:08:27</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>I like to know all of the details.</q></li>
+<li class="message">[<a href="#T01:08:45" id="T01:08:45"><abbr title="2008-12-18T01:08:45+00:00">01:08:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that's probally a TI question... </q></li>
+<li class="message">[<a href="#T01:08:58" id="T01:08:58"><abbr title="2008-12-18T01:08:58+00:00">01:08:58</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>True.</q></li>
+<li class="message">[<a href="#T01:09:16" id="T01:09:16"><abbr title="2008-12-18T01:09:16+00:00">01:09:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Getting USB boot and Serial boot to work reliably with other tools has been close to practicing voodoo</q></li>
+<li class="message">[<a href="#T01:11:23" id="T01:11:23"><abbr title="2008-12-18T01:11:23+00:00">01:11:23</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>I like black arts.</q></li>
+<li class="message">[<a href="#T01:11:50" id="T01:11:50"><abbr title="2008-12-18T01:11:50+00:00">01:11:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>N6... are you still on the west coast?</q></li>
+<li class="message">[<a href="#T01:11:56" id="T01:11:56"><abbr title="2008-12-18T01:11:56+00:00">01:11:56</abbr></a>] &lt;<cite>Beagle6</cite>&gt; <q>? Hello - any suggestion about usb+hyperterm? or is this java client not working? -Duane.</q></li>
+<li class="message">[<a href="#T01:12:12" id="T01:12:12"><abbr title="2008-12-18T01:12:12+00:00">01:12:12</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>NO, I am near Richmond, VA.</q></li>
+<li class="message">[<a href="#T01:12:40" id="T01:12:40"><abbr title="2008-12-18T01:12:40+00:00">01:12:40</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Hi tech black hle.</q></li>
+<li class="message">[<a href="#T01:13:12" id="T01:13:12"><abbr title="2008-12-18T01:13:12+00:00">01:13:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>were you ever on the west coast??????</q></li>
+<li class="message">[<a href="#T01:13:23" id="T01:13:23"><abbr title="2008-12-18T01:13:23+00:00">01:13:23</abbr></a>] &lt;<cite>geist</cite>&gt; <q>talking about the ham id, i guess</q></li>
+<li class="message">[<a href="#T01:13:28" id="T01:13:28"><abbr title="2008-12-18T01:13:28+00:00">01:13:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T01:13:32" id="T01:13:32"><abbr title="2008-12-18T01:13:32+00:00">01:13:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>6 is west coast</q></li>
+<li class="message">[<abbr title="2008-12-18T01:13:32+00:00">01:13:32</abbr>] &lt;<cite>n6pfk</cite>&gt; <q>Yes, with an n6, where else.</q></li>
+<li class="message">[<a href="#T01:13:41" id="T01:13:41"><abbr title="2008-12-18T01:13:41+00:00">01:13:41</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Silicon Valley.</q></li>
+<li class="message">[<a href="#T01:14:00" id="T01:14:00"><abbr title="2008-12-18T01:14:00+00:00">01:14:00</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wasn't sure if the FCC gave up on the regions since they no longer reassign for moves</q></li>
+<li class="message">[<a href="#T01:14:19" id="T01:14:19"><abbr title="2008-12-18T01:14:19+00:00">01:14:19</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>AE ticket.</q></li>
+<li class="message">[<a href="#T01:14:28" id="T01:14:28"><abbr title="2008-12-18T01:14:28+00:00">01:14:28</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>The hard way.</q></li>
+<li class="message">[<a href="#T01:14:37" id="T01:14:37"><abbr title="2008-12-18T01:14:37+00:00">01:14:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you know code I take it?</q></li>
+<li class="message">[<a href="#T01:14:56" id="T01:14:56"><abbr title="2008-12-18T01:14:56+00:00">01:14:56</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Yes, a lot of fun but psk31 is too.</q></li>
+<li class="message">[<a href="#T01:15:39" id="T01:15:39"><abbr title="2008-12-18T01:15:39+00:00">01:15:39</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Mostly use QRP.</q></li>
+<li class="message">[<a href="#T01:16:01" id="T01:16:01"><abbr title="2008-12-18T01:16:01+00:00">01:16:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>like the 1transistor stuff?</q></li>
+<li class="message">[<a href="#T01:16:22" id="T01:16:22"><abbr title="2008-12-18T01:16:22+00:00">01:16:22</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>What's ur call and qth?</q></li>
+<li class="message">[<a href="#T01:16:36" id="T01:16:36"><abbr title="2008-12-18T01:16:36+00:00">01:16:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>kf6pyk, SanJose, CA</q></li>
+<li class="message">[<a href="#T01:16:54" id="T01:16:54"><abbr title="2008-12-18T01:16:54+00:00">01:16:54</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>No, digital radios.</q></li>
+<li class="message">[<a href="#T01:17:10" id="T01:17:10"><abbr title="2008-12-18T01:17:10+00:00">01:17:10</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>I lived in Milpitas, many years.</q></li>
+<li class="part">[<a href="#T01:17:12" id="T01:17:12"><abbr title="2008-12-18T01:17:12+00:00">01:17:12</abbr></a>] <span>* RogerMonk (n=a0740758@nat/ti/x-71e3f36fcd9ad5e1) has left #beagle</span></li>
+<li class="message">[<a href="#T01:18:51" id="T01:18:51"><abbr title="2008-12-18T01:18:51+00:00">01:18:51</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Last job there was with INTEL.</q></li>
+<li class="quit">[<a href="#T01:19:05" id="T01:19:05"><abbr title="2008-12-18T01:19:05+00:00">01:19:05</abbr></a>] <span>* Beagle6 (n=Beagle6@c-69-142-105-149.hsd1.nj.comcast.net) Quit ()</span></li>
+<li class="message">[<abbr title="2008-12-18T01:19:05+00:00">01:19:05</abbr>] &lt;<cite>ds2</cite>&gt; <q>oh THOSE power guzzling folks ;)</q></li>
+<li class="message">[<a href="#T01:19:39" id="T01:19:39"><abbr title="2008-12-18T01:19:39+00:00">01:19:39</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>I worked on dialogic telephony boards.</q></li>
+<li class="message">[<a href="#T01:22:13" id="T01:22:13"><abbr title="2008-12-18T01:22:13+00:00">01:22:13</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Before that I was the total test department for Metricom, the Ricochet RF modem, etc.</q></li>
+<li class="message">[<a href="#T01:24:41" id="T01:24:41"><abbr title="2008-12-18T01:24:41+00:00">01:24:41</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>I am retired now and need a new toy to play with.</q></li>
+<li class="message">[<a href="#T01:26:55" id="T01:26:55"><abbr title="2008-12-18T01:26:55+00:00">01:26:55</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>how is intel?</q></li>
+<li class="message">[<a href="#T01:27:09" id="T01:27:09"><abbr title="2008-12-18T01:27:09+00:00">01:27:09</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Don't know or care.</q></li>
+<li class="message">[<a href="#T01:27:36" id="T01:27:36"><abbr title="2008-12-18T01:27:36+00:00">01:27:36</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>n6pfk: can you make the beagle get online over ham radio?</q></li>
+<li class="message">[<a href="#T01:28:23" id="T01:28:23"><abbr title="2008-12-18T01:28:23+00:00">01:28:23</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I would like that for worldwide coverage</q></li>
+<li class="message">[<a href="#T01:28:30" id="T01:28:30"><abbr title="2008-12-18T01:28:30+00:00">01:28:30</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Should be able to do that.  There is a software radio project.</q></li>
+<li class="message">[<a href="#T01:29:04" id="T01:29:04"><abbr title="2008-12-18T01:29:04+00:00">01:29:04</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>And the dsp should easily handle digital modes.</q></li>
+<li class="message">[<a href="#T01:29:13" id="T01:29:13"><abbr title="2008-12-18T01:29:13+00:00">01:29:13</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>do you know how much power it would consume</q></li>
+<li class="message">[<a href="#T01:29:29" id="T01:29:29"><abbr title="2008-12-18T01:29:29+00:00">01:29:29</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>to do say 9600 baud to the opposite side of the world from the base station</q></li>
+<li class="message">[<a href="#T01:31:46" id="T01:31:46"><abbr title="2008-12-18T01:31:46+00:00">01:31:46</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Too much,  psk31 is much better for bandwidth and power.</q></li>
+<li class="join">[<a href="#T01:32:43" id="T01:32:43"><abbr title="2008-12-18T01:32:43+00:00">01:32:43</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:32:58" id="T01:32:58"><abbr title="2008-12-18T01:32:58+00:00">01:32:58</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T01:33:26" id="T01:33:26"><abbr title="2008-12-18T01:33:26+00:00">01:33:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mmmmm ricochet modems</q></li>
+<li class="message">[<a href="#T01:34:29" id="T01:34:29"><abbr title="2008-12-18T01:34:29+00:00">01:34:29</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Freqwuncy hopping at 900 MHz.  Early mesh network.</q></li>
+<li class="message">[<a href="#T01:35:03" id="T01:35:03"><abbr title="2008-12-18T01:35:03+00:00">01:35:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>isn't there a ALSApacket modem already?</q></li>
+<li class="message">[<a href="#T01:35:46" id="T01:35:46"><abbr title="2008-12-18T01:35:46+00:00">01:35:46</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Dont hnow.</q></li>
+<li class="message">[<a href="#T01:35:51" id="T01:35:51"><abbr title="2008-12-18T01:35:51+00:00">01:35:51</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>know</q></li>
+<li class="message">[<a href="#T01:37:23" id="T01:37:23"><abbr title="2008-12-18T01:37:23+00:00">01:37:23</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>Anyway, gotta run. ttul</q></li>
+<li class="message">[<a href="#T01:37:26" id="T01:37:26"><abbr title="2008-12-18T01:37:26+00:00">01:37:26</abbr></a>] &lt;<cite>n6pfk</cite>&gt; <q>bye</q></li>
+<li class="quit">[<a href="#T01:37:47" id="T01:37:47"><abbr title="2008-12-18T01:37:47+00:00">01:37:47</abbr></a>] <span>* n6pfk (n=mike@c-76-104-40-104.hsd1.va.comcast.net) Quit ("Leaving")</span></li>
+<li class="message">[<a href="#T01:45:02" id="T01:45:02"><abbr title="2008-12-18T01:45:02+00:00">01:45:02</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: for sound or data?</q></li>
+<li class="message">[<a href="#T01:45:38" id="T01:45:38"><abbr title="2008-12-18T01:45:38+00:00">01:45:38</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I wonder if I can surf the web with psk</q></li>
+<li class="message">[<a href="#T01:45:51" id="T01:45:51"><abbr title="2008-12-18T01:45:51+00:00">01:45:51</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>probably too slow even for text</q></li>
+<li class="join">[<a href="#T01:46:14" id="T01:46:14"><abbr title="2008-12-18T01:46:14+00:00">01:46:14</abbr></a>] <span>* khasim (n=a0393720@192.163.20.231) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:47:10" id="T01:47:10"><abbr title="2008-12-18T01:47:10+00:00">01:47:10</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>but it could do irc :-P</q></li>
+<li class="message">[<a href="#T01:47:25" id="T01:47:25"><abbr title="2008-12-18T01:47:25+00:00">01:47:25</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>psk31 ir REALLY slow</q></li>
+<li class="message">[<a href="#T01:47:36" id="T01:47:36"><abbr title="2008-12-18T01:47:36+00:00">01:47:36</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>k4ep btw</q></li>
+<li class="message">[<a href="#T01:49:25" id="T01:49:25"><abbr title="2008-12-18T01:49:25+00:00">01:49:25</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>well it could communicate to a base station</q></li>
+<li class="message">[<a href="#T01:49:42" id="T01:49:42"><abbr title="2008-12-18T01:49:42+00:00">01:49:42</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>and that base station would connect to irc with a bot</q></li>
+<li class="message">[<a href="#T01:50:22" id="T01:50:22"><abbr title="2008-12-18T01:50:22+00:00">01:50:22</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>could do telnet too</q></li>
+<li class="message">[<a href="#T01:54:29" id="T01:54:29"><abbr title="2008-12-18T01:54:29+00:00">01:54:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: data</q></li>
+<li class="message">[<a href="#T01:54:40" id="T01:54:40"><abbr title="2008-12-18T01:54:40+00:00">01:54:40</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>it would be bad for data</q></li>
+<li class="message">[<a href="#T01:54:49" id="T01:54:49"><abbr title="2008-12-18T01:54:49+00:00">01:54:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>not really</q></li>
+<li class="message">[<a href="#T01:54:54" id="T01:54:54"><abbr title="2008-12-18T01:54:54+00:00">01:54:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no worse then a 9600 link</q></li>
+<li class="message">[<a href="#T01:55:01" id="T01:55:01"><abbr title="2008-12-18T01:55:01+00:00">01:55:01</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>oh, I thought it was 31 baud</q></li>
+<li class="message">[<a href="#T01:55:04" id="T01:55:04"><abbr title="2008-12-18T01:55:04+00:00">01:55:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>even 300bps is usable</q></li>
+<li class="message">[<a href="#T01:55:12" id="T01:55:12"><abbr title="2008-12-18T01:55:12+00:00">01:55:12</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>but 31 is not</q></li>
+<li class="message">[<a href="#T01:55:25" id="T01:55:25"><abbr title="2008-12-18T01:55:25+00:00">01:55:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>details....</q></li>
+<li class="message">[<a href="#T01:56:14" id="T01:56:14"><abbr title="2008-12-18T01:56:14+00:00">01:56:14</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>heh</q></li>
+<li class="quit">[<a href="#T02:00:02" id="T02:00:02"><abbr title="2008-12-18T02:00:02+00:00">02:00:02</abbr></a>] <span>* florian (n=fuchs@f048224011.adsl.alicedsl.de) Quit (Read error: 113 (No route to host))</span></li>
