@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="453" name="pico" prototype="Page" created="1228840678744" lastModified="1229700010719">
+  <hopobject id="453" name="pico" prototype="Page" created="1228840678744" lastModified="1229700373716">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,7 +9,7 @@
     <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
     <uri>pico</uri>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.5) Gecko/2008120122 Firefox/3.0.5</http_browser>
-    <time type="date">19.12.2008 09:20:10 CST</time>
+    <time type="date">19.12.2008 09:26:13 CST</time>
     <hopsession>127.0.0.192.91.75.3ut8whdro4vy</hopsession>
     <body>
  &lt;h1&gt;Pico Projector Development Kit&lt;/h1&gt;
@@ -49,15 +49,18 @@
   &lt;param name=&quot;allowscriptaccess&quot; value=&quot;always&quot;/&gt;
   &lt;embed src=&quot;http://www.youtube.com/v/WRk2YHlXjMQ&amp;amp;hl=en&amp;amp;fs=1&quot; type=&quot;application/x-shockwave-flash&quot; allowscriptaccess=&quot;always&quot; allowfullscreen=&quot;true&quot; width=&quot;425&quot; height=&quot;344&quot;/&gt;
  &lt;/object&gt;
- &lt;h2&gt;With a Mac OS X host&lt;/h2&gt;
- &lt;ul class=&quot;subitem&quot;&gt;
+ &lt;h2&gt;Using &apos;dd&apos; from any operating system&lt;/h2&gt;
+ &lt;p&gt;A &apos;dd&apos; image can be created from Linux without access to an SD card, then written from any operating system where &apos;dd&apos; can be run.&lt;/p&gt;
+ &lt;ol&gt;
   &lt;li&gt;
-   This image will be created with a script something like
-   &lt;a href=&quot;http://www.beagleboard.org/~arago/mksdimg.txt&quot;&gt;mksdimg.sh&lt;/a&gt;
-   and can be written to a 512MB SD card using
-   &lt;i&gt;dd&lt;/i&gt;
+   Build the image using
+   &lt;a href=&quot;http://www.beagleboard.org/~arago/mkpicoimg.txt&quot;&gt;mkpicoimg.sh.&lt;/a&gt;
   &lt;/li&gt;
- &lt;/ul&gt;
+  &lt;li&gt;
+   gzcat sd.img.gz | dd of=
+   &lt;i&gt;your device&lt;/i&gt;
+  &lt;/li&gt;
+ &lt;/ol&gt;
 </body>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_referer>http://beagleboard.org/pico/edit</http_referer>
