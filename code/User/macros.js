@@ -158,17 +158,17 @@ function prompt_macro (param)
       if (verified != null)
        {
         var name = "" + verified;
-	       name = name.replace(/^http\:\/\//, "").replace(/\/$/, "");
+        name = name.replace(/^http\:\/\//, "").replace(/\/$/, "");
         var user = app.getUser(name);
         if (!user)
-	        {
-	         user = app.registerUser(name, "password");
-	        }
+         {
+          user = app.registerUser(name, "password");
+         }
         if (user)
-	        {
-	         app.log("Logging in as " + name);
-	         session.login(user);
-	        }
+         {
+          app.log("Logging in as " + name);
+          session.login(user);
+         }
         authSuccess = verification.getAuthResponse();
         if (authSuccess.hasExtension(Packages.org.openid4java.message.ax.AxMessage.OPENID_NS_AX))
          {
@@ -235,3 +235,7 @@ function prompt_macro (param)
   return (promptString);
  }
 
+function href_macro (param)
+ {
+  return (this.href());
+ }
