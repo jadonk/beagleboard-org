@@ -195,7 +195,9 @@ function prompt_macro (param)
   var requestURL = ("" + req.getServletRequest().getRequestURL()).replace(/\/$/, "");
   if(session.user)
    {
+    promptString += '<a href="/user/' + session.user["name"] + '">';
     promptString += session.user["name"];
+    promptString += '</a>';
     promptString += ' <form method="post"><input type="hidden" name="logout" value="true"></input><button type="submit">Logout</button>'
     promptString += ' </form>';
     if 
