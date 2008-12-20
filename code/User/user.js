@@ -16,6 +16,7 @@ function main_action ()
      {
       // Create the user_page for this user
       var x = new Page(this.name, "user_page", "");
+      x.registrant = this.name;
       x.uri = this.name;
       x.pseudoParent = this;
       this.page = x;
