@@ -1,12 +1,28 @@
 function getChildElement (name)
  {
-  return (app.getUser(name));
+  var x = app.getUser(name);
+  if (x.page)
+   {
+    x = x.page;
+   }
+  return (x);
  }
 
 function main_action ()
  {
   if (("" + this) == "[object user]")
    {
+    if ("" + this.name == session.user["name"])
+     {
+      // Create the user_page for this user
+      var x = new Page(this.name, "user_page", "");
+      x.uri = this.name;
+      x.pseudoParent = this;
+      this.page = x;
+
+      // Reload this as a Page
+      res.redirect(root.href("user") + "/" + this.name);
+     }
     res.data.title = "" + this.name;
     res.data.body = "<h1>" + this.name + "</h1>\n";
     renderSkin("index");
@@ -24,6 +40,18 @@ function main_action ()
      }
     res.data.body += "</ul>\n";
     renderSkin("index");
+   }
+ }
+
+function href (action)
+ {
+  if (("" + this) == "[object user]")
+   {
+    return (root.href("user") + "/");
+   }
+  else
+   {
+    return HopObject.prototype.href.apply(this, arguments);
    }
  }
 

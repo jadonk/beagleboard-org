@@ -138,7 +138,11 @@ function cleanBody()
 
 function href (action)
  {
-  if (this.pseudoParent && this.isTransient())
+  if
+   (
+    this.pseudoParent 
+    && (this.isTransient() || ("" + this.pseudoParent != "[object Page]"))
+   )
    {
     return (this.pseudoParent.href() + this.uri + '/' + (action || ''));
    }
