@@ -191,7 +191,12 @@ function prompt_macro (param)
 
   updateUserState();
 
-  var promptString = '<div class="login">';
+  var promptString = '';
+  if (param.registrant)
+   {
+    promptString += ' <a href="/user/' + param.registrant + '">Page Owner</a> | ';
+   }
+  promptString += '<div class="login">';
   var requestURL = ("" + req.getServletRequest().getRequestURL()).replace(/\/$/, "");
   if(session.user)
    {
