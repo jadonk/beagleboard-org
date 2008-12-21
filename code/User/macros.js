@@ -233,8 +233,6 @@ function prompt_macro (param)
     promptString += '  </form>\n';
     promptString += ' | <a href="/register">Register</a>';
    }
-  promptString += ' this=' + this;
-  promptString += ' registrant=' + param.registrant;
   promptString += '</div>';
   return (promptString);
  }
