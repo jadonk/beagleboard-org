@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="457" name="dojotest" prototype="Page" created="1229350459051" lastModified="1229880565045">
+  <hopobject id="457" name="dojotest" prototype="Page" created="1229350459051" lastModified="1229880593734">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,7 +9,7 @@
     <http_language>en-us,en;q=0.8,ja;q=0.5,zh;q=0.3</http_language>
     <http_browser>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.5) Gecko/2008120121 Firefox/3.0.5</http_browser>
     <uri>dojotest</uri>
-    <time type="date">21.12.2008 11:29:25 CST</time>
+    <time type="date">21.12.2008 11:29:53 CST</time>
     <hopsession>127.0.0.76.31.18.90d53exy0voz</hopsession>
     <body>
  Test some things with the dojo library.
@@ -71,9 +71,9 @@ var imageItems = {
  dojo.addOnLoad(function() {
   var timer = new dojox.timing.Timer(3000);
   timer.start();
+  timer.x = 1;
   timer.onTick = function() {
-   this.x = 1;
-   dojo.style(&quot;element&quot; + x, &quot;display&quot;, &quot;none&quot;);
+   dojo.style(&quot;element&quot; + this.x, &quot;display&quot;, &quot;none&quot;);
    this.x++;
    if (this.x &gt; 3)
     this.x = 1;
