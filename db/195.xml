@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1229880925935">
+  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1229881018667">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -10,7 +10,7 @@
     <http_language>en-us,en;q=0.8,ja;q=0.5,zh;q=0.3</http_language>
     <uri>default</uri>
     <http_browser>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.5) Gecko/2008120121 Firefox/3.0.5</http_browser>
-    <time type="date">21.12.2008 11:35:25 CST</time>
+    <time type="date">21.12.2008 11:36:58 CST</time>
     <hopsession>127.0.0.76.31.18.90d53exy0voz</hopsession>
     <body>
  &lt;div id=&quot;col1&quot; class=&quot;item&quot;&gt;
@@ -49,6 +49,24 @@
    &lt;p class=&quot;action&quot;&gt;
     &lt;a href=&quot;/media&quot;&gt;View more videos/pics&lt;/a&gt;
    &lt;/p&gt;
+   &lt;script type=&quot;text/javascript&quot;&gt;dojo.require(&quot;dojo.fx&quot;);
+ dojo.require(&quot;dojo.parser&quot;);
+ dojo.require(&quot;dojox.timing._base&quot;);
+ dojo.addOnLoad(function() {
+  var timer = new dojox.timing.Timer(5000);
+  timer.start();
+  dojo.style(&quot;video1&quot;, &quot;display&quot;, &quot;inline&quot;);
+  dojo.style(&quot;video2&quot;, &quot;display&quot;, &quot;none&quot;);
+  dojo.style(&quot;video3&quot;, &quot;display&quot;, &quot;none&quot;);
+  timer.x = 1;
+  timer.onTick = function() {
+   dojo.style(&quot;video&quot; + this.x, &quot;display&quot;, &quot;none&quot;);
+   this.x++;
+   if (this.x &gt; 3)
+    this.x = 1;
+   dojo.style(&quot;video&quot; + this.x, &quot;display&quot;, &quot;inline&quot;);
+  };
+ });&lt;/script&gt;
   &lt;/div&gt;
   &lt;div&gt;
    &lt;h2&gt;
