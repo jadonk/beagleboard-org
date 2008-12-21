@@ -62,3 +62,20 @@ function list_macro (param)
   if (this.list && this.list_children)
    return (this.listBody());
  }
+
+function registrant_macro (param)
+ {
+  if (this.registrant)
+   {
+    return ("" + this.registrant);
+   }
+  else if (session.user && session.user["name"])
+   {
+    return ("" + session.user["name"]);
+   }
+  else
+   {
+    return ("blog.hangerhead.com");
+   }
+ }
+

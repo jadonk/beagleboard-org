@@ -14,22 +14,6 @@ function edit_macro (param)
   return ("");
  }
 
-function registrant_macro (param)
- {
-  if (this.registrant)
-   {
-    return ("" + this.registrant);
-   }
-  else if (session.user && session.user["name"])
-   {
-    return ("" + session.user["name"]);
-   }
-  else
-   {
-    return ("Please login first");
-   }
- }
-
 function homepage_macro (param)
  {
   return ("" + this.homepage);

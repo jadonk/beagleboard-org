@@ -10,6 +10,8 @@ function getChildElement (name)
 
 function main_action ()
  {
+  res.handlers["Page"] = Page();
+
   if (("" + this) == "[object user]")
    {
     if ("" + this.name == session.user["name"])

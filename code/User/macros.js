@@ -204,7 +204,7 @@ function prompt_macro (param)
      (
       (
        session.user["name"] == "blog.hangerhead.com"
-       || session.user["name"] == this.registrant
+       || session.user["name"] == param.registrant
       )
       && !(/\/edit$/.test(requestURL))
      )
@@ -233,6 +233,8 @@ function prompt_macro (param)
     promptString += '  </form>\n';
     promptString += ' | <a href="/register">Register</a>';
    }
+  promptString += ' this=' + this;
+  promptString += ' registrant=' + param.registrant;
   promptString += '</div>';
   return (promptString);
  }
