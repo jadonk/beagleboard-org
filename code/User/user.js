@@ -14,7 +14,7 @@ function main_action ()
 
   if (("" + this) == "[object user]")
    {
-    if ("" + this.name == session.user["name"])
+    if (session.user && ("" + this.name == session.user["name"]))
      {
       // Create the user_page for this user
       var x = new Page(this.name, "user_page", "");

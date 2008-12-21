@@ -69,6 +69,18 @@ function registrant_macro (param)
    {
     return ("" + this.registrant);
    }
+  else
+   {
+    return ("");
+   }
+ }
+
+function registrar_macro (param)
+ {
+  if (this.registrant)
+   {
+    return ("" + this.registrant);
+   }
   else if (session.user && session.user["name"])
    {
     return ("" + session.user["name"]);

@@ -11,5 +11,7 @@ function set_action ()
    this.edit_skin = req.data["edit_skin"];
   if (req.data["list_children"])
    this.list_children = req.data["list_children"];
+  if (req.data["registrant"])
+   this.registrant = req.data["registrant"];
   res.redirect(this.href());
  }
