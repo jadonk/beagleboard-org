@@ -123,6 +123,7 @@ function cleanBody()
       '</div></body></html>'
      );
     cleaner.setOmitUnknownTags(true);
+    cleaner.setTreatDeprecatedTagsAsContent(true);
     cleaner.clean();
     var s = "" + cleaner.getXmlAsString();
     var x = new XML(s);
