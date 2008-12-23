@@ -81,7 +81,11 @@ function edit_action ()
        }
       var runtime = Packages.java.lang.Runtime.getRuntime();
       runtime.exec("scripts/beagle/edit.sh");
-      global.logbot.sendMessage('#beagle',"http://beagleboard.org" + this.href() + " was edited by " + session.user["name"]);
+      if (this.href() != global.lastPageUpdated)
+       {
+        global.logbot.sendMessage('#beagle',"http://beagleboard.org" + this.href() + " was edited by " + session.user["name"]);
+       }
+      global.lastPageUpdated = this.href();
       this.time = new Date();
       res.redirect(this.href());
       return;
