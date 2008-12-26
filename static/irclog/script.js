@@ -66,8 +66,8 @@ function CheckboxClick()
 		ShowCommand(this.checked,'mode');
 	else if (this.id == 'show_jibot')
 		ShowUser(this.checked,'jibot');
-	else if (this.id == 'show_mfbot')
-		ShowUser(this.checked,'mfbot');
+	else if (this.id == 'show_beaglebot')
+		ShowUser(this.checked,'beaglebot');
 
 	document.getElementById('SaveSettings').style.display='inline';
 }
@@ -79,7 +79,7 @@ function SaveSettings()
 	s+=document.getElementById('quit').checked?'1':'0';
 	s+=document.getElementById('mode').checked?'1':'0';
 	s+=document.getElementById('show_jibot').checked?'1':'0';
-	s+=document.getElementById('show_mfbot').checked?'1':'0';
+	s+=document.getElementById('show_beaglebot').checked?'1':'0';
 	if (!CreateCookie(cookie_name,s,356))
 		alert('Please enable "cookies" in your browser settings in order to store your settings.');
 	document.getElementById('SaveSettings').style.display='none';
@@ -213,10 +213,10 @@ window.onload=function() {
 
 		var s5=document.createElement('span');
 		var c5=document.createElement('input');
-		var t5=document.createTextNode(' mfbot ');
-		c5.id = 'show_mfbot'; c5.type = 'checkbox';
+		var t5=document.createTextNode(' beaglebot ');
+		c5.id = 'show_beaglebot'; c5.type = 'checkbox';
 		c5.checked = c5.defaultChecked = true;
-		c5.title = s5.title = 'Show/hide messages by mfbot';
+		c5.title = s5.title = 'Show/hide messages by beaglebot';
 		c5.onclick = CheckboxClick;
 		s5.appendChild(c5); s5.appendChild(t5); f.appendChild(s5);
 
@@ -236,7 +236,7 @@ window.onload=function() {
 				document.getElementById('quit').checked=ShowCommand(ck.charAt(1)=='1','(quit|part)');
 				document.getElementById('mode').checked=ShowCommand(ck.charAt(2)=='1','mode');
 				document.getElementById('show_jibot').checked=ShowUser(ck.charAt(3)=='1','jibot');
-				document.getElementById('show_mfbot').checked=ShowUser(ck.charAt(4)=='1','mfbot');
+				document.getElementById('show_beaglebot').checked=ShowUser(ck.charAt(4)=='1','BeagleBot');
 		}
 	}
     fragHLload();fragHLlink();
