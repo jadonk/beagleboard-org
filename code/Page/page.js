@@ -80,10 +80,12 @@ function edit_action ()
         this.uri = req.data["uri"];
        }
       var runtime = Packages.java.lang.Runtime.getRuntime();
+      var message = "http://beagleboard.org" + this.href() + " was edited by " + session.user["name"];
       runtime.exec("scripts/beagle/edit.sh");
       if (this.href() != global.lastPageUpdated)
        {
-        global.logbot.sendMessage('#beagle',"http://beagleboard.org" + this.href() + " was edited by " + session.user["name"]);
+        global.logbot.sendMessage('#beagle', message);
+	global.logbot.append(3, message, "BeagleBot");
        }
       global.lastPageUpdated = this.href();
       this.time = new Date();
