@@ -1,1 +1,287 @@
 <li class="message">[<a href="#T00:00:00" id="T00:00:00"><abbr title="2009-01-14T00:00:00+00:00">00:00:00</abbr></a>] &lt;<cite>raster</cite>&gt; <q>interesting is my benchmarks pretty much didnt change</q></li>
+<li class="message">[<a href="#T00:00:09" id="T00:00:09"><abbr title="2009-01-14T00:00:09+00:00">00:00:09</abbr></a>] &lt;<cite>raster</cite>&gt; <q>then again maybe my fill is a tiny portion of it</q></li>
+<li class="message">[<a href="#T00:00:18" id="T00:00:18"><abbr title="2009-01-14T00:00:18+00:00">00:00:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i didnt test the ons that push fills</q></li>
+<li class="message">[<a href="#T00:00:20" id="T00:00:20"><abbr title="2009-01-14T00:00:20+00:00">00:00:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i properly should</q></li>
+<li class="message">[<a href="#T00:00:21" id="T00:00:21"><abbr title="2009-01-14T00:00:21+00:00">00:00:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>can you post a disassembly of that function?</q></li>
+<li class="message">[<a href="#T00:00:30" id="T00:00:30"><abbr title="2009-01-14T00:00:30+00:00">00:00:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i needto add a way to run a particular test from the cmd-line</q></li>
+<li class="message">[<a href="#T00:00:38" id="T00:00:38"><abbr title="2009-01-14T00:00:38+00:00">00:00:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmm right now - no</q></li>
+<li class="action">[<a href="#T00:00:46" id="T00:00:46"><abbr title="2009-01-14T00:00:46+00:00">00:00:46</abbr></a>] <span>* mru can't read intrinsics and doesn't trust the compiler</span></li>
+<li class="message">[<a href="#T00:00:58" id="T00:00:58"><abbr title="2009-01-14T00:00:58+00:00">00:00:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'm on my laptop away from my whole dev setup</q></li>
+<li class="message">[<a href="#T00:01:13" id="T00:01:13"><abbr title="2009-01-14T00:01:13+00:00">00:01:13</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and ian did mention theres gcc intrinsics bugs with pack/unpack</q></li>
+<li class="message">[<a href="#T00:01:25" id="T00:01:25"><abbr title="2009-01-14T00:01:25+00:00">00:01:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so he wrote some hand-rolled asm to work around it</q></li>
+<li class="message">[<a href="#T00:01:26" id="T00:01:26"><abbr title="2009-01-14T00:01:26+00:00">00:01:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc is bugs</q></li>
+<li class="message">[<a href="#T00:01:39" id="T00:01:39"><abbr title="2009-01-14T00:01:39+00:00">00:01:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but there's fixes in the pipeline (patches) for gcc</q></li>
+<li class="message">[<a href="#T00:01:46" id="T00:01:46"><abbr title="2009-01-14T00:01:46+00:00">00:01:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hahahahaha</q></li>
+<li class="message">[<a href="#T00:02:23" id="T00:02:23"><abbr title="2009-01-14T00:02:23+00:00">00:02:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what are those DATA32 types?</q></li>
+<li class="message">[<a href="#T00:02:26" id="T00:02:26"><abbr title="2009-01-14T00:02:26+00:00">00:02:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i like intrinsics</q></li>
+<li class="message">[<a href="#T00:02:29" id="T00:02:29"><abbr title="2009-01-14T00:02:29+00:00">00:02:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>... if they work</q></li>
+<li class="message">[<a href="#T00:02:33" id="T00:02:33"><abbr title="2009-01-14T00:02:33+00:00">00:02:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but they don't</q></li>
+<li class="message">[<a href="#T00:02:37" id="T00:02:37"><abbr title="2009-01-14T00:02:37+00:00">00:02:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>data32 == unit32_t</q></li>
+<li class="message">[<a href="#T00:02:38" id="T00:02:38"><abbr title="2009-01-14T00:02:38+00:00">00:02:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which compiler are you using?</q></li>
+<li class="message">[<a href="#T00:02:39" id="T00:02:39"><abbr title="2009-01-14T00:02:39+00:00">00:02:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>err</q></li>
+<li class="message">[<a href="#T00:02:42" id="T00:02:42"><abbr title="2009-01-14T00:02:42+00:00">00:02:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>uint32_t</q></li>
+<li class="message">[<a href="#T00:03:10" id="T00:03:10"><abbr title="2009-01-14T00:03:10+00:00">00:03:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i did that code long ago andits stayed - when the standard unit32_t etc. types were not universally available</q></li>
+<li class="message">[<a href="#T00:03:25" id="T00:03:25"><abbr title="2009-01-14T00:03:25+00:00">00:03:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i typedeffed it myself in the code</q></li>
+<li class="message">[<a href="#T00:03:32" id="T00:03:32"><abbr title="2009-01-14T00:03:32+00:00">00:03:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its typedeffed to that</q></li>
+<li class="message">[<a href="#T00:03:41" id="T00:03:41"><abbr title="2009-01-14T00:03:41+00:00">00:03:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>effectively</q></li>
+<li class="message">[<a href="#T00:03:57" id="T00:03:57"><abbr title="2009-01-14T00:03:57+00:00">00:03:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>for me.. it's 32bit</q></li>
+<li class="message">[<a href="#T00:03:58" id="T00:03:58"><abbr title="2009-01-14T00:03:58+00:00">00:03:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>who cares</q></li>
+<li class="message">[<a href="#T00:03:59" id="T00:03:59"><abbr title="2009-01-14T00:03:59+00:00">00:03:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T00:04:17" id="T00:04:17"><abbr title="2009-01-14T00:04:17+00:00">00:04:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I do, if I have to understand the code</q></li>
+<li class="message">[<a href="#T00:04:21" id="T00:04:21"><abbr title="2009-01-14T00:04:21+00:00">00:04:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(well until u do some math.. then signed vs unsigned may matter)</q></li>
+<li class="message">[<a href="#T00:04:28" id="T00:04:28"><abbr title="2009-01-14T00:04:28+00:00">00:04:28</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oh sure</q></li>
+<li class="message">[<a href="#T00:04:39" id="T00:04:39"><abbr title="2009-01-14T00:04:39+00:00">00:04:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its simple</q></li>
+<li class="message">[<a href="#T00:04:49" id="T00:04:49"><abbr title="2009-01-14T00:04:49+00:00">00:04:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it takes the solid color c</q></li>
+<li class="message">[<a href="#T00:04:52" id="T00:04:52"><abbr title="2009-01-14T00:04:52+00:00">00:04:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>32bit</q></li>
+<li class="message">[<a href="#T00:05:07" id="T00:05:07"><abbr title="2009-01-14T00:05:07+00:00">00:05:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>duplicates it in a 128bit neon reg 4 times</q></li>
+<li class="message">[<a href="#T00:05:12" id="T00:05:12"><abbr title="2009-01-14T00:05:12+00:00">00:05:12</abbr></a>] &lt;<cite>raster</cite>&gt; <q>uses 4 neon registers</q></li>
+<li class="quit">[<a href="#T00:05:18" id="T00:05:18"><abbr title="2009-01-14T00:05:18+00:00">00:05:18</abbr></a>] <span>* florian (n=fuchs@g228210198.adsl.alicedsl.de) Quit (Read error: 113 (No route to host))</span></li>
+<li class="message">[<a href="#T00:05:19" id="T00:05:19"><abbr title="2009-01-14T00:05:19+00:00">00:05:19</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(could do more - but for now 4 was good enough)</q></li>
+<li class="message">[<a href="#T00:05:31" id="T00:05:31"><abbr title="2009-01-14T00:05:31+00:00">00:05:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>then just blasts it out</q></li>
+<li class="message">[<a href="#T00:05:32" id="T00:05:32"><abbr title="2009-01-14T00:05:32+00:00">00:05:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>actually</q></li>
+<li class="message">[<a href="#T00:05:34" id="T00:05:34"><abbr title="2009-01-14T00:05:34+00:00">00:05:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'm stupig</q></li>
+<li class="message">[<a href="#T00:05:40" id="T00:05:40"><abbr title="2009-01-14T00:05:40+00:00">00:05:40</abbr></a>] &lt;<cite>raster</cite>&gt; <q>why did i dup it 4 times</q></li>
+<li class="message">[<a href="#T00:05:44" id="T00:05:44"><abbr title="2009-01-14T00:05:44+00:00">00:05:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>in 4 regs</q></li>
+<li class="message">[<a href="#T00:05:47" id="T00:05:47"><abbr title="2009-01-14T00:05:47+00:00">00:05:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thats just silly!</q></li>
+<li class="message">[<a href="#T00:05:48" id="T00:05:48"><abbr title="2009-01-14T00:05:48+00:00">00:05:48</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: symbols with leading '_' are ok for C programs, it is double '_' that are reserved or '_' followed by uppercase letter</q></li>
+<li class="action">[<a href="#T00:05:51" id="T00:05:51"><abbr title="2009-01-14T00:05:51+00:00">00:05:51</abbr></a>] <span>* raster kicks himself</span></li>
+<li class="message">[<a href="#T00:06:07" id="T00:06:07"><abbr title="2009-01-14T00:06:07+00:00">00:06:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ssvb: read the spec again</q></li>
+<li class="message">[<a href="#T00:06:14" id="T00:06:14"><abbr title="2009-01-14T00:06:14+00:00">00:06:14</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: which one?</q></li>
+<li class="message">[<a href="#T00:06:17" id="T00:06:17"><abbr title="2009-01-14T00:06:17+00:00">00:06:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_&lt;lowercase&gt; is reserved at file scope</q></li>
+<li class="message">[<a href="#T00:06:18" id="T00:06:18"><abbr title="2009-01-14T00:06:18+00:00">00:06:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>c99</q></li>
+<li class="quit">[<a href="#T00:07:45" id="T00:07:45"><abbr title="2009-01-14T00:07:45+00:00">00:07:45</abbr></a>] <span>* rsalveti (n=salveti@189.70.60.88) Quit (No route to host)</span></li>
+<li class="join">[<a href="#T00:07:52" id="T00:07:52"><abbr title="2009-01-14T00:07:52+00:00">00:07:52</abbr></a>] <span>* rsalveti (n=salveti@189.70.60.88) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:10:11" id="T00:10:11"><abbr title="2009-01-14T00:10:11+00:00">00:10:11</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: ok, thanks</q></li>
+<li class="message">[<a href="#T00:10:37" id="T00:10:37"><abbr title="2009-01-14T00:10:37+00:00">00:10:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T00:10:57" id="T00:10:57"><abbr title="2009-01-14T00:10:57+00:00">00:10:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>raster: how you compile that code?</q></li>
+<li class="message">[<a href="#T00:11:00" id="T00:11:00"><abbr title="2009-01-14T00:11:00+00:00">00:11:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>compiler? flags?</q></li>
+<li class="message">[<abbr title="2009-01-14T00:11:00+00:00">00:11:00</abbr>] &lt;<cite>raster</cite>&gt; <q>i just realised life is going to be ugly doing copies if both ends are unaligned</q></li>
+<li class="message">[<a href="#T00:11:26" id="T00:11:26"><abbr title="2009-01-14T00:11:26+00:00">00:11:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>-fexpensive-optimizations -frename-registers -fomit-frame-pointer -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp -O2</q></li>
+<li class="message">[<a href="#T00:11:35" id="T00:11:35"><abbr title="2009-01-14T00:11:35+00:00">00:11:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>copy smaller pieces until destination is aligned</q></li>
+<li class="message">[<a href="#T00:11:37" id="T00:11:37"><abbr title="2009-01-14T00:11:37+00:00">00:11:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>then just go</q></li>
+<li class="message">[<a href="#T00:11:46" id="T00:11:46"><abbr title="2009-01-14T00:11:46+00:00">00:11:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but if src is not aligned</q></li>
+<li class="message">[<a href="#T00:11:53" id="T00:11:53"><abbr title="2009-01-14T00:11:53+00:00">00:11:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u'll never be able to do an aligned fixup</q></li>
+<li class="message">[<a href="#T00:11:54" id="T00:11:54"><abbr title="2009-01-14T00:11:54+00:00">00:11:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's ok</q></li>
+<li class="message">[<a href="#T00:12:06" id="T00:12:06"><abbr title="2009-01-14T00:12:06+00:00">00:12:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>unaligned loads are ok</q></li>
+<li class="message">[<a href="#T00:12:14" id="T00:12:14"><abbr title="2009-01-14T00:12:14+00:00">00:12:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's the stores that can do silly things</q></li>
+<li class="message">[<a href="#T00:12:16" id="T00:12:16"><abbr title="2009-01-14T00:12:16+00:00">00:12:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ooh just the stores?</q></li>
+<li class="message">[<a href="#T00:12:33" id="T00:12:33"><abbr title="2009-01-14T00:12:33+00:00">00:12:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, read my blog post</q></li>
+<li class="message">[<a href="#T00:13:36" id="T00:13:36"><abbr title="2009-01-14T00:13:36+00:00">00:13:36</abbr></a>] &lt;<cite>denix</cite>&gt; <q>Crofton|irssi: it's fine. I guess it became known earlier than expected... :)</q></li>
+<li class="message">[<a href="#T00:13:43" id="T00:13:43"><abbr title="2009-01-14T00:13:43+00:00">00:13:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>reading</q></li>
+<li class="message">[<a href="#T00:13:44" id="T00:13:44"><abbr title="2009-01-14T00:13:44+00:00">00:13:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>raster: the s and m arguments are unused?</q></li>
+<li class="message">[<a href="#T00:13:45" id="T00:13:45"><abbr title="2009-01-14T00:13:45+00:00">00:13:45</abbr></a>] &lt;<cite>denix</cite>&gt; <q>oops, sorry</q></li>
+<li class="message">[<a href="#T00:13:47" id="T00:13:47"><abbr title="2009-01-14T00:13:47+00:00">00:13:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(again)</q></li>
+<li class="message">[<a href="#T00:14:13" id="T00:14:13"><abbr title="2009-01-14T00:14:13+00:00">00:14:13</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T00:14:14" id="T00:14:14"><abbr title="2009-01-14T00:14:14+00:00">00:14:14</abbr></a>] &lt;<cite>raster</cite>&gt; <q>unused</q></li>
+<li class="message">[<a href="#T00:14:22" id="T00:14:22"><abbr title="2009-01-14T00:14:22+00:00">00:14:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its a generic span handler</q></li>
+<li class="message">[<a href="#T00:14:27" id="T00:14:27"><abbr title="2009-01-14T00:14:27+00:00">00:14:27</abbr></a>] &lt;<cite>raster</cite>&gt; <q>can have src and mask too</q></li>
+<li class="message">[<a href="#T00:14:28" id="T00:14:28"><abbr title="2009-01-14T00:14:28+00:00">00:14:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I figured</q></li>
+<li class="message">[<a href="#T00:14:31" id="T00:14:31"><abbr title="2009-01-14T00:14:31+00:00">00:14:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>just making sure</q></li>
+<li class="message">[<a href="#T00:14:46" id="T00:14:46"><abbr title="2009-01-14T00:14:46+00:00">00:14:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but for this one it just uses color+dest and length (in pixels)</q></li>
+<li class="message">[<a href="#T00:15:08" id="T00:15:08"><abbr title="2009-01-14T00:15:08+00:00">00:15:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(and ys i know its a little overhead throwing params onto the stack u wont use)</q></li>
+<li class="message">[<a href="#T00:15:26" id="T00:15:26"><abbr title="2009-01-14T00:15:26+00:00">00:15:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i need to do a total retake on the software engine</q></li>
+<li class="message">[<a href="#T00:15:41" id="T00:15:41"><abbr title="2009-01-14T00:15:41+00:00">00:15:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>despite the fact it still rips the pants of pretty much anything out there</q></li>
+<li class="message">[<a href="#T00:15:44" id="T00:15:44"><abbr title="2009-01-14T00:15:44+00:00">00:15:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'm not happy with it</q></li>
+<li class="message">[<a href="#T00:15:45" id="T00:15:45"><abbr title="2009-01-14T00:15:45+00:00">00:15:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T00:16:13" id="T00:16:13"><abbr title="2009-01-14T00:16:13+00:00">00:16:13</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i really want to give tiled memory layout a go</q></li>
+<li class="message">[<a href="#T00:16:16" id="T00:16:16"><abbr title="2009-01-14T00:16:16+00:00">00:16:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>in software</q></li>
+<li class="message">[<a href="#T00:17:31" id="T00:17:31"><abbr title="2009-01-14T00:17:31+00:00">00:17:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I suggest you take a look at the code gcc produces from that</q></li>
+<li class="message">[<a href="#T00:17:35" id="T00:17:35"><abbr title="2009-01-14T00:17:35+00:00">00:17:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's hideous</q></li>
+<li class="message">[<a href="#T00:17:47" id="T00:17:47"><abbr title="2009-01-14T00:17:47+00:00">00:17:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>whihc bits</q></li>
+<li class="message">[<a href="#T00:17:51" id="T00:17:51"><abbr title="2009-01-14T00:17:51+00:00">00:17:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the intrinsics?</q></li>
+<li class="message">[<a href="#T00:17:52" id="T00:17:52"><abbr title="2009-01-14T00:17:52+00:00">00:17:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>all of it</q></li>
+<li class="message">[<a href="#T00:18:07" id="T00:18:07"><abbr title="2009-01-14T00:18:07+00:00">00:18:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i probably should</q></li>
+<li class="message">[<a href="#T00:18:16" id="T00:18:16"><abbr title="2009-01-14T00:18:16+00:00">00:18:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>for mmx i did the hand-rolled macros</q></li>
+<li class="message">[<a href="#T00:18:22" id="T00:18:22"><abbr title="2009-01-14T00:18:22+00:00">00:18:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>fordoing the mmx/sse</q></li>
+<li class="message">[<a href="#T00:18:30" id="T00:18:30"><abbr title="2009-01-14T00:18:30+00:00">00:18:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so it would gnerate just whatit was told</q></li>
+<li class="message">[<a href="#T00:18:38" id="T00:18:38"><abbr title="2009-01-14T00:18:38+00:00">00:18:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so i had todo my own register allocs</q></li>
+<li class="message">[<a href="#T00:18:46" id="T00:18:46"><abbr title="2009-01-14T00:18:46+00:00">00:18:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(for the mmx side)</q></li>
+<li class="message">[<a href="#T00:18:58" id="T00:18:58"><abbr title="2009-01-14T00:18:58+00:00">00:18:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>delete col1/2/3</q></li>
+<li class="message">[<a href="#T00:19:00" id="T00:19:00"><abbr title="2009-01-14T00:19:00+00:00">00:19:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>register allocation is the fun bit ;-)</q></li>
+<li class="message">[<a href="#T00:19:03" id="T00:19:03"><abbr title="2009-01-14T00:19:03+00:00">00:19:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and replace it all with col0</q></li>
+<li class="message">[<a href="#T00:19:07" id="T00:19:07"><abbr title="2009-01-14T00:19:07+00:00">00:19:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>tat was just stupidity on my part</q></li>
+<li class="message">[<a href="#T00:19:08" id="T00:19:08"><abbr title="2009-01-14T00:19:08+00:00">00:19:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc did that for you</q></li>
+<li class="message">[<a href="#T00:19:20" id="T00:19:20"><abbr title="2009-01-14T00:19:20+00:00">00:19:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i dont know what posessed me to do that</q></li>
+<li class="message">[<a href="#T00:19:25" id="T00:19:25"><abbr title="2009-01-14T00:19:25+00:00">00:19:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but then it did other just as stupid things</q></li>
+<li class="message">[<a href="#T00:19:46" id="T00:19:46"><abbr title="2009-01-14T00:19:46+00:00">00:19:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i should look</q></li>
+<li class="message">[<a href="#T00:20:03" id="T00:20:03"><abbr title="2009-01-14T00:20:03+00:00">00:20:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but fist i shold get alignement fixups</q></li>
+<li class="quit">[<a href="#T00:20:34" id="T00:20:34"><abbr title="2009-01-14T00:20:34+00:00">00:20:34</abbr></a>] <span>* jrmuizel (n=jrmuizel@mozca02.ca.mozilla.com) Quit ()</span></li>
+<li class="message">[<a href="#T00:21:37" id="T00:21:37"><abbr title="2009-01-14T00:21:37+00:00">00:21:37</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>btw, if using gcc inline assembly, 64-bit and 128-bit neon/vfp arguments seem to be undocumented: <a href="http://gcc.gnu.org/bugzilla/show_bug.cgi?id=37188">http://gcc.gnu.org/bugzilla/show_bug.cgi?id=37188</a></q></li>
+<li class="action">[<a href="#T00:22:06" id="T00:22:06"><abbr title="2009-01-14T00:22:06+00:00">00:22:06</abbr></a>] <span>* mru doesn't use gcc inline assembly</span></li>
+<li class="message">[<a href="#T00:22:29" id="T00:22:29"><abbr title="2009-01-14T00:22:29+00:00">00:22:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q><a href="http://gcc.gnu.org/onlinedocs/gcc/ARM-NEON-Intrinsics.html">http://gcc.gnu.org/onlinedocs/gcc/ARM-NEON-Intrinsics.html</a></q></li>
+<li class="message">[<a href="#T00:22:32" id="T00:22:32"><abbr title="2009-01-14T00:22:32+00:00">00:22:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thats as good as u will get</q></li>
+<li class="message">[<a href="#T00:22:48" id="T00:22:48"><abbr title="2009-01-14T00:22:48+00:00">00:22:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>combine it with the armv7 arm - and u are ok</q></li>
+<li class="message">[<a href="#T00:22:54" id="T00:22:54"><abbr title="2009-01-14T00:22:54+00:00">00:22:54</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: intrinsics are completely evil :)</q></li>
+<li class="message">[<a href="#T00:22:55" id="T00:22:55"><abbr title="2009-01-14T00:22:55+00:00">00:22:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the intrinsics miss sone funcs</q></li>
+<li class="message">[<a href="#T00:23:01" id="T00:23:01"><abbr title="2009-01-14T00:23:01+00:00">00:23:01</abbr></a>] &lt;<cite>raster</cite>&gt; <q>like multiple load/store</q></li>
+<li class="message">[<a href="#T00:23:08" id="T00:23:08"><abbr title="2009-01-14T00:23:08+00:00">00:23:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ssvb: i know</q></li>
+<li class="message">[<a href="#T00:23:23" id="T00:23:23"><abbr title="2009-01-14T00:23:23+00:00">00:23:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but as is the whole world of hand rolling yourself some assembly :)</q></li>
+<li class="message">[<a href="#T00:23:34" id="T00:23:34"><abbr title="2009-01-14T00:23:34+00:00">00:23:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>is there enything not evil about it?</q></li>
+<li class="message">[<a href="#T00:23:35" id="T00:23:35"><abbr title="2009-01-14T00:23:35+00:00">00:23:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T00:23:48" id="T00:23:48"><abbr title="2009-01-14T00:23:48+00:00">00:23:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>only a few madmen will  subject themselves to such insanity</q></li>
+<li class="join">[<a href="#T00:24:00" id="T00:24:00"><abbr title="2009-01-14T00:24:00+00:00">00:24:00</abbr></a>] <span>* gletelli___ (n=chatzill@fw-tnat.cambridge.arm.com) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T00:24:57" id="T00:24:57"><abbr title="2009-01-14T00:24:57+00:00">00:24:57</abbr></a>] <span>* gletelli___ is now known as gletelli</span></li>
+<li class="message">[<a href="#T00:25:04" id="T00:25:04"><abbr title="2009-01-14T00:25:04+00:00">00:25:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>raster: have you seen my neon code for ffmpeg?</q></li>
+<li class="message">[<a href="#T00:25:18" id="T00:25:18"><abbr title="2009-01-14T00:25:18+00:00">00:25:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>mru: no - but i was intending to look</q></li>
+<li class="quit">[<a href="#T00:25:22" id="T00:25:22"><abbr title="2009-01-14T00:25:22+00:00">00:25:22</abbr></a>] <span>* gletelli__ (n=chatzill@fw-tnat.cambridge.arm.com) Quit (Read error: 54 (Connection reset by peer))</span></li>
+<li class="message">[<a href="#T00:25:29" id="T00:25:29"><abbr title="2009-01-14T00:25:29+00:00">00:25:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>for now i have ian's pixman neon patches</q></li>
+<li class="message">[<a href="#T00:25:37" id="T00:25:37"><abbr title="2009-01-14T00:25:37+00:00">00:25:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i prefer to learn by example</q></li>
+<li class="message">[<a href="#T00:25:40" id="T00:25:40"><abbr title="2009-01-14T00:25:40+00:00">00:25:40</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and not reference volume</q></li>
+<li class="message">[<a href="#T00:25:41" id="T00:25:41"><abbr title="2009-01-14T00:25:41+00:00">00:25:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T00:25:47" id="T00:25:47"><abbr title="2009-01-14T00:25:47+00:00">00:25:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ffmpeg has 2500 lines of pure neon assembler</q></li>
+<li class="message">[<a href="#T00:25:54" id="T00:25:54"><abbr title="2009-01-14T00:25:54+00:00">00:25:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ouch</q></li>
+<li class="message">[<a href="#T00:25:59" id="T00:25:59"><abbr title="2009-01-14T00:25:59+00:00">00:25:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that should get you started ;-)</q></li>
+<li class="message">[<a href="#T00:26:05" id="T00:26:05"><abbr title="2009-01-14T00:26:05+00:00">00:26:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T00:26:12" id="T00:26:12"><abbr title="2009-01-14T00:26:12+00:00">00:26:12</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i will snarf it later</q></li>
+<li class="message">[<a href="#T00:26:19" id="T00:26:19"><abbr title="2009-01-14T00:26:19+00:00">00:26:19</abbr></a>] &lt;<cite>raster</cite>&gt; <q>tho my world is more argb land</q></li>
+<li class="message">[<a href="#T00:26:28" id="T00:26:28"><abbr title="2009-01-14T00:26:28+00:00">00:26:28</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but the asm is the same</q></li>
+<li class="message">[<a href="#T00:26:44" id="T00:26:44"><abbr title="2009-01-14T00:26:44+00:00">00:26:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>depends</q></li>
+<li class="message">[<a href="#T00:26:57" id="T00:26:57"><abbr title="2009-01-14T00:26:57+00:00">00:26:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you're not doing a lot of idct stuff</q></li>
+<li class="quit">[<a href="#T00:27:38" id="T00:27:38"><abbr title="2009-01-14T00:27:38+00:00">00:27:38</abbr></a>] <span>* hartangas (i=83cfcfc0@gateway/web/ajax/mibbit.com/x-46ce7ac5b41b4e2a) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T00:27:55" id="T00:27:55"><abbr title="2009-01-14T00:27:55+00:00">00:27:55</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: gcc inline assembly is mostly ok, if you are only using gcc and don't need many free registers</q></li>
+<li class="message">[<a href="#T00:28:05" id="T00:28:05"><abbr title="2009-01-14T00:28:05+00:00">00:28:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>mru:  thank god</q></li>
+<li class="message">[<a href="#T00:28:07" id="T00:28:07"><abbr title="2009-01-14T00:28:07+00:00">00:28:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T00:28:24" id="T00:28:24"><abbr title="2009-01-14T00:28:24+00:00">00:28:24</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but... i will want to port my full super/sub sample scaler</q></li>
+<li class="message">[<a href="#T00:28:33" id="T00:28:33"><abbr title="2009-01-14T00:28:33+00:00">00:28:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc inline assembly is good if you don't need much speed and don't value your sanity</q></li>
+<li class="message">[<abbr title="2009-01-14T00:28:33+00:00">00:28:33</abbr>] &lt;<cite>raster</cite>&gt; <q>tho i may decide to limit it to a # of taps</q></li>
+<li class="message">[<a href="#T00:28:40" id="T00:28:40"><abbr title="2009-01-14T00:28:40+00:00">00:28:40</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'm going to have to brew someting</q></li>
+<li class="message">[<a href="#T00:29:03" id="T00:29:03"><abbr title="2009-01-14T00:29:03+00:00">00:29:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i prefer not doing inline asm - if ic an</q></li>
+<li class="message">[<a href="#T00:29:05" id="T00:29:05"><abbr title="2009-01-14T00:29:05+00:00">00:29:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>well ok</q></li>
+<li class="message">[<a href="#T00:29:11" id="T00:29:11"><abbr title="2009-01-14T00:29:11+00:00">00:29:11</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: idct is much easier than some complex compositing function involving scaling and other stuff</q></li>
+<li class="message">[<a href="#T00:29:13" id="T00:29:13"><abbr title="2009-01-14T00:29:13+00:00">00:29:13</abbr></a>] &lt;<cite>Crofton|irssi</cite>&gt; <q>what is "sanity"</q></li>
+<li class="quit">[<a href="#T00:29:19" id="T00:29:19"><abbr title="2009-01-14T00:29:19+00:00">00:29:19</abbr></a>] <span>* __alanc__ (n=a-campbe@nat/ti/x-92ace136be518716) Quit ()</span></li>
+<li class="message">[<a href="#T00:29:25" id="T00:29:25"><abbr title="2009-01-14T00:29:25+00:00">00:29:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i prefer doing asm this way:</q></li>
+<li class="message">[<a href="#T00:29:34" id="T00:29:34"><abbr title="2009-01-14T00:29:34+00:00">00:29:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|irssi: what you get after writing a few k lines of neon assembler</q></li>
+<li class="message">[<a href="#T00:29:38" id="T00:29:38"><abbr title="2009-01-14T00:29:38+00:00">00:29:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>#define mmx_i2r(op, imm, reg) \</q></li>
+<li class="message">[<abbr title="2009-01-14T00:29:38+00:00">00:29:38</abbr>] &lt;<cite>raster</cite>&gt; <q>        __asm__ __volatile__ (#op " $" #imm ", %%" #reg \</q></li>
+<li class="message">[<abbr title="2009-01-14T00:29:38+00:00">00:29:38</abbr>] &lt;<cite>raster</cite>&gt; <q>                              : /* nothing */ \</q></li>
+<li class="message">[<abbr title="2009-01-14T00:29:38+00:00">00:29:38</abbr>] &lt;<cite>raster</cite>&gt; <q>                              : /* nothing */);</q></li>
+<li class="join">[<a href="#T00:29:40" id="T00:29:40"><abbr title="2009-01-14T00:29:40+00:00">00:29:40</abbr></a>] <span>* mib_gm9ppk (i=18528d55@gateway/web/ajax/mibbit.com/x-e57f39d2e3294940) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:29:45" id="T00:29:45"><abbr title="2009-01-14T00:29:45+00:00">00:29:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>raster: that's terrible</q></li>
+<li class="message">[<a href="#T00:30:03" id="T00:30:03"><abbr title="2009-01-14T00:30:03+00:00">00:30:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>mru: it actually produces fine code</q></li>
+<li class="message">[<a href="#T00:30:06" id="T00:30:06"><abbr title="2009-01-14T00:30:06+00:00">00:30:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc will do lots of silly stuff between your macro invocations</q></li>
+<li class="message">[<a href="#T00:30:09" id="T00:30:09"><abbr title="2009-01-14T00:30:09+00:00">00:30:09</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the #define macros are hell</q></li>
+<li class="message">[<a href="#T00:30:17" id="T00:30:17"><abbr title="2009-01-14T00:30:17+00:00">00:30:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>in my experience</q></li>
+<li class="message">[<a href="#T00:30:18" id="T00:30:18"><abbr title="2009-01-14T00:30:18+00:00">00:30:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it doesnt</q></li>
+<li class="message">[<a href="#T00:30:23" id="T00:30:23"><abbr title="2009-01-14T00:30:23+00:00">00:30:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i've checked the output to make sure</q></li>
+<li class="message">[<a href="#T00:30:29" id="T00:30:29"><abbr title="2009-01-14T00:30:29+00:00">00:30:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it produces exactly the asm i want</q></li>
+<li class="join">[<a href="#T00:30:32" id="T00:30:32"><abbr title="2009-01-14T00:30:32+00:00">00:30:32</abbr></a>] <span>* mib_ive4kr (i=837188eb@gateway/web/ajax/mibbit.com/x-e534afd9ef10c3d2) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:30:34" id="T00:30:34"><abbr title="2009-01-14T00:30:34+00:00">00:30:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>on x86 at least it does</q></li>
+<li class="message">[<a href="#T00:31:15" id="T00:31:15"><abbr title="2009-01-14T00:31:15+00:00">00:31:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>#define psllq_i2r(imm, reg)     mmx_i2r(psllq, imm, reg)</q></li>
+<li class="message">[<a href="#T00:31:17" id="T00:31:17"><abbr title="2009-01-14T00:31:17+00:00">00:31:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>for example</q></li>
+<li class="join">[<a href="#T00:31:28" id="T00:31:28"><abbr title="2009-01-14T00:31:28+00:00">00:31:28</abbr></a>] <span>* hartangas (i=83cfcfc0@gateway/web/ajax/mibbit.com/x-d65bbc95bbc8cb9d) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:31:40" id="T00:31:40"><abbr title="2009-01-14T00:31:40+00:00">00:31:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I know nothing about mmx and tend to keep it that way</q></li>
+<li class="message">[<a href="#T00:31:45" id="T00:31:45"><abbr title="2009-01-14T00:31:45+00:00">00:31:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>combined with the first macro - produces precisesly 1 mmx asm op and nothing more</q></li>
+<li class="message">[<a href="#T00:32:23" id="T00:32:23"><abbr title="2009-01-14T00:32:23+00:00">00:32:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but maybe the x86 back end is smarter</q></li>
+<li class="message">[<a href="#T00:32:46" id="T00:32:46"><abbr title="2009-01-14T00:32:46+00:00">00:32:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's always a gamble</q></li>
+<li class="message">[<a href="#T00:32:52" id="T00:32:52"><abbr title="2009-01-14T00:32:52+00:00">00:32:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it might work fine 100 times</q></li>
+<li class="message">[<a href="#T00:32:53" id="T00:32:53"><abbr title="2009-01-14T00:32:53+00:00">00:32:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i know</q></li>
+<li class="message">[<a href="#T00:32:59" id="T00:32:59"><abbr title="2009-01-14T00:32:59+00:00">00:32:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>then it does something totally idiotic</q></li>
+<li class="message">[<a href="#T00:33:00" id="T00:33:00"><abbr title="2009-01-14T00:33:00+00:00">00:33:00</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but i did check the gcc -S output</q></li>
+<li class="quit">[<a href="#T00:33:08" id="T00:33:08"><abbr title="2009-01-14T00:33:08+00:00">00:33:08</abbr></a>] <span>* dcordes (n=dcordes@unaffiliated/dcordes) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="message">[<a href="#T00:33:17" id="T00:33:17"><abbr title="2009-01-14T00:33:17+00:00">00:33:17</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: "pure" assembly has its own drawbacks - potential ABI compatibility issues, while gcc inline assembly is more likely to work correctly if accepted by the compiler</q></li>
+<li class="message">[<a href="#T00:33:19" id="T00:33:19"><abbr title="2009-01-14T00:33:19+00:00">00:33:19</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and it seemed to - in all my use cases, to do the right thing</q></li>
+<li class="message">[<a href="#T00:33:35" id="T00:33:35"><abbr title="2009-01-14T00:33:35+00:00">00:33:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>tho i really stopped wanting to read the asm hen it wasnt doign the mmx</q></li>
+<li class="message">[<a href="#T00:33:38" id="T00:33:38"><abbr title="2009-01-14T00:33:38+00:00">00:33:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie read normal x86 asm</q></li>
+<li class="message">[<a href="#T00:33:41" id="T00:33:41"><abbr title="2009-01-14T00:33:41+00:00">00:33:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>that is just hell</q></li>
+<li class="message">[<a href="#T00:33:49" id="T00:33:49"><abbr title="2009-01-14T00:33:49+00:00">00:33:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>pure assembler is fine as long as you don't have to deal with structs</q></li>
+<li class="message">[<a href="#T00:34:16" id="T00:34:16"><abbr title="2009-01-14T00:34:16+00:00">00:34:16</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: there are various preprocessors for C structs</q></li>
+<li class="message">[<a href="#T00:34:30" id="T00:34:30"><abbr title="2009-01-14T00:34:30+00:00">00:34:30</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: you can also easily write one yourself</q></li>
+<li class="message">[<a href="#T00:34:42" id="T00:34:42"><abbr title="2009-01-14T00:34:42+00:00">00:34:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>nothing guarantees the compiler will have the same idea</q></li>
+<li class="message">[<a href="#T00:34:49" id="T00:34:49"><abbr title="2009-01-14T00:34:49+00:00">00:34:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>padding is unspecified, remember</q></li>
+<li class="message">[<abbr title="2009-01-14T00:34:49+00:00">00:34:49</abbr>] &lt;<cite>raster</cite>&gt; <q>just flatten them before u get into the asm</q></li>
+<li class="message">[<a href="#T00:34:56" id="T00:34:56"><abbr title="2009-01-14T00:34:56+00:00">00:34:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie copy them to a flat int/char/whatever</q></li>
+<li class="message">[<a href="#T00:35:13" id="T00:35:13"><abbr title="2009-01-14T00:35:13+00:00">00:35:13</abbr></a>] &lt;<cite>raster</cite>&gt; <q>depends how "pure" the asm is</q></li>
+<li class="message">[<a href="#T00:35:26" id="T00:35:26"><abbr title="2009-01-14T00:35:26+00:00">00:35:26</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: there are various compiler specific extensions like packed attribute, etc.</q></li>
+<li class="message">[<a href="#T00:35:29" id="T00:35:29"><abbr title="2009-01-14T00:35:29+00:00">00:35:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'd want to keep my asm to the inner most loops</q></li>
+<li class="message">[<a href="#T00:35:38" id="T00:35:38"><abbr title="2009-01-14T00:35:38+00:00">00:35:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and pretty much ONLY write the neon asm</q></li>
+<li class="message">[<a href="#T00:35:42" id="T00:35:42"><abbr title="2009-01-14T00:35:42+00:00">00:35:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>not the standard arm</q></li>
+<li class="message">[<a href="#T00:35:52" id="T00:35:52"><abbr title="2009-01-14T00:35:52+00:00">00:35:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>look at my code</q></li>
+<li class="message">[<a href="#T00:36:21" id="T00:36:21"><abbr title="2009-01-14T00:36:21+00:00">00:36:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's not much plain arm there</q></li>
+<li class="message">[<a href="#T00:36:33" id="T00:36:33"><abbr title="2009-01-14T00:36:33+00:00">00:36:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>mostly some loop control stuff</q></li>
+<li class="message">[<a href="#T00:36:46" id="T00:36:46"><abbr title="2009-01-14T00:36:46+00:00">00:36:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'd still keep my loop ctrls in c</q></li>
+<li class="message">[<a href="#T00:36:58" id="T00:36:58"><abbr title="2009-01-14T00:36:58+00:00">00:36:58</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: then you will lose to pixman ;)</q></li>
+<li class="message">[<a href="#T00:37:03" id="T00:37:03"><abbr title="2009-01-14T00:37:03+00:00">00:37:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's one more place for gcc to mess up</q></li>
+<li class="message">[<a href="#T00:37:08" id="T00:37:08"><abbr title="2009-01-14T00:37:08+00:00">00:37:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ssvb: doubt it</q></li>
+<li class="message">[<a href="#T00:37:17" id="T00:37:17"><abbr title="2009-01-14T00:37:17+00:00">00:37:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ssvb: still well ahead of pixman.. ven with neon in pixman</q></li>
+<li class="message">[<a href="#T00:37:23" id="T00:37:23"><abbr title="2009-01-14T00:37:23+00:00">00:37:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie plain ye olde c</q></li>
+<li class="message">[<a href="#T00:37:28" id="T00:37:28"><abbr title="2009-01-14T00:37:28+00:00">00:37:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I bet I can out-code gcc by a factor of at least 2 on any non-trivial code</q></li>
+<li class="message">[<a href="#T00:37:37" id="T00:37:37"><abbr title="2009-01-14T00:37:37+00:00">00:37:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>vs neon enhanced pixman... ye olde c wins overall</q></li>
+<li class="message">[<a href="#T00:37:48" id="T00:37:48"><abbr title="2009-01-14T00:37:48+00:00">00:37:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>pixman beats the c in only 1 test - the over blends</q></li>
+<li class="message">[<a href="#T00:38:29" id="T00:38:29"><abbr title="2009-01-14T00:38:29+00:00">00:38:29</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: there could be something wrong in your setup, can you run benchmark of xrender/pixman on N800?</q></li>
+<li class="message">[<a href="#T00:38:41" id="T00:38:41"><abbr title="2009-01-14T00:38:41+00:00">00:38:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(despite pixman's linear scaler simply being liner interp / nearest and eva's being a full super/sub sampler)</q></li>
+<li class="message">[<a href="#T00:38:49" id="T00:38:49"><abbr title="2009-01-14T00:38:49+00:00">00:38:49</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: I know that the standard pixmap is slow, especially for scaling</q></li>
+<li class="message">[<a href="#T00:39:04" id="T00:39:04"><abbr title="2009-01-14T00:39:04+00:00">00:39:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ssvb: nup. oe angstrom build fo rn800 is broken atm</q></li>
+<li class="message">[<a href="#T00:39:11" id="T00:39:11"><abbr title="2009-01-14T00:39:11+00:00">00:39:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i have run it on my beagleboard</q></li>
+<li class="message">[<a href="#T00:39:35" id="T00:39:35"><abbr title="2009-01-14T00:39:35+00:00">00:39:35</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: just ignore pixman scaling, it is implemented exceptionally bad</q></li>
+<li class="message">[<a href="#T00:39:41" id="T00:39:41"><abbr title="2009-01-14T00:39:41+00:00">00:39:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i have xrender (using pixman) benchmarks of 0.2 vs 0.32+neon</q></li>
+<li class="message">[<a href="#T00:39:45" id="T00:39:45"><abbr title="2009-01-14T00:39:45+00:00">00:39:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it shows a definite speedup</q></li>
+<li class="message">[<a href="#T00:39:56" id="T00:39:56"><abbr title="2009-01-14T00:39:56+00:00">00:39:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>got a xls file here...</q></li>
+<li class="message">[<a href="#T00:40:02" id="T00:40:02"><abbr title="2009-01-14T00:40:02+00:00">00:40:02</abbr></a>] &lt;<cite>raster</cite>&gt; <q>want it?</q></li>
+<li class="message">[<a href="#T00:41:03" id="T00:41:03"><abbr title="2009-01-14T00:41:03+00:00">00:41:03</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: I only benchmarked imlib2 vs. armv6 optimized xrender using render_bench on N800</q></li>
+<li class="message">[<a href="#T00:41:16" id="T00:41:16"><abbr title="2009-01-14T00:41:16+00:00">00:41:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i dont use that anymore</q></li>
+<li class="message">[<a href="#T00:41:18" id="T00:41:18"><abbr title="2009-01-14T00:41:18+00:00">00:41:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i use expedite</q></li>
+<li class="message">[<a href="#T00:41:26" id="T00:41:26"><abbr title="2009-01-14T00:41:26+00:00">00:41:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>tests a much wider range of ops and pipeline</q></li>
+<li class="message">[<a href="#T00:41:33" id="T00:41:33"><abbr title="2009-01-14T00:41:33+00:00">00:41:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and its evas's software engine - nto imlib2's</q></li>
+<li class="message">[<a href="#T00:41:38" id="T00:41:38"><abbr title="2009-01-14T00:41:38+00:00">00:41:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its had a lot more work done to it</q></li>
+<li class="message">[<a href="#T00:42:45" id="T00:42:45"><abbr title="2009-01-14T00:42:45+00:00">00:42:45</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: in any case, I don't see any reasons why pixman can be slower</q></li>
+<li class="message">[<a href="#T00:43:27" id="T00:43:27"><abbr title="2009-01-14T00:43:27+00:00">00:43:27</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: one of the problems of pixman is that it is too complex and not so easy to oplimize, so current implementation is not very good</q></li>
+<li class="message">[<a href="#T00:44:33" id="T00:44:33"><abbr title="2009-01-14T00:44:33+00:00">00:44:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q><a href="http://www.rasterman.com/files/evas-perf.xls">http://www.rasterman.com/files/evas-perf.xls</a></q></li>
+<li class="message">[<a href="#T00:44:40" id="T00:44:40"><abbr title="2009-01-14T00:44:40+00:00">00:44:40</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: I'll try to check how to run expedite, is it a standalone application?</q></li>
+<li class="message">[<a href="#T00:44:52" id="T00:44:52"><abbr title="2009-01-14T00:44:52+00:00">00:44:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>expedite is stand alone]</q></li>
+<li class="message">[<a href="#T00:44:55" id="T00:44:55"><abbr title="2009-01-14T00:44:55+00:00">00:44:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but it relies on evas</q></li>
+<li class="message">[<a href="#T00:44:56" id="T00:44:56"><abbr title="2009-01-14T00:44:56+00:00">00:44:56</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T00:45:08" id="T00:45:08"><abbr title="2009-01-14T00:45:08+00:00">00:45:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the good thingis i can directly test against lots of targets</q></li>
+<li class="message">[<a href="#T00:45:16" id="T00:45:16"><abbr title="2009-01-14T00:45:16+00:00">00:45:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>gl vs xrender vs software client  etc.</q></li>
+<li class="message">[<a href="#T00:45:26" id="T00:45:26"><abbr title="2009-01-14T00:45:26+00:00">00:45:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as in theory xrender and gl SHOULd be neck and neck</q></li>
+<li class="message">[<a href="#T00:45:35" id="T00:45:35"><abbr title="2009-01-14T00:45:35+00:00">00:45:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>*IF* drivers were implmented properly</q></li>
+<li class="message">[<a href="#T00:45:36" id="T00:45:36"><abbr title="2009-01-14T00:45:36+00:00">00:45:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T00:45:54" id="T00:45:54"><abbr title="2009-01-14T00:45:54+00:00">00:45:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and pixman is rather simple</q></li>
+<li class="message">[<a href="#T00:45:55" id="T00:45:55"><abbr title="2009-01-14T00:45:55+00:00">00:45:55</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: I don't have much trust in HW acceleration</q></li>
+<li class="message">[<a href="#T00:45:59" id="T00:45:59"><abbr title="2009-01-14T00:45:59+00:00">00:45:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>evas's software is pretty ugly</q></li>
+<li class="message">[<a href="#T00:46:06" id="T00:46:06"><abbr title="2009-01-14T00:46:06+00:00">00:46:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>no.. very ugly</q></li>
+<li class="message">[<a href="#T00:46:10" id="T00:46:10"><abbr title="2009-01-14T00:46:10+00:00">00:46:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it needs a total overhail</q></li>
+<li class="message">[<a href="#T00:46:19" id="T00:46:19"><abbr title="2009-01-14T00:46:19+00:00">00:46:19</abbr></a>] &lt;<cite>raster</cite>&gt; <q>overhaul</q></li>
+<li class="message">[<a href="#T00:46:59" id="T00:46:59"><abbr title="2009-01-14T00:46:59+00:00">00:46:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ssvb: i dont either</q></li>
+<li class="message">[<a href="#T00:47:16" id="T00:47:16"><abbr title="2009-01-14T00:47:16+00:00">00:47:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ssvb:despite the theory - practice has been that xrender accel has been absymal</q></li>
+<li class="message">[<a href="#T00:47:27" id="T00:47:27"><abbr title="2009-01-14T00:47:27+00:00">00:47:27</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i am very glad i didnt throw my eggs all in that basket</q></li>
+<li class="message">[<a href="#T00:47:57" id="T00:47:57"><abbr title="2009-01-14T00:47:57+00:00">00:47:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as such pixman tho is your regular run of the mill linear pixel pisher</q></li>
+<li class="message">[<a href="#T00:48:35" id="T00:48:35"><abbr title="2009-01-14T00:48:35+00:00">00:48:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and i know that i want to go ways that will drastically change that</q></li>
+<li class="message">[<a href="#T00:48:44" id="T00:48:44"><abbr title="2009-01-14T00:48:44+00:00">00:48:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as i siad - iwan to try out tiled memory layout for software</q></li>
+<li class="quit">[<a href="#T00:49:16" id="T00:49:16"><abbr title="2009-01-14T00:49:16+00:00">00:49:16</abbr></a>] <span>* ScriptRipper (n=martin@opensuse/member/MartinMohring) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T00:49:22" id="T00:49:22"><abbr title="2009-01-14T00:49:22+00:00">00:49:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>mru: ./libavcodec/arm/simple_idct_neon.S</q></li>
+<li class="message">[<a href="#T00:49:23" id="T00:49:23"><abbr title="2009-01-14T00:49:23+00:00">00:49:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>right?</q></li>
+<li class="message">[<a href="#T00:49:32" id="T00:49:32"><abbr title="2009-01-14T00:49:32+00:00">00:49:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's one of the files</q></li>
+<li class="message">[<a href="#T00:49:50" id="T00:49:50"><abbr title="2009-01-14T00:49:50+00:00">00:49:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>all files with neon in the name contain neon code</q></li>
+<li class="message">[<a href="#T00:49:55" id="T00:49:55"><abbr title="2009-01-14T00:49:55+00:00">00:49:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(i'm looking for the none-pure asm - ie c with inline asm)</q></li>
+<li class="message">[<a href="#T00:50:05" id="T00:50:05"><abbr title="2009-01-14T00:50:05+00:00">00:50:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there isn't any</q></li>
+<li class="message">[<a href="#T00:50:12" id="T00:50:12"><abbr title="2009-01-14T00:50:12+00:00">00:50:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not neon</q></li>
+<li class="message">[<a href="#T00:50:17" id="T00:50:17"><abbr title="2009-01-14T00:50:17+00:00">00:50:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aqaaah</q></li>
+<li class="message">[<abbr title="2009-01-14T00:50:17+00:00">00:50:17</abbr>] &lt;<cite>raster</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T00:50:51" id="T00:50:51"><abbr title="2009-01-14T00:50:51+00:00">00:50:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>have the svn tree up to date now</q></li>
+<li class="join">[<a href="#T00:53:24" id="T00:53:24"><abbr title="2009-01-14T00:53:24+00:00">00:53:24</abbr></a>] <span>* geckosenator (n=sean@adsl-68-23-87-156.dsl.dytnoh.ameritech.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:55:04" id="T00:55:04"><abbr title="2009-01-14T00:55:04+00:00">00:55:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>mru:  on your blog</q></li>
+<li class="message">[<a href="#T00:55:52" id="T00:55:52"><abbr title="2009-01-14T00:55:52+00:00">00:55:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>16/64/other is alignement</q></li>
+<li class="message">[<a href="#T00:55:53" id="T00:55:53"><abbr title="2009-01-14T00:55:53+00:00">00:55:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>right?</q></li>
+<li class="message">[<a href="#T00:56:08" id="T00:56:08"><abbr title="2009-01-14T00:56:08+00:00">00:56:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's how close the two memory accesses are</q></li>
+<li class="message">[<a href="#T00:56:19" id="T00:56:19"><abbr title="2009-01-14T00:56:19+00:00">00:56:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>16 means it's in the same 16-byte block and so on</q></li>
+<li class="message">[<a href="#T00:56:27" id="T00:56:27"><abbr title="2009-01-14T00:56:27+00:00">00:56:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>maybe I could have been more clear</q></li>
+<li class="message">[<a href="#T00:56:36" id="T00:56:36"><abbr title="2009-01-14T00:56:36+00:00">00:56:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and 16byet block is a 16byte aligned block</q></li>
+<li class="message">[<a href="#T00:56:38" id="T00:56:38"><abbr title="2009-01-14T00:56:38+00:00">00:56:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>right?</q></li>
+<li class="message">[<a href="#T00:56:46" id="T00:56:46"><abbr title="2009-01-14T00:56:46+00:00">00:56:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and 16byte block isalso 64byte aligned</q></li>
+<li class="message">[<a href="#T00:56:54" id="T00:56:54"><abbr title="2009-01-14T00:56:54+00:00">00:56:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(not a 64bye block 16byte aligned)</q></li>
+<li class="message">[<a href="#T00:58:05" id="T00:58:05"><abbr title="2009-01-14T00:58:05+00:00">00:58:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>a 16-byte block has an address with the 4 lsb zero</q></li>
+<li class="message">[<a href="#T00:58:32" id="T00:58:32"><abbr title="2009-01-14T00:58:32+00:00">00:58:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and similar with 64</q></li>
+<li class="join">[<a href="#T00:58:35" id="T00:58:35"><abbr title="2009-01-14T00:58:35+00:00">00:58:35</abbr></a>] <span>* _gm_ (n=_gm_@190.173.84.138) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:58:39" id="T00:58:39"><abbr title="2009-01-14T00:58:39+00:00">00:58:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(6bits lsb 0)</q></li>
+<li class="message">[<a href="#T00:58:42" id="T00:58:42"><abbr title="2009-01-14T00:58:42+00:00">00:58:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T00:58:44" id="T00:58:44"><abbr title="2009-01-14T00:58:44+00:00">00:58:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T00:58:45" id="T00:58:45"><abbr title="2009-01-14T00:58:45+00:00">00:58:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T00:58:47" id="T00:58:47"><abbr title="2009-01-14T00:58:47+00:00">00:58:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>just checking</q></li>
+<li class="quit">[<a href="#T00:58:59" id="T00:58:59"><abbr title="2009-01-14T00:58:59+00:00">00:58:59</abbr></a>] <span>* rsalveti (n=salveti@189.70.60.88) Quit (Read error: 113 (No route to host))</span></li>
+<li class="message">[<a href="#T00:59:02" id="T00:59:02"><abbr title="2009-01-14T00:59:02+00:00">00:59:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>my guess is that 16 bytes is the size of some write buffer</q></li>
+<li class="join">[<a href="#T00:59:11" id="T00:59:11"><abbr title="2009-01-14T00:59:11+00:00">00:59:11</abbr></a>] <span>* rsalveti (n=salveti@189.70.69.34) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:59:15" id="T00:59:15"><abbr title="2009-01-14T00:59:15+00:00">00:59:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>cache lines are 64 bytes</q></li>
+<li class="message">[<abbr title="2009-01-14T00:59:15+00:00">00:59:15</abbr>] &lt;<cite>raster</cite>&gt; <q>it makes sense</q></li>
+<li class="message">[<a href="#T00:59:20" id="T00:59:20"><abbr title="2009-01-14T00:59:20+00:00">00:59:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its also the q reg size</q></li>
+<li class="message">[<a href="#T00:59:37" id="T00:59:37"><abbr title="2009-01-14T00:59:37+00:00">00:59:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and neon regs are really just a mem bloock that u can map as d or q reg's</q></li>
