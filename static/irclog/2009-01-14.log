@@ -285,3 +285,137 @@
 <li class="message">[<abbr title="2009-01-14T00:59:15+00:00">00:59:15</abbr>] &lt;<cite>raster</cite>&gt; <q>it makes sense</q></li>
 <li class="message">[<a href="#T00:59:20" id="T00:59:20"><abbr title="2009-01-14T00:59:20+00:00">00:59:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its also the q reg size</q></li>
 <li class="message">[<a href="#T00:59:37" id="T00:59:37"><abbr title="2009-01-14T00:59:37+00:00">00:59:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and neon regs are really just a mem bloock that u can map as d or q reg's</q></li>
+<li class="message">[<a href="#T01:00:08" id="T01:00:08"><abbr title="2009-01-14T01:00:08+00:00">01:00:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>huh?</q></li>
+<li class="message">[<a href="#T01:00:39" id="T01:00:39"><abbr title="2009-01-14T01:00:39+00:00">01:00:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>neon registers are really just a blob of ram on the chip</q></li>
+<li class="message">[<a href="#T01:00:53" id="T01:00:53"><abbr title="2009-01-14T01:00:53+00:00">01:00:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you could say that of any register file</q></li>
+<li class="message">[<a href="#T01:00:56" id="T01:00:56"><abbr title="2009-01-14T01:00:56+00:00">01:00:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>q0 CONTAINS D0 and D1</q></li>
+<li class="message">[<a href="#T01:01:00" id="T01:01:00"><abbr title="2009-01-14T01:01:00+00:00">01:01:00</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T01:01:27" id="T01:01:27"><abbr title="2009-01-14T01:01:27+00:00">01:01:27</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but q and d'[s are not separate banks</q></li>
+<li class="message">[<a href="#T01:01:29" id="T01:01:29"><abbr title="2009-01-14T01:01:29+00:00">01:01:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its the same</q></li>
+<li class="message">[<a href="#T01:01:31" id="T01:01:31"><abbr title="2009-01-14T01:01:31+00:00">01:01:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T01:01:39" id="T01:01:39"><abbr title="2009-01-14T01:01:39+00:00">01:01:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so q0 will contain d0 and d1</q></li>
+<li class="message">[<a href="#T01:01:43" id="T01:01:43"><abbr title="2009-01-14T01:01:43+00:00">01:01:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T01:01:55" id="T01:01:55"><abbr title="2009-01-14T01:01:55+00:00">01:01:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as opposed to have its own separate value</q></li>
+<li class="message">[<a href="#T01:02:03" id="T01:02:03"><abbr title="2009-01-14T01:02:03+00:00">01:02:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>exactly</q></li>
+<li class="message">[<a href="#T01:02:08" id="T01:02:08"><abbr title="2009-01-14T01:02:08+00:00">01:02:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and so the largest unit is 128bits - 16bytes</q></li>
+<li class="message">[<a href="#T01:02:21" id="T01:02:21"><abbr title="2009-01-14T01:02:21+00:00">01:02:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and that makes sense for it to be the most optimised native unit</q></li>
+<li class="message">[<a href="#T01:02:25" id="T01:02:25"><abbr title="2009-01-14T01:02:25+00:00">01:02:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(for neon)</q></li>
+<li class="message">[<a href="#T01:02:37" id="T01:02:37"><abbr title="2009-01-14T01:02:37+00:00">01:02:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>64-bit operations are often faster</q></li>
+<li class="message">[<a href="#T01:02:43" id="T01:02:43"><abbr title="2009-01-14T01:02:43+00:00">01:02:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>d regs are provides for conveience</q></li>
+<li class="message">[<a href="#T01:02:54" id="T01:02:54"><abbr title="2009-01-14T01:02:54+00:00">01:02:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as lots of use cases have really no need for 128bits</q></li>
+<li class="message">[<a href="#T01:02:55" id="T01:02:55"><abbr title="2009-01-14T01:02:55+00:00">01:02:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>many 128-bit instructions issue as two 64-bit operations</q></li>
+<li class="message">[<a href="#T01:03:10" id="T01:03:10"><abbr title="2009-01-14T01:03:10+00:00">01:03:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yup</q></li>
+<li class="message">[<a href="#T01:03:18" id="T01:03:18"><abbr title="2009-01-14T01:03:18+00:00">01:03:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but some you can optimise as a ginle 128 op</q></li>
+<li class="message">[<a href="#T01:03:20" id="T01:03:20"><abbr title="2009-01-14T01:03:20+00:00">01:03:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>single</q></li>
+<li class="message">[<a href="#T01:03:21" id="T01:03:21"><abbr title="2009-01-14T01:03:21+00:00">01:03:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that could change in a future chip of course</q></li>
+<li class="message">[<a href="#T01:03:25" id="T01:03:25"><abbr title="2009-01-14T01:03:25+00:00">01:03:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T01:03:33" id="T01:03:33"><abbr title="2009-01-14T01:03:33+00:00">01:03:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so i'd stick to q ops if i can</q></li>
+<li class="message">[<a href="#T01:03:36" id="T01:03:36"><abbr title="2009-01-14T01:03:36+00:00">01:03:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>sometimes it's faster to split it</q></li>
+<li class="message">[<abbr title="2009-01-14T01:03:36+00:00">01:03:36</abbr>] &lt;<cite>raster</cite>&gt; <q>as opposed to d</q></li>
+<li class="message">[<a href="#T01:03:46" id="T01:03:46"><abbr title="2009-01-14T01:03:46+00:00">01:03:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>*IF* i can fuly use all the q space</q></li>
+<li class="message">[<a href="#T01:03:58" id="T01:03:58"><abbr title="2009-01-14T01:03:58+00:00">01:03:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>if i am wasting space - its pointless</q></li>
+<li class="message">[<a href="#T01:04:12" id="T01:04:12"><abbr title="2009-01-14T01:04:12+00:00">01:04:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you can dual-issue more efficiently if you split the slow q instructions</q></li>
+<li class="message">[<a href="#T01:04:52" id="T01:04:52"><abbr title="2009-01-14T01:04:52+00:00">01:04:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>provided you have something to dual-issue with of course</q></li>
+<li class="message">[<a href="#T01:05:07" id="T01:05:07"><abbr title="2009-01-14T01:05:07+00:00">01:05:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oh sure</q></li>
+<li class="message">[<a href="#T01:05:21" id="T01:05:21"><abbr title="2009-01-14T01:05:21+00:00">01:05:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but for example</q></li>
+<li class="message">[<a href="#T01:05:23" id="T01:05:23"><abbr title="2009-01-14T01:05:23+00:00">01:05:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>simple one</q></li>
+<li class="message">[<a href="#T01:05:25" id="T01:05:25"><abbr title="2009-01-14T01:05:25+00:00">01:05:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the color filler</q></li>
+<li class="message">[<a href="#T01:05:41" id="T01:05:41"><abbr title="2009-01-14T01:05:41+00:00">01:05:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i cant see writing 64bit instead of 128bit blobs being.. better</q></li>
+<li class="message">[<a href="#T01:05:42" id="T01:05:42"><abbr title="2009-01-14T01:05:42+00:00">01:05:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="quit">[<a href="#T01:05:44" id="T01:05:44"><abbr title="2009-01-14T01:05:44+00:00">01:05:44</abbr></a>] <span>* _don_ (n=don@nat/ti/x-1072c08a8caac35c) Quit ()</span></li>
+<li class="message">[<a href="#T01:06:44" id="T01:06:44"><abbr title="2009-01-14T01:06:44+00:00">01:06:44</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: you can have very small pictures to process</q></li>
+<li class="message">[<a href="#T01:06:55" id="T01:06:55"><abbr title="2009-01-14T01:06:55+00:00">01:06:55</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: for example font glyphs</q></li>
+<li class="message">[<a href="#T01:06:59" id="T01:06:59"><abbr title="2009-01-14T01:06:59+00:00">01:06:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thats a major butt-pain</q></li>
+<li class="message">[<a href="#T01:07:04" id="T01:07:04"><abbr title="2009-01-14T01:07:04+00:00">01:07:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T01:07:16" id="T01:07:16"><abbr title="2009-01-14T01:07:16+00:00">01:07:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>neon seems to lend itself nicely to big fat runs of data</q></li>
+<li class="message">[<a href="#T01:07:23" id="T01:07:23"><abbr title="2009-01-14T01:07:23+00:00">01:07:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>have to deal with 3 pixels hre</q></li>
+<li class="message">[<a href="#T01:07:25" id="T01:07:25"><abbr title="2009-01-14T01:07:25+00:00">01:07:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>4 there</q></li>
+<li class="message">[<a href="#T01:07:27" id="T01:07:27"><abbr title="2009-01-14T01:07:27+00:00">01:07:27</abbr></a>] &lt;<cite>raster</cite>&gt; <q>2 there</q></li>
+<li class="message">[<a href="#T01:07:33" id="T01:07:33"><abbr title="2009-01-14T01:07:33+00:00">01:07:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>... and life begins to suck</q></li>
+<li class="action">[<a href="#T01:07:47" id="T01:07:47"><abbr title="2009-01-14T01:07:47+00:00">01:07:47</abbr></a>] <span>* lcuk perks up</span></li>
+<li class="nick-change">[<a href="#T01:08:20" id="T01:08:20"><abbr title="2009-01-14T01:08:20+00:00">01:08:20</abbr></a>] <span>* fulgas is now known as FuL|OUT</span></li>
+<li class="message">[<a href="#T01:08:29" id="T01:08:29"><abbr title="2009-01-14T01:08:29+00:00">01:08:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>also having to do the alignment fixups before and "tail" fills after just leads to uglinss in code</q></li>
+<li class="message">[<a href="#T01:08:31" id="T01:08:31"><abbr title="2009-01-14T01:08:31+00:00">01:08:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>then again</q></li>
+<li class="message">[<a href="#T01:08:32" id="T01:08:32"><abbr title="2009-01-14T01:08:32+00:00">01:08:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its asm</q></li>
+<li class="message">[<a href="#T01:08:35" id="T01:08:35"><abbr title="2009-01-14T01:08:35+00:00">01:08:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its ugly by nature</q></li>
+<li class="message">[<a href="#T01:08:38" id="T01:08:38"><abbr title="2009-01-14T01:08:38+00:00">01:08:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="quit">[<a href="#T01:22:40" id="T01:22:40"><abbr title="2009-01-14T01:22:40+00:00">01:22:40</abbr></a>] <span>* mib_gm9ppk (i=18528d55@gateway/web/ajax/mibbit.com/x-e57f39d2e3294940) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="quit">[<a href="#T01:25:17" id="T01:25:17"><abbr title="2009-01-14T01:25:17+00:00">01:25:17</abbr></a>] <span>* Leon_Nardella (n=leon@200-161-14-111.dsl.telesp.net.br) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T01:26:26" id="T01:26:26"><abbr title="2009-01-14T01:26:26+00:00">01:26:26</abbr></a>] <span>* Crofton (n=balister@63.224.149.101) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:26:40" id="T01:26:40"><abbr title="2009-01-14T01:26:40+00:00">01:26:40</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: asm is not so ugly, assemblers usually have quite powerful preprocessors and macros, it is possible to develop quite complex software using it</q></li>
+<li class="message">[<a href="#T01:27:26" id="T01:27:26"><abbr title="2009-01-14T01:27:26+00:00">01:27:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ssvb: x86 asm... is ugly</q></li>
+<li class="message">[<a href="#T01:27:38" id="T01:27:38"><abbr title="2009-01-14T01:27:38+00:00">01:27:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>just the nature of the instructionset</q></li>
+<li class="message">[<a href="#T01:27:46" id="T01:27:46"><abbr title="2009-01-14T01:27:46+00:00">01:27:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i grew up on 68k asm</q></li>
+<li class="message">[<a href="#T01:27:53" id="T01:27:53"><abbr title="2009-01-14T01:27:53+00:00">01:27:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so i'm biased</q></li>
+<li class="message">[<a href="#T01:27:54" id="T01:27:54"><abbr title="2009-01-14T01:27:54+00:00">01:27:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T01:27:58" id="T01:27:58"><abbr title="2009-01-14T01:27:58+00:00">01:27:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>beautiful stuff</q></li>
+<li class="message">[<a href="#T01:27:59" id="T01:27:59"><abbr title="2009-01-14T01:27:59+00:00">01:27:59</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: yes, x86 is ugly</q></li>
+<li class="message">[<a href="#T01:28:11" id="T01:28:11"><abbr title="2009-01-14T01:28:11+00:00">01:28:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>68k was ... so clean</q></li>
+<li class="message">[<a href="#T01:28:15" id="T01:28:15"><abbr title="2009-01-14T01:28:15+00:00">01:28:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>very beautiful</q></li>
+<li class="message">[<a href="#T01:28:22" id="T01:28:22"><abbr title="2009-01-14T01:28:22+00:00">01:28:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i was always resistant to learning c</q></li>
+<li class="message">[<a href="#T01:28:33" id="T01:28:33"><abbr title="2009-01-14T01:28:33+00:00">01:28:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as 68kasm+macors seemed almost like c</q></li>
+<li class="message">[<a href="#T01:28:37" id="T01:28:37"><abbr title="2009-01-14T01:28:37+00:00">01:28:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I prefer RISC CPUs though</q></li>
+<li class="message">[<a href="#T01:28:41" id="T01:28:41"><abbr title="2009-01-14T01:28:41+00:00">01:28:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>arm is very nice</q></li>
+<li class="message">[<a href="#T01:28:47" id="T01:28:47"><abbr title="2009-01-14T01:28:47+00:00">01:28:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T01:28:52" id="T01:28:52"><abbr title="2009-01-14T01:28:52+00:00">01:28:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>arm is my 2nd favorite</q></li>
+<li class="message">[<a href="#T01:28:58" id="T01:28:58"><abbr title="2009-01-14T01:28:58+00:00">01:28:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>tho it should be my fave technically</q></li>
+<li class="message">[<a href="#T01:29:08" id="T01:29:08"><abbr title="2009-01-14T01:29:08+00:00">01:29:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i just dont have trhe emotional attachment to it i had with the 68k</q></li>
+<li class="message">[<a href="#T01:29:36" id="T01:29:36"><abbr title="2009-01-14T01:29:36+00:00">01:29:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I've done very little with 68k</q></li>
+<li class="message">[<a href="#T01:29:43" id="T01:29:43"><abbr title="2009-01-14T01:29:43+00:00">01:29:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but what I've done was very easy</q></li>
+<li class="message">[<a href="#T01:30:11" id="T01:30:11"><abbr title="2009-01-14T01:30:11+00:00">01:30:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah - its really easy to get it all in your head</q></li>
+<li class="message">[<a href="#T01:30:16" id="T01:30:16"><abbr title="2009-01-14T01:30:16+00:00">01:30:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its nice and symmetrical</q></li>
+<li class="message">[<a href="#T01:30:22" id="T01:30:22"><abbr title="2009-01-14T01:30:22+00:00">01:30:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>src./dest can be anything to anything</q></li>
+<li class="message">[<a href="#T01:30:36" id="T01:30:36"><abbr title="2009-01-14T01:30:36+00:00">01:30:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(ok - address vs data regs... but hey)</q></li>
+<li class="message">[<a href="#T01:30:42" id="T01:30:42"><abbr title="2009-01-14T01:30:42+00:00">01:30:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>about to say that</q></li>
+<li class="message">[<a href="#T01:30:48" id="T01:30:48"><abbr title="2009-01-14T01:30:48+00:00">01:30:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and a zillion different addressing modes</q></li>
+<li class="message">[<a href="#T01:30:53" id="T01:30:53"><abbr title="2009-01-14T01:30:53+00:00">01:30:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hard to pick the best one</q></li>
+<li class="message">[<a href="#T01:30:58" id="T01:30:58"><abbr title="2009-01-14T01:30:58+00:00">01:30:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<abbr title="2009-01-14T01:30:58+00:00">01:30:58</abbr>] &lt;<cite>mru</cite>&gt; <q>but thats cisc</q></li>
+<li class="message">[<a href="#T01:31:04" id="T01:31:04"><abbr title="2009-01-14T01:31:04+00:00">01:31:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but  such choice!</q></li>
+<li class="message">[<a href="#T01:31:14" id="T01:31:14"><abbr title="2009-01-14T01:31:14+00:00">01:31:14</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>these guys develop self-hosting assembler for x86 (one of the most powerful for this platform): <a href="http://flatassembler.net/">http://flatassembler.net/</a> :)</q></li>
+<li class="join">[<a href="#T01:31:28" id="T01:31:28"><abbr title="2009-01-14T01:31:28+00:00">01:31:28</abbr></a>] <span>* JuanG (n=Juan@nat/ti/x-ccde236f3d95a99b) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:31:45" id="T01:31:45"><abbr title="2009-01-14T01:31:45+00:00">01:31:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ssvb:  nuts</q></li>
+<li class="message">[<a href="#T01:31:51" id="T01:31:51"><abbr title="2009-01-14T01:31:51+00:00">01:31:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>x86 asm makes me want to cry</q></li>
+<li class="part">[<abbr title="2009-01-14T01:31:51+00:00">01:31:51</abbr>] <span>* JuanG (n=Juan@nat/ti/x-ccde236f3d95a99b) has left #beagle</span></li>
+<li class="message">[<a href="#T01:31:55" id="T01:31:55"><abbr title="2009-01-14T01:31:55+00:00">01:31:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i like arm</q></li>
+<li class="message">[<a href="#T01:32:08" id="T01:32:08"><abbr title="2009-01-14T01:32:08+00:00">01:32:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i have to say being able to bitshift while doing another op... rocks</q></li>
+<li class="message">[<a href="#T01:33:21" id="T01:33:21"><abbr title="2009-01-14T01:33:21+00:00">01:33:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>mru: ` u know about the 68000 vs the 68020 and up</q></li>
+<li class="message">[<a href="#T01:33:22" id="T01:33:22"><abbr title="2009-01-14T01:33:22+00:00">01:33:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie</q></li>
+<li class="message">[<a href="#T01:33:26" id="T01:33:26"><abbr title="2009-01-14T01:33:26+00:00">01:33:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>all addreses were 32bit</q></li>
+<li class="message">[<a href="#T01:33:31" id="T01:33:31"><abbr title="2009-01-14T01:33:31+00:00">01:33:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>despite it being a 16/32bit cpu</q></li>
+<li class="message">[<a href="#T01:33:41" id="T01:33:41"><abbr title="2009-01-14T01:33:41+00:00">01:33:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it pretended to be 32bit at the instruction level</q></li>
+<li class="message">[<a href="#T01:33:57" id="T01:33:57"><abbr title="2009-01-14T01:33:57+00:00">01:33:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the lower numbered ones have a 32-bit core with a 16-bit interface externally</q></li>
+<li class="join">[<a href="#T01:34:05" id="T01:34:05"><abbr title="2009-01-14T01:34:05+00:00">01:34:05</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:34:08" id="T01:34:08"><abbr title="2009-01-14T01:34:08+00:00">01:34:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or 8-bit in the 68008 case</q></li>
+<li class="message">[<a href="#T01:34:22" id="T01:34:22"><abbr title="2009-01-14T01:34:22+00:00">01:34:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the alu is always 32-bit</q></li>
+<li class="message">[<a href="#T01:34:27" id="T01:34:27"><abbr title="2009-01-14T01:34:27+00:00">01:34:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>as are the registers</q></li>
+<li class="message">[<a href="#T01:34:39" id="T01:34:39"><abbr title="2009-01-14T01:34:39+00:00">01:34:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T01:34:58" id="T01:34:58"><abbr title="2009-01-14T01:34:58+00:00">01:34:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but on the 68000 only 24bits of the mem bus were addressable</q></li>
+<li class="message">[<a href="#T01:35:05" id="T01:35:05"><abbr title="2009-01-14T01:35:05+00:00">01:35:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>at all</q></li>
+<li class="message">[<a href="#T01:35:16" id="T01:35:16"><abbr title="2009-01-14T01:35:16+00:00">01:35:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so the fools at microsoft who wrote amiga basic</q></li>
+<li class="message">[<a href="#T01:35:29" id="T01:35:29"><abbr title="2009-01-14T01:35:29+00:00">01:35:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>decided to use the upper 8 bits of address resgisters to store extra data/flags</q></li>
+<li class="message">[<a href="#T01:35:42" id="T01:35:42"><abbr title="2009-01-14T01:35:42+00:00">01:35:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and along comes the 68020 whihc wires up all 32 bits for addresses</q></li>
+<li class="message">[<a href="#T01:35:43" id="T01:35:43"><abbr title="2009-01-14T01:35:43+00:00">01:35:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and boom</q></li>
+<li class="message">[<a href="#T01:36:09" id="T01:36:09"><abbr title="2009-01-14T01:36:09+00:00">01:36:09</abbr></a>] &lt;<cite>raster</cite>&gt; <q>despie moto being pretyt good about the specs</q></li>
+<li class="message">[<a href="#T01:36:23" id="T01:36:23"><abbr title="2009-01-14T01:36:23+00:00">01:36:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and pretty much tellign you to treat it as a 32bit cpu for all intents and purposes</q></li>
+<li class="message">[<a href="#T01:36:35" id="T01:36:35"><abbr title="2009-01-14T01:36:35+00:00">01:36:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>they just havent wired up all the stuff under the hood yet</q></li>
+<li class="message">[<a href="#T01:36:42" id="T01:36:42"><abbr title="2009-01-14T01:36:42+00:00">01:36:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>people decided toavoid such advice</q></li>
+<li class="message">[<a href="#T01:36:43" id="T01:36:43"><abbr title="2009-01-14T01:36:43+00:00">01:36:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T01:37:58" id="T01:37:58"><abbr title="2009-01-14T01:37:58+00:00">01:37:58</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>raster: afaik mozilla uses/used lower bits of data pointers as extra flags in java script engine, this confused valgrind quite a bit</q></li>
+<li class="message">[<a href="#T01:38:22" id="T01:38:22"><abbr title="2009-01-14T01:38:22+00:00">01:38:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, they use 1-3 lsb</q></li>
+<li class="message">[<a href="#T01:38:46" id="T01:38:46"><abbr title="2009-01-14T01:38:46+00:00">01:38:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>xx1 means the high 31 bits are an integer</q></li>
+<li class="message">[<a href="#T01:39:09" id="T01:39:09"><abbr title="2009-01-14T01:39:09+00:00">01:39:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>xx0 means different things depending on xx</q></li>
+<li class="quit">[<a href="#T01:40:01" id="T01:40:01"><abbr title="2009-01-14T01:40:01+00:00">01:40:01</abbr></a>] <span>* guillaum1 (n=gl@AMontsouris-153-1-42-213.w90-2.abo.wanadoo.fr) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T01:41:35" id="T01:41:35"><abbr title="2009-01-14T01:41:35+00:00">01:41:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thats ok</q></li>
+<li class="message">[<a href="#T01:41:38" id="T01:41:38"><abbr title="2009-01-14T01:41:38+00:00">01:41:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as they filter it out</q></li>
+<li class="message">[<a href="#T01:41:46" id="T01:41:46"><abbr title="2009-01-14T01:41:46+00:00">01:41:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but in the 68k case</q></li>
+<li class="message">[<a href="#T01:41:47" id="T01:41:47"><abbr title="2009-01-14T01:41:47+00:00">01:41:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>they didnt</q></li>
+<li class="message">[<a href="#T01:41:57" id="T01:41:57"><abbr title="2009-01-14T01:41:57+00:00">01:41:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>they relied on the hw at the time tojust ignore the upper 8 bits</q></li>
+<li class="message">[<a href="#T01:43:47" id="T01:43:47"><abbr title="2009-01-14T01:43:47+00:00">01:43:47</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>ARM also had the legacy alignment model with unaligned memory accesses rotating data and other effects</q></li>
+<li class="message">[<a href="#T01:45:35" id="T01:45:35"><abbr title="2009-01-14T01:45:35+00:00">01:45:35</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>if some software is hardcoded to rely on it, it will not work nowadays on Cortex-A8</q></li>
+<li class="message">[<a href="#T01:47:51" id="T01:47:51"><abbr title="2009-01-14T01:47:51+00:00">01:47:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aye</q></li>
+<li class="message">[<a href="#T01:47:54" id="T01:47:54"><abbr title="2009-01-14T01:47:54+00:00">01:47:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>bad software</q></li>
+<li class="message">[<a href="#T01:47:55" id="T01:47:55"><abbr title="2009-01-14T01:47:55+00:00">01:47:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>bad</q></li>
+<li class="action">[<a href="#T01:47:58" id="T01:47:58"><abbr title="2009-01-14T01:47:58+00:00">01:47:58</abbr></a>] <span>* raster spanks it</span></li>
+<li class="join">[<a href="#T01:51:53" id="T01:51:53"><abbr title="2009-01-14T01:51:53+00:00">01:51:53</abbr></a>] <span>* leslie (n=leslie@222.66.141.242) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:59:14" id="T01:59:14"><abbr title="2009-01-14T01:59:14+00:00">01:59:14</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) Quit ()</span></li>
