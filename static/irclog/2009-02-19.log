@@ -81,3 +81,246 @@
 <li class="action">[<a href="#T05:53:59" id="T05:53:59"><abbr title="2009-02-19T05:53:59+00:00">05:53:59</abbr></a>] <span>* raster dumps a bucket of cold trout on koen</span></li>
 <li class="message">[<a href="#T05:55:49" id="T05:55:49"><abbr title="2009-02-19T05:55:49+00:00">05:55:49</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>that should do it,  I hear distant thunder from up north</q></li>
 <li class="message">[<a href="#T05:57:45" id="T05:57:45"><abbr title="2009-02-19T05:57:45+00:00">05:57:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hahahah</q></li>
+<li class="message">[<a href="#T06:03:18" id="T06:03:18"><abbr title="2009-02-19T06:03:18+00:00">06:03:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaha i love finding bugs that seem complex.. but really were simple sillinesses</q></li>
+<li class="join">[<a href="#T06:04:02" id="T06:04:02"><abbr title="2009-02-19T06:04:02+00:00">06:04:02</abbr></a>] <span>* nemequ (n=nemequ@ip68-111-215-155.sd.sd.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:04:18" id="T06:04:18"><abbr title="2009-02-19T06:04:18+00:00">06:04:18</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>raster: entertain us!</q></li>
+<li class="message">[<a href="#T06:05:28" id="T06:05:28"><abbr title="2009-02-19T06:05:28+00:00">06:05:28</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oh it was just an optimisation i put in to avoid calling gettimeofday too much in the core loop</q></li>
+<li class="message">[<a href="#T06:05:34" id="T06:05:34"><abbr title="2009-02-19T06:05:34+00:00">06:05:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie call it once when exiting an idle state</q></li>
+<li class="message">[<a href="#T06:05:39" id="T06:05:39"><abbr title="2009-02-19T06:05:39+00:00">06:05:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so u get a "timepoint"</q></li>
+<li class="message">[<a href="#T06:05:47" id="T06:05:47"><abbr title="2009-02-19T06:05:47+00:00">06:05:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and then base all time-based stuff off that timepoint</q></li>
+<li class="message">[<a href="#T06:06:01" id="T06:06:01"><abbr title="2009-02-19T06:06:01+00:00">06:06:01</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so any timers that need to go off -p go off based on that timepoint</q></li>
+<li class="message">[<a href="#T06:06:15" id="T06:06:15"><abbr title="2009-02-19T06:06:15+00:00">06:06:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>not the arbo9trary time somewhere later in loop handler when they actualyl get time of the day</q></li>
+<li class="message">[<a href="#T06:06:24" id="T06:06:24"><abbr title="2009-02-19T06:06:24+00:00">06:06:24</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so it syncs time things better to a single point</q></li>
+<li class="message">[<a href="#T06:06:30" id="T06:06:30"><abbr title="2009-02-19T06:06:30+00:00">06:06:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and avoids gettimeofday calls</q></li>
+<li class="message">[<a href="#T06:06:49" id="T06:06:49"><abbr title="2009-02-19T06:06:49+00:00">06:06:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>admittdedly - gettimeofday is relatively "nothnig to worry about"</q></li>
+<li class="message">[<a href="#T06:06:56" id="T06:06:56"><abbr title="2009-02-19T06:06:56+00:00">06:06:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>on linux</q></li>
+<li class="message">[<a href="#T06:06:57" id="T06:06:57"><abbr title="2009-02-19T06:06:57+00:00">06:06:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>anyway</q></li>
+<li class="join">[<a href="#T06:07:14" id="T06:07:14"><abbr title="2009-02-19T06:07:14+00:00">06:07:14</abbr></a>] <span>* leslie (n=leslie@116.228.58.74) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:07:16" id="T06:07:16"><abbr title="2009-02-19T06:07:16+00:00">06:07:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the problem ended up being i wasnt setting the timepoint when finishing a run of idlers</q></li>
+<li class="message">[<a href="#T06:07:30" id="T06:07:30"><abbr title="2009-02-19T06:07:30+00:00">06:07:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(idlers run in a spin-loop if set as opposed to select() just pausing and doing nothing)</q></li>
+<li class="message">[<a href="#T06:07:36" id="T06:07:36"><abbr title="2009-02-19T06:07:36+00:00">06:07:36</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>I will have some coffee and then re-read :-)</q></li>
+<li class="message">[<a href="#T06:07:40" id="T06:07:40"><abbr title="2009-02-19T06:07:40+00:00">06:07:40</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thus the whole loop had its point in time wrong</q></li>
+<li class="message">[<a href="#T06:07:46" id="T06:07:46"><abbr title="2009-02-19T06:07:46+00:00">06:07:46</abbr></a>] &lt;<cite>leslie</cite>&gt; <q>Hi there, anybody knows how to unpack a .ipk file? I tried tar zxfv, but doesn't work</q></li>
+<li class="message">[<a href="#T06:07:51" id="T06:07:51"><abbr title="2009-02-19T06:07:51+00:00">06:07:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but only if u used idlers heavily</q></li>
+<li class="message">[<a href="#T06:08:06" id="T06:08:06"><abbr title="2009-02-19T06:08:06+00:00">06:08:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>fixed now</q></li>
+<li class="message">[<a href="#T06:08:11" id="T06:08:11"><abbr title="2009-02-19T06:08:11+00:00">06:08:11</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>commit!</q></li>
+<li class="message">[<a href="#T06:08:14" id="T06:08:14"><abbr title="2009-02-19T06:08:14+00:00">06:08:14</abbr></a>] &lt;<cite>raster</cite>&gt; <q>just set the loop time when exiting an idler batch</q></li>
+<li class="message">[<a href="#T06:08:18" id="T06:08:18"><abbr title="2009-02-19T06:08:18+00:00">06:08:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>already done</q></li>
+<li class="message">[<a href="#T06:08:19" id="T06:08:19"><abbr title="2009-02-19T06:08:19+00:00">06:08:19</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T06:08:35" id="T06:08:35"><abbr title="2009-02-19T06:08:35+00:00">06:08:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>now animating while genlist spools out its queue of items to add is smooth again</q></li>
+<li class="message">[<a href="#T06:09:05" id="T06:09:05"><abbr title="2009-02-19T06:09:05+00:00">06:09:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(been working on elementary - adding a "general list" that handles massive # of items - tested up to 1million so far)</q></li>
+<li class="message">[<a href="#T06:09:14" id="T06:09:14"><abbr title="2009-02-19T06:09:14+00:00">06:09:14</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and it plays some evil tricks to keep itself fastand interactive</q></li>
+<li class="message">[<a href="#T06:09:29" id="T06:09:29"><abbr title="2009-02-19T06:09:29+00:00">06:09:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>whils still allowing any list item to be any shape, size, style etc.</q></li>
+<li class="message">[<a href="#T06:09:43" id="T06:09:43"><abbr title="2009-02-19T06:09:43+00:00">06:09:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and not limiting you to a regular grid or "all lines the same size" style formatting</q></li>
+<li class="join">[<a href="#T06:09:57" id="T06:09:57"><abbr title="2009-02-19T06:09:57+00:00">06:09:57</abbr></a>] <span>* mib_ya9k3n (i=4b3e45fb@gateway/web/ajax/mibbit.com/x-88301e9506a51def) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:10:02" id="T06:10:02"><abbr title="2009-02-19T06:10:02+00:00">06:10:02</abbr></a>] &lt;<cite>raster</cite>&gt; <q>one of its tricks is any items added are put in a queue</q></li>
+<li class="message">[<a href="#T06:10:11" id="T06:10:11"><abbr title="2009-02-19T06:10:11+00:00">06:10:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and not actually "visibly" added until later</q></li>
+<li class="message">[<a href="#T06:10:24" id="T06:10:24"><abbr title="2009-02-19T06:10:24+00:00">06:10:24</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the queue spools off entries over time</q></li>
+<li class="quit">[<a href="#T06:10:30" id="T06:10:30"><abbr title="2009-02-19T06:10:30+00:00">06:10:30</abbr></a>] <span>* mib_ya9k3n (i=4b3e45fb@gateway/web/ajax/mibbit.com/x-88301e9506a51def) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T06:10:32" id="T06:10:32"><abbr title="2009-02-19T06:10:32+00:00">06:10:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>in an.. idler</q></li>
+<li class="message">[<a href="#T06:10:35" id="T06:10:35"><abbr title="2009-02-19T06:10:35+00:00">06:10:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(ie in idle time)</q></li>
+<li class="quit">[<a href="#T06:10:39" id="T06:10:39"><abbr title="2009-02-19T06:10:39+00:00">06:10:39</abbr></a>] <span>* methril|dinner (n=methril@169.73.220.87.dynamic.jazztel.es) Quit (Read error: 113 (No route to host))</span></li>
+<li class="message">[<a href="#T06:11:00" id="T06:11:00"><abbr title="2009-02-19T06:11:00+00:00">06:11:00</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so even tho the 1million entry list comes up fast</q></li>
+<li class="message">[<a href="#T06:11:32" id="T06:11:32"><abbr title="2009-02-19T06:11:32+00:00">06:11:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(well as fast as u can for loop 10 million times in which u call the add call whihc ends up just mallocing an item entry and adding it to a list - which is O(1))</q></li>
+<li class="message">[<a href="#T06:11:49" id="T06:11:49"><abbr title="2009-02-19T06:11:49+00:00">06:11:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>once u finished doing that... it stays smooht and interactive - spooling in the queue over time</q></li>
+<li class="join">[<a href="#T06:12:18" id="T06:12:18"><abbr title="2009-02-19T06:12:18+00:00">06:12:18</abbr></a>] <span>* NishanthMenon (n=nmenon@nat/ti/x-a1b0e4eaeb8401b8) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:12:47" id="T06:12:47"><abbr title="2009-02-19T06:12:47+00:00">06:12:47</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T06:13:44" id="T06:13:44"><abbr title="2009-02-19T06:13:44+00:00">06:13:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>in reality.. anyone putting 1m items in a list in a gui.. should be shot</q></li>
+<li class="message">[<a href="#T06:15:03" id="T06:15:03"><abbr title="2009-02-19T06:15:03+00:00">06:15:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so my standard test is for 100k items</q></li>
+<li class="message">[<a href="#T06:15:06" id="T06:15:06"><abbr title="2009-02-19T06:15:06+00:00">06:15:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>even then u should be shot</q></li>
+<li class="message">[<a href="#T06:15:31" id="T06:15:31"><abbr title="2009-02-19T06:15:31+00:00">06:15:31</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>hehe, remind me of the days of the PMA that we did using qtopia</q></li>
+<li class="message">[<a href="#T06:15:40" id="T06:15:40"><abbr title="2009-02-19T06:15:40+00:00">06:15:40</abbr></a>] &lt;<cite>raster</cite>&gt; <q>pma?</q></li>
+<li class="message">[<a href="#T06:15:47" id="T06:15:47"><abbr title="2009-02-19T06:15:47+00:00">06:15:47</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>our PDA meets PMP</q></li>
+<li class="message">[<a href="#T06:15:53" id="T06:15:53"><abbr title="2009-02-19T06:15:53+00:00">06:15:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaah</q></li>
+<li class="message">[<a href="#T06:15:58" id="T06:15:58"><abbr title="2009-02-19T06:15:58+00:00">06:15:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u had list problems?</q></li>
+<li class="message">[<a href="#T06:16:04" id="T06:16:04"><abbr title="2009-02-19T06:16:04+00:00">06:16:04</abbr></a>] &lt;<cite>AV500</cite>&gt; <q><a href="http://www.amazon.com/Archos-Pocket-Media-Assistant-PMA430/dp/B0007LNDU6">http://www.amazon.com/Archos-Pocket-Media-Assistant-PMA430/dp/B0007LNDU6</a></q></li>
+<li class="message">[<a href="#T06:16:23" id="T06:16:23"><abbr title="2009-02-19T06:16:23+00:00">06:16:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaah that one</q></li>
+<li class="message">[<a href="#T06:16:47" id="T06:16:47"><abbr title="2009-02-19T06:16:47+00:00">06:16:47</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>well, QTE at that time did not really expect anybody to put more than a few entries in a list, so they alloced a bitmap that was fontheight x entries high</q></li>
+<li class="message">[<a href="#T06:16:57" id="T06:16:57"><abbr title="2009-02-19T06:16:57+00:00">06:16:57</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>of course it scrolled fast</q></li>
+<li class="message">[<a href="#T06:17:15" id="T06:17:15"><abbr title="2009-02-19T06:17:15+00:00">06:17:15</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>but then came our 30Gig HDD and 10.000 songs</q></li>
+<li class="message">[<a href="#T06:17:16" id="T06:17:16"><abbr title="2009-02-19T06:17:16+00:00">06:17:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>BAHGAHAHHAHHHWHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHA ROTFL</q></li>
+<li class="message">[<a href="#T06:17:33" id="T06:17:33"><abbr title="2009-02-19T06:17:33+00:00">06:17:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so they just pre-rendered the bitmap.. and scrolled it?</q></li>
+<li class="message">[<a href="#T06:17:38" id="T06:17:38"><abbr title="2009-02-19T06:17:38+00:00">06:17:38</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T06:17:42" id="T06:17:42"><abbr title="2009-02-19T06:17:42+00:00">06:17:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hahaha</q></li>
+<li class="message">[<a href="#T06:17:43" id="T06:17:43"><abbr title="2009-02-19T06:17:43+00:00">06:17:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hehehe</q></li>
+<li class="message">[<a href="#T06:17:55" id="T06:17:55"><abbr title="2009-02-19T06:17:55+00:00">06:17:55</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>well, not for long :-)</q></li>
+<li class="message">[<abbr title="2009-02-19T06:17:55+00:00">06:17:55</abbr>] &lt;<cite>raster</cite>&gt; <q>i wonder what nutty person thought that would be good</q></li>
+<li class="message">[<a href="#T06:17:58" id="T06:17:58"><abbr title="2009-02-19T06:17:58+00:00">06:17:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>bitmaps soak up ram</q></li>
+<li class="message">[<a href="#T06:18:04" id="T06:18:04"><abbr title="2009-02-19T06:18:04+00:00">06:18:04</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>no, really?</q></li>
+<li class="message">[<a href="#T06:18:17" id="T06:18:17"><abbr title="2009-02-19T06:18:17+00:00">06:18:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i've had to do a 2 level block tree</q></li>
+<li class="message">[<a href="#T06:18:23" id="T06:18:23"><abbr title="2009-02-19T06:18:23+00:00">06:18:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie u have a master item list</q></li>
+<li class="message">[<a href="#T06:18:32" id="T06:18:32"><abbr title="2009-02-19T06:18:32+00:00">06:18:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>biut then items are grouped into a secon "for disply" block list</q></li>
+<li class="message">[<a href="#T06:18:36" id="T06:18:36"><abbr title="2009-02-19T06:18:36+00:00">06:18:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>blocks hold 32 items</q></li>
+<li class="join">[<a href="#T06:18:47" id="T06:18:47"><abbr title="2009-02-19T06:18:47+00:00">06:18:47</abbr></a>] <span>* rupeshgujare (n=rupesh@59.160.172.220) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:18:52" id="T06:18:52"><abbr title="2009-02-19T06:18:52+00:00">06:18:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so when u scrol lardound it simpyl evaluates the "does this block intersect the viewport"</q></li>
+<li class="message">[<a href="#T06:18:58" id="T06:18:58"><abbr title="2009-02-19T06:18:58+00:00">06:18:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and itf it does - items are "Realized"</q></li>
+<li class="message">[<a href="#T06:19:02" id="T06:19:02"><abbr title="2009-02-19T06:19:02+00:00">06:19:02</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T06:19:10" id="T06:19:10"><abbr title="2009-02-19T06:19:10+00:00">06:19:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(ie actual canvas objects created and shown and moved to the right spot)</q></li>
+<li class="message">[<a href="#T06:19:19" id="T06:19:19"><abbr title="2009-02-19T06:19:19+00:00">06:19:19</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>I forgot what the team did to fix it, but we got rid of the large bitmap</q></li>
+<li class="message">[<a href="#T06:19:20" id="T06:19:20"><abbr title="2009-02-19T06:19:20+00:00">06:19:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>if it was realized and no longer is in the viewport.. delete the objects</q></li>
+<li class="message">[<a href="#T06:19:29" id="T06:19:29"><abbr title="2009-02-19T06:19:29+00:00">06:19:29</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>coz for 100000 entries it was like 32MB :-)</q></li>
+<li class="message">[<a href="#T06:19:35" id="T06:19:35"><abbr title="2009-02-19T06:19:35+00:00">06:19:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>still means it has limits</q></li>
+<li class="message">[<a href="#T06:19:36" id="T06:19:36"><abbr title="2009-02-19T06:19:36+00:00">06:19:36</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>coz for 10000 entries it was like 32MB :-)</q></li>
+<li class="message">[<a href="#T06:19:44" id="T06:19:44"><abbr title="2009-02-19T06:19:44+00:00">06:19:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T06:19:46" id="T06:19:46"><abbr title="2009-02-19T06:19:46+00:00">06:19:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i can imagine</q></li>
+<li class="message">[<a href="#T06:19:57" id="T06:19:57"><abbr title="2009-02-19T06:19:57+00:00">06:19:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>well 1m entires pops the app up to 120m rss</q></li>
+<li class="join">[<a href="#T06:20:02" id="T06:20:02"><abbr title="2009-02-19T06:20:02+00:00">06:20:02</abbr></a>] <span>* NishanthM (n=nmenon@nat/ti/x-44de9143fa68a148) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:20:12" id="T06:20:12"><abbr title="2009-02-19T06:20:12+00:00">06:20:12</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but that averages out to about 130bytes/entry</q></li>
+<li class="message">[<abbr title="2009-02-19T06:20:12+00:00">06:20:12</abbr>] &lt;<cite>AV500</cite>&gt; <q>we had 64Mb</q></li>
+<li class="message">[<a href="#T06:20:14" id="T06:20:14"><abbr title="2009-02-19T06:20:14+00:00">06:20:14</abbr></a>] &lt;<cite>raster</cite>&gt; <q>not too bad</q></li>
+<li class="message">[<a href="#T06:20:17" id="T06:20:17"><abbr title="2009-02-19T06:20:17+00:00">06:20:17</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>we had 64MB</q></li>
+<li class="message">[<a href="#T06:20:50" id="T06:20:50"><abbr title="2009-02-19T06:20:50+00:00">06:20:50</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T06:20:56" id="T06:20:56"><abbr title="2009-02-19T06:20:56+00:00">06:20:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u'd like ram left. to well. display gfx</q></li>
+<li class="message">[<a href="#T06:20:58" id="T06:20:58"><abbr title="2009-02-19T06:20:58+00:00">06:20:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and videos</q></li>
+<li class="message">[<a href="#T06:21:01" id="T06:21:01"><abbr title="2009-02-19T06:21:01+00:00">06:21:01</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and maybe run the os...</q></li>
+<li class="quit">[<a href="#T06:21:08" id="T06:21:08"><abbr title="2009-02-19T06:21:08+00:00">06:21:08</abbr></a>] <span>* vpc (i=7aa60de8@gateway/web/ajax/mibbit.com/x-a4233afb6dcc3168) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T06:21:10" id="T06:21:10"><abbr title="2009-02-19T06:21:10+00:00">06:21:10</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>ah well...</q></li>
+<li class="message">[<a href="#T06:21:37" id="T06:21:37"><abbr title="2009-02-19T06:21:37+00:00">06:21:37</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>there was another 32MB on the DSP side that also held the framebuffer and did the video decoding</q></li>
+<li class="message">[<a href="#T06:21:56" id="T06:21:56"><abbr title="2009-02-19T06:21:56+00:00">06:21:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaah the joy of fitting in the memory u have</q></li>
+<li class="message">[<a href="#T06:22:04" id="T06:22:04"><abbr title="2009-02-19T06:22:04+00:00">06:22:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its nice to think about memory.. from the start</q></li>
+<li class="message">[<a href="#T06:22:13" id="T06:22:13"><abbr title="2009-02-19T06:22:13+00:00">06:22:13</abbr></a>] &lt;<cite>raster</cite>&gt; <q>at least these days i live in a luxuriant 128m ram</q></li>
+<li class="message">[<a href="#T06:22:14" id="T06:22:14"><abbr title="2009-02-19T06:22:14+00:00">06:22:14</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>coupled by a 16bit HPI, so we had to teach QT to do all gfx access by 16bit aligned...</q></li>
+<li class="message">[<a href="#T06:22:31" id="T06:22:31"><abbr title="2009-02-19T06:22:31+00:00">06:22:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T06:22:39" id="T06:22:39"><abbr title="2009-02-19T06:22:39+00:00">06:22:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>gfx should always be doing everything aligned</q></li>
+<li class="message">[<a href="#T06:22:48" id="T06:22:48"><abbr title="2009-02-19T06:22:48+00:00">06:22:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its a bit of a no no to not do that</q></li>
+<li class="message">[<a href="#T06:22:52" id="T06:22:52"><abbr title="2009-02-19T06:22:52+00:00">06:22:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>well x86 does fixups for u</q></li>
+<li class="message">[<a href="#T06:22:54" id="T06:22:54"><abbr title="2009-02-19T06:22:54+00:00">06:22:54</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>yes, but not char access!</q></li>
+<li class="message">[<a href="#T06:22:58" id="T06:22:58"><abbr title="2009-02-19T06:22:58+00:00">06:22:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but u still pay a small penalty</q></li>
+<li class="message">[<a href="#T06:23:11" id="T06:23:11"><abbr title="2009-02-19T06:23:11+00:00">06:23:11</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>every write on the HPI wrote 16bits</q></li>
+<li class="quit">[<a href="#T06:23:12" id="T06:23:12"><abbr title="2009-02-19T06:23:12+00:00">06:23:12</abbr></a>] <span>* NishanthMenon (n=nmenon@nat/ti/x-a1b0e4eaeb8401b8) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T06:23:26" id="T06:23:26"><abbr title="2009-02-19T06:23:26+00:00">06:23:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>why would u be piping gfx on char boundaries</q></li>
+<li class="message">[<a href="#T06:23:30" id="T06:23:30"><abbr title="2009-02-19T06:23:30+00:00">06:23:30</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>so it was read/modify/write for 1 byte</q></li>
+<li class="message">[<a href="#T06:23:31" id="T06:23:31"><abbr title="2009-02-19T06:23:31+00:00">06:23:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>unless u're talking 8bpp?</q></li>
+<li class="message">[<a href="#T06:23:43" id="T06:23:43"><abbr title="2009-02-19T06:23:43+00:00">06:23:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and why would u read/mod/write TO the fb</q></li>
+<li class="message">[<a href="#T06:23:45" id="T06:23:45"><abbr title="2009-02-19T06:23:45+00:00">06:23:45</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>no idea, forgot</q></li>
+<li class="message">[<a href="#T06:23:46" id="T06:23:46"><abbr title="2009-02-19T06:23:46+00:00">06:23:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>evilness</q></li>
+<li class="message">[<a href="#T06:23:52" id="T06:23:52"><abbr title="2009-02-19T06:23:52+00:00">06:23:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so it in systm ramp</q></li>
+<li class="message">[<a href="#T06:23:55" id="T06:23:55"><abbr title="2009-02-19T06:23:55+00:00">06:23:55</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>or maybe it was 32bit...</q></li>
+<li class="message">[<a href="#T06:23:58" id="T06:23:58"><abbr title="2009-02-19T06:23:58+00:00">06:23:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>just burst write the block across</q></li>
+<li class="message">[<a href="#T06:24:03" id="T06:24:03"><abbr title="2009-02-19T06:24:03+00:00">06:24:03</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>and gfx was 565</q></li>
+<li class="message">[<a href="#T06:24:55" id="T06:24:55"><abbr title="2009-02-19T06:24:55+00:00">06:24:55</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>I guess we had a back buffer..</q></li>
+<li class="message">[<a href="#T06:25:25" id="T06:25:25"><abbr title="2009-02-19T06:25:25+00:00">06:25:25</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>and I guess it was 565 and the HPI was 32bit, so burst had to be 2pixel aligned or so...</q></li>
+<li class="message">[<a href="#T06:25:36" id="T06:25:36"><abbr title="2009-02-19T06:25:36+00:00">06:25:36</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>it worked in the end</q></li>
+<li class="message">[<a href="#T06:25:38" id="T06:25:38"><abbr title="2009-02-19T06:25:38+00:00">06:25:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>that still is the right way to go</q></li>
+<li class="message">[<a href="#T06:25:53" id="T06:25:53"><abbr title="2009-02-19T06:25:53+00:00">06:25:53</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>then of course the DSP had nice video overlay caps</q></li>
+<li class="message">[<a href="#T06:25:55" id="T06:25:55"><abbr title="2009-02-19T06:25:55+00:00">06:25:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i know for conversion writes i write out 32bits at a time</q></li>
+<li class="join">[<a href="#T06:25:59" id="T06:25:59"><abbr title="2009-02-19T06:25:59+00:00">06:25:59</abbr></a>] <span>* valhalla (n=valhalla@81-174-25-183.dynamic.ngi.it) has joined #beagle</span></li>
+<li class="message">[<abbr title="2009-02-19T06:25:59+00:00">06:25:59</abbr>] &lt;<cite>AV500</cite>&gt; <q>but Qte had not</q></li>
+<li class="action">[<a href="#T06:26:09" id="T06:26:09"><abbr title="2009-02-19T06:26:09+00:00">06:26:09</abbr></a>] <span>* raster spanks qte</span></li>
+<li class="message">[<a href="#T06:26:10" id="T06:26:10"><abbr title="2009-02-19T06:26:10+00:00">06:26:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T06:26:19" id="T06:26:19"><abbr title="2009-02-19T06:26:19+00:00">06:26:19</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>well, this was like 2.x, really ancient</q></li>
+<li class="message">[<a href="#T06:26:38" id="T06:26:38"><abbr title="2009-02-19T06:26:38+00:00">06:26:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>still</q></li>
+<li class="message">[<a href="#T06:26:51" id="T06:26:51"><abbr title="2009-02-19T06:26:51+00:00">06:26:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its a gfx nono to write small types - unjless u have no choice</q></li>
+<li class="message">[<a href="#T06:26:56" id="T06:26:56"><abbr title="2009-02-19T06:26:56+00:00">06:26:56</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>we had to use it in order to be binary compat to the zaurus</q></li>
+<li class="message">[<a href="#T06:27:16" id="T06:27:16"><abbr title="2009-02-19T06:27:16+00:00">06:27:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u have a 32bit cpu with 32bit registers... writer out a full reg content at a time</q></li>
+<li class="message">[<a href="#T06:27:35" id="T06:27:35"><abbr title="2009-02-19T06:27:35+00:00">06:27:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaah the zaurus days</q></li>
+<li class="message">[<a href="#T06:27:39" id="T06:27:39"><abbr title="2009-02-19T06:27:39+00:00">06:27:39</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>ahhh</q></li>
+<li class="message">[<a href="#T06:27:53" id="T06:27:53"><abbr title="2009-02-19T06:27:53+00:00">06:27:53</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>trying to forget them ever since :-)</q></li>
+<li class="message">[<a href="#T06:27:57" id="T06:27:57"><abbr title="2009-02-19T06:27:57+00:00">06:27:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hehehehe</q></li>
+<li class="quit">[<a href="#T06:28:46" id="T06:28:46"><abbr title="2009-02-19T06:28:46+00:00">06:28:46</abbr></a>] <span>* valhalla (n=valhalla@81-174-25-183.dynamic.ngi.it) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T06:29:06" id="T06:29:06"><abbr title="2009-02-19T06:29:06+00:00">06:29:06</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>hey raster!</q></li>
+<li class="message">[<a href="#T06:29:13" id="T06:29:13"><abbr title="2009-02-19T06:29:13+00:00">06:29:13</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sakoman:  yo!</q></li>
+<li class="message">[<a href="#T06:29:45" id="T06:29:45"><abbr title="2009-02-19T06:29:45+00:00">06:29:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>where are those gles binary blobs... that's what i want to know</q></li>
+<li class="message">[<a href="#T06:29:54" id="T06:29:54"><abbr title="2009-02-19T06:29:54+00:00">06:29:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the gles pckgs in oe are broken without them</q></li>
+<li class="message">[<a href="#T06:30:09" id="T06:30:09"><abbr title="2009-02-19T06:30:09+00:00">06:30:09</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>would you mind an enlightenment question?</q></li>
+<li class="message">[<a href="#T06:30:19" id="T06:30:19"><abbr title="2009-02-19T06:30:19+00:00">06:30:19</abbr></a>] &lt;<cite>raster</cite>&gt; <q>any time</q></li>
+<li class="message">[<a href="#T06:30:49" id="T06:30:49"><abbr title="2009-02-19T06:30:49+00:00">06:30:49</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>on first boot, there is the screen where you get to pick the apps you want at the bottom of the desktop</q></li>
+<li class="message">[<a href="#T06:30:56" id="T06:30:56"><abbr title="2009-02-19T06:30:56+00:00">06:30:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yup</q></li>
+<li class="message">[<a href="#T06:31:05" id="T06:31:05"><abbr title="2009-02-19T06:31:05+00:00">06:31:05</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>the selection window is too narrow</q></li>
+<li class="message">[<a href="#T06:31:12" id="T06:31:12"><abbr title="2009-02-19T06:31:12+00:00">06:31:12</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T06:31:18" id="T06:31:18"><abbr title="2009-02-19T06:31:18+00:00">06:31:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>you are in need of updating</q></li>
+<li class="message">[<abbr title="2009-02-19T06:31:18+00:00">06:31:18</abbr>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T06:31:31" id="T06:31:31"><abbr title="2009-02-19T06:31:31+00:00">06:31:31</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>ah, I like that answer!</q></li>
+<li class="message">[<a href="#T06:31:47" id="T06:31:47"><abbr title="2009-02-19T06:31:47+00:00">06:31:47</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>I was going to ask where in the source tree I needed to start looking :-)</q></li>
+<li class="message">[<a href="#T06:32:01" id="T06:32:01"><abbr title="2009-02-19T06:32:01+00:00">06:32:01</abbr></a>] &lt;<cite>raster</cite>&gt; <q>e/src/modules/wizard</q></li>
+<li class="message">[<a href="#T06:32:22" id="T06:32:22"><abbr title="2009-02-19T06:32:22+00:00">06:32:22</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>heh, I'd rather just use your fix!</q></li>
+<li class="message">[<a href="#T06:32:28" id="T06:32:28"><abbr title="2009-02-19T06:32:28+00:00">06:32:28</abbr></a>] &lt;<cite>raster</cite>&gt; <q>page_080.c</q></li>
+<li class="message">[<a href="#T06:32:36" id="T06:32:36"><abbr title="2009-02-19T06:32:36+00:00">06:32:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but that doesnt control the size</q></li>
+<li class="message">[<a href="#T06:32:40" id="T06:32:40"><abbr title="2009-02-19T06:32:40+00:00">06:32:40</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the general wizard core+theme does</q></li>
+<li class="message">[<a href="#T06:33:03" id="T06:33:03"><abbr title="2009-02-19T06:33:03+00:00">06:33:03</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>I'll just update my build to the latest rev</q></li>
+<li class="message">[<a href="#T06:33:22" id="T06:33:22"><abbr title="2009-02-19T06:33:22+00:00">06:33:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>wizard is actually more of a demo</q></li>
+<li class="message">[<a href="#T06:33:33" id="T06:33:33"><abbr title="2009-02-19T06:33:33+00:00">06:33:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but its meant to mostly get e installed if as a 3rd party install from src</q></li>
+<li class="message">[<a href="#T06:33:45" id="T06:33:45"><abbr title="2009-02-19T06:33:45+00:00">06:33:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(ie distro integrators havent done their job)</q></li>
+<li class="message">[<a href="#T06:33:55" id="T06:33:55"><abbr title="2009-02-19T06:33:55+00:00">06:33:55</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>A nice one - I've heard lots of good feedback about it from gumstix users</q></li>
+<li class="message">[<a href="#T06:34:08" id="T06:34:08"><abbr title="2009-02-19T06:34:08+00:00">06:34:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the wizard is more infra where sys integrators should delete, use or write their own modules</q></li>
+<li class="message">[<a href="#T06:34:15" id="T06:34:15"><abbr title="2009-02-19T06:34:15+00:00">06:34:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>to do whatever is needful to integrate with their system</q></li>
+<li class="message">[<a href="#T06:34:31" id="T06:34:31"><abbr title="2009-02-19T06:34:31+00:00">06:34:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so for an embedded device u'd probably want to ditch some of them</q></li>
+<li class="message">[<a href="#T06:34:32" id="T06:34:32"><abbr title="2009-02-19T06:34:32+00:00">06:34:32</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T06:34:33" id="T06:34:33"><abbr title="2009-02-19T06:34:33+00:00">06:34:33</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>well, lots of customers build their own images, so they get to see it</q></li>
+<li class="message">[<a href="#T06:34:39" id="T06:34:39"><abbr title="2009-02-19T06:34:39+00:00">06:34:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T06:34:47" id="T06:34:47"><abbr title="2009-02-19T06:34:47+00:00">06:34:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its a bit "in your face"</q></li>
+<li class="message">[<a href="#T06:35:06" id="T06:35:06"><abbr title="2009-02-19T06:35:06+00:00">06:35:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but its meant to be as the other option is people asking "so.. how do i set up X" all the time</q></li>
+<li class="message">[<a href="#T06:35:11" id="T06:35:11"><abbr title="2009-02-19T06:35:11+00:00">06:35:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so theres code that does that setup for u</q></li>
+<li class="message">[<a href="#T06:35:14" id="T06:35:14"><abbr title="2009-02-19T06:35:14+00:00">06:35:14</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>So re: the sgx blobs - have you not found them on the ti site?</q></li>
+<li class="message">[<a href="#T06:35:27" id="T06:35:27"><abbr title="2009-02-19T06:35:27+00:00">06:35:27</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and a way for anyone to add more code that is specific for their system :)</q></li>
+<li class="message">[<a href="#T06:35:39" id="T06:35:39"><abbr title="2009-02-19T06:35:39+00:00">06:35:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oh.... i can just grab them there?</q></li>
+<li class="message">[<a href="#T06:35:43" id="T06:35:43"><abbr title="2009-02-19T06:35:43+00:00">06:35:43</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>I think they are publicly available now</q></li>
+<li class="message">[<a href="#T06:35:50" id="T06:35:50"><abbr title="2009-02-19T06:35:50+00:00">06:35:50</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>let me find the link</q></li>
+<li class="message">[<a href="#T06:35:51" id="T06:35:51"><abbr title="2009-02-19T06:35:51+00:00">06:35:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i thought i was in need of ... licensing...</q></li>
+<li class="message">[<a href="#T06:35:54" id="T06:35:54"><abbr title="2009-02-19T06:35:54+00:00">06:35:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaaah</q></li>
+<li class="message">[<a href="#T06:35:57" id="T06:35:57"><abbr title="2009-02-19T06:35:57+00:00">06:35:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>panties on</q></li>
+<li class="message">[<a href="#T06:39:30" id="T06:39:30"><abbr title="2009-02-19T06:39:30+00:00">06:39:30</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>You have to sign up for the TI MyPortal account (quick &amp; easy IIRC)</q></li>
+<li class="message">[<a href="#T06:39:37" id="T06:39:37"><abbr title="2009-02-19T06:39:37+00:00">06:39:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>got one</q></li>
+<li class="message">[<a href="#T06:39:43" id="T06:39:43"><abbr title="2009-02-19T06:39:43+00:00">06:39:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>searching for the filename brings up nada</q></li>
+<li class="message">[<a href="#T06:39:59" id="T06:39:59"><abbr title="2009-02-19T06:39:59+00:00">06:39:59</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>I've got it here somewhere, hang on</q></li>
+<li class="message">[<a href="#T06:41:15" id="T06:41:15"><abbr title="2009-02-19T06:41:15+00:00">06:41:15</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>try this: <a href="http://www.avincistudio.com/?gclid=COWpoq6x35gCFRk_awodnTiUdQ">http://www.avincistudio.com/?gclid=COWpoq6x35gCFRk_awodnTiUdQ</a></q></li>
+<li class="message">[<a href="#T06:41:45" id="T06:41:45"><abbr title="2009-02-19T06:41:45+00:00">06:41:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>isnt that mean to be.. davinci?</q></li>
+<li class="message">[<a href="#T06:41:57" id="T06:41:57"><abbr title="2009-02-19T06:41:57+00:00">06:41:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T06:41:58" id="T06:41:58"><abbr title="2009-02-19T06:41:58+00:00">06:41:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T06:42:09" id="T06:42:09"><abbr title="2009-02-19T06:42:09+00:00">06:42:09</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>it looks strange, but that link triggers a download for me</q></li>
+<li class="message">[<a href="#T06:42:16" id="T06:42:16"><abbr title="2009-02-19T06:42:16+00:00">06:42:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>nup</q></li>
+<li class="message">[<a href="#T06:42:20" id="T06:42:20"><abbr title="2009-02-19T06:42:20+00:00">06:42:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>get something else</q></li>
+<li class="message">[<a href="#T06:42:26" id="T06:42:26"><abbr title="2009-02-19T06:42:26+00:00">06:42:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>soem video editing software</q></li>
+<li class="message">[<a href="#T06:42:31" id="T06:42:31"><abbr title="2009-02-19T06:42:31+00:00">06:42:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>for dvd's</q></li>
+<li class="message">[<abbr title="2009-02-19T06:42:31+00:00">06:42:31</abbr>] &lt;<cite>AV500</cite>&gt; <q>sakoman: update your AV SW</q></li>
+<li class="message">[<a href="#T06:43:31" id="T06:43:31"><abbr title="2009-02-19T06:43:31+00:00">06:43:31</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>ok, try again: <a href="https://www-a.ti.com/downloads/sds_support/targetcontent/dvsdk/oslinux_dvsdk/v3_00_3530/OMAP35x_Graphics_SDK_setuplinux_3_00_00_06.bin">https://www-a.ti.com/downloads/sds_support/targetcontent/dvsdk/oslinux_dvsdk/v3_00_3530/OMAP35x_Graphics_SDK_setuplinux_3_00_00_06.bin</a></q></li>
+<li class="message">[<a href="#T06:43:39" id="T06:43:39"><abbr title="2009-02-19T06:43:39+00:00">06:43:39</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>better :-)</q></li>
+<li class="message">[<a href="#T06:44:11" id="T06:44:11"><abbr title="2009-02-19T06:44:11+00:00">06:44:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>much better!</q></li>
+<li class="message">[<a href="#T06:44:15" id="T06:44:15"><abbr title="2009-02-19T06:44:15+00:00">06:44:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>how did u find it tho?</q></li>
+<li class="message">[<a href="#T06:44:34" id="T06:44:34"><abbr title="2009-02-19T06:44:34+00:00">06:44:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its not listed in tools &amp; software for the 3530</q></li>
+<li class="message">[<a href="#T06:44:37" id="T06:44:37"><abbr title="2009-02-19T06:44:37+00:00">06:44:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(product page)</q></li>
+<li class="message">[<a href="#T06:45:26" id="T06:45:26"><abbr title="2009-02-19T06:45:26+00:00">06:45:26</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>I don't recall - I think it might have been a mailing list announcement</q></li>
+<li class="message">[<a href="#T06:45:31" id="T06:45:31"><abbr title="2009-02-19T06:45:31+00:00">06:45:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oooh</q></li>
+<li class="message">[<a href="#T06:45:37" id="T06:45:37"><abbr title="2009-02-19T06:45:37+00:00">06:45:37</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>I just now grabbed it from my history</q></li>
+<li class="message">[<a href="#T06:45:42" id="T06:45:42"><abbr title="2009-02-19T06:45:42+00:00">06:45:42</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>it was anounced here by jkridner</q></li>
+<li class="message">[<a href="#T06:45:45" id="T06:45:45"><abbr title="2009-02-19T06:45:45+00:00">06:45:45</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>then on BB ML</q></li>
+<li class="message">[<a href="#T06:46:20" id="T06:46:20"><abbr title="2009-02-19T06:46:20+00:00">06:46:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaah</q></li>
+<li class="message">[<a href="#T06:46:29" id="T06:46:29"><abbr title="2009-02-19T06:46:29+00:00">06:46:29</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>It is quite huge</q></li>
+<li class="message">[<a href="#T06:46:33" id="T06:46:33"><abbr title="2009-02-19T06:46:33+00:00">06:46:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ja</q></li>
+<li class="message">[<a href="#T06:46:41" id="T06:46:41"><abbr title="2009-02-19T06:46:41+00:00">06:46:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and a slow server</q></li>
+<li class="message">[<a href="#T06:46:45" id="T06:46:45"><abbr title="2009-02-19T06:46:45+00:00">06:46:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i only get 73k/s</q></li>
+<li class="message">[<a href="#T06:47:06" id="T06:47:06"><abbr title="2009-02-19T06:47:06+00:00">06:47:06</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>but if you drop it in the right spot in the OE tree the recipe will extract the proper binaries</q></li>
+<li class="message">[<a href="#T06:47:19" id="T06:47:19"><abbr title="2009-02-19T06:47:19+00:00">06:47:19</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yup</q></li>
+<li class="message">[<a href="#T06:47:22" id="T06:47:22"><abbr title="2009-02-19T06:47:22+00:00">06:47:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i got that far</q></li>
+<li class="message">[<a href="#T06:47:23" id="T06:47:23"><abbr title="2009-02-19T06:47:23+00:00">06:47:23</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>after making you click through some licensing dialogs</q></li>
+<li class="message">[<a href="#T06:47:31" id="T06:47:31"><abbr title="2009-02-19T06:47:31+00:00">06:47:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and went "damn.. so where is that binary blob?"</q></li>
+<li class="message">[<a href="#T06:48:29" id="T06:48:29"><abbr title="2009-02-19T06:48:29+00:00">06:48:29</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>there are also binaries for some demos if you go mucking about in the OE tmp/work directory for the recipe</q></li>
+<li class="message">[<a href="#T06:48:52" id="T06:48:52"><abbr title="2009-02-19T06:48:52+00:00">06:48:52</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>since the recipe basically installs the SDK there</q></li>
+<li class="message">[<a href="#T06:49:19" id="T06:49:19"><abbr title="2009-02-19T06:49:19+00:00">06:49:19</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>I'm not sure if anyone has successfully built the demos from source yet though</q></li>
+<li class="message">[<a href="#T06:49:37" id="T06:49:37"><abbr title="2009-02-19T06:49:37+00:00">06:49:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>dunno - but i feel the need to get some gl-es love</q></li>
+<li class="message">[<a href="#T06:49:57" id="T06:49:57"><abbr title="2009-02-19T06:49:57+00:00">06:49:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>have u guys got 3530 overo's with wifi going yet?</q></li>
+<li class="message">[<a href="#T06:50:03" id="T06:50:03"><abbr title="2009-02-19T06:50:03+00:00">06:50:03</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>I just copied the X demo directories over to my Overo and they ran just fine</q></li>
+<li class="message">[<a href="#T06:50:36" id="T06:50:36"><abbr title="2009-02-19T06:50:36+00:00">06:50:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaah so u do have one</q></li>
+<li class="message">[<abbr title="2009-02-19T06:50:36+00:00">06:50:36</abbr>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T06:50:56" id="T06:50:56"><abbr title="2009-02-19T06:50:56+00:00">06:50:56</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q><a href="http://www.sakoman.com/secret/3d.png">http://www.sakoman.com/secret/3d.png</a></q></li>
+<li class="message">[<a href="#T06:50:57" id="T06:50:57"><abbr title="2009-02-19T06:50:57+00:00">06:50:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i need to try out the replacement overo</q></li>
+<li class="message">[<a href="#T06:51:10" id="T06:51:10"><abbr title="2009-02-19T06:51:10+00:00">06:51:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i've been fiddling with my 6410</q></li>
+<li class="message">[<a href="#T06:51:44" id="T06:51:44"><abbr title="2009-02-19T06:51:44+00:00">06:51:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T06:51:52" id="T06:51:52"><abbr title="2009-02-19T06:51:52+00:00">06:51:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>everyone loves to show off shaders</q></li>
+<li class="message">[<a href="#T06:51:53" id="T06:51:53"><abbr title="2009-02-19T06:51:53+00:00">06:51:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T06:52:11" id="T06:52:11"><abbr title="2009-02-19T06:52:11+00:00">06:52:11</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>most of the demos are fairly boring</q></li>
+<li class="message">[<a href="#T06:52:27" id="T06:52:27"><abbr title="2009-02-19T06:52:27+00:00">06:52:27</abbr></a>] &lt;<cite>raster</cite>&gt; <q>gles1.1 is pretty arstastic in terms of features</q></li>
+<li class="message">[<a href="#T06:52:35" id="T06:52:35"><abbr title="2009-02-19T06:52:35+00:00">06:52:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hell BRGA texture uploads are not even supported</q></li>
+<li class="message">[<a href="#T06:52:50" id="T06:52:50"><abbr title="2009-02-19T06:52:50+00:00">06:52:50</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and BGRA is like 90% of the "32bit argb" pixel format world</q></li>
+<li class="message">[<a href="#T06:52:55" id="T06:52:55"><abbr title="2009-02-19T06:52:55+00:00">06:52:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>not sure what they were smoking</q></li>
+<li class="message">[<a href="#T06:53:50" id="T06:53:50"><abbr title="2009-02-19T06:53:50+00:00">06:53:50</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T06:53:56" id="T06:53:56"><abbr title="2009-02-19T06:53:56+00:00">06:53:56</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>it's blue green red</q></li>
+<li class="message">[<a href="#T06:54:35" id="T06:54:35"><abbr title="2009-02-19T06:54:35+00:00">06:54:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>um... endianess fun</q></li>
+<li class="message">[<a href="#T06:54:39" id="T06:54:39"><abbr title="2009-02-19T06:54:39+00:00">06:54:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>back in the heyday of sgi</q></li>
+<li class="message">[<a href="#T06:54:42" id="T06:54:42"><abbr title="2009-02-19T06:54:42+00:00">06:54:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ARGB was all the go</q></li>
+<li class="message">[<a href="#T06:54:44" id="T06:54:44"><abbr title="2009-02-19T06:54:44+00:00">06:54:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>big endian</q></li>
+<li class="message">[<a href="#T06:54:50" id="T06:54:50"><abbr title="2009-02-19T06:54:50+00:00">06:54:50</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but big endian lost out the popularity wars</q></li>
+<li class="message">[<a href="#T06:54:55" id="T06:54:55"><abbr title="2009-02-19T06:54:55+00:00">06:54:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and in little endian land</q></li>
+<li class="message">[<a href="#T06:55:00" id="T06:55:00"><abbr title="2009-02-19T06:55:00+00:00">06:55:00</abbr></a>] &lt;<cite>raster</cite>&gt; <q>BGRA was the go</q></li>
+<li class="message">[<a href="#T06:55:15" id="T06:55:15"><abbr title="2009-02-19T06:55:15+00:00">06:55:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(if u read a pixel byte by byte)</q></li>
+<li class="message">[<a href="#T06:55:30" id="T06:55:30"><abbr title="2009-02-19T06:55:30+00:00">06:55:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie MSB == A, LSB == B</q></li>
