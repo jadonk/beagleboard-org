@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="535" name="Page" prototype="Page" created="1235070269509" lastModified="1235154486509">
+  <hopobject id="535" name="Page" prototype="Page" created="1235070269509" lastModified="1235154661623">
   <hop:parent idref="0" prototyperef="Root"/>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6 (.NET CLR 3.5.30729)</http_browser>
     <lang></lang>
     <uri>pico</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">20.02.2009 12:28:06 CST</time>
+    <time type="date">20.02.2009 12:31:01 CST</time>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.192.94.94.12gbxt4bgizq1</hopsession>
@@ -111,6 +111,22 @@
      Boot the Beagleboard with your newly formatted SD card.  
    You should see something like shown below in the TeraTerm display. 
      &lt;a href=&quot;http://code.google.com/p/beagleboard/wiki/HowToSetupLinuxInWindows&quot;&gt;TeraTerm???&lt;/a&gt;
+     At the prompt, enter the following commands
+     &lt;ul&gt;
+      &lt;li&gt;
+       &lt;p class=&quot;MsoNormal&quot; style=&quot;margin-right:-1.25in&quot;&gt;
+        &lt;span style=&quot;font-size:9.0pt; font-family:&amp;quot;Trebuchet MS&amp;quot;&quot;&gt;setenv bootargs &apos;console=ttyS2,115200n8 
+    console=tty0 root=/dev/mmcblk0p2 rootdelay=2 rootfstype=ext3 
+    video=omapfb:vram:2M,vram:4M&lt;/span&gt;
+       &lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+       &lt;p class=&quot;MsoNormal&quot;&gt;
+        &lt;span style=&quot;font-size:9.0pt;font-family:&amp;quot;Trebuchet MS&amp;quot;&quot;&gt;setenv bootcmd &apos;mmcinit;fatload mmc 0 80300000 uImage;bootm 
+    80300000&apos;;saveenv&lt;/span&gt;
+       &lt;/p&gt;
+      &lt;/li&gt;
+     &lt;/ul&gt;
     &lt;/li&gt;
    &lt;/ol&gt;
    &lt;blockquote&gt;
