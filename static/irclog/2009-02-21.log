@@ -166,3 +166,67 @@
 <li class="join">[<a href="#T07:32:37" id="T07:32:37"><abbr title="2009-02-21T07:32:37+00:00">07:32:37</abbr></a>] <span>* eFfeM (n=frans@195-241-226-180.ip.telfort.nl) has joined #beagle</span></li>
 <li class="quit">[<a href="#T07:52:21" id="T07:52:21"><abbr title="2009-02-21T07:52:21+00:00">07:52:21</abbr></a>] <span>* ShadowJK (i=jk@terminus.enivax.net) Quit (Read error: 60 (Operation timed out))</span></li>
 <li class="join">[<a href="#T07:52:24" id="T07:52:24"><abbr title="2009-02-21T07:52:24+00:00">07:52:24</abbr></a>] <span>* ShadowJK (i=jk@terminus.enivax.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:18:30" id="T08:18:30"><abbr title="2009-02-21T08:18:30+00:00">08:18:30</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>is usb gadget not enabled in angstrom by default????</q></li>
+<li class="join">[<a href="#T08:19:47" id="T08:19:47"><abbr title="2009-02-21T08:19:47+00:00">08:19:47</abbr></a>] <span>* arne-unicap (n=arne@p5481916B.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:22:21" id="T08:22:21"><abbr title="2009-02-21T08:22:21+00:00">08:22:21</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>i see it was built, but no module, so into kernel?  but not usb0 device shows up on the host</q></li>
+<li class="message">[<a href="#T08:23:02" id="T08:23:02"><abbr title="2009-02-21T08:23:02+00:00">08:23:02</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>null[c]: my beagle kernel does show usb0 if I do ifconfig if I recall correctly</q></li>
+<li class="message">[<a href="#T08:24:08" id="T08:24:08"><abbr title="2009-02-21T08:24:08+00:00">08:24:08</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>hmm,  if i do ifconfig it doens't show it, but if i do ifconfig usb0 it says its there ..  doesn't show up on host pc though </q></li>
+<li class="message">[<a href="#T08:24:46" id="T08:24:46"><abbr title="2009-02-21T08:24:46+00:00">08:24:46</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>never used it so can't comment on that, but guess you need something special at the host side too</q></li>
+<li class="message">[<a href="#T08:25:00" id="T08:25:00"><abbr title="2009-02-21T08:25:00+00:00">08:25:00</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>ah i think it just wasn't up</q></li>
+<li class="message">[<a href="#T08:25:04" id="T08:25:04"><abbr title="2009-02-21T08:25:04+00:00">08:25:04</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>does your host have usb neteworking ?</q></li>
+<li class="message">[<a href="#T08:25:10" id="T08:25:10"><abbr title="2009-02-21T08:25:10+00:00">08:25:10</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:25:26" id="T08:25:26"><abbr title="2009-02-21T08:25:26+00:00">08:25:26</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>note that I never used usb networking :-)</q></li>
+<li class="message">[<a href="#T08:26:07" id="T08:26:07"><abbr title="2009-02-21T08:26:07+00:00">08:26:07</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>null[c]: try ifup usb0 on your beagle </q></li>
+<li class="message">[<a href="#T08:26:08" id="T08:26:08"><abbr title="2009-02-21T08:26:08+00:00">08:26:08</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>pings work now</q></li>
+<li class="message">[<a href="#T08:26:26" id="T08:26:26"><abbr title="2009-02-21T08:26:26+00:00">08:26:26</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>then it shows in ifconfig</q></li>
+<li class="message">[<a href="#T08:26:32" id="T08:26:32"><abbr title="2009-02-21T08:26:32+00:00">08:26:32</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:26:34" id="T08:26:34"><abbr title="2009-02-21T08:26:34+00:00">08:26:34</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>if ping works the groundwork is there</q></li>
+<li class="message">[<a href="#T08:26:37" id="T08:26:37"><abbr title="2009-02-21T08:26:37+00:00">08:26:37</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>like i was it wasn't up </q></li>
+<li class="message">[<a href="#T08:26:55" id="T08:26:55"><abbr title="2009-02-21T08:26:55+00:00">08:26:55</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>yea going to add   dhcp and see </q></li>
+<li class="message">[<a href="#T08:27:16" id="T08:27:16"><abbr title="2009-02-21T08:27:16+00:00">08:27:16</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>ah didn't understand that </q></li>
+<li class="quit">[<a href="#T08:28:06" id="T08:28:06"><abbr title="2009-02-21T08:28:06+00:00">08:28:06</abbr></a>] <span>* bazbell (n=a0192809@nat/ti/x-39dad531906edf4b) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T08:28:27" id="T08:28:27"><abbr title="2009-02-21T08:28:27+00:00">08:28:27</abbr></a>] <span>* bazbell (n=a0192809@nat/ti/x-a24204b1266d994d) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:30:44" id="T08:30:44"><abbr title="2009-02-21T08:30:44+00:00">08:30:44</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>bridge always kills my dns or something weird</q></li>
+<li class="message">[<a href="#T08:38:01" id="T08:38:01"><abbr title="2009-02-21T08:38:01+00:00">08:38:01</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>run-parts: /etc/udhcpc.d/99avahi-autoipd exited with code 1  ::  fun, just   keeps sending discover </q></li>
+<li class="nick-change">[<a href="#T08:38:07" id="T08:38:07"><abbr title="2009-02-21T08:38:07+00:00">08:38:07</abbr></a>] <span>* null[c] is now known as null__</span></li>
+<li class="message">[<a href="#T08:40:46" id="T08:40:46"><abbr title="2009-02-21T08:40:46+00:00">08:40:46</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>hmmm bitbake does not rerun configure after I change the bb file</q></li>
+<li class="message">[<a href="#T08:43:50" id="T08:43:50"><abbr title="2009-02-21T08:43:50+00:00">08:43:50</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>Qball: ; bitbake -cclean  packagename</q></li>
+<li class="message">[<a href="#T08:43:55" id="T08:43:55"><abbr title="2009-02-21T08:43:55+00:00">08:43:55</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>then run bitbake again</q></li>
+<li class="message">[<a href="#T08:44:01" id="T08:44:01"><abbr title="2009-02-21T08:44:01+00:00">08:44:01</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>koen, ping</q></li>
+<li class="message">[<a href="#T08:44:31" id="T08:44:31"><abbr title="2009-02-21T08:44:31+00:00">08:44:31</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>thx.. that is not --help</q></li>
+<li class="message">[<a href="#T08:45:44" id="T08:45:44"><abbr title="2009-02-21T08:45:44+00:00">08:45:44</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>actually officially it is -c clean but the space does not matter</q></li>
+<li class="message">[<a href="#T08:45:59" id="T08:45:59"><abbr title="2009-02-21T08:45:59+00:00">08:45:59</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>aah</q></li>
+<li class="message">[<a href="#T08:46:07" id="T08:46:07"><abbr title="2009-02-21T08:46:07+00:00">08:46:07</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>  -c CMD (but the cmd's are not listed)</q></li>
+<li class="message">[<a href="#T08:46:18" id="T08:46:18"><abbr title="2009-02-21T08:46:18+00:00">08:46:18</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>my flac build fails on memcmp..</q></li>
+<li class="join">[<a href="#T08:46:27" id="T08:46:27"><abbr title="2009-02-21T08:46:27+00:00">08:46:27</abbr></a>] <span>* pH5 (n=ph5@e178213146.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="action">[<a href="#T08:47:14" id="T08:47:14"><abbr title="2009-02-21T08:47:14+00:00">08:47:14</abbr></a>] <span>* eFfeM thinks koen is still cleaning his bedroom after having all those smelly trouts there from thursday</span></li>
+<li class="quit">[<a href="#T08:47:58" id="T08:47:58"><abbr title="2009-02-21T08:47:58+00:00">08:47:58</abbr></a>] <span>* dirk2 (n=dirk@p5B040C73.dip0.t-ipconnect.de) Quit ("Konversation terminated!")</span></li>
+<li class="join">[<a href="#T08:48:20" id="T08:48:20"><abbr title="2009-02-21T08:48:20+00:00">08:48:20</abbr></a>] <span>* valhalla (n=valhalla@81-174-25-183.dynamic.ngi.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:50:56" id="T08:50:56"><abbr title="2009-02-21T08:50:56+00:00">08:50:56</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>Qball: if you intend to submit the changes you are making you should also increase PR before doing so; a higher PR number is needed for users to upgrade</q></li>
+<li class="message">[<a href="#T08:51:17" id="T08:51:17"><abbr title="2009-02-21T08:51:17+00:00">08:51:17</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>PR?</q></li>
+<li class="message">[<a href="#T08:51:37" id="T08:51:37"><abbr title="2009-02-21T08:51:37+00:00">08:51:37</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>in your recipe there is probably a line like </q></li>
+<li class="message">[<a href="#T08:51:41" id="T08:51:41"><abbr title="2009-02-21T08:51:41+00:00">08:51:41</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>Pr = "r1"</q></li>
+<li class="message">[<a href="#T08:51:43" id="T08:51:43"><abbr title="2009-02-21T08:51:43+00:00">08:51:43</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>aah</q></li>
+<li class="message">[<a href="#T08:51:46" id="T08:51:46"><abbr title="2009-02-21T08:51:46+00:00">08:51:46</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>PR = "r1"</q></li>
+<li class="message">[<a href="#T08:52:09" id="T08:52:09"><abbr title="2009-02-21T08:52:09+00:00">08:52:09</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>well it is a whole new version.. so I did not have problem</q></li>
+<li class="message">[<a href="#T08:52:12" id="T08:52:12"><abbr title="2009-02-21T08:52:12+00:00">08:52:12</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>increase the 1 (or whatever number is there)</q></li>
+<li class="message">[<a href="#T08:52:21" id="T08:52:21"><abbr title="2009-02-21T08:52:21+00:00">08:52:21</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>ah ok, then you might consider adding </q></li>
+<li class="message">[<a href="#T08:52:25" id="T08:52:25"><abbr title="2009-02-21T08:52:25+00:00">08:52:25</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>PR = "r0"</q></li>
+<li class="join">[<abbr title="2009-02-21T08:52:25+00:00">08:52:25</abbr>] <span>* _gm___ (n=_gm_@190.173.64.220) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:52:31" id="T08:52:31"><abbr title="2009-02-21T08:52:31+00:00">08:52:31</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>although not absolutely necessary</q></li>
+<li class="message">[<a href="#T08:52:35" id="T08:52:35"><abbr title="2009-02-21T08:52:35+00:00">08:52:35</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>when it works I will</q></li>
+<li class="quit">[<a href="#T08:53:02" id="T08:53:02"><abbr title="2009-02-21T08:53:02+00:00">08:53:02</abbr></a>] <span>* _gm__ (n=_gm_@190.173.66.174) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T08:54:08" id="T08:54:08"><abbr title="2009-02-21T08:54:08+00:00">08:54:08</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>good, what package are you adding ?</q></li>
+<li class="message">[<a href="#T08:54:10" id="T08:54:10"><abbr title="2009-02-21T08:54:10+00:00">08:54:10</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>ugh, the flac guys forgot to include</q></li>
+<li class="message">[<a href="#T08:54:18" id="T08:54:18"><abbr title="2009-02-21T08:54:18+00:00">08:54:18</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>string.h</q></li>
+<li class="message">[<a href="#T08:54:25" id="T08:54:25"><abbr title="2009-02-21T08:54:25+00:00">08:54:25</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>flac 1.2.1</q></li>
+<li class="message">[<a href="#T08:55:03" id="T08:55:03"><abbr title="2009-02-21T08:55:03+00:00">08:55:03</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>it is not there yet ?</q></li>
+<li class="message">[<a href="#T08:55:12" id="T08:55:12"><abbr title="2009-02-21T08:55:12+00:00">08:55:12</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>1.1.2</q></li>
+<li class="message">[<a href="#T08:55:14" id="T08:55:14"><abbr title="2009-02-21T08:55:14+00:00">08:55:14</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>only</q></li>
+<li class="message">[<a href="#T08:55:18" id="T08:55:18"><abbr title="2009-02-21T08:55:18+00:00">08:55:18</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>did git pull yesterday</q></li>
+<li class="message">[<a href="#T08:55:51" id="T08:55:51"><abbr title="2009-02-21T08:55:51+00:00">08:55:51</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>ah ok, i hope you started with the 1.1.2 recipe</q></li>
+<li class="message">[<a href="#T08:55:57" id="T08:55:57"><abbr title="2009-02-21T08:55:57+00:00">08:55:57</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>offcourse</q></li>
+<li class="message">[<a href="#T08:56:21" id="T08:56:21"><abbr title="2009-02-21T08:56:21+00:00">08:56:21</abbr></a>] &lt;<cite>Qball</cite>&gt; <q>though had to edit the flac.inc file.</q></li>
+<li class="quit">[<a href="#T08:57:44" id="T08:57:44"><abbr title="2009-02-21T08:57:44+00:00">08:57:44</abbr></a>] <span>* ogra (n=ogra@ubuntu/member/ogra) Quit (Read error: 104 (Connection reset by peer))</span></li>
+<li class="join">[<a href="#T08:58:25" id="T08:58:25"><abbr title="2009-02-21T08:58:25+00:00">08:58:25</abbr></a>] <span>* ogra (n=ogra@ubuntu/member/ogra) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:59:51" id="T08:59:51"><abbr title="2009-02-21T08:59:51+00:00">08:59:51</abbr></a>] &lt;<cite>sparq</cite>&gt; <q>Hey -- does anyone know of any nifty embedable LCD panels with DVI inputs?</q></li>
