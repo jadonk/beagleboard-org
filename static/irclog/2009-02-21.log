@@ -143,3 +143,26 @@
 <li class="join">[<a href="#T06:41:16" id="T06:41:16"><abbr title="2009-02-21T06:41:16+00:00">06:41:16</abbr></a>] <span>* _gm__ (n=_gm_@190.173.66.174) has joined #beagle</span></li>
 <li class="message">[<a href="#T06:45:02" id="T06:45:02"><abbr title="2009-02-21T06:45:02+00:00">06:45:02</abbr></a>] &lt;<cite>null__</cite>&gt; <q>this is weird &gt; <a href="http://rafb.net/p/yQ9hhN77.html">http://rafb.net/p/yQ9hhN77.html</a></q></li>
 <li class="quit">[<a href="#T06:58:06" id="T06:58:06"><abbr title="2009-02-21T06:58:06+00:00">06:58:06</abbr></a>] <span>* Batko_Marto (n=Batko_Ma@CPE001346f996d2-CM001e6b1a8d1e.cpe.net.cable.rogers.com) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T07:00:09" id="T07:00:09"><abbr title="2009-02-21T07:00:09+00:00">07:00:09</abbr></a>] &lt;<cite>null__</cite>&gt; <q>ps aux |grep sgx   returns:  Unknown HZ value! (93) Assume 100.</q></li>
+<li class="nick-change">[<a href="#T07:03:02" id="T07:03:02"><abbr title="2009-02-21T07:03:02+00:00">07:03:02</abbr></a>] <span>* null__ is now known as null[c]</span></li>
+<li class="message">[<a href="#T07:05:10" id="T07:05:10"><abbr title="2009-02-21T07:05:10+00:00">07:05:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>bad hz</q></li>
+<li class="message">[<a href="#T07:05:11" id="T07:05:11"><abbr title="2009-02-21T07:05:11+00:00">07:05:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>bad</q></li>
+<li class="action">[<a href="#T07:05:18" id="T07:05:18"><abbr title="2009-02-21T07:05:18+00:00">07:05:18</abbr></a>] <span>* raster spanks the hz</span></li>
+<li class="message">[<a href="#T07:05:30" id="T07:05:30"><abbr title="2009-02-21T07:05:30+00:00">07:05:30</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>tsk</q></li>
+<li class="message">[<a href="#T07:05:51" id="T07:05:51"><abbr title="2009-02-21T07:05:51+00:00">07:05:51</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>surely that isn't from ps though, and interestingly doesn't contain "sgx"</q></li>
+<li class="message">[<a href="#T07:06:04" id="T07:06:04"><abbr title="2009-02-21T07:06:04+00:00">07:06:04</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>so either i'm that tired already .. or its broke</q></li>
+<li class="message">[<a href="#T07:06:46" id="T07:06:46"><abbr title="2009-02-21T07:06:46+00:00">07:06:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmm ps technically needs to know hz to calculate % cpu usage</q></li>
+<li class="message">[<a href="#T07:06:52" id="T07:06:52"><abbr title="2009-02-21T07:06:52+00:00">07:06:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as all counters are in jiffies (hz)</q></li>
+<li class="message">[<a href="#T07:07:17" id="T07:07:17"><abbr title="2009-02-21T07:07:17+00:00">07:07:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so a process consumes N jiffies (timeslices) and this accumulates in a counter</q></li>
+<li class="message">[<a href="#T07:07:34" id="T07:07:34"><abbr title="2009-02-21T07:07:34+00:00">07:07:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>to know the % its using u need to know how many of these jiffies exist per second</q></li>
+<li class="message">[<a href="#T07:07:36" id="T07:07:36"><abbr title="2009-02-21T07:07:36+00:00">07:07:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie hz</q></li>
+<li class="message">[<a href="#T07:07:40" id="T07:07:40"><abbr title="2009-02-21T07:07:40+00:00">07:07:40</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>indeed</q></li>
+<li class="message">[<a href="#T07:07:52" id="T07:07:52"><abbr title="2009-02-21T07:07:52+00:00">07:07:52</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>but ps aux works for sure </q></li>
+<li class="message">[<a href="#T07:08:06" id="T07:08:06"><abbr title="2009-02-21T07:08:06+00:00">07:08:06</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>grep i will check</q></li>
+<li class="message">[<a href="#T07:08:47" id="T07:08:47"><abbr title="2009-02-21T07:08:47+00:00">07:08:47</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>and it doesn't complain with that message either,  so would it be bash not paying attention to the | ? ;)</q></li>
+<li class="message">[<a href="#T07:09:06" id="T07:09:06"><abbr title="2009-02-21T07:09:06+00:00">07:09:06</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>since grep seems to work fine as well</q></li>
+<li class="message">[<a href="#T07:09:14" id="T07:09:14"><abbr title="2009-02-21T07:09:14+00:00">07:09:14</abbr></a>] &lt;<cite>null[c]</cite>&gt; <q>or general strangeness </q></li>
+<li class="quit">[<a href="#T07:12:37" id="T07:12:37"><abbr title="2009-02-21T07:12:37+00:00">07:12:37</abbr></a>] <span>* bmxr (n=bmxr@d64-180-251-177.bchsia.telus.net) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T07:32:37" id="T07:32:37"><abbr title="2009-02-21T07:32:37+00:00">07:32:37</abbr></a>] <span>* eFfeM (n=frans@195-241-226-180.ip.telfort.nl) has joined #beagle</span></li>
+<li class="quit">[<a href="#T07:52:21" id="T07:52:21"><abbr title="2009-02-21T07:52:21+00:00">07:52:21</abbr></a>] <span>* ShadowJK (i=jk@terminus.enivax.net) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="join">[<a href="#T07:52:24" id="T07:52:24"><abbr title="2009-02-21T07:52:24+00:00">07:52:24</abbr></a>] <span>* ShadowJK (i=jk@terminus.enivax.net) has joined #beagle</span></li>
