@@ -98,3 +98,22 @@
 <li class="quit">[<a href="#T06:52:20" id="T06:52:20"><abbr title="2009-02-22T06:52:20+00:00">06:52:20</abbr></a>] <span>* _gm__ (n=_gm_@190.173.71.80) Quit (Read error: 110 (Connection timed out))</span></li>
 <li class="join">[<a href="#T06:52:48" id="T06:52:48"><abbr title="2009-02-22T06:52:48+00:00">06:52:48</abbr></a>] <span>* _gm__ (n=_gm_@190.173.66.57) has joined #beagle</span></li>
 <li class="message">[<a href="#T06:59:55" id="T06:59:55"><abbr title="2009-02-22T06:59:55+00:00">06:59:55</abbr></a>] &lt;<cite>null__</cite>&gt; <q>how can i figure out what speed beagle is operating at ?</q></li>
+<li class="message">[<a href="#T07:00:15" id="T07:00:15"><abbr title="2009-02-22T07:00:15+00:00">07:00:15</abbr></a>] &lt;<cite>null__</cite>&gt; <q>does the kernel change what is set when uboot says its 165mhz or whatever ?</q></li>
+<li class="join">[<a href="#T07:02:38" id="T07:02:38"><abbr title="2009-02-22T07:02:38+00:00">07:02:38</abbr></a>] <span>* rsalveti (n=salveti@200.222.2.234) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:03:51" id="T07:03:51"><abbr title="2009-02-22T07:03:51+00:00">07:03:51</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>null__: kernel reports the # of bogomips, for beagle this is roughly the frequency</q></li>
+<li class="message">[<a href="#T07:04:12" id="T07:04:12"><abbr title="2009-02-22T07:04:12+00:00">07:04:12</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>and definitely that number will change when you change the clock freq</q></li>
+<li class="message">[<a href="#T07:06:15" id="T07:06:15"><abbr title="2009-02-22T07:06:15+00:00">07:06:15</abbr></a>] &lt;<cite>null__</cite>&gt; <q>lets see if its logged</q></li>
+<li class="message">[<a href="#T07:07:09" id="T07:07:09"><abbr title="2009-02-22T07:07:09+00:00">07:07:09</abbr></a>] &lt;<cite>null__</cite>&gt; <q>seems not</q></li>
+<li class="message">[<a href="#T07:08:52" id="T07:08:52"><abbr title="2009-02-22T07:08:52+00:00">07:08:52</abbr></a>] &lt;<cite>null__</cite>&gt; <q>how do you change it from userspace ?</q></li>
+<li class="message">[<a href="#T07:09:07" id="T07:09:07"><abbr title="2009-02-22T07:09:07+00:00">07:09:07</abbr></a>] &lt;<cite>null__</cite>&gt; <q>devmem2 or such ?</q></li>
+<li class="message">[<a href="#T07:12:10" id="T07:12:10"><abbr title="2009-02-22T07:12:10+00:00">07:12:10</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>i haven't :-)</q></li>
+<li class="message">[<a href="#T07:13:02" id="T07:13:02"><abbr title="2009-02-22T07:13:02+00:00">07:13:02</abbr></a>] &lt;<cite>null__</cite>&gt; <q>thanks anyhow,  testing some software and getting pretty good speed, wondering if its still at the freq xloader set</q></li>
+<li class="message">[<a href="#T07:18:54" id="T07:18:54"><abbr title="2009-02-22T07:18:54+00:00">07:18:54</abbr></a>] &lt;<cite>null__</cite>&gt; <q>/proc/cpuinfo says 471bogomips</q></li>
+<li class="message">[<a href="#T07:19:12" id="T07:19:12"><abbr title="2009-02-22T07:19:12+00:00">07:19:12</abbr></a>] &lt;<cite>null__</cite>&gt; <q>err 486.xx </q></li>
+<li class="message">[<a href="#T07:21:50" id="T07:21:50"><abbr title="2009-02-22T07:21:50+00:00">07:21:50</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>mine says 487.36</q></li>
+<li class="message">[<a href="#T07:22:29" id="T07:22:29"><abbr title="2009-02-22T07:22:29+00:00">07:22:29</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>guess i am still at 500, never tweaked it, but  lpj is a counter of the number of loops it does in 1 sec or so</q></li>
+<li class="join">[<a href="#T07:23:43" id="T07:23:43"><abbr title="2009-02-22T07:23:43+00:00">07:23:43</abbr></a>] <span>* CruNcher (n=luls_lol@dslb-084-058-169-201.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:39:52" id="T07:39:52"><abbr title="2009-02-22T07:39:52+00:00">07:39:52</abbr></a>] <span>* recalcati (i=5d90509f@gateway/web/ajax/mibbit.com/x-dba58b969e8184e6) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:43:29" id="T07:43:29"><abbr title="2009-02-22T07:43:29+00:00">07:43:29</abbr></a>] &lt;<cite>null__</cite>&gt; <q>ok speed is not so good</q></li>
+<li class="join">[<a href="#T07:43:51" id="T07:43:51"><abbr title="2009-02-22T07:43:51+00:00">07:43:51</abbr></a>] <span>* lcuk (i=lcuk@cpc3-oldh7-0-0-cust590.manc.cable.ntl.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T07:44:39" id="T07:44:39"><abbr title="2009-02-22T07:44:39+00:00">07:44:39</abbr></a>] <span>* _gm__ (n=_gm_@190.173.66.57) Quit (Read error: 104 (Connection reset by peer))</span></li>
