@@ -1,0 +1,79 @@
+<li class="message">[<a href="#T00:00:27" id="T00:00:27"><abbr title="2009-03-16T00:00:27+00:00">00:00:27</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: then you probably want to make kernel modules</q></li>
+<li class="message">[<a href="#T00:00:53" id="T00:00:53"><abbr title="2009-03-16T00:00:53+00:00">00:00:53</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>sigh...the sgx kernel source sucks</q></li>
+<li class="message">[<a href="#T00:00:58" id="T00:00:58"><abbr title="2009-03-16T00:00:58+00:00">00:00:58</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>or the source portion</q></li>
+<li class="quit">[<a href="#T00:01:31" id="T00:01:31"><abbr title="2009-03-16T00:01:31+00:00">00:01:31</abbr></a>] <span>* Wiedi (n=wiedi@newton-air.w.fruky.net) Quit ("^C")</span></li>
+<li class="message">[<a href="#T00:01:35" id="T00:01:35"><abbr title="2009-03-16T00:01:35+00:00">00:01:35</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>is it hard?</q></li>
+<li class="message">[<a href="#T00:01:58" id="T00:01:58"><abbr title="2009-03-16T00:01:58+00:00">00:01:58</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>no, the gpiolib is great</q></li>
+<li class="message">[<a href="#T00:02:04" id="T00:02:04"><abbr title="2009-03-16T00:02:04+00:00">00:02:04</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: what interface is the camera using?</q></li>
+<li class="message">[<a href="#T00:02:09" id="T00:02:09"><abbr title="2009-03-16T00:02:09+00:00">00:02:09</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>i2c</q></li>
+<li class="message">[<a href="#T00:02:30" id="T00:02:30"><abbr title="2009-03-16T00:02:30+00:00">00:02:30</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ok, with the i2c connected to GPIO lines?</q></li>
+<li class="message">[<a href="#T00:02:32" id="T00:02:32"><abbr title="2009-03-16T00:02:32+00:00">00:02:32</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>can you link me to gpiolib please?</q></li>
+<li class="message">[<a href="#T00:02:34" id="T00:02:34"><abbr title="2009-03-16T00:02:34+00:00">00:02:34</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T00:02:41" id="T00:02:41"><abbr title="2009-03-16T00:02:41+00:00">00:02:41</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ok, then you don't need the gpio lib</q></li>
+<li class="message">[<abbr title="2009-03-16T00:02:41+00:00">00:02:41</abbr>] &lt;<cite>uberfry</cite>&gt; <q>well actually, we wanted to set it up to i2c</q></li>
+<li class="message">[<a href="#T00:03:34" id="T00:03:34"><abbr title="2009-03-16T00:03:34+00:00">00:03:34</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I'm pretty sure there are already i2c drivers that can utilize gpio's</q></li>
+<li class="message">[<a href="#T00:03:58" id="T00:03:58"><abbr title="2009-03-16T00:03:58+00:00">00:03:58</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>bitbanging? or do they actually use the embedded i2c core?</q></li>
+<li class="message">[<a href="#T00:04:05" id="T00:04:05"><abbr title="2009-03-16T00:04:05+00:00">00:04:05</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>drivers/i2c/busses/i2c-gpio.c</q></li>
+<li class="message">[<a href="#T00:04:08" id="T00:04:08"><abbr title="2009-03-16T00:04:08+00:00">00:04:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>bitbanging</q></li>
+<li class="message">[<a href="#T00:04:15" id="T00:04:15"><abbr title="2009-03-16T00:04:15+00:00">00:04:15</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>hrmmmm</q></li>
+<li class="message">[<a href="#T00:04:23" id="T00:04:23"><abbr title="2009-03-16T00:04:23+00:00">00:04:23</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>that would decrease performance by so much</q></li>
+<li class="message">[<a href="#T00:04:27" id="T00:04:27"><abbr title="2009-03-16T00:04:27+00:00">00:04:27</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>Beagle board has dedicated i2c busses iirc if you want to use those instead</q></li>
+<li class="message">[<a href="#T00:04:34" id="T00:04:34"><abbr title="2009-03-16T00:04:34+00:00">00:04:34</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>yes, that's what I meant by core</q></li>
+<li class="message">[<a href="#T00:04:50" id="T00:04:50"><abbr title="2009-03-16T00:04:50+00:00">00:04:50</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>then why did you say you were connecting the camera via gpio?</q></li>
+<li class="message">[<a href="#T00:05:02" id="T00:05:02"><abbr title="2009-03-16T00:05:02+00:00">00:05:02</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>sorry, I meant i2c ;)</q></li>
+<li class="join">[<a href="#T00:05:11" id="T00:05:11"><abbr title="2009-03-16T00:05:11+00:00">00:05:11</abbr></a>] <span>* _fulgas (n=fn@85.138.15.70) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:05:24" id="T00:05:24"><abbr title="2009-03-16T00:05:24+00:00">00:05:24</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ya, you definately want to do that in the kernel</q></li>
+<li class="message">[<a href="#T00:05:51" id="T00:05:51"><abbr title="2009-03-16T00:05:51+00:00">00:05:51</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>my superior said I need to have access in userspace</q></li>
+<li class="message">[<a href="#T00:05:59" id="T00:05:59"><abbr title="2009-03-16T00:05:59+00:00">00:05:59</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>you can write a generic i2c driver and then have the advantage of using the camera on any i2c bus</q></li>
+<li class="message">[<a href="#T00:06:09" id="T00:06:09"><abbr title="2009-03-16T00:06:09+00:00">00:06:09</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>(I'm actually more of a hardware coder, not too much linux :()</q></li>
+<li class="join">[<a href="#T00:06:30" id="T00:06:30"><abbr title="2009-03-16T00:06:30+00:00">00:06:30</abbr></a>] <span>* rsalveti (n=salveti@pc-a80092.wlan.inet.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:06:34" id="T00:06:34"><abbr title="2009-03-16T00:06:34+00:00">00:06:34</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>cool, do you have any link please?</q></li>
+<li class="message">[<a href="#T00:06:39" id="T00:06:39"><abbr title="2009-03-16T00:06:39+00:00">00:06:39</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>with example I mean</q></li>
+<li class="message">[<a href="#T00:07:08" id="T00:07:08"><abbr title="2009-03-16T00:07:08+00:00">00:07:08</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>(sorry for my english, it's not my native tongue)</q></li>
+<li class="message">[<a href="#T00:07:45" id="T00:07:45"><abbr title="2009-03-16T00:07:45+00:00">00:07:45</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: well, yes, you expose the camera through v4l</q></li>
+<li class="message">[<a href="#T00:08:11" id="T00:08:11"><abbr title="2009-03-16T00:08:11+00:00">00:08:11</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>checkout in the kernel sources Documentation/i2c/</q></li>
+<li class="message">[<a href="#T00:08:25" id="T00:08:25"><abbr title="2009-03-16T00:08:25+00:00">00:08:25</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and Documentation/video4linux</q></li>
+<li class="message">[<a href="#T00:08:30" id="T00:08:30"><abbr title="2009-03-16T00:08:30+00:00">00:08:30</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I currently don't have it on my computer, do you mind sending it to me please?</q></li>
+<li class="message">[<a href="#T00:08:34" id="T00:08:34"><abbr title="2009-03-16T00:08:34+00:00">00:08:34</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>or link me to it</q></li>
+<li class="message">[<a href="#T00:08:49" id="T00:08:49"><abbr title="2009-03-16T00:08:49+00:00">00:08:49</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>just do a clone of kernel.org</q></li>
+<li class="message">[<a href="#T00:09:10" id="T00:09:10"><abbr title="2009-03-16T00:09:10+00:00">00:09:10</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ah, you are running windows</q></li>
+<li class="message">[<a href="#T00:09:47" id="T00:09:47"><abbr title="2009-03-16T00:09:47+00:00">00:09:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=tree;f=Documentation/i2c;h=1d6755e6a8596618522bf8af9f32f4ecaf5ef1d8;hb=HEAD">http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=tree;f=Documentation/i2c;h=1d6755e6a8596618522bf8af9f32f4ecaf5ef1d8;hb=HEAD</a></q></li>
+<li class="message">[<a href="#T00:10:01" id="T00:10:01"><abbr title="2009-03-16T00:10:01+00:00">00:10:01</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>thanks ;)</q></li>
+<li class="message">[<a href="#T00:10:05" id="T00:10:05"><abbr title="2009-03-16T00:10:05+00:00">00:10:05</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>and yes, windows xp ftw :)</q></li>
+<li class="message">[<a href="#T00:10:08" id="T00:10:08"><abbr title="2009-03-16T00:10:08+00:00">00:10:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=tree;f=Documentation/video4linux;h=45175f4c3ae4d8feefbd59455a8644e4bd2b1665;hb=HEAD">http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=tree;f=Documentation/video4linux;h=45175f4c3ae4d8feefbd59455a8644e4bd2b1665;hb=HEAD</a></q></li>
+<li class="message">[<a href="#T00:10:26" id="T00:10:26"><abbr title="2009-03-16T00:10:26+00:00">00:10:26</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>i2c seems an odd interface for a high speed device like a camera</q></li>
+<li class="message">[<a href="#T00:10:55" id="T00:10:55"><abbr title="2009-03-16T00:10:55+00:00">00:10:55</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>why?</q></li>
+<li class="message">[<a href="#T00:11:39" id="T00:11:39"><abbr title="2009-03-16T00:11:39+00:00">00:11:39</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>100kbits/sec is the standard data rate</q></li>
+<li class="message">[<a href="#T00:12:02" id="T00:12:02"><abbr title="2009-03-16T00:12:02+00:00">00:12:02</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>even high speed mode only supports 3.4Mb/s</q></li>
+<li class="message">[<a href="#T00:12:11" id="T00:12:11"><abbr title="2009-03-16T00:12:11+00:00">00:12:11</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>theoretical</q></li>
+<li class="message">[<a href="#T00:12:50" id="T00:12:50"><abbr title="2009-03-16T00:12:50+00:00">00:12:50</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I see...</q></li>
+<li class="message">[<a href="#T00:13:02" id="T00:13:02"><abbr title="2009-03-16T00:13:02+00:00">00:13:02</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>are you sure you don't mean that the control signalling is through i2c and the data comes some other route?</q></li>
+<li class="message">[<a href="#T00:13:06" id="T00:13:06"><abbr title="2009-03-16T00:13:06+00:00">00:13:06</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I told my superior to use an fpga, because it would do everything in parallel</q></li>
+<li class="message">[<a href="#T00:13:27" id="T00:13:27"><abbr title="2009-03-16T00:13:27+00:00">00:13:27</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I'm pretty sure he said it was entirely through i2c</q></li>
+<li class="message">[<a href="#T00:13:45" id="T00:13:45"><abbr title="2009-03-16T00:13:45+00:00">00:13:45</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>cause we still got the problem that we need to sync everything</q></li>
+<li class="message">[<a href="#T00:13:58" id="T00:13:58"><abbr title="2009-03-16T00:13:58+00:00">00:13:58</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>like, we have values from IMU and need to have them at the same time as grabbing an image from the cam</q></li>
+<li class="message">[<a href="#T00:14:25" id="T00:14:25"><abbr title="2009-03-16T00:14:25+00:00">00:14:25</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>is it a chip that already exists?</q></li>
+<li class="message">[<a href="#T00:14:47" id="T00:14:47"><abbr title="2009-03-16T00:14:47+00:00">00:14:47</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>which one?</q></li>
+<li class="message">[<a href="#T00:15:00" id="T00:15:00"><abbr title="2009-03-16T00:15:00+00:00">00:15:00</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>the camera</q></li>
+<li class="message">[<a href="#T00:15:06" id="T00:15:06"><abbr title="2009-03-16T00:15:06+00:00">00:15:06</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>ah yes</q></li>
+<li class="message">[<a href="#T00:15:08" id="T00:15:08"><abbr title="2009-03-16T00:15:08+00:00">00:15:08</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>from TI</q></li>
+<li class="message">[<a href="#T00:15:14" id="T00:15:14"><abbr title="2009-03-16T00:15:14+00:00">00:15:14</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>which chip?</q></li>
+<li class="message">[<a href="#T00:15:28" id="T00:15:28"><abbr title="2009-03-16T00:15:28+00:00">00:15:28</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I can't remember the model, but it generates hsync, vsync, etc. and i2c output</q></li>
+<li class="message">[<a href="#T00:15:57" id="T00:15:57"><abbr title="2009-03-16T00:15:57+00:00">00:15:57</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>why would a camera generate hsync?</q></li>
+<li class="message">[<a href="#T00:16:21" id="T00:16:21"><abbr title="2009-03-16T00:16:21+00:00">00:16:21</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>is the chip a tvp5150 or 5140?</q></li>
+<li class="message">[<a href="#T00:16:23" id="T00:16:23"><abbr title="2009-03-16T00:16:23+00:00">00:16:23</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>to tell when a new image is there</q></li>
+<li class="message">[<a href="#T00:16:26" id="T00:16:26"><abbr title="2009-03-16T00:16:26+00:00">00:16:26</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>dont know</q></li>
+<li class="message">[<a href="#T00:17:08" id="T00:17:08"><abbr title="2009-03-16T00:17:08+00:00">00:17:08</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>5140 could be</q></li>
+<li class="message">[<a href="#T00:18:06" id="T00:18:06"><abbr title="2009-03-16T00:18:06+00:00">00:18:06</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I mention those two because a driver already exists</q></li>
+<li class="message">[<a href="#T00:18:32" id="T00:18:32"><abbr title="2009-03-16T00:18:32+00:00">00:18:32</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>oh cool</q></li>
+<li class="message">[<a href="#T00:18:35" id="T00:18:35"><abbr title="2009-03-16T00:18:35+00:00">00:18:35</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>but they don't hook to a ccd, they hook to a NTSC/PAL or SeCAM input</q></li>
+<li class="message">[<a href="#T00:18:43" id="T00:18:43"><abbr title="2009-03-16T00:18:43+00:00">00:18:43</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>yep exactly</q></li>
+<li class="message">[<a href="#T00:19:15" id="T00:19:15"><abbr title="2009-03-16T00:19:15+00:00">00:19:15</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>what's the maximum throughput of gpio on beagleboard?</q></li>
+<li class="message">[<a href="#T00:19:30" id="T00:19:30"><abbr title="2009-03-16T00:19:30+00:00">00:19:30</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>dunno</q></li>
+<li class="message">[<a href="#T00:19:37" id="T00:19:37"><abbr title="2009-03-16T00:19:37+00:00">00:19:37</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>hmmm ok</q></li>
+<li class="message">[<a href="#T00:19:40" id="T00:19:40"><abbr title="2009-03-16T00:19:40+00:00">00:19:40</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>anyway, thanks</q></li>
+<li class="message">[<a href="#T00:19:44" id="T00:19:44"><abbr title="2009-03-16T00:19:44+00:00">00:19:44</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>brb, sleep</q></li>
+<li class="message">[<a href="#T00:19:46" id="T00:19:46"><abbr title="2009-03-16T00:19:46+00:00">00:19:46</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>cu tomorrow</q></li>
+<li class="message">[<a href="#T00:19:48" id="T00:19:48"><abbr title="2009-03-16T00:19:48+00:00">00:19:48</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>bye</q></li>
+<li class="quit">[<a href="#T00:20:39" id="T00:20:39"><abbr title="2009-03-16T00:20:39+00:00">00:20:39</abbr></a>] <span>* fulgas (n=fn@85.138.15.70) Quit (Connection timed out)</span></li>
+<li class="quit">[<a href="#T00:47:56" id="T00:47:56"><abbr title="2009-03-16T00:47:56+00:00">00:47:56</abbr></a>] <span>* likewise (n=likewise@82-171-51-231.ip.telfort.nl) Quit ()</span></li>
