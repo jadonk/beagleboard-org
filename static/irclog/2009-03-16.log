@@ -1650,3 +1650,396 @@
 <li class="message">[<a href="#T20:58:12" id="T20:58:12"><abbr title="2009-03-16T20:58:12+00:00">20:58:12</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>and by 'you' do you mean the firmware.sh script that is part of the angstrom distro?</q></li>
 <li class="quit">[<a href="#T20:58:43" id="T20:58:43"><abbr title="2009-03-16T20:58:43+00:00">20:58:43</abbr></a>] <span>* may (i=8970728e@gateway/web/ajax/mibbit.com/x-2e0eac2f3eef734d) Quit (Client Quit)</span></li>
 <li class="message">[<a href="#T21:00:15" id="T21:00:15"><abbr title="2009-03-16T21:00:15+00:00">21:00:15</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I'm speaking very of some very vague recollections I have</q></li>
+<li class="message">[<a href="#T21:00:32" id="T21:00:32"><abbr title="2009-03-16T21:00:32+00:00">21:00:32</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I think settle might be the right word</q></li>
+<li class="message">[<a href="#T21:00:54" id="T21:00:54"><abbr title="2009-03-16T21:00:54+00:00">21:00:54</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://linux.die.net/man/8/udevsettle">http://linux.die.net/man/8/udevsettle</a></q></li>
+<li class="message">[<a href="#T21:01:53" id="T21:01:53"><abbr title="2009-03-16T21:01:53+00:00">21:01:53</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>oh, it sounds like you mean the pvrusb2 driver developer needs to wait for udev to settle</q></li>
+<li class="message">[<a href="#T21:02:09" id="T21:02:09"><abbr title="2009-03-16T21:02:09+00:00">21:02:09</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I mean before attempting to load firmware</q></li>
+<li class="message">[<a href="#T21:02:28" id="T21:02:28"><abbr title="2009-03-16T21:02:28+00:00">21:02:28</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>or whatever the echo thing is</q></li>
+<li class="message">[<a href="#T21:03:14" id="T21:03:14"><abbr title="2009-03-16T21:03:14+00:00">21:03:14</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>oh, well the echo thing is from /lib/udev/firmware.sh in the angstrom demo image</q></li>
+<li class="message">[<a href="#T21:03:27" id="T21:03:27"><abbr title="2009-03-16T21:03:27+00:00">21:03:27</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>so.. i guess it's their problem</q></li>
+<li class="message">[<a href="#T21:03:39" id="T21:03:39"><abbr title="2009-03-16T21:03:39+00:00">21:03:39</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>i'm just a guy trying to get a beagleboard to do something productive</q></li>
+<li class="message">[<a href="#T21:04:00" id="T21:04:00"><abbr title="2009-03-16T21:04:00+00:00">21:04:00</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>i would like it if no one had to go through what i had to go through in order to make it do so</q></li>
+<li class="message">[<a href="#T21:04:49" id="T21:04:49"><abbr title="2009-03-16T21:04:49+00:00">21:04:49</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>but unfortunately i would have to spend an inordinate amount of time trying to figure out who to report this bug to, then making a detailed enough bug report for them to look at, then hoping that they care enough about it to fix it, and whatnot</q></li>
+<li class="message">[<a href="#T21:05:06" id="T21:05:06"><abbr title="2009-03-16T21:05:06+00:00">21:05:06</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>which seems unlikely</q></li>
+<li class="message">[<a href="#T21:05:29" id="T21:05:29"><abbr title="2009-03-16T21:05:29+00:00">21:05:29</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>so that would be much more of a waste of my time than it was for me to figure out what was wrong and fix it for myself</q></li>
+<li class="quit">[<a href="#T21:05:55" id="T21:05:55"><abbr title="2009-03-16T21:05:55+00:00">21:05:55</abbr></a>] <span>* Xenion (n=robert@p579FC999.dip.t-dialin.net) Quit ("Verlassend")</span></li>
+<li class="quit">[<a href="#T21:06:01" id="T21:06:01"><abbr title="2009-03-16T21:06:01+00:00">21:06:01</abbr></a>] <span>* gcohler (n=gcohler@nat/ti/x-1237b3ea6ed48fd3) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T21:07:40" id="T21:07:40"><abbr title="2009-03-16T21:07:40+00:00">21:07:40</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>mru: sorry, I went to lunch, my website is <a href="http://www.fsk141.com">http://www.fsk141.com</a></q></li>
+<li class="message">[<a href="#T21:08:08" id="T21:08:08"><abbr title="2009-03-16T21:08:08+00:00">21:08:08</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>err0neous: have you tried to see if udevsettle works in place of the sleep 0?</q></li>
+<li class="message">[<a href="#T21:09:05" id="T21:09:05"><abbr title="2009-03-16T21:09:05+00:00">21:09:05</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>sakoman_: it would, but maybe not because it should</q></li>
+<li class="message">[<a href="#T21:09:13" id="T21:09:13"><abbr title="2009-03-16T21:09:13+00:00">21:09:13</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>sakoman_: /bin/true would probably work</q></li>
+<li class="message">[<a href="#T21:09:43" id="T21:09:43"><abbr title="2009-03-16T21:09:43+00:00">21:09:43</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>any command will work instead of sleep 0</q></li>
+<li class="message">[<a href="#T21:09:52" id="T21:09:52"><abbr title="2009-03-16T21:09:52+00:00">21:09:52</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>its just racy</q></li>
+<li class="message">[<a href="#T21:09:55" id="T21:09:55"><abbr title="2009-03-16T21:09:55+00:00">21:09:55</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>anything that delays the next line works</q></li>
+<li class="message">[<a href="#T21:09:58" id="T21:09:58"><abbr title="2009-03-16T21:09:58+00:00">21:09:58</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I would really like to get a beagleboard kit to review on the site</q></li>
+<li class="message">[<a href="#T21:10:23" id="T21:10:23"><abbr title="2009-03-16T21:10:23+00:00">21:10:23</abbr></a>] &lt;<cite>err0neous</cite>&gt; <q>lib/udev/firmware.sh is broken</q></li>
+<li class="message">[<a href="#T21:10:30" id="T21:10:30"><abbr title="2009-03-16T21:10:30+00:00">21:10:30</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>fsk141: I'd much rather send a new beagle board to tomba, but I'm not affiliated in any way</q></li>
+<li class="message">[<abbr title="2009-03-16T21:10:30+00:00">21:10:30</abbr>] &lt;<cite>fsk141</cite>&gt; <q>btw, is there going to be anything interesting at the embedded conference as per beagleboard?</q></li>
+<li class="message">[<a href="#T21:10:35" id="T21:10:35"><abbr title="2009-03-16T21:10:35+00:00">21:10:35</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I know they are doing a lab</q></li>
+<li class="message">[<a href="#T21:10:37" id="T21:10:37"><abbr title="2009-03-16T21:10:37+00:00">21:10:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>fsk141: that's not in my power, but I figured whoever could might want to see the website</q></li>
+<li class="message">[<a href="#T21:11:16" id="T21:11:16"><abbr title="2009-03-16T21:11:16+00:00">21:11:16</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I went to the linuxexpo a few weeks back, and the beagleboard booth was kinda hokey :)</q></li>
+<li class="join">[<a href="#T21:11:19" id="T21:11:19"><abbr title="2009-03-16T21:11:19+00:00">21:11:19</abbr></a>] <span>* zedstar (n=john@fsf/member/zedstar) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:11:31" id="T21:11:31"><abbr title="2009-03-16T21:11:31+00:00">21:11:31</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>fsk141: I think its because no one is trying to make money</q></li>
+<li class="message">[<a href="#T21:11:38" id="T21:11:38"><abbr title="2009-03-16T21:11:38+00:00">21:11:38</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T21:11:47" id="T21:11:47"><abbr title="2009-03-16T21:11:47+00:00">21:11:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>fsk141: maybe you could demo beagle from an omap3 perspective and get TI to send you one</q></li>
+<li class="message">[<a href="#T21:11:57" id="T21:11:57"><abbr title="2009-03-16T21:11:57+00:00">21:11:57</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>well it would have been nice to see some benchmarks or something</q></li>
+<li class="message">[<a href="#T21:12:24" id="T21:12:24"><abbr title="2009-03-16T21:12:24+00:00">21:12:24</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>fsk141: its a constantly moving target since there are always software improvements</q></li>
+<li class="message">[<a href="#T21:12:30" id="T21:12:30"><abbr title="2009-03-16T21:12:30+00:00">21:12:30</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I'm not that deep into processors yet</q></li>
+<li class="message">[<a href="#T21:12:50" id="T21:12:50"><abbr title="2009-03-16T21:12:50+00:00">21:12:50</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I'm a starting computer engineer</q></li>
+<li class="message">[<a href="#T21:12:59" id="T21:12:59"><abbr title="2009-03-16T21:12:59+00:00">21:12:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>linux expo a few weeks back?!?</q></li>
+<li class="message">[<a href="#T21:13:03" id="T21:13:03"><abbr title="2009-03-16T21:13:03+00:00">21:13:03</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>software engineer you mean?</q></li>
+<li class="message">[<a href="#T21:13:10" id="T21:13:10"><abbr title="2009-03-16T21:13:10+00:00">21:13:10</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>you aren't exactly selling yourself as an ideal reviewer of beagle board</q></li>
+<li class="message">[<a href="#T21:13:12" id="T21:13:12"><abbr title="2009-03-16T21:13:12+00:00">21:13:12</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>atm I'm working full time as a sysadmin &amp; going to school full time for my B.S. in computer engineering</q></li>
+<li class="message">[<a href="#T21:13:16" id="T21:13:16"><abbr title="2009-03-16T21:13:16+00:00">21:13:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>is there a time machine?</q></li>
+<li class="message">[<a href="#T21:13:23" id="T21:13:23"><abbr title="2009-03-16T21:13:23+00:00">21:13:23</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>socallinuxexpo</q></li>
+<li class="message">[<a href="#T21:13:38" id="T21:13:38"><abbr title="2009-03-16T21:13:38+00:00">21:13:38</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>fsk141: software engineer you mean?</q></li>
+<li class="message">[<a href="#T21:13:39" id="T21:13:39"><abbr title="2009-03-16T21:13:39+00:00">21:13:39</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q><a href="http://www.socallinuxexpo.org/">http://www.socallinuxexpo.org/</a></q></li>
+<li class="message">[<a href="#T21:13:41" id="T21:13:41"><abbr title="2009-03-16T21:13:41+00:00">21:13:41</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the ESC stuff should be bigger</q></li>
+<li class="message">[<a href="#T21:13:42" id="T21:13:42"><abbr title="2009-03-16T21:13:42+00:00">21:13:42</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>ie scale</q></li>
+<li class="message">[<a href="#T21:13:54" id="T21:13:54"><abbr title="2009-03-16T21:13:54+00:00">21:13:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yes, Linux Expo was up in SF last Aug</q></li>
+<li class="message">[<a href="#T21:14:00" id="T21:14:00"><abbr title="2009-03-16T21:14:00+00:00">21:14:00</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T21:14:08" id="T21:14:08"><abbr title="2009-03-16T21:14:08+00:00">21:14:08</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>never heard of computer engineer</q></li>
+<li class="message">[<a href="#T21:14:19" id="T21:14:19"><abbr title="2009-03-16T21:14:19+00:00">21:14:19</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>well it exists</q></li>
+<li class="message">[<a href="#T21:14:34" id="T21:14:34"><abbr title="2009-03-16T21:14:34+00:00">21:14:34</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>what does a computer engineer do?</q></li>
+<li class="join">[<a href="#T21:14:38" id="T21:14:38"><abbr title="2009-03-16T21:14:38+00:00">21:14:38</abbr></a>] <span>* mib_uvxwrk (i=c05e5e6a@gateway/web/ajax/mibbit.com/x-6322e682006c1fc9) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:14:42" id="T21:14:42"><abbr title="2009-03-16T21:14:42+00:00">21:14:42</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: computer engineer is supposed to be a mix between software engineer and electrical engineer</q></li>
+<li class="message">[<a href="#T21:14:48" id="T21:14:48"><abbr title="2009-03-16T21:14:48+00:00">21:14:48</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>Russ: correct</q></li>
+<li class="message">[<a href="#T21:14:51" id="T21:14:51"><abbr title="2009-03-16T21:14:51+00:00">21:14:51</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>ah ic</q></li>
+<li class="quit">[<a href="#T21:14:52" id="T21:14:52"><abbr title="2009-03-16T21:14:52+00:00">21:14:52</abbr></a>] <span>* err0neous (n=err0neou@ip65-44-199-226.z199-44-65.customer.algx.net) Quit ("tribe..the show is over")</span></li>
+<li class="message">[<a href="#T21:15:04" id="T21:15:04"><abbr title="2009-03-16T21:15:04+00:00">21:15:04</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>you take a lot of the same programming classes, and then drop into board engineering</q></li>
+<li class="message">[<a href="#T21:15:07" id="T21:15:07"><abbr title="2009-03-16T21:15:07+00:00">21:15:07</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>so that's prolly what I'm aiming for</q></li>
+<li class="message">[<abbr title="2009-03-16T21:15:07+00:00">21:15:07</abbr>] &lt;<cite>Crofton|work</cite>&gt; <q>Computer Engineering is a electrical engineering degree for people that can not pass EM Fields :)</q></li>
+<li class="message">[<a href="#T21:15:12" id="T21:15:12"><abbr title="2009-03-16T21:15:12+00:00">21:15:12</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>there is even a wikipedia page</q></li>
+<li class="message">[<a href="#T21:15:13" id="T21:15:13"><abbr title="2009-03-16T21:15:13+00:00">21:15:13</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>prototyping &amp; design</q></li>
+<li class="message">[<a href="#T21:15:15" id="T21:15:15"><abbr title="2009-03-16T21:15:15+00:00">21:15:15</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://en.wikipedia.org/wiki/Computer_engineer">http://en.wikipedia.org/wiki/Computer_engineer</a></q></li>
+<li class="message">[<abbr title="2009-03-16T21:15:15+00:00">21:15:15</abbr>] &lt;<cite>uberfry</cite>&gt; <q>lmao Crofton</q></li>
+<li class="message">[<a href="#T21:15:31" id="T21:15:31"><abbr title="2009-03-16T21:15:31+00:00">21:15:31</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>lol Crofton|work </q></li>
+<li class="message">[<a href="#T21:15:34" id="T21:15:34"><abbr title="2009-03-16T21:15:34+00:00">21:15:34</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>Crofton: I have EMF in 2nd semester, IF I pass 1st semester</q></li>
+<li class="message">[<a href="#T21:15:35" id="T21:15:35"><abbr title="2009-03-16T21:15:35+00:00">21:15:35</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>hehehe</q></li>
+<li class="message">[<a href="#T21:15:44" id="T21:15:44"><abbr title="2009-03-16T21:15:44+00:00">21:15:44</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T21:15:50" id="T21:15:50"><abbr title="2009-03-16T21:15:50+00:00">21:15:50</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>Crofton|work: whatever, I saw a couple of EE's on the ground crying in one of my computer systems labs</q></li>
+<li class="message">[<a href="#T21:15:51" id="T21:15:51"><abbr title="2009-03-16T21:15:51+00:00">21:15:51</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>what's EMF?</q></li>
+<li class="message">[<a href="#T21:15:53" id="T21:15:53"><abbr title="2009-03-16T21:15:53+00:00">21:15:53</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>Crofton|work: they can't stand assembly or programming of any kind</q></li>
+<li class="message">[<a href="#T21:15:57" id="T21:15:57"><abbr title="2009-03-16T21:15:57+00:00">21:15:57</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>just remember, they can only ask three basic problems</q></li>
+<li class="quit">[<a href="#T21:16:25" id="T21:16:25"><abbr title="2009-03-16T21:16:25+00:00">21:16:25</abbr></a>] <span>* eFfeM (n=frans@195-241-226-180.ip.telfort.nl) Quit ("Leaving.")</span></li>
+<li class="quit">[<a href="#T21:16:32" id="T21:16:32"><abbr title="2009-03-16T21:16:32+00:00">21:16:32</abbr></a>] <span>* dirk2 (n=dirk@p5B04043F.dip0.t-ipconnect.de) Quit ("Konversation terminated!")</span></li>
+<li class="join">[<a href="#T21:16:34" id="T21:16:34"><abbr title="2009-03-16T21:16:34+00:00">21:16:34</abbr></a>] <span>* davidcb (n=davidcb@c-76-124-23-143.hsd1.nj.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:16:37" id="T21:16:37"><abbr title="2009-03-16T21:16:37+00:00">21:16:37</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>uberfry: EMF?</q></li>
+<li class="message">[<a href="#T21:16:38" id="T21:16:38"><abbr title="2009-03-16T21:16:38+00:00">21:16:38</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>solve this equation in erctangular, polar, or cylindrical coordinates</q></li>
+<li class="message">[<a href="#T21:16:39" id="T21:16:39"><abbr title="2009-03-16T21:16:39+00:00">21:16:39</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>Russ: I was in CS in high school</q></li>
+<li class="message">[<a href="#T21:16:44" id="T21:16:44"><abbr title="2009-03-16T21:16:44+00:00">21:16:44</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>it sucked</q></li>
+<li class="message">[<a href="#T21:16:46" id="T21:16:46"><abbr title="2009-03-16T21:16:46+00:00">21:16:46</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>electromagnetic fields</q></li>
+<li class="message">[<a href="#T21:16:52" id="T21:16:52"><abbr title="2009-03-16T21:16:52+00:00">21:16:52</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>fsk141: electromagnetic fields</q></li>
+<li class="message">[<a href="#T21:16:55" id="T21:16:55"><abbr title="2009-03-16T21:16:55+00:00">21:16:55</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T21:16:57" id="T21:16:57"><abbr title="2009-03-16T21:16:57+00:00">21:16:57</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>oh heh he beat me to it</q></li>
+<li class="message">[<a href="#T21:17:06" id="T21:17:06"><abbr title="2009-03-16T21:17:06+00:00">21:17:06</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: the most advanced programming class I could take in HS was pascal</q></li>
+<li class="message">[<a href="#T21:17:12" id="T21:17:12"><abbr title="2009-03-16T21:17:12+00:00">21:17:12</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T21:17:13" id="T21:17:13"><abbr title="2009-03-16T21:17:13+00:00">21:17:13</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>me too</q></li>
+<li class="message">[<a href="#T21:17:16" id="T21:17:16"><abbr title="2009-03-16T21:17:16+00:00">21:17:16</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>delphi</q></li>
+<li class="message">[<a href="#T21:17:26" id="T21:17:26"><abbr title="2009-03-16T21:17:26+00:00">21:17:26</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>but I was more advanced than my classmates</q></li>
+<li class="message">[<a href="#T21:17:31" id="T21:17:31"><abbr title="2009-03-16T21:17:31+00:00">21:17:31</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: I made a bsp tree based renderer ala doom</q></li>
+<li class="message">[<a href="#T21:17:32" id="T21:17:32"><abbr title="2009-03-16T21:17:32+00:00">21:17:32</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>they hadn't invented pascal when I was in high school ....</q></li>
+<li class="message">[<a href="#T21:17:34" id="T21:17:34"><abbr title="2009-03-16T21:17:34+00:00">21:17:34</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>they didn't provide programming at my HS :(</q></li>
+<li class="message">[<a href="#T21:17:38" id="T21:17:38"><abbr title="2009-03-16T21:17:38+00:00">21:17:38</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>wow cool</q></li>
+<li class="message">[<a href="#T21:17:48" id="T21:17:48"><abbr title="2009-03-16T21:17:48+00:00">21:17:48</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I think</q></li>
+<li class="message">[<a href="#T21:18:01" id="T21:18:01"><abbr title="2009-03-16T21:18:01+00:00">21:18:01</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>anyway, what annoyed me in HS, was that I was kinda like the only one who could actually code</q></li>
+<li class="message">[<a href="#T21:18:04" id="T21:18:04"><abbr title="2009-03-16T21:18:04+00:00">21:18:04</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>pascal is pretty old</q></li>
+<li class="message">[<abbr title="2009-03-16T21:18:04+00:00">21:18:04</abbr>] &lt;<cite>uberfry</cite>&gt; <q>hell, even code hardware</q></li>
+<li class="message">[<a href="#T21:18:20" id="T21:18:20"><abbr title="2009-03-16T21:18:20+00:00">21:18:20</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>anyone know cobal? hehe</q></li>
+<li class="message">[<a href="#T21:18:29" id="T21:18:29"><abbr title="2009-03-16T21:18:29+00:00">21:18:29</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>could never chat with them about computer stuff, or they'd call me a nerd and exclude me</q></li>
+<li class="action">[<a href="#T21:18:44" id="T21:18:44"><abbr title="2009-03-16T21:18:44+00:00">21:18:44</abbr></a>] <span>* mru was more advanced than the teacher in HS</span></li>
+<li class="message">[<a href="#T21:18:48" id="T21:18:48"><abbr title="2009-03-16T21:18:48+00:00">21:18:48</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>uberfry: I'm sorry, it sounds like you have a hurtful past</q></li>
+<li class="message">[<a href="#T21:18:54" id="T21:18:54"><abbr title="2009-03-16T21:18:54+00:00">21:18:54</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:18:57" id="T21:18:57"><abbr title="2009-03-16T21:18:57+00:00">21:18:57</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I actually do :P</q></li>
+<li class="message">[<a href="#T21:18:58" id="T21:18:58"><abbr title="2009-03-16T21:18:58+00:00">21:18:58</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>let me rephrase, pascal was not available on anything I could use</q></li>
+<li class="message">[<a href="#T21:19:08" id="T21:19:08"><abbr title="2009-03-16T21:19:08+00:00">21:19:08</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>you know what "mobbing" means?</q></li>
+<li class="message">[<a href="#T21:19:09" id="T21:19:09"><abbr title="2009-03-16T21:19:09+00:00">21:19:09</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>Crofton|work: *ding*</q></li>
+<li class="message">[<a href="#T21:19:17" id="T21:19:17"><abbr title="2009-03-16T21:19:17+00:00">21:19:17</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>uberfry: yeppers</q></li>
+<li class="message">[<a href="#T21:19:22" id="T21:19:22"><abbr title="2009-03-16T21:19:22+00:00">21:19:22</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>well I got mobbed, alot</q></li>
+<li class="message">[<a href="#T21:19:28" id="T21:19:28"><abbr title="2009-03-16T21:19:28+00:00">21:19:28</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>hah</q></li>
+<li class="message">[<a href="#T21:19:32" id="T21:19:32"><abbr title="2009-03-16T21:19:32+00:00">21:19:32</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>junior high up to high school</q></li>
+<li class="message">[<a href="#T21:19:36" id="T21:19:36"><abbr title="2009-03-16T21:19:36+00:00">21:19:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|work: there is nothing available where pascal can be used</q></li>
+<li class="message">[<a href="#T21:19:45" id="T21:19:45"><abbr title="2009-03-16T21:19:45+00:00">21:19:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>s/available/possible/ even</q></li>
+<li class="message">[<a href="#T21:19:47" id="T21:19:47"><abbr title="2009-03-16T21:19:47+00:00">21:19:47</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>anyway, now I go to an elitist uni :P ha</q></li>
+<li class="message">[<a href="#T21:19:50" id="T21:19:50"><abbr title="2009-03-16T21:19:50+00:00">21:19:50</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>Crofton|work: no turbopascal?</q></li>
+<li class="message">[<a href="#T21:19:57" id="T21:19:57"><abbr title="2009-03-16T21:19:57+00:00">21:19:57</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I'm thinking of learning lisp</q></li>
+<li class="message">[<a href="#T21:19:58" id="T21:19:58"><abbr title="2009-03-16T21:19:58+00:00">21:19:58</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>and there still aren't any real smart people, only cocky</q></li>
+<li class="message">[<a href="#T21:20:04" id="T21:20:04"><abbr title="2009-03-16T21:20:04+00:00">21:20:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>fsk141: you should learn lisp</q></li>
+<li class="message">[<a href="#T21:20:09" id="T21:20:09"><abbr title="2009-03-16T21:20:09+00:00">21:20:09</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>wtf is lisp?</q></li>
+<li class="message">[<a href="#T21:20:18" id="T21:20:18"><abbr title="2009-03-16T21:20:18+00:00">21:20:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uberfry: you should too</q></li>
+<li class="join">[<a href="#T21:20:19" id="T21:20:19"><abbr title="2009-03-16T21:20:19+00:00">21:20:19</abbr></a>] <span>* ScriptRipper (n=martin@host-82-135-36-197.customer.m-online.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:20:26" id="T21:20:26"><abbr title="2009-03-16T21:20:26+00:00">21:20:26</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>there's sicp or whatever, I got a few pages into it, and then got busy with something else</q></li>
+<li class="message">[<a href="#T21:20:28" id="T21:20:28"><abbr title="2009-03-16T21:20:28+00:00">21:20:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not because it's useful (except for configuring emacs)</q></li>
+<li class="message">[<a href="#T21:20:33" id="T21:20:33"><abbr title="2009-03-16T21:20:33+00:00">21:20:33</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>it's written very well though</q></li>
+<li class="message">[<a href="#T21:20:42" id="T21:20:42"><abbr title="2009-03-16T21:20:42+00:00">21:20:42</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>Crofton|work: turbo pascal 4 was 1987, you are really dating yourself</q></li>
+<li class="message">[<a href="#T21:20:46" id="T21:20:46"><abbr title="2009-03-16T21:20:46+00:00">21:20:46</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>uberfry: it's 7113 :)</q></li>
+<li class="message">[<a href="#T21:20:49" id="T21:20:49"><abbr title="2009-03-16T21:20:49+00:00">21:20:49</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>lmao</q></li>
+<li class="message">[<a href="#T21:20:52" id="T21:20:52"><abbr title="2009-03-16T21:20:52+00:00">21:20:52</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>IBM PC arrived I graduated high school</q></li>
+<li class="message">[<a href="#T21:20:55" id="T21:20:55"><abbr title="2009-03-16T21:20:55+00:00">21:20:55</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>tiie?</q></li>
+<li class="message">[<a href="#T21:20:57" id="T21:20:57"><abbr title="2009-03-16T21:20:57+00:00">21:20:57</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>1337</q></li>
+<li class="message">[<a href="#T21:20:59" id="T21:20:59"><abbr title="2009-03-16T21:20:59+00:00">21:20:59</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: wtf is lisp? did you not go to college?</q></li>
+<li class="message">[<abbr title="2009-03-16T21:20:59+00:00">21:20:59</abbr>] &lt;<cite>fsk141</cite>&gt; <q>meh</q></li>
+<li class="message">[<a href="#T21:21:09" id="T21:21:09"><abbr title="2009-03-16T21:21:09+00:00">21:21:09</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>it's old</q></li>
+<li class="message">[<a href="#T21:21:11" id="T21:21:11"><abbr title="2009-03-16T21:21:11+00:00">21:21:11</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141:  I read sicp and now I'm writing opengl stuff in scheme</q></li>
+<li class="message">[<a href="#T21:21:15" id="T21:21:15"><abbr title="2009-03-16T21:21:15+00:00">21:21:15</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>no...</q></li>
+<li class="message">[<abbr title="2009-03-16T21:21:15+00:00">21:21:15</abbr>] &lt;<cite>fsk141</cite>&gt; <q>from the 70's or something</q></li>
+<li class="message">[<a href="#T21:21:17" id="T21:21:17"><abbr title="2009-03-16T21:21:17+00:00">21:21:17</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>my first computer had 128 bytes of RAM</q></li>
+<li class="message">[<a href="#T21:21:18" id="T21:21:18"><abbr title="2009-03-16T21:21:18+00:00">21:21:18</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I didn't go to college</q></li>
+<li class="message">[<a href="#T21:21:21" id="T21:21:21"><abbr title="2009-03-16T21:21:21+00:00">21:21:21</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>straight from HS to uni</q></li>
+<li class="message">[<a href="#T21:21:31" id="T21:21:31"><abbr title="2009-03-16T21:21:31+00:00">21:21:31</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>geckosenator: oh rly, and do you program in scheme</q></li>
+<li class="message">[<a href="#T21:21:35" id="T21:21:35"><abbr title="2009-03-16T21:21:35+00:00">21:21:35</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141: all day</q></li>
+<li class="message">[<a href="#T21:21:36" id="T21:21:36"><abbr title="2009-03-16T21:21:36+00:00">21:21:36</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: we are speaking different dialects, uni is what I mean</q></li>
+<li class="message">[<a href="#T21:21:38" id="T21:21:38"><abbr title="2009-03-16T21:21:38+00:00">21:21:38</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>have you taken a look at common?</q></li>
+<li class="message">[<a href="#T21:21:42" id="T21:21:42"><abbr title="2009-03-16T21:21:42+00:00">21:21:42</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>oh heh</q></li>
+<li class="message">[<a href="#T21:21:46" id="T21:21:46"><abbr title="2009-03-16T21:21:46+00:00">21:21:46</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I'm in 1st semester right now</q></li>
+<li class="message">[<a href="#T21:21:53" id="T21:21:53"><abbr title="2009-03-16T21:21:53+00:00">21:21:53</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>and in 2nd semester I teach vhdl to 8th semester</q></li>
+<li class="message">[<abbr title="2009-03-16T21:21:53+00:00">21:21:53</abbr>] &lt;<cite>uberfry</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T21:22:06" id="T21:22:06"><abbr title="2009-03-16T21:22:06+00:00">21:22:06</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: they'll probably have a class where they teach you different models of programming, lisp will be one of them</q></li>
+<li class="message">[<a href="#T21:22:07" id="T21:22:07"><abbr title="2009-03-16T21:22:07+00:00">21:22:07</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>just wanted to put that out there, before you call me a retard</q></li>
+<li class="message">[<a href="#T21:22:09" id="T21:22:09"><abbr title="2009-03-16T21:22:09+00:00">21:22:09</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>geckosenator: have you programmed with common lisp?</q></li>
+<li class="message">[<a href="#T21:22:15" id="T21:22:15"><abbr title="2009-03-16T21:22:15+00:00">21:22:15</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>what is lisp for?</q></li>
+<li class="message">[<a href="#T21:22:21" id="T21:22:21"><abbr title="2009-03-16T21:22:21+00:00">21:22:21</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>Russ: but that isn't enough lisp</q></li>
+<li class="message">[<a href="#T21:22:28" id="T21:22:28"><abbr title="2009-03-16T21:22:28+00:00">21:22:28</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141: not much</q></li>
+<li class="message">[<a href="#T21:22:30" id="T21:22:30"><abbr title="2009-03-16T21:22:30+00:00">21:22:30</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>uberfry: it's just like all the other programming lang's, to program things</q></li>
+<li class="message">[<a href="#T21:22:31" id="T21:22:31"><abbr title="2009-03-16T21:22:31+00:00">21:22:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uberfry: lisp is for emacs</q></li>
+<li class="message">[<a href="#T21:22:37" id="T21:22:37"><abbr title="2009-03-16T21:22:37+00:00">21:22:37</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>fortran?</q></li>
+<li class="message">[<a href="#T21:22:41" id="T21:22:41"><abbr title="2009-03-16T21:22:41+00:00">21:22:41</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>why would I use it?</q></li>
+<li class="message">[<a href="#T21:22:44" id="T21:22:44"><abbr title="2009-03-16T21:22:44+00:00">21:22:44</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: its pushed by the parenthesize lobby</q></li>
+<li class="message">[<a href="#T21:22:50" id="T21:22:50"><abbr title="2009-03-16T21:22:50+00:00">21:22:50</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>geckosenator: hum, well I've heard good things about it, but I was just going to follow sicp</q></li>
+<li class="message">[<a href="#T21:23:06" id="T21:23:06"><abbr title="2009-03-16T21:23:06+00:00">21:23:06</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141: I actually did all of the excercises</q></li>
+<li class="message">[<a href="#T21:23:09" id="T21:23:09"><abbr title="2009-03-16T21:23:09+00:00">21:23:09</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>lisp is a great introduction to lambda calculus</q></li>
+<li class="message">[<a href="#T21:23:22" id="T21:23:22"><abbr title="2009-03-16T21:23:22+00:00">21:23:22</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I think we don't have this...</q></li>
+<li class="message">[<a href="#T21:23:25" id="T21:23:25"><abbr title="2009-03-16T21:23:25+00:00">21:23:25</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>we have matlab tho</q></li>
+<li class="message">[<a href="#T21:23:30" id="T21:23:30"><abbr title="2009-03-16T21:23:30+00:00">21:23:30</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141: even the one where you write a scheme to c compiler</q></li>
+<li class="message">[<a href="#T21:23:32" id="T21:23:32"><abbr title="2009-03-16T21:23:32+00:00">21:23:32</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>geckosenator: PM?</q></li>
+<li class="message">[<a href="#T21:23:40" id="T21:23:40"><abbr title="2009-03-16T21:23:40+00:00">21:23:40</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>lol, awesome</q></li>
+<li class="message">[<a href="#T21:23:53" id="T21:23:53"><abbr title="2009-03-16T21:23:53+00:00">21:23:53</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: it also teaches you the functional programming paradigm</q></li>
+<li class="message">[<a href="#T21:23:56" id="T21:23:56"><abbr title="2009-03-16T21:23:56+00:00">21:23:56</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>my compiler was crap though.. the code it generated was so slow</q></li>
+<li class="message">[<a href="#T21:24:08" id="T21:24:08"><abbr title="2009-03-16T21:24:08+00:00">21:24:08</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>ic...</q></li>
+<li class="message">[<a href="#T21:24:11" id="T21:24:11"><abbr title="2009-03-16T21:24:11+00:00">21:24:11</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>what's that?</q></li>
+<li class="message">[<a href="#T21:24:27" id="T21:24:27"><abbr title="2009-03-16T21:24:27+00:00">21:24:27</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>ah! lambda calculus = "own values"?</q></li>
+<li class="quit">[<a href="#T21:24:33" id="T21:24:33"><abbr title="2009-03-16T21:24:33+00:00">21:24:33</abbr></a>] <span>* BThompson (n=a0193480@nat/ti/x-64db66ad0a62ca68) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T21:24:48" id="T21:24:48"><abbr title="2009-03-16T21:24:48+00:00">21:24:48</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://en.wikipedia.org/wiki/Functional_programming">http://en.wikipedia.org/wiki/Functional_programming</a></q></li>
+<li class="message">[<a href="#T21:24:55" id="T21:24:55"><abbr title="2009-03-16T21:24:55+00:00">21:24:55</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>there are three main paradigm</q></li>
+<li class="message">[<a href="#T21:25:04" id="T21:25:04"><abbr title="2009-03-16T21:25:04+00:00">21:25:04</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>thanks..</q></li>
+<li class="message">[<a href="#T21:25:06" id="T21:25:06"><abbr title="2009-03-16T21:25:06+00:00">21:25:06</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>functional, imperative, and something else</q></li>
+<li class="message">[<a href="#T21:25:17" id="T21:25:17"><abbr title="2009-03-16T21:25:17+00:00">21:25:17</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I wonder if it's ok.. my beagle board is being powered though the usb</q></li>
+<li class="message">[<a href="#T21:25:29" id="T21:25:29"><abbr title="2009-03-16T21:25:29+00:00">21:25:29</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>but, the usb plugged into a powered hub</q></li>
+<li class="message">[<a href="#T21:25:33" id="T21:25:33"><abbr title="2009-03-16T21:25:33+00:00">21:25:33</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>the beagle is the host though</q></li>
+<li class="message">[<a href="#T21:25:35" id="T21:25:35"><abbr title="2009-03-16T21:25:35+00:00">21:25:35</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I already learned those concepts...</q></li>
+<li class="message">[<a href="#T21:25:38" id="T21:25:38"><abbr title="2009-03-16T21:25:38+00:00">21:25:38</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>in high school</q></li>
+<li class="nick-change">[<a href="#T21:26:20" id="T21:26:20"><abbr title="2009-03-16T21:26:20+00:00">21:26:20</abbr></a>] <span>* cbrake is now known as cbrake_away</span></li>
+<li class="message">[<a href="#T21:26:29" id="T21:26:29"><abbr title="2009-03-16T21:26:29+00:00">21:26:29</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>is that bad for it?</q></li>
+<li class="message">[<a href="#T21:27:13" id="T21:27:13"><abbr title="2009-03-16T21:27:13+00:00">21:27:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: USB as in you are power it on the MiniAB jack?</q></li>
+<li class="part">[<a href="#T21:27:26" id="T21:27:26"><abbr title="2009-03-16T21:27:26+00:00">21:27:26</abbr></a>] <span>* gregoiregentil1 (n=zonbu@adsl-71-135-118-139.dsl.pltn13.pacbell.net) has left #beagle</span></li>
+<li class="message">[<a href="#T21:27:27" id="T21:27:27"><abbr title="2009-03-16T21:27:27+00:00">21:27:27</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ah, thats what the other one is, logic programming, eg, prolog</q></li>
+<li class="message">[<a href="#T21:27:46" id="T21:27:46"><abbr title="2009-03-16T21:27:46+00:00">21:27:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>declarative</q></li>
+<li class="message">[<a href="#T21:28:00" id="T21:28:00"><abbr title="2009-03-16T21:28:00+00:00">21:28:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>real men code in assembler</q></li>
+<li class="message">[<a href="#T21:28:13" id="T21:28:13"><abbr title="2009-03-16T21:28:13+00:00">21:28:13</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>mru: real men waste their time then</q></li>
+<li class="message">[<a href="#T21:28:20" id="T21:28:20"><abbr title="2009-03-16T21:28:20+00:00">21:28:20</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: right</q></li>
+<li class="message">[<a href="#T21:28:27" id="T21:28:27"><abbr title="2009-03-16T21:28:27+00:00">21:28:27</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>mru: I think I need to go off and make a declarative assembler and realize it in hardware</q></li>
+<li class="message">[<a href="#T21:28:32" id="T21:28:32"><abbr title="2009-03-16T21:28:32+00:00">21:28:32</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>mru: wrong, real men code in vhdl</q></li>
+<li class="message">[<a href="#T21:28:34" id="T21:28:34"><abbr title="2009-03-16T21:28:34+00:00">21:28:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: should be fine... you just are kept at a cap of 100mA max</q></li>
+<li class="message">[<abbr title="2009-03-16T21:28:34+00:00">21:28:34</abbr>] &lt;<cite>Russ</cite>&gt; <q>wait, no, thats just vhdl</q></li>
+<li class="message">[<a href="#T21:28:37" id="T21:28:37"><abbr title="2009-03-16T21:28:37+00:00">21:28:37</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: the hub is powered, and the host side of the hub goes to the beagle, and the beagle is powered</q></li>
+<li class="message">[<a href="#T21:28:57" id="T21:28:57"><abbr title="2009-03-16T21:28:57+00:00">21:28:57</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>real men code in OO C++, and then hardcore peeps code in assembly</q></li>
+<li class="message">[<a href="#T21:28:58" id="T21:28:58"><abbr title="2009-03-16T21:28:58+00:00">21:28:58</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: normally you only power a device if it's a device.. not when it's a host right?</q></li>
+<li class="message">[<a href="#T21:29:06" id="T21:29:06"><abbr title="2009-03-16T21:29:06+00:00">21:29:06</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: its best to get one of those dual power plugs, like the have for portable hard drives</q></li>
+<li class="message">[<a href="#T21:29:08" id="T21:29:08"><abbr title="2009-03-16T21:29:08+00:00">21:29:08</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>hardcore peeps/hackers/reverse engineers</q></li>
+<li class="message">[<a href="#T21:29:16" id="T21:29:16"><abbr title="2009-03-16T21:29:16+00:00">21:29:16</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>&lt;-- x360 hacker</q></li>
+<li class="message">[<a href="#T21:29:17" id="T21:29:17"><abbr title="2009-03-16T21:29:17+00:00">21:29:17</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T21:29:26" id="T21:29:26"><abbr title="2009-03-16T21:29:26+00:00">21:29:26</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>how old are you all?</q></li>
+<li class="message">[<a href="#T21:29:30" id="T21:29:30"><abbr title="2009-03-16T21:29:30+00:00">21:29:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: I'd drop the world 'normally'... only devices are ever powered.</q></li>
+<li class="message">[<a href="#T21:29:31" id="T21:29:31"><abbr title="2009-03-16T21:29:31+00:00">21:29:31</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>Russ: the beagle is the host</q></li>
+<li class="action">[<a href="#T21:29:34" id="T21:29:34"><abbr title="2009-03-16T21:29:34+00:00">21:29:34</abbr></a>] <span>* Russ 29</span></li>
+<li class="message">[<a href="#T21:29:38" id="T21:29:38"><abbr title="2009-03-16T21:29:38+00:00">21:29:38</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>19</q></li>
+<li class="message">[<a href="#T21:29:43" id="T21:29:43"><abbr title="2009-03-16T21:29:43+00:00">21:29:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>powering a host is means something is broq.</q></li>
+<li class="message">[<abbr title="2009-03-16T21:29:43+00:00">21:29:43</abbr>] &lt;<cite>mru</cite>&gt; <q>28</q></li>
+<li class="message">[<a href="#T21:29:46" id="T21:29:46"><abbr title="2009-03-16T21:29:46+00:00">21:29:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: I was considering doing that</q></li>
+<li class="message">[<a href="#T21:29:48" id="T21:29:48"><abbr title="2009-03-16T21:29:48+00:00">21:29:48</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>bah! fsk141 beat me</q></li>
+<li class="message">[<a href="#T21:29:52" id="T21:29:52"><abbr title="2009-03-16T21:29:52+00:00">21:29:52</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: yeah but it's working</q></li>
+<li class="message">[<a href="#T21:29:53" id="T21:29:53"><abbr title="2009-03-16T21:29:53+00:00">21:29:53</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>anyone less than 19?</q></li>
+<li class="message">[<a href="#T21:30:00" id="T21:30:00"><abbr title="2009-03-16T21:30:00+00:00">21:30:00</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I suppose you are</q></li>
+<li class="message">[<a href="#T21:30:02" id="T21:30:02"><abbr title="2009-03-16T21:30:02+00:00">21:30:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: then the MUSB port is not a host</q></li>
+<li class="message">[<a href="#T21:30:04" id="T21:30:04"><abbr title="2009-03-16T21:30:04+00:00">21:30:04</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>the wiki says that you have to use external power</q></li>
+<li class="message">[<a href="#T21:30:05" id="T21:30:05"><abbr title="2009-03-16T21:30:05+00:00">21:30:05</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I'm 20</q></li>
+<li class="message">[<a href="#T21:30:16" id="T21:30:16"><abbr title="2009-03-16T21:30:16+00:00">21:30:16</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>hum, how did I beat you then?</q></li>
+<li class="message">[<a href="#T21:30:20" id="T21:30:20"><abbr title="2009-03-16T21:30:20+00:00">21:30:20</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>for youngest?</q></li>
+<li class="message">[<a href="#T21:30:21" id="T21:30:21"><abbr title="2009-03-16T21:30:21+00:00">21:30:21</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:30:22" id="T21:30:22"><abbr title="2009-03-16T21:30:22+00:00">21:30:22</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T21:30:34" id="T21:30:34"><abbr title="2009-03-16T21:30:34+00:00">21:30:34</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>but I think I'll beat you anytime in terms of knowledge ;)</q></li>
+<li class="message">[<a href="#T21:30:37" id="T21:30:37"><abbr title="2009-03-16T21:30:37+00:00">21:30:37</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>at least coding hehe</q></li>
+<li class="message">[<a href="#T21:30:46" id="T21:30:46"><abbr title="2009-03-16T21:30:46+00:00">21:30:46</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: and yet I can power it this way</q></li>
+<li class="message">[<a href="#T21:30:48" id="T21:30:48"><abbr title="2009-03-16T21:30:48+00:00">21:30:48</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>coding yes, system administration no</q></li>
+<li class="message">[<a href="#T21:30:52" id="T21:30:52"><abbr title="2009-03-16T21:30:52+00:00">21:30:52</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>you sure?</q></li>
+<li class="message">[<a href="#T21:30:59" id="T21:30:59"><abbr title="2009-03-16T21:30:59+00:00">21:30:59</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>pretty sure</q></li>
+<li class="message">[<a href="#T21:31:02" id="T21:31:02"><abbr title="2009-03-16T21:31:02+00:00">21:31:02</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>which os?</q></li>
+<li class="message">[<a href="#T21:31:03" id="T21:31:03"><abbr title="2009-03-16T21:31:03+00:00">21:31:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: why do you think the port is acting as a host?</q></li>
+<li class="message">[<a href="#T21:31:09" id="T21:31:09"><abbr title="2009-03-16T21:31:09+00:00">21:31:09</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>linux/unix/solaris</q></li>
+<li class="message">[<a href="#T21:31:10" id="T21:31:10"><abbr title="2009-03-16T21:31:10+00:00">21:31:10</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>Crofton must be pushing 50</q></li>
+<li class="message">[<a href="#T21:31:19" id="T21:31:19"><abbr title="2009-03-16T21:31:19+00:00">21:31:19</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>&lt;-- linux/netware/windows</q></li>
+<li class="message">[<abbr title="2009-03-16T21:31:19+00:00">21:31:19</abbr>] &lt;<cite>fsk141</cite>&gt; <q>I surpassed windows :)</q></li>
+<li class="message">[<a href="#T21:31:23" id="T21:31:23"><abbr title="2009-03-16T21:31:23+00:00">21:31:23</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T21:31:24" id="T21:31:24"><abbr title="2009-03-16T21:31:24+00:00">21:31:24</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: I shorted id to gnd</q></li>
+<li class="message">[<a href="#T21:31:25" id="T21:31:25"><abbr title="2009-03-16T21:31:25+00:00">21:31:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>BAH sysadmins</q></li>
+<li class="message">[<a href="#T21:31:31" id="T21:31:31"><abbr title="2009-03-16T21:31:31+00:00">21:31:31</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I hate sysadministration</q></li>
+<li class="message">[<a href="#T21:31:40" id="T21:31:40"><abbr title="2009-03-16T21:31:40+00:00">21:31:40</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>it's just my job title, dont hate...</q></li>
+<li class="message">[<a href="#T21:31:41" id="T21:31:41"><abbr title="2009-03-16T21:31:41+00:00">21:31:41</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>was the subject I hated the most in HS</q></li>
+<li class="message">[<a href="#T21:31:43" id="T21:31:43"><abbr title="2009-03-16T21:31:43+00:00">21:31:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: that does not mean it is a host. it just means it thinks a A cable is connected</q></li>
+<li class="message">[<a href="#T21:32:06" id="T21:32:06"><abbr title="2009-03-16T21:32:06+00:00">21:32:06</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: ok I see</q></li>
+<li class="action">[<a href="#T21:32:19" id="T21:32:19"><abbr title="2009-03-16T21:32:19+00:00">21:32:19</abbr></a>] <span>* mru has never owned a windows machine</span></li>
+<li class="message">[<a href="#T21:32:20" id="T21:32:20"><abbr title="2009-03-16T21:32:20+00:00">21:32:20</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: I wonder why the hub allows it then</q></li>
+<li class="message">[<a href="#T21:32:25" id="T21:32:25"><abbr title="2009-03-16T21:32:25+00:00">21:32:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: it is possible to be a host w/o shorting the ID to ground</q></li>
+<li class="message">[<a href="#T21:32:34" id="T21:32:34"><abbr title="2009-03-16T21:32:34+00:00">21:32:34</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: with software?</q></li>
+<li class="message">[<a href="#T21:32:37" id="T21:32:37"><abbr title="2009-03-16T21:32:37+00:00">21:32:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the N800's can do it </q></li>
+<li class="message">[<a href="#T21:32:39" id="T21:32:39"><abbr title="2009-03-16T21:32:39+00:00">21:32:39</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>mru: win xp &gt; linux</q></li>
+<li class="message">[<a href="#T21:32:40" id="T21:32:40"><abbr title="2009-03-16T21:32:40+00:00">21:32:40</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T21:32:50" id="T21:32:50"><abbr title="2009-03-16T21:32:50+00:00">21:32:50</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: I though maybe a kernel parameter would do it</q></li>
+<li class="message">[<a href="#T21:32:55" id="T21:32:55"><abbr title="2009-03-16T21:32:55+00:00">21:32:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: yep. just a few things needs to be implemented for the PHY for that to happen</q></li>
+<li class="message">[<a href="#T21:32:59" id="T21:32:59"><abbr title="2009-03-16T21:32:59+00:00">21:32:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I didn't say I've never tried using windows</q></li>
+<li class="message">[<a href="#T21:33:02" id="T21:33:02"><abbr title="2009-03-16T21:33:02+00:00">21:33:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>*tried*</q></li>
+<li class="message">[<a href="#T21:33:05" id="T21:33:05"><abbr title="2009-03-16T21:33:05+00:00">21:33:05</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I'd never use linux as a main os, neither mac os, cause all my eda tools only work on windows</q></li>
+<li class="message">[<a href="#T21:33:06" id="T21:33:06"><abbr title="2009-03-16T21:33:06+00:00">21:33:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no, the current kernel is missing some PHY config stuff</q></li>
+<li class="message">[<a href="#T21:33:08" id="T21:33:08"><abbr title="2009-03-16T21:33:08+00:00">21:33:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not succeeded</q></li>
+<li class="message">[<a href="#T21:33:13" id="T21:33:13"><abbr title="2009-03-16T21:33:13+00:00">21:33:13</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:33:15" id="T21:33:15"><abbr title="2009-03-16T21:33:15+00:00">21:33:15</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: oh ok</q></li>
+<li class="message">[<a href="#T21:33:21" id="T21:33:21"><abbr title="2009-03-16T21:33:21+00:00">21:33:21</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: you need to switch over to geda</q></li>
+<li class="message">[<a href="#T21:33:28" id="T21:33:28"><abbr title="2009-03-16T21:33:28+00:00">21:33:28</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>geda?</q></li>
+<li class="message">[<abbr title="2009-03-16T21:33:28+00:00">21:33:28</abbr>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: change PHY's and it should work</q></li>
+<li class="message">[<a href="#T21:33:30" id="T21:33:30"><abbr title="2009-03-16T21:33:30+00:00">21:33:30</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>uberfry: I see your point</q></li>
+<li class="message">[<a href="#T21:33:38" id="T21:33:38"><abbr title="2009-03-16T21:33:38+00:00">21:33:38</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>a buddy of mine had the same ideal</q></li>
+<li class="message">[<a href="#T21:33:48" id="T21:33:48"><abbr title="2009-03-16T21:33:48+00:00">21:33:48</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: or just get revC which is supposed to have usb host</q></li>
+<li class="message">[<a href="#T21:33:51" id="T21:33:51"><abbr title="2009-03-16T21:33:51+00:00">21:33:51</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I use linux for almost everything, and mac for my work computer</q></li>
+<li class="message">[<a href="#T21:34:00" id="T21:34:00"><abbr title="2009-03-16T21:34:00+00:00">21:34:00</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>oh ya I forgot to add, I know mac like the back of my hand too</q></li>
+<li class="message">[<a href="#T21:34:06" id="T21:34:06"><abbr title="2009-03-16T21:34:06+00:00">21:34:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: nah.... the MUSB port is more flexible</q></li>
+<li class="message">[<a href="#T21:34:07" id="T21:34:07"><abbr title="2009-03-16T21:34:07+00:00">21:34:07</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://www.gpleda.org/">http://www.gpleda.org/</a></q></li>
+<li class="action">[<a href="#T21:34:10" id="T21:34:10"><abbr title="2009-03-16T21:34:10+00:00">21:34:10</abbr></a>] <span>* mru is installing linux on a windtunnel mac</span></li>
+<li class="message">[<a href="#T21:34:11" id="T21:34:11"><abbr title="2009-03-16T21:34:11+00:00">21:34:11</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I don't do anything else on computers other than coding</q></li>
+<li class="message">[<a href="#T21:34:17" id="T21:34:17"><abbr title="2009-03-16T21:34:17+00:00">21:34:17</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>thanks Russ</q></li>
+<li class="quit">[<a href="#T21:34:30" id="T21:34:30"><abbr title="2009-03-16T21:34:30+00:00">21:34:30</abbr></a>] <span>* jkridner|work (n=a0321898@nat/ti/x-40a780718f93e841) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T21:34:32" id="T21:34:32"><abbr title="2009-03-16T21:34:32+00:00">21:34:32</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: yeah it's still good to ahve</q></li>
+<li class="message">[<a href="#T21:34:34" id="T21:34:34"><abbr title="2009-03-16T21:34:34+00:00">21:34:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I once went close to a pre-osx mac, and it crashed</q></li>
+<li class="message">[<a href="#T21:34:38" id="T21:34:38"><abbr title="2009-03-16T21:34:38+00:00">21:34:38</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>uberfry: then you would easily pair with cli, and nifty cli compilers :)</q></li>
+<li class="message">[<a href="#T21:34:40" id="T21:34:40"><abbr title="2009-03-16T21:34:40+00:00">21:34:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I really wish the EHCI port on Revc had a break for the Vbus line so I can inject 5V via another pump instead of having to laden the board power supply</q></li>
+<li class="message">[<a href="#T21:34:52" id="T21:34:52"><abbr title="2009-03-16T21:34:52+00:00">21:34:52</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>cli?</q></li>
+<li class="message">[<a href="#T21:34:55" id="T21:34:55"><abbr title="2009-03-16T21:34:55+00:00">21:34:55</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: just use a special usb cable maybe?</q></li>
+<li class="message">[<a href="#T21:34:59" id="T21:34:59"><abbr title="2009-03-16T21:34:59+00:00">21:34:59</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>clear interrupt? ;P</q></li>
+<li class="message">[<abbr title="2009-03-16T21:34:59+00:00">21:34:59</abbr>] &lt;<cite>fsk141</cite>&gt; <q>command line interface</q></li>
+<li class="message">[<a href="#T21:35:01" id="T21:35:01"><abbr title="2009-03-16T21:35:01+00:00">21:35:01</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>oh hehe</q></li>
+<li class="message">[<a href="#T21:35:12" id="T21:35:12"><abbr title="2009-03-16T21:35:12+00:00">21:35:12</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>tis how I'm chatting to you atm :)</q></li>
+<li class="message">[<a href="#T21:35:15" id="T21:35:15"><abbr title="2009-03-16T21:35:15+00:00">21:35:15</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>irssi</q></li>
+<li class="message">[<a href="#T21:35:16" id="T21:35:16"><abbr title="2009-03-16T21:35:16+00:00">21:35:16</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>problem with eda is: every company has their own software</q></li>
+<li class="message">[<a href="#T21:35:18" id="T21:35:18"><abbr title="2009-03-16T21:35:18+00:00">21:35:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>irssi ftw</q></li>
+<li class="message">[<abbr title="2009-03-16T21:35:18+00:00">21:35:18</abbr>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: won't work... the EHCI port is tied to the system 5V bus. if I try to run it from a 100mA PS, the board will crash</q></li>
+<li class="message">[<a href="#T21:35:19" id="T21:35:19"><abbr title="2009-03-16T21:35:19+00:00">21:35:19</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>it's a cli irc program</q></li>
+<li class="message">[<a href="#T21:35:23" id="T21:35:23"><abbr title="2009-03-16T21:35:23+00:00">21:35:23</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:35:27" id="T21:35:27"><abbr title="2009-03-16T21:35:27+00:00">21:35:27</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>yeah I know irssi</q></li>
+<li class="message">[<a href="#T21:35:30" id="T21:35:30"><abbr title="2009-03-16T21:35:30+00:00">21:35:30</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>mru: ++</q></li>
+<li class="message">[<a href="#T21:35:44" id="T21:35:44"><abbr title="2009-03-16T21:35:44+00:00">21:35:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so to use the EHCI port safely, you really need a 5V, 600mA or better power supply</q></li>
+<li class="message">[<a href="#T21:36:00" id="T21:36:00"><abbr title="2009-03-16T21:36:00+00:00">21:36:00</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>can't you just use an external powered hub instead?</q></li>
+<li class="message">[<a href="#T21:36:16" id="T21:36:16"><abbr title="2009-03-16T21:36:16+00:00">21:36:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sure, that's another part and another power cube</q></li>
+<li class="message">[<a href="#T21:36:20" id="T21:36:20"><abbr title="2009-03-16T21:36:20+00:00">21:36:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I want portable</q></li>
+<li class="message">[<a href="#T21:36:21" id="T21:36:21"><abbr title="2009-03-16T21:36:21+00:00">21:36:21</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T21:36:30" id="T21:36:30"><abbr title="2009-03-16T21:36:30+00:00">21:36:30</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I agree, but at least you have the flexibility</q></li>
+<li class="message">[<a href="#T21:36:38" id="T21:36:38"><abbr title="2009-03-16T21:36:38+00:00">21:36:38</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>mru: <a href="http://pastie.org/418122">http://pastie.org/418122</a> [+]</q></li>
+<li class="message">[<a href="#T21:36:42" id="T21:36:42"><abbr title="2009-03-16T21:36:42+00:00">21:36:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>of course, I could just have a proper 700mA, 5V switcher :D</q></li>
+<li class="message">[<a href="#T21:36:48" id="T21:36:48"><abbr title="2009-03-16T21:36:48+00:00">21:36:48</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>this is computer engineering lower division classes</q></li>
+<li class="message">[<a href="#T21:36:51" id="T21:36:51"><abbr title="2009-03-16T21:36:51+00:00">21:36:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but that completely rules out charge pumps</q></li>
+<li class="message">[<a href="#T21:36:53" id="T21:36:53"><abbr title="2009-03-16T21:36:53+00:00">21:36:53</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I have one already :-P</q></li>
+<li class="message">[<a href="#T21:37:05" id="T21:37:05"><abbr title="2009-03-16T21:37:05+00:00">21:37:05</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I want to run the beagle board at less than 5v though</q></li>
+<li class="message">[<a href="#T21:37:06" id="T21:37:06"><abbr title="2009-03-16T21:37:06+00:00">21:37:06</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>to save power</q></li>
+<li class="message">[<a href="#T21:37:18" id="T21:37:18"><abbr title="2009-03-16T21:37:18+00:00">21:37:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: that is impossible if you want to use the EHCI port</q></li>
+<li class="message">[<a href="#T21:37:19" id="T21:37:19"><abbr title="2009-03-16T21:37:19+00:00">21:37:19</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I wonder if I can do that since the external hubs are backfeeding power to the beagle</q></li>
+<li class="message">[<a href="#T21:37:24" id="T21:37:24"><abbr title="2009-03-16T21:37:24+00:00">21:37:24</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>geckosenator: why not just use solar power :)</q></li>
+<li class="message">[<a href="#T21:37:27" id="T21:37:27"><abbr title="2009-03-16T21:37:27+00:00">21:37:27</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141: I am</q></li>
+<li class="message">[<a href="#T21:37:34" id="T21:37:34"><abbr title="2009-03-16T21:37:34+00:00">21:37:34</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>oh, nice</q></li>
+<li class="message">[<a href="#T21:37:36" id="T21:37:36"><abbr title="2009-03-16T21:37:36+00:00">21:37:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>backfeed from a hub is expressly forbidden </q></li>
+<li class="message">[<a href="#T21:37:44" id="T21:37:44"><abbr title="2009-03-16T21:37:44+00:00">21:37:44</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>does the BB run off 7v?</q></li>
+<li class="message">[<a href="#T21:37:47" id="T21:37:47"><abbr title="2009-03-16T21:37:47+00:00">21:37:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>backfeed from ANYTHING is expressly forbidden</q></li>
+<li class="message">[<a href="#T21:37:53" id="T21:37:53"><abbr title="2009-03-16T21:37:53+00:00">21:37:53</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141: <a href="http://digitalsurveyinstruments.com/beagleperiphials/openppt/doc/">http://digitalsurveyinstruments.com/beagleperiphials/openppt/doc/</a></q></li>
+<li class="message">[<a href="#T21:38:07" id="T21:38:07"><abbr title="2009-03-16T21:38:07+00:00">21:38:07</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: well I can cut the vcc wire in the usb cable going from the hub to the beagle</q></li>
+<li class="message">[<a href="#T21:38:11" id="T21:38:11"><abbr title="2009-03-16T21:38:11+00:00">21:38:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>fsk141: that's a schizofrenic degree</q></li>
+<li class="message">[<a href="#T21:38:20" id="T21:38:20"><abbr title="2009-03-16T21:38:20+00:00">21:38:20</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ds2: many crappy hubs backfeed</q></li>
+<li class="quit">[<a href="#T21:38:39" id="T21:38:39"><abbr title="2009-03-16T21:38:39+00:00">21:38:39</abbr></a>] <span>* mib_r38jaj (i=5a9c5284@gateway/web/ajax/mibbit.com/x-4a8b2fdd9cacb68d) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T21:38:46" id="T21:38:46"><abbr title="2009-03-16T21:38:46+00:00">21:38:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>geckosenator: that may not work as some of the pull ups are referenced to Vbus</q></li>
+<li class="message">[<a href="#T21:38:54" id="T21:38:54"><abbr title="2009-03-16T21:38:54+00:00">21:38:54</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>mru: huh?</q></li>
+<li class="message">[<a href="#T21:38:55" id="T21:38:55"><abbr title="2009-03-16T21:38:55+00:00">21:38:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Russ: I know, I have such a hub</q></li>
+<li class="message">[<a href="#T21:39:06" id="T21:39:06"><abbr title="2009-03-16T21:39:06+00:00">21:39:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that's what I get for buying a $2 hub ;)</q></li>
+<li class="message">[<a href="#T21:39:09" id="T21:39:09"><abbr title="2009-03-16T21:39:09+00:00">21:39:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>physics, assembler, java... weird</q></li>
+<li class="message">[<a href="#T21:39:10" id="T21:39:10"><abbr title="2009-03-16T21:39:10+00:00">21:39:10</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: the usb only needs pullups at 3.6v</q></li>
+<li class="message">[<a href="#T21:39:17" id="T21:39:17"><abbr title="2009-03-16T21:39:17+00:00">21:39:17</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>which is what I would run the beagle at</q></li>
+<li class="message">[<a href="#T21:39:20" id="T21:39:20"><abbr title="2009-03-16T21:39:20+00:00">21:39:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I say drop the java and c++</q></li>
+<li class="message">[<a href="#T21:39:21" id="T21:39:21"><abbr title="2009-03-16T21:39:21+00:00">21:39:21</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>mru: I know</q></li>
+<li class="message">[<a href="#T21:39:33" id="T21:39:33"><abbr title="2009-03-16T21:39:33+00:00">21:39:33</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>Russ: it's a crappy hub</q></li>
+<li class="message">[<abbr title="2009-03-16T21:39:33+00:00">21:39:33</abbr>] &lt;<cite>fsk141</cite>&gt; <q>I'm taking the c++ atm</q></li>
+<li class="message">[<a href="#T21:39:35" id="T21:39:35"><abbr title="2009-03-16T21:39:35+00:00">21:39:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>gecksenator: but some designs make that relative to Vbus to avoid a backfeed problem</q></li>
+<li class="message">[<a href="#T21:39:37" id="T21:39:37"><abbr title="2009-03-16T21:39:37+00:00">21:39:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>cut back on physics and some of the maths</q></li>
+<li class="message">[<a href="#T21:39:43" id="T21:39:43"><abbr title="2009-03-16T21:39:43+00:00">21:39:43</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>it's alright, but java is going to be a pain in the ass</q></li>
+<li class="message">[<a href="#T21:39:44" id="T21:39:44"><abbr title="2009-03-16T21:39:44+00:00">21:39:44</abbr></a>] &lt;<cite>coreyfro</cite>&gt; <q>use a mintyboost from adafruit? </q></li>
+<li class="message">[<a href="#T21:39:45" id="T21:39:45"><abbr title="2009-03-16T21:39:45+00:00">21:39:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>add more low-level computer design stuff</q></li>
+<li class="message">[<a href="#T21:39:50" id="T21:39:50"><abbr title="2009-03-16T21:39:50+00:00">21:39:50</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: <a href="http://i2.photobucket.com/albums/y4/RussDill/pcb-1.jpg">http://i2.photobucket.com/albums/y4/RussDill/pcb-1.jpg</a></q></li>
+<li class="message">[<a href="#T21:39:52" id="T21:39:52"><abbr title="2009-03-16T21:39:52+00:00">21:39:52</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>my first produced board with geda pcb</q></li>
+<li class="message">[<a href="#T21:39:53" id="T21:39:53"><abbr title="2009-03-16T21:39:53+00:00">21:39:53</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>mru: that's what's *required* lol</q></li>
+<li class="message">[<a href="#T21:40:08" id="T21:40:08"><abbr title="2009-03-16T21:40:08+00:00">21:40:08</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>ds2: well I just havef to try it and see if it works</q></li>
+<li class="message">[<a href="#T21:40:22" id="T21:40:22"><abbr title="2009-03-16T21:40:22+00:00">21:40:22</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>geckosenator: why are you complicating things with a processor controlled power regulator?</q></li>
+<li class="message">[<a href="#T21:40:23" id="T21:40:23"><abbr title="2009-03-16T21:40:23+00:00">21:40:23</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>Russ: what does it do?</q></li>
+<li class="message">[<a href="#T21:40:29" id="T21:40:29"><abbr title="2009-03-16T21:40:29+00:00">21:40:29</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141: maybe</q></li>
+<li class="message">[<a href="#T21:40:31" id="T21:40:31"><abbr title="2009-03-16T21:40:31+00:00">21:40:31</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>dual 10mbit ethernet, its rather old</q></li>
+<li class="message">[<a href="#T21:40:37" id="T21:40:37"><abbr title="2009-03-16T21:40:37+00:00">21:40:37</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>Russ: looks nice</q></li>
+<li class="message">[<a href="#T21:40:39" id="T21:40:39"><abbr title="2009-03-16T21:40:39+00:00">21:40:39</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>second produced board <a href="http://s2.photobucket.com/albums/y4/RussDill/?action=view&amp;current=nesa_top.jpg">http://s2.photobucket.com/albums/y4/RussDill/?action=view&amp;current=nesa_top.jpg</a></q></li>
+<li class="message">[<a href="#T21:40:42" id="T21:40:42"><abbr title="2009-03-16T21:40:42+00:00">21:40:42</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>why not just use std compotents, a mosfet or two, and some resistors :)</q></li>
+<li class="message">[<a href="#T21:40:43" id="T21:40:43"><abbr title="2009-03-16T21:40:43+00:00">21:40:43</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>fsk141: I better hope that one doesn't crash and create 20 volt output..</q></li>
+<li class="message">[<a href="#T21:41:15" id="T21:41:15"><abbr title="2009-03-16T21:41:15+00:00">21:41:15</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>Russ: easy to use like eaglE?</q></li>
+<li class="message">[<abbr title="2009-03-16T21:41:15+00:00">21:41:15</abbr>] &lt;<cite>ShadowJK</cite>&gt; <q>hm, I should check if my hubs backfeed...</q></li>
+<li class="message">[<a href="#T21:41:22" id="T21:41:22"><abbr title="2009-03-16T21:41:22+00:00">21:41:22</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>uberfry: never used eagle</q></li>
+<li class="message">[<a href="#T21:41:27" id="T21:41:27"><abbr title="2009-03-16T21:41:27+00:00">21:41:27</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>Russ: lets see your last produced board</q></li>
+<li class="message">[<a href="#T21:41:40" id="T21:41:40"><abbr title="2009-03-16T21:41:40+00:00">21:41:40</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>ic</q></li>
+<li class="message">[<a href="#T21:41:47" id="T21:41:47"><abbr title="2009-03-16T21:41:47+00:00">21:41:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: its been several years since I've done any eda</q></li>
+<li class="message">[<a href="#T21:41:58" id="T21:41:58"><abbr title="2009-03-16T21:41:58+00:00">21:41:58</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:42:17" id="T21:42:17"><abbr title="2009-03-16T21:42:17+00:00">21:42:17</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>Russ: that last pic looks nice, you packed everything in pretty nicely</q></li>
+<li class="message">[<a href="#T21:42:25" id="T21:42:25"><abbr title="2009-03-16T21:42:25+00:00">21:42:25</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>at my uni, eda means everything that has to do with hardware, except for pcb design ;)</q></li>
+<li class="quit">[<a href="#T21:42:39" id="T21:42:39"><abbr title="2009-03-16T21:42:39+00:00">21:42:39</abbr></a>] <span>* like2wise (n=likewise@82-171-51-231.ip.telfort.nl) Quit ()</span></li>
+<li class="message">[<a href="#T21:42:42" id="T21:42:42"><abbr title="2009-03-16T21:42:42+00:00">21:42:42</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://i2.photobucket.com/albums/y4/RussDill/nesa_bottom.jpg">http://i2.photobucket.com/albums/y4/RussDill/nesa_bottom.jpg</a></q></li>
+<li class="message">[<abbr title="2009-03-16T21:42:42+00:00">21:42:42</abbr>] &lt;<cite>fsk141</cite>&gt; <q>Russ: it it a single/double sided pcb?</q></li>
+<li class="message">[<a href="#T21:42:43" id="T21:42:43"><abbr title="2009-03-16T21:42:43+00:00">21:42:43</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>the backfeeding hub has to go.. it gets really hot</q></li>
+<li class="message">[<a href="#T21:42:52" id="T21:42:52"><abbr title="2009-03-16T21:42:52+00:00">21:42:52</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>(answer in link)</q></li>
+<li class="message">[<a href="#T21:43:04" id="T21:43:04"><abbr title="2009-03-16T21:43:04+00:00">21:43:04</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>I saw :)</q></li>
+<li class="message">[<a href="#T21:43:23" id="T21:43:23"><abbr title="2009-03-16T21:43:23+00:00">21:43:23</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>ya it looks excellent</q></li>
+<li class="quit">[<a href="#T21:43:29" id="T21:43:29"><abbr title="2009-03-16T21:43:29+00:00">21:43:29</abbr></a>] <span>* pcgeil (n=steffen@p5B17FF3F.dip.t-dialin.net) Quit ()</span></li>
+<li class="quit">[<abbr title="2009-03-16T21:43:29+00:00">21:43:29</abbr>] <span>* mib_uvxwrk (i=c05e5e6a@gateway/web/ajax/mibbit.com/x-6322e682006c1fc9) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T21:43:30" id="T21:43:30"><abbr title="2009-03-16T21:43:30+00:00">21:43:30</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>what's it for :)</q></li>
+<li class="message">[<a href="#T21:43:36" id="T21:43:36"><abbr title="2009-03-16T21:43:36+00:00">21:43:36</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>internet appliance</q></li>
+<li class="message">[<a href="#T21:43:44" id="T21:43:44"><abbr title="2009-03-16T21:43:44+00:00">21:43:44</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>Russ: can I rely on you for advice once I have to design the pcb for the robot we're making?</q></li>
+<li class="message">[<a href="#T21:44:15" id="T21:44:15"><abbr title="2009-03-16T21:44:15+00:00">21:44:15</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>if I'm around</q></li>
+<li class="message">[<a href="#T21:44:19" id="T21:44:19"><abbr title="2009-03-16T21:44:19+00:00">21:44:19</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>kewl, I suppose the pin header allows you to connect some network ports and leds and stuff</q></li>
+<li class="message">[<a href="#T21:44:29" id="T21:44:29"><abbr title="2009-03-16T21:44:29+00:00">21:44:29</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>hehe ok thanks ;)</q></li>
+<li class="message">[<a href="#T21:44:52" id="T21:44:52"><abbr title="2009-03-16T21:44:52+00:00">21:44:52</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>fsk141: debug. rs232, jtag, and reset</q></li>
+<li class="message">[<a href="#T21:45:00" id="T21:45:00"><abbr title="2009-03-16T21:45:00+00:00">21:45:00</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>sorry, the white one</q></li>
+<li class="message">[<a href="#T21:45:06" id="T21:45:06"><abbr title="2009-03-16T21:45:06+00:00">21:45:06</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>what's that called?</q></li>
+<li class="message">[<a href="#T21:45:19" id="T21:45:19"><abbr title="2009-03-16T21:45:19+00:00">21:45:19</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>hirose thing?</q></li>
+<li class="message">[<a href="#T21:45:26" id="T21:45:26"><abbr title="2009-03-16T21:45:26+00:00">21:45:26</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>oh, right, the board is a lart-a-like</q></li>
+<li class="join">[<abbr title="2009-03-16T21:45:26+00:00">21:45:26</abbr>] <span>* like2wise (n=likewise@82-171-51-231.ip.telfort.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:45:28" id="T21:45:28"><abbr title="2009-03-16T21:45:28+00:00">21:45:28</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>so its the same interface</q></li>
+<li class="message">[<a href="#T21:46:35" id="T21:46:35"><abbr title="2009-03-16T21:46:35+00:00">21:46:35</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://www.lartmaker.nl/gallery/hand.jpg">http://www.lartmaker.nl/gallery/hand.jpg</a></q></li>
+<li class="message">[<a href="#T21:46:36" id="T21:46:36"><abbr title="2009-03-16T21:46:36+00:00">21:46:36</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>geckosenator: <a href="http://qa-rockstar.livejournal.com/7869.html">http://qa-rockstar.livejournal.com/7869.html</a> (I just noticed this on LWN)</q></li>
+<li class="message">[<a href="#T21:47:18" id="T21:47:18"><abbr title="2009-03-16T21:47:18+00:00">21:47:18</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>you're a girl?</q></li>
+<li class="message">[<a href="#T21:47:33" id="T21:47:33"><abbr title="2009-03-16T21:47:33+00:00">21:47:33</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>nope, why would you say that?</q></li>
+<li class="message">[<a href="#T21:47:41" id="T21:47:41"><abbr title="2009-03-16T21:47:41+00:00">21:47:41</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q><a href="http://www.lartmaker.nl/gallery/hand.jpg">http://www.lartmaker.nl/gallery/hand.jpg</a></q></li>
+<li class="message">[<a href="#T21:47:56" id="T21:47:56"><abbr title="2009-03-16T21:47:56+00:00">21:47:56</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>oh, Russ </q></li>
+<li class="message">[<a href="#T21:48:01" id="T21:48:01"><abbr title="2009-03-16T21:48:01+00:00">21:48:01</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>thats not me or my board</q></li>
+<li class="message">[<a href="#T21:48:04" id="T21:48:04"><abbr title="2009-03-16T21:48:04+00:00">21:48:04</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>how do you know it's not his mother?</q></li>
+<li class="message">[<abbr title="2009-03-16T21:48:04+00:00">21:48:04</abbr>] &lt;<cite>Russ</cite>&gt; <q>that is a lart</q></li>
+<li class="message">[<a href="#T21:48:10" id="T21:48:10"><abbr title="2009-03-16T21:48:10+00:00">21:48:10</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:48:25" id="T21:48:25"><abbr title="2009-03-16T21:48:25+00:00">21:48:25</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>what's a lart?</q></li>
+<li class="message">[<a href="#T21:48:29" id="T21:48:29"><abbr title="2009-03-16T21:48:29+00:00">21:48:29</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>no one remembers the lart?</q></li>
+<li class="message">[<a href="#T21:48:35" id="T21:48:35"><abbr title="2009-03-16T21:48:35+00:00">21:48:35</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>not I</q></li>
+<li class="message">[<a href="#T21:48:38" id="T21:48:38"><abbr title="2009-03-16T21:48:38+00:00">21:48:38</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>me neither</q></li>
+<li class="message">[<a href="#T21:48:40" id="T21:48:40"><abbr title="2009-03-16T21:48:40+00:00">21:48:40</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>too young...</q></li>
+<li class="message">[<a href="#T21:48:45" id="T21:48:45"><abbr title="2009-03-16T21:48:45+00:00">21:48:45</abbr></a>] &lt;<cite>fsk141</cite>&gt; <q>anyone remember projectblackdog?</q></li>
+<li class="message">[<a href="#T21:48:52" id="T21:48:52"><abbr title="2009-03-16T21:48:52+00:00">21:48:52</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>no</q></li>
+<li class="message">[<abbr title="2009-03-16T21:48:52+00:00">21:48:52</abbr>] &lt;<cite>Russ</cite>&gt; <q><a href="http://www.lartmaker.nl/lartware/plint/">http://www.lartmaker.nl/lartware/plint/</a></q></li>
+<li class="message">[<a href="#T21:48:54" id="T21:48:54"><abbr title="2009-03-16T21:48:54+00:00">21:48:54</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>too young...</q></li>
+<li class="message">[<a href="#T21:49:30" id="T21:49:30"><abbr title="2009-03-16T21:49:30+00:00">21:49:30</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>oh lawd, 200mips</q></li>
+<li class="message">[<a href="#T21:49:33" id="T21:49:33"><abbr title="2009-03-16T21:49:33+00:00">21:49:33</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>that's quite some power :P</q></li>
+<li class="join">[<a href="#T21:56:03" id="T21:56:03"><abbr title="2009-03-16T21:56:03+00:00">21:56:03</abbr></a>] <span>* richardw (n=richardw@nat/ti/x-72a6956bb88b6bf7) has joined #beagle</span></li>
+<li class="action">[<a href="#T21:58:43" id="T21:58:43"><abbr title="2009-03-16T21:58:43+00:00">21:58:43</abbr></a>] <span>* Russ wonders whatever happened to erikm</span></li>
