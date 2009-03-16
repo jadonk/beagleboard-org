@@ -183,3 +183,95 @@
 <li class="message">[<a href="#T05:44:26" id="T05:44:26"><abbr title="2009-03-16T05:44:26+00:00">05:44:26</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>thanks</q></li>
 <li class="join">[<a href="#T05:58:22" id="T05:58:22"><abbr title="2009-03-16T05:58:22+00:00">05:58:22</abbr></a>] <span>* leslie (n=leslie@116.228.58.74) has joined #beagle</span></li>
 <li class="quit">[<a href="#T05:59:02" id="T05:59:02"><abbr title="2009-03-16T05:59:02+00:00">05:59:02</abbr></a>] <span>* favor (n=user@221.10.25.6) Quit (Read error: 145 (Connection timed out))</span></li>
+<li class="message">[<a href="#T06:01:47" id="T06:01:47"><abbr title="2009-03-16T06:01:47+00:00">06:01:47</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>eh .. i must kill profiling somehow in my  binary </q></li>
+<li class="message">[<a href="#T06:02:08" id="T06:02:08"><abbr title="2009-03-16T06:02:08+00:00">06:02:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oprofile doesnt give u anything?</q></li>
+<li class="message">[<a href="#T06:02:17" id="T06:02:17"><abbr title="2009-03-16T06:02:17+00:00">06:02:17</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>it gives me two minor functions</q></li>
+<li class="message">[<a href="#T06:02:51" id="T06:02:51"><abbr title="2009-03-16T06:02:51+00:00">06:02:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>maybe no gdb debugging symbols</q></li>
+<li class="message">[<a href="#T06:02:57" id="T06:02:57"><abbr title="2009-03-16T06:02:57+00:00">06:02:57</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>i added -g</q></li>
+<li class="message">[<a href="#T06:03:04" id="T06:03:04"><abbr title="2009-03-16T06:03:04+00:00">06:03:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thus no ability to get symbol info - u need at least basic symbols in there</q></li>
+<li class="message">[<a href="#T06:03:12" id="T06:03:12"><abbr title="2009-03-16T06:03:12+00:00">06:03:12</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oprofiel for me works fine.. on x86 at least</q></li>
+<li class="message">[<a href="#T06:03:17" id="T06:03:17"><abbr title="2009-03-16T06:03:17+00:00">06:03:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>never tried on arm</q></li>
+<li class="message">[<a href="#T06:03:27" id="T06:03:27"><abbr title="2009-03-16T06:03:27+00:00">06:03:27</abbr></a>] &lt;<cite>raster</cite>&gt; <q>generally tho the performance profiels tend too be the same</q></li>
+<li class="message">[<a href="#T06:03:31" id="T06:03:31"><abbr title="2009-03-16T06:03:31+00:00">06:03:31</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>hmm there is a post and a patch on the boards about oprofile</q></li>
+<li class="message">[<a href="#T06:03:34" id="T06:03:34"><abbr title="2009-03-16T06:03:34+00:00">06:03:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie u spend about the same % of time int he same areas</q></li>
+<li class="message">[<a href="#T06:03:58" id="T06:03:58"><abbr title="2009-03-16T06:03:58+00:00">06:03:58</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>yea,  i've used a profiler before just not familiar with oprofile </q></li>
+<li class="message">[<a href="#T06:03:59" id="T06:03:59"><abbr title="2009-03-16T06:03:59+00:00">06:03:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(ie get a speedup in that area and u see the same approximate speedups on both)</q></li>
+<li class="message">[<a href="#T06:04:03" id="T06:04:03"><abbr title="2009-03-16T06:04:03+00:00">06:04:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaah</q></li>
+<li class="message">[<a href="#T06:04:15" id="T06:04:15"><abbr title="2009-03-16T06:04:15+00:00">06:04:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>well this is how i start it</q></li>
+<li class="message">[<a href="#T06:04:22" id="T06:04:22"><abbr title="2009-03-16T06:04:22+00:00">06:04:22</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>i've had the misfortune of trying to collect my own samples before as well .. not fun</q></li>
+<li class="message">[<abbr title="2009-03-16T06:04:22+00:00">06:04:22</abbr>] &lt;<cite>raster</cite>&gt; <q>sudo opcontrol --no-vmlinux</q></li>
+<li class="message">[<a href="#T06:04:23" id="T06:04:23"><abbr title="2009-03-16T06:04:23+00:00">06:04:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sudo opcontrol --init</q></li>
+<li class="message">[<abbr title="2009-03-16T06:04:23+00:00">06:04:23</abbr>] &lt;<cite>raster</cite>&gt; <q>sudo opcontrol --start</q></li>
+<li class="message">[<abbr title="2009-03-16T06:04:23+00:00">06:04:23</abbr>] &lt;<cite>raster</cite>&gt; <q>sudo opcontrol --dump</q></li>
+<li class="message">[<a href="#T06:04:24" id="T06:04:24"><abbr title="2009-03-16T06:04:24+00:00">06:04:24</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sudo opcontrol --reset</q></li>
+<li class="message">[<a href="#T06:04:44" id="T06:04:44"><abbr title="2009-03-16T06:04:44+00:00">06:04:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and to stop and dump a report</q></li>
+<li class="message">[<a href="#T06:04:47" id="T06:04:47"><abbr title="2009-03-16T06:04:47+00:00">06:04:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sudo opcontrol --stop</q></li>
+<li class="message">[<a href="#T06:04:53" id="T06:04:53"><abbr title="2009-03-16T06:04:53+00:00">06:04:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>opreport --symbols &gt; oprof.txt</q></li>
+<li class="message">[<abbr title="2009-03-16T06:04:53+00:00">06:04:53</abbr>] &lt;<cite>raster</cite>&gt; <q>sudo opcontrol --shutdown</q></li>
+<li class="message">[<a href="#T06:05:07" id="T06:05:07"><abbr title="2009-03-16T06:05:07+00:00">06:05:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i just have those in scripts so its</q></li>
+<li class="message">[<a href="#T06:05:10" id="T06:05:10"><abbr title="2009-03-16T06:05:10+00:00">06:05:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oprof-start</q></li>
+<li class="message">[<a href="#T06:05:12" id="T06:05:12"><abbr title="2009-03-16T06:05:12+00:00">06:05:12</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and</q></li>
+<li class="message">[<a href="#T06:05:14" id="T06:05:14"><abbr title="2009-03-16T06:05:14+00:00">06:05:14</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oprof-stop</q></li>
+<li class="message">[<a href="#T06:05:15" id="T06:05:15"><abbr title="2009-03-16T06:05:15+00:00">06:05:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>for me</q></li>
+<li class="message">[<a href="#T06:05:23" id="T06:05:23"><abbr title="2009-03-16T06:05:23+00:00">06:05:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hope that helps</q></li>
+<li class="message">[<a href="#T06:05:33" id="T06:05:33"><abbr title="2009-03-16T06:05:33+00:00">06:05:33</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>:) thanks</q></li>
+<li class="join">[<abbr title="2009-03-16T06:05:33+00:00">06:05:33</abbr>] <span>* mib_0e4k2k (i=48b590d6@gateway/web/ajax/mibbit.com/x-55cd560790cf85da) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:05:59" id="T06:05:59"><abbr title="2009-03-16T06:05:59+00:00">06:05:59</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>i think the problem is related to this post : <a href="http://groups.google.com/group/beagleboard/browse_thread/thread/04c72e391c133310">http://groups.google.com/group/beagleboard/browse_thread/thread/04c72e391c133310</a></q></li>
+<li class="message">[<a href="#T06:06:56" id="T06:06:56"><abbr title="2009-03-16T06:06:56+00:00">06:06:56</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>I'm sure our code uses all sorts of syscalls</q></li>
+<li class="join">[<a href="#T06:08:45" id="T06:08:45"><abbr title="2009-03-16T06:08:45+00:00">06:08:45</abbr></a>] <span>* sebas10 (i=be0a1646@gateway/web/ajax/mibbit.com/x-2dfd797b998c569e) has joined #beagle</span></li>
+<li class="action">[<a href="#T06:08:47" id="T06:08:47"><abbr title="2009-03-16T06:08:47+00:00">06:08:47</abbr></a>] <span>* raster giggles</span></li>
+<li class="message">[<a href="#T06:09:06" id="T06:09:06"><abbr title="2009-03-16T06:09:06+00:00">06:09:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaaah... so fun to be right...</q></li>
+<li class="message">[<a href="#T06:09:12" id="T06:09:12"><abbr title="2009-03-16T06:09:12+00:00">06:09:12</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oh well.</q></li>
+<li class="quit">[<a href="#T06:09:49" id="T06:09:49"><abbr title="2009-03-16T06:09:49+00:00">06:09:49</abbr></a>] <span>* sebas10 (i=be0a1646@gateway/web/ajax/mibbit.com/x-2dfd797b998c569e) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T06:10:36" id="T06:10:36"><abbr title="2009-03-16T06:10:36+00:00">06:10:36</abbr></a>] <span>* sebas10 (i=be0a1646@gateway/web/ajax/mibbit.com/x-dfc706d527a2450a) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:10:50" id="T06:10:50"><abbr title="2009-03-16T06:10:50+00:00">06:10:50</abbr></a>] <span>* mib_0e4k2k (i=48b590d6@gateway/web/ajax/mibbit.com/x-55cd560790cf85da) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="quit">[<a href="#T06:13:08" id="T06:13:08"><abbr title="2009-03-16T06:13:08+00:00">06:13:08</abbr></a>] <span>* joesensport (n=joesensp@218.242.229.234) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T06:13:37" id="T06:13:37"><abbr title="2009-03-16T06:13:37+00:00">06:13:37</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>hmm?</q></li>
+<li class="message">[<a href="#T06:13:41" id="T06:13:41"><abbr title="2009-03-16T06:13:41+00:00">06:13:41</abbr></a>] &lt;<cite>sebas10</cite>&gt; <q>greetings... i need to know if someone can help in executing the beagle board simulator using qemu</q></li>
+<li class="message">[<a href="#T06:13:52" id="T06:13:52"><abbr title="2009-03-16T06:13:52+00:00">06:13:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>never mind</q></li>
+<li class="message">[<a href="#T06:13:59" id="T06:13:59"><abbr title="2009-03-16T06:13:59+00:00">06:13:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>just talking to myself</q></li>
+<li class="message">[<a href="#T06:14:45" id="T06:14:45"><abbr title="2009-03-16T06:14:45+00:00">06:14:45</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>do let me in if its interesting ;p</q></li>
+<li class="quit">[<a href="#T06:14:46" id="T06:14:46"><abbr title="2009-03-16T06:14:46+00:00">06:14:46</abbr></a>] <span>* geckosenator (n=sean@71.237.94.78) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T06:16:02" id="T06:16:02"><abbr title="2009-03-16T06:16:02+00:00">06:16:02</abbr></a>] &lt;<cite>raster</cite>&gt; <q>just let it be noted that i giggled </q></li>
+<li class="message">[<a href="#T06:16:10" id="T06:16:10"><abbr title="2009-03-16T06:16:10+00:00">06:16:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>time will tell as to what i giggled about</q></li>
+<li class="message">[<a href="#T06:17:02" id="T06:17:02"><abbr title="2009-03-16T06:17:02+00:00">06:17:02</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>well that just flat out sucks if i'm the one with the time lag doesn't it ? hehe</q></li>
+<li class="join">[<a href="#T06:17:18" id="T06:17:18"><abbr title="2009-03-16T06:17:18+00:00">06:17:18</abbr></a>] <span>* joesensport (n=joesensp@218.242.229.234) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:17:22" id="T06:17:22"><abbr title="2009-03-16T06:17:22+00:00">06:17:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i will need to wait until the rumormill expells this into the public via a mechanism other than me</q></li>
+<li class="quit">[<a href="#T06:18:18" id="T06:18:18"><abbr title="2009-03-16T06:18:18+00:00">06:18:18</abbr></a>] <span>* brolin (n=brolin@190.157.13.75) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T06:19:21" id="T06:19:21"><abbr title="2009-03-16T06:19:21+00:00">06:19:21</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>dont want to be the "one" eh ?</q></li>
+<li class="message">[<a href="#T06:20:34" id="T06:20:34"><abbr title="2009-03-16T06:20:34+00:00">06:20:34</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>btw if anyone cares:  <a href="http://www.youtube.com/watch?v=7o4y9k0s_Xc">http://www.youtube.com/watch?v=7o4y9k0s_Xc</a>    &lt;&lt;  POP3D for dreamcast running on beagleboard </q></li>
+<li class="message">[<a href="#T06:21:21" id="T06:21:21"><abbr title="2009-03-16T06:21:21+00:00">06:21:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ZeZu: nah..</q></li>
+<li class="message">[<a href="#T06:21:35" id="T06:21:35"><abbr title="2009-03-16T06:21:35+00:00">06:21:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i just want to have the knowledge of knowing i was right</q></li>
+<li class="message">[<a href="#T06:23:39" id="T06:23:39"><abbr title="2009-03-16T06:23:39+00:00">06:23:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>seems a bit slow</q></li>
+<li class="message">[<a href="#T06:23:57" id="T06:23:57"><abbr title="2009-03-16T06:23:57+00:00">06:23:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>did he remember to upclock the sgx to 110?</q></li>
+<li class="message">[<a href="#T06:24:11" id="T06:24:11"><abbr title="2009-03-16T06:24:11+00:00">06:24:11</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>he is I, and yes I did </q></li>
+<li class="message">[<a href="#T06:24:19" id="T06:24:19"><abbr title="2009-03-16T06:24:19+00:00">06:24:19</abbr></a>] &lt;<cite>raster</cite>&gt; <q>aaah is you</q></li>
+<li class="message">[<a href="#T06:24:30" id="T06:24:30"><abbr title="2009-03-16T06:24:30+00:00">06:24:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmm is it cpu bound or gpu bound?</q></li>
+<li class="message">[<a href="#T06:24:34" id="T06:24:34"><abbr title="2009-03-16T06:24:34+00:00">06:24:34</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>cpu</q></li>
+<li class="message">[<a href="#T06:24:39" id="T06:24:39"><abbr title="2009-03-16T06:24:39+00:00">06:24:39</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>fpu mostly </q></li>
+<li class="message">[<a href="#T06:24:40" id="T06:24:40"><abbr title="2009-03-16T06:24:40+00:00">06:24:40</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ooh ok</q></li>
+<li class="message">[<a href="#T06:24:49" id="T06:24:49"><abbr title="2009-03-16T06:24:49+00:00">06:24:49</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>but still loads of room for optimization</q></li>
+<li class="message">[<a href="#T06:25:08" id="T06:25:08"><abbr title="2009-03-16T06:25:08+00:00">06:25:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the dreamcast was a mips - right?</q></li>
+<li class="message">[<a href="#T06:25:10" id="T06:25:10"><abbr title="2009-03-16T06:25:10+00:00">06:25:10</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>getting it running is a feat .. getting it fullspeed will be quite difficult </q></li>
+<li class="join">[<a href="#T06:25:17" id="T06:25:17"><abbr title="2009-03-16T06:25:17+00:00">06:25:17</abbr></a>] <span>* pcgeil (n=steffen@p5B17FF3F.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="message">[<abbr title="2009-03-16T06:25:17+00:00">06:25:17</abbr>] &lt;<cite>ZeZu</cite>&gt; <q>hitachi supersh (4)</q></li>
+<li class="message">[<a href="#T06:25:37" id="T06:25:37"><abbr title="2009-03-16T06:25:37+00:00">06:25:37</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>sony used the mips </q></li>
+<li class="message">[<abbr title="2009-03-16T06:25:37+00:00">06:25:37</abbr>] &lt;<cite>raster</cite>&gt; <q>oooh super-echi!</q></li>
+<li class="message">[<a href="#T06:25:43" id="T06:25:43"><abbr title="2009-03-16T06:25:43+00:00">06:25:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>man i like that name</q></li>
+<li class="message">[<a href="#T06:25:57" id="T06:25:57"><abbr title="2009-03-16T06:25:57+00:00">06:25:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u know what echi is in japanese?</q></li>
+<li class="message">[<a href="#T06:26:11" id="T06:26:11"><abbr title="2009-03-16T06:26:11+00:00">06:26:11</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>that i do not</q></li>
+<li class="message">[<a href="#T06:26:15" id="T06:26:15"><abbr title="2009-03-16T06:26:15+00:00">06:26:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hehehe</q></li>
+<li class="message">[<a href="#T06:26:23" id="T06:26:23"><abbr title="2009-03-16T06:26:23+00:00">06:26:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>"sexually deviant"</q></li>
+<li class="quit">[<a href="#T06:26:35" id="T06:26:35"><abbr title="2009-03-16T06:26:35+00:00">06:26:35</abbr></a>] <span>* pcgeil (n=steffen@p5B17FF3F.dip.t-dialin.net) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T06:26:38" id="T06:26:38"><abbr title="2009-03-16T06:26:38+00:00">06:26:38</abbr></a>] &lt;<cite>raster</cite>&gt; <q>super sexually deviant 4 (the cpu)</q></li>
+<li class="message">[<a href="#T06:26:43" id="T06:26:43"><abbr title="2009-03-16T06:26:43+00:00">06:26:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>awesome name</q></li>
+<li class="message">[<a href="#T06:26:53" id="T06:26:53"><abbr title="2009-03-16T06:26:53+00:00">06:26:53</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T06:26:55" id="T06:26:55"><abbr title="2009-03-16T06:26:55+00:00">06:26:55</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T06:27:03" id="T06:27:03"><abbr title="2009-03-16T06:27:03+00:00">06:27:03</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>well i'm afk for a bit </q></li>
+<li class="message">[<a href="#T06:27:05" id="T06:27:05"><abbr title="2009-03-16T06:27:05+00:00">06:27:05</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>movie time</q></li>
+<li class="message">[<a href="#T06:27:08" id="T06:27:08"><abbr title="2009-03-16T06:27:08+00:00">06:27:08</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>have fun </q></li>
+<li class="join">[<a href="#T06:27:27" id="T06:27:27"><abbr title="2009-03-16T06:27:27+00:00">06:27:27</abbr></a>] <span>* pcgeil (n=steffen@p5B17FF3F.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:28:32" id="T06:28:32"><abbr title="2009-03-16T06:28:32+00:00">06:28:32</abbr></a>] <span>* khasim (n=a0393720@192.163.20.231) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:29:15" id="T06:29:15"><abbr title="2009-03-16T06:29:15+00:00">06:29:15</abbr></a>] <span>* pcgeil (n=steffen@p5B17FF3F.dip.t-dialin.net) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T06:33:01" id="T06:33:01"><abbr title="2009-03-16T06:33:01+00:00">06:33:01</abbr></a>] <span>* sebas10 (i=be0a1646@gateway/web/ajax/mibbit.com/x-dfc706d527a2450a) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="join">[<a href="#T06:49:05" id="T06:49:05"><abbr title="2009-03-16T06:49:05+00:00">06:49:05</abbr></a>] <span>* ScriptRipper (n=mmohring@p4FDBE141.dip.t-dialin.net) has joined #beagle</span></li>
