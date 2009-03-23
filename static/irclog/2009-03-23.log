@@ -989,3 +989,146 @@
 <li class="join">[<a href="#T15:56:52" id="T15:56:52"><abbr title="2009-03-23T15:56:52+00:00">15:56:52</abbr></a>] <span>* bballantine (n=bballant@firebug.buglabs.net) has joined #beagle</span></li>
 <li class="quit">[<a href="#T15:58:07" id="T15:58:07"><abbr title="2009-03-23T15:58:07+00:00">15:58:07</abbr></a>] <span>* alecrim (n=alecrim@189.2.128.130) Quit (Remote closed the connection)</span></li>
 <li class="join">[<a href="#T15:59:46" id="T15:59:46"><abbr title="2009-03-23T15:59:46+00:00">15:59:46</abbr></a>] <span>* jconnolly (n=jconnoll@66.80.197.243) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:00:22" id="T16:00:22"><abbr title="2009-03-23T16:00:22+00:00">16:00:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>AV500: just to make sure I've understood correctly, does adding vswp q0, q1 etc before the stores fix things?</q></li>
+<li class="join">[<a href="#T16:00:32" id="T16:00:32"><abbr title="2009-03-23T16:00:32+00:00">16:00:32</abbr></a>] <span>* alecrim (n=alecrim@189.2.128.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:01:53" id="T16:01:53"><abbr title="2009-03-23T16:01:53+00:00">16:01:53</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>mru: yes, looks like this does the trick, but it adds delay, no :-(</q></li>
+<li class="quit">[<a href="#T16:02:40" id="T16:02:40"><abbr title="2009-03-23T16:02:40+00:00">16:02:40</abbr></a>] <span>* recalcati (i=5e51e963@gateway/web/ajax/mibbit.com/x-0100b365bb4c10a3) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T16:02:54" id="T16:02:54"><abbr title="2009-03-23T16:02:54+00:00">16:02:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not necessarily</q></li>
+<li class="message">[<a href="#T16:03:16" id="T16:03:16"><abbr title="2009-03-23T16:03:16+00:00">16:03:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I don't remember whether vswp can dual-issue with the stores or not</q></li>
+<li class="join">[<a href="#T16:03:47" id="T16:03:47"><abbr title="2009-03-23T16:03:47+00:00">16:03:47</abbr></a>] <span>* bmxr_laptop (n=chatzill@142.232.132.12) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:05:07" id="T16:05:07"><abbr title="2009-03-23T16:05:07+00:00">16:05:07</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>well, I will add both variant and benchmark</q></li>
+<li class="message">[<a href="#T16:05:50" id="T16:05:50"><abbr title="2009-03-23T16:05:50+00:00">16:05:50</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>btw, MPEG4 640x352 runs realtime 25fps without any NEON in lavc, just the faster yuv handling</q></li>
+<li class="message">[<a href="#T16:06:16" id="T16:06:16"><abbr title="2009-03-23T16:06:16+00:00">16:06:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's not surprising</q></li>
+<li class="message">[<a href="#T16:06:34" id="T16:06:34"><abbr title="2009-03-23T16:06:34+00:00">16:06:34</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>since I fixed my memaling, I should have lavf NEON results as well</q></li>
+<li class="message">[<a href="#T16:07:07" id="T16:07:07"><abbr title="2009-03-23T16:07:07+00:00">16:07:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>neon should speed it up by 25-40% depending on content</q></li>
+<li class="action">[<a href="#T16:08:15" id="T16:08:15"><abbr title="2009-03-23T16:08:15+00:00">16:08:15</abbr></a>] <span>* AV500 waits for the project to rebuild</span></li>
+<li class="message">[<a href="#T16:08:23" id="T16:08:23"><abbr title="2009-03-23T16:08:23+00:00">16:08:23</abbr></a>] &lt;<cite>russ</cite>&gt; <q>AV500: don't sleep till we have 720p H.264 at 30fps</q></li>
+<li class="message">[<a href="#T16:08:47" id="T16:08:47"><abbr title="2009-03-23T16:08:47+00:00">16:08:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>russ: that's not possible</q></li>
+<li class="message">[<a href="#T16:08:52" id="T16:08:52"><abbr title="2009-03-23T16:08:52+00:00">16:08:52</abbr></a>] &lt;<cite>bballantine</cite>&gt; <q>Hi... I'm looking for the USB Mini A  Male to Female adapter for the beagleboard's USB OTG connector... any leads on where I can find one?</q></li>
+<li class="message">[<a href="#T16:09:05" id="T16:09:05"><abbr title="2009-03-23T16:09:05+00:00">16:09:05</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>russ: I would not sleep at all</q></li>
+<li class="message">[<a href="#T16:09:12" id="T16:09:12"><abbr title="2009-03-23T16:09:12+00:00">16:09:12</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>and BTW, I am commercial :-)</q></li>
+<li class="message">[<a href="#T16:10:28" id="T16:10:28"><abbr title="2009-03-23T16:10:28+00:00">16:10:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, but the good kind of commercial</q></li>
+<li class="message">[<a href="#T16:11:07" id="T16:11:07"><abbr title="2009-03-23T16:11:07+00:00">16:11:07</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>thx, whatever the good kind is...</q></li>
+<li class="message">[<a href="#T16:11:30" id="T16:11:30"><abbr title="2009-03-23T16:11:30+00:00">16:11:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the kind that doesn't steal ffmpeg and sell it</q></li>
+<li class="message">[<a href="#T16:11:43" id="T16:11:43"><abbr title="2009-03-23T16:11:43+00:00">16:11:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>we see a lot of them</q></li>
+<li class="message">[<a href="#T16:11:47" id="T16:11:47"><abbr title="2009-03-23T16:11:47+00:00">16:11:47</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T16:11:48" id="T16:11:48"><abbr title="2009-03-23T16:11:48+00:00">16:11:48</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>I know</q></li>
+<li class="quit">[<a href="#T16:17:45" id="T16:17:45"><abbr title="2009-03-23T16:17:45+00:00">16:17:45</abbr></a>] <span>* NishanthMenon (n=nmenon@nat/ti/x-7dec0c3e946cb494) Quit ("Leaving")</span></li>
+<li class="part">[<a href="#T16:18:55" id="T16:18:55"><abbr title="2009-03-23T16:18:55+00:00">16:18:55</abbr></a>] <span>* AudioFreak (n=hugo@84.27.136.88) has left #beagle</span></li>
+<li class="message">[<a href="#T16:29:03" id="T16:29:03"><abbr title="2009-03-23T16:29:03+00:00">16:29:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>bballantine: US or EU?</q></li>
+<li class="message">[<a href="#T16:31:47" id="T16:31:47"><abbr title="2009-03-23T16:31:47+00:00">16:31:47</abbr></a>] &lt;<cite>bballantine</cite>&gt; <q>ds2: US</q></li>
+<li class="message">[<a href="#T16:32:52" id="T16:32:52"><abbr title="2009-03-23T16:32:52+00:00">16:32:52</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>koen: ping</q></li>
+<li class="quit">[<a href="#T16:35:10" id="T16:35:10"><abbr title="2009-03-23T16:35:10+00:00">16:35:10</abbr></a>] <span>* jrmuizel (n=jrmuizel@mozca02.ca.mozilla.com) Quit ()</span></li>
+<li class="join">[<a href="#T16:36:06" id="T16:36:06"><abbr title="2009-03-23T16:36:06+00:00">16:36:06</abbr></a>] <span>* jrmuizel (n=jrmuizel@mozca02.ca.mozilla.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:37:07" id="T16:37:07"><abbr title="2009-03-23T16:37:07+00:00">16:37:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ant_work: pong</q></li>
+<li class="message">[<a href="#T16:38:00" id="T16:38:00"><abbr title="2009-03-23T16:38:00+00:00">16:38:00</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>[17:11:30] &lt;mru&gt; the kind that doesn't steal ffmpeg and sell it</q></li>
+<li class="message">[<a href="#T16:38:04" id="T16:38:04"><abbr title="2009-03-23T16:38:04+00:00">16:38:04</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>so now I'm a bad guy?</q></li>
+<li class="join">[<a href="#T16:38:26" id="T16:38:26"><abbr title="2009-03-23T16:38:26+00:00">16:38:26</abbr></a>] <span>* amine_56 (i=5640c7e4@gateway/web/ajax/mibbit.com/x-982ef965f040b43b) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:38:27" id="T16:38:27"><abbr title="2009-03-23T16:38:27+00:00">16:38:27</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>mru: works now and does not seem to take any longer</q></li>
+<li class="message">[<a href="#T16:39:07" id="T16:39:07"><abbr title="2009-03-23T16:39:07+00:00">16:39:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>bballantine: try this - <a href="http://www.vernier.com/accessories/access.html?usb-mini&amp;template=basic.html">http://www.vernier.com/accessories/access.html?usb-mini&amp;template=basic.html</a></q></li>
+<li class="message">[<a href="#T16:39:40" id="T16:39:40"><abbr title="2009-03-23T16:39:40+00:00">16:39:40</abbr></a>] &lt;<cite>bballantine</cite>&gt; <q>thanks ds2</q></li>
+<li class="message">[<a href="#T16:40:25" id="T16:40:25"><abbr title="2009-03-23T16:40:25+00:00">16:40:25</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>ds2: bballantine this not the right cable!</q></li>
+<li class="join">[<a href="#T16:40:26" id="T16:40:26"><abbr title="2009-03-23T16:40:26+00:00">16:40:26</abbr></a>] <span>* dcordes (n=dcordes@unaffiliated/dcordes) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:40:34" id="T16:40:34"><abbr title="2009-03-23T16:40:34+00:00">16:40:34</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>USB A (Male) to Mini-A (4-pin) connectors</q></li>
+<li class="message">[<a href="#T16:40:41" id="T16:40:41"><abbr title="2009-03-23T16:40:41+00:00">16:40:41</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>mini-A is 5! pin, not 4</q></li>
+<li class="message">[<a href="#T16:40:48" id="T16:40:48"><abbr title="2009-03-23T16:40:48+00:00">16:40:48</abbr></a>] &lt;<cite>amine_56</cite>&gt; <q>HI, I have a problem with arecord it doesn't record anything, when I try to play with aplay; anyone to help?</q></li>
+<li class="message">[<a href="#T16:40:57" id="T16:40:57"><abbr title="2009-03-23T16:40:57+00:00">16:40:57</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>and mini-A to A make no sense at all</q></li>
+<li class="message">[<a href="#T16:41:06" id="T16:41:06"><abbr title="2009-03-23T16:41:06+00:00">16:41:06</abbr></a>] &lt;<cite>bballantine</cite>&gt; <q>thanks AV500 - yeah, it's hard to find</q></li>
+<li class="message">[<a href="#T16:41:09" id="T16:41:09"><abbr title="2009-03-23T16:41:09+00:00">16:41:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>AV500: what application are you using it for?</q></li>
+<li class="message">[<a href="#T16:41:21" id="T16:41:21"><abbr title="2009-03-23T16:41:21+00:00">16:41:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>That cable works for the beagle. I have that cable.</q></li>
+<li class="message">[<a href="#T16:41:32" id="T16:41:32"><abbr title="2009-03-23T16:41:32+00:00">16:41:32</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>to do OTG host?</q></li>
+<li class="message">[<a href="#T16:41:38" id="T16:41:38"><abbr title="2009-03-23T16:41:38+00:00">16:41:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T16:41:49" id="T16:41:49"><abbr title="2009-03-23T16:41:49+00:00">16:41:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and miniA to A makes perfect sense</q></li>
+<li class="message">[<a href="#T16:41:51" id="T16:41:51"><abbr title="2009-03-23T16:41:51+00:00">16:41:51</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>and what do you connect on the other side?</q></li>
+<li class="message">[<a href="#T16:42:10" id="T16:42:10"><abbr title="2009-03-23T16:42:10+00:00">16:42:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>thumbdrive, USB mice, Hub, etc</q></li>
+<li class="message">[<a href="#T16:42:20" id="T16:42:20"><abbr title="2009-03-23T16:42:20+00:00">16:42:20</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>direclty?</q></li>
+<li class="message">[<a href="#T16:42:29" id="T16:42:29"><abbr title="2009-03-23T16:42:29+00:00">16:42:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T16:42:31" id="T16:42:31"><abbr title="2009-03-23T16:42:31+00:00">16:42:31</abbr></a>] &lt;<cite>amine_56</cite>&gt; <q>anyone to help?</q></li>
+<li class="message">[<a href="#T16:42:38" id="T16:42:38"><abbr title="2009-03-23T16:42:38+00:00">16:42:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>got to go</q></li>
+<li class="message">[<a href="#T16:42:40" id="T16:42:40"><abbr title="2009-03-23T16:42:40+00:00">16:42:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uberfry: what do you do?</q></li>
+<li class="message">[<a href="#T16:42:52" id="T16:42:52"><abbr title="2009-03-23T16:42:52+00:00">16:42:52</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>ds2: well, then the image is not the right one or you have a creative way of plugging usb</q></li>
+<li class="message">[<a href="#T16:43:33" id="T16:43:33"><abbr title="2009-03-23T16:43:33+00:00">16:43:33</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>mru: he steals ffmpeg and sells it, no?</q></li>
+<li class="message">[<a href="#T16:44:10" id="T16:44:10"><abbr title="2009-03-23T16:44:10+00:00">16:44:10</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>mru: honestly? nothing</q></li>
+<li class="message">[<a href="#T16:44:15" id="T16:44:15"><abbr title="2009-03-23T16:44:15+00:00">16:44:15</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>nah I was kidding</q></li>
+<li class="message">[<a href="#T16:44:16" id="T16:44:16"><abbr title="2009-03-23T16:44:16+00:00">16:44:16</abbr></a>] &lt;<cite>bballantine</cite>&gt; <q>basically AV500 + ds2 - I need (would like) to go from A mini to A Female</q></li>
+<li class="message">[<a href="#T16:44:26" id="T16:44:26"><abbr title="2009-03-23T16:44:26+00:00">16:44:26</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>actually I'm only getting a beagleboard cause I work at uni</q></li>
+<li class="message">[<a href="#T16:44:33" id="T16:44:33"><abbr title="2009-03-23T16:44:33+00:00">16:44:33</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>they want me to design somekinda plane</q></li>
+<li class="message">[<a href="#T16:44:39" id="T16:44:39"><abbr title="2009-03-23T16:44:39+00:00">16:44:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uberfry: good, otherwise you'd be looking forward to a letter from our lawyers</q></li>
+<li class="message">[<a href="#T16:44:59" id="T16:44:59"><abbr title="2009-03-23T16:44:59+00:00">16:44:59</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>yeah right ;)</q></li>
+<li class="message">[<a href="#T16:45:11" id="T16:45:11"><abbr title="2009-03-23T16:45:11+00:00">16:45:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm not kidding</q></li>
+<li class="message">[<a href="#T16:45:16" id="T16:45:16"><abbr title="2009-03-23T16:45:16+00:00">16:45:16</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>bballantine: yes, but the cable that ds2 shows is A Male, so I wonder what to do with it</q></li>
+<li class="message">[<a href="#T16:45:29" id="T16:45:29"><abbr title="2009-03-23T16:45:29+00:00">16:45:29</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>iirc ffmpeg = gpl?</q></li>
+<li class="message">[<a href="#T16:45:35" id="T16:45:35"><abbr title="2009-03-23T16:45:35+00:00">16:45:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>lgpl</q></li>
+<li class="message">[<a href="#T16:45:41" id="T16:45:41"><abbr title="2009-03-23T16:45:41+00:00">16:45:41</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>ah ic</q></li>
+<li class="message">[<a href="#T16:45:54" id="T16:45:54"><abbr title="2009-03-23T16:45:54+00:00">16:45:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>mostly, there are some gpl bits</q></li>
+<li class="message">[<a href="#T16:46:15" id="T16:46:15"><abbr title="2009-03-23T16:46:15+00:00">16:46:15</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>anyway, don't worry, I don't use ffmpeg :P</q></li>
+<li class="message">[<a href="#T16:46:17" id="T16:46:17"><abbr title="2009-03-23T16:46:17+00:00">16:46:17</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>mru: yes, but you get rid of them with sed :-)</q></li>
+<li class="message">[<a href="#T16:46:19" id="T16:46:19"><abbr title="2009-03-23T16:46:19+00:00">16:46:19</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>you made ffmpeg tho?</q></li>
+<li class="message">[<a href="#T16:46:49" id="T16:46:49"><abbr title="2009-03-23T16:46:49+00:00">16:46:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I didn't "make" ffmpeg, but I've worked a lot on it</q></li>
+<li class="message">[<a href="#T16:46:58" id="T16:46:58"><abbr title="2009-03-23T16:46:58+00:00">16:46:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>most of the arm stuff is mine</q></li>
+<li class="message">[<a href="#T16:47:10" id="T16:47:10"><abbr title="2009-03-23T16:47:10+00:00">16:47:10</abbr></a>] &lt;<cite>koen</cite>&gt; <q>who did the legwork then?</q></li>
+<li class="message">[<a href="#T16:47:15" id="T16:47:15"><abbr title="2009-03-23T16:47:15+00:00">16:47:15</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>oh, high respect then</q></li>
+<li class="message">[<a href="#T16:47:26" id="T16:47:26"><abbr title="2009-03-23T16:47:26+00:00">16:47:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: my evil twin</q></li>
+<li class="message">[<a href="#T16:47:45" id="T16:47:45"><abbr title="2009-03-23T16:47:45+00:00">16:47:45</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>mru: more evil?</q></li>
+<li class="message">[<a href="#T16:48:06" id="T16:48:06"><abbr title="2009-03-23T16:48:06+00:00">16:48:06</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>mru: do you know if it's possible to insert an image ever 24th frame?</q></li>
+<li class="message">[<a href="#T16:48:11" id="T16:48:11"><abbr title="2009-03-23T16:48:11+00:00">16:48:11</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>*every</q></li>
+<li class="message">[<a href="#T16:48:25" id="T16:48:25"><abbr title="2009-03-23T16:48:25+00:00">16:48:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hmm... actually I think I am the evil twin</q></li>
+<li class="message">[<abbr title="2009-03-23T16:48:25+00:00">16:48:25</abbr>] &lt;<cite>uberfry</cite>&gt; <q>I'd like to do an experiment on someone, but I wasn't able to to it with virtualdub</q></li>
+<li class="message">[<a href="#T16:48:47" id="T16:48:47"><abbr title="2009-03-23T16:48:47+00:00">16:48:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: you're missing the tell-tale facialhair required to be an evil twin</q></li>
+<li class="join">[<a href="#T16:49:09" id="T16:49:09"><abbr title="2009-03-23T16:49:09+00:00">16:49:09</abbr></a>] <span>* __alanc__ (n=a-campbe@nat/ti/x-3fd50033f644979a) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:49:27" id="T16:49:27"><abbr title="2009-03-23T16:49:27+00:00">16:49:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: working on it ;-)</q></li>
+<li class="message">[<a href="#T16:49:51" id="T16:49:51"><abbr title="2009-03-23T16:49:51+00:00">16:49:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uberfry: subliminal messages?</q></li>
+<li class="join">[<a href="#T16:49:57" id="T16:49:57"><abbr title="2009-03-23T16:49:57+00:00">16:49:57</abbr></a>] <span>* BThompson (n=a0193480@nat/ti/x-b0bc7466a2da426c) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:50:09" id="T16:50:09"><abbr title="2009-03-23T16:50:09+00:00">16:50:09</abbr></a>] &lt;<cite>julianoliver</cite>&gt; <q>uberfry: with ffmpeg it would probably be possible to convert a stream to images, write them to a directory, replace every 24th' image and encode the output back into a video container.</q></li>
+<li class="message">[<a href="#T16:50:21" id="T16:50:21"><abbr title="2009-03-23T16:50:21+00:00">16:50:21</abbr></a>] &lt;<cite>julianoliver</cite>&gt; <q>uberfry: with OpenCV it would be very trivial.</q></li>
+<li class="message">[<a href="#T16:50:24" id="T16:50:24"><abbr title="2009-03-23T16:50:24+00:00">16:50:24</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>mru: yes!</q></li>
+<li class="message">[<a href="#T16:50:35" id="T16:50:35"><abbr title="2009-03-23T16:50:35+00:00">16:50:35</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>julianoliver: thanks</q></li>
+<li class="message">[<a href="#T16:50:37" id="T16:50:37"><abbr title="2009-03-23T16:50:37+00:00">16:50:37</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I'll look it up</q></li>
+<li class="message">[<a href="#T16:50:53" id="T16:50:53"><abbr title="2009-03-23T16:50:53+00:00">16:50:53</abbr></a>] &lt;<cite>julianoliver</cite>&gt; <q>uberfry: in realtime it would be possible also with ffmpeg, if scripted.</q></li>
+<li class="message">[<a href="#T16:51:02" id="T16:51:02"><abbr title="2009-03-23T16:51:02+00:00">16:51:02</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I just need a 5 min clip</q></li>
+<li class="message">[<a href="#T16:51:24" id="T16:51:24"><abbr title="2009-03-23T16:51:24+00:00">16:51:24</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>something like: "your boyfriend's gay. leave him. fuck uberfry instead."</q></li>
+<li class="message">[<a href="#T16:51:44" id="T16:51:44"><abbr title="2009-03-23T16:51:44+00:00">16:51:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uberfry: let me know if it works ;-)</q></li>
+<li class="message">[<a href="#T16:51:55" id="T16:51:55"><abbr title="2009-03-23T16:51:55+00:00">16:51:55</abbr></a>] &lt;<cite>julianoliver</cite>&gt; <q>uberfry: that will surely win the heart of a woman.</q></li>
+<li class="message">[<a href="#T16:51:58" id="T16:51:58"><abbr title="2009-03-23T16:51:58+00:00">16:51:58</abbr></a>] &lt;<cite>julianoliver</cite>&gt; <q>good luck.</q></li>
+<li class="join">[<a href="#T16:52:17" id="T16:52:17"><abbr title="2009-03-23T16:52:17+00:00">16:52:17</abbr></a>] <span>* Beagle7 (n=Beagle7@c-98-201-40-150.hsd1.tx.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:52:20" id="T16:52:20"><abbr title="2009-03-23T16:52:20+00:00">16:52:20</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I hope it does work</q></li>
+<li class="message">[<a href="#T16:52:26" id="T16:52:26"><abbr title="2009-03-23T16:52:26+00:00">16:52:26</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>that guy's a douchebag</q></li>
+<li class="message">[<a href="#T16:52:33" id="T16:52:33"><abbr title="2009-03-23T16:52:33+00:00">16:52:33</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>plus, I'm such a catch</q></li>
+<li class="message">[<a href="#T16:52:38" id="T16:52:38"><abbr title="2009-03-23T16:52:38+00:00">16:52:38</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>she just doesn't know it</q></li>
+<li class="action">[<a href="#T16:52:46" id="T16:52:46"><abbr title="2009-03-23T16:52:46+00:00">16:52:46</abbr></a>] <span>* AV500 facepalms</span></li>
+<li class="message">[<a href="#T16:52:52" id="T16:52:52"><abbr title="2009-03-23T16:52:52+00:00">16:52:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the problem is that girls don't think rationally about these things</q></li>
+<li class="message">[<a href="#T16:53:04" id="T16:53:04"><abbr title="2009-03-23T16:53:04+00:00">16:53:04</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>mru: yes, pour oil into it!!!!</q></li>
+<li class="quit">[<a href="#T16:53:09" id="T16:53:09"><abbr title="2009-03-23T16:53:09+00:00">16:53:09</abbr></a>] <span>* PhastPhrog (n=chatzill@194.193.86.112) Quit ("ChatZilla 0.9.84 [Firefox 3.0.7/2009021910]")</span></li>
+<li class="join">[<a href="#T16:53:17" id="T16:53:17"><abbr title="2009-03-23T16:53:17+00:00">16:53:17</abbr></a>] <span>* kozak (n=subbu@117.192.2.8) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:53:30" id="T16:53:30"><abbr title="2009-03-23T16:53:30+00:00">16:53:30</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>mru: something I realized is that girls like guys who are dicks</q></li>
+<li class="message">[<a href="#T16:54:02" id="T16:54:02"><abbr title="2009-03-23T16:54:02+00:00">16:54:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>thinking rationally, they'd be all over us engineers</q></li>
+<li class="message">[<a href="#T16:54:18" id="T16:54:18"><abbr title="2009-03-23T16:54:18+00:00">16:54:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>we're smart and well-paid</q></li>
+<li class="message">[<a href="#T16:54:20" id="T16:54:20"><abbr title="2009-03-23T16:54:20+00:00">16:54:20</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>not being racist or anything but: likely to be from the south (france, spain, italy, africa, etc.) and beat the shit out of them like twice a week</q></li>
+<li class="message">[<a href="#T16:54:38" id="T16:54:38"><abbr title="2009-03-23T16:54:38+00:00">16:54:38</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>I'm southern too, but at least I don't beat the shit outta girls ;)</q></li>
+<li class="action">[<a href="#T16:54:49" id="T16:54:49"><abbr title="2009-03-23T16:54:49+00:00">16:54:49</abbr></a>] <span>* mru is from sweden...</span></li>
+<li class="message">[<a href="#T16:55:14" id="T16:55:14"><abbr title="2009-03-23T16:55:14+00:00">16:55:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I don't know any girls who get beaten</q></li>
+<li class="message">[<a href="#T16:55:16" id="T16:55:16"><abbr title="2009-03-23T16:55:16+00:00">16:55:16</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>heh, I suppose you're blonde and girls are bored of you? ;)</q></li>
+<li class="message">[<a href="#T16:55:21" id="T16:55:21"><abbr title="2009-03-23T16:55:21+00:00">16:55:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if I did, I'd try to do something about it</q></li>
+<li class="message">[<a href="#T16:55:23" id="T16:55:23"><abbr title="2009-03-23T16:55:23+00:00">16:55:23</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>oh god, I know so many</q></li>
+<li class="message">[<a href="#T16:55:37" id="T16:55:37"><abbr title="2009-03-23T16:55:37+00:00">16:55:37</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>but they're dumb bitches, they keep running back to them</q></li>
+<li class="message">[<a href="#T16:55:38" id="T16:55:38"><abbr title="2009-03-23T16:55:38+00:00">16:55:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm not that blond</q></li>
+<li class="message">[<a href="#T16:55:57" id="T16:55:57"><abbr title="2009-03-23T16:55:57+00:00">16:55:57</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>apparently swedish girls like guys who aren't blonde, cause they've got enough of em in sweden</q></li>
+<li class="action">[<a href="#T16:56:12" id="T16:56:12"><abbr title="2009-03-23T16:56:12+00:00">16:56:12</abbr></a>] <span>* mru doesn't live in sweden</span></li>
+<li class="join">[<a href="#T16:56:14" id="T16:56:14"><abbr title="2009-03-23T16:56:14+00:00">16:56:14</abbr></a>] <span>* davidm1 (n=David@nat/ti/x-12708338f374b434) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:56:20" id="T16:56:20"><abbr title="2009-03-23T16:56:20+00:00">16:56:20</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>oh heh</q></li>
+<li class="message">[<a href="#T16:57:06" id="T16:57:06"><abbr title="2009-03-23T16:57:06+00:00">16:57:06</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>wait, you're an engineer you said?</q></li>
+<li class="message">[<a href="#T16:57:20" id="T16:57:20"><abbr title="2009-03-23T16:57:20+00:00">16:57:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I did</q></li>
+<li class="message">[<a href="#T16:57:36" id="T16:57:36"><abbr title="2009-03-23T16:57:36+00:00">16:57:36</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T16:57:40" id="T16:57:40"><abbr title="2009-03-23T16:57:40+00:00">16:57:40</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>EE right?</q></li>
+<li class="message">[<a href="#T16:58:18" id="T16:58:18"><abbr title="2009-03-23T16:58:18+00:00">16:58:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's what the papers say, I'm doing software</q></li>
+<li class="message">[<a href="#T16:58:22" id="T16:58:22"><abbr title="2009-03-23T16:58:22+00:00">16:58:22</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>anyway, you know "linear and nonlinear circuits"?</q></li>
+<li class="message">[<a href="#T16:58:36" id="T16:58:36"><abbr title="2009-03-23T16:58:36+00:00">16:58:36</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>hehe, I plan to go into software engineering later on</q></li>
+<li class="action">[<a href="#T16:58:39" id="T16:58:39"><abbr title="2009-03-23T16:58:39+00:00">16:58:39</abbr></a>] <span>* russ makes a crucifix out of ICs</span></li>
+<li class="join">[<a href="#T16:58:40" id="T16:58:40"><abbr title="2009-03-23T16:58:40+00:00">16:58:40</abbr></a>] <span>* mib_wpogq7 (i=c9184d2a@gateway/web/ajax/mibbit.com/x-08d980afc67530bc) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T16:58:47" id="T16:58:47"><abbr title="2009-03-23T16:58:47+00:00">16:58:47</abbr></a>] <span>* mckoan is now known as mckoan|away</span></li>
+<li class="message">[<a href="#T16:59:03" id="T16:59:03"><abbr title="2009-03-23T16:59:03+00:00">16:59:03</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>russ: are you going to crucify somebody?</q></li>
+<li class="message">[<a href="#T16:59:30" id="T16:59:30"><abbr title="2009-03-23T16:59:30+00:00">16:59:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>nonlinear circuits are evil</q></li>
+<li class="message">[<a href="#T16:59:43" id="T16:59:43"><abbr title="2009-03-23T16:59:43+00:00">16:59:43</abbr></a>] &lt;<cite>russ</cite>&gt; <q>I'm just trying to keep that book from haunting me</q></li>
+<li class="message">[<a href="#T16:59:58" id="T16:59:58"><abbr title="2009-03-23T16:59:58+00:00">16:59:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>linear is easy</q></li>
+<li class="message">[<a href="#T16:59:59" id="T16:59:59"><abbr title="2009-03-23T16:59:59+00:00">16:59:59</abbr></a>] &lt;<cite>uberfry</cite>&gt; <q>hahahah</q></li>
+<li class="quit">[<a href="#T17:00:02" id="T17:00:02"><abbr title="2009-03-23T17:00:02+00:00">17:00:02</abbr></a>] <span>* russ (i=foobar@ip70-176-253-20.ph.ph.cox.net) Quit (Remote closed the connection)</span></li>
