@@ -104,3 +104,165 @@
 <li class="message">[<a href="#T00:56:57" id="T00:56:57"><abbr title="2009-03-25T00:56:57+00:00">00:56:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no need to mess around with auxv</q></li>
 <li class="message">[<a href="#T00:58:10" id="T00:58:10"><abbr title="2009-03-25T00:58:10+00:00">00:58:10</abbr></a>] &lt;<cite>ds</cite>&gt; <q>it changes what I said earlier, is all</q></li>
 <li class="message">[<a href="#T01:00:01" id="T01:00:01"><abbr title="2009-03-25T01:00:01+00:00">01:00:01</abbr></a>] &lt;<cite>ds</cite>&gt; <q>one problem with relying on CPU identification instructions is that you risk a SIGILL on older kernels</q></li>
+<li class="message">[<a href="#T01:00:25" id="T01:00:25"><abbr title="2009-03-25T01:00:25+00:00">01:00:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you risk the auxv not being there too</q></li>
+<li class="message">[<a href="#T01:00:53" id="T01:00:53"><abbr title="2009-03-25T01:00:53+00:00">01:00:53</abbr></a>] &lt;<cite>ds</cite>&gt; <q>at least in that case you don't abort</q></li>
+<li class="message">[<a href="#T01:01:42" id="T01:01:42"><abbr title="2009-03-25T01:01:42+00:00">01:01:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ds:  but sigill is unreliable!</q></li>
+<li class="message">[<a href="#T01:01:49" id="T01:01:49"><abbr title="2009-03-25T01:01:49+00:00">01:01:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T01:02:00" id="T01:02:00"><abbr title="2009-03-25T01:02:00+00:00">01:02:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>only if you try to trap it</q></li>
+<li class="message">[<a href="#T01:02:47" id="T01:02:47"><abbr title="2009-03-25T01:02:47+00:00">01:02:47</abbr></a>] &lt;<cite>russ</cite>&gt; <q>like I said, sacrificial process</q></li>
+<li class="message">[<a href="#T01:02:55" id="T01:02:55"><abbr title="2009-03-25T01:02:55+00:00">01:02:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but an app that sigills... isnt much use</q></li>
+<li class="message">[<a href="#T01:03:16" id="T01:03:16"><abbr title="2009-03-25T01:03:16+00:00">01:03:16</abbr></a>] &lt;<cite>russ</cite>&gt; <q>open file descriptor, fork, run instruction, exit 0</q></li>
+<li class="message">[<a href="#T01:03:25" id="T01:03:25"><abbr title="2009-03-25T01:03:25+00:00">01:03:25</abbr></a>] &lt;<cite>russ</cite>&gt; <q>parent process checks return code</q></li>
+<li class="message">[<a href="#T01:03:28" id="T01:03:28"><abbr title="2009-03-25T01:03:28+00:00">01:03:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's mainly distro maintainers pushing for this</q></li>
+<li class="message">[<a href="#T01:03:39" id="T01:03:39"><abbr title="2009-03-25T01:03:39+00:00">01:03:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>they want to ship the same binaries to run on many processors</q></li>
+<li class="message">[<a href="#T01:03:48" id="T01:03:48"><abbr title="2009-03-25T01:03:48+00:00">01:03:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>they can make sure they also ship a suitable kernel</q></li>
+<li class="message">[<a href="#T01:04:25" id="T01:04:25"><abbr title="2009-03-25T01:04:25+00:00">01:04:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>mru:  i do agree though that this is a problem</q></li>
+<li class="message">[<a href="#T01:04:29" id="T01:04:29"><abbr title="2009-03-25T01:04:29+00:00">01:04:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>in the arm world its worse</q></li>
+<li class="message">[<a href="#T01:04:39" id="T01:04:39"><abbr title="2009-03-25T01:04:39+00:00">01:04:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as there are now so many variations of cpu extensions/generations</q></li>
+<li class="message">[<a href="#T01:04:46" id="T01:04:46"><abbr title="2009-03-25T01:04:46+00:00">01:04:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>at least on x86 its "simple"</q></li>
+<li class="message">[<a href="#T01:04:48" id="T01:04:48"><abbr title="2009-03-25T01:04:48+00:00">01:04:48</abbr></a>] &lt;<cite>russ</cite>&gt; <q>raster: don't forget all the floating point formats</q></li>
+<li class="message">[<a href="#T01:04:50" id="T01:04:50"><abbr title="2009-03-25T01:04:50+00:00">01:04:50</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and ppc is trivial</q></li>
+<li class="message">[<a href="#T01:05:07" id="T01:05:07"><abbr title="2009-03-25T01:05:07+00:00">01:05:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>russ: that too</q></li>
+<li class="message">[<a href="#T01:05:25" id="T01:05:25"><abbr title="2009-03-25T01:05:25+00:00">01:05:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but at least it should be sane to ship 1 binary for all arm paltforms</q></li>
+<li class="message">[<a href="#T01:05:33" id="T01:05:33"><abbr title="2009-03-25T01:05:33+00:00">01:05:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the problem is.. it isn't</q></li>
+<li class="message">[<a href="#T01:05:34" id="T01:05:34"><abbr title="2009-03-25T01:05:34+00:00">01:05:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T01:05:45" id="T01:05:45"><abbr title="2009-03-25T01:05:45+00:00">01:05:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it also doesn't make sense</q></li>
+<li class="message">[<a href="#T01:05:46" id="T01:05:46"><abbr title="2009-03-25T01:05:46+00:00">01:05:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i can specifically deal with neon at runtime</q></li>
+<li class="message">[<a href="#T01:05:50" id="T01:05:50"><abbr title="2009-03-25T01:05:50+00:00">01:05:50</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(or fall back to normal c)</q></li>
+<li class="message">[<a href="#T01:05:52" id="T01:05:52"><abbr title="2009-03-25T01:05:52+00:00">01:05:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and so on</q></li>
+<li class="message">[<a href="#T01:06:07" id="T01:06:07"><abbr title="2009-03-25T01:06:07+00:00">01:06:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>armcc generates 10% faster code if allowed to use neon</q></li>
+<li class="message">[<a href="#T01:06:39" id="T01:06:39"><abbr title="2009-03-25T01:06:39+00:00">01:06:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ir auto uses neon if it can?</q></li>
+<li class="message">[<a href="#T01:06:41" id="T01:06:41"><abbr title="2009-03-25T01:06:41+00:00">01:06:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it</q></li>
+<li class="message">[<a href="#T01:06:49" id="T01:06:49"><abbr title="2009-03-25T01:06:49+00:00">01:06:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you tell it</q></li>
+<li class="join">[<a href="#T01:06:52" id="T01:06:52"><abbr title="2009-03-25T01:06:52+00:00">01:06:52</abbr></a>] <span>* openfree (i=cb6ea385@gateway/web/ajax/mibbit.com/x-a49c940d31e0f503) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:06:58" id="T01:06:58"><abbr title="2009-03-25T01:06:58+00:00">01:06:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T01:06:59" id="T01:06:59"><abbr title="2009-03-25T01:06:59+00:00">01:06:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thats cool</q></li>
+<li class="message">[<a href="#T01:07:05" id="T01:07:05"><abbr title="2009-03-25T01:07:05+00:00">01:07:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it can vectorise some kinds of loops</q></li>
+<li class="message">[<a href="#T01:07:18" id="T01:07:18"><abbr title="2009-03-25T01:07:18+00:00">01:07:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc can too in theory</q></li>
+<li class="message">[<a href="#T01:07:27" id="T01:07:27"><abbr title="2009-03-25T01:07:27+00:00">01:07:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>in practice it's no faster, only buggy</q></li>
+<li class="message">[<a href="#T01:07:36" id="T01:07:36"><abbr title="2009-03-25T01:07:36+00:00">01:07:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hehehehe</q></li>
+<li class="message">[<a href="#T01:07:47" id="T01:07:47"><abbr title="2009-03-25T01:07:47+00:00">01:07:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>from a distro point of view tho</q></li>
+<li class="message">[<a href="#T01:07:48" id="T01:07:48"><abbr title="2009-03-25T01:07:48+00:00">01:07:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it is a problem</q></li>
+<li class="message">[<a href="#T01:07:54" id="T01:07:54"><abbr title="2009-03-25T01:07:54+00:00">01:07:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>most wopuld give up 10%</q></li>
+<li class="message">[<a href="#T01:08:04" id="T01:08:04"><abbr title="2009-03-25T01:08:04+00:00">01:08:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>distros should do several buidls</q></li>
+<li class="message">[<a href="#T01:08:06" id="T01:08:06"><abbr title="2009-03-25T01:08:06+00:00">01:08:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>if they could just handle an arm distro universally</q></li>
+<li class="message">[<a href="#T01:08:22" id="T01:08:22"><abbr title="2009-03-25T01:08:22+00:00">01:08:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>even gcc makes good use of armv6 instructions</q></li>
+<li class="message">[<a href="#T01:08:28" id="T01:08:28"><abbr title="2009-03-25T01:08:28+00:00">01:08:28</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T01:08:37" id="T01:08:37"><abbr title="2009-03-25T01:08:37+00:00">01:08:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but then u get arm vs thumb</q></li>
+<li class="message">[<a href="#T01:08:42" id="T01:08:42"><abbr title="2009-03-25T01:08:42+00:00">01:08:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and obai vs eabi</q></li>
+<li class="message">[<a href="#T01:08:48" id="T01:08:48"><abbr title="2009-03-25T01:08:48+00:00">01:08:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>performance is scarce enough as it is on arm</q></li>
+<li class="message">[<a href="#T01:08:51" id="T01:08:51"><abbr title="2009-03-25T01:08:51+00:00">01:08:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>v4, v5, v6 anf v7</q></li>
+<li class="message">[<a href="#T01:08:56" id="T01:08:56"><abbr title="2009-03-25T01:08:56+00:00">01:08:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>only debian uses oabi</q></li>
+<li class="message">[<a href="#T01:08:59" id="T01:08:59"><abbr title="2009-03-25T01:08:59+00:00">01:08:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and then v7 with or withit neon</q></li>
+<li class="message">[<a href="#T01:09:04" id="T01:09:04"><abbr title="2009-03-25T01:09:04+00:00">01:09:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>v6 with or without vfp</q></li>
+<li class="message">[<abbr title="2009-03-25T01:09:04+00:00">01:09:04</abbr>] &lt;<cite>vlad_</cite>&gt; <q>raster: it depends though, distros have compiled specific libs with per-cpu flags in the past</q></li>
+<li class="message">[<a href="#T01:09:05" id="T01:09:05"><abbr title="2009-03-25T01:09:05+00:00">01:09:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>etc. etc.</q></li>
+<li class="message">[<a href="#T01:09:09" id="T01:09:09"><abbr title="2009-03-25T01:09:09+00:00">01:09:09</abbr></a>] &lt;<cite>vlad_</cite>&gt; <q>they wouldn't do it for the general case</q></li>
+<li class="message">[<a href="#T01:09:10" id="T01:09:10"><abbr title="2009-03-25T01:09:10+00:00">01:09:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its quite a matrix</q></li>
+<li class="message">[<a href="#T01:09:11" id="T01:09:11"><abbr title="2009-03-25T01:09:11+00:00">01:09:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I've been happily ignoring debian for 28 years</q></li>
+<li class="message">[<a href="#T01:09:17" id="T01:09:17"><abbr title="2009-03-25T01:09:17+00:00">01:09:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I reckon I can continue</q></li>
+<li class="message">[<a href="#T01:09:30" id="T01:09:30"><abbr title="2009-03-25T01:09:30+00:00">01:09:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hahahaha</q></li>
+<li class="message">[<a href="#T01:09:50" id="T01:09:50"><abbr title="2009-03-25T01:09:50+00:00">01:09:50</abbr></a>] &lt;<cite>russ</cite>&gt; <q>I thought debian had an eabi port too</q></li>
+<li class="message">[<a href="#T01:09:52" id="T01:09:52"><abbr title="2009-03-25T01:09:52+00:00">01:09:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the vX variants are all supersets of the previous ones</q></li>
+<li class="message">[<a href="#T01:10:24" id="T01:10:24"><abbr title="2009-03-25T01:10:24+00:00">01:10:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>eabi/oabi is irrelevant to this discussion</q></li>
+<li class="message">[<a href="#T01:10:38" id="T01:10:38"><abbr title="2009-03-25T01:10:38+00:00">01:10:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you just pick one and build everything like that</q></li>
+<li class="message">[<a href="#T01:10:46" id="T01:10:46"><abbr title="2009-03-25T01:10:46+00:00">01:10:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>sane people pick eabi</q></li>
+<li class="message">[<a href="#T01:10:49" id="T01:10:49"><abbr title="2009-03-25T01:10:49+00:00">01:10:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T01:11:05" id="T01:11:05"><abbr title="2009-03-25T01:11:05+00:00">01:11:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'm just pointing out the myriad of thnigs they need to build</q></li>
+<li class="message">[<a href="#T01:11:27" id="T01:11:27"><abbr title="2009-03-25T01:11:27+00:00">01:11:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you're forgetting vfpv2, vfpv3, vfpv3_d16</q></li>
+<li class="message">[<a href="#T01:11:34" id="T01:11:34"><abbr title="2009-03-25T01:11:34+00:00">01:11:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>integer-only neon, ...</q></li>
+<li class="message">[<a href="#T01:11:51" id="T01:11:51"><abbr title="2009-03-25T01:11:51+00:00">01:11:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T01:11:58" id="T01:11:58"><abbr title="2009-03-25T01:11:58+00:00">01:11:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i have only done some of them</q></li>
+<li class="message">[<a href="#T01:12:08" id="T01:12:08"><abbr title="2009-03-25T01:12:08+00:00">01:12:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>most of them don't actually exist</q></li>
+<li class="message">[<a href="#T01:12:10" id="T01:12:10"><abbr title="2009-03-25T01:12:10+00:00">01:12:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>my poiunt was its a very large set of variants and combos</q></li>
+<li class="message">[<a href="#T01:12:11" id="T01:12:11"><abbr title="2009-03-25T01:12:11+00:00">01:12:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>in silicon</q></li>
+<li class="message">[<a href="#T01:12:15" id="T01:12:15"><abbr title="2009-03-25T01:12:15+00:00">01:12:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ls</q></li>
+<li class="quit">[<a href="#T01:12:43" id="T01:12:43"><abbr title="2009-03-25T01:12:43+00:00">01:12:43</abbr></a>] <span>* [-ip-] (n=ts@mnhm-590e13fe.pool.einsundeins.de) Quit ()</span></li>
+<li class="join">[<a href="#T01:13:12" id="T01:13:12"><abbr title="2009-03-25T01:13:12+00:00">01:13:12</abbr></a>] <span>* bazbell (n=a0192809@nat/ti/x-9e38f892c5ab6846) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:13:41" id="T01:13:41"><abbr title="2009-03-25T01:13:41+00:00">01:13:41</abbr></a>] <span>* bazbell (n=a0192809@nat/ti/x-9e38f892c5ab6846) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T01:14:18" id="T01:14:18"><abbr title="2009-03-25T01:14:18+00:00">01:14:18</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:17:21" id="T01:17:21"><abbr title="2009-03-25T01:17:21+00:00">01:17:21</abbr></a>] &lt;<cite>russ</cite>&gt; <q>with most stuff though, you only need to compile a subset of packages with optimization</q></li>
+<li class="quit">[<a href="#T01:17:57" id="T01:17:57"><abbr title="2009-03-25T01:17:57+00:00">01:17:57</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T01:19:35" id="T01:19:35"><abbr title="2009-03-25T01:19:35+00:00">01:19:35</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:21:02" id="T01:21:02"><abbr title="2009-03-25T01:21:02+00:00">01:21:02</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T01:23:17" id="T01:23:17"><abbr title="2009-03-25T01:23:17+00:00">01:23:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen would disagree</q></li>
+<li class="message">[<a href="#T01:24:25" id="T01:24:25"><abbr title="2009-03-25T01:24:25+00:00">01:24:25</abbr></a>] &lt;<cite>russ</cite>&gt; <q>does libpam really need to be compiled with optimization?</q></li>
+<li class="message">[<a href="#T01:25:16" id="T01:25:16"><abbr title="2009-03-25T01:25:16+00:00">01:25:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>maybe not</q></li>
+<li class="message">[<a href="#T01:25:54" id="T01:25:54"><abbr title="2009-03-25T01:25:54+00:00">01:25:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but extending your argument we wouldn't need to use the computer at all</q></li>
+<li class="message">[<a href="#T01:27:14" id="T01:27:14"><abbr title="2009-03-25T01:27:14+00:00">01:27:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but lets find out how much difference the optimisation target actually makes</q></li>
+<li class="join">[<a href="#T01:27:56" id="T01:27:56"><abbr title="2009-03-25T01:27:56+00:00">01:27:56</abbr></a>] <span>* khasim (n=a0393720@192.163.20.231) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:28:07" id="T01:28:07"><abbr title="2009-03-25T01:28:07+00:00">01:28:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I have four ffmpeg builds, optimised for v4, v5, v6, and v7</q></li>
+<li class="message">[<a href="#T01:28:32" id="T01:28:32"><abbr title="2009-03-25T01:28:32+00:00">01:28:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>all hand-written assembler disabled for this test</q></li>
+<li class="message">[<a href="#T01:28:38" id="T01:28:38"><abbr title="2009-03-25T01:28:38+00:00">01:28:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>since we're testing the compiler</q></li>
+<li class="message">[<a href="#T01:32:40" id="T01:32:40"><abbr title="2009-03-25T01:32:40+00:00">01:32:40</abbr></a>] &lt;<cite>russ</cite>&gt; <q>are you building them against an optimized libc?</q></li>
+<li class="message">[<a href="#T01:32:52" id="T01:32:52"><abbr title="2009-03-25T01:32:52+00:00">01:32:52</abbr></a>] &lt;<cite>russ</cite>&gt; <q>optimized memcpy and such?</q></li>
+<li class="message">[<a href="#T01:32:59" id="T01:32:59"><abbr title="2009-03-25T01:32:59+00:00">01:32:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, but ffmpeg spends very little time in libc</q></li>
+<li class="message">[<a href="#T01:34:01" id="T01:34:01"><abbr title="2009-03-25T01:34:01+00:00">01:34:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>1 or 2 percent</q></li>
+<li class="message">[<a href="#T01:34:27" id="T01:34:27"><abbr title="2009-03-25T01:34:27+00:00">01:34:27</abbr></a>] &lt;<cite>russ</cite>&gt; <q>does that count the .a stuff too?</q></li>
+<li class="message">[<a href="#T01:34:42" id="T01:34:42"><abbr title="2009-03-25T01:34:42+00:00">01:34:42</abbr></a>] &lt;<cite>russ</cite>&gt; <q>eg, libgcc.a?</q></li>
+<li class="message">[<a href="#T01:34:46" id="T01:34:46"><abbr title="2009-03-25T01:34:46+00:00">01:34:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>fully static link</q></li>
+<li class="message">[<a href="#T01:35:10" id="T01:35:10"><abbr title="2009-03-25T01:35:10+00:00">01:35:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>calling memcpy() is more or less a bug in ffmpeg</q></li>
+<li class="message">[<a href="#T01:35:17" id="T01:35:17"><abbr title="2009-03-25T01:35:17+00:00">01:35:17</abbr></a>] &lt;<cite>russ</cite>&gt; <q>what about softfloat inlining?</q></li>
+<li class="message">[<a href="#T01:35:41" id="T01:35:41"><abbr title="2009-03-25T01:35:41+00:00">01:35:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm not testing floating point this time</q></li>
+<li class="message">[<a href="#T01:35:53" id="T01:35:53"><abbr title="2009-03-25T01:35:53+00:00">01:35:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's pointless</q></li>
+<li class="message">[<a href="#T01:36:04" id="T01:36:04"><abbr title="2009-03-25T01:36:04+00:00">01:36:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>everybody knows vfp is many times faster than softfloat</q></li>
+<li class="message">[<a href="#T01:36:23" id="T01:36:23"><abbr title="2009-03-25T01:36:23+00:00">01:36:23</abbr></a>] &lt;<cite>russ</cite>&gt; <q>ah, so you are running them all on a v7</q></li>
+<li class="message">[<a href="#T01:36:27" id="T01:36:27"><abbr title="2009-03-25T01:36:27+00:00">01:36:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T01:36:30" id="T01:36:30"><abbr title="2009-03-25T01:36:30+00:00">01:36:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's the point</q></li>
+<li class="message">[<a href="#T01:36:43" id="T01:36:43"><abbr title="2009-03-25T01:36:43+00:00">01:36:43</abbr></a>] &lt;<cite>russ</cite>&gt; <q>but wouldn't a true v4 binary have softfloat?</q></li>
+<li class="message">[<a href="#T01:36:53" id="T01:36:53"><abbr title="2009-03-25T01:36:53+00:00">01:36:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes it would</q></li>
+<li class="message">[<a href="#T01:36:58" id="T01:36:58"><abbr title="2009-03-25T01:36:58+00:00">01:36:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and performance would suck</q></li>
+<li class="message">[<a href="#T01:37:21" id="T01:37:21"><abbr title="2009-03-25T01:37:21+00:00">01:37:21</abbr></a>] &lt;<cite>russ</cite>&gt; <q>not compared to if you deployed it to a real v4 system and the kernel did all the floating point work</q></li>
+<li class="message">[<a href="#T01:37:55" id="T01:37:55"><abbr title="2009-03-25T01:37:55+00:00">01:37:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's a waste of time to check whether vfp is faster than softfloat on cortex-a8</q></li>
+<li class="message">[<a href="#T01:37:58" id="T01:37:58"><abbr title="2009-03-25T01:37:58+00:00">01:37:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>we know it is</q></li>
+<li class="message">[<a href="#T01:38:09" id="T01:38:09"><abbr title="2009-03-25T01:38:09+00:00">01:38:09</abbr></a>] &lt;<cite>russ</cite>&gt; <q>maybe I'm confused by your end goal</q></li>
+<li class="message">[<a href="#T01:38:34" id="T01:38:34"><abbr title="2009-03-25T01:38:34+00:00">01:38:34</abbr></a>] &lt;<cite>russ</cite>&gt; <q>if the choice is to distribute copies of ffmpeg optimized for different processors, or just one copy for all</q></li>
+<li class="message">[<abbr title="2009-03-25T01:38:34+00:00">01:38:34</abbr>] &lt;<cite>mru</cite>&gt; <q>the end goal is to see how much faster normal integer code gets from targeting various cpus</q></li>
+<li class="message">[<a href="#T01:38:42" id="T01:38:42"><abbr title="2009-03-25T01:38:42+00:00">01:38:42</abbr></a>] &lt;<cite>russ</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T01:38:56" id="T01:38:56"><abbr title="2009-03-25T01:38:56+00:00">01:38:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>how much penalty A8 pays for running v4 code</q></li>
+<li class="message">[<a href="#T01:39:23" id="T01:39:23"><abbr title="2009-03-25T01:39:23+00:00">01:39:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I already know that floating point code runs several times faster with vfp</q></li>
+<li class="message">[<a href="#T01:39:34" id="T01:39:34"><abbr title="2009-03-25T01:39:34+00:00">01:39:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>nobody has ever disputed that</q></li>
+<li class="message">[<a href="#T01:39:54" id="T01:39:54"><abbr title="2009-03-25T01:39:54+00:00">01:39:54</abbr></a>] &lt;<cite>russ</cite>&gt; <q>I just got caught up in the binary distribution part of the discussion</q></li>
+<li class="message">[<a href="#T01:40:12" id="T01:40:12"><abbr title="2009-03-25T01:40:12+00:00">01:40:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's related</q></li>
+<li class="join">[<a href="#T01:40:29" id="T01:40:29"><abbr title="2009-03-25T01:40:29+00:00">01:40:29</abbr></a>] <span>* jso (n=user@151.159.200.8) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:41:18" id="T01:41:18"><abbr title="2009-03-25T01:41:18+00:00">01:41:18</abbr></a>] &lt;<cite>russ</cite>&gt; <q>then my point would be that an ffmpeg complied to run across multiple arm versions would likely be compiled with softfloat</q></li>
+<li class="message">[<a href="#T01:41:48" id="T01:41:48"><abbr title="2009-03-25T01:41:48+00:00">01:41:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, but that won't affect the integer parts</q></li>
+<li class="message">[<a href="#T01:42:00" id="T01:42:00"><abbr title="2009-03-25T01:42:00+00:00">01:42:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I don't need to measure what I already know</q></li>
+<li class="message">[<a href="#T01:42:13" id="T01:42:13"><abbr title="2009-03-25T01:42:13+00:00">01:42:13</abbr></a>] &lt;<cite>russ</cite>&gt; <q>I guess I always figured that something like ffmpeg would have a fair deal of floating point</q></li>
+<li class="message">[<a href="#T01:42:19" id="T01:42:19"><abbr title="2009-03-25T01:42:19+00:00">01:42:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it doesn't</q></li>
+<li class="message">[<a href="#T01:42:24" id="T01:42:24"><abbr title="2009-03-25T01:42:24+00:00">01:42:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>only a few audio codecs do</q></li>
+<li class="message">[<a href="#T01:42:36" id="T01:42:36"><abbr title="2009-03-25T01:42:36+00:00">01:42:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>e.g. mpeg2 decoding has virtually no floating point</q></li>
+<li class="message">[<a href="#T01:42:56" id="T01:42:56"><abbr title="2009-03-25T01:42:56+00:00">01:42:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there might be a few odd float ops somewhere</q></li>
+<li class="message">[<a href="#T01:43:20" id="T01:43:20"><abbr title="2009-03-25T01:43:20+00:00">01:43:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>probably no more than one float op per million integer ops</q></li>
+<li class="message">[<a href="#T01:43:30" id="T01:43:30"><abbr title="2009-03-25T01:43:30+00:00">01:43:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so softfloat or not really doesn't matter there</q></li>
+<li class="join">[<a href="#T01:45:26" id="T01:45:26"><abbr title="2009-03-25T01:45:26+00:00">01:45:26</abbr></a>] <span>* joesensport (n=joesensp@218.242.229.234) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:46:00" id="T01:46:00"><abbr title="2009-03-25T01:46:00+00:00">01:46:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ffmpeg probably isn't representative of software on average of course</q></li>
+<li class="message">[<a href="#T01:46:14" id="T01:46:14"><abbr title="2009-03-25T01:46:14+00:00">01:46:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but it's usually a pretty good indicator of compiler performance</q></li>
+<li class="message">[<a href="#T01:46:41" id="T01:46:41"><abbr title="2009-03-25T01:46:41+00:00">01:46:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and it's easy to compile for a multitude of targets</q></li>
+<li class="message">[<a href="#T01:47:05" id="T01:47:05"><abbr title="2009-03-25T01:47:05+00:00">01:47:05</abbr></a>] &lt;<cite>jso</cite>&gt; <q>actually, it would very much affect the integer portions.  GCC can optimize for NEON and lemme check the source, I believe there are some NEON opts included in ffmpeg.</q></li>
+<li class="message">[<a href="#T01:48:00" id="T01:48:00"><abbr title="2009-03-25T01:48:00+00:00">01:48:00</abbr></a>] &lt;<cite>jso</cite>&gt; <q>Yes, several of the codec operations have been hand coded with NEON intrinsics.</q></li>
+<li class="message">[<a href="#T01:48:19" id="T01:48:19"><abbr title="2009-03-25T01:48:19+00:00">01:48:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ahahahaha</q></li>
+<li class="message">[<a href="#T01:48:39" id="T01:48:39"><abbr title="2009-03-25T01:48:39+00:00">01:48:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc optimise for neon, lol</q></li>
+<li class="message">[<a href="#T01:48:45" id="T01:48:45"><abbr title="2009-03-25T01:48:45+00:00">01:48:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jso: I wrote the ffmpeg neon code</q></li>
+<li class="join">[<a href="#T01:49:15" id="T01:49:15"><abbr title="2009-03-25T01:49:15+00:00">01:49:15</abbr></a>] <span>* __alanc__ (n=a-campbe@nat/ti/x-4b411f0acbbf9e39) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:49:22" id="T01:49:22"><abbr title="2009-03-25T01:49:22+00:00">01:49:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and I did *not* use intrinsics</q></li>
+<li class="message">[<a href="#T01:49:38" id="T01:49:38"><abbr title="2009-03-25T01:49:38+00:00">01:49:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc generates horrible code from them</q></li>
+<li class="message">[<a href="#T01:51:16" id="T01:51:16"><abbr title="2009-03-25T01:51:16+00:00">01:51:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I benchmarked the gcc vectoriser earlier today</q></li>
+<li class="message">[<a href="#T01:51:23" id="T01:51:23"><abbr title="2009-03-25T01:51:23+00:00">01:51:23</abbr></a>] &lt;<cite>ds</cite>&gt; <q>gcc generates horrible code for intrinsics on all architectures...</q></li>
+<li class="message">[<abbr title="2009-03-25T01:51:23+00:00">01:51:23</abbr>] &lt;<cite>mru</cite>&gt; <q>it made *no* difference at all</q></li>
+<li class="message">[<a href="#T01:51:24" id="T01:51:24"><abbr title="2009-03-25T01:51:24+00:00">01:51:24</abbr></a>] &lt;<cite>jso</cite>&gt; <q>Which version?</q></li>
+<li class="message">[<a href="#T01:51:36" id="T01:51:36"><abbr title="2009-03-25T01:51:36+00:00">01:51:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>latest</q></li>
+<li class="message">[<a href="#T01:51:47" id="T01:51:47"><abbr title="2009-03-25T01:51:47+00:00">01:51:47</abbr></a>] &lt;<cite>jso</cite>&gt; <q>which is?  I roll svn.</q></li>
+<li class="message">[<a href="#T01:52:11" id="T01:52:11"><abbr title="2009-03-25T01:52:11+00:00">01:52:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>4.3.3 from gnu and 4.3.2+patches from codesourcery</q></li>
+<li class="message">[<a href="#T01:52:35" id="T01:52:35"><abbr title="2009-03-25T01:52:35+00:00">01:52:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the vectoriser does have some nasty bugs though</q></li>
+<li class="message">[<a href="#T01:53:07" id="T01:53:07"><abbr title="2009-03-25T01:53:07+00:00">01:53:07</abbr></a>] &lt;<cite>jso</cite>&gt; <q>Word.  I believe the big changes in Tree Vectoriser is in 4.4.0, but who know when that'll be out given the FSF's bullshit as of late.</q></li>
+<li class="message">[<a href="#T01:53:18" id="T01:53:18"><abbr title="2009-03-25T01:53:18+00:00">01:53:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T01:53:25" id="T01:53:25"><abbr title="2009-03-25T01:53:25+00:00">01:53:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's so stupid</q></li>
+<li class="message">[<a href="#T01:53:54" id="T01:53:54"><abbr title="2009-03-25T01:53:54+00:00">01:53:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc svn has some real issues on powerpc</q></li>
+<li class="message">[<a href="#T01:54:22" id="T01:54:22"><abbr title="2009-03-25T01:54:22+00:00">01:54:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>see <a href="http://fate.multimedia.cx/">http://fate.multimedia.cx/</a> last table on page</q></li>
+<li class="message">[<a href="#T01:55:43" id="T01:55:43"><abbr title="2009-03-25T01:55:43+00:00">01:55:43</abbr></a>] &lt;<cite>jso</cite>&gt; <q>Wow!  That is terrible.</q></li>
+<li class="join">[<a href="#T01:55:53" id="T01:55:53"><abbr title="2009-03-25T01:55:53+00:00">01:55:53</abbr></a>] <span>* leslie (n=leslie@116.228.58.74) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:55:59" id="T01:55:59"><abbr title="2009-03-25T01:55:59+00:00">01:55:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's been like that for a year or so</q></li>
+<li class="message">[<a href="#T01:56:32" id="T01:56:32"><abbr title="2009-03-25T01:56:32+00:00">01:56:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's failing one test on x86-64 even</q></li>
+<li class="message">[<a href="#T01:56:34" id="T01:56:34"><abbr title="2009-03-25T01:56:34+00:00">01:56:34</abbr></a>] &lt;<cite>jso</cite>&gt; <q>Honestly, that doesn't surprise me.  I've dealt with a TON of errors in the GCC toolchain.  And use another language besides C?  Hahahaha.</q></li>
+<li class="nick-change">[<a href="#T01:58:27" id="T01:58:27"><abbr title="2009-03-25T01:58:27+00:00">01:58:27</abbr></a>] <span>* fulgas is now known as FuL|OUT</span></li>
