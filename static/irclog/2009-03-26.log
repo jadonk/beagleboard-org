@@ -981,3 +981,335 @@
 <li class="message">[<a href="#T13:58:17" id="T13:58:17"><abbr title="2009-03-26T13:58:17+00:00">13:58:17</abbr></a>] &lt;<cite>khasim</cite>&gt; <q>mru was this you who stimated this ;-)</q></li>
 <li class="message">[<a href="#T13:58:28" id="T13:58:28"><abbr title="2009-03-26T13:58:28+00:00">13:58:28</abbr></a>] &lt;<cite>khasim</cite>&gt; <q>estimated</q></li>
 <li class="message">[<a href="#T13:59:28" id="T13:59:28"><abbr title="2009-03-26T13:59:28+00:00">13:59:28</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>khasim:  Um... you realize that those "similarities" also match an UltraSPARC II from the early 90's too, right?  8)</q></li>
+<li class="message">[<a href="#T14:00:08" id="T14:00:08"><abbr title="2009-03-26T14:00:08+00:00">14:00:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>khasim: the dm355 has a much too slow cpu for opencv</q></li>
+<li class="message">[<a href="#T14:00:29" id="T14:00:29"><abbr title="2009-03-26T14:00:29+00:00">14:00:29</abbr></a>] &lt;<cite>koen</cite>&gt; <q>khasim: unless you can hook opencv into the hardware engines for e.g. motion detection</q></li>
+<li class="message">[<a href="#T14:01:04" id="T14:01:04"><abbr title="2009-03-26T14:01:04+00:00">14:01:04</abbr></a>] &lt;<cite>khasim</cite>&gt; <q>koen: yes, with existing hardware accelerators on 355 do you still think it will not be good for opencv apps ?</q></li>
+<li class="message">[<a href="#T14:01:30" id="T14:01:30"><abbr title="2009-03-26T14:01:30+00:00">14:01:30</abbr></a>] &lt;<cite>khasim</cite>&gt; <q>that's going to be odd</q></li>
+<li class="action">[<a href="#T14:01:57" id="T14:01:57"><abbr title="2009-03-26T14:01:57+00:00">14:01:57</abbr></a>] <span>* delire is hankering for a verdict on opencv and the beagle</span></li>
+<li class="message">[<a href="#T14:02:33" id="T14:02:33"><abbr title="2009-03-26T14:02:33+00:00">14:02:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>khasim: depends on what you want with opencv</q></li>
+<li class="message">[<a href="#T14:02:51" id="T14:02:51"><abbr title="2009-03-26T14:02:51+00:00">14:02:51</abbr></a>] &lt;<cite>khasim</cite>&gt; <q>koen: do you think gumstix with camera module is good ...</q></li>
+<li class="message">[<a href="#T14:02:54" id="T14:02:54"><abbr title="2009-03-26T14:02:54+00:00">14:02:54</abbr></a>] &lt;<cite>delire</cite>&gt; <q>looking around at all the computer vision work people want to do with Android.. several GSoC projects.. the OMAP would be a nice target..</q></li>
+<li class="message">[<a href="#T14:02:56" id="T14:02:56"><abbr title="2009-03-26T14:02:56+00:00">14:02:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>khasim: a lot of stuff is CPU bound (processing of trainingdata, etc)</q></li>
+<li class="message">[<a href="#T14:03:22" id="T14:03:22"><abbr title="2009-03-26T14:03:22+00:00">14:03:22</abbr></a>] &lt;<cite>delire</cite>&gt; <q>yeah heaps of it.</q></li>
+<li class="message">[<a href="#T14:03:41" id="T14:03:41"><abbr title="2009-03-26T14:03:41+00:00">14:03:41</abbr></a>] &lt;<cite>delire</cite>&gt; <q>you really see the hit with haarcascades and planar detection</q></li>
+<li class="nick-change">[<a href="#T14:03:48" id="T14:03:48"><abbr title="2009-03-26T14:03:48+00:00">14:03:48</abbr></a>] <span>* cbrake_away is now known as cbrake</span></li>
+<li class="message">[<a href="#T14:03:56" id="T14:03:56"><abbr title="2009-03-26T14:03:56+00:00">14:03:56</abbr></a>] &lt;<cite>delire</cite>&gt; <q>houghlines.. sobel etc</q></li>
+<li class="message">[<a href="#T14:04:21" id="T14:04:21"><abbr title="2009-03-26T14:04:21+00:00">14:04:21</abbr></a>] &lt;<cite>khasim</cite>&gt; <q>my concern is are we limited by USB based camera on beagle ? or is it the processor itself ?</q></li>
+<li class="message">[<a href="#T14:04:27" id="T14:04:27"><abbr title="2009-03-26T14:04:27+00:00">14:04:27</abbr></a>] &lt;<cite>delire</cite>&gt; <q>me too</q></li>
+<li class="message">[<a href="#T14:05:16" id="T14:05:16"><abbr title="2009-03-26T14:05:16+00:00">14:05:16</abbr></a>] &lt;<cite>khasim</cite>&gt; <q>I expect it to be USB camera, in that case will USB EHCI help in improving the performance</q></li>
+<li class="message">[<a href="#T14:05:22" id="T14:05:22"><abbr title="2009-03-26T14:05:22+00:00">14:05:22</abbr></a>] &lt;<cite>delire</cite>&gt; <q>ti have a camera here which can do 960x720@30fps and the BB can capture around 5fps at 640x480</q></li>
+<li class="quit">[<a href="#T14:05:41" id="T14:05:41"><abbr title="2009-03-26T14:05:41+00:00">14:05:41</abbr></a>] <span>* Batko_Marto (n=Batko_Ma@ncart-cam.scs.ryerson.ca) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="action">[<a href="#T14:05:51" id="T14:05:51"><abbr title="2009-03-26T14:05:51+00:00">14:05:51</abbr></a>] <span>* delire continues profiling</span></li>
+<li class="message">[<a href="#T14:06:08" id="T14:06:08"><abbr title="2009-03-26T14:06:08+00:00">14:06:08</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>if OMAP was just BE I'd be the happiest man ever, but I can live with LE</q></li>
+<li class="message">[<a href="#T14:06:16" id="T14:06:16"><abbr title="2009-03-26T14:06:16+00:00">14:06:16</abbr></a>] &lt;<cite>RobertK</cite>&gt; <q>I have a camera with an internal ringbuffer. So I am able to capture some images and read them out after finishing.</q></li>
+<li class="action">[<a href="#T14:07:27" id="T14:07:27"><abbr title="2009-03-26T14:07:27+00:00">14:07:27</abbr></a>] <span>* khasim will join back later ... thanks for opencv inputs</span></li>
+<li class="message">[<a href="#T14:08:40" id="T14:08:40"><abbr title="2009-03-26T14:08:40+00:00">14:08:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>khasim: no, that wasn't me</q></li>
+<li class="message">[<a href="#T14:09:21" id="T14:09:21"><abbr title="2009-03-26T14:09:21+00:00">14:09:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Downix: you should learn to be equally comfortable with either endianness</q></li>
+<li class="message">[<a href="#T14:09:37" id="T14:09:37"><abbr title="2009-03-26T14:09:37+00:00">14:09:37</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>mru:  I'm comfortable, some of the apps I like aren't</q></li>
+<li class="quit">[<a href="#T14:09:40" id="T14:09:40"><abbr title="2009-03-26T14:09:40+00:00">14:09:40</abbr></a>] <span>* jrmuizel (n=jrmuizel@173.34.58.46) Quit ()</span></li>
+<li class="join">[<abbr title="2009-03-26T14:09:40+00:00">14:09:40</abbr>] <span>* jkridner|work (n=a0321898@nat/ti/x-16489d0b91439d39) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:09:53" id="T14:09:53"><abbr title="2009-03-26T14:09:53+00:00">14:09:53</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>they were tied too heavily to the old 68k CPU</q></li>
+<li class="message">[<abbr title="2009-03-26T14:09:53+00:00">14:09:53</abbr>] &lt;<cite>mru</cite>&gt; <q>use other apps</q></li>
+<li class="message">[<a href="#T14:10:19" id="T14:10:19"><abbr title="2009-03-26T14:10:19+00:00">14:10:19</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>mru: not always an option, despite the desire it to be.</q></li>
+<li class="message">[<a href="#T14:11:01" id="T14:11:01"><abbr title="2009-03-26T14:11:01+00:00">14:11:01</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>khasim: you're wrong, sse also does two computations per cycle</q></li>
+<li class="message">[<a href="#T14:11:12" id="T14:11:12"><abbr title="2009-03-26T14:11:12+00:00">14:11:12</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>unless they made it worse on the atom</q></li>
+<li class="message">[<a href="#T14:11:26" id="T14:11:26"><abbr title="2009-03-26T14:11:26+00:00">14:11:26</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>ldesnogu, atom's is only a scalar sse unit.</q></li>
+<li class="message">[<a href="#T14:11:34" id="T14:11:34"><abbr title="2009-03-26T14:11:34+00:00">14:11:34</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>really?</q></li>
+<li class="message">[<a href="#T14:11:44" id="T14:11:44"><abbr title="2009-03-26T14:11:44+00:00">14:11:44</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>that's good news for ARM then :)</q></li>
+<li class="message">[<a href="#T14:12:07" id="T14:12:07"><abbr title="2009-03-26T14:12:07+00:00">14:12:07</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>ldesnogu, so I understand, I've not worked in my companies atom development group, but I've heard them gripe about that bit.</q></li>
+<li class="message">[<a href="#T14:14:08" id="T14:14:08"><abbr title="2009-03-26T14:14:08+00:00">14:14:08</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>ldesnogu, I actually prefer atoms approach to in-order execution.  Out-of-order always bugged me, as it makes things harder to optimize for me</q></li>
+<li class="message">[<a href="#T14:14:39" id="T14:14:39"><abbr title="2009-03-26T14:14:39+00:00">14:14:39</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>in-order doesn't seem wise to me</q></li>
+<li class="quit">[<a href="#T14:15:16" id="T14:15:16"><abbr title="2009-03-26T14:15:16+00:00">14:15:16</abbr></a>] <span>* khasim (n=a0393720@192.163.20.231) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T14:15:24" id="T14:15:24"><abbr title="2009-03-26T14:15:24+00:00">14:15:24</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>even if you're able to do perfect scheduling by hand you'll be killed by unexpected hazards on memory for instance, that can only happen dynamically</q></li>
+<li class="message">[<a href="#T14:15:32" id="T14:15:32"><abbr title="2009-03-26T14:15:32+00:00">14:15:32</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>ldesnogu, in-order allows compiler optimizations to be handled easier.  out-of-order means that a compiler optimization may be undone by a CPU revision</q></li>
+<li class="message">[<a href="#T14:15:58" id="T14:15:58"><abbr title="2009-03-26T14:15:58+00:00">14:15:58</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>if ooo was consistant between revisions, I'd have no problem with it</q></li>
+<li class="message">[<a href="#T14:16:12" id="T14:16:12"><abbr title="2009-03-26T14:16:12+00:00">14:16:12</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>yes and when a CPU revision comes that changes static scheduling rules, suddenly legacy code is 10% slower if not worse</q></li>
+<li class="message">[<a href="#T14:16:30" id="T14:16:30"><abbr title="2009-03-26T14:16:30+00:00">14:16:30</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>too true</q></li>
+<li class="message">[<a href="#T14:16:37" id="T14:16:37"><abbr title="2009-03-26T14:16:37+00:00">14:16:37</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>so in-order stinks :)</q></li>
+<li class="message">[<a href="#T14:16:38" id="T14:16:38"><abbr title="2009-03-26T14:16:38+00:00">14:16:38</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>damned if you do, damned if you don't</q></li>
+<li class="quit">[<a href="#T14:19:51" id="T14:19:51"><abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr></a>] <span>* robclark_ (n=robclark@nat/ti/x-c8d320fe7f45b5a8) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* raghav_n (i=7bed88be@gateway/web/ajax/mibbit.com/x-e6f0d182bfb31cd0) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* TAK2004 (n=thomas@dslb-088-074-062-149.pools.arcor-ip.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* RogerMonk (n=a0740758@nat/ti/x-1183b6417f9698ab) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* Sinky (n=stancho@78.90.99.168) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* bgamari (n=ben@c-24-61-223-47.hsd1.nh.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* lool (n=lool@debian/developer/lool) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* brijesh (n=bksingh@nat/ti/x-c4ee8e4767e90f62) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* shenki (n=joel@202.174.42.5) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* Openfree (n=dennis@222.65.175.96) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* dcramer (n=davec@dcdsl.ebox.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* ldesnogu (n=ldesnogu@fw-tnat.cambridge.arm.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* davidm1 (n=David@nat/ti/x-0548d858cf7a9a83) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* PhastPhrog (n=chatzill@194.193.86.112) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* fulgas (n=fn@85.138.20.210) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* russ (i=foobar@ip70-176-253-20.ph.ph.cox.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* raster (n=raster@enlightenment/developer/raster) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* HokieTux (n=HokieTux@wireless-5192.wireless.ece.vt.edu) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* TheUni (n=TheUni@xbmc/staff/theuni) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* jkridner|work (n=a0321898@nat/ti/x-16489d0b91439d39) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* mpoullet|work (n=mpoullet@proxye.avm.de) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* mru (n=mru@thrashbarg.mansr.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* vsr (i=7aa60de8@gateway/web/ajax/mibbit.com/x-ebcf85fd49fce4fa) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* mckoan (n=marco@unaffiliated/mckoan) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* niclas (n=n-anderb@nat/ti/x-a03b6e5bab4df52e) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* koen (n=koen@s55917625.adsl.wanadoo.nl) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* Xerion (n=xerion@cp198589-d.landg1.lb.home.nl) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* likewise (n=Leon_Woe@atwork-193.r-212.178.107.atwork.nl) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* kulve (i=6226ddab@emperor.pingu.fi) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* zuh (i=344cbe8a@emperor.pingu.fi) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* Jiuy (i=t6kyha00@rhea.oamk.fi) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* hrw (n=hrw@89.78.173.235) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* GeneralAntilles (n=GeneralA@c-69-244-211-19.hsd1.fl.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* nasloc__ (i=tim@kalug.ks.edu.tw) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* LoneMeow (i=lonewolf@taika.fi) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* tomba (i=tomba@taika.fi) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* VVeIrD (n=vveird@coprophiliac.de) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* ds2 (i=noinf@netblock-66-245-251-24.dslextreme.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* abitos (n=nixgibts@dslb-084-057-146-023.pools.arcor-ip.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* Psychiat1as (i=1000@212.122.84.232) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* katier (n=a0270521@nat/ti/x-3951c7f7a3dc6ad3) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* __alanc__ (n=a-campbe@nat/ti/x-f633e641aef5be2b) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* Pavlov (n=pavlov@shell.off.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* aevin (i=eivindsy@unaffiliated/aevin) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* davidcb (n=Spot@m505e36d0.tmodns.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* as_leep (n=ali_as@ambix.plus.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* mib_svlran (i=563314e8@gateway/web/ajax/mibbit.com/x-f6bf1c8aa73f2a8f) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* bkero (n=bkero@osuosl/staff/bkero) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* skipisz (n=a0867407@nat/ti/x-628abf8df86a7966) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* philv (n=huh@lebesgue.cowpig.ca) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* AudioFreak (n=hugo@84.27.136.88) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* jkridner (n=jason@c-76-31-18-64.hsd1.tx.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* vlad_ (n=asdf@69-12-240-128.dsl.static.sonic.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* ShadowJK (i=jk@terminus.enivax.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* RobertK (i=3edc0622@gateway/web/ajax/mibbit.com/x-8571aceb045e264b) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* BThompson (n=a0193480@nat/ti/x-451ae2cda89d987a) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* lcuk (i=lcuk@cpc3-oldh7-0-0-cust590.manc.cable.ntl.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* sx (n=sx@87-126-142-238.btc-net.bg) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:51+00:00">14:19:51</abbr>] <span>* Downix (n=downix@cpe-72-184-210-102.tampabay.res.rr.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<a href="#T14:19:58" id="T14:19:58"><abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr></a>] <span>* DJWillis (n=djwillis@82-46-19-72.cable.ubr02.bath.blueyonder.co.uk) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* Crofton|work (n=balister@pool-96-240-173-146.ronkva.east.verizon.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* RogerMonk|linux (n=rmonk@nat/ti/x-2a1fdce1d99150de) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* kmwang (n=angelic4@mail.CDPA.cc) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* DaQatz (n=db@c-66-30-48-150.hsd1.nh.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* florian (n=fuchs@port-217-146-132-69.static.qsc.de) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* shoragan (n=shoragan@debian/developer/shoragan) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* simon42 (n=simon@89.238.65.10) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* saschi (n=schimans@g4r4ge-c0mput3rs.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* Vegar (n=vegar@unaffiliated/vegar) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* ghaz`` (i=theghaz@pomm.es) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* suihkulokki (i=nchip@naru.obs2.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* mortenditlevsen (i=c10ff03c@gateway/web/ajax/mibbit.com/x-dc7e75e7e2b887ac) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* uberfry (n=spinl0ck@vodsl-10890.vo.lu) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* mib_1bxc0a (i=5e51e963@gateway/web/ajax/mibbit.com/x-2d948e1b2c7fd4b5) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* notByan (n=notByan@logo.csl.mtu.edu) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* mrc3__ (n=mrc3@nat/ti/x-bf47a06cca033a35) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* adj (i=antti@hervanta.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* L84Supper (n=ly@c-68-53-183-162.hsd1.il.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* uwe_ (n=uwe_@dslb-084-056-024-012.pools.arcor-ip.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* coreyfro (n=coreyfro@dsl092-012-151.sfo1.dsl.speakeasy.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* keesj (n=keesj@ip49-193-210-87.adsl2.static.versatel.nl) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* Crofton (n=balister@pool-96-240-173-146.ronkva.east.verizon.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* calculus (n=calculus@gentoo/user/calculus) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* Stskeeps (n=chobits@84.238.11.16) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* fenn (n=fenn@cpe-72-177-52-180.austin.res.rr.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* mrc3 (n=ddiaz@189.157.115.100) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* AV500 (n=av500@p50996ded.dip0.t-ipconnect.de) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* trivex (n=asd@199.71.88.11) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* ArteK (i=artek@81.15.241.96) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* denix (n=denys@nat/ti/x-6fecadd91e82f6f8) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* MostAwesomeDude (n=simpson@c-24-21-147-156.hsd1.or.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* alecrim (n=alecrim@189.2.128.130) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* rsalveti (n=salveti@dasasob.nokia.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* jso (n=user@151.159.200.8) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* jconnolly (n=jconnoll@firebug.buglabs.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* scruggs (n=chris@72-161-97-59.dyn.centurytel.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* biliquai (n=biliquai@61.6.64.6) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* Sept (n=bakljg@c-98-240-226-129.hsd1.mn.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* ceyusa (n=ceyusa@cm216016.red83-165.mundo-r.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* jsync (n=jess@59.160.172.220) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* magnet___ (n=magnet@90.48.45.48) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* finsprings_ (n=finsprin@c-67-165-48-17.hsd1.pa.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* tharvey (n=tharvey@adsl-76-205-222-173.dsl.snlo01.sbcglobal.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* Lo_Pan (n=lo_pan@cylon.arpatubes.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* mpr (n=mpr@aggr.com) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* j24 (n=j24@ns32433.ovh.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:19:58+00:00">14:19:58</abbr>] <span>* zzorn_work (n=zzorn@193.184.222.162) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="join">[<a href="#T14:20:20" id="T14:20:20"><abbr title="2009-03-26T14:20:20+00:00">14:20:20</abbr></a>] <span>* jrmuizel (n=jrmuizel@173.34.58.46) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:22:43" id="T14:22:43"><abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr></a>] <span>* saschi (n=schimans@g4r4ge-c0mput3rs.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* suihkulokki (i=nchip@naru.obs2.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* vlad_ (n=asdf@69-12-240-128.dsl.static.sonic.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* ShadowJK (i=jk@terminus.enivax.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* RogerMonk|linux (n=rmonk@nat/ti/x-2a1fdce1d99150de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* Vegar (n=vegar@unaffiliated/vegar) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* ghaz`` (i=theghaz@pomm.es) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* LoneMeow (i=lonewolf@taika.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* tomba (i=tomba@taika.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* VVeIrD (n=vveird@coprophiliac.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* aevin (i=eivindsy@unaffiliated/aevin) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* simon42 (n=simon@89.238.65.10) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* kmwang (n=angelic4@mail.CDPA.cc) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* ds2 (i=noinf@netblock-66-245-251-24.dslextreme.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* DaQatz (n=db@c-66-30-48-150.hsd1.nh.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* Pavlov (n=pavlov@shell.off.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* shoragan (n=shoragan@debian/developer/shoragan) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* nasloc__ (i=tim@kalug.ks.edu.tw) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:43+00:00">14:22:43</abbr>] <span>* GeneralAntilles (n=GeneralA@c-69-244-211-19.hsd1.fl.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:22:44" id="T14:22:44"><abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr></a>] <span>* zuh (i=344cbe8a@emperor.pingu.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* kulve (i=6226ddab@emperor.pingu.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* Crofton|work (n=balister@pool-96-240-173-146.ronkva.east.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* DJWillis (n=djwillis@82-46-19-72.cable.ubr02.bath.blueyonder.co.uk) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* HokieTux (n=HokieTux@wireless-5192.wireless.ece.vt.edu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* koen (n=koen@s55917625.adsl.wanadoo.nl) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* likewise (n=Leon_Woe@atwork-193.r-212.178.107.atwork.nl) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* Xerion (n=xerion@cp198589-d.landg1.lb.home.nl) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* TheUni (n=TheUni@xbmc/staff/theuni) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* jkridner (n=jason@c-76-31-18-64.hsd1.tx.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* katier (n=a0270521@nat/ti/x-3951c7f7a3dc6ad3) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* Psychiat1as (i=1000@212.122.84.232) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* AudioFreak (n=hugo@84.27.136.88) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* raster (n=raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* hrw (n=hrw@89.78.173.235) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* russ (i=foobar@ip70-176-253-20.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* philv (n=huh@lebesgue.cowpig.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* Jiuy (i=t6kyha00@rhea.oamk.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* niclas (n=n-anderb@nat/ti/x-a03b6e5bab4df52e) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* bkero (n=bkero@osuosl/staff/bkero) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* mib_svlran (i=563314e8@gateway/web/ajax/mibbit.com/x-f6bf1c8aa73f2a8f) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* mckoan (n=marco@unaffiliated/mckoan) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* Downix (n=downix@cpe-72-184-210-102.tampabay.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* fulgas (n=fn@85.138.20.210) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* as_leep (n=ali_as@ambix.plus.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* sx (n=sx@87-126-142-238.btc-net.bg) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* vsr (i=7aa60de8@gateway/web/ajax/mibbit.com/x-ebcf85fd49fce4fa) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* mru (n=mru@thrashbarg.mansr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* abitos (n=nixgibts@dslb-084-057-146-023.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* mpoullet|work (n=mpoullet@proxye.avm.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* davidcb (n=Spot@m505e36d0.tmodns.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* florian (n=fuchs@port-217-146-132-69.static.qsc.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* __alanc__ (n=a-campbe@nat/ti/x-f633e641aef5be2b) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* lcuk (i=lcuk@cpc3-oldh7-0-0-cust590.manc.cable.ntl.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* PhastPhrog (n=chatzill@194.193.86.112) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* BThompson (n=a0193480@nat/ti/x-451ae2cda89d987a) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* skipisz (n=a0867407@nat/ti/x-628abf8df86a7966) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* davidm1 (n=David@nat/ti/x-0548d858cf7a9a83) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* RobertK (i=3edc0622@gateway/web/ajax/mibbit.com/x-8571aceb045e264b) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* jkridner|work (n=a0321898@nat/ti/x-16489d0b91439d39) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* Septalicia (n=bakljg@c-98-240-226-129.hsd1.mn.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* jsync (n=jess@59.160.172.220) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* ceyusa (n=ceyusa@cm216016.red83-165.mundo-r.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* finsprings_ (n=finsprin@c-67-165-48-17.hsd1.pa.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* magnet___ (n=magnet@90.48.45.48) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* tharvey (n=tharvey@adsl-76-205-222-173.dsl.snlo01.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* Lo_Pan (n=lo_pan@cylon.arpatubes.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* mpr (n=mpr@aggr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* zzorn_work (n=zzorn@193.184.222.162) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] <span>* j24 (n=j24@ns32433.ovh.net) has joined #beagle</span></li>
+<li class="message">[<abbr title="2009-03-26T14:22:44+00:00">14:22:44</abbr>] &lt;<cite>BeagleTest</cite>&gt; <q>jkridner is <a href="http://beagleboard.org/user/blog.hangerhead.com">http://beagleboard.org/user/blog.hangerhead.com</a></q></li>
+<li class="quit">[<a href="#T14:23:05" id="T14:23:05"><abbr title="2009-03-26T14:23:05+00:00">14:23:05</abbr></a>] <span>* jrmuizel (n=jrmuizel@173.34.58.46) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T14:23:06" id="T14:23:06"><abbr title="2009-03-26T14:23:06+00:00">14:23:06</abbr></a>] <span>* brijesh (n=bksingh@nat/ti/x-c4ee8e4767e90f62) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:23:06+00:00">14:23:06</abbr>] <span>* shenki (n=joel@202.174.42.5) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:23:06+00:00">14:23:06</abbr>] <span>* Openfree (n=dennis@222.65.175.96) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:23:06+00:00">14:23:06</abbr>] <span>* dcramer (n=davec@dcdsl.ebox.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:23:06+00:00">14:23:06</abbr>] <span>* ldesnogu (n=ldesnogu@fw-tnat.cambridge.arm.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:23:11" id="T14:23:11"><abbr title="2009-03-26T14:23:11+00:00">14:23:11</abbr></a>] <span>* Batko_Marto (n=Batko_Ma@141.117.181.29) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:23:39" id="T14:23:39"><abbr title="2009-03-26T14:23:39+00:00">14:23:39</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>Downix: The two SIMD ALUs and the shuffle unit in the SIMD/FP cluster are 128-bit</q></li>
+<li class="message">[<abbr title="2009-03-26T14:23:39+00:00">14:23:39</abbr>] &lt;<cite>ldesnogu</cite>&gt; <q>wide, but 64-bit integer SIMD computation is restricted to port 0 only.</q></li>
+<li class="message">[<a href="#T14:23:49" id="T14:23:49"><abbr title="2009-03-26T14:23:49+00:00">14:23:49</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>this is for Atom from Intel Optim guide</q></li>
+<li class="message">[<a href="#T14:24:25" id="T14:24:25"><abbr title="2009-03-26T14:24:25+00:00">14:24:25</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>so for FP performance will be good</q></li>
+<li class="message">[<a href="#T14:24:26" id="T14:24:26"><abbr title="2009-03-26T14:24:26+00:00">14:24:26</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>ldesnogu, Ok cool.  As I said, I've only been listening to our engineers gripe about it, not worked on it myself</q></li>
+<li class="message">[<a href="#T14:24:37" id="T14:24:37"><abbr title="2009-03-26T14:24:37+00:00">14:24:37</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>reminds me, looked at larrabe yet?</q></li>
+<li class="message">[<a href="#T14:24:43" id="T14:24:43"><abbr title="2009-03-26T14:24:43+00:00">14:24:43</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>very quickly</q></li>
+<li class="message">[<a href="#T14:24:47" id="T14:24:47"><abbr title="2009-03-26T14:24:47+00:00">14:24:47</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>too odd for me :)</q></li>
+<li class="message">[<a href="#T14:25:00" id="T14:25:00"><abbr title="2009-03-26T14:25:00+00:00">14:25:00</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>It's one of the funniest things I've seen in awhile</q></li>
+<li class="message">[<a href="#T14:25:21" id="T14:25:21"><abbr title="2009-03-26T14:25:21+00:00">14:25:21</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>take a dozen or more original Pentiums, connect them with a neo-Tokenring arrangement, strap a vector unit to each....</q></li>
+<li class="message">[<a href="#T14:27:23" id="T14:27:23"><abbr title="2009-03-26T14:27:23+00:00">14:27:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>intel's version of the cell?</q></li>
+<li class="message">[<a href="#T14:28:14" id="T14:28:14"><abbr title="2009-03-26T14:28:14+00:00">14:28:14</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>mru:  yes, just add a texturing unit.</q></li>
+<li class="join">[<a href="#T14:28:21" id="T14:28:21"><abbr title="2009-03-26T14:28:21+00:00">14:28:21</abbr></a>] <span>* jrmuizel (n=jrmuizel@173.34.58.46) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:28:32" id="T14:28:32"><abbr title="2009-03-26T14:28:32+00:00">14:28:32</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>mru:  Only the vector unit is twice as wide, looks like something out of Itanium</q></li>
+<li class="quit">[<a href="#T14:28:36" id="T14:28:36"><abbr title="2009-03-26T14:28:36+00:00">14:28:36</abbr></a>] <span>* jrmuizel (n=jrmuizel@173.34.58.46) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T14:29:31" id="T14:29:31"><abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr></a>] <span>* jconnoll1 (n=jconnoll@firebug.buglabs.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* mortenditlevsen (i=c10ff03c@gateway/web/ajax/mibbit.com/x-dc7e75e7e2b887ac) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* uberfry (n=spinl0ck@vodsl-10890.vo.lu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* mib_1bxc0a (i=5e51e963@gateway/web/ajax/mibbit.com/x-2d948e1b2c7fd4b5) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* notByan (n=notByan@logo.csl.mtu.edu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* mrc3__ (n=mrc3@nat/ti/x-bf47a06cca033a35) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* adj (i=antti@hervanta.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* L84Supper (n=ly@c-68-53-183-162.hsd1.il.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* uwe_ (n=uwe_@dslb-084-056-024-012.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* coreyfro (n=coreyfro@dsl092-012-151.sfo1.dsl.speakeasy.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* calculus (n=calculus@gentoo/user/calculus) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* Crofton (n=balister@pool-96-240-173-146.ronkva.east.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:31+00:00">14:29:31</abbr>] <span>* keesj (n=keesj@ip49-193-210-87.adsl2.static.versatel.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:29:38" id="T14:29:38"><abbr title="2009-03-26T14:29:38+00:00">14:29:38</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>mru: I thought the same when I saw Larabee ring bus :)</q></li>
+<li class="join">[<a href="#T14:29:43" id="T14:29:43"><abbr title="2009-03-26T14:29:43+00:00">14:29:43</abbr></a>] <span>* Stskeeps (n=chobits@84.238.11.16) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:43+00:00">14:29:43</abbr>] <span>* fenn (n=fenn@cpe-72-177-52-180.austin.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:43+00:00">14:29:43</abbr>] <span>* mrc3 (n=ddiaz@189.157.115.100) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:29:43+00:00">14:29:43</abbr>] <span>* AV500 (n=av500@p50996ded.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:30:03" id="T14:30:03"><abbr title="2009-03-26T14:30:03+00:00">14:30:03</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>ldesnogu, I thought it was "Token Ring II, the Revenge!"</q></li>
+<li class="message">[<a href="#T14:30:12" id="T14:30:12"><abbr title="2009-03-26T14:30:12+00:00">14:30:12</abbr></a>] &lt;<cite>delire</cite>&gt; <q>;)</q></li>
+<li class="join">[<a href="#T14:30:58" id="T14:30:58"><abbr title="2009-03-26T14:30:58+00:00">14:30:58</abbr></a>] <span>* trivex (n=asd@ns2a.ncct.uottawa.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:31:18" id="T14:31:18"><abbr title="2009-03-26T14:31:18+00:00">14:31:18</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>by the same token, could easily set up an arm config to match it</q></li>
+<li class="message">[<a href="#T14:32:14" id="T14:32:14"><abbr title="2009-03-26T14:32:14+00:00">14:32:14</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>at least I'd imagine you could</q></li>
+<li class="message">[<a href="#T14:32:47" id="T14:32:47"><abbr title="2009-03-26T14:32:47+00:00">14:32:47</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>I don't see it beating nVidia or ATI however</q></li>
+<li class="message">[<a href="#T14:34:33" id="T14:34:33"><abbr title="2009-03-26T14:34:33+00:00">14:34:33</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>come to think of it, remember that Transputer idea from the 80s?  That is what it reminds me of</q></li>
+<li class="join">[<a href="#T14:35:31" id="T14:35:31"><abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr></a>] <span>* alecrim (n=alecrim@189.2.128.130) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr>] <span>* jso (n=user@151.159.200.8) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr>] <span>* jconnolly (n=jconnoll@firebug.buglabs.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr>] <span>* ArteK (i=artek@81.15.241.96) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr>] <span>* scruggs (n=chris@72-161-97-59.dyn.centurytel.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr>] <span>* biliquai (n=biliquai@61.6.64.6) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr>] <span>* Sept (n=bakljg@c-98-240-226-129.hsd1.mn.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr>] <span>* MostAwesomeDude (n=simpson@c-24-21-147-156.hsd1.or.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:35:31+00:00">14:35:31</abbr>] <span>* denix (n=denys@nat/ti/x-6fecadd91e82f6f8) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:36:25" id="T14:36:25"><abbr title="2009-03-26T14:36:25+00:00">14:36:25</abbr></a>] <span>* gcohler (n=gcohler@nat/ti/session) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:36:34" id="T14:36:34"><abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr></a>] <span>* denix (n=denys@nat/ti/x-6fecadd91e82f6f8) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr>] <span>* MostAwesomeDude (n=simpson@c-24-21-147-156.hsd1.or.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr>] <span>* ArteK (i=artek@81.15.241.96) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr>] <span>* scruggs (n=chris@72-161-97-59.dyn.centurytel.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr>] <span>* Sept (n=bakljg@c-98-240-226-129.hsd1.mn.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr>] <span>* jso (n=user@151.159.200.8) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr>] <span>* alecrim (n=alecrim@189.2.128.130) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr>] <span>* biliquai (n=biliquai@61.6.64.6) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:36:34+00:00">14:36:34</abbr>] <span>* jconnolly (n=jconnoll@firebug.buglabs.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<a href="#T14:37:19" id="T14:37:19"><abbr title="2009-03-26T14:37:19+00:00">14:37:19</abbr></a>] <span>* RobertK (i=3edc0622@gateway/web/ajax/mibbit.com/x-8571aceb045e264b) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T14:39:46" id="T14:39:46"><abbr title="2009-03-26T14:39:46+00:00">14:39:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Downix: I have to deal with the transputer legacy from time to time at work</q></li>
+<li class="message">[<a href="#T14:39:51" id="T14:39:51"><abbr title="2009-03-26T14:39:51+00:00">14:39:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>in the guise of ST20</q></li>
+<li class="message">[<a href="#T14:40:11" id="T14:40:11"><abbr title="2009-03-26T14:40:11+00:00">14:40:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that is sick CPU</q></li>
+<li class="message">[<a href="#T14:40:33" id="T14:40:33"><abbr title="2009-03-26T14:40:33+00:00">14:40:33</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>mru:  my goodness, and I thought my job still having an Itanium box was bad....</q></li>
+<li class="message">[<a href="#T14:40:44" id="T14:40:44"><abbr title="2009-03-26T14:40:44+00:00">14:40:44</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>never used a transputer, mind you</q></li>
+<li class="quit">[<a href="#T14:41:08" id="T14:41:08"><abbr title="2009-03-26T14:41:08+00:00">14:41:08</abbr></a>] <span>* DaQatz (n=db@c-66-30-48-150.hsd1.nh.comcast.net) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T14:41:12" id="T14:41:12"><abbr title="2009-03-26T14:41:12+00:00">14:41:12</abbr></a>] <span>* alecrim (n=alecrim@189.2.128.130) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:41:12+00:00">14:41:12</abbr>] <span>* jso (n=user@151.159.200.8) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:41:12+00:00">14:41:12</abbr>] <span>* jconnolly (n=jconnoll@firebug.buglabs.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:41:12+00:00">14:41:12</abbr>] <span>* ArteK (i=artek@81.15.241.96) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:41:12+00:00">14:41:12</abbr>] <span>* scruggs (n=chris@72-161-97-59.dyn.centurytel.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:41:12+00:00">14:41:12</abbr>] <span>* biliquai (n=biliquai@61.6.64.6) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:41:12+00:00">14:41:12</abbr>] <span>* MostAwesomeDude (n=simpson@c-24-21-147-156.hsd1.or.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-03-26T14:41:12+00:00">14:41:12</abbr>] <span>* denix (n=denys@nat/ti/x-6fecadd91e82f6f8) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:41:31" id="T14:41:31"><abbr title="2009-03-26T14:41:31+00:00">14:41:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>how would you like to do all your operations on a 3-element stack?</q></li>
+<li class="message">[<a href="#T14:41:49" id="T14:41:49"><abbr title="2009-03-26T14:41:49+00:00">14:41:49</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>mru:  eh... I plead the 5th</q></li>
+<li class="message">[<a href="#T14:43:46" id="T14:43:46"><abbr title="2009-03-26T14:43:46+00:00">14:43:46</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>(truth is, I don't do much coding)</q></li>
+<li class="quit">[<a href="#T14:47:37" id="T14:47:37"><abbr title="2009-03-26T14:47:37+00:00">14:47:37</abbr></a>] <span>* ArteK (i=artek@81.15.241.96) Quit (Read error: 104 (Connection reset by peer))</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:47:37+00:00">14:47:37</abbr>] <span>* jconnolly (n=jconnoll@firebug.buglabs.net) Quit (Connection timed out)</span></li>
+<li class="message">[<a href="#T14:47:39" id="T14:47:39"><abbr title="2009-03-26T14:47:39+00:00">14:47:39</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>my highlight as far as programming goes is on a 6510</q></li>
+<li class="quit">[<a href="#T14:47:54" id="T14:47:54"><abbr title="2009-03-26T14:47:54+00:00">14:47:54</abbr></a>] <span>* denix (n=denys@nat/ti/x-6fecadd91e82f6f8) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:47:54+00:00">14:47:54</abbr>] <span>* MostAwesomeDude (n=simpson@c-24-21-147-156.hsd1.or.comcast.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:47:54+00:00">14:47:54</abbr>] <span>* scruggs (n=chris@72-161-97-59.dyn.centurytel.net) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:47:54+00:00">14:47:54</abbr>] <span>* alecrim (n=alecrim@189.2.128.130) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:47:54+00:00">14:47:54</abbr>] <span>* jso (n=user@151.159.200.8) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-03-26T14:47:54+00:00">14:47:54</abbr>] <span>* biliquai (n=biliquai@61.6.64.6) Quit (kubrick.freenode.net irc.freenode.net)</span></li>
+<li class="join">[<a href="#T14:47:55" id="T14:47:55"><abbr title="2009-03-26T14:47:55+00:00">14:47:55</abbr></a>] <span>* docelic (n=docelic@78.134.201.136) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:48:20" id="T14:48:20"><abbr title="2009-03-26T14:48:20+00:00">14:48:20</abbr></a>] <span>* docelic (n=docelic@78.134.201.136) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T14:51:53" id="T14:51:53"><abbr title="2009-03-26T14:51:53+00:00">14:51:53</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>tried some on x86 (the forementioned P4 incident) and it went badly</q></li>
+<li class="join">[<a href="#T14:53:16" id="T14:53:16"><abbr title="2009-03-26T14:53:16+00:00">14:53:16</abbr></a>] <span>* JuanG (n=Juan@192.91.75.29) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:53:33" id="T14:53:33"><abbr title="2009-03-26T14:53:33+00:00">14:53:33</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>did ok with SPARC and MIPS work</q></li>
+<li class="message">[<a href="#T14:53:57" id="T14:53:57"><abbr title="2009-03-26T14:53:57+00:00">14:53:57</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>so far, liking the ARM architecture, can wrap my head around it with less issues than with any of my other current trials</q></li>
+<li class="join">[<a href="#T14:56:31" id="T14:56:31"><abbr title="2009-03-26T14:56:31+00:00">14:56:31</abbr></a>] <span>* jso (n=user@151.159.200.8) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:56:38" id="T14:56:38"><abbr title="2009-03-26T14:56:38+00:00">14:56:38</abbr></a>] <span>* scruggs (n=chris@72-161-97-59.dyn.centurytel.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:56:43" id="T14:56:43"><abbr title="2009-03-26T14:56:43+00:00">14:56:43</abbr></a>] <span>* alecrim (n=alecrim@189.2.128.130) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:57:07" id="T14:57:07"><abbr title="2009-03-26T14:57:07+00:00">14:57:07</abbr></a>] <span>* biliquai (n=biliquai@61.6.64.6) has joined #beagle</span></li>
+<li class="part">[<a href="#T14:57:23" id="T14:57:23"><abbr title="2009-03-26T14:57:23+00:00">14:57:23</abbr></a>] <span>* JuanG (n=Juan@192.91.75.29) has left #beagle</span></li>
+<li class="message">[<a href="#T14:59:04" id="T14:59:04"><abbr title="2009-03-26T14:59:04+00:00">14:59:04</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>Downix: you missed Alpha, that was great :)</q></li>
+<li class="join">[<a href="#T14:59:20" id="T14:59:20"><abbr title="2009-03-26T14:59:20+00:00">14:59:20</abbr></a>] <span>* MostAwesomeDude (n=simpson@24.21.147.156) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:59:26" id="T14:59:26"><abbr title="2009-03-26T14:59:26+00:00">14:59:26</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>ldesnogu, I actually have an Alpha motherboard upstairs, have never been able to use it as I can't find a PSU for it</q></li>
+<li class="message">[<a href="#T14:59:57" id="T14:59:57"><abbr title="2009-03-26T14:59:57+00:00">14:59:57</abbr></a>] &lt;<cite>Downix</cite>&gt; <q>it's out of an XP1000 box, and has two power plugs</q></li>
