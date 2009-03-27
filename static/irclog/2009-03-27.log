@@ -323,3 +323,69 @@
 <li class="message">[<a href="#T05:53:21" id="T05:53:21"><abbr title="2009-03-27T05:53:21+00:00">05:53:21</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>maybe it's lower</q></li>
 <li class="join">[<a href="#T05:54:53" id="T05:54:53"><abbr title="2009-03-27T05:54:53+00:00">05:54:53</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
 <li class="quit">[<a href="#T05:55:06" id="T05:55:06"><abbr title="2009-03-27T05:55:06+00:00">05:55:06</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T06:00:26" id="T06:00:26"><abbr title="2009-03-27T06:00:26+00:00">06:00:26</abbr></a>] &lt;<cite>mib_e45oty</cite>&gt; <q>ds2: can you tell me the parts I would need to hookup a psp lcd - i'm sorry, can you just spell it out for me.</q></li>
+<li class="message">[<a href="#T06:01:29" id="T06:01:29"><abbr title="2009-03-27T06:01:29+00:00">06:01:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the simpliest one would be to use an open drain driver at 1.8V</q></li>
+<li class="message">[<a href="#T06:02:05" id="T06:02:05"><abbr title="2009-03-27T06:02:05+00:00">06:02:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>something like a 74LVC06 (need 2 to fix the inversion)... but the choice of resistors needs to be carefully done to avoid issues</q></li>
+<li class="message">[<a href="#T06:02:16" id="T06:02:16"><abbr title="2009-03-27T06:02:16+00:00">06:02:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>another option is the TXS010xx series from TI</q></li>
+<li class="message">[<a href="#T06:02:35" id="T06:02:35"><abbr title="2009-03-27T06:02:35+00:00">06:02:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or the assortment of 74xxx245/525/244 etc chips</q></li>
+<li class="message">[<a href="#T06:02:44" id="T06:02:44"><abbr title="2009-03-27T06:02:44+00:00">06:02:44</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>for what now?</q></li>
+<li class="message">[<a href="#T06:02:47" id="T06:02:47"><abbr title="2009-03-27T06:02:47+00:00">06:02:47</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>for level translation?</q></li>
+<li class="message">[<a href="#T06:02:50" id="T06:02:50"><abbr title="2009-03-27T06:02:50+00:00">06:02:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or... there are literally hunderds of ways of doing it</q></li>
+<li class="message">[<a href="#T06:02:54" id="T06:02:54"><abbr title="2009-03-27T06:02:54+00:00">06:02:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yeah, level translation</q></li>
+<li class="message">[<a href="#T06:03:00" id="T06:03:00"><abbr title="2009-03-27T06:03:00+00:00">06:03:00</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>inversion might be ok..</q></li>
+<li class="message">[<a href="#T06:03:10" id="T06:03:10"><abbr title="2009-03-27T06:03:10+00:00">06:03:10</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>can fix it in software anyway</q></li>
+<li class="message">[<a href="#T06:03:21" id="T06:03:21"><abbr title="2009-03-27T06:03:21+00:00">06:03:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the other thing you need is a 2.5 and a 5V power supply... thousands of options there</q></li>
+<li class="message">[<a href="#T06:03:32" id="T06:03:32"><abbr title="2009-03-27T06:03:32+00:00">06:03:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>gecksen1tor: yep. that's another options</q></li>
+<li class="message">[<a href="#T06:03:33" id="T06:03:33"><abbr title="2009-03-27T06:03:33+00:00">06:03:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>option</q></li>
+<li class="message">[<a href="#T06:03:51" id="T06:03:51"><abbr title="2009-03-27T06:03:51+00:00">06:03:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so.... pick one you know best... </q></li>
+<li class="message">[<a href="#T06:04:29" id="T06:04:29"><abbr title="2009-03-27T06:04:29+00:00">06:04:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>for simple stuff, you can snag 5V from the beagle and use a LM317 to get the 2.5V</q></li>
+<li class="message">[<a href="#T06:04:47" id="T06:04:47"><abbr title="2009-03-27T06:04:47+00:00">06:04:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or an LDO or op-amp reference + pass transistor</q></li>
+<li class="message">[<a href="#T06:04:52" id="T06:04:52"><abbr title="2009-03-27T06:04:52+00:00">06:04:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and on and on</q></li>
+<li class="message">[<a href="#T06:05:19" id="T06:05:19"><abbr title="2009-03-27T06:05:19+00:00">06:05:19</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T06:05:20" id="T06:05:20"><abbr title="2009-03-27T06:05:20+00:00">06:05:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>all glue stuff; this is like asking for a reference "main()" to a C program... it is glue</q></li>
+<li class="message">[<a href="#T06:05:35" id="T06:05:35"><abbr title="2009-03-27T06:05:35+00:00">06:05:35</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>well what if it were COBOL?</q></li>
+<li class="message">[<a href="#T06:05:37" id="T06:05:37"><abbr title="2009-03-27T06:05:37+00:00">06:05:37</abbr></a>] &lt;<cite>mib_e45oty</cite>&gt; <q>thank you -</q></li>
+<li class="message">[<a href="#T06:05:47" id="T06:05:47"><abbr title="2009-03-27T06:05:47+00:00">06:05:47</abbr></a>] &lt;<cite>mib_e45oty</cite>&gt; <q>im in CS not EECS</q></li>
+<li class="quit">[<a href="#T06:07:11" id="T06:07:11"><abbr title="2009-03-27T06:07:11+00:00">06:07:11</abbr></a>] <span>* Bubba (i=4b0f4002@gateway/web/ajax/mibbit.com/x-afe9925254600d6d) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T06:07:23" id="T06:07:23"><abbr title="2009-03-27T06:07:23+00:00">06:07:23</abbr></a>] &lt;<cite>ds</cite>&gt; <q>isn't that 90% of engineering?  writing glue code / glue electronics / glue mechanics ?</q></li>
+<li class="message">[<a href="#T06:07:35" id="T06:07:35"><abbr title="2009-03-27T06:07:35+00:00">06:07:35</abbr></a>] &lt;<cite>ds</cite>&gt; <q>(of course, the other 90% is bug fixing)</q></li>
+<li class="message">[<a href="#T06:08:25" id="T06:08:25"><abbr title="2009-03-27T06:08:25+00:00">06:08:25</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>ds2: maybe for some people</q></li>
+<li class="message">[<a href="#T06:08:29" id="T06:08:29"><abbr title="2009-03-27T06:08:29+00:00">06:08:29</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>but I get bored and start writing lisp</q></li>
+<li class="action">[<a href="#T06:09:27" id="T06:09:27"><abbr title="2009-03-27T06:09:27+00:00">06:09:27</abbr></a>] <span>* ds != ds2</span></li>
+<li class="message">[<a href="#T06:09:29" id="T06:09:29"><abbr title="2009-03-27T06:09:29+00:00">06:09:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ewwwww</q></li>
+<li class="message">[<a href="#T06:09:30" id="T06:09:30"><abbr title="2009-03-27T06:09:30+00:00">06:09:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ds: yeah.. so much glue.. spend too much quality happy lucky fun time with glue</q></li>
+<li class="message">[<a href="#T06:09:48" id="T06:09:48"><abbr title="2009-03-27T06:09:48+00:00">06:09:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ds: you must be rev 1 :)</q></li>
+<li class="message">[<a href="#T06:10:02" id="T06:10:02"><abbr title="2009-03-27T06:10:02+00:00">06:10:02</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the previous sd</q></li>
+<li class="message">[<a href="#T06:10:04" id="T06:10:04"><abbr title="2009-03-27T06:10:04+00:00">06:10:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>err</q></li>
+<li class="message">[<abbr title="2009-03-27T06:10:04+00:00">06:10:04</abbr>] &lt;<cite>raster</cite>&gt; <q>ds</q></li>
+<li class="message">[<a href="#T06:10:09" id="T06:10:09"><abbr title="2009-03-27T06:10:09+00:00">06:10:09</abbr></a>] &lt;<cite>ds</cite>&gt; <q>old skool</q></li>
+<li class="message">[<a href="#T06:10:47" id="T06:10:47"><abbr title="2009-03-27T06:10:47+00:00">06:10:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>lisp cause sudden paraenthisis puking syndrome!</q></li>
+<li class="message">[<a href="#T06:11:35" id="T06:11:35"><abbr title="2009-03-27T06:11:35+00:00">06:11:35</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>ds2: oh</q></li>
+<li class="message">[<a href="#T06:11:40" id="T06:11:40"><abbr title="2009-03-27T06:11:40+00:00">06:11:40</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>I though tyou were the same</q></li>
+<li class="message">[<a href="#T06:11:51" id="T06:11:51"><abbr title="2009-03-27T06:11:51+00:00">06:11:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q> geckosen1tor: sorry... not a fan of emacs </q></li>
+<li class="message">[<a href="#T06:12:33" id="T06:12:33"><abbr title="2009-03-27T06:12:33+00:00">06:12:33</abbr></a>] &lt;<cite>ds</cite>&gt; <q>yeah, i'm shouldn't spend too much time hear to avoid confusing people</q></li>
+<li class="message">[<a href="#T06:12:41" id="T06:12:41"><abbr title="2009-03-27T06:12:41+00:00">06:12:41</abbr></a>] &lt;<cite>ds</cite>&gt; <q>er something</q></li>
+<li class="message">[<a href="#T06:13:37" id="T06:13:37"><abbr title="2009-03-27T06:13:37+00:00">06:13:37</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>ds: yes</q></li>
+<li class="message">[<a href="#T06:20:14" id="T06:20:14"><abbr title="2009-03-27T06:20:14+00:00">06:20:14</abbr></a>] &lt;<cite>coreyfro</cite>&gt; <q>OK, so did Digikey just sell out of revc boards?</q></li>
+<li class="message">[<a href="#T06:20:37" id="T06:20:37"><abbr title="2009-03-27T06:20:37+00:00">06:20:37</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>I think so</q></li>
+<li class="message">[<a href="#T06:20:48" id="T06:20:48"><abbr title="2009-03-27T06:20:48+00:00">06:20:48</abbr></a>] &lt;<cite>coreyfro</cite>&gt; <q>DAMN IT!  This sucks!</q></li>
+<li class="message">[<a href="#T06:20:49" id="T06:20:49"><abbr title="2009-03-27T06:20:49+00:00">06:20:49</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>but you are supposed to get up early tuesday morning if you want one</q></li>
+<li class="message">[<a href="#T06:21:04" id="T06:21:04"><abbr title="2009-03-27T06:21:04+00:00">06:21:04</abbr></a>] &lt;<cite>coreyfro</cite>&gt; <q>Really? There will be more Tuesday?</q></li>
+<li class="message">[<a href="#T06:21:10" id="T06:21:10"><abbr title="2009-03-27T06:21:10+00:00">06:21:10</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>I heard</q></li>
+<li class="message">[<a href="#T06:21:16" id="T06:21:16"><abbr title="2009-03-27T06:21:16+00:00">06:21:16</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>5000 more or something</q></li>
+<li class="message">[<a href="#T06:21:25" id="T06:21:25"><abbr title="2009-03-27T06:21:25+00:00">06:21:25</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>but maybe that's wrong</q></li>
+<li class="message">[<a href="#T06:21:30" id="T06:21:30"><abbr title="2009-03-27T06:21:30+00:00">06:21:30</abbr></a>] &lt;<cite>coreyfro</cite>&gt; <q>*phew* The websight says june 12st</q></li>
+<li class="message">[<a href="#T06:21:39" id="T06:21:39"><abbr title="2009-03-27T06:21:39+00:00">06:21:39</abbr></a>] &lt;<cite>coreyfro</cite>&gt; <q>21st</q></li>
+<li class="quit">[<a href="#T06:21:46" id="T06:21:46"><abbr title="2009-03-27T06:21:46+00:00">06:21:46</abbr></a>] <span>* bmxr (n=bmxr@S01060018f3b11a22.vf.shawcable.net) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T06:21:47" id="T06:21:47"><abbr title="2009-03-27T06:21:47+00:00">06:21:47</abbr></a>] <span>* dirk2 (n=dirk@p5B04152D.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:21:55" id="T06:21:55"><abbr title="2009-03-27T06:21:55+00:00">06:21:55</abbr></a>] &lt;<cite>geckosen1tor</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T06:23:49" id="T06:23:49"><abbr title="2009-03-27T06:23:49+00:00">06:23:49</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>gm</q></li>
+<li class="message">[<a href="#T06:27:39" id="T06:27:39"><abbr title="2009-03-27T06:27:39+00:00">06:27:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ds - I think it would be fun</q></li>
+<li class="join">[<a href="#T06:31:32" id="T06:31:32"><abbr title="2009-03-27T06:31:32+00:00">06:31:32</abbr></a>] <span>* recalcati (i=5d90c85d@gateway/web/ajax/mibbit.com/x-18a923e74d5e6496) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:32:07" id="T06:32:07"><abbr title="2009-03-27T06:32:07+00:00">06:32:07</abbr></a>] &lt;<cite>recalcati</cite>&gt; <q>hi evrybody</q></li>
+<li class="join">[<a href="#T06:32:09" id="T06:32:09"><abbr title="2009-03-27T06:32:09+00:00">06:32:09</abbr></a>] <span>* bmxr_laptop (n=chatzill@S01060018f3b11a22.vf.shawcable.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:33:51" id="T06:33:51"><abbr title="2009-03-27T06:33:51+00:00">06:33:51</abbr></a>] &lt;<cite>recalcati</cite>&gt; <q>I've compiled a 2.6.28 r17 kernel, anybody knows the bootargs to set 1280x720 ? On the TV I have not supported signal .</q></li>
+<li class="quit">[<a href="#T06:34:06" id="T06:34:06"><abbr title="2009-03-27T06:34:06+00:00">06:34:06</abbr></a>] <span>* bmxr_laptop (n=chatzill@S01060018f3b11a22.vf.shawcable.net) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T06:34:33" id="T06:34:33"><abbr title="2009-03-27T06:34:33+00:00">06:34:33</abbr></a>] <span>* vsr (i=7aa60de8@gateway/web/ajax/mibbit.com/x-a87b0c19ec671e3f) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:36:41" id="T06:36:41"><abbr title="2009-03-27T06:36:41+00:00">06:36:41</abbr></a>] <span>* bmxr_laptop (n=chatzill@S01060018f3b11a22.vf.shawcable.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:49:02" id="T06:49:02"><abbr title="2009-03-27T06:49:02+00:00">06:49:02</abbr></a>] <span>* mib_e45oty (i=969cc00a@gateway/web/ajax/mibbit.com/x-6efb7c90dcbb2c40) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
