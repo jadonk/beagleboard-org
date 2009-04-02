@@ -377,3 +377,106 @@
 <li class="message">[<a href="#T07:59:21" id="T07:59:21"><abbr title="2009-04-02T07:59:21+00:00">07:59:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>morning</q></li>
 <li class="join">[<a href="#T07:59:34" id="T07:59:34"><abbr title="2009-04-02T07:59:34+00:00">07:59:34</abbr></a>] <span>* PhastPhrog (n=chatzill@194.193.86.112) has joined #beagle</span></li>
 <li class="message">[<a href="#T07:59:38" id="T07:59:38"><abbr title="2009-04-02T07:59:38+00:00">07:59:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>suihkulokki: there is no ohci controller</q></li>
+<li class="join">[<a href="#T08:04:26" id="T08:04:26"><abbr title="2009-04-02T08:04:26+00:00">08:04:26</abbr></a>] <span>* RogerMonk (n=a0740758@nat/ti/x-5c4dfd1f8cf13290) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:06:15" id="T08:06:15"><abbr title="2009-04-02T08:06:15+00:00">08:06:15</abbr></a>] &lt;<cite>russ</cite>&gt; <q>geez</q></li>
+<li class="message">[<a href="#T08:06:29" id="T08:06:29"><abbr title="2009-04-02T08:06:29+00:00">08:06:29</abbr></a>] &lt;<cite>russ</cite>&gt; <q>now I'm somewhat motivated to make a serial tty proxy pty</q></li>
+<li class="message">[<a href="#T08:07:17" id="T08:07:17"><abbr title="2009-04-02T08:07:17+00:00">08:07:17</abbr></a>] &lt;<cite>russ</cite>&gt; <q>uboot starts, a USB serial device shows up, it boots the kernel, the device goes away, gadget comes up, and another USB device pops up</q></li>
+<li class="message">[<a href="#T08:07:22" id="T08:07:22"><abbr title="2009-04-02T08:07:22+00:00">08:07:22</abbr></a>] &lt;<cite>russ</cite>&gt; <q>minicom can't really keep up</q></li>
+<li class="message">[<a href="#T08:08:20" id="T08:08:20"><abbr title="2009-04-02T08:08:20+00:00">08:08:20</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I wonder if screen can cope with it</q></li>
+<li class="action">[<a href="#T08:08:31" id="T08:08:31"><abbr title="2009-04-02T08:08:31+00:00">08:08:31</abbr></a>] <span>* koen stabs minicom</span></li>
+<li class="join">[<a href="#T08:08:57" id="T08:08:57"><abbr title="2009-04-02T08:08:57+00:00">08:08:57</abbr></a>] <span>* davidcb (n=Spot@m5e5e36d0.tmodns.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:08:58" id="T08:08:58"><abbr title="2009-04-02T08:08:58+00:00">08:08:58</abbr></a>] &lt;<cite>russ</cite>&gt; <q>dunno, but the functionality of the file descriptors returned by openpty are mystifying me</q></li>
+<li class="message">[<a href="#T08:09:18" id="T08:09:18"><abbr title="2009-04-02T08:09:18+00:00">08:09:18</abbr></a>] &lt;<cite>russ</cite>&gt; <q>I think screen does the opposite, multiplexes several virtual devices to one real device</q></li>
+<li class="message">[<a href="#T08:09:51" id="T08:09:51"><abbr title="2009-04-02T08:09:51+00:00">08:09:51</abbr></a>] &lt;<cite>russ</cite>&gt; <q>openpty gives me a master fd, and a slave fd</q></li>
+<li class="message">[<a href="#T08:09:57" id="T08:09:57"><abbr title="2009-04-02T08:09:57+00:00">08:09:57</abbr></a>] &lt;<cite>russ</cite>&gt; <q>if I write on the master fd</q></li>
+<li class="message">[<a href="#T08:10:03" id="T08:10:03"><abbr title="2009-04-02T08:10:03+00:00">08:10:03</abbr></a>] &lt;<cite>russ</cite>&gt; <q>it gets echo'd on the master fd</q></li>
+<li class="message">[<a href="#T08:10:34" id="T08:10:34"><abbr title="2009-04-02T08:10:34+00:00">08:10:34</abbr></a>] &lt;<cite>suihkulokki</cite>&gt; <q>mru: there is on the TRM</q></li>
+<li class="message">[<a href="#T08:10:41" id="T08:10:41"><abbr title="2009-04-02T08:10:41+00:00">08:10:41</abbr></a>] &lt;<cite>russ</cite>&gt; <q>for a little while....</q></li>
+<li class="action">[<a href="#T08:11:10" id="T08:11:10"><abbr title="2009-04-02T08:11:10+00:00">08:11:10</abbr></a>] <span>* suihkulokki will register mru's answer as "nobody uses it"</span></li>
+<li class="message">[<a href="#T08:13:52" id="T08:13:52"><abbr title="2009-04-02T08:13:52+00:00">08:13:52</abbr></a>] &lt;<cite>russ</cite>&gt; <q>koen: I think the main limitation might be no serial break</q></li>
+<li class="message">[<a href="#T08:15:17" id="T08:15:17"><abbr title="2009-04-02T08:15:17+00:00">08:15:17</abbr></a>] &lt;<cite>koen</cite>&gt; <q>is musb-tty in mainline uboot nowadays?</q></li>
+<li class="message">[<a href="#T08:17:47" id="T08:17:47"><abbr title="2009-04-02T08:17:47+00:00">08:17:47</abbr></a>] &lt;<cite>russ</cite>&gt; <q>dunno, I think it might be on the google code downloads</q></li>
+<li class="message">[<a href="#T08:19:14" id="T08:19:14"><abbr title="2009-04-02T08:19:14+00:00">08:19:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>suihkulokki: I see OTG and ehci, no ohci</q></li>
+<li class="part">[<a href="#T08:19:31" id="T08:19:31"><abbr title="2009-04-02T08:19:31+00:00">08:19:31</abbr></a>] <span>* ffbb (n=barbaz@194.197.235.58) has left #beagle</span></li>
+<li class="message">[<a href="#T08:19:34" id="T08:19:34"><abbr title="2009-04-02T08:19:34+00:00">08:19:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ah, deeper...</q></li>
+<li class="quit">[<a href="#T08:22:54" id="T08:22:54"><abbr title="2009-04-02T08:22:54+00:00">08:22:54</abbr></a>] <span>* guillaum1 (n=gl@AMontsouris-153-1-65-13.w90-2.abo.wanadoo.fr) Quit ("Leaving.")</span></li>
+<li class="join">[<a href="#T08:24:19" id="T08:24:19"><abbr title="2009-04-02T08:24:19+00:00">08:24:19</abbr></a>] <span>* guillaum1 (n=gzba4143@AMontsouris-153-1-65-13.w90-2.abo.wanadoo.fr) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:25:49" id="T08:25:49"><abbr title="2009-04-02T08:25:49+00:00">08:25:49</abbr></a>] <span>* rob_k (i=5a9c5284@gateway/web/ajax/mibbit.com/x-0e542b6f40939b9e) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:29:45" id="T08:29:45"><abbr title="2009-04-02T08:29:45+00:00">08:29:45</abbr></a>] &lt;<cite>rob_k</cite>&gt; <q>Hi.  Does signal multiplexing for expansion connector on beagle provides only 4 options? Is it possible to choose for pins 2-10 Option B and for rest of pins Option D?</q></li>
+<li class="message">[<a href="#T08:30:15" id="T08:30:15"><abbr title="2009-04-02T08:30:15+00:00">08:30:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mru: there is a USB 1.1 only controller on there</q></li>
+<li class="message">[<a href="#T08:30:33" id="T08:30:33"><abbr title="2009-04-02T08:30:33+00:00">08:30:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>rob_k: the options are selected on a per pin basis</q></li>
+<li class="message">[<a href="#T08:30:40" id="T08:30:40"><abbr title="2009-04-02T08:30:40+00:00">08:30:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ds2: yes, I found it</q></li>
+<li class="message">[<a href="#T08:30:49" id="T08:30:49"><abbr title="2009-04-02T08:30:49+00:00">08:30:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but it's not connected on the beagle</q></li>
+<li class="message">[<a href="#T08:30:55" id="T08:30:55"><abbr title="2009-04-02T08:30:55+00:00">08:30:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T08:31:15" id="T08:31:15"><abbr title="2009-04-02T08:31:15+00:00">08:31:15</abbr></a>] &lt;<cite>rob_k</cite>&gt; <q>ds2 thanks</q></li>
+<li class="join">[<a href="#T08:34:33" id="T08:34:33"><abbr title="2009-04-02T08:34:33+00:00">08:34:33</abbr></a>] <span>* eFfeM (n=frans@195-241-226-180.ip.telfort.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:37:27" id="T08:37:27"><abbr title="2009-04-02T08:37:27+00:00">08:37:27</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>i have seen the beagle angstrom demos on youtube, when i run them they are very slow, how much memory beagle had in the demos?</q></li>
+<li class="message">[<a href="#T08:37:46" id="T08:37:46"><abbr title="2009-04-02T08:37:46+00:00">08:37:46</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>i use 128mb here</q></li>
+<li class="quit">[<a href="#T08:37:47" id="T08:37:47"><abbr title="2009-04-02T08:37:47+00:00">08:37:47</abbr></a>] <span>* joesensport (n=joesensp@218.242.229.234) Quit (Read error: 131 (Connection reset by peer))</span></li>
+<li class="message">[<a href="#T08:42:44" id="T08:42:44"><abbr title="2009-04-02T08:42:44+00:00">08:42:44</abbr></a>] &lt;<cite>koen</cite>&gt; <q>vsr: that depends</q></li>
+<li class="message">[<a href="#T08:42:59" id="T08:42:59"><abbr title="2009-04-02T08:42:59+00:00">08:42:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>vsr: but the ram size doesn't have any influence on the speed</q></li>
+<li class="message">[<a href="#T08:43:05" id="T08:43:05"><abbr title="2009-04-02T08:43:05+00:00">08:43:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>was about to say that</q></li>
+<li class="message">[<a href="#T08:43:08" id="T08:43:08"><abbr title="2009-04-02T08:43:08+00:00">08:43:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>what demos are slow?</q></li>
+<li class="message">[<a href="#T08:43:18" id="T08:43:18"><abbr title="2009-04-02T08:43:18+00:00">08:43:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the bb is fast as buggery</q></li>
+<li class="action">[<abbr title="2009-04-02T08:43:18+00:00">08:43:18</abbr>] <span>* koen ran the same with 88MB without a speed hit</span></li>
+<li class="message">[<a href="#T08:43:27" id="T08:43:27"><abbr title="2009-04-02T08:43:27+00:00">08:43:27</abbr></a>] &lt;<cite>raster</cite>&gt; <q>boots like no mans business</q></li>
+<li class="message">[<a href="#T08:43:43" id="T08:43:43"><abbr title="2009-04-02T08:43:43+00:00">08:43:43</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>gimp</q></li>
+<li class="message">[<a href="#T08:43:49" id="T08:43:49"><abbr title="2009-04-02T08:43:49+00:00">08:43:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>more like a slooooow SD card or something</q></li>
+<li class="message">[<a href="#T08:43:51" id="T08:43:51"><abbr title="2009-04-02T08:43:51+00:00">08:43:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oh god</q></li>
+<li class="message">[<a href="#T08:43:59" id="T08:43:59"><abbr title="2009-04-02T08:43:59+00:00">08:43:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u expect gimp to work on an embedded cpu?</q></li>
+<li class="message">[<a href="#T08:44:24" id="T08:44:24"><abbr title="2009-04-02T08:44:24+00:00">08:44:24</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>no, when i see that demo, they appeared so fast, i thought i was missing something</q></li>
+<li class="message">[<a href="#T08:44:33" id="T08:44:33"><abbr title="2009-04-02T08:44:33+00:00">08:44:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the bb keeps up with a 1ghz via eden system</q></li>
+<li class="message">[<a href="#T08:44:42" id="T08:44:42"><abbr title="2009-04-02T08:44:42+00:00">08:44:42</abbr></a>] &lt;<cite>raster</cite>&gt; <q>with maybe 1/10th the power usage</q></li>
+<li class="message">[<a href="#T08:44:53" id="T08:44:53"><abbr title="2009-04-02T08:44:53+00:00">08:44:53</abbr></a>] &lt;<cite>koen</cite>&gt; <q>gimp launches fast on a fast SD card with hot caches</q></li>
+<li class="message">[<a href="#T08:45:08" id="T08:45:08"><abbr title="2009-04-02T08:45:08+00:00">08:45:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oooh</q></li>
+<li class="message">[<a href="#T08:45:11" id="T08:45:11"><abbr title="2009-04-02T08:45:11+00:00">08:45:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>on your end its slow</q></li>
+<li class="message">[<a href="#T08:45:20" id="T08:45:20"><abbr title="2009-04-02T08:45:20+00:00">08:45:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T08:45:22" id="T08:45:22"><abbr title="2009-04-02T08:45:22+00:00">08:45:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>possible sd</q></li>
+<li class="message">[<a href="#T08:45:23" id="T08:45:23"><abbr title="2009-04-02T08:45:23+00:00">08:45:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>try</q></li>
+<li class="message">[<a href="#T08:45:30" id="T08:45:30"><abbr title="2009-04-02T08:45:30+00:00">08:45:30</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>koen: what do you mean by fast sd cards</q></li>
+<li class="message">[<a href="#T08:45:46" id="T08:45:46"><abbr title="2009-04-02T08:45:46+00:00">08:45:46</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>i have transcend and sandisk cards</q></li>
+<li class="message">[<a href="#T08:45:49" id="T08:45:49"><abbr title="2009-04-02T08:45:49+00:00">08:45:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>vsr: sandisk extreme &lt;big number&gt; or ultra &lt;big number&gt;</q></li>
+<li class="message">[<a href="#T08:45:59" id="T08:45:59"><abbr title="2009-04-02T08:45:59+00:00">08:45:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the ones that do 15MB/s</q></li>
+<li class="message">[<a href="#T08:46:06" id="T08:46:06"><abbr title="2009-04-02T08:46:06+00:00">08:46:06</abbr></a>] &lt;<cite>russ</cite>&gt; <q>does it at least say class 6 on it?</q></li>
+<li class="message">[<a href="#T08:46:25" id="T08:46:25"><abbr title="2009-04-02T08:46:25+00:00">08:46:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and first launch of gimp is always slow since it needs to build its plugin cache from scratch</q></li>
+<li class="action">[<a href="#T08:46:27" id="T08:46:27"><abbr title="2009-04-02T08:46:27+00:00">08:46:27</abbr></a>] <span>* russ oot@beagleboard:~# root@beagleb....</span></li>
+<li class="message">[<a href="#T08:46:48" id="T08:46:48"><abbr title="2009-04-02T08:46:48+00:00">08:46:48</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>yes, when i draw something it takes some time to appear</q></li>
+<li class="message">[<a href="#T08:47:05" id="T08:47:05"><abbr title="2009-04-02T08:47:05+00:00">08:47:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q> echo 1 &gt; /proc/sys/vm/drop_caches; time dd if=/dev/mmcblk0 of=/dev</q></li>
+<li class="message">[<a href="#T08:47:08" id="T08:47:08"><abbr title="2009-04-02T08:47:08+00:00">08:47:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>try that</q></li>
+<li class="message">[<a href="#T08:47:14" id="T08:47:14"><abbr title="2009-04-02T08:47:14+00:00">08:47:14</abbr></a>] &lt;<cite>raster</cite>&gt; <q>errr</q></li>
+<li class="message">[<a href="#T08:47:18" id="T08:47:18"><abbr title="2009-04-02T08:47:18+00:00">08:47:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>try again</q></li>
+<li class="message">[<a href="#T08:47:34" id="T08:47:34"><abbr title="2009-04-02T08:47:34+00:00">08:47:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>echo 1 &gt; /proc/sys/vm/drop_caches; time dd if=/dev/mmcblk0 of=/dev/null bs=1024 count=102400</q></li>
+<li class="message">[<a href="#T08:47:37" id="T08:47:37"><abbr title="2009-04-02T08:47:37+00:00">08:47:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>that one</q></li>
+<li class="message">[<a href="#T08:48:07" id="T08:48:07"><abbr title="2009-04-02T08:48:07+00:00">08:48:07</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>raster: i will try that and let you know later</q></li>
+<li class="message">[<a href="#T08:48:16" id="T08:48:16"><abbr title="2009-04-02T08:48:16+00:00">08:48:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>real    0m 6.66s</q></li>
+<li class="message">[<a href="#T08:48:21" id="T08:48:21"><abbr title="2009-04-02T08:48:21+00:00">08:48:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>is what i get off my microsd</q></li>
+<li class="message">[<a href="#T08:48:31" id="T08:48:31"><abbr title="2009-04-02T08:48:31+00:00">08:48:31</abbr></a>] &lt;<cite>koen</cite>&gt; <q>104857600 bytes (105 MB) copied, 6.2431 seconds, 16.8 MB/s</q></li>
+<li class="message">[<a href="#T08:48:36" id="T08:48:36"><abbr title="2009-04-02T08:48:36+00:00">08:48:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>real	0m6.280s</q></li>
+<li class="message">[<a href="#T08:48:39" id="T08:48:39"><abbr title="2009-04-02T08:48:39+00:00">08:48:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(about 15.7m/s)</q></li>
+<li class="message">[<a href="#T08:48:50" id="T08:48:50"><abbr title="2009-04-02T08:48:50+00:00">08:48:50</abbr></a>] &lt;<cite>raster</cite>&gt; <q>koen:  same then</q></li>
+<li class="message">[<a href="#T08:49:04" id="T08:49:04"><abbr title="2009-04-02T08:49:04+00:00">08:49:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as for slow to draw - not sure</q></li>
+<li class="message">[<a href="#T08:49:10" id="T08:49:10"><abbr title="2009-04-02T08:49:10+00:00">08:49:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>runing 16 or 32bpp?</q></li>
+<li class="message">[<a href="#T08:49:21" id="T08:49:21"><abbr title="2009-04-02T08:49:21+00:00">08:49:21</abbr></a>] &lt;<cite>vsr</cite>&gt; <q>16</q></li>
+<li class="message">[<a href="#T08:49:22" id="T08:49:22"><abbr title="2009-04-02T08:49:22+00:00">08:49:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>raster: I wonder how fast the omap3 would be with e.g. the intel x25-e ssd</q></li>
+<li class="message">[<a href="#T08:49:25" id="T08:49:25"><abbr title="2009-04-02T08:49:25+00:00">08:49:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it could be gimps tile cache on disk?</q></li>
+<li class="message">[<a href="#T08:49:34" id="T08:49:34"><abbr title="2009-04-02T08:49:34+00:00">08:49:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>vsr:  try 32</q></li>
+<li class="message">[<a href="#T08:49:36" id="T08:49:36"><abbr title="2009-04-02T08:49:36+00:00">08:49:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>raster: in the theoretical case it supports sata</q></li>
+<li class="message">[<a href="#T08:49:46" id="T08:49:46"><abbr title="2009-04-02T08:49:46+00:00">08:49:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>koen: assuming u had an sata if...</q></li>
+<li class="message">[<a href="#T08:49:53" id="T08:49:53"><abbr title="2009-04-02T08:49:53+00:00">08:49:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hahaha</q></li>
+<li class="message">[<a href="#T08:50:01" id="T08:50:01"><abbr title="2009-04-02T08:50:01+00:00">08:50:01</abbr></a>] &lt;<cite>raster</cite>&gt; <q>koen:  how about just have 2 cd cards</q></li>
+<li class="message">[<a href="#T08:50:05" id="T08:50:05"><abbr title="2009-04-02T08:50:05+00:00">08:50:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and raid stripe... </q></li>
+<li class="message">[<a href="#T08:50:06" id="T08:50:06"><abbr title="2009-04-02T08:50:06+00:00">08:50:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T08:50:40" id="T08:50:40"><abbr title="2009-04-02T08:50:40+00:00">08:50:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>more like 13 cards :)</q></li>
+<li class="quit">[<a href="#T08:50:56" id="T08:50:56"><abbr title="2009-04-02T08:50:56+00:00">08:50:56</abbr></a>] <span>* PhastPhrog (n=chatzill@194.193.86.112) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T08:53:06" id="T08:53:06"><abbr title="2009-04-02T08:53:06+00:00">08:53:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hahaha</q></li>
+<li class="message">[<a href="#T08:53:21" id="T08:53:21"><abbr title="2009-04-02T08:53:21+00:00">08:53:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its a bit of theory.. that isnt likely to come to pass</q></li>
+<li class="message">[<a href="#T08:54:00" id="T08:54:00"><abbr title="2009-04-02T08:54:00+00:00">08:54:00</abbr></a>] &lt;<cite>russ</cite>&gt; <q>since SATA is serial, it seems like a McBSP implementation might be possible</q></li>
+<li class="message">[<a href="#T08:54:25" id="T08:54:25"><abbr title="2009-04-02T08:54:25+00:00">08:54:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the flash drive will use more power than the rest of your system</q></li>
+<li class="message">[<a href="#T08:54:26" id="T08:54:26"><abbr title="2009-04-02T08:54:26+00:00">08:54:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T08:54:40" id="T08:54:40"><abbr title="2009-04-02T08:54:40+00:00">08:54:40</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>if I upgrade a kernel module is the old one for an older version of the kernel gone after the upgrade ?</q></li>
+<li class="quit">[<a href="#T08:54:59" id="T08:54:59"><abbr title="2009-04-02T08:54:59+00:00">08:54:59</abbr></a>] <span>* xndr (n=alex@cpe-74-66-14-187.nyc.res.rr.com) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T08:55:16" id="T08:55:16"><abbr title="2009-04-02T08:55:16+00:00">08:55:16</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>koen the .29 defconfig does not have the network adaptors as y, is that intentional</q></li>
+<li class="message">[<a href="#T08:57:17" id="T08:57:17"><abbr title="2009-04-02T08:57:17+00:00">08:57:17</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>.29 ehci patch works with mass storage but i have no network due to the missing kernel module for pegasus</q></li>
+<li class="message">[<a href="#T08:57:52" id="T08:57:52"><abbr title="2009-04-02T08:57:52+00:00">08:57:52</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>noticed that ehci could use some work as it depends on u-boot doing some initialisations</q></li>
+<li class="message">[<a href="#T08:59:07" id="T08:59:07"><abbr title="2009-04-02T08:59:07+00:00">08:59:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>eFfeM: no, that isn't intentional</q></li>
+<li class="message">[<a href="#T08:59:26" id="T08:59:26"><abbr title="2009-04-02T08:59:26+00:00">08:59:26</abbr></a>] &lt;<cite>eFfeM</cite>&gt; <q>should we change ?</q></li>
