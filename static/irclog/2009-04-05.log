@@ -274,3 +274,204 @@
 <li class="message">[<a href="#T02:58:40" id="T02:58:40"><abbr title="2009-04-05T02:58:40+00:00">02:58:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>tcsetattr is the call, IRRC</q></li>
 <li class="message">[<a href="#T02:58:44" id="T02:58:44"><abbr title="2009-04-05T02:58:44+00:00">02:58:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>IIRC</q></li>
 <li class="quit">[<a href="#T03:00:06" id="T03:00:06"><abbr title="2009-04-05T03:00:06+00:00">03:00:06</abbr></a>] <span>* mrgarlic (n=mrgarlic@pool-70-19-69-81.ny325.east.verizon.net) Quit ()</span></li>
+<li class="message">[<a href="#T03:00:22" id="T03:00:22"><abbr title="2009-04-05T03:00:22+00:00">03:00:22</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>ok ill give it a try, any idea how to setup that mux on the BB</q></li>
+<li class="message">[<a href="#T03:00:27" id="T03:00:27"><abbr title="2009-04-05T03:00:27+00:00">03:00:27</abbr></a>] &lt;<cite>watarat</cite>&gt; <q>ds2 - is there a problem going in and setting the hardware registers from a user app - or does that need to be done as part of a 'driver'</q></li>
+<li class="message">[<a href="#T03:08:51" id="T03:08:51"><abbr title="2009-04-05T03:08:51+00:00">03:08:51</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>thank a lot guys</q></li>
+<li class="message">[<a href="#T03:09:04" id="T03:09:04"><abbr title="2009-04-05T03:09:04+00:00">03:09:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>waterat:that should only be done from a driver</q></li>
+<li class="message">[<a href="#T03:09:09" id="T03:09:09"><abbr title="2009-04-05T03:09:09+00:00">03:09:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or you will confuse things </q></li>
+<li class="message">[<a href="#T03:09:32" id="T03:09:32"><abbr title="2009-04-05T03:09:32+00:00">03:09:32</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>any idea how to configure the mux?</q></li>
+<li class="message">[<a href="#T03:10:03" id="T03:10:03"><abbr title="2009-04-05T03:10:03+00:00">03:10:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>brater36: U boot or the kernel; for the kernel - I have a write up. Note there is a current bug that is breaking the kernel MUX config stuff</q></li>
+<li class="message">[<a href="#T03:10:24" id="T03:10:24"><abbr title="2009-04-05T03:10:24+00:00">03:10:24</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>so Uboot prob best</q></li>
+<li class="message">[<a href="#T03:10:41" id="T03:10:41"><abbr title="2009-04-05T03:10:41+00:00">03:10:41</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if you  have control of it, yes.</q></li>
+<li class="message">[<a href="#T03:10:52" id="T03:10:52"><abbr title="2009-04-05T03:10:52+00:00">03:10:52</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>anyway to do it in code?</q></li>
+<li class="message">[<a href="#T03:10:55" id="T03:10:55"><abbr title="2009-04-05T03:10:55+00:00">03:10:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>kernel MUX lets you do other stuff</q></li>
+<li class="message">[<a href="#T03:11:04" id="T03:11:04"><abbr title="2009-04-05T03:11:04+00:00">03:11:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>not in userland, just in kernel code</q></li>
+<li class="message">[<a href="#T03:11:20" id="T03:11:20"><abbr title="2009-04-05T03:11:20+00:00">03:11:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>well, that's not quite correctly - you can subvert EVERYTHING and go in underneat with /dev/mem</q></li>
+<li class="message">[<a href="#T03:11:27" id="T03:11:27"><abbr title="2009-04-05T03:11:27+00:00">03:11:27</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>gotcha so ill do it in Uboot i guess</q></li>
+<li class="message">[<a href="#T03:11:55" id="T03:11:55"><abbr title="2009-04-05T03:11:55+00:00">03:11:55</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>so just need to configure Uboot b4 the system boots right?</q></li>
+<li class="message">[<a href="#T03:12:06" id="T03:12:06"><abbr title="2009-04-05T03:12:06+00:00">03:12:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T03:12:11" id="T03:12:11"><abbr title="2009-04-05T03:12:11+00:00">03:12:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you need to rebuild U-boot from source</q></li>
+<li class="message">[<a href="#T03:12:19" id="T03:12:19"><abbr title="2009-04-05T03:12:19+00:00">03:12:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>edit beagle.h</q></li>
+<li class="message">[<a href="#T03:12:35" id="T03:12:35"><abbr title="2009-04-05T03:12:35+00:00">03:12:35</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>ahh, umm well i shoudl be able to do that, i got OE up an running so</q></li>
+<li class="message">[<a href="#T03:13:04" id="T03:13:04"><abbr title="2009-04-05T03:13:04+00:00">03:13:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>OE he he he he he OE he he he he</q></li>
+<li class="message">[<a href="#T03:13:20" id="T03:13:20"><abbr title="2009-04-05T03:13:20+00:00">03:13:20</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>oh now what, lol</q></li>
+<li class="message">[<a href="#T03:13:26" id="T03:13:26"><abbr title="2009-04-05T03:13:26+00:00">03:13:26</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>oh no**</q></li>
+<li class="message">[<a href="#T03:13:29" id="T03:13:29"><abbr title="2009-04-05T03:13:29+00:00">03:13:29</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T03:13:42" id="T03:13:42"><abbr title="2009-04-05T03:13:42+00:00">03:13:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>nothing :D</q></li>
+<li class="message">[<a href="#T03:13:50" id="T03:13:50"><abbr title="2009-04-05T03:13:50+00:00">03:13:50</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>lol</q></li>
+<li class="quit">[<a href="#T03:14:07" id="T03:14:07"><abbr title="2009-04-05T03:14:07+00:00">03:14:07</abbr></a>] <span>* L84Supper (n=ly@c-68-53-183-162.hsd1.il.comcast.net) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T03:15:23" id="T03:15:23"><abbr title="2009-04-05T03:15:23+00:00">03:15:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I wonder how convoluted it is it to do it in OE...</q></li>
+<li class="message">[<a href="#T03:17:00" id="T03:17:00"><abbr title="2009-04-05T03:17:00+00:00">03:17:00</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>i was just looking for beagle.h and cant seem to find it, there are like 8 of them</q></li>
+<li class="message">[<a href="#T03:17:14" id="T03:17:14"><abbr title="2009-04-05T03:17:14+00:00">03:17:14</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>oe does seem a bit strange lol</q></li>
+<li class="join">[<a href="#T03:17:22" id="T03:17:22"><abbr title="2009-04-05T03:17:22+00:00">03:17:22</abbr></a>] <span>* L84Supper (n=ly@c-68-53-183-162.hsd1.il.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:20:37" id="T03:20:37"><abbr title="2009-04-05T03:20:37+00:00">03:20:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>one sec</q></li>
+<li class="message">[<a href="#T03:20:57" id="T03:20:57"><abbr title="2009-04-05T03:20:57+00:00">03:20:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>board/omap3/beagle/beagle.h</q></li>
+<li class="message">[<a href="#T03:22:19" id="T03:22:19"><abbr title="2009-04-05T03:22:19+00:00">03:22:19</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>wheres that board dir?</q></li>
+<li class="message">[<a href="#T03:22:20" id="T03:22:20"><abbr title="2009-04-05T03:22:20+00:00">03:22:20</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>cant seem to find it</q></li>
+<li class="message">[<a href="#T03:24:12" id="T03:24:12"><abbr title="2009-04-05T03:24:12+00:00">03:24:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>in u-boot</q></li>
+<li class="message">[<a href="#T03:24:27" id="T03:24:27"><abbr title="2009-04-05T03:24:27+00:00">03:24:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>OE is hiding it if it is not there</q></li>
+<li class="message">[<a href="#T03:24:40" id="T03:24:40"><abbr title="2009-04-05T03:24:40+00:00">03:24:40</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T03:24:49" id="T03:24:49"><abbr title="2009-04-05T03:24:49+00:00">03:24:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I did wonder about how convolunted it is with, did I not? :D</q></li>
+<li class="message">[<a href="#T03:25:10" id="T03:25:10"><abbr title="2009-04-05T03:25:10+00:00">03:25:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>&lt;-- won't touch OE unless someone is offering money </q></li>
+<li class="message">[<a href="#T03:25:18" id="T03:25:18"><abbr title="2009-04-05T03:25:18+00:00">03:25:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there are better ways to do things then with OE</q></li>
+<li class="message">[<a href="#T03:26:03" id="T03:26:03"><abbr title="2009-04-05T03:26:03+00:00">03:26:03</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>like what, im open to other solutions, OE was a pain to get working too  lol</q></li>
+<li class="message">[<a href="#T03:26:16" id="T03:26:16"><abbr title="2009-04-05T03:26:16+00:00">03:26:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I just build things from their GIT trees or tarballs</q></li>
+<li class="message">[<a href="#T03:26:57" id="T03:26:57"><abbr title="2009-04-05T03:26:57+00:00">03:26:57</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>ahh</q></li>
+<li class="message">[<a href="#T03:27:41" id="T03:27:41"><abbr title="2009-04-05T03:27:41+00:00">03:27:41</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>life is too short to spend it fighting the latest build system fad</q></li>
+<li class="message">[<a href="#T03:28:23" id="T03:28:23"><abbr title="2009-04-05T03:28:23+00:00">03:28:23</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>very tru</q></li>
+<li class="message">[<a href="#T03:29:26" id="T03:29:26"><abbr title="2009-04-05T03:29:26+00:00">03:29:26</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I just want to write simple s apps directly on the BB</q></li>
+<li class="message">[<a href="#T03:29:37" id="T03:29:37"><abbr title="2009-04-05T03:29:37+00:00">03:29:37</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>simple C apps</q></li>
+<li class="message">[<abbr title="2009-04-05T03:29:37+00:00">03:29:37</abbr>] &lt;<cite>ds2</cite>&gt; <q>s apps?</q></li>
+<li class="message">[<a href="#T03:29:39" id="T03:29:39"><abbr title="2009-04-05T03:29:39+00:00">03:29:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T03:29:49" id="T03:29:49"><abbr title="2009-04-05T03:29:49+00:00">03:29:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>thought you want to do asm</q></li>
+<li class="message">[<a href="#T03:30:01" id="T03:30:01"><abbr title="2009-04-05T03:30:01+00:00">03:30:01</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>used to</q></li>
+<li class="message">[<a href="#T03:30:23" id="T03:30:23"><abbr title="2009-04-05T03:30:23+00:00">03:30:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>given u use c and need enough libs</q></li>
+<li class="message">[<a href="#T03:30:26" id="T03:30:26"><abbr title="2009-04-05T03:30:26+00:00">03:30:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u will want a build system</q></li>
+<li class="message">[<a href="#T03:30:31" id="T03:30:31"><abbr title="2009-04-05T03:30:31+00:00">03:30:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u can do it on the bb</q></li>
+<li class="message">[<a href="#T03:30:35" id="T03:30:35"><abbr title="2009-04-05T03:30:35+00:00">03:30:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but man is it slow</q></li>
+<li class="message">[<a href="#T03:30:43" id="T03:30:43"><abbr title="2009-04-05T03:30:43+00:00">03:30:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>raster: it isn't that bad</q></li>
+<li class="message">[<a href="#T03:30:59" id="T03:30:59"><abbr title="2009-04-05T03:30:59+00:00">03:30:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ds2: compared to a cross-compile on a dual core 3ghz box...</q></li>
+<li class="message">[<a href="#T03:31:01" id="T03:31:01"><abbr title="2009-04-05T03:31:01+00:00">03:31:01</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its pain</q></li>
+<li class="message">[<a href="#T03:31:09" id="T03:31:09"><abbr title="2009-04-05T03:31:09+00:00">03:31:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>raster: no, I mean building w/o OE</q></li>
+<li class="message">[<a href="#T03:31:13" id="T03:31:13"><abbr title="2009-04-05T03:31:13+00:00">03:31:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>not native only compile</q></li>
+<li class="message">[<a href="#T03:31:20" id="T03:31:20"><abbr title="2009-04-05T03:31:20+00:00">03:31:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>you mean hand-rolled cross-dev?</q></li>
+<li class="message">[<a href="#T03:31:30" id="T03:31:30"><abbr title="2009-04-05T03:31:30+00:00">03:31:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if you want to make it look bad, sure</q></li>
+<li class="message">[<a href="#T03:31:44" id="T03:31:44"><abbr title="2009-04-05T03:31:44+00:00">03:31:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>given you use enough libs</q></li>
+<li class="message">[<a href="#T03:31:48" id="T03:31:48"><abbr title="2009-04-05T03:31:48+00:00">03:31:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>you will be in a world of pain</q></li>
+<li class="message">[<a href="#T03:32:00" id="T03:32:00"><abbr title="2009-04-05T03:32:00+00:00">03:32:00</abbr></a>] &lt;<cite>raster</cite>&gt; <q>if the only thign u use is libc</q></li>
+<li class="message">[<a href="#T03:32:02" id="T03:32:02"><abbr title="2009-04-05T03:32:02+00:00">03:32:02</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its easy</q></li>
+<li class="message">[<abbr title="2009-04-05T03:32:02+00:00">03:32:02</abbr>] &lt;<cite>ds2</cite>&gt; <q>no, that's a libtool/pkgconf issue</q></li>
+<li class="message">[<a href="#T03:32:13" id="T03:32:13"><abbr title="2009-04-05T03:32:13+00:00">03:32:13</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yes</q></li>
+<li class="message">[<abbr title="2009-04-05T03:32:13+00:00">03:32:13</abbr>] &lt;<cite>ds2</cite>&gt; <q>proper libraries do not present many issues</q></li>
+<li class="message">[<a href="#T03:32:17" id="T03:32:17"><abbr title="2009-04-05T03:32:17+00:00">03:32:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but everything uses it</q></li>
+<li class="message">[<a href="#T03:32:22" id="T03:32:22"><abbr title="2009-04-05T03:32:22+00:00">03:32:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>do not use that peice of crap</q></li>
+<li class="message">[<a href="#T03:32:39" id="T03:32:39"><abbr title="2009-04-05T03:32:39+00:00">03:32:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>there is nothing else</q></li>
+<li class="message">[<a href="#T03:32:45" id="T03:32:45"><abbr title="2009-04-05T03:32:45+00:00">03:32:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>other than hand-rolling your -l's</q></li>
+<li class="message">[<a href="#T03:32:47" id="T03:32:47"><abbr title="2009-04-05T03:32:47+00:00">03:32:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and -L's</q></li>
+<li class="message">[<a href="#T03:32:48" id="T03:32:48"><abbr title="2009-04-05T03:32:48+00:00">03:32:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>-I's</q></li>
+<li class="message">[<a href="#T03:32:49" id="T03:32:49"><abbr title="2009-04-05T03:32:49+00:00">03:32:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>etc.</q></li>
+<li class="message">[<a href="#T03:32:59" id="T03:32:59"><abbr title="2009-04-05T03:32:59+00:00">03:32:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>using them is like driving around with a deployed parachute and insisting you need jet engines to get up to highway speeds</q></li>
+<li class="message">[<a href="#T03:33:21" id="T03:33:21"><abbr title="2009-04-05T03:33:21+00:00">03:33:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hand rolling -l's, -L's and -I's are easy</q></li>
+<li class="message">[<a href="#T03:34:19" id="T03:34:19"><abbr title="2009-04-05T03:34:19+00:00">03:34:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>-I's shouldn't be needed if things are installed right</q></li>
+<li class="message">[<a href="#T03:34:23" id="T03:34:23"><abbr title="2009-04-05T03:34:23+00:00">03:34:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>same with -L's</q></li>
+<li class="message">[<a href="#T03:34:30" id="T03:34:30"><abbr title="2009-04-05T03:34:30+00:00">03:34:30</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Say I want to write a gui GPS display what is simple?</q></li>
+<li class="message">[<a href="#T03:34:46" id="T03:34:46"><abbr title="2009-04-05T03:34:46+00:00">03:34:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ncurses :D</q></li>
+<li class="message">[<a href="#T03:34:54" id="T03:34:54"><abbr title="2009-04-05T03:34:54+00:00">03:34:54</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>local on BB or outside?</q></li>
+<li class="message">[<a href="#T03:35:00" id="T03:35:00"><abbr title="2009-04-05T03:35:00+00:00">03:35:00</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ds2: i know how it works :) it just becomes uber-painful when you have 30 libs u link against</q></li>
+<li class="message">[<a href="#T03:35:16" id="T03:35:16"><abbr title="2009-04-05T03:35:16+00:00">03:35:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>raster: I come from the days before libtools and it was way easier w/o it</q></li>
+<li class="message">[<a href="#T03:35:21" id="T03:35:21"><abbr title="2009-04-05T03:35:21+00:00">03:35:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and you may or mayt not know if the lib has built with lib-linking or not</q></li>
+<li class="message">[<a href="#T03:35:28" id="T03:35:28"><abbr title="2009-04-05T03:35:28+00:00">03:35:28</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so u dont know if u have to link to its deps for it or not</q></li>
+<li class="message">[<a href="#T03:35:34" id="T03:35:34"><abbr title="2009-04-05T03:35:34+00:00">03:35:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(as some distros insist on doing)</q></li>
+<li class="message">[<a href="#T03:35:39" id="T03:35:39"><abbr title="2009-04-05T03:35:39+00:00">03:35:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so did i</q></li>
+<li class="message">[<a href="#T03:35:51" id="T03:35:51"><abbr title="2009-04-05T03:35:51+00:00">03:35:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i was writign compile.sh's for cross-compiling years ago</q></li>
+<li class="message">[<a href="#T03:35:54" id="T03:35:54"><abbr title="2009-04-05T03:35:54+00:00">03:35:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>did I mention I also dislike most distros</q></li>
+<li class="message">[<abbr title="2009-04-05T03:35:54+00:00">03:35:54</abbr>] &lt;<cite>raster</cite>&gt; <q>hand rolling my own</q></li>
+<li class="message">[<a href="#T03:36:10" id="T03:36:10"><abbr title="2009-04-05T03:36:10+00:00">03:36:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>distros are a waste of time... start from a rootdisk and go from there</q></li>
+<li class="message">[<a href="#T03:36:18" id="T03:36:18"><abbr title="2009-04-05T03:36:18+00:00">03:36:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the problem is - if u want somehting to "work" on multiple distros - with minimum hassle. you end up with autofools</q></li>
+<li class="message">[<a href="#T03:36:23" id="T03:36:23"><abbr title="2009-04-05T03:36:23+00:00">03:36:23</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yes - everyone hates them</q></li>
+<li class="message">[<a href="#T03:36:25" id="T03:36:25"><abbr title="2009-04-05T03:36:25+00:00">03:36:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its universal</q></li>
+<li class="message">[<a href="#T03:36:43" id="T03:36:43"><abbr title="2009-04-05T03:36:43+00:00">03:36:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>guess if everyone hates them, I am the only willing to do something about them :D</q></li>
+<li class="message">[<a href="#T03:37:03" id="T03:37:03"><abbr title="2009-04-05T03:37:03+00:00">03:37:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but it is actually autotools that has meant that at least dozens of libs and apps iat least in E land.. have "just worked" (tm) within cross-build systems</q></li>
+<li class="message">[<a href="#T03:37:17" id="T03:37:17"><abbr title="2009-04-05T03:37:17+00:00">03:37:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i hate them too - but i've come to see them as a pain you need :(</q></li>
+<li class="message">[<a href="#T03:37:25" id="T03:37:25"><abbr title="2009-04-05T03:37:25+00:00">03:37:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>autoconf is the worse thing ever</q></li>
+<li class="message">[<a href="#T03:37:37" id="T03:37:37"><abbr title="2009-04-05T03:37:37+00:00">03:37:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is a curse for support, a curse for users, a curse for everything.</q></li>
+<li class="message">[<abbr title="2009-04-05T03:37:37+00:00">03:37:37</abbr>] &lt;<cite>raster</cite>&gt; <q>it offends me too</q></li>
+<li class="message">[<a href="#T03:37:45" id="T03:37:45"><abbr title="2009-04-05T03:37:45+00:00">03:37:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>config.h works. </q></li>
+<li class="message">[<a href="#T03:37:48" id="T03:37:48"><abbr title="2009-04-05T03:37:48+00:00">03:37:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>some of my libs - the configure script is 5x the side of the src for the lib</q></li>
+<li class="message">[<a href="#T03:37:54" id="T03:37:54"><abbr title="2009-04-05T03:37:54+00:00">03:37:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its atrocious</q></li>
+<li class="message">[<a href="#T03:38:06" id="T03:38:06"><abbr title="2009-04-05T03:38:06+00:00">03:38:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the tarball u ship is 300kb</q></li>
+<li class="message">[<a href="#T03:38:09" id="T03:38:09"><abbr title="2009-04-05T03:38:09+00:00">03:38:09</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but the src is 5kb</q></li>
+<li class="message">[<a href="#T03:38:11" id="T03:38:11"><abbr title="2009-04-05T03:38:11+00:00">03:38:11</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(compressed)</q></li>
+<li class="message">[<a href="#T03:38:13" id="T03:38:13"><abbr title="2009-04-05T03:38:13+00:00">03:38:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>right so rewrite things to use a config.h</q></li>
+<li class="message">[<a href="#T03:38:21" id="T03:38:21"><abbr title="2009-04-05T03:38:21+00:00">03:38:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>its not that alone</q></li>
+<li class="message">[<a href="#T03:38:35" id="T03:38:35"><abbr title="2009-04-05T03:38:35+00:00">03:38:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i have to say i have come to royally love make distcheck</q></li>
+<li class="message">[<a href="#T03:38:42" id="T03:38:42"><abbr title="2009-04-05T03:38:42+00:00">03:38:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>people who use the code needs to have SOME intelligence...it helps keep down the support issues</q></li>
+<li class="message">[<a href="#T03:38:51" id="T03:38:51"><abbr title="2009-04-05T03:38:51+00:00">03:38:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it has meant i can deliver deliverables to my clients.. in about 3 minutes</q></li>
+<li class="message">[<a href="#T03:38:59" id="T03:38:59"><abbr title="2009-04-05T03:38:59+00:00">03:38:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and i know its qa'd</q></li>
+<li class="message">[<a href="#T03:39:16" id="T03:39:16"><abbr title="2009-04-05T03:39:16+00:00">03:39:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is not QA'ed til it is really QA'ed</q></li>
+<li class="message">[<a href="#T03:39:30" id="T03:39:30"><abbr title="2009-04-05T03:39:30+00:00">03:39:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>from a packaging the source up point of view.. it is</q></li>
+<li class="message">[<a href="#T03:39:40" id="T03:39:40"><abbr title="2009-04-05T03:39:40+00:00">03:39:40</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it doesnt include spurious build and temp files</q></li>
+<li class="message">[<a href="#T03:39:47" id="T03:39:47"><abbr title="2009-04-05T03:39:47+00:00">03:39:47</abbr></a>] &lt;<cite>raster</cite>&gt; <q>makes sure everything is actually included thats needed</q></li>
+<li class="message">[<a href="#T03:39:56" id="T03:39:56"><abbr title="2009-04-05T03:39:56+00:00">03:39:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and that it builds inside or outside the tree</q></li>
+<li class="message">[<a href="#T03:40:06" id="T03:40:06"><abbr title="2009-04-05T03:40:06+00:00">03:40:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>isn't that like git clean?</q></li>
+<li class="message">[<a href="#T03:40:08" id="T03:40:08"><abbr title="2009-04-05T03:40:08+00:00">03:40:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>with differing build dirs and more</q></li>
+<li class="message">[<a href="#T03:40:10" id="T03:40:10"><abbr title="2009-04-05T03:40:10+00:00">03:40:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T03:40:21" id="T03:40:21"><abbr title="2009-04-05T03:40:21+00:00">03:40:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it keeps develope-rgenerated files</q></li>
+<li class="message">[<a href="#T03:40:35" id="T03:40:35"><abbr title="2009-04-05T03:40:35+00:00">03:40:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie automake does Makefile.am -&gt; Makefile.in</q></li>
+<li class="message">[<a href="#T03:40:46" id="T03:40:46"><abbr title="2009-04-05T03:40:46+00:00">03:40:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>in git/svn/cvs  you dont keep the Makefile.in's</q></li>
+<li class="message">[<a href="#T03:40:48" id="T03:40:48"><abbr title="2009-04-05T03:40:48+00:00">03:40:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ever</q></li>
+<li class="message">[<a href="#T03:40:54" id="T03:40:54"><abbr title="2009-04-05T03:40:54+00:00">03:40:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as they are generated from the .am's</q></li>
+<li class="message">[<a href="#T03:41:03" id="T03:41:03"><abbr title="2009-04-05T03:41:03+00:00">03:41:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but in a disted soruc tarball you do</q></li>
+<li class="message">[<a href="#T03:41:23" id="T03:41:23"><abbr title="2009-04-05T03:41:23+00:00">03:41:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah but if we avoid autoconf abominiation, this isn't an issue</q></li>
+<li class="message">[<a href="#T03:41:33" id="T03:41:33"><abbr title="2009-04-05T03:41:33+00:00">03:41:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i dont need to worry about .git or .svn or CVS scms dirs in the tree</q></li>
+<li class="message">[<a href="#T03:41:37" id="T03:41:37"><abbr title="2009-04-05T03:41:37+00:00">03:41:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>they wotn be packaged up</q></li>
+<li class="message">[<a href="#T03:41:43" id="T03:41:43"><abbr title="2009-04-05T03:41:43+00:00">03:41:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ooh no</q></li>
+<li class="message">[<a href="#T03:41:51" id="T03:41:51"><abbr title="2009-04-05T03:41:51+00:00">03:41:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>u nstil lneed to weed out the scms files</q></li>
+<li class="quit">[<a href="#T03:41:53" id="T03:41:53"><abbr title="2009-04-05T03:41:53+00:00">03:41:53</abbr></a>] <span>* satendra (i=dce0e51e@gateway/web/ajax/mibbit.com/x-fe93b240011dfb26) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T03:42:03" id="T03:42:03"><abbr title="2009-04-05T03:42:03+00:00">03:42:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it alows me to keep scratch files and dirs in my tree</q></li>
+<li class="message">[<a href="#T03:42:06" id="T03:42:06"><abbr title="2009-04-05T03:42:06+00:00">03:42:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>that are nmot scsm tracked</q></li>
+<li class="message">[<a href="#T03:42:10" id="T03:42:10"><abbr title="2009-04-05T03:42:10+00:00">03:42:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but i know wont be disted</q></li>
+<li class="message">[<a href="#T03:42:11" id="T03:42:11"><abbr title="2009-04-05T03:42:11+00:00">03:42:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>w/CVS, I can see theproblem</q></li>
+<li class="message">[<a href="#T03:42:22" id="T03:42:22"><abbr title="2009-04-05T03:42:22+00:00">03:42:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but with .git, it shouldn't be much of a problem</q></li>
+<li class="message">[<a href="#T03:42:26" id="T03:42:26"><abbr title="2009-04-05T03:42:26+00:00">03:42:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i just cease worrying</q></li>
+<li class="message">[<a href="#T03:42:33" id="T03:42:33"><abbr title="2009-04-05T03:42:33+00:00">03:42:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>also it means i know it wil work with</q></li>
+<li class="message">[<a href="#T03:42:41" id="T03:42:41"><abbr title="2009-04-05T03:42:41+00:00">03:42:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>make DESTDIR=/tmp/whatevere</q></li>
+<li class="message">[<a href="#T03:42:54" id="T03:42:54"><abbr title="2009-04-05T03:42:54+00:00">03:42:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so actually building packages (.deb, .rpm etc.) is alwasy clean and correct</q></li>
+<li class="message">[<a href="#T03:42:59" id="T03:42:59"><abbr title="2009-04-05T03:42:59+00:00">03:42:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i get "make uninstall" for free</q></li>
+<li class="message">[<a href="#T03:43:01" id="T03:43:01"><abbr title="2009-04-05T03:43:01+00:00">03:43:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ewwwwwwwwwwwwwww packages</q></li>
+<li class="message">[<a href="#T03:43:06" id="T03:43:06"><abbr title="2009-04-05T03:43:06+00:00">03:43:06</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as all instaleld stuff is tracked</q></li>
+<li class="message">[<a href="#T03:43:21" id="T03:43:21"><abbr title="2009-04-05T03:43:21+00:00">03:43:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>reality is - people use and want packages</q></li>
+<li class="message">[<a href="#T03:43:29" id="T03:43:29"><abbr title="2009-04-05T03:43:29+00:00">03:43:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>of course, this isn't going to get resolve... you spend more of  your time in userland... I spend it in kernel land</q></li>
+<li class="message">[<a href="#T03:43:30" id="T03:43:30"><abbr title="2009-04-05T03:43:30+00:00">03:43:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>you end up caterign for them</q></li>
+<li class="message">[<a href="#T03:43:46" id="T03:43:46"><abbr title="2009-04-05T03:43:46+00:00">03:43:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>packages are a abomination; for maintainers and for users</q></li>
+<li class="message">[<a href="#T03:43:48" id="T03:43:48"><abbr title="2009-04-05T03:43:48+00:00">03:43:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>you can try and sit in a bubble and ignore the world of distros and packages.. but its there.. and thats how it works</q></li>
+<li class="message">[<a href="#T03:43:57" id="T03:43:57"><abbr title="2009-04-05T03:43:57+00:00">03:43:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and no - packages are good</q></li>
+<li class="message">[<a href="#T03:44:08" id="T03:44:08"><abbr title="2009-04-05T03:44:08+00:00">03:44:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>they are bad</q></li>
+<li class="message">[<a href="#T03:44:26" id="T03:44:26"><abbr title="2009-04-05T03:44:26+00:00">03:44:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>bad enough to piss off maintainers into locking up code</q></li>
+<li class="message">[<a href="#T03:44:29" id="T03:44:29"><abbr title="2009-04-05T03:44:29+00:00">03:44:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>comign from, having worked # rh and done rpm, done custom debina distros, doing oe, i've bene in slackware land before and i've rolled my own hand-build embedded rootfs's and kernels before</q></li>
+<li class="message">[<a href="#T03:44:33" id="T03:44:33"><abbr title="2009-04-05T03:44:33+00:00">03:44:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'd take packages any day</q></li>
+<li class="message">[<a href="#T03:45:05" id="T03:45:05"><abbr title="2009-04-05T03:45:05+00:00">03:45:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>users are too stpuid to compile stuff</q></li>
+<li class="message">[<a href="#T03:45:15" id="T03:45:15"><abbr title="2009-04-05T03:45:15+00:00">03:45:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>when a distro takes snapshots and makes packages out of them, bad things happen</q></li>
+<li class="message">[<a href="#T03:45:20" id="T03:45:20"><abbr title="2009-04-05T03:45:20+00:00">03:45:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>admittedly a lot oof package maintainers are also not a lot better</q></li>
+<li class="message">[<a href="#T03:45:24" id="T03:45:24"><abbr title="2009-04-05T03:45:24+00:00">03:45:24</abbr></a>] &lt;<cite>raster</cite>&gt; <q>they "think they know"</q></li>
+<li class="message">[<a href="#T03:45:33" id="T03:45:33"><abbr title="2009-04-05T03:45:33+00:00">03:45:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and thu7s have a false sense of competence</q></li>
+<li class="message">[<a href="#T03:45:45" id="T03:45:45"><abbr title="2009-04-05T03:45:45+00:00">03:45:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and as such a distro should take releases</q></li>
+<li class="message">[<a href="#T03:45:46" id="T03:45:46"><abbr title="2009-04-05T03:45:46+00:00">03:45:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>most do</q></li>
+<li class="message">[<a href="#T03:45:52" id="T03:45:52"><abbr title="2009-04-05T03:45:52+00:00">03:45:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but thats their policy</q></li>
+<li class="message">[<a href="#T03:46:08" id="T03:46:08"><abbr title="2009-04-05T03:46:08+00:00">03:46:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>packages are fine if they can guarantee their users will only use their stuff and ask them for support</q></li>
+<li class="message">[<a href="#T03:46:09" id="T03:46:09"><abbr title="2009-04-05T03:46:09+00:00">03:46:09</abbr></a>] &lt;<cite>raster</cite>&gt; <q>a snapshot is no different ot users just chekcing out whatever is in git/svn now</q></li>
+<li class="message">[<a href="#T03:46:12" id="T03:46:12"><abbr title="2009-04-05T03:46:12+00:00">03:46:12</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>thanks for all the help!!!</q></li>
+<li class="message">[<a href="#T03:46:13" id="T03:46:13"><abbr title="2009-04-05T03:46:13+00:00">03:46:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but that is not the world</q></li>
+<li class="message">[<abbr title="2009-04-05T03:46:13+00:00">03:46:13</abbr>] &lt;<cite>raster</cite>&gt; <q>or a particular date/revision</q></li>
+<li class="message">[<a href="#T03:46:24" id="T03:46:24"><abbr title="2009-04-05T03:46:24+00:00">03:46:24</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>brater36: sorry for going off on a tangent </q></li>
+<li class="message">[<a href="#T03:46:33" id="T03:46:33"><abbr title="2009-04-05T03:46:33+00:00">03:46:33</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>haha its alright</q></li>
+<li class="message">[<a href="#T03:46:36" id="T03:46:36"><abbr title="2009-04-05T03:46:36+00:00">03:46:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>raster: no, it is worse cuz a package makes it look official</q></li>
+<li class="message">[<a href="#T03:46:43" id="T03:46:43"><abbr title="2009-04-05T03:46:43+00:00">03:46:43</abbr></a>] &lt;<cite>brater36</cite>&gt; <q>later</q></li>
+<li class="message">[<a href="#T03:46:44" id="T03:46:44"><abbr title="2009-04-05T03:46:44+00:00">03:46:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ds2:  yeah/ that has annoyed the crap out of me for long enough</q></li>
+<li class="message">[<a href="#T03:46:48" id="T03:46:48"><abbr title="2009-04-05T03:46:48+00:00">03:46:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>packagers package up</q></li>
+<li class="message">[<a href="#T03:46:51" id="T03:46:51"><abbr title="2009-04-05T03:46:51+00:00">03:46:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>then they patch it and futz it</q></li>
+<li class="message">[<a href="#T03:46:54" id="T03:46:54"><abbr title="2009-04-05T03:46:54+00:00">03:46:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>take pilot-link for example... redhat was taking development snapshots and packaging them up</q></li>
+<li class="quit">[<a href="#T03:47:02" id="T03:47:02"><abbr title="2009-04-05T03:47:02+00:00">03:47:02</abbr></a>] <span>* brater36 (i=626d5feb@gateway/web/ajax/mibbit.com/x-0c0b1a332c9a2b31) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T03:47:03" id="T03:47:03"><abbr title="2009-04-05T03:47:03+00:00">03:47:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and the users come back to upstream devs asking bizarre quesitons on stuff u never released</q></li>
+<li class="message">[<a href="#T03:47:08" id="T03:47:08"><abbr title="2009-04-05T03:47:08+00:00">03:47:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>then serious pissed off the pilot-link maintainer cuz of all the questions</q></li>
+<li class="message">[<a href="#T03:47:09" id="T03:47:09"><abbr title="2009-04-05T03:47:09+00:00">03:47:09</abbr></a>] &lt;<cite>raster</cite>&gt; <q>or you never had configured/set up that way</q></li>
+<li class="message">[<a href="#T03:47:19" id="T03:47:19"><abbr title="2009-04-05T03:47:19+00:00">03:47:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>exactly</q></li>
+<li class="message">[<a href="#T03:47:25" id="T03:47:25"><abbr title="2009-04-05T03:47:25+00:00">03:47:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i have bene pissed off royally by this often enough. thats half the reason i moved to binary configs for e</q></li>
+<li class="message">[<a href="#T03:47:30" id="T03:47:30"><abbr title="2009-04-05T03:47:30+00:00">03:47:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>to thrawt the damn packagers</q></li>
+<li class="message">[<a href="#T03:47:31" id="T03:47:31"><abbr title="2009-04-05T03:47:31+00:00">03:47:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so I much rather packages not existed</q></li>
+<li class="message">[<a href="#T03:47:53" id="T03:47:53"><abbr title="2009-04-05T03:47:53+00:00">03:47:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>make it just complicated enough where the level of clue you need puts you in the "well you'll do it right" crowd</q></li>
+<li class="message">[<a href="#T03:48:02" id="T03:48:02"><abbr title="2009-04-05T03:48:02+00:00">03:48:02</abbr></a>] &lt;<cite>raster</cite>&gt; <q>otherwise you take it as we ship it.. or go away</q></li>
+<li class="message">[<a href="#T03:48:15" id="T03:48:15"><abbr title="2009-04-05T03:48:15+00:00">03:48:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but reality is people will package</q></li>
+<li class="message">[<a href="#T03:48:17" id="T03:48:17"><abbr title="2009-04-05T03:48:17+00:00">03:48:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and so on</q></li>
+<li class="message">[<a href="#T03:48:18" id="T03:48:18"><abbr title="2009-04-05T03:48:18+00:00">03:48:18</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and use them</q></li>
+<li class="message">[<a href="#T03:48:29" id="T03:48:29"><abbr title="2009-04-05T03:48:29+00:00">03:48:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>forcing people to goto the tarball enforces a certain level of clue</q></li>
+<li class="message">[<a href="#T03:48:35" id="T03:48:35"><abbr title="2009-04-05T03:48:35+00:00">03:48:35</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so i work to make sure the packages as closely as possible reflect what upstream have/release/do</q></li>
+<li class="message">[<a href="#T03:48:43" id="T03:48:43"><abbr title="2009-04-05T03:48:43+00:00">03:48:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>anyway</q></li>
+<li class="message">[<a href="#T03:48:45" id="T03:48:45"><abbr title="2009-04-05T03:48:45+00:00">03:48:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>gotta run</q></li>
+<li class="message">[<a href="#T03:48:47" id="T03:48:47"><abbr title="2009-04-05T03:48:47+00:00">03:48:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T03:48:49" id="T03:48:49"><abbr title="2009-04-05T03:48:49+00:00">03:48:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>later</q></li>
+<li class="message">[<a href="#T03:48:51" id="T03:48:51"><abbr title="2009-04-05T03:48:51+00:00">03:48:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>real life kicking in!</q></li>
+<li class="message">[<a href="#T03:48:52" id="T03:48:52"><abbr title="2009-04-05T03:48:52+00:00">03:48:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T03:48:59" id="T03:48:59"><abbr title="2009-04-05T03:48:59+00:00">03:48:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>&lt;--- finishing dinner</q></li>
+<li class="join">[<a href="#T03:52:34" id="T03:52:34"><abbr title="2009-04-05T03:52:34+00:00">03:52:34</abbr></a>] <span>* _gm__ (n=_gm_@190.173.66.170) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:58:04" id="T03:58:04"><abbr title="2009-04-05T03:58:04+00:00">03:58:04</abbr></a>] <span>* _gm___ (n=_gm_@190.173.83.184) Quit (Read error: 110 (Connection timed out))</span></li>
