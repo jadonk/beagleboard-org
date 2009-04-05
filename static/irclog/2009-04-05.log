@@ -1201,3 +1201,187 @@
 <li class="message">[<a href="#T07:59:09" id="T07:59:09"><abbr title="2009-04-05T07:59:09+00:00">07:59:09</abbr></a>] &lt;<cite>raster</cite>&gt; <q>if u can make a uimage from a zimage...</q></li>
 <li class="message">[<a href="#T07:59:23" id="T07:59:23"><abbr title="2009-04-05T07:59:23+00:00">07:59:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no</q></li>
 <li class="message">[<a href="#T07:59:26" id="T07:59:26"><abbr title="2009-04-05T07:59:26+00:00">07:59:26</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i must be able to reverse it</q></li>
+<li class="message">[<a href="#T08:00:08" id="T08:00:08"><abbr title="2009-04-05T08:00:08+00:00">08:00:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>should be no different to memroy after uboot has done the load...</q></li>
+<li class="message">[<a href="#T08:00:14" id="T08:00:14"><abbr title="2009-04-05T08:00:14+00:00">08:00:14</abbr></a>] &lt;<cite>raster</cite>&gt; <q>uboots info comes from the same file?</q></li>
+<li class="message">[<a href="#T08:00:19" id="T08:00:19"><abbr title="2009-04-05T08:00:19+00:00">08:00:19</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I always thought a uImage was just a zImage wrapped in some u-boot header</q></li>
+<li class="message">[<a href="#T08:00:24" id="T08:00:24"><abbr title="2009-04-05T08:00:24+00:00">08:00:24</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so its the same thing - just without using uboot</q></li>
+<li class="message">[<a href="#T08:00:46" id="T08:00:46"><abbr title="2009-04-05T08:00:46+00:00">08:00:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>zImage includes a self decompressor</q></li>
+<li class="message">[<a href="#T08:00:53" id="T08:00:53"><abbr title="2009-04-05T08:00:53+00:00">08:00:53</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>uboot does the decompression</q></li>
+<li class="message">[<a href="#T08:01:05" id="T08:01:05"><abbr title="2009-04-05T08:01:05+00:00">08:01:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so you should get something that kind of looks like vmlinux</q></li>
+<li class="message">[<a href="#T08:01:41" id="T08:01:41"><abbr title="2009-04-05T08:01:41+00:00">08:01:41</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thats fine by me</q></li>
+<li class="message">[<a href="#T08:01:44" id="T08:01:44"><abbr title="2009-04-05T08:01:44+00:00">08:01:44</abbr></a>] &lt;<cite>raster</cite>&gt; <q>already uncompressed</q></li>
+<li class="message">[<a href="#T08:01:50" id="T08:01:50"><abbr title="2009-04-05T08:01:50+00:00">08:01:50</abbr></a>] &lt;<cite>raster</cite>&gt; <q>that would be the result of hacking uboot anyway</q></li>
+<li class="message">[<a href="#T08:05:36" id="T08:05:36"><abbr title="2009-04-05T08:05:36+00:00">08:05:36</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>then why does it say, "Uncompressing Linux............................................................................................ done, booting the kernel."</q></li>
+<li class="message">[<a href="#T08:05:51" id="T08:05:51"><abbr title="2009-04-05T08:05:51+00:00">08:05:51</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and "Data Size:    1419840 Bytes =  1.4 MB"</q></li>
+<li class="message">[<a href="#T08:06:05" id="T08:06:05"><abbr title="2009-04-05T08:06:05+00:00">08:06:05</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>my zImage is 1.4M</q></li>
+<li class="message">[<a href="#T08:06:11" id="T08:06:11"><abbr title="2009-04-05T08:06:11+00:00">08:06:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>let me look at the code and I'll retract my statement otherwise :D</q></li>
+<li class="message">[<a href="#T08:06:27" id="T08:06:27"><abbr title="2009-04-05T08:06:27+00:00">08:06:27</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>so the claim of "Image Type:   ARM Linux Kernel Image (uncompressed)" seems most definitely fase</q></li>
+<li class="message">[<a href="#T08:06:31" id="T08:06:31"><abbr title="2009-04-05T08:06:31+00:00">08:06:31</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>er, false</q></li>
+<li class="quit">[<a href="#T08:08:43" id="T08:08:43"><abbr title="2009-04-05T08:08:43+00:00">08:08:43</abbr></a>] <span>* _gm__ (n=_gm_@190.173.66.55) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T08:09:36" id="T08:09:36"><abbr title="2009-04-05T08:09:36+00:00">08:09:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: uboot has its own compression scheme</q></li>
+<li class="message">[<a href="#T08:09:54" id="T08:09:54"><abbr title="2009-04-05T08:09:54+00:00">08:09:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: to it is indeed an uncompresses uImage, containing a zImage</q></li>
+<li class="message">[<a href="#T08:09:58" id="T08:09:58"><abbr title="2009-04-05T08:09:58+00:00">08:09:58</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>koen: then it seems rather a waste</q></li>
+<li class="message">[<a href="#T08:10:01" id="T08:10:01"><abbr title="2009-04-05T08:10:01+00:00">08:10:01</abbr></a>] &lt;<cite>koen</cite>&gt; <q>s/d/d/ somewhere</q></li>
+<li class="join">[<a href="#T08:10:19" id="T08:10:19"><abbr title="2009-04-05T08:10:19+00:00">08:10:19</abbr></a>] <span>* _gm__ (n=_gm_@190.173.67.79) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:10:27" id="T08:10:27"><abbr title="2009-04-05T08:10:27+00:00">08:10:27</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: if u-boot doesn't set up the cache properly, it's a few seconds slower</q></li>
+<li class="message">[<a href="#T08:10:31" id="T08:10:31"><abbr title="2009-04-05T08:10:31+00:00">08:10:31</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>maybe thats part of why it takes solong</q></li>
+<li class="message">[<a href="#T08:10:40" id="T08:10:40"><abbr title="2009-04-05T08:10:40+00:00">08:10:40</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>a double decompression</q></li>
+<li class="message">[<a href="#T08:10:48" id="T08:10:48"><abbr title="2009-04-05T08:10:48+00:00">08:10:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Russ: I stand corrected, you are riight</q></li>
+<li class="message">[<a href="#T08:10:49" id="T08:10:49"><abbr title="2009-04-05T08:10:49+00:00">08:10:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: it took me a while to get that point across to the openmoko engineers 2 years ago</q></li>
+<li class="message">[<a href="#T08:11:46" id="T08:11:46"><abbr title="2009-04-05T08:11:46+00:00">08:11:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>nope, its not double compressed</q></li>
+<li class="message">[<a href="#T08:11:54" id="T08:11:54"><abbr title="2009-04-05T08:11:54+00:00">08:11:54</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>mkimage is invoked with -C none</q></li>
+<li class="message">[<a href="#T08:13:05" id="T08:13:05"><abbr title="2009-04-05T08:13:05+00:00">08:13:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>koen: it took them years to realise that just skipping uboot decomp and letting the kernel do its own was.. much better</q></li>
+<li class="message">[<a href="#T08:13:48" id="T08:13:48"><abbr title="2009-04-05T08:13:48+00:00">08:13:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ooh</q></li>
+<li class="message">[<a href="#T08:13:53" id="T08:13:53"><abbr title="2009-04-05T08:13:53+00:00">08:13:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>uiumage is a bit more complex than i thought</q></li>
+<li class="message">[<a href="#T08:14:01" id="T08:14:01"><abbr title="2009-04-05T08:14:01+00:00">08:14:01</abbr></a>] &lt;<cite>koen</cite>&gt; <q>raster: approx 4 seconds gained on gta01 if you used zImage + -C none</q></li>
+<li class="message">[<a href="#T08:14:03" id="T08:14:03"><abbr title="2009-04-05T08:14:03+00:00">08:14:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>supports multiple files even</q></li>
+<li class="message">[<a href="#T08:15:05" id="T08:15:05"><abbr title="2009-04-05T08:15:05+00:00">08:15:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>bugger</q></li>
+<li class="message">[<a href="#T08:15:07" id="T08:15:07"><abbr title="2009-04-05T08:15:07+00:00">08:15:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but still no support for automatically executing scripts tacked onto the uImage</q></li>
+<li class="message">[<a href="#T08:15:15" id="T08:15:15"><abbr title="2009-04-05T08:15:15+00:00">08:15:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>Image Type:   ARM Linux Kernel Image (uncompressed)</q></li>
+<li class="message">[<abbr title="2009-04-05T08:15:15+00:00">08:15:15</abbr>] &lt;<cite>raster</cite>&gt; <q>Data Size:    1874648 Bytes = 1830.71 kB = 1.79 MB</q></li>
+<li class="action">[<a href="#T08:15:56" id="T08:15:56"><abbr title="2009-04-05T08:15:56+00:00">08:15:56</abbr></a>] <span>* koen reads about openmoko on slashdot</span></li>
+<li class="message">[<a href="#T08:16:24" id="T08:16:24"><abbr title="2009-04-05T08:16:24+00:00">08:16:24</abbr></a>] &lt;<cite>raster</cite>&gt; <q>koen: news to the public</q></li>
+<li class="message">[<a href="#T08:16:33" id="T08:16:33"><abbr title="2009-04-05T08:16:33+00:00">08:16:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>been lurking amongst thopse who knew for a few weeks</q></li>
+<li class="message">[<a href="#T08:16:49" id="T08:16:49"><abbr title="2009-04-05T08:16:49+00:00">08:16:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>not totally surprised</q></li>
+<li class="action">[<a href="#T08:16:57" id="T08:16:57"><abbr title="2009-04-05T08:16:57+00:00">08:16:57</abbr></a>] <span>* koen wasn't surprised at all</span></li>
+<li class="message">[<a href="#T08:16:58" id="T08:16:58"><abbr title="2009-04-05T08:16:58+00:00">08:16:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>sean found a new shiny bauble to play with</q></li>
+<li class="message">[<a href="#T08:17:24" id="T08:17:24"><abbr title="2009-04-05T08:17:24+00:00">08:17:24</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oooh wait</q></li>
+<li class="message">[<a href="#T08:18:51" id="T08:18:51"><abbr title="2009-04-05T08:18:51+00:00">08:18:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ooooh</q></li>
+<li class="message">[<a href="#T08:18:52" id="T08:18:52"><abbr title="2009-04-05T08:18:52+00:00">08:18:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T08:19:05" id="T08:19:05"><abbr title="2009-04-05T08:19:05+00:00">08:19:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>bugger</q></li>
+<li class="join">[<a href="#T08:20:49" id="T08:20:49"><abbr title="2009-04-05T08:20:49+00:00">08:20:49</abbr></a>] <span>* pcgeil (n=steffen@p549E4A47.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:21:20" id="T08:21:20"><abbr title="2009-04-05T08:21:20+00:00">08:21:20</abbr></a>] &lt;<cite>koen</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T08:21:46" id="T08:21:46"><abbr title="2009-04-05T08:21:46+00:00">08:21:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>wow, I'm down to 18mA@5V (90mW)</q></li>
+<li class="message">[<a href="#T08:21:54" id="T08:21:54"><abbr title="2009-04-05T08:21:54+00:00">08:21:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>some dutch politician suggests that busdrivers should be allowed to use pepperspray on agressive travellers</q></li>
+<li class="message">[<a href="#T08:22:12" id="T08:22:12"><abbr title="2009-04-05T08:22:12+00:00">08:22:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I don't want to be inside a bus where that is going to be used</q></li>
+<li class="message">[<a href="#T08:22:36" id="T08:22:36"><abbr title="2009-04-05T08:22:36+00:00">08:22:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: removed the leds?</q></li>
+<li class="message">[<a href="#T08:22:55" id="T08:22:55"><abbr title="2009-04-05T08:22:55+00:00">08:22:55</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>no, I think it has to do with the MUSB regulators</q></li>
+<li class="message">[<a href="#T08:23:06" id="T08:23:06"><abbr title="2009-04-05T08:23:06+00:00">08:23:06</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I start without a cable plugged in, plug the cable in, then suspend</q></li>
+<li class="message">[<a href="#T08:23:22" id="T08:23:22"><abbr title="2009-04-05T08:23:22+00:00">08:23:22</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>if I do it the other way around, it uses more power than if I never plug a cable in</q></li>
+<li class="quit">[<a href="#T08:23:36" id="T08:23:36"><abbr title="2009-04-05T08:23:36+00:00">08:23:36</abbr></a>] <span>* dirk (n=dirk@p5B040840.dip0.t-ipconnect.de) Quit ("Konversation terminated!")</span></li>
+<li class="message">[<a href="#T08:23:49" id="T08:23:49"><abbr title="2009-04-05T08:23:49+00:00">08:23:49</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>so I definitely need to get regulators working right</q></li>
+<li class="message">[<a href="#T08:24:05" id="T08:24:05"><abbr title="2009-04-05T08:24:05+00:00">08:24:05</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>but yes, most of that 18mA would be the power LED</q></li>
+<li class="message">[<a href="#T08:24:19" id="T08:24:19"><abbr title="2009-04-05T08:24:19+00:00">08:24:19</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I haven't gotten my temp controlled iron in the mail yet</q></li>
+<li class="message">[<a href="#T08:24:45" id="T08:24:45"><abbr title="2009-04-05T08:24:45+00:00">08:24:45</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>I wish my butane one were temp controlled</q></li>
+<li class="message">[<a href="#T08:24:57" id="T08:24:57"><abbr title="2009-04-05T08:24:57+00:00">08:24:57</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>but maybe it's not possible</q></li>
+<li class="message">[<a href="#T08:25:09" id="T08:25:09"><abbr title="2009-04-05T08:25:09+00:00">08:25:09</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: not unless it is very expensive</q></li>
+<li class="message">[<a href="#T08:25:18" id="T08:25:18"><abbr title="2009-04-05T08:25:18+00:00">08:25:18</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>well I have an electric one that is</q></li>
+<li class="message">[<a href="#T08:25:37" id="T08:25:37"><abbr title="2009-04-05T08:25:37+00:00">08:25:37</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>it's also very powerful, it heats up in 8 seconds</q></li>
+<li class="message">[<a href="#T08:26:03" id="T08:26:03"><abbr title="2009-04-05T08:26:03+00:00">08:26:03</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>so it senses loads and can overdrive a lot</q></li>
+<li class="message">[<a href="#T08:26:20" id="T08:26:20"><abbr title="2009-04-05T08:26:20+00:00">08:26:20</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>the butane one just has a thermal mass so it can't react very fast</q></li>
+<li class="message">[<a href="#T08:26:37" id="T08:26:37"><abbr title="2009-04-05T08:26:37+00:00">08:26:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: you might get David Brownell interested in MUSB regulators</q></li>
+<li class="message">[<a href="#T08:26:51" id="T08:26:51"><abbr title="2009-04-05T08:26:51+00:00">08:26:51</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>koen: do you know if he has a git tree?</q></li>
+<li class="message">[<a href="#T08:27:01" id="T08:27:01"><abbr title="2009-04-05T08:27:01+00:00">08:27:01</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I want to try some of his stuff, but he has tons of scattered patches</q></li>
+<li class="message">[<a href="#T08:27:07" id="T08:27:07"><abbr title="2009-04-05T08:27:07+00:00">08:27:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>no idea on that</q></li>
+<li class="message">[<a href="#T08:27:25" id="T08:27:25"><abbr title="2009-04-05T08:27:25+00:00">08:27:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I just know he's everywhere I turn when hacking new hardware :)</q></li>
+<li class="message">[<a href="#T08:27:45" id="T08:27:45"><abbr title="2009-04-05T08:27:45+00:00">08:27:45</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>do you have a quick suggestion for a nntp reader that can save mbox files? (eg, for patches)?</q></li>
+<li class="message">[<a href="#T08:28:17" id="T08:28:17"><abbr title="2009-04-05T08:28:17+00:00">08:28:17</abbr></a>] &lt;<cite>raster</cite>&gt; <q>Russ: 90mw where, dowing what what is 90mw?</q></li>
+<li class="message">[<a href="#T08:28:27" id="T08:28:27"><abbr title="2009-04-05T08:28:27+00:00">08:28:27</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>raster: sleep</q></li>
+<li class="message">[<a href="#T08:28:28" id="T08:28:28"><abbr title="2009-04-05T08:28:28+00:00">08:28:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I only use thunderbird for nntp, and it sucks</q></li>
+<li class="message">[<a href="#T08:28:37" id="T08:28:37"><abbr title="2009-04-05T08:28:37+00:00">08:28:37</abbr></a>] &lt;<cite>raster</cite>&gt; <q>Russ: where? the bb?</q></li>
+<li class="message">[<a href="#T08:28:45" id="T08:28:45"><abbr title="2009-04-05T08:28:45+00:00">08:28:45</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>yes</q></li>
+<li class="message">[<abbr title="2009-04-05T08:28:45+00:00">08:28:45</abbr>] &lt;<cite>raster</cite>&gt; <q>rsalveti:  the whole bb? or just soc core?</q></li>
+<li class="message">[<a href="#T08:28:53" id="T08:28:53"><abbr title="2009-04-05T08:28:53+00:00">08:28:53</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and sleep in what way?</q></li>
+<li class="message">[<a href="#T08:28:55" id="T08:28:55"><abbr title="2009-04-05T08:28:55+00:00">08:28:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>suspend?</q></li>
+<li class="message">[<a href="#T08:29:04" id="T08:29:04"><abbr title="2009-04-05T08:29:04+00:00">08:29:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>or zero-clokc, tickless idle?</q></li>
+<li class="message">[<a href="#T08:29:05" id="T08:29:05"><abbr title="2009-04-05T08:29:05+00:00">08:29:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: have you see <a href="http://patchwork.kernel.org/">http://patchwork.kernel.org/</a> ?</q></li>
+<li class="message">[<a href="#T08:29:06" id="T08:29:06"><abbr title="2009-04-05T08:29:06+00:00">08:29:06</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>the whole bb</q></li>
+<li class="message">[<a href="#T08:29:17" id="T08:29:17"><abbr title="2009-04-05T08:29:17+00:00">08:29:17</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>poweroff for the chip</q></li>
+<li class="message">[<a href="#T08:29:24" id="T08:29:24"><abbr title="2009-04-05T08:29:24+00:00">08:29:24</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>but retain for the SDRAM</q></li>
+<li class="message">[<a href="#T08:29:28" id="T08:29:28"><abbr title="2009-04-05T08:29:28+00:00">08:29:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>s/see/seen/</q></li>
+<li class="message">[<a href="#T08:29:36" id="T08:29:36"><abbr title="2009-04-05T08:29:36+00:00">08:29:36</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>koen: yes, I love patchwork, but they don't have the linux-usb list</q></li>
+<li class="message">[<a href="#T08:30:39" id="T08:30:39"><abbr title="2009-04-05T08:30:39+00:00">08:30:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>drat</q></li>
+<li class="message">[<a href="#T08:31:46" id="T08:31:46"><abbr title="2009-04-05T08:31:46+00:00">08:31:46</abbr></a>] &lt;<cite>raster</cite>&gt; <q>Russ:  ok. so suspend.</q></li>
+<li class="message">[<abbr title="2009-04-05T08:31:46+00:00">08:31:46</abbr>] &lt;<cite>Russ</cite>&gt; <q>ok, I'm trying out the gmane nntp archives of the list</q></li>
+<li class="message">[<abbr title="2009-04-05T08:31:46+00:00">08:31:46</abbr>] &lt;<cite>Russ</cite>&gt; <q>in evolution</q></li>
+<li class="message">[<a href="#T08:31:59" id="T08:31:59"><abbr title="2009-04-05T08:31:59+00:00">08:31:59</abbr></a>] &lt;<cite>raster</cite>&gt; <q>Russ:  do u know whats eating most of the 90mw?</q></li>
+<li class="message">[<a href="#T08:32:29" id="T08:32:29"><abbr title="2009-04-05T08:32:29+00:00">08:32:29</abbr></a>] &lt;<cite>koen</cite>&gt; <q>powerled on the 5V rail</q></li>
+<li class="message">[<a href="#T08:33:13" id="T08:33:13"><abbr title="2009-04-05T08:33:13+00:00">08:33:13</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>raster: the TWL4030, the 26MHz oscillator (~15mW), the power LED (~50mW), the 232 converters (3.3mW), the TFP410 (1.6mW)</q></li>
+<li class="message">[<a href="#T08:33:22" id="T08:33:22"><abbr title="2009-04-05T08:33:22+00:00">08:33:22</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and of course the SDRAM</q></li>
+<li class="message">[<a href="#T08:33:49" id="T08:33:49"><abbr title="2009-04-05T08:33:49+00:00">08:33:49</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>thats at least what I get from looking at the datasheets</q></li>
+<li class="message">[<a href="#T08:34:21" id="T08:34:21"><abbr title="2009-04-05T08:34:21+00:00">08:34:21</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>can the oscillator stop?</q></li>
+<li class="message">[<abbr title="2009-04-05T08:34:21+00:00">08:34:21</abbr>] &lt;<cite>raster</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T08:34:22" id="T08:34:22"><abbr title="2009-04-05T08:34:22+00:00">08:34:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T08:34:30" id="T08:34:30"><abbr title="2009-04-05T08:34:30+00:00">08:34:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the uimage i have is uncimpressed for uboot</q></li>
+<li class="message">[<a href="#T08:34:43" id="T08:34:43"><abbr title="2009-04-05T08:34:43+00:00">08:34:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>that means its really a zimage inside a uimage wrapper</q></li>
+<li class="message">[<a href="#T08:34:48" id="T08:34:48"><abbr title="2009-04-05T08:34:48+00:00">08:34:48</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>there are two models, one drops the power by half, the other drops it into the microamps range</q></li>
+<li class="message">[<a href="#T08:34:49" id="T08:34:49"><abbr title="2009-04-05T08:34:49+00:00">08:34:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so all i need is to snarf away the uboot header</q></li>
+<li class="message">[<a href="#T08:34:52" id="T08:34:52"><abbr title="2009-04-05T08:34:52+00:00">08:34:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>erruimage</q></li>
+<li class="message">[<a href="#T08:34:54" id="T08:34:54"><abbr title="2009-04-05T08:34:54+00:00">08:34:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: <a href="http://www.gmane.org/export.php">http://www.gmane.org/export.php</a></q></li>
+<li class="message">[<a href="#T08:34:55" id="T08:34:55"><abbr title="2009-04-05T08:34:55+00:00">08:34:55</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>the first model is what is on the beagle</q></li>
+<li class="message">[<a href="#T08:34:58" id="T08:34:58"><abbr title="2009-04-05T08:34:58+00:00">08:34:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>now.. how big is this header</q></li>
+<li class="message">[<a href="#T08:35:02" id="T08:35:02"><abbr title="2009-04-05T08:35:02+00:00">08:35:02</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Russ: gmane allows mbox exports :)</q></li>
+<li class="message">[<a href="#T08:35:08" id="T08:35:08"><abbr title="2009-04-05T08:35:08+00:00">08:35:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and the stop pin is tied to a voltage rail</q></li>
+<li class="message">[<a href="#T08:35:29" id="T08:35:29"><abbr title="2009-04-05T08:35:29+00:00">08:35:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>Russ: hmm so actually.. if you reall yhad a suspended system we'd be @ 15mw</q></li>
+<li class="message">[<a href="#T08:35:30" id="T08:35:30"><abbr title="2009-04-05T08:35:30+00:00">08:35:30</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>Russ: is there a resistor?</q></li>
+<li class="message">[<a href="#T08:35:36" id="T08:35:36"><abbr title="2009-04-05T08:35:36+00:00">08:35:36</abbr></a>] &lt;<cite>raster</cite>&gt; <q>assuming we didnt find any lower power modes for the 4030</q></li>
+<li class="message">[<a href="#T08:36:01" id="T08:36:01"><abbr title="2009-04-05T08:36:01+00:00">08:36:01</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>how long does it take to wake from this mode?</q></li>
+<li class="message">[<a href="#T08:36:50" id="T08:36:50"><abbr title="2009-04-05T08:36:50+00:00">08:36:50</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: nope</q></li>
+<li class="message">[<a href="#T08:36:54" id="T08:36:54"><abbr title="2009-04-05T08:36:54+00:00">08:36:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>oooh</q></li>
+<li class="message">[<a href="#T08:36:55" id="T08:36:55"><abbr title="2009-04-05T08:36:55+00:00">08:36:55</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: dunno how long it takes</q></li>
+<li class="message">[<a href="#T08:36:56" id="T08:36:56"><abbr title="2009-04-05T08:36:56+00:00">08:36:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>this is too easy</q></li>
+<li class="message">[<a href="#T08:37:35" id="T08:37:35"><abbr title="2009-04-05T08:37:35+00:00">08:37:35</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>raster: I want to tie the power led to the 3.3V rail and then tie the 3.3V LDO enable to a GPIO of the TWL4030 or the OMAP</q></li>
+<li class="message">[<a href="#T08:38:08" id="T08:38:08"><abbr title="2009-04-05T08:38:08+00:00">08:38:08</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>that will allow it to kill itself?</q></li>
+<li class="message">[<a href="#T08:38:19" id="T08:38:19"><abbr title="2009-04-05T08:38:19+00:00">08:38:19</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T08:38:35" id="T08:38:35"><abbr title="2009-04-05T08:38:35+00:00">08:38:35</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>you lose the 3.3v rail and the omap turns off right?</q></li>
+<li class="message">[<a href="#T08:38:39" id="T08:38:39"><abbr title="2009-04-05T08:38:39+00:00">08:38:39</abbr></a>] &lt;<cite>raster</cite>&gt; <q>128 bytes of uimage header</q></li>
+<li class="message">[<a href="#T08:38:43" id="T08:38:43"><abbr title="2009-04-05T08:38:43+00:00">08:38:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>walk in the park</q></li>
+<li class="message">[<a href="#T08:38:54" id="T08:38:54"><abbr title="2009-04-05T08:38:54+00:00">08:38:54</abbr></a>] &lt;<cite>raster</cite>&gt; <q>it even was a beatiful multiple of lines in od</q></li>
+<li class="message">[<abbr title="2009-04-05T08:38:54+00:00">08:38:54</abbr>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: the 3.3V rail only powers the TFP410 and the RS232 level converters</q></li>
+<li class="message">[<a href="#T08:39:07" id="T08:39:07"><abbr title="2009-04-05T08:39:07+00:00">08:39:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>didnt even need to finish reading the src for mkimage</q></li>
+<li class="message">[<abbr title="2009-04-05T08:39:07+00:00">08:39:07</abbr>] &lt;<cite>raster</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T08:40:01" id="T08:40:01"><abbr title="2009-04-05T08:40:01+00:00">08:40:01</abbr></a>] &lt;<cite>raster</cite>&gt; <q>Russ:  have u tried zero-clock and tickless kernels</q></li>
+<li class="message">[<a href="#T08:40:16" id="T08:40:16"><abbr title="2009-04-05T08:40:16+00:00">08:40:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>ie ti's uber-cool power management that also puts ram into self-refresh when idle?</q></li>
+<li class="message">[<a href="#T08:40:21" id="T08:40:21"><abbr title="2009-04-05T08:40:21+00:00">08:40:21</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so u never need to suspend</q></li>
+<li class="message">[<a href="#T08:40:25" id="T08:40:25"><abbr title="2009-04-05T08:40:25+00:00">08:40:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>simply keep the system idle</q></li>
+<li class="message">[<a href="#T08:40:32" id="T08:40:32"><abbr title="2009-04-05T08:40:32+00:00">08:40:32</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I have been using those, but I really don't care about power usage while running</q></li>
+<li class="action">[<a href="#T08:40:54" id="T08:40:54"><abbr title="2009-04-05T08:40:54+00:00">08:40:54</abbr></a>] <span>* koen spots approx 25 patches to make musb behave for 2.6.29</span></li>
+<li class="message">[<a href="#T08:40:55" id="T08:40:55"><abbr title="2009-04-05T08:40:55+00:00">08:40:55</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>my project is to reduce power consumption by cutting SDRAM sleep consumption in half</q></li>
+<li class="message">[<a href="#T08:41:08" id="T08:41:08"><abbr title="2009-04-05T08:41:08+00:00">08:41:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>right now, that would get lost in the noise and it would look quite unimpressive</q></li>
+<li class="message">[<a href="#T08:41:48" id="T08:41:48"><abbr title="2009-04-05T08:41:48+00:00">08:41:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>Russ:  sure..</q></li>
+<li class="message">[<a href="#T08:41:57" id="T08:41:57"><abbr title="2009-04-05T08:41:57+00:00">08:41:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i have alwasy been fascinated by omap's zeor-clock stuff</q></li>
+<li class="message">[<a href="#T08:42:01" id="T08:42:01"><abbr title="2009-04-05T08:42:01+00:00">08:42:01</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>480uA@1.8V vs 200uA@1.8V</q></li>
+<li class="message">[<a href="#T08:42:02" id="T08:42:02"><abbr title="2009-04-05T08:42:02+00:00">08:42:02</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as thats just super-waesome</q></li>
+<li class="message">[<a href="#T08:42:07" id="T08:42:07"><abbr title="2009-04-05T08:42:07+00:00">08:42:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>being able to avoid suspending.. ever</q></li>
+<li class="message">[<a href="#T08:42:21" id="T08:42:21"><abbr title="2009-04-05T08:42:21+00:00">08:42:21</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>if I do enable all that stuff, I have to mash the keyboard to get it to wake up</q></li>
+<li class="join">[<a href="#T08:42:30" id="T08:42:30"><abbr title="2009-04-05T08:42:30+00:00">08:42:30</abbr></a>] <span>* vsr (i=7aa60de8@gateway/web/ajax/mibbit.com/x-cc0d63a74e9395cd) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:42:34" id="T08:42:34"><abbr title="2009-04-05T08:42:34+00:00">08:42:34</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>480uA si low enough</q></li>
+<li class="message">[<a href="#T08:42:43" id="T08:42:43"><abbr title="2009-04-05T08:42:43+00:00">08:42:43</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>it's the same as my battery leakage</q></li>
+<li class="message">[<a href="#T08:43:33" id="T08:43:33"><abbr title="2009-04-05T08:43:33+00:00">08:43:33</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: thats how much power the SDRAM uses while in self refresh mode</q></li>
+<li class="join">[<a href="#T08:43:46" id="T08:43:46"><abbr title="2009-04-05T08:43:46+00:00">08:43:46</abbr></a>] <span>* _gm___ (n=_gm_@190.173.66.226) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:43:47" id="T08:43:47"><abbr title="2009-04-05T08:43:47+00:00">08:43:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>geckosenator: it uses 200uA if you disable 7/8th of the array</q></li>
+<li class="message">[<a href="#T08:43:54" id="T08:43:54"><abbr title="2009-04-05T08:43:54+00:00">08:43:54</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>do you lose the ram?</q></li>
+<li class="message">[<a href="#T08:44:08" id="T08:44:08"><abbr title="2009-04-05T08:44:08+00:00">08:44:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>with 480uA, you keep it all</q></li>
+<li class="message">[<a href="#T08:44:14" id="T08:44:14"><abbr title="2009-04-05T08:44:14+00:00">08:44:14</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>well that's what I need</q></li>
+<li class="quit">[<a href="#T08:44:23" id="T08:44:23"><abbr title="2009-04-05T08:44:23+00:00">08:44:23</abbr></a>] <span>* _gm__ (n=_gm_@190.173.67.79) Quit (Connection timed out)</span></li>
+<li class="message">[<abbr title="2009-04-05T08:44:23+00:00">08:44:23</abbr>] &lt;<cite>geckosenator</cite>&gt; <q>maybe you could wake up the os and tell it to swap more out</q></li>
+<li class="message">[<a href="#T08:44:29" id="T08:44:29"><abbr title="2009-04-05T08:44:29+00:00">08:44:29</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>so you can disable it</q></li>
+<li class="message">[<a href="#T08:44:50" id="T08:44:50"><abbr title="2009-04-05T08:44:50+00:00">08:44:50</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>thats kinda the idea, except to do all that before sleeping</q></li>
+<li class="message">[<a href="#T08:44:54" id="T08:44:54"><abbr title="2009-04-05T08:44:54+00:00">08:44:54</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and without the swap</q></li>
+<li class="message">[<a href="#T08:45:04" id="T08:45:04"><abbr title="2009-04-05T08:45:04+00:00">08:45:04</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>well.. you might need swap</q></li>
+<li class="message">[<a href="#T08:45:11" id="T08:45:11"><abbr title="2009-04-05T08:45:11+00:00">08:45:11</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>unless you just don't use much memory</q></li>
+<li class="message">[<a href="#T08:45:33" id="T08:45:33"><abbr title="2009-04-05T08:45:33+00:00">08:45:33</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>7/8th of 256 gives you like 32megs</q></li>
+<li class="message">[<a href="#T08:45:49" id="T08:45:49"><abbr title="2009-04-05T08:45:49+00:00">08:45:49</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>the usage model would be for a system that needs lots of RAM for caches and file backed pages</q></li>
+<li class="message">[<a href="#T08:46:08" id="T08:46:08"><abbr title="2009-04-05T08:46:08+00:00">08:46:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and then compcache (now ramzswap) can be used to compress down the remaining RAM</q></li>
+<li class="message">[<a href="#T08:46:10" id="T08:46:10"><abbr title="2009-04-05T08:46:10+00:00">08:46:10</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>you could put a small solar cell on the board to completely make up for this so it wouldn't drain the batteries</q></li>
+<li class="message">[<a href="#T08:46:29" id="T08:46:29"><abbr title="2009-04-05T08:46:29+00:00">08:46:29</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>well if you have swap space it's much easier</q></li>
+<li class="join">[<a href="#T08:46:32" id="T08:46:32"><abbr title="2009-04-05T08:46:32+00:00">08:46:32</abbr></a>] <span>* lcuk (i=lcuk@cpc3-oldh7-0-0-cust590.manc.cable.ntl.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:46:38" id="T08:46:38"><abbr title="2009-04-05T08:46:38+00:00">08:46:38</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>can't you suspend to flash too?</q></li>
+<li class="message">[<a href="#T08:46:50" id="T08:46:50"><abbr title="2009-04-05T08:46:50+00:00">08:46:50</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>copy all the ram, then you can completely shut down</q></li>
+<li class="message">[<a href="#T08:47:03" id="T08:47:03"><abbr title="2009-04-05T08:47:03+00:00">08:47:03</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>you can do that too, but that'd be slow</q></li>
+<li class="message">[<a href="#T08:47:15" id="T08:47:15"><abbr title="2009-04-05T08:47:15+00:00">08:47:15</abbr></a>] &lt;<cite>koen</cite>&gt; <q>sloooooooooooooooooooow even</q></li>
+<li class="message">[<a href="#T08:47:16" id="T08:47:16"><abbr title="2009-04-05T08:47:16+00:00">08:47:16</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and would require a u-boot start and a kernel boot</q></li>
+<li class="message">[<a href="#T08:47:22" id="T08:47:22"><abbr title="2009-04-05T08:47:22+00:00">08:47:22</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:47:45" id="T08:47:45"><abbr title="2009-04-05T08:47:45+00:00">08:47:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>yes.. yes.. YES!!!!!</q></li>
+<li class="message">[<a href="#T08:47:48" id="T08:47:48"><abbr title="2009-04-05T08:47:48+00:00">08:47:48</abbr></a>] &lt;<cite>raster</cite>&gt; <q>muhahah</q></li>
+<li class="message">[<a href="#T08:47:54" id="T08:47:54"><abbr title="2009-04-05T08:47:54+00:00">08:47:54</abbr></a>] &lt;<cite>geckosenator</cite>&gt; <q>well it might take a few secons to ccompress your ram and copy it</q></li>
+<li class="message">[<a href="#T08:50:00" id="T08:50:00"><abbr title="2009-04-05T08:50:00+00:00">08:50:00</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and it would take so much power to do so, that it might be a wash</q></li>
+<li class="message">[<a href="#T08:55:01" id="T08:55:01"><abbr title="2009-04-05T08:55:01+00:00">08:55:01</abbr></a>] &lt;<cite>raster</cite>&gt; <q>bugger</q></li>
+<li class="message">[<a href="#T08:55:07" id="T08:55:07"><abbr title="2009-04-05T08:55:07+00:00">08:55:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>now i have a zimage...</q></li>
+<li class="message">[<a href="#T08:55:08" id="T08:55:08"><abbr title="2009-04-05T08:55:08+00:00">08:55:08</abbr></a>] &lt;<cite>raster</cite>&gt; <q>nada</q></li>
+<li class="message">[<a href="#T08:55:09" id="T08:55:09"><abbr title="2009-04-05T08:55:09+00:00">08:55:09</abbr></a>] &lt;<cite>raster</cite>&gt; <q>poo</q></li>
+<li class="message">[<a href="#T08:57:34" id="T08:57:34"><abbr title="2009-04-05T08:57:34+00:00">08:57:34</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T08:58:05" id="T08:58:05"><abbr title="2009-04-05T08:58:05+00:00">08:58:05</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i think my ramaddr was wrong</q></li>
+<li class="message">[<a href="#T08:58:36" id="T08:58:36"><abbr title="2009-04-05T08:58:36+00:00">08:58:36</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Hey all :)</q></li>
+<li class="quit">[<a href="#T08:58:49" id="T08:58:49"><abbr title="2009-04-05T08:58:49+00:00">08:58:49</abbr></a>] <span>* montamer|away (n=vijay@203.199.213.3) Quit ()</span></li>
+<li class="quit">[<abbr title="2009-04-05T08:58:49+00:00">08:58:49</abbr>] <span>* montamer (n=vijay@203.199.213.3) Quit (Remote closed the connection)</span></li>
