@@ -769,3 +769,202 @@
 <li class="message">[<a href="#T13:59:27" id="T13:59:27"><abbr title="2009-04-06T13:59:27+00:00">13:59:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that question doesn't make sense</q></li>
 <li class="message">[<a href="#T13:59:31" id="T13:59:31"><abbr title="2009-04-06T13:59:31+00:00">13:59:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>did you mean kgdb?</q></li>
 <li class="join">[<a href="#T13:59:54" id="T13:59:54"><abbr title="2009-04-06T13:59:54+00:00">13:59:54</abbr></a>] <span>* djlewis (i=4b0f4002@gateway/web/ajax/mibbit.com/x-276112c2c2e7466b) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:00:04" id="T14:00:04"><abbr title="2009-04-06T14:00:04+00:00">14:00:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uImage is the kernel</q></li>
+<li class="join">[<a href="#T14:00:11" id="T14:00:11"><abbr title="2009-04-06T14:00:11+00:00">14:00:11</abbr></a>] <span>* rsalveti (n=salveti@200.184.118.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:00:39" id="T14:00:39"><abbr title="2009-04-06T14:00:39+00:00">14:00:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>kernel + u-boot header even :)</q></li>
+<li class="message">[<a href="#T14:01:07" id="T14:01:07"><abbr title="2009-04-06T14:01:07+00:00">14:01:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I doubt the u-boot header would contain gdb server</q></li>
+<li class="message">[<a href="#T14:02:05" id="T14:02:05"><abbr title="2009-04-06T14:02:05+00:00">14:02:05</abbr></a>] &lt;<cite>royerfa</cite>&gt; <q>I want to use a gdb equivalent on the target EVM</q></li>
+<li class="message">[<a href="#T14:02:15" id="T14:02:15"><abbr title="2009-04-06T14:02:15+00:00">14:02:15</abbr></a>] &lt;<cite>royerfa</cite>&gt; <q>I am not sure howto do that</q></li>
+<li class="join">[<a href="#T14:02:48" id="T14:02:48"><abbr title="2009-04-06T14:02:48+00:00">14:02:48</abbr></a>] <span>* emeb (n=ericb@ip72-223-90-212.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:04:33" id="T14:04:33"><abbr title="2009-04-06T14:04:33+00:00">14:04:33</abbr></a>] <span>* eze2learn (n=eze2lear@199.71.88.11) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:05:19" id="T14:05:19"><abbr title="2009-04-06T14:05:19+00:00">14:05:19</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>royerfa: for the kernel, or just a program?</q></li>
+<li class="quit">[<a href="#T14:06:00" id="T14:06:00"><abbr title="2009-04-06T14:06:00+00:00">14:06:00</abbr></a>] <span>* rob_k (i=5a9c259a@gateway/web/ajax/mibbit.com/x-5af015c421d774b9) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T14:07:43" id="T14:07:43"><abbr title="2009-04-06T14:07:43+00:00">14:07:43</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Russ: regarding connman blocking static IP, turns out Ubuntu 8.10 on PC NetworkManager did same thing.</q></li>
+<li class="message">[<a href="#T14:08:56" id="T14:08:56"><abbr title="2009-04-06T14:08:56+00:00">14:08:56</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I changes my workstation over to static yesterday and went through same gyrations to disable NetworkManager</q></li>
+<li class="message">[<a href="#T14:09:16" id="T14:09:16"><abbr title="2009-04-06T14:09:16+00:00">14:09:16</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>djlewis: network manager can configure an interface statically...</q></li>
+<li class="message">[<a href="#T14:09:38" id="T14:09:38"><abbr title="2009-04-06T14:09:38+00:00">14:09:38</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>It is a known bug. All over the net.</q></li>
+<li class="message">[<a href="#T14:10:01" id="T14:10:01"><abbr title="2009-04-06T14:10:01+00:00">14:10:01</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>It kept resorting back to dynamic</q></li>
+<li class="message">[<a href="#T14:10:38" id="T14:10:38"><abbr title="2009-04-06T14:10:38+00:00">14:10:38</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>you went under ipv4 settings for your access point and selected 'Method: Manual"?</q></li>
+<li class="message">[<a href="#T14:11:22" id="T14:11:22"><abbr title="2009-04-06T14:11:22+00:00">14:11:22</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>yes and set all ip parms as root and the interface eth0 kept coming back to dynamic.</q></li>
+<li class="message">[<a href="#T14:11:46" id="T14:11:46"><abbr title="2009-04-06T14:11:46+00:00">14:11:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>thats crappy</q></li>
+<li class="message">[<a href="#T14:12:00" id="T14:12:00"><abbr title="2009-04-06T14:12:00+00:00">14:12:00</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Finally search the net and found it was a bug and was recommended to disable network manager.</q></li>
+<li class="message">[<a href="#T14:13:11" id="T14:13:11"><abbr title="2009-04-06T14:13:11+00:00">14:13:11</abbr></a>] &lt;<cite>royerfa</cite>&gt; <q>I want first to make my hands on Linux application</q></li>
+<li class="message">[<a href="#T14:13:40" id="T14:13:40"><abbr title="2009-04-06T14:13:40+00:00">14:13:40</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I had to manualy edit /etc/network/interfaces which is alright. and remove rc.d entries for nm</q></li>
+<li class="message">[<a href="#T14:14:08" id="T14:14:08"><abbr title="2009-04-06T14:14:08+00:00">14:14:08</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>but rc.d was one command line to get all at once.</q></li>
+<li class="part">[<a href="#T14:14:35" id="T14:14:35"><abbr title="2009-04-06T14:14:35+00:00">14:14:35</abbr></a>] <span>* kevinsc_ (n=kevinsc@nat/ti/x-53233685b7f867ab) has left #beagle</span></li>
+<li class="message">[<a href="#T14:15:35" id="T14:15:35"><abbr title="2009-04-06T14:15:35+00:00">14:15:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you can tell connman to ignore certain interfaces</q></li>
+<li class="message">[<a href="#T14:16:37" id="T14:16:37"><abbr title="2009-04-06T14:16:37+00:00">14:16:37</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>connman is dead</q></li>
+<li class="quit">[<a href="#T14:16:59" id="T14:16:59"><abbr title="2009-04-06T14:16:59+00:00">14:16:59</abbr></a>] <span>* eze2learn (n=eze2lear@199.71.88.11) Quit ()</span></li>
+<li class="message">[<a href="#T14:17:26" id="T14:17:26"><abbr title="2009-04-06T14:17:26+00:00">14:17:26</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>koen: I do need to learn the trick though.</q></li>
+<li class="join">[<a href="#T14:17:42" id="T14:17:42"><abbr title="2009-04-06T14:17:42+00:00">14:17:42</abbr></a>] <span>* ServiceRequest (i=3e4dbf82@gateway/web/ajax/mibbit.com/x-88961b8efe2219ab) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:20:34" id="T14:20:34"><abbr title="2009-04-06T14:20:34+00:00">14:20:34</abbr></a>] <span>* vOlatile (i=4a5dd0bb@gateway/web/ajax/mibbit.com/x-d42c74b20f8dff5c) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:21:01" id="T14:21:01"><abbr title="2009-04-06T14:21:01+00:00">14:21:01</abbr></a>] &lt;<cite>vOlatile</cite>&gt; <q>quick question... I have a bricked board and a fried board... any way to get them fixed after 90 days???</q></li>
+<li class="join">[<a href="#T14:21:37" id="T14:21:37"><abbr title="2009-04-06T14:21:37+00:00">14:21:37</abbr></a>] <span>* torpor (n=torpor@chello212186208121.11.vie.surfer.at) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:21:45" id="T14:21:45"><abbr title="2009-04-06T14:21:45+00:00">14:21:45</abbr></a>] &lt;<cite>torpor</cite>&gt; <q>howdy folks</q></li>
+<li class="message">[<a href="#T14:22:00" id="T14:22:00"><abbr title="2009-04-06T14:22:00+00:00">14:22:00</abbr></a>] &lt;<cite>likewise</cite>&gt; <q>vOlatile: what's the difference between them?</q></li>
+<li class="message">[<a href="#T14:22:14" id="T14:22:14"><abbr title="2009-04-06T14:22:14+00:00">14:22:14</abbr></a>] &lt;<cite>torpor</cite>&gt; <q>can anyone recommend a good image for a first-time beagelboard boot?  i have a dlp projector ..</q></li>
+<li class="message">[<a href="#T14:22:21" id="T14:22:21"><abbr title="2009-04-06T14:22:21+00:00">14:22:21</abbr></a>] &lt;<cite>likewise</cite>&gt; <q>vOlatile: ah, bricked = flash empty?</q></li>
+<li class="message">[<a href="#T14:22:44" id="T14:22:44"><abbr title="2009-04-06T14:22:44+00:00">14:22:44</abbr></a>] &lt;<cite>torpor</cite>&gt; <q>(no mouse, but keyboard and display are nice..)</q></li>
+<li class="message">[<a href="#T14:22:58" id="T14:22:58"><abbr title="2009-04-06T14:22:58+00:00">14:22:58</abbr></a>] &lt;<cite>vOlatile</cite>&gt; <q>they are the same boards B7 boards... one was fried by overvoltage and the other one was corrupted while flashing </q></li>
+<li class="quit">[<a href="#T14:22:59" id="T14:22:59"><abbr title="2009-04-06T14:22:59+00:00">14:22:59</abbr></a>] <span>* ServiceRequest (i=3e4dbf82@gateway/web/ajax/mibbit.com/x-88961b8efe2219ab) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="join">[<a href="#T14:24:32" id="T14:24:32"><abbr title="2009-04-06T14:24:32+00:00">14:24:32</abbr></a>] <span>* Viral_Sachde (n=Viral_Sa@59.97.0.203) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:24:42" id="T14:24:42"><abbr title="2009-04-06T14:24:42+00:00">14:24:42</abbr></a>] &lt;<cite>vOlatile</cite>&gt; <q>likewise: the support said there was nothing after 90 days</q></li>
+<li class="quit">[<a href="#T14:25:14" id="T14:25:14"><abbr title="2009-04-06T14:25:14+00:00">14:25:14</abbr></a>] <span>* rsalveti (n=salveti@200.184.118.130) Quit (Remote closed the connection)</span></li>
+<li class="message">[<abbr title="2009-04-06T14:25:14+00:00">14:25:14</abbr>] &lt;<cite>djlewis</cite>&gt; <q>Russ: would this work in a variation for opkg? sudo update-rc.d -f NetworkManager remove</q></li>
+<li class="message">[<a href="#T14:25:33" id="T14:25:33"><abbr title="2009-04-06T14:25:33+00:00">14:25:33</abbr></a>] &lt;<cite>vOlatile</cite>&gt; <q>likewise: is that true? i just wanna get them fixed... I can pay for it...</q></li>
+<li class="join">[<a href="#T14:25:49" id="T14:25:49"><abbr title="2009-04-06T14:25:49+00:00">14:25:49</abbr></a>] <span>* jrmuizel (n=jrmuizel@mozca02.ca.mozilla.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:26:45" id="T14:26:45"><abbr title="2009-04-06T14:26:45+00:00">14:26:45</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Hey all :)</q></li>
+<li class="message">[<a href="#T14:27:50" id="T14:27:50"><abbr title="2009-04-06T14:27:50+00:00">14:27:50</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Russ: perhaps my question answered itself. not a pkg thing at all.</q></li>
+<li class="message">[<a href="#T14:28:57" id="T14:28:57"><abbr title="2009-04-06T14:28:57+00:00">14:28:57</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>1 Fast question, because i cant understand the SD card thing</q></li>
+<li class="message">[<a href="#T14:29:09" id="T14:29:09"><abbr title="2009-04-06T14:29:09+00:00">14:29:09</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>apparantly there is a new patch for 8.10 to replace bad network manager</q></li>
+<li class="message">[<a href="#T14:29:23" id="T14:29:23"><abbr title="2009-04-06T14:29:23+00:00">14:29:23</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>How much SD cards I Would need? </q></li>
+<li class="message">[<a href="#T14:29:30" id="T14:29:30"><abbr title="2009-04-06T14:29:30+00:00">14:29:30</abbr></a>] &lt;<cite>vOlatile</cite>&gt; <q>anyone know if I can get two boards fixed after the 90 days??</q></li>
+<li class="message">[<a href="#T14:29:32" id="T14:29:32"><abbr title="2009-04-06T14:29:32+00:00">14:29:32</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>I mean.. because I've got 2</q></li>
+<li class="message">[<a href="#T14:29:37" id="T14:29:37"><abbr title="2009-04-06T14:29:37+00:00">14:29:37</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>more than two</q></li>
+<li class="message">[<a href="#T14:29:42" id="T14:29:42"><abbr title="2009-04-06T14:29:42+00:00">14:29:42</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>cause I got two too.</q></li>
+<li class="message">[<a href="#T14:29:44" id="T14:29:44"><abbr title="2009-04-06T14:29:44+00:00">14:29:44</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>I've F**ked up one :D</q></li>
+<li class="message">[<a href="#T14:29:51" id="T14:29:51"><abbr title="2009-04-06T14:29:51+00:00">14:29:51</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>cant even format it</q></li>
+<li class="message">[<a href="#T14:29:59" id="T14:29:59"><abbr title="2009-04-06T14:29:59+00:00">14:29:59</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>(Now i see it was a fake)</q></li>
+<li class="message">[<a href="#T14:30:09" id="T14:30:09"><abbr title="2009-04-06T14:30:09+00:00">14:30:09</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>fake?</q></li>
+<li class="message">[<a href="#T14:30:13" id="T14:30:13"><abbr title="2009-04-06T14:30:13+00:00">14:30:13</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>yup :(</q></li>
+<li class="message">[<a href="#T14:30:33" id="T14:30:33"><abbr title="2009-04-06T14:30:33+00:00">14:30:33</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>got it from some chinese guy for like 10 $... (2GB) </q></li>
+<li class="message">[<a href="#T14:30:41" id="T14:30:41"><abbr title="2009-04-06T14:30:41+00:00">14:30:41</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>then i've got the original for 4 (rofl)</q></li>
+<li class="message">[<a href="#T14:30:43" id="T14:30:43"><abbr title="2009-04-06T14:30:43+00:00">14:30:43</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T14:30:57" id="T14:30:57"><abbr title="2009-04-06T14:30:57+00:00">14:30:57</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>but i cant format the orifinal</q></li>
+<li class="join">[<a href="#T14:31:22" id="T14:31:22"><abbr title="2009-04-06T14:31:22+00:00">14:31:22</abbr></a>] <span>* rsalveti (n=salveti@200.184.118.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:31:24" id="T14:31:24"><abbr title="2009-04-06T14:31:24+00:00">14:31:24</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>djlewis why would i need more than 2?</q></li>
+<li class="message">[<a href="#T14:31:30" id="T14:31:30"><abbr title="2009-04-06T14:31:30+00:00">14:31:30</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>are you using winders or linux to format?</q></li>
+<li class="message">[<a href="#T14:31:36" id="T14:31:36"><abbr title="2009-04-06T14:31:36+00:00">14:31:36</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Linux</q></li>
+<li class="message">[<a href="#T14:31:44" id="T14:31:44"><abbr title="2009-04-06T14:31:44+00:00">14:31:44</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Gparted</q></li>
+<li class="message">[<a href="#T14:31:51" id="T14:31:51"><abbr title="2009-04-06T14:31:51+00:00">14:31:51</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>royerfa: then you don't need gdb in the kernel</q></li>
+<li class="message">[<a href="#T14:31:54" id="T14:31:54"><abbr title="2009-04-06T14:31:54+00:00">14:31:54</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q> fdisk too </q></li>
+<li class="message">[<a href="#T14:32:17" id="T14:32:17"><abbr title="2009-04-06T14:32:17+00:00">14:32:17</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Only say more than two as I want a good backup of a working system and another to play on then others for different builds.</q></li>
+<li class="message">[<a href="#T14:32:38" id="T14:32:38"><abbr title="2009-04-06T14:32:38+00:00">14:32:38</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>ahaam</q></li>
+<li class="message">[<a href="#T14:32:54" id="T14:32:54"><abbr title="2009-04-06T14:32:54+00:00">14:32:54</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>sorry for the stupid question :)</q></li>
+<li class="message">[<a href="#T14:33:02" id="T14:33:02"><abbr title="2009-04-06T14:33:02+00:00">14:33:02</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I shoulf have ordered four outright.</q></li>
+<li class="message">[<a href="#T14:33:31" id="T14:33:31"><abbr title="2009-04-06T14:33:31+00:00">14:33:31</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>:)</q></li>
+<li class="join">[<a href="#T14:33:33" id="T14:33:33"><abbr title="2009-04-06T14:33:33+00:00">14:33:33</abbr></a>] <span>* Wiedi (n=wiedi@newton-air.w.fruky.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:33:46" id="T14:33:46"><abbr title="2009-04-06T14:33:46+00:00">14:33:46</abbr></a>] &lt;<cite>koen</cite>&gt; <q>torpor: the standard angstrom images work great with the pico</q></li>
+<li class="message">[<a href="#T14:34:21" id="T14:34:21"><abbr title="2009-04-06T14:34:21+00:00">14:34:21</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Moshy: I was going to say linux might be better.</q></li>
+<li class="message">[<a href="#T14:34:50" id="T14:34:50"><abbr title="2009-04-06T14:34:50+00:00">14:34:50</abbr></a>] &lt;<cite>sweetlilmre</cite>&gt; <q>ali_as: FYI new x-load and u-boot and all is good, though eth0 default gw is never remembered for some reason</q></li>
+<li class="message">[<a href="#T14:34:58" id="T14:34:58"><abbr title="2009-04-06T14:34:58+00:00">14:34:58</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Yes it is :)</q></li>
+<li class="message">[<a href="#T14:35:11" id="T14:35:11"><abbr title="2009-04-06T14:35:11+00:00">14:35:11</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>for the sd setups</q></li>
+<li class="message">[<a href="#T14:36:20" id="T14:36:20"><abbr title="2009-04-06T14:36:20+00:00">14:36:20</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Russ: after going to static on BB I have to unplug then plug in the wifi for it to associate after power up.</q></li>
+<li class="message">[<a href="#T14:37:31" id="T14:37:31"><abbr title="2009-04-06T14:37:31+00:00">14:37:31</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Moshy: I have had unrecognizable winders hd's come in that a simple gparted made good.</q></li>
+<li class="message">[<a href="#T14:38:07" id="T14:38:07"><abbr title="2009-04-06T14:38:07+00:00">14:38:07</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T14:38:15" id="T14:38:15"><abbr title="2009-04-06T14:38:15+00:00">14:38:15</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>The fake card i've got</q></li>
+<li class="message">[<a href="#T14:38:30" id="T14:38:30"><abbr title="2009-04-06T14:38:30+00:00">14:38:30</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>When I made the first partition (FAT32) it was ok</q></li>
+<li class="message">[<a href="#T14:38:43" id="T14:38:43"><abbr title="2009-04-06T14:38:43+00:00">14:38:43</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Then when i made the second ext3</q></li>
+<li class="join">[<a href="#T14:38:44" id="T14:38:44"><abbr title="2009-04-06T14:38:44+00:00">14:38:44</abbr></a>] <span>* uberfry (n=spinl0ck@vodsl-10890.vo.lu) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:38:47" id="T14:38:47"><abbr title="2009-04-06T14:38:47+00:00">14:38:47</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>(i was using Fdisk)</q></li>
+<li class="message">[<a href="#T14:38:55" id="T14:38:55"><abbr title="2009-04-06T14:38:55+00:00">14:38:55</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>it was "ok"</q></li>
+<li class="message">[<a href="#T14:39:11" id="T14:39:11"><abbr title="2009-04-06T14:39:11+00:00">14:39:11</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>but when i try to mount the second partition - boom.. :D</q></li>
+<li class="message">[<a href="#T14:39:15" id="T14:39:15"><abbr title="2009-04-06T14:39:15+00:00">14:39:15</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>nothing</q></li>
+<li class="message">[<a href="#T14:39:19" id="T14:39:19"><abbr title="2009-04-06T14:39:19+00:00">14:39:19</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>cant even reformat it</q></li>
+<li class="message">[<a href="#T14:40:28" id="T14:40:28"><abbr title="2009-04-06T14:40:28+00:00">14:40:28</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>can it be re parted after? might try ext2 for secod</q></li>
+<li class="message">[<a href="#T14:40:31" id="T14:40:31"><abbr title="2009-04-06T14:40:31+00:00">14:40:31</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>second.</q></li>
+<li class="message">[<a href="#T14:40:43" id="T14:40:43"><abbr title="2009-04-06T14:40:43+00:00">14:40:43</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>yup :)</q></li>
+<li class="message">[<a href="#T14:40:47" id="T14:40:47"><abbr title="2009-04-06T14:40:47+00:00">14:40:47</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>i've tried that </q></li>
+<li class="message">[<a href="#T14:40:54" id="T14:40:54"><abbr title="2009-04-06T14:40:54+00:00">14:40:54</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>but nothing</q></li>
+<li class="message">[<a href="#T14:40:56" id="T14:40:56"><abbr title="2009-04-06T14:40:56+00:00">14:40:56</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>its still the same </q></li>
+<li class="message">[<abbr title="2009-04-06T14:40:56+00:00">14:40:56</abbr>] &lt;<cite>djlewis</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T14:41:00" id="T14:41:00"><abbr title="2009-04-06T14:41:00+00:00">14:41:00</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>nothing changes</q></li>
+<li class="message">[<a href="#T14:41:08" id="T14:41:08"><abbr title="2009-04-06T14:41:08+00:00">14:41:08</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>well fake :)</q></li>
+<li class="message">[<a href="#T14:41:18" id="T14:41:18"><abbr title="2009-04-06T14:41:18+00:00">14:41:18</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>when i put it next to the original one (and the cheaper one) :D:D</q></li>
+<li class="message">[<a href="#T14:41:24" id="T14:41:24"><abbr title="2009-04-06T14:41:24+00:00">14:41:24</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>u can see the 2 labels</q></li>
+<li class="message">[<a href="#T14:41:32" id="T14:41:32"><abbr title="2009-04-06T14:41:32+00:00">14:41:32</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>have a lot of differences </q></li>
+<li class="message">[<a href="#T14:41:39" id="T14:41:39"><abbr title="2009-04-06T14:41:39+00:00">14:41:39</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>same brand?</q></li>
+<li class="message">[<a href="#T14:41:41" id="T14:41:41"><abbr title="2009-04-06T14:41:41+00:00">14:41:41</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>(sorry for the bad english)</q></li>
+<li class="message">[<a href="#T14:41:44" id="T14:41:44"><abbr title="2009-04-06T14:41:44+00:00">14:41:44</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>yup :)</q></li>
+<li class="message">[<abbr title="2009-04-06T14:41:44+00:00">14:41:44</abbr>] &lt;<cite>djlewis</cite>&gt; <q>supposedly?</q></li>
+<li class="message">[<a href="#T14:41:51" id="T14:41:51"><abbr title="2009-04-06T14:41:51+00:00">14:41:51</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Kingston</q></li>
+<li class="message">[<a href="#T14:41:55" id="T14:41:55"><abbr title="2009-04-06T14:41:55+00:00">14:41:55</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>different package</q></li>
+<li class="message">[<a href="#T14:42:02" id="T14:42:02"><abbr title="2009-04-06T14:42:02+00:00">14:42:02</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Different vendor :D</q></li>
+<li class="message">[<a href="#T14:42:05" id="T14:42:05"><abbr title="2009-04-06T14:42:05+00:00">14:42:05</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>you speak better english typing than this texan does.</q></li>
+<li class="message">[<a href="#T14:42:09" id="T14:42:09"><abbr title="2009-04-06T14:42:09+00:00">14:42:09</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>one was chinese grandpa</q></li>
+<li class="message">[<a href="#T14:42:19" id="T14:42:19"><abbr title="2009-04-06T14:42:19+00:00">14:42:19</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>second was like the biggest computer store in town</q></li>
+<li class="message">[<a href="#T14:42:32" id="T14:42:32"><abbr title="2009-04-06T14:42:32+00:00">14:42:32</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>heh :) thanks</q></li>
+<li class="message">[<a href="#T14:42:49" id="T14:42:49"><abbr title="2009-04-06T14:42:49+00:00">14:42:49</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>but the "lolspeak" f**ked up my english :D</q></li>
+<li class="join">[<a href="#T14:43:14" id="T14:43:14"><abbr title="2009-04-06T14:43:14+00:00">14:43:14</abbr></a>] <span>* bballantine (n=bballant@firebug.buglabs.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:44:14" id="T14:44:14"><abbr title="2009-04-06T14:44:14+00:00">14:44:14</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>YES! :)</q></li>
+<li class="message">[<a href="#T14:44:20" id="T14:44:20"><abbr title="2009-04-06T14:44:20+00:00">14:44:20</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>I've formated it successfully :)</q></li>
+<li class="message">[<a href="#T14:44:24" id="T14:44:24"><abbr title="2009-04-06T14:44:24+00:00">14:44:24</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>(the original one)</q></li>
+<li class="message">[<a href="#T14:44:33" id="T14:44:33"><abbr title="2009-04-06T14:44:33+00:00">14:44:33</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>you arent rounding up on your disk sizes are you, should truncate down.</q></li>
+<li class="message">[<a href="#T14:44:47" id="T14:44:47"><abbr title="2009-04-06T14:44:47+00:00">14:44:47</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>yes :)</q></li>
+<li class="message">[<a href="#T14:44:53" id="T14:44:53"><abbr title="2009-04-06T14:44:53+00:00">14:44:53</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>i did the calculations on the fake one</q></li>
+<li class="message">[<a href="#T14:45:07" id="T14:45:07"><abbr title="2009-04-06T14:45:07+00:00">14:45:07</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>and i've did just exactly as it was said :)</q></li>
+<li class="message">[<a href="#T14:45:23" id="T14:45:23"><abbr title="2009-04-06T14:45:23+00:00">14:45:23</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>well I dont really care about the fake one</q></li>
+<li class="message">[<a href="#T14:45:32" id="T14:45:32"><abbr title="2009-04-06T14:45:32+00:00">14:45:32</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>I'll go get some more original ones</q></li>
+<li class="message">[<a href="#T14:45:36" id="T14:45:36"><abbr title="2009-04-06T14:45:36+00:00">14:45:36</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>well,  we will just have to order more good sd's</q></li>
+<li class="message">[<a href="#T14:45:40" id="T14:45:40"><abbr title="2009-04-06T14:45:40+00:00">14:45:40</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>for like 4 bucks a peace its nothing</q></li>
+<li class="message">[<a href="#T14:45:45" id="T14:45:45"><abbr title="2009-04-06T14:45:45+00:00">14:45:45</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>yup :)</q></li>
+<li class="message">[<a href="#T14:45:56" id="T14:45:56"><abbr title="2009-04-06T14:45:56+00:00">14:45:56</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I get 4gb sdhc for $8</q></li>
+<li class="message">[<a href="#T14:46:00" id="T14:46:00"><abbr title="2009-04-06T14:46:00+00:00">14:46:00</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T14:46:09" id="T14:46:09"><abbr title="2009-04-06T14:46:09+00:00">14:46:09</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>good</q></li>
+<li class="message">[<a href="#T14:46:12" id="T14:46:12"><abbr title="2009-04-06T14:46:12+00:00">14:46:12</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>w8 let me check :)</q></li>
+<li class="message">[<a href="#T14:46:14" id="T14:46:14"><abbr title="2009-04-06T14:46:14+00:00">14:46:14</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>plus shipping, arrgh...</q></li>
+<li class="join">[<a href="#T14:46:17" id="T14:46:17"><abbr title="2009-04-06T14:46:17+00:00">14:46:17</abbr></a>] <span>* magnet_ (n=magnet@AMontpellier-151-1-64-95.w92-145.abo.wanadoo.fr) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:46:20" id="T14:46:20"><abbr title="2009-04-06T14:46:20+00:00">14:46:20</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>haha :D</q></li>
+<li class="message">[<a href="#T14:46:40" id="T14:46:40"><abbr title="2009-04-06T14:46:40+00:00">14:46:40</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>do you have some kind of IM? (skype or something)</q></li>
+<li class="message">[<a href="#T14:47:04" id="T14:47:04"><abbr title="2009-04-06T14:47:04+00:00">14:47:04</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>This weekend I was wanting more than my two.</q></li>
+<li class="message">[<a href="#T14:47:23" id="T14:47:23"><abbr title="2009-04-06T14:47:23+00:00">14:47:23</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I have ekiga but have never used it.</q></li>
+<li class="message">[<a href="#T14:47:31" id="T14:47:31"><abbr title="2009-04-06T14:47:31+00:00">14:47:31</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T14:47:34" id="T14:47:34"><abbr title="2009-04-06T14:47:34+00:00">14:47:34</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>i use skype</q></li>
+<li class="message">[<a href="#T14:47:37" id="T14:47:37"><abbr title="2009-04-06T14:47:37+00:00">14:47:37</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I have a yahoo im</q></li>
+<li class="message">[<a href="#T14:47:39" id="T14:47:39"><abbr title="2009-04-06T14:47:39+00:00">14:47:39</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T14:47:45" id="T14:47:45"><abbr title="2009-04-06T14:47:45+00:00">14:47:45</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>every one of my friends have it :D</q></li>
+<li class="quit">[<a href="#T14:47:47" id="T14:47:47"><abbr title="2009-04-06T14:47:47+00:00">14:47:47</abbr></a>] <span>* garren (n=garren@dsl-246-33-211.telkomadsl.co.za) Quit (Success)</span></li>
+<li class="message">[<a href="#T14:47:53" id="T14:47:53"><abbr title="2009-04-06T14:47:53+00:00">14:47:53</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>skype?</q></li>
+<li class="message">[<a href="#T14:47:56" id="T14:47:56"><abbr title="2009-04-06T14:47:56+00:00">14:47:56</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>yup :)</q></li>
+<li class="message">[<a href="#T14:48:04" id="T14:48:04"><abbr title="2009-04-06T14:48:04+00:00">14:48:04</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Here in Bulgaria it's SUPER popular :)</q></li>
+<li class="quit">[<a href="#T14:48:10" id="T14:48:10"><abbr title="2009-04-06T14:48:10+00:00">14:48:10</abbr></a>] <span>* Viral_Sachde (n=Viral_Sa@59.97.0.203) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T14:48:16" id="T14:48:16"><abbr title="2009-04-06T14:48:16+00:00">14:48:16</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>Most of the people have it</q></li>
+<li class="message">[<a href="#T14:48:36" id="T14:48:36"><abbr title="2009-04-06T14:48:36+00:00">14:48:36</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>btw i can get 4GB SDHC Class2 KINGSTON (original) for 7.50 $</q></li>
+<li class="join">[<a href="#T14:48:43" id="T14:48:43"><abbr title="2009-04-06T14:48:43+00:00">14:48:43</abbr></a>] <span>* Viral_Sachde (n=Viral_Sa@122.172.57.44) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:48:45" id="T14:48:45"><abbr title="2009-04-06T14:48:45+00:00">14:48:45</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>CLASS6 for 9.70</q></li>
+<li class="message">[<a href="#T14:48:47" id="T14:48:47"><abbr title="2009-04-06T14:48:47+00:00">14:48:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>oi, so many of the contractors I work with use skype</q></li>
+<li class="message">[<a href="#T14:48:52" id="T14:48:52"><abbr title="2009-04-06T14:48:52+00:00">14:48:52</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and to talk to them, you have to install it</q></li>
+<li class="message">[<a href="#T14:48:53" id="T14:48:53"><abbr title="2009-04-06T14:48:53+00:00">14:48:53</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>bah</q></li>
+<li class="message">[<a href="#T14:48:58" id="T14:48:58"><abbr title="2009-04-06T14:48:58+00:00">14:48:58</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>seem'd I had a reason to vote for ekiga at the time.</q></li>
+<li class="join">[<a href="#T14:49:10" id="T14:49:10"><abbr title="2009-04-06T14:49:10+00:00">14:49:10</abbr></a>] <span>* garren (n=garren@dsl-246-33-211.telkomadsl.co.za) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:49:21" id="T14:49:21"><abbr title="2009-04-06T14:49:21+00:00">14:49:21</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>hidden charges or something.</q></li>
+<li class="message">[<a href="#T14:49:33" id="T14:49:33"><abbr title="2009-04-06T14:49:33+00:00">14:49:33</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>about? :)</q></li>
+<li class="message">[<a href="#T14:49:48" id="T14:49:48"><abbr title="2009-04-06T14:49:48+00:00">14:49:48</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I dont remember now, mute point.</q></li>
+<li class="message">[<a href="#T14:50:10" id="T14:50:10"><abbr title="2009-04-06T14:50:10+00:00">14:50:10</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I obviously didnt need either as I never used it in two years.</q></li>
+<li class="message">[<a href="#T14:50:25" id="T14:50:25"><abbr title="2009-04-06T14:50:25+00:00">14:50:25</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>ah i tough u was talking about the SD card :)</q></li>
+<li class="message">[<a href="#T14:50:54" id="T14:50:54"><abbr title="2009-04-06T14:50:54+00:00">14:50:54</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>class6 for 7.50</q></li>
+<li class="message">[<a href="#T14:50:55" id="T14:50:55"><abbr title="2009-04-06T14:50:55+00:00">14:50:55</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I been on skype/ekiga since you brought it up Moshy.</q></li>
+<li class="message">[<a href="#T14:51:06" id="T14:51:06"><abbr title="2009-04-06T14:51:06+00:00">14:51:06</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>4GB?</q></li>
+<li class="message">[<a href="#T14:51:16" id="T14:51:16"><abbr title="2009-04-06T14:51:16+00:00">14:51:16</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ya</q></li>
+<li class="message">[<a href="#T14:51:49" id="T14:51:49"><abbr title="2009-04-06T14:51:49+00:00">14:51:49</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>here class6 is 9.70 :(</q></li>
+<li class="message">[<a href="#T14:51:50" id="T14:51:50"><abbr title="2009-04-06T14:51:50+00:00">14:51:50</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>2.95 shipping, no sales tax</q></li>
+<li class="message">[<a href="#T14:52:02" id="T14:52:02"><abbr title="2009-04-06T14:52:02+00:00">14:52:02</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>same as mine i expect.</q></li>
+<li class="message">[<abbr title="2009-04-06T14:52:02+00:00">14:52:02</abbr>] &lt;<cite>Moshy</cite>&gt; <q>where you from? :)</q></li>
+<li class="action">[<a href="#T14:52:18" id="T14:52:18"><abbr title="2009-04-06T14:52:18+00:00">14:52:18</abbr></a>] <span>* djlewis in in central Arkansas USA</span></li>
+<li class="message">[<a href="#T14:52:19" id="T14:52:19"><abbr title="2009-04-06T14:52:19+00:00">14:52:19</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>wait, sorry, 7.75</q></li>
+<li class="message">[<a href="#T14:52:22" id="T14:52:22"><abbr title="2009-04-06T14:52:22+00:00">14:52:22</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>AZ</q></li>
+<li class="message">[<a href="#T14:52:29" id="T14:52:29"><abbr title="2009-04-06T14:52:29+00:00">14:52:29</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>(looking at newegg tho)</q></li>
+<li class="message">[<a href="#T14:52:35" id="T14:52:35"><abbr title="2009-04-06T14:52:35+00:00">14:52:35</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>aha :) cool</q></li>
+<li class="message">[<a href="#T14:52:42" id="T14:52:42"><abbr title="2009-04-06T14:52:42+00:00">14:52:42</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I wasnt going to mention my vendor</q></li>
+<li class="message">[<a href="#T14:52:43" id="T14:52:43"><abbr title="2009-04-06T14:52:43+00:00">14:52:43</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>I'm from Bulgaria (Europe).. :)</q></li>
+<li class="message">[<a href="#T14:52:47" id="T14:52:47"><abbr title="2009-04-06T14:52:47+00:00">14:52:47</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>was NE too,.</q></li>
+<li class="message">[<a href="#T14:53:33" id="T14:53:33"><abbr title="2009-04-06T14:53:33+00:00">14:53:33</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I got the Transcend 4gb sdhc combo thumb stick and card and one extra card.</q></li>
+<li class="message">[<a href="#T14:53:57" id="T14:53:57"><abbr title="2009-04-06T14:53:57+00:00">14:53:57</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>cool :)</q></li>
+<li class="quit">[<a href="#T14:53:58" id="T14:53:58"><abbr title="2009-04-06T14:53:58+00:00">14:53:58</abbr></a>] <span>* torpor (n=torpor@chello212186208121.11.vie.surfer.at) Quit ("leaving")</span></li>
+<li class="message">[<a href="#T14:54:53" id="T14:54:53"><abbr title="2009-04-06T14:54:53+00:00">14:54:53</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>BTW i changed the default 1024x768 resolution in the uboot env to 1280x1024 and it works great on my Samsung 17" lcd</q></li>
+<li class="message">[<a href="#T14:55:38" id="T14:55:38"><abbr title="2009-04-06T14:55:38+00:00">14:55:38</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>THis using the wonderful latest angstrom koen pointed to.</q></li>
+<li class="message">[<a href="#T14:56:13" id="T14:56:13"><abbr title="2009-04-06T14:56:13+00:00">14:56:13</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>hm </q></li>
+<li class="message">[<a href="#T14:56:16" id="T14:56:16"><abbr title="2009-04-06T14:56:16+00:00">14:56:16</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>1 fast stupid question :)</q></li>
+<li class="message">[<a href="#T14:56:39" id="T14:56:39"><abbr title="2009-04-06T14:56:39+00:00">14:56:39</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>naw you arlready slent that one.</q></li>
+<li class="message">[<a href="#T14:56:47" id="T14:56:47"><abbr title="2009-04-06T14:56:47+00:00">14:56:47</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>spent.</q></li>
+<li class="message">[<a href="#T14:57:01" id="T14:57:01"><abbr title="2009-04-06T14:57:01+00:00">14:57:01</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>ok then :D</q></li>
+<li class="message">[<a href="#T14:57:02" id="T14:57:02"><abbr title="2009-04-06T14:57:02+00:00">14:57:02</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>;)</q></li>
+<li class="message">[<a href="#T14:57:04" id="T14:57:04"><abbr title="2009-04-06T14:57:04+00:00">14:57:04</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>not stupid one :)</q></li>
+<li class="message">[<a href="#T14:57:53" id="T14:57:53"><abbr title="2009-04-06T14:57:53+00:00">14:57:53</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>After i've formated the SD again (only the second partition ex2) and installed the exactly same angstrom image on it should i setenv in uboot again or it is cool to run it without setting the env again?</q></li>
+<li class="quit">[<a href="#T14:58:05" id="T14:58:05"><abbr title="2009-04-06T14:58:05+00:00">14:58:05</abbr></a>] <span>* Viral_Sachde (n=Viral_Sa@122.172.57.44) Quit (Read error: 104 (Connection reset by peer))</span></li>
+<li class="quit">[<a href="#T14:58:18" id="T14:58:18"><abbr title="2009-04-06T14:58:18+00:00">14:58:18</abbr></a>] <span>* recalcati (i=5e51e963@gateway/web/ajax/mibbit.com/x-46ac40550c5f11de) Quit ("<a href="http://www.mibbit.com">http://www.mibbit.com</a> ajax IRC Client")</span></li>
+<li class="message">[<a href="#T14:58:21" id="T14:58:21"><abbr title="2009-04-06T14:58:21+00:00">14:58:21</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>the env is stored. just do printenv to check.</q></li>
+<li class="message">[<a href="#T14:59:00" id="T14:59:00"><abbr title="2009-04-06T14:59:00+00:00">14:59:00</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>yes but things on the card shouldn't be changed?</q></li>
+<li class="message">[<a href="#T14:59:18" id="T14:59:18"><abbr title="2009-04-06T14:59:18+00:00">14:59:18</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I followed the post to the letter and mine auto boots to ansgtrom.</q></li>
+<li class="message">[<a href="#T14:59:32" id="T14:59:32"><abbr title="2009-04-06T14:59:32+00:00">14:59:32</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>env doesnt update card.</q></li>
+<li class="message">[<a href="#T15:00:04" id="T15:00:04"><abbr title="2009-04-06T15:00:04+00:00">15:00:04</abbr></a>] &lt;<cite>Moshy</cite>&gt; <q>nvm :) i'll check now </q></li>
