@@ -217,3 +217,47 @@
 <li class="quit">[<a href="#T05:30:06" id="T05:30:06"><abbr title="2009-04-16T05:30:06+00:00">05:30:06</abbr></a>] <span>* ogra (n=ogra@ubuntu/member/ogra) Quit (Read error: 104 (Connection reset by peer))</span></li>
 <li class="join">[<a href="#T05:30:51" id="T05:30:51"><abbr title="2009-04-16T05:30:51+00:00">05:30:51</abbr></a>] <span>* ogra (n=ogra@ubuntu/member/ogra) has joined #beagle</span></li>
 <li class="part">[<a href="#T05:35:48" id="T05:35:48"><abbr title="2009-04-16T05:35:48+00:00">05:35:48</abbr></a>] <span>* emeb (n=ericb@ip72-223-90-212.ph.ph.cox.net) has left #beagle</span></li>
+<li class="join">[<a href="#T06:11:37" id="T06:11:37"><abbr title="2009-04-16T06:11:37+00:00">06:11:37</abbr></a>] <span>* mib_588k5b (i=4c11c457@gateway/web/ajax/mibbit.com/x-e93c3727092c87fc) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:15:21" id="T06:15:21"><abbr title="2009-04-16T06:15:21+00:00">06:15:21</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>what's a good way to go about asking a question regarding sleep modes on the beagleboard using Angstrom?</q></li>
+<li class="message">[<a href="#T06:17:55" id="T06:17:55"><abbr title="2009-04-16T06:17:55+00:00">06:17:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>good morning all</q></li>
+<li class="message">[<a href="#T06:18:12" id="T06:18:12"><abbr title="2009-04-16T06:18:12+00:00">06:18:12</abbr></a>] &lt;<cite>russ</cite>&gt; <q>morning koen</q></li>
+<li class="join">[<a href="#T06:20:08" id="T06:20:08"><abbr title="2009-04-16T06:20:08+00:00">06:20:08</abbr></a>] <span>* tsjsieb (n=tsjsieb@dejongbeheer.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:21:21" id="T06:21:21"><abbr title="2009-04-16T06:21:21+00:00">06:21:21</abbr></a>] &lt;<cite>russ</cite>&gt; <q>mib_588k5b: try using your words to describe what you expect to see, and then additional words to describe what you see instead</q></li>
+<li class="message">[<a href="#T06:23:04" id="T06:23:04"><abbr title="2009-04-16T06:23:04+00:00">06:23:04</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>good morning koen!</q></li>
+<li class="message">[<a href="#T06:23:24" id="T06:23:24"><abbr title="2009-04-16T06:23:24+00:00">06:23:24</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>changing of the guard -- good night all :-)</q></li>
+<li class="message">[<a href="#T06:24:23" id="T06:24:23"><abbr title="2009-04-16T06:24:23+00:00">06:24:23</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>g[m|n]</q></li>
+<li class="message">[<a href="#T06:25:11" id="T06:25:11"><abbr title="2009-04-16T06:25:11+00:00">06:25:11</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>the short version is: How do i put the beagleboard to sleep using Angstrom?</q></li>
+<li class="message">[<a href="#T06:25:22" id="T06:25:22"><abbr title="2009-04-16T06:25:22+00:00">06:25:22</abbr></a>] &lt;<cite>russ</cite>&gt; <q>echo mem &gt; /sys/power/sleep?</q></li>
+<li class="message">[<a href="#T06:25:23" id="T06:25:23"><abbr title="2009-04-16T06:25:23+00:00">06:25:23</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>but i know the answer isn't simple</q></li>
+<li class="message">[<a href="#T06:29:57" id="T06:29:57"><abbr title="2009-04-16T06:29:57+00:00">06:29:57</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>doesn't exist under /sys/power/sleep, but /sys/power/state gives me a couple warnings when i run the echo</q></li>
+<li class="message">[<a href="#T06:30:20" id="T06:30:20"><abbr title="2009-04-16T06:30:20+00:00">06:30:20</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>unable to modify wakeup on non-wakeup GPIO7</q></li>
+<li class="message">[<a href="#T06:30:32" id="T06:30:32"><abbr title="2009-04-16T06:30:32+00:00">06:30:32</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>classs driver suspend failed for cpu0</q></li>
+<li class="message">[<a href="#T06:32:27" id="T06:32:27"><abbr title="2009-04-16T06:32:27+00:00">06:32:27</abbr></a>] &lt;<cite>russ</cite>&gt; <q>er, sorry</q></li>
+<li class="message">[<a href="#T06:32:35" id="T06:32:35"><abbr title="2009-04-16T06:32:35+00:00">06:32:35</abbr></a>] &lt;<cite>russ</cite>&gt; <q>/sys/power/state</q></li>
+<li class="message">[<a href="#T06:33:04" id="T06:33:04"><abbr title="2009-04-16T06:33:04+00:00">06:33:04</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>no worries, i'm just at a loss </q></li>
+<li class="message">[<a href="#T06:33:07" id="T06:33:07"><abbr title="2009-04-16T06:33:07+00:00">06:33:07</abbr></a>] &lt;<cite>russ</cite>&gt; <q>and it then doesn't sleep?</q></li>
+<li class="message">[<a href="#T06:34:05" id="T06:34:05"><abbr title="2009-04-16T06:34:05+00:00">06:34:05</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>it gives those messages, then returns to the prompt</q></li>
+<li class="message">[<a href="#T06:37:05" id="T06:37:05"><abbr title="2009-04-16T06:37:05+00:00">06:37:05</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>is there documentation available?</q></li>
+<li class="message">[<a href="#T06:37:22" id="T06:37:22"><abbr title="2009-04-16T06:37:22+00:00">06:37:22</abbr></a>] &lt;<cite>russ</cite>&gt; <q>echo disabled &gt; /sys/devices/platform/gpio-keys/power/wakeup?</q></li>
+<li class="message">[<a href="#T06:37:56" id="T06:37:56"><abbr title="2009-04-16T06:37:56+00:00">06:37:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>use the source!</q></li>
+<li class="message">[<a href="#T06:39:10" id="T06:39:10"><abbr title="2009-04-16T06:39:10+00:00">06:39:10</abbr></a>] &lt;<cite>russ</cite>&gt; <q>wonder why that kernel version thinks that gpio 7 is a non-wakeup gpio</q></li>
+<li class="message">[<a href="#T06:40:15" id="T06:40:15"><abbr title="2009-04-16T06:40:15+00:00">06:40:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>is there something special about GPIO7?</q></li>
+<li class="message">[<a href="#T06:40:26" id="T06:40:26"><abbr title="2009-04-16T06:40:26+00:00">06:40:26</abbr></a>] &lt;<cite>russ</cite>&gt; <q>thats the user0 line</q></li>
+<li class="message">[<a href="#T06:40:38" id="T06:40:38"><abbr title="2009-04-16T06:40:38+00:00">06:40:38</abbr></a>] &lt;<cite>russ</cite>&gt; <q>it works fine as a wakeup for me</q></li>
+<li class="message">[<a href="#T06:42:42" id="T06:42:42"><abbr title="2009-04-16T06:42:42+00:00">06:42:42</abbr></a>] &lt;<cite>russ</cite>&gt; <q>mib_588k5b: I can only give you the advice given to me by ancient sages</q></li>
+<li class="message">[<a href="#T06:42:51" id="T06:42:51"><abbr title="2009-04-16T06:42:51+00:00">06:42:51</abbr></a>] &lt;<cite>russ</cite>&gt; <q>try upgrading your u-boot version</q></li>
+<li class="message">[<a href="#T06:43:14" id="T06:43:14"><abbr title="2009-04-16T06:43:14+00:00">06:43:14</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>alright i'll give that a try</q></li>
+<li class="message">[<a href="#T06:43:23" id="T06:43:23"><abbr title="2009-04-16T06:43:23+00:00">06:43:23</abbr></a>] &lt;<cite>mib_588k5b</cite>&gt; <q>thanks very much for the info</q></li>
+<li class="nick-change">[<a href="#T06:46:46" id="T06:46:46"><abbr title="2009-04-16T06:46:46+00:00">06:46:46</abbr></a>] <span>* mckoan|away is now known as mckoan</span></li>
+<li class="quit">[<a href="#T06:48:14" id="T06:48:14"><abbr title="2009-04-16T06:48:14+00:00">06:48:14</abbr></a>] <span>* emeb_mac (n=ericb@ip72-223-90-212.ph.ph.cox.net) Quit ()</span></li>
+<li class="message">[<a href="#T06:50:00" id="T06:50:00"><abbr title="2009-04-16T06:50:00+00:00">06:50:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>raster: oooooooh, new e website</q></li>
+<li class="message">[<a href="#T06:53:15" id="T06:53:15"><abbr title="2009-04-16T06:53:15+00:00">06:53:15</abbr></a>] &lt;<cite>raster</cite>&gt; <q>koen: we changed our panties again</q></li>
+<li class="message">[<a href="#T06:55:07" id="T06:55:07"><abbr title="2009-04-16T06:55:07+00:00">06:55:07</abbr></a>] &lt;<cite>raster</cite>&gt; <q>koen: do the new panties look sexy?</q></li>
+<li class="message">[<a href="#T06:56:13" id="T06:56:13"><abbr title="2009-04-16T06:56:13+00:00">06:56:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>looks a bit more readable</q></li>
+<li class="quit">[<a href="#T06:57:37" id="T06:57:37"><abbr title="2009-04-16T06:57:37+00:00">06:57:37</abbr></a>] <span>* rbelem (n=rodrigo@pdpc/supporter/active/rbelem) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T06:57:58" id="T06:57:58"><abbr title="2009-04-16T06:57:58+00:00">06:57:58</abbr></a>] &lt;<cite>methril|work</cite>&gt; <q>good morning</q></li>
+<li class="message">[<a href="#T06:58:52" id="T06:58:52"><abbr title="2009-04-16T06:58:52+00:00">06:58:52</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T06:58:58" id="T06:58:58"><abbr title="2009-04-16T06:58:58+00:00">06:58:58</abbr></a>] &lt;<cite>raster</cite>&gt; <q>koen:  e.org is responding for you?</q></li>
+<li class="message">[<a href="#T06:59:26" id="T06:59:26"><abbr title="2009-04-16T06:59:26+00:00">06:59:26</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>not for me</q></li>
+<li class="message">[<a href="#T06:59:46" id="T06:59:46"><abbr title="2009-04-16T06:59:46+00:00">06:59:46</abbr></a>] &lt;<cite>koen</cite>&gt; <q>raster: not any more</q></li>
+<li class="message">[<a href="#T06:59:47" id="T06:59:47"><abbr title="2009-04-16T06:59:47+00:00">06:59:47</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>but then, it might be censored :-)</q></li>
