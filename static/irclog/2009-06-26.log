@@ -479,3 +479,191 @@
 <li class="quit">[<a href="#T14:59:26" id="T14:59:26"><abbr title="2009-06-26T14:59:26+00:00">14:59:26</abbr></a>] <span>* n6pfk (n=mike@c-76-104-54-202.hsd1.va.comcast.net) Quit (Read error: 113 (No route to host))</span></li>
 <li class="message">[<a href="#T14:59:28" id="T14:59:28"><abbr title="2009-06-26T14:59:28+00:00">14:59:28</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>Finally got FLDigi in XP to transmit - next trying to get it to transmit in Ubuntu - how can I confirm that the system has found my serial/USB adapter in Ubuntu (my dev box)</q></li>
 <li class="message">[<a href="#T14:59:59" id="T14:59:59"><abbr title="2009-06-26T14:59:59+00:00">14:59:59</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>had to figure out what the proper PTT setting were for fldigi</q></li>
+<li class="message">[<a href="#T15:00:07" id="T15:00:07"><abbr title="2009-06-26T15:00:07+00:00">15:00:07</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>so got those now</q></li>
+<li class="message">[<a href="#T15:00:45" id="T15:00:45"><abbr title="2009-06-26T15:00:45+00:00">15:00:45</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>but can't get any signal in Linux - drivers? </q></li>
+<li class="quit">[<a href="#T15:01:08" id="T15:01:08"><abbr title="2009-06-26T15:01:08+00:00">15:01:08</abbr></a>] <span>* PhastPhrog_ (n=chatzill@87.115.39.131.plusnet.pcl-ag01.dyn.plus.net) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T15:02:13" id="T15:02:13"><abbr title="2009-06-26T15:02:13+00:00">15:02:13</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>tried several ttySx numbers (ttyS2 is COM3 and that's what flidigi likes in XP - don't know if that translates to Linux</q></li>
+<li class="message">[<a href="#T15:02:35" id="T15:02:35"><abbr title="2009-06-26T15:02:35+00:00">15:02:35</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>bobkatzz: dmesg?</q></li>
+<li class="message">[<a href="#T15:02:44" id="T15:02:44"><abbr title="2009-06-26T15:02:44+00:00">15:02:44</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>dmesg?</q></li>
+<li class="message">[<a href="#T15:02:55" id="T15:02:55"><abbr title="2009-06-26T15:02:55+00:00">15:02:55</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>dmesg!</q></li>
+<li class="message">[<a href="#T15:03:00" id="T15:03:00"><abbr title="2009-06-26T15:03:00+00:00">15:03:00</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>on the command line</q></li>
+<li class="message">[<a href="#T15:03:05" id="T15:03:05"><abbr title="2009-06-26T15:03:05+00:00">15:03:05</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>ok - one sec</q></li>
+<li class="message">[<a href="#T15:03:35" id="T15:03:35"><abbr title="2009-06-26T15:03:35+00:00">15:03:35</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>whoa ! lotsa stuff in there!</q></li>
+<li class="quit">[<a href="#T15:04:06" id="T15:04:06"><abbr title="2009-06-26T15:04:06+00:00">15:04:06</abbr></a>] <span>* jpirko (n=jirka@nat/redhat/x-b18f5c590c0154e4) Quit ("Leaving")</span></li>
+<li class="join">[<a href="#T15:04:13" id="T15:04:13"><abbr title="2009-06-26T15:04:13+00:00">15:04:13</abbr></a>] <span>* alecrim (n=alecrim@201.7.142.10) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:04:26" id="T15:04:26"><abbr title="2009-06-26T15:04:26+00:00">15:04:26</abbr></a>] <span>* maelcum (n=horst@78.52.131.190) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T15:04:33" id="T15:04:33"><abbr title="2009-06-26T15:04:33+00:00">15:04:33</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>AV500: got that -  what am I looking for</q></li>
+<li class="message">[<a href="#T15:04:52" id="T15:04:52"><abbr title="2009-06-26T15:04:52+00:00">15:04:52</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>something live /dev/ttyUSBx</q></li>
+<li class="message">[<a href="#T15:04:53" id="T15:04:53"><abbr title="2009-06-26T15:04:53+00:00">15:04:53</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>does that activate the device?</q></li>
+<li class="message">[<a href="#T15:05:04" id="T15:05:04"><abbr title="2009-06-26T15:05:04+00:00">15:05:04</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>no, it justs prints all the kernel log msgs</q></li>
+<li class="message">[<a href="#T15:05:13" id="T15:05:13"><abbr title="2009-06-26T15:05:13+00:00">15:05:13</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>ok like dmesg|grep USB ?</q></li>
+<li class="message">[<a href="#T15:05:18" id="T15:05:18"><abbr title="2009-06-26T15:05:18+00:00">15:05:18</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:06:04" id="T15:06:04"><abbr title="2009-06-26T15:06:04+00:00">15:06:04</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>[    5.124536] USB Universal Host Controller Interface driver v3.0</q></li>
+<li class="message">[<abbr title="2009-06-26T15:06:04+00:00">15:06:04</abbr>] &lt;<cite>bobkatzz</cite>&gt; <q>[    5.124663] uhci_hcd 0000:00:07.2: new USB bus registered, assigned bus number 1</q></li>
+<li class="message">[<abbr title="2009-06-26T15:06:04+00:00">15:06:04</abbr>] &lt;<cite>bobkatzz</cite>&gt; <q>[    5.164251] hub 1-0:1.0: USB hub found</q></li>
+<li class="quit">[<a href="#T15:06:27" id="T15:06:27"><abbr title="2009-06-26T15:06:27+00:00">15:06:27</abbr></a>] <span>* khasi1 (n=a0393720@192.163.20.231) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T15:06:32" id="T15:06:32"><abbr title="2009-06-26T15:06:32+00:00">15:06:32</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>so how do I select that?</q></li>
+<li class="message">[<a href="#T15:07:41" id="T15:07:41"><abbr title="2009-06-26T15:07:41+00:00">15:07:41</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>no, this is just a hub, by no tty</q></li>
+<li class="message">[<a href="#T15:08:10" id="T15:08:10"><abbr title="2009-06-26T15:08:10+00:00">15:08:10</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>unlug and replug your usb serial</q></li>
+<li class="message">[<a href="#T15:08:14" id="T15:08:14"><abbr title="2009-06-26T15:08:14+00:00">15:08:14</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T15:08:19" id="T15:08:19"><abbr title="2009-06-26T15:08:19+00:00">15:08:19</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>then look at the bottom of the dmesg output</q></li>
+<li class="join">[<a href="#T15:08:57" id="T15:08:57"><abbr title="2009-06-26T15:08:57+00:00">15:08:57</abbr></a>] <span>* _roger_ (n=a0740758@nat/ti/x-d2f17a4bc0fec826) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:09:25" id="T15:09:25"><abbr title="2009-06-26T15:09:25+00:00">15:09:25</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>[41193.627104] ppdev0: registered pardevice</q></li>
+<li class="message">[<abbr title="2009-06-26T15:09:25+00:00">15:09:25</abbr>] &lt;<cite>bobkatzz</cite>&gt; <q>[41193.676408] ppdev0: unregistered pardevice</q></li>
+<li class="join">[<a href="#T15:09:32" id="T15:09:32"><abbr title="2009-06-26T15:09:32+00:00">15:09:32</abbr></a>] <span>* rsalveti (n=rsalveti@201.7.142.10) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:10:17" id="T15:10:17"><abbr title="2009-06-26T15:10:17+00:00">15:10:17</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>a usb parallel port?</q></li>
+<li class="join">[<a href="#T15:10:28" id="T15:10:28"><abbr title="2009-06-26T15:10:28+00:00">15:10:28</abbr></a>] <span>* ddompe (n=ddompe@ip221-27-10-190.ct.co.cr) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:10:31" id="T15:10:31"><abbr title="2009-06-26T15:10:31+00:00">15:10:31</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>don't know what that is</q></li>
+<li class="message">[<a href="#T15:10:35" id="T15:10:35"><abbr title="2009-06-26T15:10:35+00:00">15:10:35</abbr></a>] &lt;<cite>s27</cite>&gt; <q>i am using dss2 to write a display driver for a sharp lcd. i need to pass 2 or more gpio's between the board specific and the lcd display driver. but the structure omap_dss_display_config does not allow that</q></li>
+<li class="message">[<a href="#T15:10:48" id="T15:10:48"><abbr title="2009-06-26T15:10:48+00:00">15:10:48</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>it's a Radio Shack USB/Serial adapter</q></li>
+<li class="message">[<a href="#T15:11:03" id="T15:11:03"><abbr title="2009-06-26T15:11:03+00:00">15:11:03</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>has worked very well so far</q></li>
+<li class="message">[<a href="#T15:11:11" id="T15:11:11"><abbr title="2009-06-26T15:11:11+00:00">15:11:11</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>in XP of course :P</q></li>
+<li class="message">[<a href="#T15:11:26" id="T15:11:26"><abbr title="2009-06-26T15:11:26+00:00">15:11:26</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>got lsusb?</q></li>
+<li class="message">[<a href="#T15:12:04" id="T15:12:04"><abbr title="2009-06-26T15:12:04+00:00">15:12:04</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>is that a driver or porgram?</q></li>
+<li class="message">[<a href="#T15:12:20" id="T15:12:20"><abbr title="2009-06-26T15:12:20+00:00">15:12:20</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>program</q></li>
+<li class="message">[<a href="#T15:12:23" id="T15:12:23"><abbr title="2009-06-26T15:12:23+00:00">15:12:23</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>just try</q></li>
+<li class="message">[<a href="#T15:12:38" id="T15:12:38"><abbr title="2009-06-26T15:12:38+00:00">15:12:38</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>it dumps usb info</q></li>
+<li class="message">[<a href="#T15:12:47" id="T15:12:47"><abbr title="2009-06-26T15:12:47+00:00">15:12:47</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>like lspci for PCI cards</q></li>
+<li class="message">[<a href="#T15:12:56" id="T15:12:56"><abbr title="2009-06-26T15:12:56+00:00">15:12:56</abbr></a>] &lt;<cite>raster</cite>&gt; <q>AV500: yo!</q></li>
+<li class="message">[<a href="#T15:13:05" id="T15:13:05"><abbr title="2009-06-26T15:13:05+00:00">15:13:05</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>seems to be in the OE build tree so may on the BB and not necessarily on my dev box where I am testing now</q></li>
+<li class="quit">[<a href="#T15:13:06" id="T15:13:06"><abbr title="2009-06-26T15:13:06+00:00">15:13:06</abbr></a>] <span>* Crofton (n=balister@dslb-088-074-062-094.pools.arcor-ip.net) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T15:13:17" id="T15:13:17"><abbr title="2009-06-26T15:13:17+00:00">15:13:17</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>ok will try</q></li>
+<li class="message">[<a href="#T15:13:25" id="T15:13:25"><abbr title="2009-06-26T15:13:25+00:00">15:13:25</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>raster: yo2</q></li>
+<li class="message">[<a href="#T15:13:41" id="T15:13:41"><abbr title="2009-06-26T15:13:41+00:00">15:13:41</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>was in berlin yesterday, saw the road guys :-)</q></li>
+<li class="message">[<a href="#T15:13:46" id="T15:13:46"><abbr title="2009-06-26T15:13:46+00:00">15:13:46</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub</q></li>
+<li class="message">[<a href="#T15:13:49" id="T15:13:49"><abbr title="2009-06-26T15:13:49+00:00">15:13:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>AV500: ooh cool. have a fun chat?</q></li>
+<li class="message">[<a href="#T15:13:59" id="T15:13:59"><abbr title="2009-06-26T15:13:59+00:00">15:13:59</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>well :-=</q></li>
+<li class="message">[<a href="#T15:14:01" id="T15:14:01"><abbr title="2009-06-26T15:14:01+00:00">15:14:01</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>well :-)</q></li>
+<li class="quit">[<a href="#T15:16:50" id="T15:16:50"><abbr title="2009-06-26T15:16:50+00:00">15:16:50</abbr></a>] <span>* booxter (n=booxter@cpmsq.epam.com) Quit ("leaving")</span></li>
+<li class="join">[<a href="#T15:16:51" id="T15:16:51"><abbr title="2009-06-26T15:16:51+00:00">15:16:51</abbr></a>] <span>* emeb (n=ericb@ip72-223-90-212.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:17:36" id="T15:17:36"><abbr title="2009-06-26T15:17:36+00:00">15:17:36</abbr></a>] <span>* KosiNuss (n=tom@R2139.r.pppool.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:17:45" id="T15:17:45"><abbr title="2009-06-26T15:17:45+00:00">15:17:45</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>so is there a way to specify that a USB device be assigned to a port like COM3?</q></li>
+<li class="message">[<a href="#T15:18:11" id="T15:18:11"><abbr title="2009-06-26T15:18:11+00:00">15:18:11</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>bobkatzz: that all? Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub</q></li>
+<li class="message">[<a href="#T15:19:25" id="T15:19:25"><abbr title="2009-06-26T15:19:25+00:00">15:19:25</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T15:19:34" id="T15:19:34"><abbr title="2009-06-26T15:19:34+00:00">15:19:34</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>on your desktop PC?</q></li>
+<li class="message">[<a href="#T15:19:44" id="T15:19:44"><abbr title="2009-06-26T15:19:44+00:00">15:19:44</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>yep </q></li>
+<li class="quit">[<abbr title="2009-06-26T15:19:44+00:00">15:19:44</abbr>] <span>* PhastPhrog (n=chatzill@ip-87-82-198-210.easynet.co.uk) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T15:20:24" id="T15:20:24"><abbr title="2009-06-26T15:20:24+00:00">15:20:24</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>and that's the only usb device on there - oh wait there's a mouse</q></li>
+<li class="message">[<a href="#T15:20:40" id="T15:20:40"><abbr title="2009-06-26T15:20:40+00:00">15:20:40</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>I'd assume :-)</q></li>
+<li class="message">[<a href="#T15:20:44" id="T15:20:44"><abbr title="2009-06-26T15:20:44+00:00">15:20:44</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>my keyboard is not USB (ancient heh)</q></li>
+<li class="message">[<a href="#T15:20:52" id="T15:20:52"><abbr title="2009-06-26T15:20:52+00:00">15:20:52</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>neither is mine</q></li>
+<li class="message">[<a href="#T15:21:28" id="T15:21:28"><abbr title="2009-06-26T15:21:28+00:00">15:21:28</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>I just repaired my 1970 Sanwa volt meter - </q></li>
+<li class="message">[<a href="#T15:21:48" id="T15:21:48"><abbr title="2009-06-26T15:21:48+00:00">15:21:48</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>much more sensitive that my digital</q></li>
+<li class="message">[<a href="#T15:22:15" id="T15:22:15"><abbr title="2009-06-26T15:22:15+00:00">15:22:15</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>plus I cna SEE the damn thing move when it registers</q></li>
+<li class="message">[<a href="#T15:22:18" id="T15:22:18"><abbr title="2009-06-26T15:22:18+00:00">15:22:18</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>can</q></li>
+<li class="message">[<a href="#T15:23:09" id="T15:23:09"><abbr title="2009-06-26T15:23:09+00:00">15:23:09</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>ok so would it have anything to do with being in VMWare? the device definitely works in XP if I flip over there</q></li>
+<li class="message">[<a href="#T15:23:21" id="T15:23:21"><abbr title="2009-06-26T15:23:21+00:00">15:23:21</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>aaah, vmware</q></li>
+<li class="message">[<a href="#T15:23:24" id="T15:23:24"><abbr title="2009-06-26T15:23:24+00:00">15:23:24</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>I mean without even unplugging it</q></li>
+<li class="message">[<a href="#T15:23:39" id="T15:23:39"><abbr title="2009-06-26T15:23:39+00:00">15:23:39</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>so you see virtual devices in your linux?</q></li>
+<li class="message">[<a href="#T15:24:21" id="T15:24:21"><abbr title="2009-06-26T15:24:21+00:00">15:24:21</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>um not sure</q></li>
+<li class="message">[<a href="#T15:24:37" id="T15:24:37"><abbr title="2009-06-26T15:24:37+00:00">15:24:37</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>checking</q></li>
+<li class="message">[<a href="#T15:24:53" id="T15:24:53"><abbr title="2009-06-26T15:24:53+00:00">15:24:53</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>i mean, you linux is in vmware on your XP machine?</q></li>
+<li class="message">[<a href="#T15:25:03" id="T15:25:03"><abbr title="2009-06-26T15:25:03+00:00">15:25:03</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>yes </q></li>
+<li class="message">[<a href="#T15:25:13" id="T15:25:13"><abbr title="2009-06-26T15:25:13+00:00">15:25:13</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>Ubuntu in VMWare on XP</q></li>
+<li class="message">[<a href="#T15:25:28" id="T15:25:28"><abbr title="2009-06-26T15:25:28+00:00">15:25:28</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>next time state that 1st :-)</q></li>
+<li class="message">[<a href="#T15:25:37" id="T15:25:37"><abbr title="2009-06-26T15:25:37+00:00">15:25:37</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>BTW fldigi runs MUCH better on the BB!!</q></li>
+<li class="message">[<a href="#T15:25:44" id="T15:25:44"><abbr title="2009-06-26T15:25:44+00:00">15:25:44</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>oh - sorry :(</q></li>
+<li class="message">[<a href="#T15:26:23" id="T15:26:23"><abbr title="2009-06-26T15:26:23+00:00">15:26:23</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>I guess you need to convicne vmware to make this serial appear in the hosted linux, no idea how...</q></li>
+<li class="message">[<a href="#T15:26:55" id="T15:26:55"><abbr title="2009-06-26T15:26:55+00:00">15:26:55</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>I think I'll just bail on VMWare Ubuntu and go straight to the BB to check this out</q></li>
+<li class="message">[<a href="#T15:27:53" id="T15:27:53"><abbr title="2009-06-26T15:27:53+00:00">15:27:53</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>the only problem is a Pidgin for some reason is not behaving on the BB and mibbit is dead so - no #beagle over there</q></li>
+<li class="message">[<a href="#T15:28:16" id="T15:28:16"><abbr title="2009-06-26T15:28:16+00:00">15:28:16</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>but you have the XP ps, no?</q></li>
+<li class="message">[<a href="#T15:28:54" id="T15:28:54"><abbr title="2009-06-26T15:28:54+00:00">15:28:54</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>and I have to switch the monitor cables to go back and forth (nedd a switch hehe)</q></li>
+<li class="message">[<a href="#T15:28:57" id="T15:28:57"><abbr title="2009-06-26T15:28:57+00:00">15:28:57</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>need</q></li>
+<li class="message">[<a href="#T15:29:13" id="T15:29:13"><abbr title="2009-06-26T15:29:13+00:00">15:29:13</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>so I cna't see both at the same time</q></li>
+<li class="message">[<a href="#T15:29:19" id="T15:29:19"><abbr title="2009-06-26T15:29:19+00:00">15:29:19</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>well, no comment :-)</q></li>
+<li class="message">[<a href="#T15:29:26" id="T15:29:26"><abbr title="2009-06-26T15:29:26+00:00">15:29:26</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T15:30:12" id="T15:30:12"><abbr title="2009-06-26T15:30:12+00:00">15:30:12</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>I can steal wifey's monitor in a while though so until she returns from shopping I should be good</q></li>
+<li class="message">[<a href="#T15:30:36" id="T15:30:36"><abbr title="2009-06-26T15:30:36+00:00">15:30:36</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>I definitely need to get another one</q></li>
+<li class="message">[<a href="#T15:30:51" id="T15:30:51"><abbr title="2009-06-26T15:30:51+00:00">15:30:51</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:30:52" id="T15:30:52"><abbr title="2009-06-26T15:30:52+00:00">15:30:52</abbr></a>] &lt;<cite>s27</cite>&gt; <q>tomba: any idea?</q></li>
+<li class="message">[<a href="#T15:31:04" id="T15:31:04"><abbr title="2009-06-26T15:31:04+00:00">15:31:04</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>the BB is supposed to have an LCD here soon so that will be the permanent fix there</q></li>
+<li class="message">[<a href="#T15:31:31" id="T15:31:31"><abbr title="2009-06-26T15:31:31+00:00">15:31:31</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>dirk2: not always</q></li>
+<li class="message">[<a href="#T15:31:38" id="T15:31:38"><abbr title="2009-06-26T15:31:38+00:00">15:31:38</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>it has split personality</q></li>
+<li class="quit">[<a href="#T15:32:38" id="T15:32:38"><abbr title="2009-06-26T15:32:38+00:00">15:32:38</abbr></a>] <span>* rsalveti (n=rsalveti@201.7.142.10) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T15:33:54" id="T15:33:54"><abbr title="2009-06-26T15:33:54+00:00">15:33:54</abbr></a>] &lt;<cite>jkridner|work</cite>&gt; <q>sakoman, mru: I just moved my contest votes to try to get a second board given away this week.</q></li>
+<li class="message">[<a href="#T15:34:09" id="T15:34:09"><abbr title="2009-06-26T15:34:09+00:00">15:34:09</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>ok thanks AV500 - going to "the dark side" now - appreciate your help</q></li>
+<li class="message">[<a href="#T15:34:30" id="T15:34:30"><abbr title="2009-06-26T15:34:30+00:00">15:34:30</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>maybe I can get another irc client working from over there</q></li>
+<li class="message">[<a href="#T15:34:45" id="T15:34:45"><abbr title="2009-06-26T15:34:45+00:00">15:34:45</abbr></a>] &lt;<cite>davidcb</cite>&gt; <q>bobkatzz: I guess you have probably seen this before. Crofton sent this link last night. <a href="http://websdr.ewi.utwente.nl:8901/">http://websdr.ewi.utwente.nl:8901/</a></q></li>
+<li class="message">[<a href="#T15:34:46" id="T15:34:46"><abbr title="2009-06-26T15:34:46+00:00">15:34:46</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>since my Pidgin has Avian Flu :P</q></li>
+<li class="message">[<a href="#T15:35:07" id="T15:35:07"><abbr title="2009-06-26T15:35:07+00:00">15:35:07</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>checking - </q></li>
+<li class="message">[<a href="#T15:36:15" id="T15:36:15"><abbr title="2009-06-26T15:36:15+00:00">15:36:15</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>whoa that's awesome!</q></li>
+<li class="message">[<a href="#T15:36:23" id="T15:36:23"><abbr title="2009-06-26T15:36:23+00:00">15:36:23</abbr></a>] &lt;<cite>davidcb</cite>&gt; <q>Yeah.</q></li>
+<li class="message">[<a href="#T15:36:32" id="T15:36:32"><abbr title="2009-06-26T15:36:32+00:00">15:36:32</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>nice granulation too!</q></li>
+<li class="message">[<a href="#T15:37:20" id="T15:37:20"><abbr title="2009-06-26T15:37:20+00:00">15:37:20</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>very kewl? will post link on my RARCPIO site </q></li>
+<li class="message">[<a href="#T15:37:29" id="T15:37:29"><abbr title="2009-06-26T15:37:29+00:00">15:37:29</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>jkridner|work: my votes are n</q></li>
+<li class="message">[<a href="#T15:37:31" id="T15:37:31"><abbr title="2009-06-26T15:37:31+00:00">15:37:31</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>in</q></li>
+<li class="message">[<a href="#T15:37:34" id="T15:37:34"><abbr title="2009-06-26T15:37:34+00:00">15:37:34</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>(?)&lt; --- huh?</q></li>
+<li class="message">[<a href="#T15:38:24" id="T15:38:24"><abbr title="2009-06-26T15:38:24+00:00">15:38:24</abbr></a>] &lt;<cite>davidcb</cite>&gt; <q>Yeah, I caught a nice pile up on 40 last night.</q></li>
+<li class="message">[<a href="#T15:38:33" id="T15:38:33"><abbr title="2009-06-26T15:38:33+00:00">15:38:33</abbr></a>] &lt;<cite>jkridner|work</cite>&gt; <q>thanks sakoman!  I'll send out notices to the winners.</q></li>
+<li class="message">[<a href="#T15:38:48" id="T15:38:48"><abbr title="2009-06-26T15:38:48+00:00">15:38:48</abbr></a>] &lt;<cite>tomba</cite>&gt; <q>s27: at least in the latest versions there's a field that can be used to pass custom data</q></li>
+<li class="message">[<a href="#T15:40:05" id="T15:40:05"><abbr title="2009-06-26T15:40:05+00:00">15:40:05</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>davidcb: dl8aau is listening to it now in the office :-)</q></li>
+<li class="quit">[<a href="#T15:41:05" id="T15:41:05"><abbr title="2009-06-26T15:41:05+00:00">15:41:05</abbr></a>] <span>* KosiNuss (n=tom@R2139.r.pppool.de) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="message">[<a href="#T15:41:47" id="T15:41:47"><abbr title="2009-06-26T15:41:47+00:00">15:41:47</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>looks like the laptop back in my hotel fell off the internet</q></li>
+<li class="quit">[<a href="#T15:41:52" id="T15:41:52"><abbr title="2009-06-26T15:41:52+00:00">15:41:52</abbr></a>] <span>* rivig (n=tulpe@212.6.136.34) Quit (Read error: 113 (No route to host))</span></li>
+<li class="message">[<a href="#T15:42:00" id="T15:42:00"><abbr title="2009-06-26T15:42:00+00:00">15:42:00</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>srujanjonnadula: how is it going today?</q></li>
+<li class="message">[<a href="#T15:42:13" id="T15:42:13"><abbr title="2009-06-26T15:42:13+00:00">15:42:13</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>hey</q></li>
+<li class="message">[<a href="#T15:42:16" id="T15:42:16"><abbr title="2009-06-26T15:42:16+00:00">15:42:16</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>its going alright</q></li>
+<li class="action">[<a href="#T15:42:21" id="T15:42:21"><abbr title="2009-06-26T15:42:21+00:00">15:42:21</abbr></a>] <span>* _beagle_ltag_ti_ is crofton</span></li>
+<li class="message">[<a href="#T15:42:32" id="T15:42:32"><abbr title="2009-06-26T15:42:32+00:00">15:42:32</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>hey i do have a question though</q></li>
+<li class="message">[<a href="#T15:42:36" id="T15:42:36"><abbr title="2009-06-26T15:42:36+00:00">15:42:36</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>_beagle_ltag_ti_: your free wifi expired :-)</q></li>
+<li class="message">[<a href="#T15:42:50" id="T15:42:50"><abbr title="2009-06-26T15:42:50+00:00">15:42:50</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>my provider isd NETGEAR</q></li>
+<li class="message">[<a href="#T15:42:56" id="T15:42:56"><abbr title="2009-06-26T15:42:56+00:00">15:42:56</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>i just developed a simple gpp-side dsplink application</q></li>
+<li class="message">[<a href="#T15:43:06" id="T15:43:06"><abbr title="2009-06-26T15:43:06+00:00">15:43:06</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>which uses the API's associated</q></li>
+<li class="message">[<a href="#T15:43:08" id="T15:43:08"><abbr title="2009-06-26T15:43:08+00:00">15:43:08</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>the free hotel wifi did not work</q></li>
+<li class="message">[<a href="#T15:43:17" id="T15:43:17"><abbr title="2009-06-26T15:43:17+00:00">15:43:17</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>davidcb: the advent of the community radio!!</q></li>
+<li class="message">[<a href="#T15:43:24" id="T15:43:24"><abbr title="2009-06-26T15:43:24+00:00">15:43:24</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>srujanjonnadula: with a sasne makefile?</q></li>
+<li class="message">[<a href="#T15:43:33" id="T15:43:33"><abbr title="2009-06-26T15:43:33+00:00">15:43:33</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>or should we say global?</q></li>
+<li class="message">[<a href="#T15:43:40" id="T15:43:40"><abbr title="2009-06-26T15:43:40+00:00">15:43:40</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>er sane</q></li>
+<li class="message">[<a href="#T15:43:44" id="T15:43:44"><abbr title="2009-06-26T15:43:44+00:00">15:43:44</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>yea</q></li>
+<li class="join">[<a href="#T15:43:46" id="T15:43:46"><abbr title="2009-06-26T15:43:46+00:00">15:43:46</abbr></a>] <span>* Beagle1 (n=Beagle1@cerberus.dis.uniroma1.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:43:50" id="T15:43:50"><abbr title="2009-06-26T15:43:50+00:00">15:43:50</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T15:44:03" id="T15:44:03"><abbr title="2009-06-26T15:44:03+00:00">15:44:03</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>I look forward\to seeing it when I get home</q></li>
+<li class="message">[<a href="#T15:44:13" id="T15:44:13"><abbr title="2009-06-26T15:44:13+00:00">15:44:13</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>well in my makefile it just does a gcc compile, but i figured that probably wasn't right</q></li>
+<li class="message">[<a href="#T15:44:29" id="T15:44:29"><abbr title="2009-06-26T15:44:29+00:00">15:44:29</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>I can sort that out laster :)</q></li>
+<li class="message">[<a href="#T15:44:38" id="T15:44:38"><abbr title="2009-06-26T15:44:38+00:00">15:44:38</abbr></a>] &lt;<cite>Beagle1</cite>&gt; <q>Anyone have a compiled libjpg for angstrom or know where i can find it please?</q></li>
+<li class="message">[<abbr title="2009-06-26T15:44:38+00:00">15:44:38</abbr>] &lt;<cite>srujanjonnadula</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T15:44:44" id="T15:44:44"><abbr title="2009-06-26T15:44:44+00:00">15:44:44</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>once I see the patterns, I know the standard vars to use</q></li>
+<li class="message">[<a href="#T15:44:49" id="T15:44:49"><abbr title="2009-06-26T15:44:49+00:00">15:44:49</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>oh ok</q></li>
+<li class="message">[<a href="#T15:45:05" id="T15:45:05"><abbr title="2009-06-26T15:45:05+00:00">15:45:05</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>even better if I can get it going with autotools</q></li>
+<li class="message">[<a href="#T15:45:19" id="T15:45:19"><abbr title="2009-06-26T15:45:19+00:00">15:45:19</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>autotools...</q></li>
+<li class="message">[<a href="#T15:45:24" id="T15:45:24"><abbr title="2009-06-26T15:45:24+00:00">15:45:24</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>hard\coding compiler names is evil :)</q></li>
+<li class="message">[<a href="#T15:45:33" id="T15:45:33"><abbr title="2009-06-26T15:45:33+00:00">15:45:33</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T15:45:37" id="T15:45:37"><abbr title="2009-06-26T15:45:37+00:00">15:45:37</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>autotols sucks, but there is nothing better</q></li>
+<li class="message">[<a href="#T15:45:53" id="T15:45:53"><abbr title="2009-06-26T15:45:53+00:00">15:45:53</abbr></a>] &lt;<cite>srujanjonnadula</cite>&gt; <q>what is autotools?</q></li>
+<li class="message">[<a href="#T15:45:59" id="T15:45:59"><abbr title="2009-06-26T15:45:59+00:00">15:45:59</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T15:46:05" id="T15:46:05"><abbr title="2009-06-26T15:46:05+00:00">15:46:05</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>search for the goat book</q></li>
+<li class="part">[<a href="#T15:46:47" id="T15:46:47"><abbr title="2009-06-26T15:46:47+00:00">15:46:47</abbr></a>] <span>* rupeshgujare3 (n=rupesh@59.160.172.220) has left #beagle</span></li>
+<li class="message">[<a href="#T15:47:07" id="T15:47:07"><abbr title="2009-06-26T15:47:07+00:00">15:47:07</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>that was it for today, half the office is playing with <a href="http://websdr.ewi.utwente.nl:8901/">http://websdr.ewi.utwente.nl:8901/</a> now...</q></li>
+<li class="message">[<a href="#T15:47:16" id="T15:47:16"><abbr title="2009-06-26T15:47:16+00:00">15:47:16</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>rofl</q></li>
+<li class="message">[<a href="#T15:47:22" id="T15:47:22"><abbr title="2009-06-26T15:47:22+00:00">15:47:22</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>that is korn's uni</q></li>
+<li class="message">[<a href="#T15:47:36" id="T15:47:36"><abbr title="2009-06-26T15:47:36+00:00">15:47:36</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>er koen's</q></li>
+<li class="message">[<a href="#T15:47:40" id="T15:47:40"><abbr title="2009-06-26T15:47:40+00:00">15:47:40</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>this kb is funny</q></li>
+<li class="message">[<a href="#T15:47:41" id="T15:47:41"><abbr title="2009-06-26T15:47:41+00:00">15:47:41</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>k</q></li>
+<li class="message">[<a href="#T15:47:55" id="T15:47:55"><abbr title="2009-06-26T15:47:55+00:00">15:47:55</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>as I said, you have to fast track him to a call sign</q></li>
+<li class="message">[<a href="#T15:48:22" id="T15:48:22"><abbr title="2009-06-26T15:48:22+00:00">15:48:22</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>he called the ham ham's "hardcore soldering iron nerds in their radio hut"</q></li>
+<li class="message">[<a href="#T15:48:27" id="T15:48:27"><abbr title="2009-06-26T15:48:27+00:00">15:48:27</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T15:48:41" id="T15:48:41"><abbr title="2009-06-26T15:48:41+00:00">15:48:41</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>isnt the proper term "shack" :-)</q></li>
+<li class="message">[<a href="#T15:48:45" id="T15:48:45"><abbr title="2009-06-26T15:48:45+00:00">15:48:45</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T15:49:15" id="T15:49:15"><abbr title="2009-06-26T15:49:15+00:00">15:49:15</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>I once had a german speaker explain about "camping houses" for tent</q></li>
+<li class="message">[<a href="#T15:49:26" id="T15:49:26"><abbr title="2009-06-26T15:49:26+00:00">15:49:26</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>wow there's a nice pileup on 20 here in my QTH now - gonna jump off to the BB and see what I can do with the USB/Serial adapter - </q></li>
+<li class="message">[<a href="#T15:49:29" id="T15:49:29"><abbr title="2009-06-26T15:49:29+00:00">15:49:29</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>I thing everything is a house in German</q></li>
+<li class="message">[<a href="#T15:49:37" id="T15:49:37"><abbr title="2009-06-26T15:49:37+00:00">15:49:37</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>bobkatzz: gl</q></li>
+<li class="message">[<a href="#T15:49:42" id="T15:49:42"><abbr title="2009-06-26T15:49:42+00:00">15:49:42</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T15:49:48" id="T15:49:48"><abbr title="2009-06-26T15:49:48+00:00">15:49:48</abbr></a>] &lt;<cite>bobkatzz</cite>&gt; <q>tx l8r guys</q></li>
+<li class="message">[<a href="#T15:49:53" id="T15:49:53"><abbr title="2009-06-26T15:49:53+00:00">15:49:53</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>73</q></li>
+<li class="message">[<a href="#T15:49:55" id="T15:49:55"><abbr title="2009-06-26T15:49:55+00:00">15:49:55</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>I might be around later todayu</q></li>
+<li class="message">[<a href="#T15:50:20" id="T15:50:20"><abbr title="2009-06-26T15:50:20+00:00">15:50:20</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>latero todayu crofton-san?</q></li>
+<li class="message">[<abbr title="2009-06-26T15:50:20+00:00">15:50:20</abbr>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>but after tomorrow am I will be on the road for a while</q></li>
+<li class="message">[<a href="#T15:50:24" id="T15:50:24"><abbr title="2009-06-26T15:50:24+00:00">15:50:24</abbr></a>] &lt;<cite>s27</cite>&gt; <q>tomba: i use 2.6.29 from oe. i try to clone your tree but it fails</q></li>
+<li class="message">[<a href="#T15:50:28" id="T15:50:28"><abbr title="2009-06-26T15:50:28+00:00">15:50:28</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>bah</q></li>
+<li class="message">[<a href="#T15:50:30" id="T15:50:30"><abbr title="2009-06-26T15:50:30+00:00">15:50:30</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>back in US July 7</q></li>
+<li class="message">[<a href="#T15:50:36" id="T15:50:36"><abbr title="2009-06-26T15:50:36+00:00">15:50:36</abbr></a>] &lt;<cite>_beagle_ltag_ti_</cite>&gt; <q>l8r guys</q></li>
+<li class="message">[<a href="#T15:50:42" id="T15:50:42"><abbr title="2009-06-26T15:50:42+00:00">15:50:42</abbr></a>] &lt;<cite>AV500</cite>&gt; <q>I go there July 8th :-)</q></li>
+<li class="message">[<a href="#T15:50:48" id="T15:50:48"><abbr title="2009-06-26T15:50:48+00:00">15:50:48</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>trying to find a PCI capture card that'll work in linux laying around here at work</q></li>
+<li class="join">[<a href="#T15:52:31" id="T15:52:31"><abbr title="2009-06-26T15:52:31+00:00">15:52:31</abbr></a>] <span>* aerives (n=a0271824@nat/ti/x-f50d6ca1b9cbea64) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:54:19" id="T15:54:19"><abbr title="2009-06-26T15:54:19+00:00">15:54:19</abbr></a>] &lt;<cite>s27</cite>&gt; <q>tomba: all gpio numbers should be set in the board file and need to be accessed if needed in the lcd driver correct? i have a couple of gpio's that need to be accessed in the lcd driver after doing some spi writes </q></li>
+<li class="join">[<a href="#T15:54:52" id="T15:54:52"><abbr title="2009-06-26T15:54:52+00:00">15:54:52</abbr></a>] <span>* abitos (n=nixgibts@vpn-s-8d3a318a.campus.uni-stuttgart.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:54:54" id="T15:54:54"><abbr title="2009-06-26T15:54:54+00:00">15:54:54</abbr></a>] &lt;<cite>s27</cite>&gt; <q>i have something like &lt;gpio1 set&gt; spi write &lt;gpio2 set again&gt;</q></li>
+<li class="quit">[<a href="#T15:56:13" id="T15:56:13"><abbr title="2009-06-26T15:56:13+00:00">15:56:13</abbr></a>] <span>* Beagle1 (n=Beagle1@cerberus.dis.uniroma1.it) Quit ()</span></li>
+<li class="quit">[<a href="#T15:59:49" id="T15:59:49"><abbr title="2009-06-26T15:59:49+00:00">15:59:49</abbr></a>] <span>* john39091 (n=jsynesio@99-26-125-126.lightspeed.sndgca.sbcglobal.net) Quit (Read error: 104 (Connection reset by peer))</span></li>
+<li class="join">[<a href="#T15:59:50" id="T15:59:50"><abbr title="2009-06-26T15:59:50+00:00">15:59:50</abbr></a>] <span>* john3909 (n=jsynesio@99-26-125-126.lightspeed.sndgca.sbcglobal.net) has joined #beagle</span></li>
