@@ -461,3 +461,77 @@
 <li class="message">[<a href="#T07:53:08" id="T07:53:08"><abbr title="2009-07-15T07:53:08+00:00">07:53:08</abbr></a>] &lt;<cite>ds</cite>&gt; <q>I haven't checked, but I'd bet a dollar that "takes a minimum of 20 cycles" is actually supposed to be "can take a maximum of 20 cycles"</q></li>
 <li class="nick-change">[<a href="#T07:53:25" id="T07:53:25"><abbr title="2009-07-15T07:53:25+00:00">07:53:25</abbr></a>] <span>* hrw is now known as hrw|gone</span></li>
 <li class="message">[<a href="#T07:54:31" id="T07:54:31"><abbr title="2009-07-15T07:54:31+00:00">07:54:31</abbr></a>] &lt;<cite>ds</cite>&gt; <q>although I can think of instruction sequences that should take as many as 50</q></li>
+<li class="quit">[<a href="#T08:09:55" id="T08:09:55"><abbr title="2009-07-15T08:09:55+00:00">08:09:55</abbr></a>] <span>* ssvb (n=ssvb___@a88-112-120-50.elisa-laajakaista.fi) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="quit">[<a href="#T08:11:14" id="T08:11:14"><abbr title="2009-07-15T08:11:14+00:00">08:11:14</abbr></a>] <span>* pvh_sa|wrk (n=pvh@196.14.186.130) Quit ("Ex-Chat")</span></li>
+<li class="message">[<a href="#T08:14:10" id="T08:14:10"><abbr title="2009-07-15T08:14:10+00:00">08:14:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ds: memory *is* coherent between arm and neon</q></li>
+<li class="message">[<a href="#T08:14:15" id="T08:14:15"><abbr title="2009-07-15T08:14:15+00:00">08:14:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the cpu will stall when needed</q></li>
+<li class="join">[<a href="#T08:14:17" id="T08:14:17"><abbr title="2009-07-15T08:14:17+00:00">08:14:17</abbr></a>] <span>* davidcb (n=Spot@m255e36d0.tmodns.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:14:23" id="T08:14:23"><abbr title="2009-07-15T08:14:23+00:00">08:14:23</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>ds:  I agree with mru</q></li>
+<li class="message">[<a href="#T08:14:35" id="T08:14:35"><abbr title="2009-07-15T08:14:35+00:00">08:14:35</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>this is not a VLIW processor :)</q></li>
+<li class="message">[<a href="#T08:15:28" id="T08:15:28"><abbr title="2009-07-15T08:15:28+00:00">08:15:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>gatotkaca: I have not used low level dsplink stuff, I use codec engine on top of dsplink</q></li>
+<li class="message">[<a href="#T08:15:40" id="T08:15:40"><abbr title="2009-07-15T08:15:40+00:00">08:15:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ask Crofton, he did some raw dsplink stuff</q></li>
+<li class="message">[<a href="#T08:16:01" id="T08:16:01"><abbr title="2009-07-15T08:16:01+00:00">08:16:01</abbr></a>] &lt;<cite>gatotkaca</cite>&gt; <q>hum -- interesting </q></li>
+<li class="join">[<a href="#T08:16:28" id="T08:16:28"><abbr title="2009-07-15T08:16:28+00:00">08:16:28</abbr></a>] <span>* virals (n=viral@59.97.1.33) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:17:26" id="T08:17:26"><abbr title="2009-07-15T08:17:26+00:00">08:17:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>to bounce a float return value through memory you'd have to be rather careful</q></li>
+<li class="quit">[<a href="#T08:17:32" id="T08:17:32"><abbr title="2009-07-15T08:17:32+00:00">08:17:32</abbr></a>] <span>* virals1 (n=viral@59.97.0.126) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T08:17:52" id="T08:17:52"><abbr title="2009-07-15T08:17:52+00:00">08:17:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>because any access in the same 16-byte block will stall</q></li>
+<li class="message">[<a href="#T08:19:23" id="T08:19:23"><abbr title="2009-07-15T08:19:23+00:00">08:19:23</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>mru: does the a9 improve that?</q></li>
+<li class="message">[<a href="#T08:19:29" id="T08:19:29"><abbr title="2009-07-15T08:19:29+00:00">08:19:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:22:20" id="T08:22:20"><abbr title="2009-07-15T08:22:20+00:00">08:22:20</abbr></a>] &lt;<cite>qball</cite>&gt; <q>hey koen</q></li>
+<li class="message">[<a href="#T08:22:36" id="T08:22:36"><abbr title="2009-07-15T08:22:36+00:00">08:22:36</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>hey qball, I want to try your gpx-viewer on beagle :)</q></li>
+<li class="join">[<a href="#T08:22:44" id="T08:22:44"><abbr title="2009-07-15T08:22:44+00:00">08:22:44</abbr></a>] <span>* _roger_ (n=a0740758@nat/ti/x-4ba48f05a771b623) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:22:48" id="T08:22:48"><abbr title="2009-07-15T08:22:48+00:00">08:22:48</abbr></a>] &lt;<cite>qball</cite>&gt; <q>ha ha lol</q></li>
+<li class="message">[<a href="#T08:23:02" id="T08:23:02"><abbr title="2009-07-15T08:23:02+00:00">08:23:02</abbr></a>] &lt;<cite>qball</cite>&gt; <q>well it has some spicy depends</q></li>
+<li class="message">[<a href="#T08:23:13" id="T08:23:13"><abbr title="2009-07-15T08:23:13+00:00">08:23:13</abbr></a>] &lt;<cite>qball</cite>&gt; <q>gtk 2.16, vala 0.7 and champlain 0.3.3</q></li>
+<li class="message">[<a href="#T08:23:21" id="T08:23:21"><abbr title="2009-07-15T08:23:21+00:00">08:23:21</abbr></a>] &lt;<cite>qball</cite>&gt; <q>but fun to see it is used</q></li>
+<li class="message">[<a href="#T08:23:36" id="T08:23:36"><abbr title="2009-07-15T08:23:36+00:00">08:23:36</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>gtk 2.16 is already there, champlain is easy to upgrade, have to check vala</q></li>
+<li class="message">[<a href="#T08:23:47" id="T08:23:47"><abbr title="2009-07-15T08:23:47+00:00">08:23:47</abbr></a>] &lt;<cite>qball</cite>&gt; <q>vala is compile time</q></li>
+<li class="message">[<a href="#T08:23:49" id="T08:23:49"><abbr title="2009-07-15T08:23:49+00:00">08:23:49</abbr></a>] &lt;<cite>qball</cite>&gt; <q>offcourse</q></li>
+<li class="join">[<a href="#T08:24:18" id="T08:24:18"><abbr title="2009-07-15T08:24:18+00:00">08:24:18</abbr></a>] <span>* pvh_sa|wrk (n=pvh@196.14.186.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:24:51" id="T08:24:51"><abbr title="2009-07-15T08:24:51+00:00">08:24:51</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>yeah, but I don't know how up to date vala is in OE</q></li>
+<li class="message">[<a href="#T08:25:10" id="T08:25:10"><abbr title="2009-07-15T08:25:10+00:00">08:25:10</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>0.6.0</q></li>
+<li class="message">[<a href="#T08:25:26" id="T08:25:26"><abbr title="2009-07-15T08:25:26+00:00">08:25:26</abbr></a>] &lt;<cite>qball</cite>&gt; <q>0.7 does the whole header thing differently</q></li>
+<li class="message">[<a href="#T08:27:11" id="T08:27:11"><abbr title="2009-07-15T08:27:11+00:00">08:27:11</abbr></a>] &lt;<cite>pvh_sa|wrk</cite>&gt; <q>hi... i got beagle 0.3.9 on ubuntu 9.04, with thunderbird-beagle plugin, but beagled doesn't seem to be picking up the stuff on the Thunderbird/ToIndex folder. any ideas?</q></li>
+<li class="message">[<a href="#T08:27:31" id="T08:27:31"><abbr title="2009-07-15T08:27:31+00:00">08:27:31</abbr></a>] &lt;<cite>qball</cite>&gt; <q>pvh_sa|wrk: wrong beagle</q></li>
+<li class="message">[<a href="#T08:27:39" id="T08:27:39"><abbr title="2009-07-15T08:27:39+00:00">08:27:39</abbr></a>] &lt;<cite>qball</cite>&gt; <q>pvh_sa|wrk: this is not about the indexer</q></li>
+<li class="message">[<a href="#T08:27:47" id="T08:27:47"><abbr title="2009-07-15T08:27:47+00:00">08:27:47</abbr></a>] &lt;<cite>qball</cite>&gt; <q>but about an omap3 board</q></li>
+<li class="message">[<a href="#T08:27:54" id="T08:27:54"><abbr title="2009-07-15T08:27:54+00:00">08:27:54</abbr></a>] &lt;<cite>pvh_sa|wrk</cite>&gt; <q>oops! sorry!</q></li>
+<li class="message">[<a href="#T08:28:15" id="T08:28:15"><abbr title="2009-07-15T08:28:15+00:00">08:28:15</abbr></a>] &lt;<cite>qball</cite>&gt; <q>np</q></li>
+<li class="message">[<a href="#T08:30:28" id="T08:30:28"><abbr title="2009-07-15T08:30:28+00:00">08:30:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hmmm all that stalling... does it mean I can concoct a benchmark to show the beagle slower then an 8051 with a carefully selected series of operations? }:-)</q></li>
+<li class="message">[<a href="#T08:31:07" id="T08:31:07"><abbr title="2009-07-15T08:31:07+00:00">08:31:07</abbr></a>] &lt;<cite>qball</cite>&gt; <q>ds2: I guess everybody needs a hobby</q></li>
+<li class="join">[<a href="#T08:32:20" id="T08:32:20"><abbr title="2009-07-15T08:32:20+00:00">08:32:20</abbr></a>] <span>* Wiedi (n=wiedi@newton-air.w.fruky.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:32:26" id="T08:32:26"><abbr title="2009-07-15T08:32:26+00:00">08:32:26</abbr></a>] <span>* Adventus (i=7ca8d6cf@gateway/web/freenode/x-1174c5f87337e3c4) has joined #beagle</span></li>
+<li class="part">[<a href="#T08:32:34" id="T08:32:34"><abbr title="2009-07-15T08:32:34+00:00">08:32:34</abbr></a>] <span>* pvh_sa|wrk (n=pvh@196.14.186.130) has left #beagle</span></li>
+<li class="message">[<a href="#T08:33:24" id="T08:33:24"><abbr title="2009-07-15T08:33:24+00:00">08:33:24</abbr></a>] &lt;<cite>qball</cite>&gt; <q>_koen_: can you bump mpd to 0.15?</q></li>
+<li class="message">[<a href="#T08:34:03" id="T08:34:03"><abbr title="2009-07-15T08:34:03+00:00">08:34:03</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>sure (on a call now)</q></li>
+<li class="message">[<a href="#T08:34:37" id="T08:34:37"><abbr title="2009-07-15T08:34:37+00:00">08:34:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_koen_: welcome to the commercial world ;-)</q></li>
+<li class="message">[<a href="#T08:34:39" id="T08:34:39"><abbr title="2009-07-15T08:34:39+00:00">08:34:39</abbr></a>] &lt;<cite>qball</cite>&gt; <q>thx</q></li>
+<li class="message">[<a href="#T08:34:48" id="T08:34:48"><abbr title="2009-07-15T08:34:48+00:00">08:34:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh, those useless conf calls...</q></li>
+<li class="message">[<a href="#T08:36:36" id="T08:36:36"><abbr title="2009-07-15T08:36:36+00:00">08:36:36</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>and useless meetings...</q></li>
+<li class="join">[<a href="#T08:36:58" id="T08:36:58"><abbr title="2009-07-15T08:36:58+00:00">08:36:58</abbr></a>] <span>* lcuk (i=lcuk@cpc3-oldh7-0-0-cust590.manc.cable.ntl.com) has joined #beagle</span></li>
+<li class="message">[<abbr title="2009-07-15T08:36:58+00:00">08:36:58</abbr>] &lt;<cite>mru</cite>&gt; <q>at least in meetings you can hear each other</q></li>
+<li class="message">[<a href="#T08:37:18" id="T08:37:18"><abbr title="2009-07-15T08:37:18+00:00">08:37:18</abbr></a>] &lt;<cite>qball</cite>&gt; <q>mru: but you need to have pants</q></li>
+<li class="message">[<a href="#T08:38:18" id="T08:38:18"><abbr title="2009-07-15T08:38:18+00:00">08:38:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I wear the same thing, meeting or not</q></li>
+<li class="message">[<a href="#T08:38:22" id="T08:38:22"><abbr title="2009-07-15T08:38:22+00:00">08:38:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which is jeans and t-shirt</q></li>
+<li class="message">[<a href="#T08:38:39" id="T08:38:39"><abbr title="2009-07-15T08:38:39+00:00">08:38:39</abbr></a>] &lt;<cite>qball</cite>&gt; <q>sorry 1/2 inside joke</q></li>
+<li class="message">[<a href="#T08:39:01" id="T08:39:01"><abbr title="2009-07-15T08:39:01+00:00">08:39:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>someone turned up w/o?</q></li>
+<li class="message">[<a href="#T08:39:14" id="T08:39:14"><abbr title="2009-07-15T08:39:14+00:00">08:39:14</abbr></a>] &lt;<cite>qball</cite>&gt; <q>naah about working from home</q></li>
+<li class="message">[<a href="#T08:39:28" id="T08:39:28"><abbr title="2009-07-15T08:39:28+00:00">08:39:28</abbr></a>] &lt;<cite>qball</cite>&gt; <q>somebody nicely in suit + tie..  until he made the error standing up</q></li>
+<li class="message">[<a href="#T08:39:37" id="T08:39:37"><abbr title="2009-07-15T08:39:37+00:00">08:39:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ah...</q></li>
+<li class="message">[<a href="#T08:39:38" id="T08:39:38"><abbr title="2009-07-15T08:39:38+00:00">08:39:38</abbr></a>] &lt;<cite>qball</cite>&gt; <q>in video conf. call</q></li>
+<li class="message">[<a href="#T08:39:39" id="T08:39:39"><abbr title="2009-07-15T08:39:39+00:00">08:39:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>video call</q></li>
+<li class="message">[<a href="#T08:39:57" id="T08:39:57"><abbr title="2009-07-15T08:39:57+00:00">08:39:57</abbr></a>] &lt;<cite>qball</cite>&gt; <q>it could have been on tv soap</q></li>
+<li class="message">[<a href="#T08:39:59" id="T08:39:59"><abbr title="2009-07-15T08:39:59+00:00">08:39:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>well, working from home isn't an option for me</q></li>
+<li class="message">[<a href="#T08:40:08" id="T08:40:08"><abbr title="2009-07-15T08:40:08+00:00">08:40:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>too much special equipment needed</q></li>
+<li class="message">[<a href="#T08:40:28" id="T08:40:28"><abbr title="2009-07-15T08:40:28+00:00">08:40:28</abbr></a>] &lt;<cite>qball</cite>&gt; <q>I think it is more expensive working home.. all that coffee</q></li>
+<li class="message">[<a href="#T08:40:45" id="T08:40:45"><abbr title="2009-07-15T08:40:45+00:00">08:40:45</abbr></a>] &lt;<cite>qball</cite>&gt; <q>grrr why is bitbake rebuilding 500 packages</q></li>
+<li class="message">[<a href="#T08:40:59" id="T08:40:59"><abbr title="2009-07-15T08:40:59+00:00">08:40:59</abbr></a>] &lt;<cite>qball</cite>&gt; <q>after I added the missing checksum for the last package to build</q></li>
+<li class="message">[<a href="#T08:41:38" id="T08:41:38"><abbr title="2009-07-15T08:41:38+00:00">08:41:38</abbr></a>] &lt;<cite>qball</cite>&gt; <q>I need faster pc.</q></li>
+<li class="join">[<a href="#T08:43:53" id="T08:43:53"><abbr title="2009-07-15T08:43:53+00:00">08:43:53</abbr></a>] <span>* florian_kc (n=fuchs@port-217-146-132-69.static.qsc.de) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T08:44:04" id="T08:44:04"><abbr title="2009-07-15T08:44:04+00:00">08:44:04</abbr></a>] <span>* florian_kc is now known as florian</span></li>
+<li class="quit">[<a href="#T08:46:19" id="T08:46:19"><abbr title="2009-07-15T08:46:19+00:00">08:46:19</abbr></a>] <span>* sol-invictus (n=chatzill@143.205.116.245) Quit ("ChatZilla 0.9.85 [Firefox 3.0.11/2009060308]")</span></li>
+<li class="join">[<a href="#T08:46:21" id="T08:46:21"><abbr title="2009-07-15T08:46:21+00:00">08:46:21</abbr></a>] <span>* KosiNuss (n=tom@R1df6.r.pppool.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:48:58" id="T08:48:58"><abbr title="2009-07-15T08:48:58+00:00">08:48:58</abbr></a>] &lt;<cite>adj</cite>&gt; <q>don't we all...</q></li>
+<li class="message">[<a href="#T08:52:15" id="T08:52:15"><abbr title="2009-07-15T08:52:15+00:00">08:52:15</abbr></a>] &lt;<cite>qball</cite>&gt; <q>I don't need more ram in this machine (For now)</q></li>
+<li class="quit">[<a href="#T08:57:51" id="T08:57:51"><abbr title="2009-07-15T08:57:51+00:00">08:57:51</abbr></a>] <span>* blixtra (n=chris@ppp-71-138-240-3.dsl.sndg02.pacbell.net) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="join">[<a href="#T08:59:13" id="T08:59:13"><abbr title="2009-07-15T08:59:13+00:00">08:59:13</abbr></a>] <span>* def_ (i=d45aa50e@gateway/web/freenode/x-23b9a9f252a17aa9) has joined #beagle</span></li>
