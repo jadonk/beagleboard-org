@@ -493,3 +493,64 @@
 <li class="message">[<a href="#T11:51:19" id="T11:51:19"><abbr title="2009-07-22T11:51:19+00:00">11:51:19</abbr></a>] &lt;<cite>rach</cite>&gt; <q>Is this specified in omap3530beagle.h or else in uboo?</q></li>
 <li class="message">[<a href="#T11:51:27" id="T11:51:27"><abbr title="2009-07-22T11:51:27+00:00">11:51:27</abbr></a>] &lt;<cite>rach</cite>&gt; <q>uboot</q></li>
 <li class="message">[<a href="#T11:56:26" id="T11:56:26"><abbr title="2009-07-22T11:56:26+00:00">11:56:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_koen_: what if you run it slightly undervoltage?</q></li>
+<li class="nick-change">[<a href="#T12:00:37" id="T12:00:37"><abbr title="2009-07-22T12:00:37+00:00">12:00:37</abbr></a>] <span>* cbrake_away is now known as cbrake</span></li>
+<li class="message">[<a href="#T12:00:49" id="T12:00:49"><abbr title="2009-07-22T12:00:49+00:00">12:00:49</abbr></a>] &lt;<cite>franktango</cite>&gt; <q>for OMAP3 clocking info you should look at the latest datasheet, at OPP5 we can do 600MHz on ARM and 430MHz on DSP</q></li>
+<li class="message">[<a href="#T12:02:07" id="T12:02:07"><abbr title="2009-07-22T12:02:07+00:00">12:02:07</abbr></a>] &lt;<cite>franktango</cite>&gt; <q>if you go beyond taht you are on your own :)</q></li>
+<li class="message">[<a href="#T12:02:26" id="T12:02:26"><abbr title="2009-07-22T12:02:26+00:00">12:02:26</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>mru: it wasn't the voltage changes, but I could be wrong</q></li>
+<li class="message">[<a href="#T12:03:39" id="T12:03:39"><abbr title="2009-07-22T12:03:39+00:00">12:03:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>my C1D seems quite ok with 600MHz at OPP4 voltage</q></li>
+<li class="join">[<a href="#T12:04:06" id="T12:04:06"><abbr title="2009-07-22T12:04:06+00:00">12:04:06</abbr></a>] <span>* BThompson (n=a0193480@nat/ti/x-f1add572161511e3) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:04:09" id="T12:04:09"><abbr title="2009-07-22T12:04:09+00:00">12:04:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the rev B gets unstable if I do that</q></li>
+<li class="message">[<a href="#T12:04:33" id="T12:04:33"><abbr title="2009-07-22T12:04:33+00:00">12:04:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>can't remember what I've tried on the CP (or is that C0?)</q></li>
+<li class="message">[<a href="#T12:05:03" id="T12:05:03"><abbr title="2009-07-22T12:05:03+00:00">12:05:03</abbr></a>] &lt;<cite>franktango</cite>&gt; <q>mru: datasheet (table 4-15) says 550MHz max for OPP4... </q></li>
+<li class="message">[<a href="#T12:05:33" id="T12:05:33"><abbr title="2009-07-22T12:05:33+00:00">12:05:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I know</q></li>
+<li class="message">[<a href="#T12:05:59" id="T12:05:59"><abbr title="2009-07-22T12:05:59+00:00">12:05:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but undervoltage won't do any physical damage to the chip</q></li>
+<li class="message">[<a href="#T12:06:01" id="T12:06:01"><abbr title="2009-07-22T12:06:01+00:00">12:06:01</abbr></a>] &lt;<cite>hrw</cite>&gt; <q>bbl</q></li>
+<li class="nick-change">[<a href="#T12:06:05" id="T12:06:05"><abbr title="2009-07-22T12:06:05+00:00">12:06:05</abbr></a>] <span>* hrw is now known as hrw|gone</span></li>
+<li class="message">[<a href="#T12:06:44" id="T12:06:44"><abbr title="2009-07-22T12:06:44+00:00">12:06:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>wait, I'm probably at OPP3 even</q></li>
+<li class="message">[<a href="#T12:09:01" id="T12:09:01"><abbr title="2009-07-22T12:09:01+00:00">12:09:01</abbr></a>] &lt;<cite>franktango</cite>&gt; <q>ok, I forgot OPP5 is called 'overdrive' ... this is a little special on OMAP3</q></li>
+<li class="message">[<a href="#T12:11:23" id="T12:11:23"><abbr title="2009-07-22T12:11:23+00:00">12:11:23</abbr></a>] &lt;<cite>rach</cite>&gt; <q>How to change from 500Mhz to 550 Mhz ?</q></li>
+<li class="message">[<a href="#T12:11:42" id="T12:11:42"><abbr title="2009-07-22T12:11:42+00:00">12:11:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>proper solution: use the PM kernel</q></li>
+<li class="join">[<a href="#T12:11:53" id="T12:11:53"><abbr title="2009-07-22T12:11:53+00:00">12:11:53</abbr></a>] <span>* raj_ (i=9960d6a1@gateway/web/freenode/x-40cafeea37c9f0d5) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:12:11" id="T12:12:11"><abbr title="2009-07-22T12:12:11+00:00">12:12:11</abbr></a>] &lt;<cite>rach</cite>&gt; <q>mru:Pm kernel?</q></li>
+<li class="message">[<a href="#T12:12:20" id="T12:12:20"><abbr title="2009-07-22T12:12:20+00:00">12:12:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>q&amp;d solution: write to 0x48004940</q></li>
+<li class="message">[<a href="#T12:14:03" id="T12:14:03"><abbr title="2009-07-22T12:14:03+00:00">12:14:03</abbr></a>] &lt;<cite>rach</cite>&gt; <q>mru: I'm sorry where to write this value?</q></li>
+<li class="message">[<a href="#T12:14:45" id="T12:14:45"><abbr title="2009-07-22T12:14:45+00:00">12:14:45</abbr></a>] &lt;<cite>rach</cite>&gt; <q>here what is means by BogoMIPS value?</q></li>
+<li class="message">[<a href="#T12:14:57" id="T12:14:57"><abbr title="2009-07-22T12:14:57+00:00">12:14:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>bogomips value means nothing</q></li>
+<li class="join">[<a href="#T12:15:05" id="T12:15:05"><abbr title="2009-07-22T12:15:05+00:00">12:15:05</abbr></a>] <span>* JuanG_ (n=Juan@nat/ti/x-65f64baf12e1075d) has joined #beagle</span></li>
+<li class="part">[<a href="#T12:15:09" id="T12:15:09"><abbr title="2009-07-22T12:15:09+00:00">12:15:09</abbr></a>] <span>* JuanG_ (n=Juan@nat/ti/x-65f64baf12e1075d) has left #beagle</span></li>
+<li class="message">[<a href="#T12:15:25" id="T12:15:25"><abbr title="2009-07-22T12:15:25+00:00">12:15:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>after all these years, people are *still* looking at bogomips numbers...</q></li>
+<li class="join">[<a href="#T12:16:41" id="T12:16:41"><abbr title="2009-07-22T12:16:41+00:00">12:16:41</abbr></a>] <span>* andersos_ (n=andersos@d991.ip15.netikka.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:16:55" id="T12:16:55"><abbr title="2009-07-22T12:16:55+00:00">12:16:55</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>bogus mips</q></li>
+<li class="message">[<a href="#T12:17:42" id="T12:17:42"><abbr title="2009-07-22T12:17:42+00:00">12:17:42</abbr></a>] &lt;<cite>ogra</cite>&gt; <q>just put a hardcoded value in the output to fool them ;)</q></li>
+<li class="message">[<a href="#T12:18:01" id="T12:18:01"><abbr title="2009-07-22T12:18:01+00:00">12:18:01</abbr></a>] &lt;<cite>ogra</cite>&gt; <q>bogomips	: 799950.12 </q></li>
+<li class="message">[<a href="#T12:18:03" id="T12:18:03"><abbr title="2009-07-22T12:18:03+00:00">12:18:03</abbr></a>] &lt;<cite>ogra</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T12:18:48" id="T12:18:48"><abbr title="2009-07-22T12:18:48+00:00">12:18:48</abbr></a>] &lt;<cite>rach</cite>&gt; <q>how to check that L2CACHE is eanble or not?</q></li>
+<li class="message">[<a href="#T12:20:16" id="T12:20:16"><abbr title="2009-07-22T12:20:16+00:00">12:20:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you can get a good guess by measuring the speed of repeatedly reading a block of 128kB or so</q></li>
+<li class="message">[<a href="#T12:20:30" id="T12:20:30"><abbr title="2009-07-22T12:20:30+00:00">12:20:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's smaller than L2 but bigger than L1</q></li>
+<li class="message">[<a href="#T12:20:57" id="T12:20:57"><abbr title="2009-07-22T12:20:57+00:00">12:20:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the L2 cache is controlled by the aux cache control register</q></li>
+<li class="message">[<a href="#T12:21:04" id="T12:21:04"><abbr title="2009-07-22T12:21:04+00:00">12:21:04</abbr></a>] &lt;<cite>rach</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T12:21:40" id="T12:21:40"><abbr title="2009-07-22T12:21:40+00:00">12:21:40</abbr></a>] &lt;<cite>rach</cite>&gt; <q>Does it have any command to get configuration details?</q></li>
+<li class="message">[<a href="#T12:22:04" id="T12:22:04"><abbr title="2009-07-22T12:22:04+00:00">12:22:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>maybe the kernel prints something on startup</q></li>
+<li class="message">[<a href="#T12:22:20" id="T12:22:20"><abbr title="2009-07-22T12:22:20+00:00">12:22:20</abbr></a>] &lt;<cite>rach</cite>&gt; <q>I am using Angstrom image</q></li>
+<li class="join">[<a href="#T12:22:28" id="T12:22:28"><abbr title="2009-07-22T12:22:28+00:00">12:22:28</abbr></a>] <span>* MarioEBV (i=c1226422@gateway/web/freenode/x-81680a00770ebfc4) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:22:43" id="T12:22:43"><abbr title="2009-07-22T12:22:43+00:00">12:22:43</abbr></a>] <span>* PhastPhrog (n=chatzill@ip-87-82-198-210.easynet.co.uk) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:23:33" id="T12:23:33"><abbr title="2009-07-22T12:23:33+00:00">12:23:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>doesn't look like it does</q></li>
+<li class="quit">[<a href="#T12:25:28" id="T12:25:28"><abbr title="2009-07-22T12:25:28+00:00">12:25:28</abbr></a>] <span>* MarioEBV (i=c1226422@gateway/web/freenode/x-81680a00770ebfc4) Quit (Ping timeout: 180 seconds)</span></li>
+<li class="message">[<a href="#T12:25:29" id="T12:25:29"><abbr title="2009-07-22T12:25:29+00:00">12:25:29</abbr></a>] &lt;<cite>rach</cite>&gt; <q>mru:means it's has not enable that ..right</q></li>
+<li class="message">[<a href="#T12:25:42" id="T12:25:42"><abbr title="2009-07-22T12:25:42+00:00">12:25:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no, it means it's not telling you</q></li>
+<li class="message">[<a href="#T12:25:55" id="T12:25:55"><abbr title="2009-07-22T12:25:55+00:00">12:25:55</abbr></a>] &lt;<cite>rach</cite>&gt; <q>okay</q></li>
+<li class="message">[<a href="#T12:26:37" id="T12:26:37"><abbr title="2009-07-22T12:26:37+00:00">12:26:37</abbr></a>] &lt;<cite>rach</cite>&gt; <q>I can't able to access aux control regster in user mode so how can i check about L2 cache and L1 Neon?</q></li>
+<li class="message">[<a href="#T12:28:29" id="T12:28:29"><abbr title="2009-07-22T12:28:29+00:00">12:28:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's easy to hack the kernel to print the value</q></li>
+<li class="part">[<a href="#T12:33:04" id="T12:33:04"><abbr title="2009-07-22T12:33:04+00:00">12:33:04</abbr></a>] <span>* pro-rsoft (n=prorsoft@unaffiliated/pro-rsoft) has left #beagle</span></li>
+<li class="quit">[<a href="#T12:33:51" id="T12:33:51"><abbr title="2009-07-22T12:33:51+00:00">12:33:51</abbr></a>] <span>* _chase_ (n=chase@nat/ti/x-7bc09d73c8bc15ae) Quit ()</span></li>
+<li class="message">[<a href="#T12:33:55" id="T12:33:55"><abbr title="2009-07-22T12:33:55+00:00">12:33:55</abbr></a>] &lt;<cite>rach</cite>&gt; <q>mru: can you give me link or some help</q></li>
+<li class="message">[<a href="#T12:34:14" id="T12:34:14"><abbr title="2009-07-22T12:34:14+00:00">12:34:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>someone already posted some code on the ML</q></li>
+<li class="message">[<a href="#T12:37:21" id="T12:37:21"><abbr title="2009-07-22T12:37:21+00:00">12:37:21</abbr></a>] &lt;<cite>rach</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T12:38:02" id="T12:38:02"><abbr title="2009-07-22T12:38:02+00:00">12:38:02</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>leet kernel hacker av500 did</q></li>
+<li class="join">[<a href="#T12:39:46" id="T12:39:46"><abbr title="2009-07-22T12:39:46+00:00">12:39:46</abbr></a>] <span>* Mario_ (i=c1226422@gateway/web/freenode/x-074cc195d8132dd5) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:42:57" id="T12:42:57"><abbr title="2009-07-22T12:42:57+00:00">12:42:57</abbr></a>] <span>* Mario_ (i=c1226422@gateway/web/freenode/x-074cc195d8132dd5) Quit (Ping timeout: 180 seconds)</span></li>
+<li class="join">[<a href="#T12:44:11" id="T12:44:11"><abbr title="2009-07-22T12:44:11+00:00">12:44:11</abbr></a>] <span>* __alanc__ (n=a-campbe@nat/ti/x-01fd481c3c6c9623) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:45:25" id="T12:45:25"><abbr title="2009-07-22T12:45:25+00:00">12:45:25</abbr></a>] <span>* keesj (n=keesj@ip49-193-210-87.adsl2.static.versatel.nl) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T12:45:38" id="T12:45:38"><abbr title="2009-07-22T12:45:38+00:00">12:45:38</abbr></a>] <span>* _chase_ (n=chase@nat/ti/x-a21ffadb8c256f0c) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:48:10" id="T12:48:10"><abbr title="2009-07-22T12:48:10+00:00">12:48:10</abbr></a>] <span>* robclark (n=robclark@nat/ti/x-c73b6e377f53e4eb) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:56:09" id="T12:56:09"><abbr title="2009-07-22T12:56:09+00:00">12:56:09</abbr></a>] <span>* _gm_ (n=_gm_@190.173.88.70) Quit (Read error: 60 (Operation timed out))</span></li>
