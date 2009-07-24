@@ -961,3 +961,72 @@
 <li class="message">[<a href="#T19:59:51" id="T19:59:51"><abbr title="2009-07-24T19:59:51+00:00">19:59:51</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>spi 3</q></li>
 <li class="quit">[<a href="#T19:59:52" id="T19:59:52"><abbr title="2009-07-24T19:59:52+00:00">19:59:52</abbr></a>] <span>* jevin (n=jevin@c-24-13-123-108.hsd1.in.comcast.net) Quit ("Leaving")</span></li>
 <li class="message">[<a href="#T19:59:57" id="T19:59:57"><abbr title="2009-07-24T19:59:57+00:00">19:59:57</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>let me check 4</q></li>
+<li class="message">[<a href="#T20:02:52" id="T20:02:52"><abbr title="2009-07-24T20:02:52+00:00">20:02:52</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>4 works also</q></li>
+<li class="join">[<a href="#T20:03:25" id="T20:03:25"><abbr title="2009-07-24T20:03:25+00:00">20:03:25</abbr></a>] <span>* jevin (n=jevin@c-24-13-123-108.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T20:04:43" id="T20:04:43"><abbr title="2009-07-24T20:04:43+00:00">20:04:43</abbr></a>] <span>* pfoetchen (n=pfoetche@dslb-088-067-171-158.pools.arcor-ip.net) Quit ("leaving")</span></li>
+<li class="message">[<a href="#T20:04:57" id="T20:04:57"><abbr title="2009-07-24T20:04:57+00:00">20:04:57</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so people could use an unmodified uboot?</q></li>
+<li class="action">[<a href="#T20:05:06" id="T20:05:06"><abbr title="2009-07-24T20:05:06+00:00">20:05:06</abbr></a>] <span>* koen isn't into that spi thing</span></li>
+<li class="message">[<a href="#T20:05:11" id="T20:05:11"><abbr title="2009-07-24T20:05:11+00:00">20:05:11</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T20:05:27" id="T20:05:27"><abbr title="2009-07-24T20:05:27+00:00">20:05:27</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>there is no need to do mux in uboot</q></li>
+<li class="message">[<a href="#T20:05:28" id="T20:05:28"><abbr title="2009-07-24T20:05:28+00:00">20:05:28</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>basically, we need to get the mux selection in to the board code</q></li>
+<li class="message">[<a href="#T20:05:38" id="T20:05:38"><abbr title="2009-07-24T20:05:38+00:00">20:05:38</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the kernel devs are for this</q></li>
+<li class="message">[<abbr title="2009-07-24T20:05:38+00:00">20:05:38</abbr>] &lt;<cite>_av500_</cite>&gt; <q>we mux happily in kernel</q></li>
+<li class="message">[<a href="#T20:05:49" id="T20:05:49"><abbr title="2009-07-24T20:05:49+00:00">20:05:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>having it in the kernel would be neat</q></li>
+<li class="message">[<a href="#T20:05:53" id="T20:05:53"><abbr title="2009-07-24T20:05:53+00:00">20:05:53</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah, we just had issues getting spi working that way</q></li>
+<li class="message">[<a href="#T20:05:59" id="T20:05:59"><abbr title="2009-07-24T20:05:59+00:00">20:05:59</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>Crofton: xactlz</q></li>
+<li class="message">[<a href="#T20:06:02" id="T20:06:02"><abbr title="2009-07-24T20:06:02+00:00">20:06:02</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>Crofton: xactly</q></li>
+<li class="message">[<a href="#T20:06:13" id="T20:06:13"><abbr title="2009-07-24T20:06:13+00:00">20:06:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>then, we can select the daughter board and config mux</q></li>
+<li class="message">[<a href="#T20:06:39" id="T20:06:39"><abbr title="2009-07-24T20:06:39+00:00">20:06:39</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>still need to deal with different cases were different boards are on the expansion connector</q></li>
+<li class="message">[<a href="#T20:06:40" id="T20:06:40"><abbr title="2009-07-24T20:06:40+00:00">20:06:40</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>but</q></li>
+<li class="message">[<a href="#T20:06:49" id="T20:06:49"><abbr title="2009-07-24T20:06:49+00:00">20:06:49</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>no need to change u-boot based on what is attached</q></li>
+<li class="message">[<a href="#T20:06:58" id="T20:06:58"><abbr title="2009-07-24T20:06:58+00:00">20:06:58</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T20:07:05" id="T20:07:05"><abbr title="2009-07-24T20:07:05+00:00">20:07:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>echo "puppy" &gt; /sys/device/boardmux/boardselect</q></li>
+<li class="message">[<a href="#T20:07:20" id="T20:07:20"><abbr title="2009-07-24T20:07:20+00:00">20:07:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>we change mux based on what is attached at runtime</q></li>
+<li class="message">[<a href="#T20:07:26" id="T20:07:26"><abbr title="2009-07-24T20:07:26+00:00">20:07:26</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>that would be very advancded .. </q></li>
+<li class="message">[<a href="#T20:07:44" id="T20:07:44"><abbr title="2009-07-24T20:07:44+00:00">20:07:44</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>ds: yeap, kinda :)</q></li>
+<li class="message">[<a href="#T20:07:52" id="T20:07:52"><abbr title="2009-07-24T20:07:52+00:00">20:07:52</abbr></a>] &lt;<cite>koen</cite>&gt; <q>only 1.5 weeks left till I get to play with new toys at the office :)</q></li>
+<li class="message">[<a href="#T20:08:03" id="T20:08:03"><abbr title="2009-07-24T20:08:03+00:00">20:08:03</abbr></a>] &lt;<cite>XorA|gone</cite>&gt; <q>koen: new toys?</q></li>
+<li class="message">[<a href="#T20:08:25" id="T20:08:25"><abbr title="2009-07-24T20:08:25+00:00">20:08:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>XorA|gone: I'll be at the UK office next week with access to new boards</q></li>
+<li class="message">[<a href="#T20:08:48" id="T20:08:48"><abbr title="2009-07-24T20:08:48+00:00">20:08:48</abbr></a>] &lt;<cite>XorA|gone</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T20:08:51" id="T20:08:51"><abbr title="2009-07-24T20:08:51+00:00">20:08:51</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>osd3?</q></li>
+<li class="message">[<a href="#T20:08:58" id="T20:08:58"><abbr title="2009-07-24T20:08:58+00:00">20:08:58</abbr></a>] &lt;<cite>XorA|gone</cite>&gt; <q>pity your the wrong end</q></li>
+<li class="message">[<a href="#T20:09:37" id="T20:09:37"><abbr title="2009-07-24T20:09:37+00:00">20:09:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I suspect OSD3 will the 2010 material if neuros decides to do one that isn't x86 based</q></li>
+<li class="message">[<a href="#T20:09:53" id="T20:09:53"><abbr title="2009-07-24T20:09:53+00:00">20:09:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>nom they announced it TI based</q></li>
+<li class="quit">[<a href="#T20:10:02" id="T20:10:02"><abbr title="2009-07-24T20:10:02+00:00">20:10:02</abbr></a>] <span>* BThompson (n=a0193480@nat/ti/x-e3c0cfbff3e4e194) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T20:10:18" id="T20:10:18"><abbr title="2009-07-24T20:10:18+00:00">20:10:18</abbr></a>] &lt;<cite>koen</cite>&gt; <q>XorA|gone: I was thinking about doing a weekend of scotland sometime since I'll be in the uk every month</q></li>
+<li class="message">[<a href="#T20:10:29" id="T20:10:29"><abbr title="2009-07-24T20:10:29+00:00">20:10:29</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>some future chip/board, so either omap4 or that stb thing</q></li>
+<li class="message">[<a href="#T20:10:31" id="T20:10:31"><abbr title="2009-07-24T20:10:31+00:00">20:10:31</abbr></a>] &lt;<cite>XorA|gone</cite>&gt; <q>koen: awesome</q></li>
+<li class="message">[<a href="#T20:10:38" id="T20:10:38"><abbr title="2009-07-24T20:10:38+00:00">20:10:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: you should come down south once too</q></li>
+<li class="message">[<a href="#T20:10:41" id="T20:10:41"><abbr title="2009-07-24T20:10:41+00:00">20:10:41</abbr></a>] &lt;<cite>XorA|gone</cite>&gt; <q>koen: free room here as long as someone else isnt in it</q></li>
+<li class="message">[<a href="#T20:10:42" id="T20:10:42"><abbr title="2009-07-24T20:10:42+00:00">20:10:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'll buy you a beer</q></li>
+<li class="message">[<a href="#T20:11:25" id="T20:11:25"><abbr title="2009-07-24T20:11:25+00:00">20:11:25</abbr></a>] &lt;<cite>ds</cite>&gt; <q>felipec: I'm starting to work on dspbridge stuff</q></li>
+<li class="message">[<a href="#T20:11:35" id="T20:11:35"><abbr title="2009-07-24T20:11:35+00:00">20:11:35</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mru: i might be near guildford soon, that close?</q></li>
+<li class="message">[<a href="#T20:11:47" id="T20:11:47"><abbr title="2009-07-24T20:11:47+00:00">20:11:47</abbr></a>] &lt;<cite>ds</cite>&gt; <q>felipec: what is the license on your dsp_bridge.[ch]?</q></li>
+<li class="message">[<a href="#T20:12:13" id="T20:12:13"><abbr title="2009-07-24T20:12:13+00:00">20:12:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_av500_: that's closer than koen</q></li>
+<li class="message">[<a href="#T20:12:29" id="T20:12:29"><abbr title="2009-07-24T20:12:29+00:00">20:12:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if my firefox hadn't just fucked itself up I'd check the map</q></li>
+<li class="quit">[<a href="#T20:12:47" id="T20:12:47"><abbr title="2009-07-24T20:12:47+00:00">20:12:47</abbr></a>] <span>* dioioib (n=dioioib@d216-121-173-32.home3.cgocable.net) Quit ()</span></li>
+<li class="action">[<a href="#T20:13:41" id="T20:13:41"><abbr title="2009-07-24T20:13:41+00:00">20:13:41</abbr></a>] <span>* XorA|gone begins to think he is wrong end of UK</span></li>
+<li class="message">[<a href="#T20:14:06" id="T20:14:06"><abbr title="2009-07-24T20:14:06+00:00">20:14:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>XorA|gone: which is your end?</q></li>
+<li class="message">[<a href="#T20:14:12" id="T20:14:12"><abbr title="2009-07-24T20:14:12+00:00">20:14:12</abbr></a>] &lt;<cite>XorA|gone</cite>&gt; <q>mru: see above :-)</q></li>
+<li class="message">[<a href="#T20:14:30" id="T20:14:30"><abbr title="2009-07-24T20:14:30+00:00">20:14:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>scotland?</q></li>
+<li class="message">[<a href="#T20:15:28" id="T20:15:28"><abbr title="2009-07-24T20:15:28+00:00">20:15:28</abbr></a>] &lt;<cite>XorA|gone</cite>&gt; <q>yeah Edin</q></li>
+<li class="quit">[<a href="#T20:16:02" id="T20:16:02"><abbr title="2009-07-24T20:16:02+00:00">20:16:02</abbr></a>] <span>* __alanc__ (n=a-campbe@nat/ti/x-b7a77bfe95b18694) Quit ()</span></li>
+<li class="message">[<a href="#T20:17:26" id="T20:17:26"><abbr title="2009-07-24T20:17:26+00:00">20:17:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>_av500_: ah, so they announced it</q></li>
+<li class="quit">[<a href="#T20:19:56" id="T20:19:56"><abbr title="2009-07-24T20:19:56+00:00">20:19:56</abbr></a>] <span>* ldesnogu_ (n=ldesnogu@ven06-2-82-247-86-183.fbx.proxad.net) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="message">[<a href="#T20:23:18" id="T20:23:18"><abbr title="2009-07-24T20:23:18+00:00">20:23:18</abbr></a>] &lt;<cite>koen</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T20:23:26" id="T20:23:26"><abbr title="2009-07-24T20:23:26+00:00">20:23:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>funny message on the mailinglist</q></li>
+<li class="message">[<a href="#T20:23:57" id="T20:23:57"><abbr title="2009-07-24T20:23:57+00:00">20:23:57</abbr></a>] &lt;<cite>koen</cite>&gt; <q>"I compiled my own kernel, but userspace is still angstrom. How can that be when I compiled my own kernel?"</q></li>
+<li class="message">[<a href="#T20:24:08" id="T20:24:08"><abbr title="2009-07-24T20:24:08+00:00">20:24:08</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T20:24:25" id="T20:24:25"><abbr title="2009-07-24T20:24:25+00:00">20:24:25</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>rofl</q></li>
+<li class="message">[<a href="#T20:24:37" id="T20:24:37"><abbr title="2009-07-24T20:24:37+00:00">20:24:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I replaced foo but bar is unchanged, how, HOW, *HOW*????</q></li>
+<li class="message">[<a href="#T20:24:49" id="T20:24:49"><abbr title="2009-07-24T20:24:49+00:00">20:24:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>someone should explain /etc/issue to him</q></li>
+<li class="message">[<a href="#T20:25:04" id="T20:25:04"><abbr title="2009-07-24T20:25:04+00:00">20:25:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and /etc/motd</q></li>
+<li class="message">[<a href="#T20:26:45" id="T20:26:45"><abbr title="2009-07-24T20:26:45+00:00">20:26:45</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>my id10t filter must have made me delete it quickly</q></li>
+<li class="message">[<a href="#T20:28:13" id="T20:28:13"><abbr title="2009-07-24T20:28:13+00:00">20:28:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>_av500_: I hope they announce the SoC used in the OSD3 soon</q></li>
+<li class="join">[<a href="#T20:30:42" id="T20:30:42"><abbr title="2009-07-24T20:30:42+00:00">20:30:42</abbr></a>] <span>* ldesnogu_ (n=ldesnogu@ven06-2-82-247-86-183.fbx.proxad.net) has joined #beagle</span></li>
+<li class="action">[<a href="#T20:33:00" id="T20:33:00"><abbr title="2009-07-24T20:33:00+00:00">20:33:00</abbr></a>] <span>* XorA|gone shuts down to do cable management</span></li>
+<li class="join">[<a href="#T20:46:11" id="T20:46:11"><abbr title="2009-07-24T20:46:11+00:00">20:46:11</abbr></a>] <span>* KosiNuss (n=tom@R0c2d.r.pppool.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T20:46:13" id="T20:46:13"><abbr title="2009-07-24T20:46:13+00:00">20:46:13</abbr></a>] <span>* iscape (n=m@ip-230.net-82-216-185.nice.rev.numericable.fr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T20:49:26" id="T20:49:26"><abbr title="2009-07-24T20:49:26+00:00">20:49:26</abbr></a>] <span>* Josh____ (i=41c68548@gateway/web/freenode/x-87ee42c5c1b4fca6) Quit (Ping timeout: 180 seconds)</span></li>
+<li class="join">[<a href="#T20:50:48" id="T20:50:48"><abbr title="2009-07-24T20:50:48+00:00">20:50:48</abbr></a>] <span>* ant__ (n=andrea@host65-251-dynamic.0-87-r.retail.telecomitalia.it) has joined #beagle</span></li>
+<li class="part">[<a href="#T20:54:46" id="T20:54:46"><abbr title="2009-07-24T20:54:46+00:00">20:54:46</abbr></a>] <span>* ArteK (n=Artur@81.15.241.96) has left #beagle</span></li>
