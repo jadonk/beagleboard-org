@@ -431,3 +431,88 @@
 <li class="message">[<a href="#T10:56:58" id="T10:56:58"><abbr title="2009-08-03T10:56:58+00:00">10:56:58</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yes, but I think they warn you not to try it</q></li>
 <li class="message">[<a href="#T10:58:42" id="T10:58:42"><abbr title="2009-08-03T10:58:42+00:00">10:58:42</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>mru: ramana is doing a great job fixing performance regressions, you might be surprised when your perf is fixed for the next release of gcc :)</q></li>
 <li class="message">[<a href="#T10:59:37" id="T10:59:37"><abbr title="2009-08-03T10:59:37+00:00">10:59:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ldesnogu: I'm surprised by *any* fix in gcc</q></li>
+<li class="message">[<a href="#T11:01:21" id="T11:01:21"><abbr title="2009-08-03T11:01:21+00:00">11:01:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and strictly speaking, this isn't a regression, since it was always broken</q></li>
+<li class="message">[<a href="#T11:03:48" id="T11:03:48"><abbr title="2009-08-03T11:03:48+00:00">11:03:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but then it prepended A8 branch prediction, no?</q></li>
+<li class="message">[<a href="#T11:04:01" id="T11:04:01"><abbr title="2009-08-03T11:04:01+00:00">11:04:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>arm11 has branch pred too</q></li>
+<li class="message">[<a href="#T11:04:36" id="T11:04:36"><abbr title="2009-08-03T11:04:36+00:00">11:04:36</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: strictly speaking, it was not broken, it was just not taking into account branch predictor behavior on relatively new ARM cores (ARM11 affected too I guess)</q></li>
+<li class="message">[<a href="#T11:04:37" id="T11:04:37"><abbr title="2009-08-03T11:04:37+00:00">11:04:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, but prolly was codec when there was only v5, no? :-)</q></li>
+<li class="message">[<a href="#T11:04:56" id="T11:04:56"><abbr title="2009-08-03T11:04:56+00:00">11:04:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's still a silly way to do a function call</q></li>
+<li class="message">[<a href="#T11:05:35" id="T11:05:35"><abbr title="2009-08-03T11:05:35+00:00">11:05:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>any ARM manual will tell you that bl/blx is the proper way</q></li>
+<li class="message">[<a href="#T11:05:53" id="T11:05:53"><abbr title="2009-08-03T11:05:53+00:00">11:05:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>since armv5</q></li>
+<li class="message">[<a href="#T11:06:27" id="T11:06:27"><abbr title="2009-08-03T11:06:27+00:00">11:06:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and yes, arm11 is also affected by this</q></li>
+<li class="message">[<a href="#T11:06:35" id="T11:06:35"><abbr title="2009-08-03T11:06:35+00:00">11:06:35</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: otoh, why do you think "mov lr, pc" returns address with +8 offset?</q></li>
+<li class="message">[<a href="#T11:06:57" id="T11:06:57"><abbr title="2009-08-03T11:06:57+00:00">11:06:57</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>mru: yes, I already checked ARM1136 TRM</q></li>
+<li class="message">[<a href="#T11:07:53" id="T11:07:53"><abbr title="2009-08-03T11:07:53+00:00">11:07:53</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>ssvb: the +8 comes from arm7 pipeline :P</q></li>
+<li class="join">[<a href="#T11:08:48" id="T11:08:48"><abbr title="2009-08-03T11:08:48+00:00">11:08:48</abbr></a>] <span>* rsalveti (n=rsalveti@200.184.118.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:09:07" id="T11:09:07"><abbr title="2009-08-03T11:09:07+00:00">11:09:07</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>ldesnogu: I always suspected it was done for making indirect calls more convenient, like 'mov lr, pc + ldr pc, &lt;something&gt;'</q></li>
+<li class="message">[<a href="#T11:10:53" id="T11:10:53"><abbr title="2009-08-03T11:10:53+00:00">11:10:53</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>I don't think that's the reason</q></li>
+<li class="message">[<a href="#T11:12:27" id="T11:12:27"><abbr title="2009-08-03T11:12:27+00:00">11:12:27</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>ldesnogu: but technically, there would be no problem to have any arbitrary shift implemented for loaded pc value (that's a wild guess)? I thought that +8 was done on purpose</q></li>
+<li class="message">[<a href="#T11:12:57" id="T11:12:57"><abbr title="2009-08-03T11:12:57+00:00">11:12:57</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>by shift I guess you mean offset?</q></li>
+<li class="message">[<a href="#T11:13:05" id="T11:13:05"><abbr title="2009-08-03T11:13:05+00:00">11:13:05</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T11:14:32" id="T11:14:32"><abbr title="2009-08-03T11:14:32+00:00">11:14:32</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>any addition adds to a potentially critical path</q></li>
+<li class="message">[<a href="#T11:14:45" id="T11:14:45"><abbr title="2009-08-03T11:14:45+00:00">11:14:45</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>so no, an arbitrary offset is not an option</q></li>
+<li class="message">[<a href="#T11:15:56" id="T11:15:56"><abbr title="2009-08-03T11:15:56+00:00">11:15:56</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>the +8 is almost surely here due to the way the pc is incremented and where it's read in arm7 pipeline</q></li>
+<li class="join">[<a href="#T11:16:04" id="T11:16:04"><abbr title="2009-08-03T11:16:04+00:00">11:16:04</abbr></a>] <span>* ThomasEgi (n=thomas@pppdyn-45.stud-ko.rz-online.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:16:26" id="T11:16:26"><abbr title="2009-08-03T11:16:26+00:00">11:16:26</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>that probably was architected later</q></li>
+<li class="message">[<a href="#T11:16:47" id="T11:16:47"><abbr title="2009-08-03T11:16:47+00:00">11:16:47</abbr></a>] &lt;<cite>ldesnogu</cite>&gt; <q>but I was not at ARM at the time, so I can't say I'm 100% sure :)</q></li>
+<li class="message">[<a href="#T11:17:39" id="T11:17:39"><abbr title="2009-08-03T11:17:39+00:00">11:17:39</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>ldesnogu: I wonder if this pattern of instructions (mov lr, pc + ldr pc, ...) could be taken into account by branch predictor of some future ARM core?</q></li>
+<li class="quit">[<a href="#T11:18:49" id="T11:18:49"><abbr title="2009-08-03T11:18:49+00:00">11:18:49</abbr></a>] <span>* ThomasEgi (n=thomas@pppdyn-45.stud-ko.rz-online.net) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="message">[<a href="#T11:18:50" id="T11:18:50"><abbr title="2009-08-03T11:18:50+00:00">11:18:50</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>but probably it's just easier to update compilers :)</q></li>
+<li class="join">[<a href="#T11:19:01" id="T11:19:01"><abbr title="2009-08-03T11:19:01+00:00">11:19:01</abbr></a>] <span>* ThomasEgi (n=thomas@pppdyn-45.stud-ko.rz-online.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:23:46" id="T11:23:46"><abbr title="2009-08-03T11:23:46+00:00">11:23:46</abbr></a>] <span>* hsi (n=hsi@2001:16d8:ff1a:0:216:3eff:fe64:feb3) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T11:23:51" id="T11:23:51"><abbr title="2009-08-03T11:23:51+00:00">11:23:51</abbr></a>] <span>* hsi (n=hsi@2001:16d8:ff1a:0:216:3eff:fe64:feb3) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:34:50" id="T11:34:50"><abbr title="2009-08-03T11:34:50+00:00">11:34:50</abbr></a>] <span>* mrc_001_ (n=mrc_001@88-117-50-164.adsl.highway.telekom.at) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:36:18" id="T11:36:18"><abbr title="2009-08-03T11:36:18+00:00">11:36:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ssvb: yes, maybe you have to set GCC mode in the ARM core :-)</q></li>
+<li class="message">[<a href="#T11:40:10" id="T11:40:10"><abbr title="2009-08-03T11:40:10+00:00">11:40:10</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>av500: I just thought about some kind of instructions fusion. As ARM does not have a dedicated indirect call instruction, it could detect some pairs of instructions and treat them as one operation internally</q></li>
+<li class="message">[<a href="#T11:40:50" id="T11:40:50"><abbr title="2009-08-03T11:40:50+00:00">11:40:50</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>cortex-a8 already has some nice forwarding for intermediate results of many instructions</q></li>
+<li class="message">[<a href="#T11:41:32" id="T11:41:32"><abbr title="2009-08-03T11:41:32+00:00">11:41:32</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>like back-to-back ldr + str instruction, forwarding of accumulator in multiply&amp;accumulate, etc.</q></li>
+<li class="quit">[<a href="#T11:41:49" id="T11:41:49"><abbr title="2009-08-03T11:41:49+00:00">11:41:49</abbr></a>] <span>* mrc_001 (n=mrc_001@88-117-97-43.adsl.highway.telekom.at) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="message">[<a href="#T11:42:07" id="T11:42:07"><abbr title="2009-08-03T11:42:07+00:00">11:42:07</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>some kind of special forwarding for handling indirect calls more efficiently would be nice</q></li>
+<li class="message">[<a href="#T11:42:14" id="T11:42:14"><abbr title="2009-08-03T11:42:14+00:00">11:42:14</abbr></a>] &lt;<cite>ssvb</cite>&gt; <q>or does it already exist? ;)</q></li>
+<li class="join">[<a href="#T11:43:31" id="T11:43:31"><abbr title="2009-08-03T11:43:31+00:00">11:43:31</abbr></a>] <span>* Christos_N (n=Christos@ppp-94-66-32-179.home.otenet.gr) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:44:20" id="T11:44:20"><abbr title="2009-08-03T11:44:20+00:00">11:44:20</abbr></a>] &lt;<cite>gss</cite>&gt; <q>any one know how to link GNU tool chain with RVDS?</q></li>
+<li class="quit">[<a href="#T11:50:21" id="T11:50:21"><abbr title="2009-08-03T11:50:21+00:00">11:50:21</abbr></a>] <span>* oh3gdd (n=oh3gdd@oh3tr.ele.tut.fi) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:50:21+00:00">11:50:21</abbr>] <span>* av500 (n=av500@p50996ded.dip0.t-ipconnect.de) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:50:21+00:00">11:50:21</abbr>] <span>* eFfeM-away (n=Frans@195-241-226-180.ip.telfort.nl) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:50:21+00:00">11:50:21</abbr>] <span>* philv (n=huh@lebesgue.cowpig.ca) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:50:21+00:00">11:50:21</abbr>] <span>* muriani (i=james@internal.directron.us) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:50:21+00:00">11:50:21</abbr>] <span>* mcgeagh (n=McGeagh@xbmc/staff/mcgeagh) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:50:21+00:00">11:50:21</abbr>] <span>* denix (n=denys@nat/ti/x-pwmoaerifbupfehg) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:50:21+00:00">11:50:21</abbr>] <span>* tzhau (n=tzhau@proxy1.sun.ac.za) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<a href="#T11:52:25" id="T11:52:25"><abbr title="2009-08-03T11:52:25+00:00">11:52:25</abbr></a>] <span>* ElmiTheWizard (n=ElmiTheW@132.190-243-81.adsl-dyn.isp.belgacom.be) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="join">[<a href="#T11:52:26" id="T11:52:26"><abbr title="2009-08-03T11:52:26+00:00">11:52:26</abbr></a>] <span>* eFfeM-away (n=Frans@195-241-226-180.ip.telfort.nl) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:52:26+00:00">11:52:26</abbr>] <span>* mcgeagh (n=McGeagh@xbmc/staff/mcgeagh) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:52:26+00:00">11:52:26</abbr>] <span>* tzhau (n=tzhau@proxy1.sun.ac.za) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:52:26+00:00">11:52:26</abbr>] <span>* av500 (n=av500@p50996ded.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:52:26+00:00">11:52:26</abbr>] <span>* denix (n=denys@nat/ti/x-pwmoaerifbupfehg) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:52:26+00:00">11:52:26</abbr>] <span>* philv (n=huh@lebesgue.cowpig.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:52:26+00:00">11:52:26</abbr>] <span>* muriani (i=james@internal.directron.us) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:52:26+00:00">11:52:26</abbr>] <span>* oh3gdd (n=oh3gdd@oh3tr.ele.tut.fi) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:53:00" id="T11:53:00"><abbr title="2009-08-03T11:53:00+00:00">11:53:00</abbr></a>] <span>* SplasH (i=5dc8fbbc@gateway/web/freenode/x-nntcbyqcpezfmvjt) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:54:08" id="T11:54:08"><abbr title="2009-08-03T11:54:08+00:00">11:54:08</abbr></a>] <span>* oh3gdd (n=oh3gdd@oh3tr.ele.tut.fi) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:54:08+00:00">11:54:08</abbr>] <span>* av500 (n=av500@p50996ded.dip0.t-ipconnect.de) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:54:08+00:00">11:54:08</abbr>] <span>* eFfeM-away (n=Frans@195-241-226-180.ip.telfort.nl) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:54:08+00:00">11:54:08</abbr>] <span>* philv (n=huh@lebesgue.cowpig.ca) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:54:08+00:00">11:54:08</abbr>] <span>* muriani (i=james@internal.directron.us) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:54:08+00:00">11:54:08</abbr>] <span>* mcgeagh (n=McGeagh@xbmc/staff/mcgeagh) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:54:08+00:00">11:54:08</abbr>] <span>* denix (n=denys@nat/ti/x-pwmoaerifbupfehg) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:54:08+00:00">11:54:08</abbr>] <span>* tzhau (n=tzhau@proxy1.sun.ac.za) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<a href="#T11:55:56" id="T11:55:56"><abbr title="2009-08-03T11:55:56+00:00">11:55:56</abbr></a>] <span>* cody__ (n=cody@dslb-084-056-103-040.pools.arcor-ip.net) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:55:56+00:00">11:55:56</abbr>] <span>* john3909 (n=jsynesio@99-26-125-126.lightspeed.sndgca.sbcglobal.net) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:55:56+00:00">11:55:56</abbr>] <span>* jconnolly|away (n=jconnoll@firebug.buglabs.net) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:55:56+00:00">11:55:56</abbr>] <span>* zuh (i=2bcd9be0@humboldt.pingu.fi) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-08-03T11:55:56+00:00">11:55:56</abbr>] <span>* topi_ (i=topi@62.220.235.71) Quit (wolfe.freenode.net irc.freenode.net)</span></li>
+<li class="join">[<a href="#T11:56:15" id="T11:56:15"><abbr title="2009-08-03T11:56:15+00:00">11:56:15</abbr></a>] <span>* cody__ (n=cody@dslb-084-056-103-040.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:15+00:00">11:56:15</abbr>] <span>* john3909 (n=jsynesio@99-26-125-126.lightspeed.sndgca.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:15+00:00">11:56:15</abbr>] <span>* jconnolly|away (n=jconnoll@firebug.buglabs.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:15+00:00">11:56:15</abbr>] <span>* zuh (i=2bcd9be0@humboldt.pingu.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:15+00:00">11:56:15</abbr>] <span>* topi_ (i=topi@62.220.235.71) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:56:18" id="T11:56:18"><abbr title="2009-08-03T11:56:18+00:00">11:56:18</abbr></a>] <span>* eFfeM-away (n=Frans@195-241-226-180.ip.telfort.nl) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:18+00:00">11:56:18</abbr>] <span>* mcgeagh (n=McGeagh@xbmc/staff/mcgeagh) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:18+00:00">11:56:18</abbr>] <span>* tzhau (n=tzhau@proxy1.sun.ac.za) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:18+00:00">11:56:18</abbr>] <span>* av500 (n=av500@p50996ded.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:18+00:00">11:56:18</abbr>] <span>* denix (n=denys@nat/ti/x-pwmoaerifbupfehg) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:18+00:00">11:56:18</abbr>] <span>* philv (n=huh@lebesgue.cowpig.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:18+00:00">11:56:18</abbr>] <span>* muriani (i=james@internal.directron.us) has joined #beagle</span></li>
+<li class="join">[<abbr title="2009-08-03T11:56:18+00:00">11:56:18</abbr>] <span>* oh3gdd (n=oh3gdd@oh3tr.ele.tut.fi) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:58:11" id="T11:58:11"><abbr title="2009-08-03T11:58:11+00:00">11:58:11</abbr></a>] <span>* eFfeM (n=Frans@195-241-226-180.ip.telfort.nl) has joined #beagle</span></li>
