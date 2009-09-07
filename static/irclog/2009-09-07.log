@@ -366,3 +366,98 @@
 <li class="message">[<a href="#T10:54:56" id="T10:54:56"><abbr title="2009-09-07T10:54:56+00:00">10:54:56</abbr></a>] &lt;<cite>arun4beagle</cite>&gt; <q>I am very new to this</q></li>
 <li class="message">[<a href="#T10:55:32" id="T10:55:32"><abbr title="2009-09-07T10:55:32+00:00">10:55:32</abbr></a>] &lt;<cite>arun4beagle</cite>&gt; <q>what are the tools availabe?</q></li>
 <li class="join">[<a href="#T10:57:23" id="T10:57:23"><abbr title="2009-09-07T10:57:23+00:00">10:57:23</abbr></a>] <span>* lifeeth (n=praneeth@unaffiliated/lifeeth) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:00:58" id="T11:00:58"><abbr title="2009-09-07T11:00:58+00:00">11:00:58</abbr></a>] <span>* cajun-rat (n=cajun-ra@82.69.40.129) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:02:24" id="T11:02:24"><abbr title="2009-09-07T11:02:24+00:00">11:02:24</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>is there a good reason for the default beagleboard kernel to be tickless (CONFIG_TICK_ONESHOT)?</q></li>
+<li class="quit">[<a href="#T11:03:09" id="T11:03:09"><abbr title="2009-09-07T11:03:09+00:00">11:03:09</abbr></a>] <span>* ThomasEgi (n=thomas@p4FF65CE2.dip.t-dialin.net) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T11:03:21" id="T11:03:21"><abbr title="2009-09-07T11:03:21+00:00">11:03:21</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>i found a that isochronous USB transfers don't work right with it enabled</q></li>
+<li class="message">[<a href="#T11:03:48" id="T11:03:48"><abbr title="2009-09-07T11:03:48+00:00">11:03:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cajun-rat: it is good for any kernel to be tickless</q></li>
+<li class="message">[<a href="#T11:04:04" id="T11:04:04"><abbr title="2009-09-07T11:04:04+00:00">11:04:04</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>for power?</q></li>
+<li class="message">[<a href="#T11:04:09" id="T11:04:09"><abbr title="2009-09-07T11:04:09+00:00">11:04:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T11:04:14" id="T11:04:14"><abbr title="2009-09-07T11:04:14+00:00">11:04:14</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>cajun-rat: there was a whole load of isonchronous fixes on linux-omap</q></li>
+<li class="message">[<a href="#T11:04:30" id="T11:04:30"><abbr title="2009-09-07T11:04:30+00:00">11:04:30</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>how recently?</q></li>
+<li class="message">[<a href="#T11:04:38" id="T11:04:38"><abbr title="2009-09-07T11:04:38+00:00">11:04:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and to force all subsystems to clean their code, e.g. usb :-)</q></li>
+<li class="message">[<a href="#T11:04:39" id="T11:04:39"><abbr title="2009-09-07T11:04:39+00:00">11:04:39</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>cajun-rat: week or so ago</q></li>
+<li class="message">[<a href="#T11:05:12" id="T11:05:12"><abbr title="2009-09-07T11:05:12+00:00">11:05:12</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>cajun-rat: not sure which ones apply to our kernel, but should be able to get git to tell you :-)</q></li>
+<li class="action">[<a href="#T11:05:17" id="T11:05:17"><abbr title="2009-09-07T11:05:17+00:00">11:05:17</abbr></a>] <span>* cajun-rat looks at shortlog</span></li>
+<li class="quit">[<a href="#T11:05:36" id="T11:05:36"><abbr title="2009-09-07T11:05:36+00:00">11:05:36</abbr></a>] <span>* arun4beagle (i=c0a314e7@gateway/web/freenode/x-bdouvucnaxoboixu) Quit ("Page closed")</span></li>
+<li class="join">[<a href="#T11:05:44" id="T11:05:44"><abbr title="2009-09-07T11:05:44+00:00">11:05:44</abbr></a>] <span>* khasim (n=a0393720@192.163.20.231) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:07:42" id="T11:07:42"><abbr title="2009-09-07T11:07:42+00:00">11:07:42</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>it doesn't look like any of the recent changes in <a href="http://arago-project.org/git/people/?p=ajay/omap-usb-driver.git;a=history;f=drivers/usb/musb;hb=refs/heads/omap-usb">http://arago-project.org/git/people/?p=ajay/omap-usb-driver.git;a=history;f=drivers/usb/musb;hb=refs/heads/omap-usb</a></q></li>
+<li class="message">[<a href="#T11:07:51" id="T11:07:51"><abbr title="2009-09-07T11:07:51+00:00">11:07:51</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>would claim to fix the problem</q></li>
+<li class="message">[<a href="#T11:08:07" id="T11:08:07"><abbr title="2009-09-07T11:08:07+00:00">11:08:07</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>curses</q></li>
+<li class="message">[<a href="#T11:09:47" id="T11:09:47"><abbr title="2009-09-07T11:09:47+00:00">11:09:47</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>nCurses is is an inverted version of curses</q></li>
+<li class="message">[<a href="#T11:11:55" id="T11:11:55"><abbr title="2009-09-07T11:11:55+00:00">11:11:55</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>anyhow, I wanted to get the 'disable tickless' workaround out there because it took me about a week, a usb analyser and a python script to find out what was going on</q></li>
+<li class="message">[<a href="#T11:12:36" id="T11:12:36"><abbr title="2009-09-07T11:12:36+00:00">11:12:36</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>because it only misses one usb microframe in several thousand</q></li>
+<li class="message">[<a href="#T11:12:50" id="T11:12:50"><abbr title="2009-09-07T11:12:50+00:00">11:12:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>fun ;-)</q></li>
+<li class="message">[<a href="#T11:13:04" id="T11:13:04"><abbr title="2009-09-07T11:13:04+00:00">11:13:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and why does tickless make this happen?</q></li>
+<li class="message">[<a href="#T11:13:15" id="T11:13:15"><abbr title="2009-09-07T11:13:15+00:00">11:13:15</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>absolutely no idea</q></li>
+<li class="message">[<a href="#T11:13:50" id="T11:13:50"><abbr title="2009-09-07T11:13:50+00:00">11:13:50</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>roughly, it must be because the interrupt latency is too high</q></li>
+<li class="message">[<a href="#T11:17:09" id="T11:17:09"><abbr title="2009-09-07T11:17:09+00:00">11:17:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>sounds scary</q></li>
+<li class="message">[<a href="#T11:17:40" id="T11:17:40"><abbr title="2009-09-07T11:17:40+00:00">11:17:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>are you sure it still doesn't miss one frame in millions or billions w/o tickless?</q></li>
+<li class="message">[<a href="#T11:18:19" id="T11:18:19"><abbr title="2009-09-07T11:18:19+00:00">11:18:19</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>well it certainly runs ok for several minutes without fault</q></li>
+<li class="message">[<a href="#T11:18:54" id="T11:18:54"><abbr title="2009-09-07T11:18:54+00:00">11:18:54</abbr></a>] &lt;<cite>cajun-rat</cite>&gt; <q>so it is less than 1 in a few million</q></li>
+<li class="join">[<a href="#T11:19:03" id="T11:19:03"><abbr title="2009-09-07T11:19:03+00:00">11:19:03</abbr></a>] <span>* Hrww (n=hrw@89.78.170.228) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:19:21" id="T11:19:21"><abbr title="2009-09-07T11:19:21+00:00">11:19:21</abbr></a>] <span>* Hrww (n=hrw@89.78.170.228) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T11:21:12" id="T11:21:12"><abbr title="2009-09-07T11:21:12+00:00">11:21:12</abbr></a>] &lt;<cite>niral</cite>&gt; <q>mru this fb1 deos it directly draw 420 or only 422?</q></li>
+<li class="join">[<a href="#T11:22:38" id="T11:22:38"><abbr title="2009-09-07T11:22:38+00:00">11:22:38</abbr></a>] <span>* Hrww (n=hrw@chello089078170228.chello.pl) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:22:40" id="T11:22:40"><abbr title="2009-09-07T11:22:40+00:00">11:22:40</abbr></a>] <span>* Hrww (n=hrw@chello089078170228.chello.pl) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T11:25:37" id="T11:25:37"><abbr title="2009-09-07T11:25:37+00:00">11:25:37</abbr></a>] <span>* jpirko (n=jirka@nat/redhat/x-irkwlbcgxfdnsxwi) Quit ("Leaving")</span></li>
+<li class="message">[<a href="#T11:25:47" id="T11:25:47"><abbr title="2009-09-07T11:25:47+00:00">11:25:47</abbr></a>] &lt;<cite>_dash_</cite>&gt; <q>what is default PCM device on beagle board for sound capture ?</q></li>
+<li class="message">[<a href="#T11:27:08" id="T11:27:08"><abbr title="2009-09-07T11:27:08+00:00">11:27:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>niral: 422 only</q></li>
+<li class="message">[<a href="#T11:27:25" id="T11:27:25"><abbr title="2009-09-07T11:27:25+00:00">11:27:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>niral: and 444, but you probably don't have that anyway</q></li>
+<li class="join">[<a href="#T11:27:57" id="T11:27:57"><abbr title="2009-09-07T11:27:57+00:00">11:27:57</abbr></a>] <span>* jpirko (n=jirka@nat/redhat/x-viyevhdsyfbspftr) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:28:01" id="T11:28:01"><abbr title="2009-09-07T11:28:01+00:00">11:28:01</abbr></a>] &lt;<cite>niral</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T11:28:03" id="T11:28:03"><abbr title="2009-09-07T11:28:03+00:00">11:28:03</abbr></a>] &lt;<cite>niral</cite>&gt; <q>thx mru </q></li>
+<li class="message">[<a href="#T11:28:26" id="T11:28:26"><abbr title="2009-09-07T11:28:26+00:00">11:28:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's some nifty asm in omapfbplay to convert 420 to 422</q></li>
+<li class="message">[<a href="#T11:28:56" id="T11:28:56"><abbr title="2009-09-07T11:28:56+00:00">11:28:56</abbr></a>] &lt;<cite>_dash_</cite>&gt; <q>mru: as suggested by u I am using arecord</q></li>
+<li class="message">[<a href="#T11:29:19" id="T11:29:19"><abbr title="2009-09-07T11:29:19+00:00">11:29:19</abbr></a>] &lt;<cite>_dash_</cite>&gt; <q>but will u please tell me what is default device used by alsa lib ?</q></li>
+<li class="message">[<a href="#T11:30:34" id="T11:30:34"><abbr title="2009-09-07T11:30:34+00:00">11:30:34</abbr></a>] &lt;<cite>niral</cite>&gt; <q>or else i need to write it to convert it from 420 to 422</q></li>
+<li class="message">[<a href="#T11:31:27" id="T11:31:27"><abbr title="2009-09-07T11:31:27+00:00">11:31:27</abbr></a>] &lt;<cite>niral</cite>&gt; <q>on more thing mru does this display of yuv 422 by any way uses dsp ?</q></li>
+<li class="message">[<a href="#T11:33:25" id="T11:33:25"><abbr title="2009-09-07T11:33:25+00:00">11:33:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_dash_: "default" I believe ;-)</q></li>
+<li class="message">[<a href="#T11:34:07" id="T11:34:07"><abbr title="2009-09-07T11:34:07+00:00">11:34:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>niral: the DSS is a separate unit, no DSP involved</q></li>
+<li class="message">[<a href="#T11:34:20" id="T11:34:20"><abbr title="2009-09-07T11:34:20+00:00">11:34:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you could of course offload the 420 to 422 conversion to the dsp</q></li>
+<li class="message">[<a href="#T11:34:26" id="T11:34:26"><abbr title="2009-09-07T11:34:26+00:00">11:34:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you're producing the data on the ARM</q></li>
+<li class="message">[<a href="#T11:34:33" id="T11:34:33"><abbr title="2009-09-07T11:34:33+00:00">11:34:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or vice versa</q></li>
+<li class="message">[<a href="#T11:34:45" id="T11:34:45"><abbr title="2009-09-07T11:34:45+00:00">11:34:45</abbr></a>] &lt;<cite>niral</cite>&gt; <q>i m producing data on the arm</q></li>
+<li class="quit">[<a href="#T11:35:22" id="T11:35:22"><abbr title="2009-09-07T11:35:22+00:00">11:35:22</abbr></a>] <span>* _dash_ (i=7bee8a45@gateway/web/freenode/x-xesisyhjgivoawjp) Quit (Ping timeout: 180 seconds)</span></li>
+<li class="message">[<a href="#T11:36:36" id="T11:36:36"><abbr title="2009-09-07T11:36:36+00:00">11:36:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>niral: using what?</q></li>
+<li class="message">[<a href="#T11:37:58" id="T11:37:58"><abbr title="2009-09-07T11:37:58+00:00">11:37:58</abbr></a>] &lt;<cite>niral</cite>&gt; <q>using mpeg4 decoder </q></li>
+<li class="message">[<a href="#T11:38:12" id="T11:38:12"><abbr title="2009-09-07T11:38:12+00:00">11:38:12</abbr></a>] &lt;<cite>niral</cite>&gt; <q>any ways thax mru .....</q></li>
+<li class="message">[<a href="#T11:38:38" id="T11:38:38"><abbr title="2009-09-07T11:38:38+00:00">11:38:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>niral: so use the 420 to 422 code in omapfbplay </q></li>
+<li class="message">[<a href="#T11:38:49" id="T11:38:49"><abbr title="2009-09-07T11:38:49+00:00">11:38:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or the dsp...</q></li>
+<li class="message">[<a href="#T11:39:02" id="T11:39:02"><abbr title="2009-09-07T11:39:02+00:00">11:39:02</abbr></a>] &lt;<cite>niral</cite>&gt; <q>no i dont want to use dsp now</q></li>
+<li class="message">[<a href="#T11:39:20" id="T11:39:20"><abbr title="2009-09-07T11:39:20+00:00">11:39:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but you paid for it...</q></li>
+<li class="message">[<abbr title="2009-09-07T11:39:20+00:00">11:39:20</abbr>] &lt;<cite>niral</cite>&gt; <q>omapfbplay is it a file or ??</q></li>
+<li class="message">[<a href="#T11:39:32" id="T11:39:32"><abbr title="2009-09-07T11:39:32+00:00">11:39:32</abbr></a>] &lt;<cite>niral</cite>&gt; <q>sorry i dont know how to use it?</q></li>
+<li class="message">[<a href="#T11:40:05" id="T11:40:05"><abbr title="2009-09-07T11:40:05+00:00">11:40:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://git.mansr.com/?p=omapfbplay">http://git.mansr.com/?p=omapfbplay</a></q></li>
+<li class="message">[<a href="#T11:40:10" id="T11:40:10"><abbr title="2009-09-07T11:40:10+00:00">11:40:10</abbr></a>] &lt;<cite>niral</cite>&gt; <q>ya i will use it ....not plannig to use it for this application</q></li>
+<li class="message">[<a href="#T11:40:27" id="T11:40:27"><abbr title="2009-09-07T11:40:27+00:00">11:40:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://git.mansr.com/?p=omapfbplay;a=blob_plain;f=yuv.S;hb=master">http://git.mansr.com/?p=omapfbplay;a=blob_plain;f=yuv.S;hb=master</a></q></li>
+<li class="message">[<abbr title="2009-09-07T11:40:27+00:00">11:40:27</abbr>] &lt;<cite>niral</cite>&gt; <q>my requirement is not use it</q></li>
+<li class="message">[<a href="#T11:41:29" id="T11:41:29"><abbr title="2009-09-07T11:41:29+00:00">11:41:29</abbr></a>] &lt;<cite>niral</cite>&gt; <q>thx av500</q></li>
+<li class="message">[<a href="#T11:43:09" id="T11:43:09"><abbr title="2009-09-07T11:43:09+00:00">11:43:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>niral: omapfbplay doesn't use the dsp</q></li>
+<li class="message">[<a href="#T11:43:28" id="T11:43:28"><abbr title="2009-09-07T11:43:28+00:00">11:43:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it has a nice piece of assembler to convert 420 to 422</q></li>
+<li class="message">[<a href="#T11:43:40" id="T11:43:40"><abbr title="2009-09-07T11:43:40+00:00">11:43:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you can steal it and save yourself some effort</q></li>
+<li class="message">[<a href="#T11:43:43" id="T11:43:43"><abbr title="2009-09-07T11:43:43+00:00">11:43:43</abbr></a>] &lt;<cite>niral</cite>&gt; <q>ya got it..</q></li>
+<li class="message">[<a href="#T11:44:11" id="T11:44:11"><abbr title="2009-09-07T11:44:11+00:00">11:44:11</abbr></a>] &lt;<cite>niral</cite>&gt; <q>thx for your help ....i dont need to write it ...</q></li>
+<li class="message">[<a href="#T11:44:12" id="T11:44:12"><abbr title="2009-09-07T11:44:12+00:00">11:44:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: started on the dsp yet?</q></li>
+<li class="message">[<a href="#T11:44:53" id="T11:44:53"><abbr title="2009-09-07T11:44:53+00:00">11:44:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: afraid not</q></li>
+<li class="message">[<a href="#T11:45:12" id="T11:45:12"><abbr title="2009-09-07T11:45:12+00:00">11:45:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'd need to dedicate a day to getting started with it</q></li>
+<li class="message">[<a href="#T11:45:24" id="T11:45:24"><abbr title="2009-09-07T11:45:24+00:00">11:45:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but that's a day I never seem to have</q></li>
+<li class="message">[<a href="#T11:45:37" id="T11:45:37"><abbr title="2009-09-07T11:45:37+00:00">11:45:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>apply for a new bank holiday: dsp-day</q></li>
+<li class="action">[<a href="#T11:45:52" id="T11:45:52"><abbr title="2009-09-07T11:45:52+00:00">11:45:52</abbr></a>] <span>* mru calls the queen</span></li>
+<li class="message">[<a href="#T11:46:01" id="T11:46:01"><abbr title="2009-09-07T11:46:01+00:00">11:46:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru calls the queen names</q></li>
+<li class="message">[<a href="#T11:46:43" id="T11:46:43"><abbr title="2009-09-07T11:46:43+00:00">11:46:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the queen seems much better than most politicians...</q></li>
+<li class="message">[<a href="#T11:47:27" id="T11:47:27"><abbr title="2009-09-07T11:47:27+00:00">11:47:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yah, she's from a different class hierarchy</q></li>
+<li class="message">[<a href="#T11:53:30" id="T11:53:30"><abbr title="2009-09-07T11:53:30+00:00">11:53:30</abbr></a>] &lt;<cite>niral</cite>&gt; <q>hi</q></li>
+<li class="message">[<a href="#T11:54:17" id="T11:54:17"><abbr title="2009-09-07T11:54:17+00:00">11:54:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hi?</q></li>
+<li class="message">[<a href="#T11:54:59" id="T11:54:59"><abbr title="2009-09-07T11:54:59+00:00">11:54:59</abbr></a>] &lt;<cite>niral</cite>&gt; <q>av500 the .s file is gving me lots of error </q></li>
+<li class="message">[<a href="#T11:55:16" id="T11:55:16"><abbr title="2009-09-07T11:55:16+00:00">11:55:16</abbr></a>] &lt;<cite>niral</cite>&gt; <q>hav u used it?</q></li>
+<li class="message">[<a href="#T11:55:30" id="T11:55:30"><abbr title="2009-09-07T11:55:30+00:00">11:55:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, a similar one</q></li>
+<li class="message">[<a href="#T11:55:39" id="T11:55:39"><abbr title="2009-09-07T11:55:39+00:00">11:55:39</abbr></a>] &lt;<cite>niral</cite>&gt; <q>all </q></li>
+<li class="message">[<a href="#T11:55:47" id="T11:55:47"><abbr title="2009-09-07T11:55:47+00:00">11:55:47</abbr></a>] &lt;<cite>niral</cite>&gt; <q>#define are not working</q></li>
+<li class="message">[<a href="#T11:56:03" id="T11:56:03"><abbr title="2009-09-07T11:56:03+00:00">11:56:03</abbr></a>] &lt;<cite>niral</cite>&gt; <q> Error: ARM register expected -- `mov tu,u'</q></li>
+<li class="quit">[<a href="#T11:57:19" id="T11:57:19"><abbr title="2009-09-07T11:57:19+00:00">11:57:19</abbr></a>] <span>* topi_ (i=topi@kaverit.org) Quit (holmes.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-09-07T11:57:19+00:00">11:57:19</abbr>] <span>* vlad (n=asdf@69-12-240-128.dsl.static.sonic.net) Quit (holmes.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<abbr title="2009-09-07T11:57:19+00:00">11:57:19</abbr>] <span>* biliquai (n=biliquai@61.6.64.6) Quit (holmes.freenode.net irc.freenode.net)</span></li>
+<li class="quit">[<a href="#T11:59:04" id="T11:59:04"><abbr title="2009-09-07T11:59:04+00:00">11:59:04</abbr></a>] <span>* niral (i=3b5fe7f7@gateway/web/freenode/x-svbrpyrnnuqdkoie) Quit (Ping timeout: 180 seconds)</span></li>
+<li class="message">[<a href="#T11:59:30" id="T11:59:30"><abbr title="2009-09-07T11:59:30+00:00">11:59:30</abbr></a>] &lt;<cite>hrw</cite>&gt; <q>3rd beagleboard on desk ;!</q></li>
+<li class="quit">[<a href="#T11:59:40" id="T11:59:40"><abbr title="2009-09-07T11:59:40+00:00">11:59:40</abbr></a>] <span>* siji (n=siji@122.170.9.183) Quit ("Leaving")</span></li>
