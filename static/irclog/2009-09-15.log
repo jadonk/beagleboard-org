@@ -1,0 +1,74 @@
+<li class="join">[<a href="#T00:00:34" id="T00:00:34"><abbr title="2009-09-15T00:00:34+00:00">00:00:34</abbr></a>] <span>* Jeffez-br (i=bb25adfb@gateway/web/freenode/x-zcjnbkmfjqyrrbai) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:05:08" id="T00:05:08"><abbr title="2009-09-15T00:05:08+00:00">00:05:08</abbr></a>] <span>* ant__ (n=andrea@host239-105-dynamic.50-82-r.retail.telecomitalia.it) Quit ("Leaving")</span></li>
+<li class="join">[<a href="#T00:07:11" id="T00:07:11"><abbr title="2009-09-15T00:07:11+00:00">00:07:11</abbr></a>] <span>* prpplague (n=Dave@adsl-99-57-148-25.dsl.rcsntx.sbcglobal.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:07:25" id="T00:07:25"><abbr title="2009-09-15T00:07:25+00:00">00:07:25</abbr></a>] <span>* florian (n=fuchs@f048230181.adsl.alicedsl.de) Quit ("Verlassend")</span></li>
+<li class="quit">[<a href="#T00:07:45" id="T00:07:45"><abbr title="2009-09-15T00:07:45+00:00">00:07:45</abbr></a>] <span>* Jeffez-br (i=bb25adfb@gateway/web/freenode/x-zcjnbkmfjqyrrbai) Quit ("Page closed")</span></li>
+<li class="message">[<a href="#T00:09:16" id="T00:09:16"><abbr title="2009-09-15T00:09:16+00:00">00:09:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hmmm</q></li>
+<li class="join">[<a href="#T00:10:14" id="T00:10:14"><abbr title="2009-09-15T00:10:14+00:00">00:10:14</abbr></a>] <span>* Beagle3 (n=Beagle3@187.37.173.251) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:12:06" id="T00:12:06"><abbr title="2009-09-15T00:12:06+00:00">00:12:06</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: i second that</q></li>
+<li class="quit">[<a href="#T00:13:32" id="T00:13:32"><abbr title="2009-09-15T00:13:32+00:00">00:13:32</abbr></a>] <span>* Beagle3 (n=Beagle3@187.37.173.251) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T00:13:50" id="T00:13:50"><abbr title="2009-09-15T00:13:50+00:00">00:13:50</abbr></a>] <span>* Beagle4 (n=Beagle4@187.37.173.251) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:14:46" id="T00:14:46"><abbr title="2009-09-15T00:14:46+00:00">00:14:46</abbr></a>] &lt;<cite>Beagle4</cite>&gt; <q>Anyone has some clue about beagleboard+angstrom-stable+lirc ?</q></li>
+<li class="message">[<a href="#T00:16:44" id="T00:16:44"><abbr title="2009-09-15T00:16:44+00:00">00:16:44</abbr></a>] &lt;<cite>Beagle4</cite>&gt; <q>angstrom-stable=kernel 2.6.29, lirc modules 2.6.28.</q></li>
+<li class="message">[<a href="#T00:21:10" id="T00:21:10"><abbr title="2009-09-15T00:21:10+00:00">00:21:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: how goes?</q></li>
+<li class="message">[<a href="#T00:21:18" id="T00:21:18"><abbr title="2009-09-15T00:21:18+00:00">00:21:18</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: slowly</q></li>
+<li class="message">[<a href="#T00:21:38" id="T00:21:38"><abbr title="2009-09-15T00:21:38+00:00">00:21:38</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: still having mmc troubles, and i think i have a problem with the 32khz xtal</q></li>
+<li class="message">[<a href="#T00:21:57" id="T00:21:57"><abbr title="2009-09-15T00:21:57+00:00">00:21:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: why do you suspect that?</q></li>
+<li class="message">[<a href="#T00:24:40" id="T00:24:40"><abbr title="2009-09-15T00:24:40+00:00">00:24:40</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: during the u-boot startup, it uses the 32khz to count the number of ticks to determine the core clock rate</q></li>
+<li class="message">[<a href="#T00:24:58" id="T00:24:58"><abbr title="2009-09-15T00:24:58+00:00">00:24:58</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: the counted number of ticks is jumping all over the place</q></li>
+<li class="message">[<a href="#T00:25:21" id="T00:25:21"><abbr title="2009-09-15T00:25:21+00:00">00:25:21</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: but yet the uart divisor is rock solid for the baud rate</q></li>
+<li class="message">[<a href="#T00:25:36" id="T00:25:36"><abbr title="2009-09-15T00:25:36+00:00">00:25:36</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: which means that the hclk is solid, and the 32khz is incorrect</q></li>
+<li class="message">[<a href="#T00:25:44" id="T00:25:44"><abbr title="2009-09-15T00:25:44+00:00">00:25:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: ah so it boots</q></li>
+<li class="message">[<a href="#T00:26:48" id="T00:26:48"><abbr title="2009-09-15T00:26:48+00:00">00:26:48</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: yea the system boots if i had code the core clock at 26mhz</q></li>
+<li class="message">[<a href="#T00:27:36" id="T00:27:36"><abbr title="2009-09-15T00:27:36+00:00">00:27:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: have you eliminated one of the problems the early B series had?</q></li>
+<li class="message">[<a href="#T00:28:24" id="T00:28:24"><abbr title="2009-09-15T00:28:24+00:00">00:28:24</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: what problem is that?</q></li>
+<li class="message">[<a href="#T00:29:06" id="T00:29:06"><abbr title="2009-09-15T00:29:06+00:00">00:29:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: it relates to a lockup due to a noise issue on the 32KHz line, IIRC</q></li>
+<li class="message">[<a href="#T00:29:22" id="T00:29:22"><abbr title="2009-09-15T00:29:22+00:00">00:29:22</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: hmm</q></li>
+<li class="message">[<a href="#T00:29:27" id="T00:29:27"><abbr title="2009-09-15T00:29:27+00:00">00:29:27</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: let me google that</q></li>
+<li class="message">[<a href="#T00:31:46" id="T00:31:46"><abbr title="2009-09-15T00:31:46+00:00">00:31:46</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: ahh interesting</q></li>
+<li class="message">[<a href="#T00:31:50" id="T00:31:50"><abbr title="2009-09-15T00:31:50+00:00">00:31:50</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: thanks for the pointer</q></li>
+<li class="quit">[<a href="#T00:32:06" id="T00:32:06"><abbr title="2009-09-15T00:32:06+00:00">00:32:06</abbr></a>] <span>* mumon (n=mumon@jesionaj-1.wlan.rose-hulman.edu) Quit ("~ Trillian Astra - www.trillian.im ~")</span></li>
+<li class="quit">[<a href="#T00:32:53" id="T00:32:53"><abbr title="2009-09-15T00:32:53+00:00">00:32:53</abbr></a>] <span>* Beagle4 (n=Beagle4@187.37.173.251) Quit ()</span></li>
+<li class="message">[<a href="#T00:34:34" id="T00:34:34"><abbr title="2009-09-15T00:34:34+00:00">00:34:34</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: that does sound like the problem</q></li>
+<li class="message">[<a href="#T00:34:58" id="T00:34:58"><abbr title="2009-09-15T00:34:58+00:00">00:34:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: the fix is a cap</q></li>
+<li class="message">[<a href="#T00:35:02" id="T00:35:02"><abbr title="2009-09-15T00:35:02+00:00">00:35:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>easy enough to try</q></li>
+<li class="join">[<a href="#T00:35:10" id="T00:35:10"><abbr title="2009-09-15T00:35:10+00:00">00:35:10</abbr></a>] <span>* robclark (n=robclark@nat/ti/x-xupollbhywbkigcl) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:35:51" id="T00:35:51"><abbr title="2009-09-15T00:35:51+00:00">00:35:51</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: gotta check the schematic and see if i have something similiar</q></li>
+<li class="message">[<a href="#T00:37:01" id="T00:37:01"><abbr title="2009-09-15T00:37:01+00:00">00:37:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: does the board use a 4030 or equiv?</q></li>
+<li class="message">[<a href="#T00:37:29" id="T00:37:29"><abbr title="2009-09-15T00:37:29+00:00">00:37:29</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: no</q></li>
+<li class="message">[<a href="#T00:37:38" id="T00:37:38"><abbr title="2009-09-15T00:37:38+00:00">00:37:38</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: but it does have a matching cap</q></li>
+<li class="action">[<a href="#T00:38:42" id="T00:38:42"><abbr title="2009-09-15T00:38:42+00:00">00:38:42</abbr></a>] <span>* prpplague removes cap for testing</span></li>
+<li class="message">[<a href="#T00:40:15" id="T00:40:15"><abbr title="2009-09-15T00:40:15+00:00">00:40:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I see.</q></li>
+<li class="message">[<a href="#T00:40:45" id="T00:40:45"><abbr title="2009-09-15T00:40:45+00:00">00:40:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>is it a 0201 sized part?</q></li>
+<li class="message">[<a href="#T00:43:47" id="T00:43:47"><abbr title="2009-09-15T00:43:47+00:00">00:43:47</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: 0402</q></li>
+<li class="message">[<a href="#T00:44:19" id="T00:44:19"><abbr title="2009-09-15T00:44:19+00:00">00:44:19</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: that was it!</q></li>
+<li class="action">[<a href="#T00:44:27" id="T00:44:27"><abbr title="2009-09-15T00:44:27+00:00">00:44:27</abbr></a>] <span>* prpplague owes ds2 a beer!</span></li>
+<li class="quit">[<a href="#T00:44:56" id="T00:44:56"><abbr title="2009-09-15T00:44:56+00:00">00:44:56</abbr></a>] <span>* Openfree (n=Openfree@222.65.99.6) Quit (Connection timed out)</span></li>
+<li class="message">[<a href="#T00:46:03" id="T00:46:03"><abbr title="2009-09-15T00:46:03+00:00">00:46:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T00:47:21" id="T00:47:21"><abbr title="2009-09-15T00:47:21+00:00">00:47:21</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: the only thing remaining on this board is the mmc/sd booting</q></li>
+<li class="message">[<a href="#T00:47:45" id="T00:47:45"><abbr title="2009-09-15T00:47:45+00:00">00:47:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: why SD/MMC boot?</q></li>
+<li class="message">[<a href="#T00:48:07" id="T00:48:07"><abbr title="2009-09-15T00:48:07+00:00">00:48:07</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: sd/mmc isn't working</q></li>
+<li class="message">[<a href="#T00:48:25" id="T00:48:25"><abbr title="2009-09-15T00:48:25+00:00">00:48:25</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: gotta do some logic probes tomorrow to see whats going on</q></li>
+<li class="message">[<a href="#T00:48:29" id="T00:48:29"><abbr title="2009-09-15T00:48:29+00:00">00:48:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: let me ask a diff. question - what are you referring to when you say booting?</q></li>
+<li class="message">[<a href="#T00:48:50" id="T00:48:50"><abbr title="2009-09-15T00:48:50+00:00">00:48:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>root on MMC or Internal ROM loading MLO loading U-boot loading uImage?</q></li>
+<li class="message">[<a href="#T00:48:57" id="T00:48:57"><abbr title="2009-09-15T00:48:57+00:00">00:48:57</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: having the system read the MLO file from the sd card</q></li>
+<li class="message">[<a href="#T00:50:14" id="T00:50:14"><abbr title="2009-09-15T00:50:14+00:00">00:50:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: is this a 8bit, 1bit, or 4 bit slot?</q></li>
+<li class="message">[<a href="#T00:50:35" id="T00:50:35"><abbr title="2009-09-15T00:50:35+00:00">00:50:35</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: same exact config as on the  beagle</q></li>
+<li class="message">[<a href="#T00:51:24" id="T00:51:24"><abbr title="2009-09-15T00:51:24+00:00">00:51:24</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: what about power?</q></li>
+<li class="message">[<a href="#T00:51:32" id="T00:51:32"><abbr title="2009-09-15T00:51:32+00:00">00:51:32</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: powers good</q></li>
+<li class="message">[<a href="#T00:51:45" id="T00:51:45"><abbr title="2009-09-15T00:51:45+00:00">00:51:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: no, power for the SD slot... how is that wired up</q></li>
+<li class="message">[<a href="#T00:52:08" id="T00:52:08"><abbr title="2009-09-15T00:52:08+00:00">00:52:08</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: same way the beagle is</q></li>
+<li class="message">[<a href="#T00:52:19" id="T00:52:19"><abbr title="2009-09-15T00:52:19+00:00">00:52:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: impossible :)</q></li>
+<li class="message">[<a href="#T00:52:27" id="T00:52:27"><abbr title="2009-09-15T00:52:27+00:00">00:52:27</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: hehe</q></li>
+<li class="message">[<a href="#T00:52:55" id="T00:52:55"><abbr title="2009-09-15T00:52:55+00:00">00:52:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: the Beagle uses the TWL4030 for a variable voltage power supply. You said you don't use the 4030, Therefore, you are self inconsistant.</q></li>
+<li class="message">[<a href="#T00:53:56" id="T00:53:56"><abbr title="2009-09-15T00:53:56+00:00">00:53:56</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: the power is wired up consistant with the way the beagle is done</q></li>
+<li class="message">[<a href="#T00:54:29" id="T00:54:29"><abbr title="2009-09-15T00:54:29+00:00">00:54:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: I don't see how that is possible if you don't have the 4030</q></li>
+<li class="message">[<a href="#T00:54:56" id="T00:54:56"><abbr title="2009-09-15T00:54:56+00:00">00:54:56</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: it has a "similar" part</q></li>
+<li class="message">[<a href="#T00:54:58" id="T00:54:58"><abbr title="2009-09-15T00:54:58+00:00">00:54:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>in fact, I wonder if the N series devices can boot from SD</q></li>
+<li class="message">[<a href="#T00:55:23" id="T00:55:23"><abbr title="2009-09-15T00:55:23+00:00">00:55:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: that could be an issue. the internal ROM knows magic about the 4030</q></li>
+<li class="message">[<a href="#T00:56:11" id="T00:56:11"><abbr title="2009-09-15T00:56:11+00:00">00:56:11</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: that is possible, the TI datasheet seem to indicate that it wasn't specific to the 4030 though</q></li>
+<li class="message">[<a href="#T00:56:59" id="T00:56:59"><abbr title="2009-09-15T00:56:59+00:00">00:56:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prpplague: datasheet... heheh. </q></li>
+<li class="message">[<a href="#T00:57:06" id="T00:57:06"><abbr title="2009-09-15T00:57:06+00:00">00:57:06</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>indeed</q></li>
+<li class="message">[<a href="#T00:58:07" id="T00:58:07"><abbr title="2009-09-15T00:58:07+00:00">00:58:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yipeeeeeee BeagleLCD + android + touchscreen</q></li>
+<li class="action">[<a href="#T00:58:10" id="T00:58:10"><abbr title="2009-09-15T00:58:10+00:00">00:58:10</abbr></a>] <span>* ds2 does the happy dance</span></li>
+<li class="message">[<a href="#T00:59:26" id="T00:59:26"><abbr title="2009-09-15T00:59:26+00:00">00:59:26</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>ds2: ??</q></li>
