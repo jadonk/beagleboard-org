@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="66" name="buy" prototype="Page" created="1203799153283" lastModified="1254769002756">
+  <hopobject id="66" name="buy" prototype="Page" created="1203799153283" lastModified="1254834623759">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
     <uri>buy</uri>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3</http_browser>
-    <time type="date">05.10.2009 13:56:42 CDT</time>
-    <hopsession>127.0.0.192.94.94.1fyglyi4tqfoc</hopsession>
+    <time type="date">06.10.2009 08:10:23 CDT</time>
+    <hopsession>127.0.0.192.94.94.1o5t8j6rs8qh2</hopsession>
     <body>
  &lt;h1&gt;Buy a Beagle Board&lt;/h1&gt;
  &lt;br/&gt;
@@ -29,6 +29,41 @@
    &lt;a href=&quot;http://www.sparkfun.com/commerce/product_info.php?products_id=9444&quot;&gt;Sparkfun&lt;/a&gt;
   &lt;/li&gt;
  &lt;/ul&gt;
+ &lt;div id=&quot;delicious-container&quot;&gt;
+  &lt;h2&gt;
+   &lt;a href=&quot;http://del.icio.us/jadon/beagleboard+peripheral+verified&quot;&gt;Verified Beagle Board Peripherals&lt;/a&gt;
+  &lt;/h2&gt;
+ &lt;/div&gt;
+ &lt;script type=&quot;text/javascript&quot; src=&quot;http://del.icio.us/feeds/json/jadon/beagleboard+peripheral+verified+recommendation?count=20&quot;&gt;0&lt;/script&gt;
+ &lt;script type=&quot;text/javascript&quot;&gt;function showImage(img){ return (function(){ img.style.display=&apos;inline&apos;; }) }
+
+    var ul = document.createElement(&apos;ul&apos;)
+    for (var i=0, post; post = Delicious.posts[i]; i++) {
+        var li = document.createElement(&apos;li&apos;)
+        var a = document.createElement(&apos;a&apos;)
+        var img = document.createElement(&apos;img&apos;)
+        img.style.position = &apos;absolute&apos;
+        img.style.display = &apos;none&apos;
+        img.height = img.width = 16
+        img.src = post.u.split(&apos;/&apos;).splice(0,3).join(&apos;/&apos;)+&apos;/favicon.ico&apos;
+        img.onload = showImage(img);
+        a.setAttribute(&apos;href&apos;, post.u)
+        a.setAttribute(&apos;title&apos;, post.n)
+        a.appendChild(document.createTextNode(post.d))
+        li.appendChild(a)
+        //li.appendChild(img)
+        ul.appendChild(li)
+    }
+    document.getElementById(&apos;delicious-container&apos;).appendChild(ul)&lt;/script&gt;
+ &lt;p&gt;
+  For an unverified list of peripherals, visit
+  &lt;a href=&quot;http://del.icio.us/tag/beagleboard%2Bperipheral&quot;&gt;del.icio.us/tag/beagleboard+peripheral&lt;/a&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  You can also take a look at the
+  &lt;a href=&quot;http://code.google.com/p/beagleboard/wiki/BeagleBoardShoppingList&quot;&gt;Beagle Board shopping list&lt;/a&gt;
+  on the Google project wiki.
+ &lt;/p&gt;
 </body>
     <http_referer>http://beagleboard.org/buy/edit</http_referer>
     <http_host>beagleboard.org</http_host>
