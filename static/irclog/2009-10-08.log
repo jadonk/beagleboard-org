@@ -12,3 +12,306 @@
 <li class="message">[<a href="#T00:42:29" id="T00:42:29"><abbr title="2009-10-08T00:42:29+00:00">00:42:29</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>I get error: C compiler cannot make executables.  How do I fix that/</q></li>
 <li class="message">[<a href="#T00:45:48" id="T00:45:48"><abbr title="2009-10-08T00:45:48+00:00">00:45:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>use "task-native"</q></li>
 <li class="message">[<a href="#T00:59:47" id="T00:59:47"><abbr title="2009-10-08T00:59:47+00:00">00:59:47</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>task-native not found</q></li>
+<li class="message">[<a href="#T01:00:14" id="T01:00:14"><abbr title="2009-10-08T01:00:14+00:00">01:00:14</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>are you compiling on the beagleboard?</q></li>
+<li class="message">[<a href="#T01:00:20" id="T01:00:20"><abbr title="2009-10-08T01:00:20+00:00">01:00:20</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>or on the host machine?</q></li>
+<li class="message">[<a href="#T01:01:03" id="T01:01:03"><abbr title="2009-10-08T01:01:03+00:00">01:01:03</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>compiling on beagleboard</q></li>
+<li class="message">[<a href="#T01:01:18" id="T01:01:18"><abbr title="2009-10-08T01:01:18+00:00">01:01:18</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>opkg install gcc gcc-symlinks cpp cpp-symlinks binutils make</q></li>
+<li class="message">[<a href="#T01:01:23" id="T01:01:23"><abbr title="2009-10-08T01:01:23+00:00">01:01:23</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>that'll get you up and running</q></li>
+<li class="message">[<a href="#T01:01:33" id="T01:01:33"><abbr title="2009-10-08T01:01:33+00:00">01:01:33</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>and opkg install vim vim-syntax</q></li>
+<li class="message">[<a href="#T01:02:11" id="T01:02:11"><abbr title="2009-10-08T01:02:11+00:00">01:02:11</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>then copy the example vimrc from /usr/share/vim/vim-something to /home/root/.vimrc</q></li>
+<li class="message">[<a href="#T01:02:21" id="T01:02:21"><abbr title="2009-10-08T01:02:21+00:00">01:02:21</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>you'll have syntax highlighting and whatnot</q></li>
+<li class="join">[<a href="#T01:03:14" id="T01:03:14"><abbr title="2009-10-08T01:03:14+00:00">01:03:14</abbr></a>] <span>* djlewis (i=4b0f4155@gateway/web/freenode/x-gegzwqhfzavwjygu) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:03:33" id="T01:03:33"><abbr title="2009-10-08T01:03:33+00:00">01:03:33</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>as long as you launch vim with "vim" and not "vi"</q></li>
+<li class="message">[<a href="#T01:03:58" id="T01:03:58"><abbr title="2009-10-08T01:03:58+00:00">01:03:58</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>airman00:  to see if the name is changed you can wildcard a list with opkg &gt;opkg list *nano*</q></li>
+<li class="message">[<a href="#T01:04:29" id="T01:04:29"><abbr title="2009-10-08T01:04:29+00:00">01:04:29</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>indeed</q></li>
+<li class="message">[<a href="#T01:04:42" id="T01:04:42"><abbr title="2009-10-08T01:04:42+00:00">01:04:42</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but you want vim for code writing.... i would assume</q></li>
+<li class="message">[<a href="#T01:04:49" id="T01:04:49"><abbr title="2009-10-08T01:04:49+00:00">01:04:49</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>airman00:  you are using Angstrom from Narcissus or Beagle dEMO?</q></li>
+<li class="message">[<a href="#T01:04:58" id="T01:04:58"><abbr title="2009-10-08T01:04:58+00:00">01:04:58</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>OOH CAPS LOCK ..</q></li>
+<li class="message">[<a href="#T01:05:02" id="T01:05:02"><abbr title="2009-10-08T01:05:02+00:00">01:05:02</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T01:05:08" id="T01:05:08"><abbr title="2009-10-08T01:05:08+00:00">01:05:08</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>better. :)</q></li>
+<li class="message">[<a href="#T01:05:35" id="T01:05:35"><abbr title="2009-10-08T01:05:35+00:00">01:05:35</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i think he's straightened out</q></li>
+<li class="message">[<a href="#T01:05:57" id="T01:05:57"><abbr title="2009-10-08T01:05:57+00:00">01:05:57</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>For my artistic brain I have to have huge cheat sheets to use the likes of vi or vim type editors.</q></li>
+<li class="message">[<a href="#T01:06:05" id="T01:06:05"><abbr title="2009-10-08T01:06:05+00:00">01:06:05</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T01:06:21" id="T01:06:21"><abbr title="2009-10-08T01:06:21+00:00">01:06:21</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but in a console system.. you are forced to learn it at some point</q></li>
+<li class="message">[<a href="#T01:06:34" id="T01:06:34"><abbr title="2009-10-08T01:06:34+00:00">01:06:34</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>not with nano around :)</q></li>
+<li class="message">[<a href="#T01:06:45" id="T01:06:45"><abbr title="2009-10-08T01:06:45+00:00">01:06:45</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but nano doesn't sytax highlight does it?</q></li>
+<li class="join">[<a href="#T01:06:47" id="T01:06:47"><abbr title="2009-10-08T01:06:47+00:00">01:06:47</abbr></a>] <span>* Animule (n=Animal@71-33-166-191.hlrn.qwest.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:06:53" id="T01:06:53"><abbr title="2009-10-08T01:06:53+00:00">01:06:53</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i use nano for everything else</q></li>
+<li class="message">[<a href="#T01:06:57" id="T01:06:57"><abbr title="2009-10-08T01:06:57+00:00">01:06:57</abbr></a>] &lt;<cite>superdug</cite>&gt; <q>vim is the only editor</q></li>
+<li class="message">[<a href="#T01:07:05" id="T01:07:05"><abbr title="2009-10-08T01:07:05+00:00">01:07:05</abbr></a>] &lt;<cite>superdug</cite>&gt; <q>done &amp;</q></li>
+<li class="message">[<a href="#T01:07:06" id="T01:07:06"><abbr title="2009-10-08T01:07:06+00:00">01:07:06</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>no it is a simple editor that is simple to use.</q></li>
+<li class="message">[<a href="#T01:07:10" id="T01:07:10"><abbr title="2009-10-08T01:07:10+00:00">01:07:10</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>thahemp: how did you know to do opkg install gcc . Is there some resource you looked up? or just offhand data</q></li>
+<li class="message">[<a href="#T01:07:20" id="T01:07:20"><abbr title="2009-10-08T01:07:20+00:00">01:07:20</abbr></a>] &lt;<cite>superdug</cite>&gt; <q>djlewis: it's actually very complex</q></li>
+<li class="message">[<a href="#T01:07:31" id="T01:07:31"><abbr title="2009-10-08T01:07:31+00:00">01:07:31</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>O.o</q></li>
+<li class="message">[<a href="#T01:07:41" id="T01:07:41"><abbr title="2009-10-08T01:07:41+00:00">01:07:41</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>just experience with linux packages....</q></li>
+<li class="message">[<a href="#T01:07:48" id="T01:07:48"><abbr title="2009-10-08T01:07:48+00:00">01:07:48</abbr></a>] &lt;<cite>superdug</cite>&gt; <q>you can edit multiple files ... split the screen ... etc</q></li>
+<li class="message">[<abbr title="2009-10-08T01:07:48+00:00">01:07:48</abbr>] &lt;<cite>djlewis</cite>&gt; <q>why is everyone cop'ing an attitude about nano ;)</q></li>
+<li class="message">[<a href="#T01:07:49" id="T01:07:49"><abbr title="2009-10-08T01:07:49+00:00">01:07:49</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>that's how it is on a real lin box</q></li>
+<li class="message">[<a href="#T01:07:52" id="T01:07:52"><abbr title="2009-10-08T01:07:52+00:00">01:07:52</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>I mean I also did opkg install gcc , but all those exatras afterwards</q></li>
+<li class="message">[<a href="#T01:07:54" id="T01:07:54"><abbr title="2009-10-08T01:07:54+00:00">01:07:54</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>haha</q></li>
+<li class="message">[<abbr title="2009-10-08T01:07:54+00:00">01:07:54</abbr>] &lt;<cite>superdug</cite>&gt; <q>thahemp: what distro</q></li>
+<li class="message">[<a href="#T01:08:05" id="T01:08:05"><abbr title="2009-10-08T01:08:05+00:00">01:08:05</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>superdug: all</q></li>
+<li class="message">[<a href="#T01:08:11" id="T01:08:11"><abbr title="2009-10-08T01:08:11+00:00">01:08:11</abbr></a>] &lt;<cite>superdug</cite>&gt; <q>djlewis: one compound word linewrap</q></li>
+<li class="message">[<a href="#T01:08:29" id="T01:08:29"><abbr title="2009-10-08T01:08:29+00:00">01:08:29</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>djlewis: i really do use nano for everything *but* code writing</q></li>
+<li class="message">[<a href="#T01:08:35" id="T01:08:35"><abbr title="2009-10-08T01:08:35+00:00">01:08:35</abbr></a>] &lt;<cite>superdug</cite>&gt; <q>thahemp: well most every distro is different for how it handles prepackaged binares</q></li>
+<li class="message">[<a href="#T01:08:37" id="T01:08:37"><abbr title="2009-10-08T01:08:37+00:00">01:08:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>is it task-native or task-native-sdk?</q></li>
+<li class="message">[<a href="#T01:09:01" id="T01:09:01"><abbr title="2009-10-08T01:09:01+00:00">01:09:01</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>superdug: true, but i have grown familiar with all of them</q></li>
+<li class="message">[<a href="#T01:09:07" id="T01:09:07"><abbr title="2009-10-08T01:09:07+00:00">01:09:07</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i'm not really sure what you're getting at</q></li>
+<li class="message">[<a href="#T01:09:09" id="T01:09:09"><abbr title="2009-10-08T01:09:09+00:00">01:09:09</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>i do find the linewrap issue sometimes. Have to manually delete the spaces or tabs that break it.</q></li>
+<li class="message">[<a href="#T01:09:24" id="T01:09:24"><abbr title="2009-10-08T01:09:24+00:00">01:09:24</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>just a nano quirk that you learn to live with</q></li>
+<li class="message">[<a href="#T01:09:29" id="T01:09:29"><abbr title="2009-10-08T01:09:29+00:00">01:09:29</abbr></a>] &lt;<cite>superdug</cite>&gt; <q>ohhh airman00 is asking</q></li>
+<li class="message">[<abbr title="2009-10-08T01:09:29+00:00">01:09:29</abbr>] &lt;<cite>djlewis</cite>&gt; <q>ds2:  the latter</q></li>
+<li class="message">[<a href="#T01:09:35" id="T01:09:35"><abbr title="2009-10-08T01:09:35+00:00">01:09:35</abbr></a>] &lt;<cite>superdug</cite>&gt; <q>nevermind sorry thahemp </q></li>
+<li class="message">[<a href="#T01:09:40" id="T01:09:40"><abbr title="2009-10-08T01:09:40+00:00">01:09:40</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>haha...all good</q></li>
+<li class="message">[<a href="#T01:09:44" id="T01:09:44"><abbr title="2009-10-08T01:09:44+00:00">01:09:44</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>just confused for a moment</q></li>
+<li class="message">[<a href="#T01:10:01" id="T01:10:01"><abbr title="2009-10-08T01:10:01+00:00">01:10:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oops</q></li>
+<li class="message">[<a href="#T01:10:03" id="T01:10:03"><abbr title="2009-10-08T01:10:03+00:00">01:10:03</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>airman00: those are just the packages required to compile stuff</q></li>
+<li class="message">[<a href="#T01:10:09" id="T01:10:09"><abbr title="2009-10-08T01:10:09+00:00">01:10:09</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>always</q></li>
+<li class="message">[<a href="#T01:10:23" id="T01:10:23"><abbr title="2009-10-08T01:10:23+00:00">01:10:23</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>some distros are nice and provide build-essentials</q></li>
+<li class="message">[<abbr title="2009-10-08T01:10:23+00:00">01:10:23</abbr>] &lt;<cite>thahemp</cite>&gt; <q>some aren't</q></li>
+<li class="message">[<a href="#T01:10:54" id="T01:10:54"><abbr title="2009-10-08T01:10:54+00:00">01:10:54</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>and apparently angstrom provides task-native-sdk</q></li>
+<li class="message">[<a href="#T01:10:57" id="T01:10:57"><abbr title="2009-10-08T01:10:57+00:00">01:10:57</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T01:11:06" id="T01:11:06"><abbr title="2009-10-08T01:11:06+00:00">01:11:06</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>didn't know that</q></li>
+<li class="message">[<a href="#T01:11:09" id="T01:11:09"><abbr title="2009-10-08T01:11:09+00:00">01:11:09</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>really only takes three packages to do c, c++ on BB in Angstrom</q></li>
+<li class="message">[<a href="#T01:11:18" id="T01:11:18"><abbr title="2009-10-08T01:11:18+00:00">01:11:18</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>gcc cpp binutils</q></li>
+<li class="message">[<a href="#T01:11:24" id="T01:11:24"><abbr title="2009-10-08T01:11:24+00:00">01:11:24</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but the symlinks break make</q></li>
+<li class="message">[<a href="#T01:11:30" id="T01:11:30"><abbr title="2009-10-08T01:11:30+00:00">01:11:30</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>or the lack thereof</q></li>
+<li class="message">[<a href="#T01:11:36" id="T01:11:36"><abbr title="2009-10-08T01:11:36+00:00">01:11:36</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>so they are a convenience</q></li>
+<li class="message">[<a href="#T01:12:56" id="T01:12:56"><abbr title="2009-10-08T01:12:56+00:00">01:12:56</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>taks-native-sdk , cpp, gccmakedep always gets me started.</q></li>
+<li class="message">[<a href="#T01:13:10" id="T01:13:10"><abbr title="2009-10-08T01:13:10+00:00">01:13:10</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>task-native-sdk that is</q></li>
+<li class="message">[<a href="#T01:13:54" id="T01:13:54"><abbr title="2009-10-08T01:13:54+00:00">01:13:54</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T01:13:58" id="T01:13:58"><abbr title="2009-10-08T01:13:58+00:00">01:13:58</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i wonder what you start with</q></li>
+<li class="message">[<a href="#T01:14:25" id="T01:14:25"><abbr title="2009-10-08T01:14:25+00:00">01:14:25</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>gccmakedep</q></li>
+<li class="message">[<a href="#T01:14:28" id="T01:14:28"><abbr title="2009-10-08T01:14:28+00:00">01:14:28</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i'm not familiar with that</q></li>
+<li class="message">[<a href="#T01:14:38" id="T01:14:38"><abbr title="2009-10-08T01:14:38+00:00">01:14:38</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T01:14:42" id="T01:14:42"><abbr title="2009-10-08T01:14:42+00:00">01:14:42</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>a makefile tool</q></li>
+<li class="message">[<a href="#T01:15:02" id="T01:15:02"><abbr title="2009-10-08T01:15:02+00:00">01:15:02</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>Ilater I add pkgconfig</q></li>
+<li class="message">[<a href="#T01:15:38" id="T01:15:38"><abbr title="2009-10-08T01:15:38+00:00">01:15:38</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i've never written anything so complicated to require help with package config and lib dependencies</q></li>
+<li class="message">[<a href="#T01:15:51" id="T01:15:51"><abbr title="2009-10-08T01:15:51+00:00">01:15:51</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i suppose that shows my amatuer-ness</q></li>
+<li class="message">[<a href="#T01:15:52" id="T01:15:52"><abbr title="2009-10-08T01:15:52+00:00">01:15:52</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>i think it mught be pkg-config in opkg</q></li>
+<li class="message">[<a href="#T01:15:59" id="T01:15:59"><abbr title="2009-10-08T01:15:59+00:00">01:15:59</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>oh yeah... i'm sure it is</q></li>
+<li class="message">[<a href="#T01:16:04" id="T01:16:04"><abbr title="2009-10-08T01:16:04+00:00">01:16:04</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>it is everywhere else</q></li>
+<li class="message">[<a href="#T01:16:19" id="T01:16:19"><abbr title="2009-10-08T01:16:19+00:00">01:16:19</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>pkg-config has caused me more heartache than help</q></li>
+<li class="message">[<a href="#T01:16:34" id="T01:16:34"><abbr title="2009-10-08T01:16:34+00:00">01:16:34</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I have mixed feelings about it.</q></li>
+<li class="message">[<a href="#T01:16:39" id="T01:16:39"><abbr title="2009-10-08T01:16:39+00:00">01:16:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and configure and...</q></li>
+<li class="message">[<a href="#T01:16:56" id="T01:16:56"><abbr title="2009-10-08T01:16:56+00:00">01:16:56</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i just always find the headers and there's the rule... anything after lib* goes in the -l option</q></li>
+<li class="message">[<a href="#T01:17:02" id="T01:17:02"><abbr title="2009-10-08T01:17:02+00:00">01:17:02</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>no pkgconfig required</q></li>
+<li class="message">[<a href="#T01:17:08" id="T01:17:08"><abbr title="2009-10-08T01:17:08+00:00">01:17:08</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>hehee.</q></li>
+<li class="message">[<a href="#T01:17:51" id="T01:17:51"><abbr title="2009-10-08T01:17:51+00:00">01:17:51</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>then again.. on a large project... it's nice i'm sure to have a command-style call to add to the makefile to find your reqs</q></li>
+<li class="message">[<a href="#T01:18:14" id="T01:18:14"><abbr title="2009-10-08T01:18:14+00:00">01:18:14</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I have spent way too much energy deciphering ./configure and its Makefile when things dont come together</q></li>
+<li class="message">[<a href="#T01:18:30" id="T01:18:30"><abbr title="2009-10-08T01:18:30+00:00">01:18:30</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>hah</q></li>
+<li class="message">[<abbr title="2009-10-08T01:18:30+00:00">01:18:30</abbr>] &lt;<cite>thahemp</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T01:18:44" id="T01:18:44"><abbr title="2009-10-08T01:18:44+00:00">01:18:44</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i'm sure sakoman doesn't want to hear it... but gumstix was a nightmare for me</q></li>
+<li class="message">[<a href="#T01:18:45" id="T01:18:45"><abbr title="2009-10-08T01:18:45+00:00">01:18:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is no place in this universe for ./configure or pkgconfig or libtool</q></li>
+<li class="message">[<a href="#T01:18:51" id="T01:18:51"><abbr title="2009-10-08T01:18:51+00:00">01:18:51</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>haha</q></li>
+<li class="action">[<a href="#T01:18:59" id="T01:18:59"><abbr title="2009-10-08T01:18:59+00:00">01:18:59</abbr></a>] <span>* thahemp highfives ds2</span></li>
+<li class="message">[<a href="#T01:19:12" id="T01:19:12"><abbr title="2009-10-08T01:19:12+00:00">01:19:12</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I was wondering when ds2 would chime in on that one ;)</q></li>
+<li class="message">[<a href="#T01:19:17" id="T01:19:17"><abbr title="2009-10-08T01:19:17+00:00">01:19:17</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T01:19:27" id="T01:19:27"><abbr title="2009-10-08T01:19:27+00:00">01:19:27</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>well... when you think about it</q></li>
+<li class="message">[<a href="#T01:19:32" id="T01:19:32"><abbr title="2009-10-08T01:19:32+00:00">01:19:32</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>you spend so much time writing the code</q></li>
+<li class="message">[<a href="#T01:19:43" id="T01:19:43"><abbr title="2009-10-08T01:19:43+00:00">01:19:43</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>there's no reason you can't keep a makefile or makefiles up to date while you do so</q></li>
+<li class="message">[<a href="#T01:19:50" id="T01:19:50"><abbr title="2009-10-08T01:19:50+00:00">01:19:50</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>dependency by dependency</q></li>
+<li class="message">[<a href="#T01:19:54" id="T01:19:54"><abbr title="2009-10-08T01:19:54+00:00">01:19:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>make it configurable by editing the Makefile and it is sufficient</q></li>
+<li class="message">[<a href="#T01:19:56" id="T01:19:56"><abbr title="2009-10-08T01:19:56+00:00">01:19:56</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>it's no secret to you when you add it</q></li>
+<li class="message">[<a href="#T01:21:01" id="T01:21:01"><abbr title="2009-10-08T01:21:01+00:00">01:21:01</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>agreed.. makefiles with the benefit of bash scripting is plenty</q></li>
+<li class="message">[<a href="#T01:21:05" id="T01:21:05"><abbr title="2009-10-08T01:21:05+00:00">01:21:05</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>there's no reason to need more</q></li>
+<li class="message">[<a href="#T01:21:12" id="T01:21:12"><abbr title="2009-10-08T01:21:12+00:00">01:21:12</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>airman00:  I have been lazy and using Geany in the BB GUI to dev.;</q></li>
+<li class="message">[<a href="#T01:21:26" id="T01:21:26"><abbr title="2009-10-08T01:21:26+00:00">01:21:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>dropping autoconf gives you a much larger audience</q></li>
+<li class="message">[<a href="#T01:21:52" id="T01:21:52"><abbr title="2009-10-08T01:21:52+00:00">01:21:52</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>ick</q></li>
+<li class="message">[<a href="#T01:21:57" id="T01:21:57"><abbr title="2009-10-08T01:21:57+00:00">01:21:57</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>you've gone too far now</q></li>
+<li class="message">[<a href="#T01:22:10" id="T01:22:10"><abbr title="2009-10-08T01:22:10+00:00">01:22:10</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>not in suggesting dropping it</q></li>
+<li class="message">[<a href="#T01:22:12" id="T01:22:12"><abbr title="2009-10-08T01:22:12+00:00">01:22:12</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I think many code writers think only of the Intel i386 world.</q></li>
+<li class="message">[<a href="#T01:22:13" id="T01:22:13"><abbr title="2009-10-08T01:22:13+00:00">01:22:13</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but by mentioning it alone</q></li>
+<li class="message">[<a href="#T01:22:29" id="T01:22:29"><abbr title="2009-10-08T01:22:29+00:00">01:22:29</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T01:22:46" id="T01:22:46"><abbr title="2009-10-08T01:22:46+00:00">01:22:46</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>ARM is making giant leaps in recent years</q></li>
+<li class="message">[<a href="#T01:22:52" id="T01:22:52"><abbr title="2009-10-08T01:22:52+00:00">01:22:52</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>yep.</q></li>
+<li class="message">[<a href="#T01:22:58" id="T01:22:58"><abbr title="2009-10-08T01:22:58+00:00">01:22:58</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>even in the 2 or 3 that i've been working with them</q></li>
+<li class="message">[<a href="#T01:23:10" id="T01:23:10"><abbr title="2009-10-08T01:23:10+00:00">01:23:10</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>years that is...</q></li>
+<li class="message">[<a href="#T01:23:18" id="T01:23:18"><abbr title="2009-10-08T01:23:18+00:00">01:23:18</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>slow fingers fast brain</q></li>
+<li class="message">[<a href="#T01:23:33" id="T01:23:33"><abbr title="2009-10-08T01:23:33+00:00">01:23:33</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>got my first ARM this spring, the BB</q></li>
+<li class="message">[<a href="#T01:23:38" id="T01:23:38"><abbr title="2009-10-08T01:23:38+00:00">01:23:38</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T01:23:40" id="T01:23:40"><abbr title="2009-10-08T01:23:40+00:00">01:23:40</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>good first one</q></li>
+<li class="message">[<a href="#T01:23:54" id="T01:23:54"><abbr title="2009-10-08T01:23:54+00:00">01:23:54</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>my first was the verdex from sakoman's place ;)</q></li>
+<li class="message">[<a href="#T01:24:06" id="T01:24:06"><abbr title="2009-10-08T01:24:06+00:00">01:24:06</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>it was 95% ready</q></li>
+<li class="message">[<a href="#T01:24:08" id="T01:24:08"><abbr title="2009-10-08T01:24:08+00:00">01:24:08</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T01:24:11" id="T01:24:11"><abbr title="2009-10-08T01:24:11+00:00">01:24:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mmmmmmm verdex</q></li>
+<li class="message">[<a href="#T01:24:23" id="T01:24:23"><abbr title="2009-10-08T01:24:23+00:00">01:24:23</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>it was a great board</q></li>
+<li class="message">[<a href="#T01:24:33" id="T01:24:33"><abbr title="2009-10-08T01:24:33+00:00">01:24:33</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>just had some minor issues that took too long to hit the surface</q></li>
+<li class="message">[<a href="#T01:24:37" id="T01:24:37"><abbr title="2009-10-08T01:24:37+00:00">01:24:37</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>for a production board that is</q></li>
+<li class="message">[<a href="#T01:24:45" id="T01:24:45"><abbr title="2009-10-08T01:24:45+00:00">01:24:45</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>and actually... the mainboard was fine</q></li>
+<li class="message">[<a href="#T01:24:54" id="T01:24:54"><abbr title="2009-10-08T01:24:54+00:00">01:24:54</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>it was the daughter boards they were selling</q></li>
+<li class="message">[<a href="#T01:24:56" id="T01:24:56"><abbr title="2009-10-08T01:24:56+00:00">01:24:56</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>that were bonked</q></li>
+<li class="message">[<a href="#T01:25:58" id="T01:25:58"><abbr title="2009-10-08T01:25:58+00:00">01:25:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>well, to be fair...the x86 folks got be smoking some good stuff</q></li>
+<li class="message">[<a href="#T01:26:25" id="T01:26:25"><abbr title="2009-10-08T01:26:25+00:00">01:26:25</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>yeah... i've got a bunch of bga core2duo's sitting in a tray on my desk at work</q></li>
+<li class="message">[<a href="#T01:26:30" id="T01:26:30"><abbr title="2009-10-08T01:26:30+00:00">01:26:30</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>they're awesome</q></li>
+<li class="message">[<a href="#T01:26:34" id="T01:26:34"><abbr title="2009-10-08T01:26:34+00:00">01:26:34</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but they draw too much power</q></li>
+<li class="message">[<a href="#T01:26:43" id="T01:26:43"><abbr title="2009-10-08T01:26:43+00:00">01:26:43</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>you can't put them in a small space</q></li>
+<li class="message">[<a href="#T01:27:03" id="T01:27:03"><abbr title="2009-10-08T01:27:03+00:00">01:27:03</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>unless you want your phone or small device bonded to your thigh</q></li>
+<li class="message">[<a href="#T01:27:15" id="T01:27:15"><abbr title="2009-10-08T01:27:15+00:00">01:27:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that and their footprints are huge</q></li>
+<li class="message">[<a href="#T01:27:31" id="T01:27:31"><abbr title="2009-10-08T01:27:31+00:00">01:27:31</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>true... but to be expected for the power gained</q></li>
+<li class="message">[<a href="#T01:27:54" id="T01:27:54"><abbr title="2009-10-08T01:27:54+00:00">01:27:54</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>we've got an i.mx515 board in house too</q></li>
+<li class="message">[<a href="#T01:28:01" id="T01:28:01"><abbr title="2009-10-08T01:28:01+00:00">01:28:01</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>that's gonna be a nice processor</q></li>
+<li class="message">[<a href="#T01:28:03" id="T01:28:03"><abbr title="2009-10-08T01:28:03+00:00">01:28:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oh right, you said Core2Duo</q></li>
+<li class="message">[<a href="#T01:28:16" id="T01:28:16"><abbr title="2009-10-08T01:28:16+00:00">01:28:16</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>they're "low power" hahahahaha</q></li>
+<li class="message">[<a href="#T01:28:20" id="T01:28:20"><abbr title="2009-10-08T01:28:20+00:00">01:28:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I was thinking of atom (was at a talk yesterday and the stuff they were presenting is gastly)</q></li>
+<li class="message">[<a href="#T01:28:25" id="T01:28:25"><abbr title="2009-10-08T01:28:25+00:00">01:28:25</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>like 10W at LEAST</q></li>
+<li class="message">[<a href="#T01:28:37" id="T01:28:37"><abbr title="2009-10-08T01:28:37+00:00">01:28:37</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>well.. even atom doesn't come close</q></li>
+<li class="message">[<a href="#T01:28:46" id="T01:28:46"><abbr title="2009-10-08T01:28:46+00:00">01:28:46</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>although i hear they're trying</q></li>
+<li class="message">[<a href="#T01:28:50" id="T01:28:50"><abbr title="2009-10-08T01:28:50+00:00">01:28:50</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>they have some deal with mercedes</q></li>
+<li class="message">[<a href="#T01:29:08" id="T01:29:08"><abbr title="2009-10-08T01:29:08+00:00">01:29:08</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i bet they can pull car computers off</q></li>
+<li class="message">[<a href="#T01:29:16" id="T01:29:16"><abbr title="2009-10-08T01:29:16+00:00">01:29:16</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but nothing else</q></li>
+<li class="message">[<a href="#T01:29:32" id="T01:29:32"><abbr title="2009-10-08T01:29:32+00:00">01:29:32</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>3W is too much</q></li>
+<li class="message">[<a href="#T01:30:03" id="T01:30:03"><abbr title="2009-10-08T01:30:03+00:00">01:30:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but the need for all those chips </q></li>
+<li class="message">[<a href="#T01:30:17" id="T01:30:17"><abbr title="2009-10-08T01:30:17+00:00">01:30:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and to top if off you need to support PCIe to really talk to it.... ick</q></li>
+<li class="message">[<a href="#T01:30:33" id="T01:30:33"><abbr title="2009-10-08T01:30:33+00:00">01:30:33</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>jeez... pci is my demon right now</q></li>
+<li class="message">[<a href="#T01:30:53" id="T01:30:53"><abbr title="2009-10-08T01:30:53+00:00">01:30:53</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>we're trying to do a firewire network and all the TI chips are PCI bus</q></li>
+<li class="message">[<a href="#T01:30:58" id="T01:30:58"><abbr title="2009-10-08T01:30:58+00:00">01:30:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yikes</q></li>
+<li class="message">[<a href="#T01:30:59" id="T01:30:59"><abbr title="2009-10-08T01:30:59+00:00">01:30:59</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but no mobile processors have the bus</q></li>
+<li class="message">[<a href="#T01:31:01" id="T01:31:01"><abbr title="2009-10-08T01:31:01+00:00">01:31:01</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T01:31:04" id="T01:31:04"><abbr title="2009-10-08T01:31:04+00:00">01:31:04</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T01:31:13" id="T01:31:13"><abbr title="2009-10-08T01:31:13+00:00">01:31:13</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i think the DM6467 has one</q></li>
+<li class="message">[<a href="#T01:31:17" id="T01:31:17"><abbr title="2009-10-08T01:31:17+00:00">01:31:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>isn't there something from PLX that will bridge it?</q></li>
+<li class="message">[<a href="#T01:31:22" id="T01:31:22"><abbr title="2009-10-08T01:31:22+00:00">01:31:22</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>not really</q></li>
+<li class="message">[<a href="#T01:31:27" id="T01:31:27"><abbr title="2009-10-08T01:31:27+00:00">01:31:27</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>well</q></li>
+<li class="message">[<a href="#T01:31:28" id="T01:31:28"><abbr title="2009-10-08T01:31:28+00:00">01:31:28</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T01:31:31" id="T01:31:31"><abbr title="2009-10-08T01:31:31+00:00">01:31:31</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>there is</q></li>
+<li class="message">[<a href="#T01:31:38" id="T01:31:38"><abbr title="2009-10-08T01:31:38+00:00">01:31:38</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>if you have a bus to bridge to</q></li>
+<li class="message">[<a href="#T01:31:45" id="T01:31:45"><abbr title="2009-10-08T01:31:45+00:00">01:31:45</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>what do you have on the OMAP?</q></li>
+<li class="message">[<a href="#T01:31:50" id="T01:31:50"><abbr title="2009-10-08T01:31:50+00:00">01:31:50</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>USB</q></li>
+<li class="message">[<a href="#T01:31:54" id="T01:31:54"><abbr title="2009-10-08T01:31:54+00:00">01:31:54</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>ethernet</q></li>
+<li class="message">[<abbr title="2009-10-08T01:31:54+00:00">01:31:54</abbr>] &lt;<cite>ds2</cite>&gt; <q>you basically have ISA on the OMAP</q></li>
+<li class="message">[<a href="#T01:31:59" id="T01:31:59"><abbr title="2009-10-08T01:31:59+00:00">01:31:59</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>ISA</q></li>
+<li class="message">[<a href="#T01:32:01" id="T01:32:01"><abbr title="2009-10-08T01:32:01+00:00">01:32:01</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T01:32:10" id="T01:32:10"><abbr title="2009-10-08T01:32:10+00:00">01:32:10</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>a single-cycle read/write arm bus</q></li>
+<li class="message">[<a href="#T01:32:22" id="T01:32:22"><abbr title="2009-10-08T01:32:22+00:00">01:32:22</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>which is almost useless for a ghetto rigged pci bus</q></li>
+<li class="message">[<a href="#T01:32:49" id="T01:32:49"><abbr title="2009-10-08T01:32:49+00:00">01:32:49</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>the i.MX51 is the same way</q></li>
+<li class="message">[<a href="#T01:32:50" id="T01:32:50"><abbr title="2009-10-08T01:32:50+00:00">01:32:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the GPMC stuff might  be able to keep up with a basic 32bit 33MHz PCI</q></li>
+<li class="message">[<a href="#T01:33:08" id="T01:33:08"><abbr title="2009-10-08T01:33:08+00:00">01:33:08</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>how many GPIO are available?</q></li>
+<li class="message">[<a href="#T01:33:22" id="T01:33:22"><abbr title="2009-10-08T01:33:22+00:00">01:33:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hundreds on the OMAP</q></li>
+<li class="message">[<a href="#T01:33:28" id="T01:33:28"><abbr title="2009-10-08T01:33:28+00:00">01:33:28</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>that's nice</q></li>
+<li class="message">[<a href="#T01:33:35" id="T01:33:35"><abbr title="2009-10-08T01:33:35+00:00">01:33:35</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i really wish we could use the omap</q></li>
+<li class="message">[<a href="#T01:33:47" id="T01:33:47"><abbr title="2009-10-08T01:33:47+00:00">01:33:47</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>the freescale part has none that aren't multiplexed with other peripherals</q></li>
+<li class="message">[<a href="#T01:34:05" id="T01:34:05"><abbr title="2009-10-08T01:34:05+00:00">01:34:05</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i also like the stacked bga memory + cpu</q></li>
+<li class="message">[<a href="#T01:34:09" id="T01:34:09"><abbr title="2009-10-08T01:34:09+00:00">01:34:09</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>that's is ingenious</q></li>
+<li class="message">[<a href="#T01:34:13" id="T01:34:13"><abbr title="2009-10-08T01:34:13+00:00">01:34:13</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>hey thahemp: I tried what you said and I still get C commpiler cannot create exectuables when I do ./configure</q></li>
+<li class="message">[<a href="#T01:34:39" id="T01:34:39"><abbr title="2009-10-08T01:34:39+00:00">01:34:39</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>wierd</q></li>
+<li class="message">[<a href="#T01:34:53" id="T01:34:53"><abbr title="2009-10-08T01:34:53+00:00">01:34:53</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>did you try the task-native-sdk</q></li>
+<li class="message">[<a href="#T01:34:57" id="T01:34:57"><abbr title="2009-10-08T01:34:57+00:00">01:34:57</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>package</q></li>
+<li class="message">[<a href="#T01:35:12" id="T01:35:12"><abbr title="2009-10-08T01:35:12+00:00">01:35:12</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>although... i don't know what could possibly be in there to fix your compiler</q></li>
+<li class="message">[<a href="#T01:35:23" id="T01:35:23"><abbr title="2009-10-08T01:35:23+00:00">01:35:23</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>mine creates executables all day long :)</q></li>
+<li class="message">[<a href="#T01:35:50" id="T01:35:50"><abbr title="2009-10-08T01:35:50+00:00">01:35:50</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>and i know i compiled gdal lib with the X-stable image</q></li>
+<li class="message">[<a href="#T01:35:56" id="T01:35:56"><abbr title="2009-10-08T01:35:56+00:00">01:35:56</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>with no extra packages installed</q></li>
+<li class="message">[<a href="#T01:36:14" id="T01:36:14"><abbr title="2009-10-08T01:36:14+00:00">01:36:14</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>give us more info on what you're using... it should be working</q></li>
+<li class="message">[<a href="#T01:36:24" id="T01:36:24"><abbr title="2009-10-08T01:36:24+00:00">01:36:24</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>installing task native now</q></li>
+<li class="message">[<a href="#T01:36:39" id="T01:36:39"><abbr title="2009-10-08T01:36:39+00:00">01:36:39</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>are you using the x-stable or the console image?</q></li>
+<li class="message">[<a href="#T01:36:48" id="T01:36:48"><abbr title="2009-10-08T01:36:48+00:00">01:36:48</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>or something in-between</q></li>
+<li class="message">[<a href="#T01:38:13" id="T01:38:13"><abbr title="2009-10-08T01:38:13+00:00">01:38:13</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>I dont know. How would I find out?</q></li>
+<li class="message">[<a href="#T01:38:50" id="T01:38:50"><abbr title="2009-10-08T01:38:50+00:00">01:38:50</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>what did you copy on to your SD card?</q></li>
+<li class="message">[<a href="#T01:39:02" id="T01:39:02"><abbr title="2009-10-08T01:39:02+00:00">01:39:02</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>I purchased Angstrom Demo SD Card</q></li>
+<li class="message">[<a href="#T01:39:07" id="T01:39:07"><abbr title="2009-10-08T01:39:07+00:00">01:39:07</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T01:39:14" id="T01:39:14"><abbr title="2009-10-08T01:39:14+00:00">01:39:14</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>do you have a GUI interface?</q></li>
+<li class="message">[<a href="#T01:39:18" id="T01:39:18"><abbr title="2009-10-08T01:39:18+00:00">01:39:18</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>or just a console?</q></li>
+<li class="message">[<a href="#T01:41:18" id="T01:41:18"><abbr title="2009-10-08T01:41:18+00:00">01:41:18</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>GUI</q></li>
+<li class="message">[<a href="#T01:41:31" id="T01:41:31"><abbr title="2009-10-08T01:41:31+00:00">01:41:31</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i'm surprised it doesn't work</q></li>
+<li class="message">[<a href="#T01:41:32" id="T01:41:32"><abbr title="2009-10-08T01:41:32+00:00">01:41:32</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>but right now I'm sshing in and using the console</q></li>
+<li class="message">[<a href="#T01:41:51" id="T01:41:51"><abbr title="2009-10-08T01:41:51+00:00">01:41:51</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>do you have an SD card reader?</q></li>
+<li class="message">[<a href="#T01:42:53" id="T01:42:53"><abbr title="2009-10-08T01:42:53+00:00">01:42:53</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>yes why?</q></li>
+<li class="message">[<a href="#T01:43:09" id="T01:43:09"><abbr title="2009-10-08T01:43:09+00:00">01:43:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what doesn't work?</q></li>
+<li class="message">[<a href="#T01:43:29" id="T01:43:29"><abbr title="2009-10-08T01:43:29+00:00">01:43:29</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q><a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a></q></li>
+<li class="message">[<a href="#T01:43:39" id="T01:43:39"><abbr title="2009-10-08T01:43:39+00:00">01:43:39</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>the demo image in there works just fine</q></li>
+<li class="message">[<a href="#T01:44:08" id="T01:44:08"><abbr title="2009-10-08T01:44:08+00:00">01:44:08</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>I download nano</q></li>
+<li class="message">[<a href="#T01:44:13" id="T01:44:13"><abbr title="2009-10-08T01:44:13+00:00">01:44:13</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T01:44:22" id="T01:44:22"><abbr title="2009-10-08T01:44:22+00:00">01:44:22</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>alright ;)</q></li>
+<li class="message">[<a href="#T01:44:37" id="T01:44:37"><abbr title="2009-10-08T01:44:37+00:00">01:44:37</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>then scp it from my host to the BB, and then did ./configure from terminal in the correct directory</q></li>
+<li class="message">[<a href="#T01:44:44" id="T01:44:44"><abbr title="2009-10-08T01:44:44+00:00">01:44:44</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>O.o</q></li>
+<li class="message">[<a href="#T01:44:47" id="T01:44:47"><abbr title="2009-10-08T01:44:47+00:00">01:44:47</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>nano sucks in a serial console though.</q></li>
+<li class="message">[<a href="#T01:44:56" id="T01:44:56"><abbr title="2009-10-08T01:44:56+00:00">01:44:56</abbr></a>] &lt;<cite>airman00</cite>&gt; <q> I'm trying to install it</q></li>
+<li class="message">[<abbr title="2009-10-08T01:44:56+00:00">01:44:56</abbr>] &lt;<cite>thahemp</cite>&gt; <q>isn't it in the angstrom rep?</q></li>
+<li class="message">[<a href="#T01:45:00" id="T01:45:00"><abbr title="2009-10-08T01:45:00+00:00">01:45:00</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>no its not</q></li>
+<li class="message">[<a href="#T01:45:04" id="T01:45:04"><abbr title="2009-10-08T01:45:04+00:00">01:45:04</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T01:45:22" id="T01:45:22"><abbr title="2009-10-08T01:45:22+00:00">01:45:22</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>that sucks</q></li>
+<li class="message">[<a href="#T01:45:23" id="T01:45:23"><abbr title="2009-10-08T01:45:23+00:00">01:45:23</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q><a href="http://www.angstrom-distribution.org/demo/beagleboard/Angstrom-Beagleboard-demo-image-glibc-ipk-2009.X-stable-20090612--beagleboard.rootfs.tar.bz2">http://www.angstrom-distribution.org/demo/beagleboard/Angstrom-Beagleboard-demo-image-glibc-ipk-2009.X-stable-20090612--beagleboard.rootfs.tar.bz2</a></q></li>
+<li class="message">[<a href="#T01:45:25" id="T01:45:25"><abbr title="2009-10-08T01:45:25+00:00">01:45:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>airman00: uh... </q></li>
+<li class="message">[<a href="#T01:45:27" id="T01:45:27"><abbr title="2009-10-08T01:45:27+00:00">01:45:27</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>so I'm doing another opkg update ( 3rd time in the past hour) with the hopes that it will be fixed :P</q></li>
+<li class="message">[<a href="#T01:45:29" id="T01:45:29"><abbr title="2009-10-08T01:45:29+00:00">01:45:29</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I thought Special Computing had 2.6.28 on SD</q></li>
+<li class="message">[<a href="#T01:45:30" id="T01:45:30"><abbr title="2009-10-08T01:45:30+00:00">01:45:30</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>that is the image that i used at first</q></li>
+<li class="message">[<a href="#T01:45:31" id="T01:45:31"><abbr title="2009-10-08T01:45:31+00:00">01:45:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you did run "make" right?</q></li>
+<li class="message">[<a href="#T01:45:41" id="T01:45:41"><abbr title="2009-10-08T01:45:41+00:00">01:45:41</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>djlewis: it is an assortment... </q></li>
+<li class="message">[<a href="#T01:45:44" id="T01:45:44"><abbr title="2009-10-08T01:45:44+00:00">01:45:44</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>./configure before make</q></li>
+<li class="message">[<a href="#T01:45:55" id="T01:45:55"><abbr title="2009-10-08T01:45:55+00:00">01:45:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>airman00: what does the result of make say?</q></li>
+<li class="message">[<a href="#T01:47:05" id="T01:47:05"><abbr title="2009-10-08T01:47:05+00:00">01:47:05</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>make: ** NO targets specificed and no makefile found, Stop.   I have to do ./configure first</q></li>
+<li class="message">[<a href="#T01:47:29" id="T01:47:29"><abbr title="2009-10-08T01:47:29+00:00">01:47:29</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>why would ./configure be invoking any gcc anything???</q></li>
+<li class="message">[<a href="#T01:47:47" id="T01:47:47"><abbr title="2009-10-08T01:47:47+00:00">01:47:47</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>it only inspects and sets up make</q></li>
+<li class="message">[<a href="#T01:48:14" id="T01:48:14"><abbr title="2009-10-08T01:48:14+00:00">01:48:14</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>inspects and tells me Error: C compiler cannot make executables</q></li>
+<li class="message">[<a href="#T01:48:19" id="T01:48:19"><abbr title="2009-10-08T01:48:19+00:00">01:48:19</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>'only' might be a poor choice of word.</q></li>
+<li class="message">[<a href="#T01:48:56" id="T01:48:56"><abbr title="2009-10-08T01:48:56+00:00">01:48:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>your configurefailed</q></li>
+<li class="message">[<a href="#T01:49:02" id="T01:49:02"><abbr title="2009-10-08T01:49:02+00:00">01:49:02</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T01:49:03" id="T01:49:03"><abbr title="2009-10-08T01:49:03+00:00">01:49:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what didconfiguresay?</q></li>
+<li class="message">[<a href="#T01:49:06" id="T01:49:06"><abbr title="2009-10-08T01:49:06+00:00">01:49:06</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>ds2 dances</q></li>
+<li class="message">[<a href="#T01:49:39" id="T01:49:39"><abbr title="2009-10-08T01:49:39+00:00">01:49:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>airman00: is your SD card write protected?</q></li>
+<li class="quit">[<a href="#T01:49:52" id="T01:49:52"><abbr title="2009-10-08T01:49:52+00:00">01:49:52</abbr></a>] <span>* hyc_tb (n=ai@76.91.220.157) Quit ("Powered by OE: www.openembedded.org")</span></li>
+<li class="join">[<a href="#T01:49:58" id="T01:49:58"><abbr title="2009-10-08T01:49:58+00:00">01:49:58</abbr></a>] <span>* spvensko (n=spvensko@rrcs-24-199-144-166.midsouth.biz.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:50:01" id="T01:50:01"><abbr title="2009-10-08T01:50:01+00:00">01:50:01</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T01:50:06" id="T01:50:06"><abbr title="2009-10-08T01:50:06+00:00">01:50:06</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>honestly... just build the image on your SD card like a normal person</q></li>
+<li class="message">[<a href="#T01:50:11" id="T01:50:11"><abbr title="2009-10-08T01:50:11+00:00">01:50:11</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>you won't have problems</q></li>
+<li class="message">[<a href="#T01:50:35" id="T01:50:35"><abbr title="2009-10-08T01:50:35+00:00">01:50:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I donno... those SD images worked for a lot of people</q></li>
+<li class="message">[<a href="#T01:50:36" id="T01:50:36"><abbr title="2009-10-08T01:50:36+00:00">01:50:36</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>or... not even build.. just cp and decompress</q></li>
+<li class="message">[<a href="#T01:51:07" id="T01:51:07"><abbr title="2009-10-08T01:51:07+00:00">01:51:07</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I often build an app using OE and thumb drive it over to BB</q></li>
+<li class="message">[<abbr title="2009-10-08T01:51:07+00:00">01:51:07</abbr>] &lt;<cite>ds2</cite>&gt; <q>you did have a net connection when you did the opkg install task-native-sdk,right?</q></li>
+<li class="message">[<a href="#T01:51:16" id="T01:51:16"><abbr title="2009-10-08T01:51:16+00:00">01:51:16</abbr></a>] &lt;<cite>airman00</cite>&gt; <q>I guess that would he last option. I'll fiddle around with this later. Yes i had net connection </q></li>
+<li class="message">[<a href="#T01:51:21" id="T01:51:21"><abbr title="2009-10-08T01:51:21+00:00">01:51:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>easier to build natively</q></li>
+<li class="message">[<a href="#T01:51:27" id="T01:51:27"><abbr title="2009-10-08T01:51:27+00:00">01:51:27</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T01:51:41" id="T01:51:41"><abbr title="2009-10-08T01:51:41+00:00">01:51:41</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>airman00... i rebuild my system this morning because i bricked it... 13 minutes</q></li>
+<li class="message">[<a href="#T01:51:42" id="T01:51:42"><abbr title="2009-10-08T01:51:42+00:00">01:51:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>did opkg return any errors?</q></li>
+<li class="message">[<a href="#T01:51:45" id="T01:51:45"><abbr title="2009-10-08T01:51:45+00:00">01:51:45</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>don't fear it</q></li>
+<li class="message">[<a href="#T01:51:51" id="T01:51:51"><abbr title="2009-10-08T01:51:51+00:00">01:51:51</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>rebuilt*</q></li>
+<li class="message">[<a href="#T01:52:25" id="T01:52:25"><abbr title="2009-10-08T01:52:25+00:00">01:52:25</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>using the demo images is still techinically cheating... you just don't have to pay for it :)</q></li>
+<li class="message">[<a href="#T01:53:31" id="T01:53:31"><abbr title="2009-10-08T01:53:31+00:00">01:53:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the who OE thing is still questionable</q></li>
+<li class="message">[<a href="#T01:53:45" id="T01:53:45"><abbr title="2009-10-08T01:53:45+00:00">01:53:45</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>it has worked for me 100% of the time</q></li>
+<li class="message">[<a href="#T01:54:04" id="T01:54:04"><abbr title="2009-10-08T01:54:04+00:00">01:54:04</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I find that if it is left alone and no updates it does well :)</q></li>
+<li class="message">[<a href="#T01:54:21" id="T01:54:21"><abbr title="2009-10-08T01:54:21+00:00">01:54:21</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>although... i'm only talking about downloading koen's demos and extracing them onto partition 2</q></li>
+<li class="message">[<a href="#T01:54:26" id="T01:54:26"><abbr title="2009-10-08T01:54:26+00:00">01:54:26</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I am using the stable branch</q></li>
+<li class="message">[<a href="#T01:55:01" id="T01:55:01"><abbr title="2009-10-08T01:55:01+00:00">01:55:01</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>ds2:  nice to have a ipk to opkg on BB</q></li>
+<li class="message">[<a href="#T01:55:17" id="T01:55:17"><abbr title="2009-10-08T01:55:17+00:00">01:55:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>djlewis: I am happy with tgz's</q></li>
+<li class="message">[<a href="#T01:55:25" id="T01:55:25"><abbr title="2009-10-08T01:55:25+00:00">01:55:25</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>thems good too :)</q></li>
+<li class="message">[<a href="#T01:55:40" id="T01:55:40"><abbr title="2009-10-08T01:55:40+00:00">01:55:40</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>have you guys tried to install older ipk's with opkg lately?</q></li>
+<li class="message">[<a href="#T01:55:53" id="T01:55:53"><abbr title="2009-10-08T01:55:53+00:00">01:55:53</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I use a bit of it all. In whatever form it comes in I try to make use of.</q></li>
+<li class="message">[<a href="#T01:55:58" id="T01:55:58"><abbr title="2009-10-08T01:55:58+00:00">01:55:58</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>like specifically... the sgx modules</q></li>
+<li class="message">[<a href="#T01:56:10" id="T01:56:10"><abbr title="2009-10-08T01:56:10+00:00">01:56:10</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I hear they are broken</q></li>
+<li class="message">[<a href="#T01:56:16" id="T01:56:16"><abbr title="2009-10-08T01:56:16+00:00">01:56:16</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>oh they are</q></li>
+<li class="message">[<a href="#T01:56:18" id="T01:56:18"><abbr title="2009-10-08T01:56:18+00:00">01:56:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>SGX from TI works fine</q></li>
+<li class="message">[<a href="#T01:56:29" id="T01:56:29"><abbr title="2009-10-08T01:56:29+00:00">01:56:29</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>dont qoute me. I was just skimming logs today</q></li>
+<li class="message">[<abbr title="2009-10-08T01:56:29+00:00">01:56:29</abbr>] &lt;<cite>thahemp</cite>&gt; <q>yeah... the libs do</q></li>
+<li class="message">[<a href="#T01:56:32" id="T01:56:32"><abbr title="2009-10-08T01:56:32+00:00">01:56:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>donno about the third hand stuff in OE ;)</q></li>
+<li class="message">[<a href="#T01:56:47" id="T01:56:47"><abbr title="2009-10-08T01:56:47+00:00">01:56:47</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>the libs work great</q></li>
+<li class="message">[<a href="#T01:56:50" id="T01:56:50"><abbr title="2009-10-08T01:56:50+00:00">01:56:50</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>the sgx modules package in the angstrom rep</q></li>
+<li class="message">[<a href="#T01:56:53" id="T01:56:53"><abbr title="2009-10-08T01:56:53+00:00">01:56:53</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>is not compatible</q></li>
+<li class="message">[<a href="#T01:57:05" id="T01:57:05"><abbr title="2009-10-08T01:57:05+00:00">01:57:05</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>it's like 1607 version</q></li>
+<li class="message">[<a href="#T01:57:08" id="T01:57:08"><abbr title="2009-10-08T01:57:08+00:00">01:57:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sigh...</q></li>
+<li class="message">[<a href="#T01:57:11" id="T01:57:11"><abbr title="2009-10-08T01:57:11+00:00">01:57:11</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>and the 1397 one works</q></li>
+<li class="message">[<a href="#T01:57:18" id="T01:57:18"><abbr title="2009-10-08T01:57:18+00:00">01:57:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>build them yourself... KBUILD is not that hard</q></li>
+<li class="message">[<abbr title="2009-10-08T01:57:18+00:00">01:57:18</abbr>] &lt;<cite>djlewis</cite>&gt; <q>there was some talk, might have been thahemp , talking about sgx apps not running?</q></li>
+<li class="message">[<a href="#T01:57:26" id="T01:57:26"><abbr title="2009-10-08T01:57:26+00:00">01:57:26</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T01:57:28" id="T01:57:28"><abbr title="2009-10-08T01:57:28+00:00">01:57:28</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T01:57:29" id="T01:57:29"><abbr title="2009-10-08T01:57:29+00:00">01:57:29</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>only</q></li>
+<li class="message">[<a href="#T01:57:31" id="T01:57:31"><abbr title="2009-10-08T01:57:31+00:00">01:57:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>djlewis: I was just running them today</q></li>
+<li class="message">[<a href="#T01:57:32" id="T01:57:32"><abbr title="2009-10-08T01:57:32+00:00">01:57:32</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>it was midcon1</q></li>
+<li class="message">[<a href="#T01:57:40" id="T01:57:40"><abbr title="2009-10-08T01:57:40+00:00">01:57:40</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>i am midcon1 at work</q></li>
+<li class="message">[<a href="#T01:57:55" id="T01:57:55"><abbr title="2009-10-08T01:57:55+00:00">01:57:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>i need to get my accelerometer on there and things might get interesting</q></li>
+<li class="message">[<a href="#T01:58:07" id="T01:58:07"><abbr title="2009-10-08T01:58:07+00:00">01:58:07</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I havent gotten the SGX demos to run since a 2.6.28 or early 2.6.29</q></li>
+<li class="message">[<a href="#T01:58:28" id="T01:58:28"><abbr title="2009-10-08T01:58:28+00:00">01:58:28</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>you have to use the current libGLES stuff</q></li>
+<li class="message">[<a href="#T01:58:35" id="T01:58:35"><abbr title="2009-10-08T01:58:35+00:00">01:58:35</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>and use the 1397 sgx modules</q></li>
+<li class="message">[<a href="#T01:58:39" id="T01:58:39"><abbr title="2009-10-08T01:58:39+00:00">01:58:39</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>then it works perfect</q></li>
+<li class="message">[<a href="#T01:58:55" id="T01:58:55"><abbr title="2009-10-08T01:58:55+00:00">01:58:55</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I live in stables so I can have some predictability.</q></li>
+<li class="message">[<a href="#T01:59:01" id="T01:59:01"><abbr title="2009-10-08T01:59:01+00:00">01:59:01</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>but you can only install the 1397 ones if you install them on a fresh system before you run opkg update for the first time</q></li>
+<li class="message">[<a href="#T01:59:16" id="T01:59:16"><abbr title="2009-10-08T01:59:16+00:00">01:59:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>problem is OE stable isn't that stable </q></li>
+<li class="message">[<a href="#T01:59:17" id="T01:59:17"><abbr title="2009-10-08T01:59:17+00:00">01:59:17</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>You mean opkg upgrade?</q></li>
+<li class="message">[<a href="#T01:59:23" id="T01:59:23"><abbr title="2009-10-08T01:59:23+00:00">01:59:23</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>BAD IDEA!</q></li>
+<li class="message">[<a href="#T01:59:29" id="T01:59:29"><abbr title="2009-10-08T01:59:29+00:00">01:59:29</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>no... opkg update!</q></li>
+<li class="message">[<a href="#T01:59:35" id="T01:59:35"><abbr title="2009-10-08T01:59:35+00:00">01:59:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>opkg upgrade mostly works :D</q></li>
+<li class="message">[<a href="#T01:59:41" id="T01:59:41"><abbr title="2009-10-08T01:59:41+00:00">01:59:41</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>that only updates the database locally</q></li>
+<li class="message">[<a href="#T01:59:44" id="T01:59:44"><abbr title="2009-10-08T01:59:44+00:00">01:59:44</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>once opkg realized there's a newere version you can't install the old ones</q></li>
+<li class="message">[<a href="#T01:59:51" id="T01:59:51"><abbr title="2009-10-08T01:59:51+00:00">01:59:51</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>oh</q></li>
+<li class="message">[<abbr title="2009-10-08T01:59:51+00:00">01:59:51</abbr>] &lt;<cite>thahemp</cite>&gt; <q>opkg is retarded too</q></li>
+<li class="message">[<a href="#T01:59:52" id="T01:59:52"><abbr title="2009-10-08T01:59:52+00:00">01:59:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>just apply --force or the equiv</q></li>
+<li class="message">[<a href="#T01:59:57" id="T01:59:57"><abbr title="2009-10-08T01:59:57+00:00">01:59:57</abbr></a>] &lt;<cite>thahemp</cite>&gt; <q>hmm</q></li>
