@@ -479,3 +479,85 @@
 <li class="quit">[<a href="#T11:59:13" id="T11:59:13"><abbr title="2009-11-02T11:59:13+00:00">11:59:13</abbr></a>] <span>* florian (n=fuchs@Maemo/community/contributor/florian) Quit (Remote closed the connection)</span></li>
 <li class="message">[<a href="#T11:59:22" id="T11:59:22"><abbr title="2009-11-02T11:59:22+00:00">11:59:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>maybe just renaming one char is enough to mark as "bad!</q></li>
 <li class="join">[<a href="#T11:59:57" id="T11:59:57"><abbr title="2009-11-02T11:59:57+00:00">11:59:57</abbr></a>] <span>* greyback (n=greyback@ip-83-147-165-234.dub-3rk1.metro.digiweb.ie) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:02:36" id="T12:02:36"><abbr title="2009-11-02T12:02:36+00:00">12:02:36</abbr></a>] &lt;<cite>hrw</cite>&gt; <q>before VFAT all you needed was change first char of filename to 0xa9 iirc</q></li>
+<li class="message">[<a href="#T12:03:30" id="T12:03:30"><abbr title="2009-11-02T12:03:30+00:00">12:03:30</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>you probably need to break both  the long name and the short name for vfat</q></li>
+<li class="message">[<a href="#T12:04:27" id="T12:04:27"><abbr title="2009-11-02T12:04:27+00:00">12:04:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hrw: and you dont want to free the clusters?</q></li>
+<li class="message">[<a href="#T12:06:31" id="T12:06:31"><abbr title="2009-11-02T12:06:31+00:00">12:06:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>renaming the file would work too</q></li>
+<li class="message">[<a href="#T12:06:42" id="T12:06:42"><abbr title="2009-11-02T12:06:42+00:00">12:06:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>almost any alteration of the filesystem would work</q></li>
+<li class="quit">[<a href="#T12:07:00" id="T12:07:00"><abbr title="2009-11-02T12:07:00+00:00">12:07:00</abbr></a>] <span>* jpinx-eeepc (n=johnp@200.121.13.91) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T12:07:10" id="T12:07:10"><abbr title="2009-11-02T12:07:10+00:00">12:07:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>here's my idea:</q></li>
+<li class="message">[<a href="#T12:07:33" id="T12:07:33"><abbr title="2009-11-02T12:07:33+00:00">12:07:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>1. old system unpacks update and places a marker on the boot partition</q></li>
+<li class="message">[<a href="#T12:07:53" id="T12:07:53"><abbr title="2009-11-02T12:07:53+00:00">12:07:53</abbr></a>] &lt;<cite>hrw</cite>&gt; <q>av500: that you can do with fsck later</q></li>
+<li class="message">[<a href="#T12:07:57" id="T12:07:57"><abbr title="2009-11-02T12:07:57+00:00">12:07:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>2. u-boot notices marker, deletes marker, and boots the new image</q></li>
+<li class="message">[<a href="#T12:08:09" id="T12:08:09"><abbr title="2009-11-02T12:08:09+00:00">12:08:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>3. new image makes itself default if booted successfully</q></li>
+<li class="message">[<a href="#T12:08:25" id="T12:08:25"><abbr title="2009-11-02T12:08:25+00:00">12:08:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>4. if unsuccessful, u-boot will boot old system again on next boot</q></li>
+<li class="message">[<a href="#T12:08:40" id="T12:08:40"><abbr title="2009-11-02T12:08:40+00:00">12:08:40</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>mru: I like that one :)</q></li>
+<li class="message">[<a href="#T12:09:06" id="T12:09:06"><abbr title="2009-11-02T12:09:06+00:00">12:09:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>step 3 should be the very last thing you do in the boot process</q></li>
+<li class="message">[<a href="#T12:09:19" id="T12:09:19"><abbr title="2009-11-02T12:09:19+00:00">12:09:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>possibly after some validation</q></li>
+<li class="message">[<a href="#T12:09:43" id="T12:09:43"><abbr title="2009-11-02T12:09:43+00:00">12:09:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>include some user interaction for extra safety</q></li>
+<li class="message">[<a href="#T12:09:46" id="T12:09:46"><abbr title="2009-11-02T12:09:46+00:00">12:09:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: ask the user "did the system just boot: YES|NO"...</q></li>
+<li class="message">[<a href="#T12:09:54" id="T12:09:54"><abbr title="2009-11-02T12:09:54+00:00">12:09:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yeah, like that ;-)</q></li>
+<li class="message">[<a href="#T12:10:10" id="T12:10:10"><abbr title="2009-11-02T12:10:10+00:00">12:10:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but maybe "do you want to make this version the default?"</q></li>
+<li class="message">[<a href="#T12:10:14" id="T12:10:14"><abbr title="2009-11-02T12:10:14+00:00">12:10:14</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T12:10:28" id="T12:10:28"><abbr title="2009-11-02T12:10:28+00:00">12:10:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: and "don't show me this message again [ ]"</q></li>
+<li class="message">[<a href="#T12:10:38" id="T12:10:38"><abbr title="2009-11-02T12:10:38+00:00">12:10:38</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>"huh? I see no boot here" [X] No [ ] Yes</q></li>
+<li class="message">[<a href="#T12:10:40" id="T12:10:40"><abbr title="2009-11-02T12:10:40+00:00">12:10:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that would be implicit...</q></li>
+<li class="message">[<a href="#T12:11:32" id="T12:11:32"><abbr title="2009-11-02T12:11:32+00:00">12:11:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>kblin: ja, you have to get a good translation for all languages: "hat das system ein stiefel?"</q></li>
+<li class="message">[<a href="#T12:12:17" id="T12:12:17"><abbr title="2009-11-02T12:12:17+00:00">12:12:17</abbr></a>] &lt;<cite>koen</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T12:12:18" id="T12:12:18"><abbr title="2009-11-02T12:12:18+00:00">12:12:18</abbr></a>] &lt;<cite>koen</cite>&gt; <q>cute</q></li>
+<li class="message">[<a href="#T12:12:28" id="T12:12:28"><abbr title="2009-11-02T12:12:28+00:00">12:12:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>can you verb nouns in german? "ist das system gestiefelt?"</q></li>
+<li class="message">[<a href="#T12:12:37" id="T12:12:37"><abbr title="2009-11-02T12:12:37+00:00">12:12:37</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T12:12:39" id="T12:12:39"><abbr title="2009-11-02T12:12:39+00:00">12:12:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>of course</q></li>
+<li class="message">[<a href="#T12:12:46" id="T12:12:46"><abbr title="2009-11-02T12:12:46+00:00">12:12:46</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>but that's too correct to work</q></li>
+<li class="message">[<a href="#T12:13:06" id="T12:13:06"><abbr title="2009-11-02T12:13:06+00:00">12:13:06</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>the translation from the original chinese question has to look like done by a korean</q></li>
+<li class="message">[<a href="#T12:13:21" id="T12:13:21"><abbr title="2009-11-02T12:13:21+00:00">12:13:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>can't be... it's over 10 years since I studied german</q></li>
+<li class="join">[<a href="#T12:13:27" id="T12:13:27"><abbr title="2009-11-02T12:13:27+00:00">12:13:27</abbr></a>] <span>* jpinx-eeepc (n=johnp@200.121.13.91) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:13:43" id="T12:13:43"><abbr title="2009-11-02T12:13:43+00:00">12:13:43</abbr></a>] <span>* pfoetchen (n=pfoetche@92.117.134.176) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:13:56" id="T12:13:56"><abbr title="2009-11-02T12:13:56+00:00">12:13:56</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>where can I find the i2c addresses used on the beagle?</q></li>
+<li class="message">[<a href="#T12:13:59" id="T12:13:59"><abbr title="2009-11-02T12:13:59+00:00">12:13:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: so you was a good student</q></li>
+<li class="message">[<a href="#T12:14:21" id="T12:14:21"><abbr title="2009-11-02T12:14:21+00:00">12:14:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>me good?  sounds contradictory..</q></li>
+<li class="message">[<a href="#T12:14:37" id="T12:14:37"><abbr title="2009-11-02T12:14:37+00:00">12:14:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sorry, outstanding :)</q></li>
+<li class="message">[<a href="#T12:15:01" id="T12:15:01"><abbr title="2009-11-02T12:15:01+00:00">12:15:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, standing outside, not studying ;-)</q></li>
+<li class="message">[<a href="#T12:15:31" id="T12:15:31"><abbr title="2009-11-02T12:15:31+00:00">12:15:31</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>mru: :)</q></li>
+<li class="message">[<a href="#T12:15:40" id="T12:15:40"><abbr title="2009-11-02T12:15:40+00:00">12:15:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: btw, did you see the fatelf thread on lkml?</q></li>
+<li class="message">[<a href="#T12:15:55" id="T12:15:55"><abbr title="2009-11-02T12:15:55+00:00">12:15:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>alan cox completely dismissed it</q></li>
+<li class="message">[<a href="#T12:16:01" id="T12:16:01"><abbr title="2009-11-02T12:16:01+00:00">12:16:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>did he</q></li>
+<li class="message">[<a href="#T12:16:47" id="T12:16:47"><abbr title="2009-11-02T12:16:47+00:00">12:16:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q><a href="http://article.gmane.org/gmane.linux.kernel/908229">http://article.gmane.org/gmane.linux.kernel/908229</a></q></li>
+<li class="join">[<a href="#T12:17:41" id="T12:17:41"><abbr title="2009-11-02T12:17:41+00:00">12:17:41</abbr></a>] <span>* kg4giy (n=kg4giy@pool-138-88-39-68.res.east.verizon.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:18:57" id="T12:18:57"><abbr title="2009-11-02T12:18:57+00:00">12:18:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>"- Now we are getting desperate." nice</q></li>
+<li class="quit">[<a href="#T12:19:25" id="T12:19:25"><abbr title="2009-11-02T12:19:25+00:00">12:19:25</abbr></a>] <span>* jpinx-eeepc (n=johnp@200.121.13.91) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="quit">[<a href="#T12:19:57" id="T12:19:57"><abbr title="2009-11-02T12:19:57+00:00">12:19:57</abbr></a>] <span>* naeg (n=naeg@194.208.239.170) Quit ("WeeChat 0.3.0")</span></li>
+<li class="join">[<a href="#T12:20:01" id="T12:20:01"><abbr title="2009-11-02T12:20:01+00:00">12:20:01</abbr></a>] <span>* naeg (n=naeg@194.208.239.170) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:20:14" id="T12:20:14"><abbr title="2009-11-02T12:20:14+00:00">12:20:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>"So why exactly do we want FatELF. It was obsoleted in the early 1990s</q></li>
+<li class="message">[<a href="#T12:20:15" id="T12:20:15"><abbr title="2009-11-02T12:20:15+00:00">12:20:15</abbr></a>] &lt;<cite>koen</cite>&gt; <q>when architecture handling was introduced into package managers."</q></li>
+<li class="join">[<a href="#T12:22:05" id="T12:22:05"><abbr title="2009-11-02T12:22:05+00:00">12:22:05</abbr></a>] <span>* jpinx-eeepc (n=johnp@200.121.13.91) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:33:34" id="T12:33:34"><abbr title="2009-11-02T12:33:34+00:00">12:33:34</abbr></a>] <span>* jpinx-eeepc (n=johnp@200.121.13.91) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T12:33:42" id="T12:33:42"><abbr title="2009-11-02T12:33:42+00:00">12:33:42</abbr></a>] <span>* jpinx-eeepc (n=johnp@200.121.13.91) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:35:52" id="T12:35:52"><abbr title="2009-11-02T12:35:52+00:00">12:35:52</abbr></a>] <span>* __alanc__ (n=a-campbe@nat/ti/x-fb16a2b35f4a3cc0) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:39:20" id="T12:39:20"><abbr title="2009-11-02T12:39:20+00:00">12:39:20</abbr></a>] <span>* lifeeth (n=praneeth@unaffiliated/lifeeth) Quit ("Up and at 'em, Atom Ant!")</span></li>
+<li class="join">[<a href="#T12:41:21" id="T12:41:21"><abbr title="2009-11-02T12:41:21+00:00">12:41:21</abbr></a>] <span>* jpinx-ee1pc (n=johnp@200.121.13.91) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:41:27" id="T12:41:27"><abbr title="2009-11-02T12:41:27+00:00">12:41:27</abbr></a>] <span>* jpinx-eeepc (n=johnp@200.121.13.91) Quit (Read error: 54 (Connection reset by peer))</span></li>
+<li class="quit">[<a href="#T12:42:41" id="T12:42:41"><abbr title="2009-11-02T12:42:41+00:00">12:42:41</abbr></a>] <span>* naeg (n=naeg@194.208.239.170) Quit ("WeeChat 0.3.0")</span></li>
+<li class="quit">[<a href="#T12:47:02" id="T12:47:02"><abbr title="2009-11-02T12:47:02+00:00">12:47:02</abbr></a>] <span>* ogra (n=ogra@ubuntu/member/ogra) Quit (Read error: 104 (Connection reset by peer))</span></li>
+<li class="join">[<a href="#T12:47:17" id="T12:47:17"><abbr title="2009-11-02T12:47:17+00:00">12:47:17</abbr></a>] <span>* ogra (n=ogra@ubuntu/member/ogra) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:52:20" id="T12:52:20"><abbr title="2009-11-02T12:52:20+00:00">12:52:20</abbr></a>] <span>* WeCool (i=55a863b8@gateway/web/freenode/x-f9b769b094cf7b7d) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:52:30" id="T12:52:30"><abbr title="2009-11-02T12:52:30+00:00">12:52:30</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>Hey all</q></li>
+<li class="message">[<a href="#T12:52:49" id="T12:52:49"><abbr title="2009-11-02T12:52:49+00:00">12:52:49</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>I gotta little question concerning the muxing </q></li>
+<li class="action">[<a href="#T12:52:58" id="T12:52:58"><abbr title="2009-11-02T12:52:58+00:00">12:52:58</abbr></a>] <span>* av500 hides</span></li>
+<li class="message">[<a href="#T12:53:17" id="T12:53:17"><abbr title="2009-11-02T12:53:17+00:00">12:53:17</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>if I want a uart on gpios</q></li>
+<li class="message">[<a href="#T12:53:54" id="T12:53:54"><abbr title="2009-11-02T12:53:54+00:00">12:53:54</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>I change the mode </q></li>
+<li class="message">[<a href="#T12:54:27" id="T12:54:27"><abbr title="2009-11-02T12:54:27+00:00">12:54:27</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>for example in mode 4 I got the GPIO 140 </q></li>
+<li class="nick-change">[<a href="#T12:54:31" id="T12:54:31"><abbr title="2009-11-02T12:54:31+00:00">12:54:31</abbr></a>] <span>* eFfeM is now known as eFfeM-away</span></li>
+<li class="message">[<a href="#T12:54:42" id="T12:54:42"><abbr title="2009-11-02T12:54:42+00:00">12:54:42</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>and in mode 1 the uart</q></li>
+<li class="message">[<a href="#T12:54:48" id="T12:54:48"><abbr title="2009-11-02T12:54:48+00:00">12:54:48</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>I change to mode 1 </q></li>
+<li class="message">[<a href="#T12:55:00" id="T12:55:00"><abbr title="2009-11-02T12:55:00+00:00">12:55:00</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>and on GPIO 140 I got a UART ?</q></li>
+<li class="message">[<a href="#T12:55:16" id="T12:55:16"><abbr title="2009-11-02T12:55:16+00:00">12:55:16</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>(mode 1 is the uart mode)</q></li>
+<li class="message">[<a href="#T12:55:33" id="T12:55:33"><abbr title="2009-11-02T12:55:33+00:00">12:55:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and the question is?</q></li>
+<li class="message">[<a href="#T12:55:36" id="T12:55:36"><abbr title="2009-11-02T12:55:36+00:00">12:55:36</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T12:55:48" id="T12:55:48"><abbr title="2009-11-02T12:55:48+00:00">12:55:48</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>GPIO becomes a UART ?</q></li>
+<li class="message">[<a href="#T12:57:38" id="T12:57:38"><abbr title="2009-11-02T12:57:38+00:00">12:57:38</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>hmmm if I change the mode from 4 to 1 where 4 is gpio140 and 1 is uart does the gpio140 becomes a uart ? or is it just disabled ?</q></li>
+<li class="nick-change">[<a href="#T12:57:44" id="T12:57:44"><abbr title="2009-11-02T12:57:44+00:00">12:57:44</abbr></a>] <span>* hrw is now known as hrw|gone</span></li>
+<li class="message">[<a href="#T12:58:07" id="T12:58:07"><abbr title="2009-11-02T12:58:07+00:00">12:58:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>WeCool: pinmux decides whether you see GPIO or UART on the pin</q></li>
+<li class="message">[<a href="#T12:58:18" id="T12:58:18"><abbr title="2009-11-02T12:58:18+00:00">12:58:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it does not affect at all the GPIO or UART block</q></li>
+<li class="message">[<a href="#T12:59:36" id="T12:59:36"><abbr title="2009-11-02T12:59:36+00:00">12:59:36</abbr></a>] &lt;<cite>WeCool</cite>&gt; <q>av500: hmm I don't get it entirely ... If I want a UART on the GPIOs how do I do ?</q></li>
+<li class="message">[<a href="#T12:59:58" id="T12:59:58"><abbr title="2009-11-02T12:59:58+00:00">12:59:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you setup the pixmux to have uart on the pin</q></li>
