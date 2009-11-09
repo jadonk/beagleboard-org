@@ -118,3 +118,52 @@
 <li class="message">[<a href="#T07:59:11" id="T07:59:11"><abbr title="2009-11-09T07:59:11+00:00">07:59:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sounds like what I am seeing</q></li>
 <li class="message">[<a href="#T07:59:32" id="T07:59:32"><abbr title="2009-11-09T07:59:32+00:00">07:59:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>other then that, the code has been relatively stable even for S-Video output</q></li>
 <li class="message">[<a href="#T08:00:02" id="T08:00:02"><abbr title="2009-11-09T08:00:02+00:00">08:00:02</abbr></a>] &lt;<cite>tomba</cite>&gt; <q>what do you mean, "relatively"? =)</q></li>
+<li class="message">[<a href="#T08:00:37" id="T08:00:37"><abbr title="2009-11-09T08:00:37+00:00">08:00:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the version I am using is very picky about the order of commands to sysfs for S-Video</q></li>
+<li class="join">[<a href="#T08:02:07" id="T08:02:07"><abbr title="2009-11-09T08:02:07+00:00">08:02:07</abbr></a>] <span>* courville (n=courvill@archos.rain.fr) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:02:36" id="T08:02:36"><abbr title="2009-11-09T08:02:36+00:00">08:02:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>tomba: do you know if the DSS supports outputing w/o any H-Sync or V-Sync pulses i.e. just clocking out the pixels nonstop w/o a pause for h-sync or v-sync?</q></li>
+<li class="message">[<a href="#T08:03:06" id="T08:03:06"><abbr title="2009-11-09T08:03:06+00:00">08:03:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: 0 porch sizes?</q></li>
+<li class="message">[<a href="#T08:03:12" id="T08:03:12"><abbr title="2009-11-09T08:03:12+00:00">08:03:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: yes</q></li>
+<li class="message">[<a href="#T08:03:25" id="T08:03:25"><abbr title="2009-11-09T08:03:25+00:00">08:03:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>prolly be setting 0 porch sizes</q></li>
+<li class="message">[<a href="#T08:03:28" id="T08:03:28"><abbr title="2009-11-09T08:03:28+00:00">08:03:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>by</q></li>
+<li class="message">[<a href="#T08:03:59" id="T08:03:59"><abbr title="2009-11-09T08:03:59+00:00">08:03:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: the unknown is if that will really do that or will do a min. of 1 clock </q></li>
+<li class="quit">[<a href="#T08:04:20" id="T08:04:20"><abbr title="2009-11-09T08:04:20+00:00">08:04:20</abbr></a>] <span>* _koen_ (n=x0115699@nat/ti/x-oruotyvafvewdkdz) Quit (Remote closed the connection)</span></li>
+<li class="message">[<a href="#T08:04:38" id="T08:04:38"><abbr title="2009-11-09T08:04:38+00:00">08:04:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: TRM should know</q></li>
+<li class="message">[<a href="#T08:05:12" id="T08:05:12"><abbr title="2009-11-09T08:05:12+00:00">08:05:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: I'll dig through it eventually</q></li>
+<li class="message">[<abbr title="2009-11-09T08:05:12+00:00">08:05:12</abbr>] &lt;<cite>tomba</cite>&gt; <q>I haven't checked, but I would guess DSS can do it with 0 sizes, as DSI and RFBI don't need any pauses</q></li>
+<li class="message">[<a href="#T08:05:55" id="T08:05:55"><abbr title="2009-11-09T08:05:55+00:00">08:05:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Oh right forgot the other modes</q></li>
+<li class="message">[<a href="#T08:06:34" id="T08:06:34"><abbr title="2009-11-09T08:06:34+00:00">08:06:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: and if not, there always a lil CPLD to make it behave :)</q></li>
+<li class="message">[<a href="#T08:07:46" id="T08:07:46"><abbr title="2009-11-09T08:07:46+00:00">08:07:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: that won't work for what I am thinking of</q></li>
+<li class="message">[<a href="#T08:08:21" id="T08:08:21"><abbr title="2009-11-09T08:08:21+00:00">08:08:21</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you need it "in sync"...</q></li>
+<li class="message">[<a href="#T08:08:35" id="T08:08:35"><abbr title="2009-11-09T08:08:35+00:00">08:08:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>basically</q></li>
+<li class="message">[<a href="#T08:08:38" id="T08:08:38"><abbr title="2009-11-09T08:08:38+00:00">08:08:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>every pixel at the right time</q></li>
+<li class="message">[<a href="#T08:08:59" id="T08:08:59"><abbr title="2009-11-09T08:08:59+00:00">08:08:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>to drive a laser scanner for a 30' display :)</q></li>
+<li class="message">[<a href="#T08:09:23" id="T08:09:23"><abbr title="2009-11-09T08:09:23+00:00">08:09:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it isn't even a display</q></li>
+<li class="message">[<a href="#T08:09:40" id="T08:09:40"><abbr title="2009-11-09T08:09:40+00:00">08:09:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ah, direct to retina! nice</q></li>
+<li class="message">[<a href="#T08:09:49" id="T08:09:49"><abbr title="2009-11-09T08:09:49+00:00">08:09:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>keep the laser power low....</q></li>
+<li class="message">[<a href="#T08:09:50" id="T08:09:50"><abbr title="2009-11-09T08:09:50+00:00">08:09:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T08:10:04" id="T08:10:04"><abbr title="2009-11-09T08:10:04+00:00">08:10:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what's a few kilowatts for a nice braininterface ;)</q></li>
+<li class="message">[<a href="#T08:10:35" id="T08:10:35"><abbr title="2009-11-09T08:10:35+00:00">08:10:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sm ppl could profit from it :)</q></li>
+<li class="message">[<a href="#T08:10:41" id="T08:10:41"><abbr title="2009-11-09T08:10:41+00:00">08:10:41</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ok, time to head for airport</q></li>
+<li class="message">[<a href="#T08:10:54" id="T08:10:54"><abbr title="2009-11-09T08:10:54+00:00">08:10:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Good luck,Crofton</q></li>
+<li class="message">[<a href="#T08:10:56" id="T08:10:56"><abbr title="2009-11-09T08:10:56+00:00">08:10:56</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>thanks</q></li>
+<li class="message">[<a href="#T08:11:04" id="T08:11:04"><abbr title="2009-11-09T08:11:04+00:00">08:11:04</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>always need it flying these days</q></li>
+<li class="message">[<a href="#T08:11:13" id="T08:11:13"><abbr title="2009-11-09T08:11:13+00:00">08:11:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>and for dealing with immigration and customs ....</q></li>
+<li class="message">[<a href="#T08:11:18" id="T08:11:18"><abbr title="2009-11-09T08:11:18+00:00">08:11:18</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>bye</q></li>
+<li class="message">[<a href="#T08:11:23" id="T08:11:23"><abbr title="2009-11-09T08:11:23+00:00">08:11:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I'd think it is less trouble to dog paddle the atlantic ;)</q></li>
+<li class="message">[<a href="#T08:11:24" id="T08:11:24"><abbr title="2009-11-09T08:11:24+00:00">08:11:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cu</q></li>
+<li class="quit">[<a href="#T08:11:30" id="T08:11:30"><abbr title="2009-11-09T08:11:30+00:00">08:11:30</abbr></a>] <span>* Crofton (n=balister@80-42-174-171.dynamic.dsl.as9105.com) Quit ("Leaving")</span></li>
+<li class="message">[<a href="#T08:12:43" id="T08:12:43"><abbr title="2009-11-09T08:12:43+00:00">08:12:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: try to immigrate as a dog...</q></li>
+<li class="message">[<a href="#T08:13:29" id="T08:13:29"><abbr title="2009-11-09T08:13:29+00:00">08:13:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Does VFP (or NEON?) support sin/cos in hw?</q></li>
+<li class="message">[<a href="#T08:14:01" id="T08:14:01"><abbr title="2009-11-09T08:14:01+00:00">08:14:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T08:14:37" id="T08:14:37"><abbr title="2009-11-09T08:14:37+00:00">08:14:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>neon at least</q></li>
+<li class="message">[<a href="#T08:15:37" id="T08:15:37"><abbr title="2009-11-09T08:15:37+00:00">08:15:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hmm</q></li>
+<li class="join">[<a href="#T08:17:11" id="T08:17:11"><abbr title="2009-11-09T08:17:11+00:00">08:17:11</abbr></a>] <span>* paulg_ (i=d4bcb3d4@gateway/web/freenode/x-qacnjbjhvimdvgql) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:26:14" id="T08:26:14"><abbr title="2009-11-09T08:26:14+00:00">08:26:14</abbr></a>] <span>* _dash_ (i=728fe71b@gateway/web/freenode/x-jwmcetehxllgxtmd) Quit (Ping timeout: 180 seconds)</span></li>
+<li class="join">[<a href="#T08:32:45" id="T08:32:45"><abbr title="2009-11-09T08:32:45+00:00">08:32:45</abbr></a>] <span>* Barts_ (n=Barts@c-98-254-63-148.hsd1.fl.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:36:51" id="T08:36:51"><abbr title="2009-11-09T08:36:51+00:00">08:36:51</abbr></a>] <span>* ScriptRipper_ (n=mmohring@p4FDBDDAD.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:38:27" id="T08:38:27"><abbr title="2009-11-09T08:38:27+00:00">08:38:27</abbr></a>] <span>* abitos (n=nixgibts@e180096142.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:43:57" id="T08:43:57"><abbr title="2009-11-09T08:43:57+00:00">08:43:57</abbr></a>] <span>* PhastPhrog (n=chatzill@ip-87-82-198-210.easynet.co.uk) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:50:03" id="T08:50:03"><abbr title="2009-11-09T08:50:03+00:00">08:50:03</abbr></a>] <span>* azaghal_ (n=azaghal@91.148.113.100) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:50:44" id="T08:50:44"><abbr title="2009-11-09T08:50:44+00:00">08:50:44</abbr></a>] <span>* mikhas (n=mikhas@86.56.57.78) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:52:12" id="T08:52:12"><abbr title="2009-11-09T08:52:12+00:00">08:52:12</abbr></a>] <span>* ssvb (n=ssvb___@a88-112-120-50.elisa-laajakaista.fi) Quit ("Leaving")</span></li>
+<li class="quit">[<a href="#T08:52:23" id="T08:52:23"><abbr title="2009-11-09T08:52:23+00:00">08:52:23</abbr></a>] <span>* azaghal (n=azaghal@212.178.230.214) Quit (Read error: 60 (Operation timed out))</span></li>
