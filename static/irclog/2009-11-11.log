@@ -241,3 +241,77 @@
 <li class="quit">[<a href="#T05:44:45" id="T05:44:45"><abbr title="2009-11-11T05:44:45+00:00">05:44:45</abbr></a>] <span>* djlewis (n=djlewis@75.15.64.250) Quit (Read error: 110 (Connection timed out))</span></li>
 <li class="join">[<a href="#T05:57:01" id="T05:57:01"><abbr title="2009-11-11T05:57:01+00:00">05:57:01</abbr></a>] <span>* rs (i=3b6100e8@gateway/web/freenode/x-ktdcrphrudhjissr) has joined #beagle</span></li>
 <li class="message">[<a href="#T05:58:13" id="T05:58:13"><abbr title="2009-11-11T05:58:13+00:00">05:58:13</abbr></a>] &lt;<cite>rs</cite>&gt; <q>has anyone tested USB power management? does it work?</q></li>
+<li class="quit">[<a href="#T06:01:13" id="T06:01:13"><abbr title="2009-11-11T06:01:13+00:00">06:01:13</abbr></a>] <span>* rs (i=3b6100e8@gateway/web/freenode/x-ktdcrphrudhjissr) Quit (Ping timeout: 180 seconds)</span></li>
+<li class="message">[<a href="#T06:04:54" id="T06:04:54"><abbr title="2009-11-11T06:04:54+00:00">06:04:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>*splat*</q></li>
+<li class="message">[<a href="#T06:05:04" id="T06:05:04"><abbr title="2009-11-11T06:05:04+00:00">06:05:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>USB power management used to sort of work ;)</q></li>
+<li class="message">[<a href="#T06:08:22" id="T06:08:22"><abbr title="2009-11-11T06:08:22+00:00">06:08:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>gm</q></li>
+<li class="message">[<a href="#T06:20:04" id="T06:20:04"><abbr title="2009-11-11T06:20:04+00:00">06:20:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that was when I tested it on another board ;)</q></li>
+<li class="message">[<a href="#T06:20:24" id="T06:20:24"><abbr title="2009-11-11T06:20:24+00:00">06:20:24</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>don't think there is a proper PM enabled kernel for the Beagle yet</q></li>
+<li class="message">[<a href="#T06:20:32" id="T06:20:32"><abbr title="2009-11-11T06:20:32+00:00">06:20:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>(that is freely available)</q></li>
+<li class="message">[<a href="#T06:22:07" id="T06:22:07"><abbr title="2009-11-11T06:22:07+00:00">06:22:07</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>looks like i'm in for a fun week of porting patches from other u-boot distros over to beagle</q></li>
+<li class="message">[<a href="#T06:23:51" id="T06:23:51"><abbr title="2009-11-11T06:23:51+00:00">06:23:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>GrizzlyAdams:what are you doing?</q></li>
+<li class="message">[<a href="#T06:24:26" id="T06:24:26"><abbr title="2009-11-11T06:24:26+00:00">06:24:26</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>hopefully making it easier to choose between multiple boot images without anything more than a usb keyboard and a monitor</q></li>
+<li class="message">[<a href="#T06:24:56" id="T06:24:56"><abbr title="2009-11-11T06:24:56+00:00">06:24:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why?</q></li>
+<li class="message">[<a href="#T06:25:21" id="T06:25:21"><abbr title="2009-11-11T06:25:21+00:00">06:25:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why not just 1boot image per SD card</q></li>
+<li class="message">[<a href="#T06:25:29" id="T06:25:29"><abbr title="2009-11-11T06:25:29+00:00">06:25:29</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>i've got a usb hdd with angstrom, debian, ubuntu, android all on it, and i hate to have to type run android on my dev pc</q></li>
+<li class="message">[<a href="#T06:26:20" id="T06:26:20"><abbr title="2009-11-11T06:26:20+00:00">06:26:20</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>also, rescue linux systems kind of need to be able to access the data they are to rescue :/  look at the recovery partition on most android phones</q></li>
+<li class="message">[<a href="#T06:26:38" id="T06:26:38"><abbr title="2009-11-11T06:26:38+00:00">06:26:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>okay, then why not just use the serial port?</q></li>
+<li class="message">[<a href="#T06:26:50" id="T06:26:50"><abbr title="2009-11-11T06:26:50+00:00">06:26:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>configure Uboot and type "run android" or "run ubuntu" etc?</q></li>
+<li class="message">[<a href="#T06:27:03" id="T06:27:03"><abbr title="2009-11-11T06:27:03+00:00">06:27:03</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>extra junk to carry around, when the uboot can be extended to do locally</q></li>
+<li class="message">[<a href="#T06:27:28" id="T06:27:28"><abbr title="2009-11-11T06:27:28+00:00">06:27:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>USBtty will let you do this with just the USB cable</q></li>
+<li class="message">[<a href="#T06:27:45" id="T06:27:45"><abbr title="2009-11-11T06:27:45+00:00">06:27:45</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>a usb cable, and a host to plug it into.</q></li>
+<li class="message">[<a href="#T06:28:24" id="T06:28:24"><abbr title="2009-11-11T06:28:24+00:00">06:28:24</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>theres good reasons for extending uboot</q></li>
+<li class="message">[<a href="#T06:28:37" id="T06:28:37"><abbr title="2009-11-11T06:28:37+00:00">06:28:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and there are good reason for not ;)</q></li>
+<li class="message">[<a href="#T06:28:51" id="T06:28:51"><abbr title="2009-11-11T06:28:51+00:00">06:28:51</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>nobody is forcing you to run my uboot.</q></li>
+<li class="message">[<a href="#T06:29:24" id="T06:29:24"><abbr title="2009-11-11T06:29:24+00:00">06:29:24</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>true</q></li>
+<li class="join">[<a href="#T06:29:38" id="T06:29:38"><abbr title="2009-11-11T06:29:38+00:00">06:29:38</abbr></a>] <span>* tasslehoff (n=Mich@147.84-49-231.nextgentel.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:29:39" id="T06:29:39"><abbr title="2009-11-11T06:29:39+00:00">06:29:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>just overall, mod'ing U-boot should be discouraged</q></li>
+<li class="message">[<a href="#T06:30:09" id="T06:30:09"><abbr title="2009-11-11T06:30:09+00:00">06:30:09</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>and its not like its using all of the 2MB partition set aside for it.</q></li>
+<li class="message">[<a href="#T06:30:43" id="T06:30:43"><abbr title="2009-11-11T06:30:43+00:00">06:30:43</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>heck, currently its 180KB</q></li>
+<li class="action">[<a href="#T06:30:52" id="T06:30:52"><abbr title="2009-11-11T06:30:52+00:00">06:30:52</abbr></a>] <span>* ds2 wishes Dave was here</span></li>
+<li class="action">[<a href="#T06:30:59" id="T06:30:59"><abbr title="2009-11-11T06:30:59+00:00">06:30:59</abbr></a>] <span>* GrizzlyAdams waves</span></li>
+<li class="message">[<a href="#T06:31:05" id="T06:31:05"><abbr title="2009-11-11T06:31:05+00:00">06:31:05</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>my name is dave :D</q></li>
+<li class="message">[<a href="#T06:31:13" id="T06:31:13"><abbr title="2009-11-11T06:31:13+00:00">06:31:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>BAH... the OTHER dave ;)</q></li>
+<li class="message">[<a href="#T06:31:18" id="T06:31:18"><abbr title="2009-11-11T06:31:18+00:00">06:31:18</abbr></a>] &lt;<cite>ds</cite>&gt; <q>!</q></li>
+<li class="message">[<a href="#T06:31:21" id="T06:31:21"><abbr title="2009-11-11T06:31:21+00:00">06:31:21</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>you'll find theres alot of us daves out there</q></li>
+<li class="message">[<a href="#T06:31:23" id="T06:31:23"><abbr title="2009-11-11T06:31:23+00:00">06:31:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the one who thinks even 180K is too big</q></li>
+<li class="message">[<a href="#T06:31:36" id="T06:31:36"><abbr title="2009-11-11T06:31:36+00:00">06:31:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>think there is only one that thinks 180K is too big</q></li>
+<li class="message">[<a href="#T06:36:35" id="T06:36:35"><abbr title="2009-11-11T06:36:35+00:00">06:36:35</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>its not like i'm suggesting messing with x-loader</q></li>
+<li class="message">[<a href="#T06:37:19" id="T06:37:19"><abbr title="2009-11-11T06:37:19+00:00">06:37:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I'd suggest getting rid of it ;)</q></li>
+<li class="message">[<a href="#T06:37:30" id="T06:37:30"><abbr title="2009-11-11T06:37:30+00:00">06:37:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>we don't need no stinking x-loader ;)</q></li>
+<li class="message">[<a href="#T06:39:27" id="T06:39:27"><abbr title="2009-11-11T06:39:27+00:00">06:39:27</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>O_o</q></li>
+<li class="quit">[<a href="#T06:42:18" id="T06:42:18"><abbr title="2009-11-11T06:42:18+00:00">06:42:18</abbr></a>] <span>* NishanthMenon (n=nmenon@nat/ti/x-dbtprwqbsfkyfpqk) Quit ("Ex-Chat")</span></li>
+<li class="message">[<a href="#T06:42:55" id="T06:42:55"><abbr title="2009-11-11T06:42:55+00:00">06:42:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>make U-boot small enough and X-loader's goes away </q></li>
+<li class="message">[<a href="#T06:43:40" id="T06:43:40"><abbr title="2009-11-11T06:43:40+00:00">06:43:40</abbr></a>] &lt;<cite>ds</cite>&gt; <q>u-boot is larger than 180k?</q></li>
+<li class="message">[<a href="#T06:43:45" id="T06:43:45"><abbr title="2009-11-11T06:43:45+00:00">06:43:45</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>heh, x-loader has a purpose, a three-stage boot process makes more sense than you think</q></li>
+<li class="message">[<a href="#T06:44:43" id="T06:44:43"><abbr title="2009-11-11T06:44:43+00:00">06:44:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>GrizzlyAdams: this is amusing... I have argued your side with prpplague</q></li>
+<li class="message">[<a href="#T06:45:05" id="T06:45:05"><abbr title="2009-11-11T06:45:05+00:00">06:45:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ds: no, x-loader is needed cuz U-boot is so big</q></li>
+<li class="quit">[<a href="#T06:46:41" id="T06:46:41"><abbr title="2009-11-11T06:46:41+00:00">06:46:41</abbr></a>] <span>* BThompsonGT (n=bernie@cpe-66-25-17-127.tx.res.rr.com) Quit (Read error: 104 (Connection reset by peer))</span></li>
+<li class="action">[<a href="#T06:46:57" id="T06:46:57"><abbr title="2009-11-11T06:46:57+00:00">06:46:57</abbr></a>] <span>* av500 wants 720p in uboot</span></li>
+<li class="message">[<a href="#T06:47:35" id="T06:47:35"><abbr title="2009-11-11T06:47:35+00:00">06:47:35</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>av500: YES!</q></li>
+<li class="message">[<a href="#T06:47:40" id="T06:47:40"><abbr title="2009-11-11T06:47:40+00:00">06:47:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: you don't have that yet in your HW? ;)</q></li>
+<li class="message">[<a href="#T06:48:15" id="T06:48:15"><abbr title="2009-11-11T06:48:15+00:00">06:48:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: I want every day for the boos to ask for an animated full HD boot logo</q></li>
+<li class="message">[<a href="#T06:48:17" id="T06:48:17"><abbr title="2009-11-11T06:48:17+00:00">06:48:17</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>i noticed our u-boot lacks some of the nifty stuff other u-boots have, like loading of bitmaps</q></li>
+<li class="message">[<a href="#T06:48:21" id="T06:48:21"><abbr title="2009-11-11T06:48:21+00:00">06:48:21</abbr></a>] &lt;<cite>av500</cite>&gt; <q>want-&gt;wait</q></li>
+<li class="message">[<a href="#T06:48:52" id="T06:48:52"><abbr title="2009-11-11T06:48:52+00:00">06:48:52</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>av500: mngs!</q></li>
+<li class="message">[<a href="#T06:48:58" id="T06:48:58"><abbr title="2009-11-11T06:48:58+00:00">06:48:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you wouldnt believe how much effort we spent into making the bootloader kernel transition not flicker the LCD...</q></li>
+<li class="join">[<a href="#T06:49:10" id="T06:49:10"><abbr title="2009-11-11T06:49:10+00:00">06:49:10</abbr></a>] <span>* _dash_ (i=728fe71b@gateway/web/freenode/x-ymaxwbycnurcaxjd) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:49:17" id="T06:49:17"><abbr title="2009-11-11T06:49:17+00:00">06:49:17</abbr></a>] &lt;<cite>_dash_</cite>&gt; <q>hi all</q></li>
+<li class="action">[<a href="#T06:49:25" id="T06:49:25"><abbr title="2009-11-11T06:49:25+00:00">06:49:25</abbr></a>] <span>* GrizzlyAdams wonders what av500 is working on</span></li>
+<li class="message">[<a href="#T06:49:43" id="T06:49:43"><abbr title="2009-11-11T06:49:43+00:00">06:49:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>google av500</q></li>
+<li class="message">[<a href="#T06:49:49" id="T06:49:49"><abbr title="2009-11-11T06:49:49+00:00">06:49:49</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>archos?</q></li>
+<li class="message">[<a href="#T06:50:29" id="T06:50:29"><abbr title="2009-11-11T06:50:29+00:00">06:50:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: so your bootloader kernel now blocks on VB? ;)</q></li>
+<li class="message">[<a href="#T06:50:34" id="T06:50:34"><abbr title="2009-11-11T06:50:34+00:00">06:50:34</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>or toshiba?</q></li>
+<li class="message">[<a href="#T06:50:52" id="T06:50:52"><abbr title="2009-11-11T06:50:52+00:00">06:50:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>a*</q></li>
+<li class="message">[<a href="#T06:51:22" id="T06:51:22"><abbr title="2009-11-11T06:51:22+00:00">06:51:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: which display driver do you guys use? DSS2 or the old stuff?</q></li>
+<li class="message">[<a href="#T06:51:34" id="T06:51:34"><abbr title="2009-11-11T06:51:34+00:00">06:51:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>atm we use a somewhat older version of dss2</q></li>
+<li class="message">[<a href="#T06:51:37" id="T06:51:37"><abbr title="2009-11-11T06:51:37+00:00">06:51:37</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q>time for me to initiate sleep mode</q></li>
+<li class="message">[<a href="#T06:51:42" id="T06:51:42"><abbr title="2009-11-11T06:51:42+00:00">06:51:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or did you went with your own version  of the hybrid TI driver?</q></li>
+<li class="message">[<a href="#T06:51:52" id="T06:51:52"><abbr title="2009-11-11T06:51:52+00:00">06:51:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>last year, the "older" stuff</q></li>
+<li class="message">[<abbr title="2009-11-11T06:51:52+00:00">06:51:52</abbr>] &lt;<cite>_dash_</cite>&gt; <q>av500: Or r u portable video player ??</q></li>
+<li class="message">[<a href="#T06:51:59" id="T06:51:59"><abbr title="2009-11-11T06:51:59+00:00">06:51:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I am</q></li>
+<li class="message">[<a href="#T06:52:02" id="T06:52:02"><abbr title="2009-11-11T06:52:02+00:00">06:52:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>later GrizzlyAdams</q></li>
+<li class="message">[<a href="#T06:52:15" id="T06:52:15"><abbr title="2009-11-11T06:52:15+00:00">06:52:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: hybrid?</q></li>
+<li class="message">[<a href="#T06:52:36" id="T06:52:36"><abbr title="2009-11-11T06:52:36+00:00">06:52:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: yeah.. the reference kernel driver ported to the L-O tree</q></li>
+<li class="message">[<a href="#T06:52:45" id="T06:52:45"><abbr title="2009-11-11T06:52:45+00:00">06:52:45</abbr></a>] &lt;<cite>_dash_</cite>&gt; <q>Can anybody mpoint me to Linux kernel IRC ?</q></li>
+<li class="message">[<a href="#T06:53:05" id="T06:53:05"><abbr title="2009-11-11T06:53:05+00:00">06:53:05</abbr></a>] &lt;<cite>_dash_</cite>&gt; <q>Can anybody point me to Linux kernel IRC ? (if there is any)</q></li>
