@@ -1068,3 +1068,69 @@
 <li class="message">[<a href="#T20:57:43" id="T20:57:43"><abbr title="2010-01-05T20:57:43+00:00">20:57:43</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>so maybe its a framing / alignment issue in the USB stack</q></li>
 <li class="message">[<a href="#T20:59:16" id="T20:59:16"><abbr title="2010-01-05T20:59:16+00:00">20:59:16</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>gonna try some different kernels and see what happens</q></li>
 <li class="message">[<a href="#T20:59:31" id="T20:59:31"><abbr title="2010-01-05T20:59:31+00:00">20:59:31</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>i at least have a reproducable case</q></li>
+<li class="message">[<a href="#T21:00:40" id="T21:00:40"><abbr title="2010-01-05T21:00:40+00:00">21:00:40</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>maybe i should just write a script that cat 's repeatedly</q></li>
+<li class="message">[<a href="#T21:01:02" id="T21:01:02"><abbr title="2010-01-05T21:01:02+00:00">21:01:02</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>if its a usb issue, it would have to show up durring one of the cats</q></li>
+<li class="message">[<a href="#T21:01:03" id="T21:01:03"><abbr title="2010-01-05T21:01:03+00:00">21:01:03</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>crashovrd, was gonna suggest using dd</q></li>
+<li class="message">[<a href="#T21:01:10" id="T21:01:10"><abbr title="2010-01-05T21:01:10+00:00">21:01:10</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>specifying the readsize</q></li>
+<li class="message">[<a href="#T21:01:22" id="T21:01:22"><abbr title="2010-01-05T21:01:22+00:00">21:01:22</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>dd if=/dev/sdwhatever bs=65536 of=/dev/null</q></li>
+<li class="message">[<a href="#T21:02:02" id="T21:02:02"><abbr title="2010-01-05T21:02:02+00:00">21:02:02</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>k, i will try that</q></li>
+<li class="message">[<a href="#T21:03:51" id="T21:03:51"><abbr title="2010-01-05T21:03:51+00:00">21:03:51</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>k, its running</q></li>
+<li class="message">[<a href="#T21:04:05" id="T21:04:05"><abbr title="2010-01-05T21:04:05+00:00">21:04:05</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>its a 4GB flash drive, so should be a good test</q></li>
+<li class="part">[<a href="#T21:06:19" id="T21:06:19"><abbr title="2010-01-05T21:06:19+00:00">21:06:19</abbr></a>] <span>* ssweeny (n=ssweeny@64.251.17.49) has left #beagle</span></li>
+<li class="message">[<a href="#T21:06:46" id="T21:06:46"><abbr title="2010-01-05T21:06:46+00:00">21:06:46</abbr></a>] &lt;<cite>philo</cite>&gt; <q>jow can i check if a particular bluetooth dongle is compatible with the beagle ?</q></li>
+<li class="message">[<a href="#T21:07:50" id="T21:07:50"><abbr title="2010-01-05T21:07:50+00:00">21:07:50</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>boom! it failed</q></li>
+<li class="message">[<a href="#T21:07:58" id="T21:07:58"><abbr title="2010-01-05T21:07:58+00:00">21:07:58</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>3.5GB into the transfer</q></li>
+<li class="message">[<a href="#T21:08:06" id="T21:08:06"><abbr title="2010-01-05T21:08:06+00:00">21:08:06</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>so its not a factor of the data being tranfered</q></li>
+<li class="message">[<a href="#T21:08:20" id="T21:08:20"><abbr title="2010-01-05T21:08:20+00:00">21:08:20</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>it still seems to be a issue with the amount of time</q></li>
+<li class="message">[<a href="#T21:08:45" id="T21:08:45"><abbr title="2010-01-05T21:08:45+00:00">21:08:45</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>because longer transfers in time, not size, are failing, shorter transfers are not</q></li>
+<li class="message">[<a href="#T21:10:52" id="T21:10:52"><abbr title="2010-01-05T21:10:52+00:00">21:10:52</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>get the same message</q></li>
+<li class="message">[<a href="#T21:10:54" id="T21:10:54"><abbr title="2010-01-05T21:10:54+00:00">21:10:54</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>"hub 1-0:1.0: port 2 disabled by hub (EMI?), re-enabling..."</q></li>
+<li class="join">[<a href="#T21:13:38" id="T21:13:38"><abbr title="2010-01-05T21:13:38+00:00">21:13:38</abbr></a>] <span>* bisco (i=5a930164@gateway/web/freenode/x-yjmwmprvcsfuwhii) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:14:25" id="T21:14:25"><abbr title="2010-01-05T21:14:25+00:00">21:14:25</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>i find it interesting that even though it says its "re-enabling"</q></li>
+<li class="message">[<a href="#T21:14:35" id="T21:14:35"><abbr title="2010-01-05T21:14:35+00:00">21:14:35</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>the port is never useful again without a warm boot</q></li>
+<li class="join">[<a href="#T21:14:56" id="T21:14:56"><abbr title="2010-01-05T21:14:56+00:00">21:14:56</abbr></a>] <span>* __alanc__ (n=a-campbe@nat/ti/x-jciscfpouxrzhrai) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:15:00" id="T21:15:00"><abbr title="2010-01-05T21:15:00+00:00">21:15:00</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>if i unplug the usb device and plug it back in, it does not function</q></li>
+<li class="quit">[<a href="#T21:21:36" id="T21:21:36"><abbr title="2010-01-05T21:21:36+00:00">21:21:36</abbr></a>] <span>* ppotera (n=ppotera@c-69-243-129-126.hsd1.il.comcast.net) Quit ()</span></li>
+<li class="join">[<a href="#T21:24:26" id="T21:24:26"><abbr title="2010-01-05T21:24:26+00:00">21:24:26</abbr></a>] <span>* courville (n=courvill@courville.org) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:25:07" id="T21:25:07"><abbr title="2010-01-05T21:25:07+00:00">21:25:07</abbr></a>] <span>* rcranetx (n=rcranetx@nat/ti/x-abppucljhpkjcxlq) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:26:56" id="T21:26:56"><abbr title="2010-01-05T21:26:56+00:00">21:26:56</abbr></a>] &lt;<cite>wandern</cite>&gt; <q>if usb is loaded via kernel module</q></li>
+<li class="message">[<a href="#T21:27:06" id="T21:27:06"><abbr title="2010-01-05T21:27:06+00:00">21:27:06</abbr></a>] &lt;<cite>wandern</cite>&gt; <q>have you tried unloading and reloading it?</q></li>
+<li class="message">[<a href="#T21:27:38" id="T21:27:38"><abbr title="2010-01-05T21:27:38+00:00">21:27:38</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>usb is compiled in</q></li>
+<li class="message">[<a href="#T21:27:43" id="T21:27:43"><abbr title="2010-01-05T21:27:43+00:00">21:27:43</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>i just ran the dd test agian</q></li>
+<li class="message">[<a href="#T21:27:50" id="T21:27:50"><abbr title="2010-01-05T21:27:50+00:00">21:27:50</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>this time it failed at 1.3GB in</q></li>
+<li class="message">[<a href="#T21:28:03" id="T21:28:03"><abbr title="2010-01-05T21:28:03+00:00">21:28:03</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>so it does appear to be "random" as described in the tech notes </q></li>
+<li class="message">[<a href="#T21:28:18" id="T21:28:18"><abbr title="2010-01-05T21:28:18+00:00">21:28:18</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>i have tried the cap across C97</q></li>
+<li class="message">[<a href="#T21:28:29" id="T21:28:29"><abbr title="2010-01-05T21:28:29+00:00">21:28:29</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>and i currently have the cap across the expansion port</q></li>
+<li class="message">[<a href="#T21:28:34" id="T21:28:34"><abbr title="2010-01-05T21:28:34+00:00">21:28:34</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>...</q></li>
+<li class="message">[<a href="#T21:28:41" id="T21:28:41"><abbr title="2010-01-05T21:28:41+00:00">21:28:41</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>so, do i RMA my Beagle now?</q></li>
+<li class="message">[<a href="#T21:28:43" id="T21:28:43"><abbr title="2010-01-05T21:28:43+00:00">21:28:43</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>:)</q></li>
+<li class="quit">[<a href="#T21:30:26" id="T21:30:26"><abbr title="2010-01-05T21:30:26+00:00">21:30:26</abbr></a>] <span>* rcranetx (n=rcranetx@nat/ti/x-abppucljhpkjcxlq) Quit ("Leaving.")</span></li>
+<li class="quit">[<a href="#T21:32:03" id="T21:32:03"><abbr title="2010-01-05T21:32:03+00:00">21:32:03</abbr></a>] <span>* courville (n=courvill@courville.org) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="quit">[<a href="#T21:33:57" id="T21:33:57"><abbr title="2010-01-05T21:33:57+00:00">21:33:57</abbr></a>] <span>* Olipro (n=Olipro@uncyclopedia/pdpc.active.olipro) Quit (Read error: 54 (Connection reset by peer))</span></li>
+<li class="join">[<a href="#T21:34:26" id="T21:34:26"><abbr title="2010-01-05T21:34:26+00:00">21:34:26</abbr></a>] <span>* Olipro (n=Olipro@uncyclopedia/pdpc.active.olipro) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-01-05T21:34:26+00:00">21:34:26</abbr>] <span>* rcranetx (n=rcranetx@nat/ti/x-aargpiubzbpipkcn) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:43:37" id="T21:43:37"><abbr title="2010-01-05T21:43:37+00:00">21:43:37</abbr></a>] <span>* orbarron (n=orb@nat/ti/x-ldktilicqwsqkrmx) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:44:34" id="T21:44:34"><abbr title="2010-01-05T21:44:34+00:00">21:44:34</abbr></a>] &lt;<cite>orbarron</cite>&gt; <q>koen : ping</q></li>
+<li class="join">[<a href="#T21:45:50" id="T21:45:50"><abbr title="2010-01-05T21:45:50+00:00">21:45:50</abbr></a>] <span>* natrix (i=62e580b9@gateway/web/freenode/x-eeumrflejvkwsxbm) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:46:13" id="T21:46:13"><abbr title="2010-01-05T21:46:13+00:00">21:46:13</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>hello</q></li>
+<li class="message">[<a href="#T21:46:25" id="T21:46:25"><abbr title="2010-01-05T21:46:25+00:00">21:46:25</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>does anyone know anything about how to get USB working on a rev B5 board?</q></li>
+<li class="message">[<a href="#T21:47:03" id="T21:47:03"><abbr title="2010-01-05T21:47:03+00:00">21:47:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>magically transform it into a C4</q></li>
+<li class="message">[<a href="#T21:47:28" id="T21:47:28"><abbr title="2010-01-05T21:47:28+00:00">21:47:28</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>well i have a powered hub and the correct mini-A to standard-A female</q></li>
+<li class="message">[<a href="#T21:47:47" id="T21:47:47"><abbr title="2010-01-05T21:47:47+00:00">21:47:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh, that usb</q></li>
+<li class="message">[<a href="#T21:47:52" id="T21:47:52"><abbr title="2010-01-05T21:47:52+00:00">21:47:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that should Just Work (tm)</q></li>
+<li class="message">[<a href="#T21:47:54" id="T21:47:54"><abbr title="2010-01-05T21:47:54+00:00">21:47:54</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>it boots to the angstrom demo</q></li>
+<li class="message">[<a href="#T21:48:06" id="T21:48:06"><abbr title="2010-01-05T21:48:06+00:00">21:48:06</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>and asks me to enter credentials in the gui</q></li>
+<li class="message">[<a href="#T21:48:11" id="T21:48:11"><abbr title="2010-01-05T21:48:11+00:00">21:48:11</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>but the keyboard and mouse aren't working</q></li>
+<li class="message">[<a href="#T21:48:29" id="T21:48:29"><abbr title="2010-01-05T21:48:29+00:00">21:48:29</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>i am using a terminal over the serial port which works</q></li>
+<li class="message">[<a href="#T21:49:11" id="T21:49:11"><abbr title="2010-01-05T21:49:11+00:00">21:49:11</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>i don't even know if that's the right build to start working on</q></li>
+<li class="message">[<a href="#T21:50:10" id="T21:50:10"><abbr title="2010-01-05T21:50:10+00:00">21:50:10</abbr></a>] &lt;<cite>natrix</cite>&gt; <q>i'm a n00b</q></li>
+<li class="quit">[<a href="#T21:50:23" id="T21:50:23"><abbr title="2010-01-05T21:50:23+00:00">21:50:23</abbr></a>] <span>* SplasH (i=5dc8ec10@gateway/web/freenode/x-ikaihbfcfslkriad) Quit ("Page closed")</span></li>
+<li class="join">[<a href="#T21:50:42" id="T21:50:42"><abbr title="2010-01-05T21:50:42+00:00">21:50:42</abbr></a>] <span>* robtow (n=robtow@dsl092-218-034.sfo2.dsl.speakeasy.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:56:53" id="T21:56:53"><abbr title="2010-01-05T21:56:53+00:00">21:56:53</abbr></a>] <span>* Meizirkki (n=Meizirkk@bbwirelessgw2-fee1dc00-2.dhcp.inet.fi) Quit (Remote closed the connection)</span></li>
+<li class="join">[<a href="#T21:58:20" id="T21:58:20"><abbr title="2010-01-05T21:58:20+00:00">21:58:20</abbr></a>] <span>* ppotera (n=ppotera@c-69-243-129-126.hsd1.il.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:58:49" id="T21:58:49"><abbr title="2010-01-05T21:58:49+00:00">21:58:49</abbr></a>] &lt;<cite>wandern</cite>&gt; <q>default username is root</q></li>
+<li class="message">[<a href="#T21:58:51" id="T21:58:51"><abbr title="2010-01-05T21:58:51+00:00">21:58:51</abbr></a>] &lt;<cite>wandern</cite>&gt; <q>password is blank</q></li>
+<li class="message">[<a href="#T21:59:00" id="T21:59:00"><abbr title="2010-01-05T21:59:00+00:00">21:59:00</abbr></a>] &lt;<cite>wandern</cite>&gt; <q>i.e, no password</q></li>
+<li class="message">[<a href="#T21:59:13" id="T21:59:13"><abbr title="2010-01-05T21:59:13+00:00">21:59:13</abbr></a>] &lt;<cite>wandern</cite>&gt; <q>are keyboard and mouse on a powered USB hub?</q></li>
+<li class="message">[<a href="#T21:59:40" id="T21:59:40"><abbr title="2010-01-05T21:59:40+00:00">21:59:40</abbr></a>] &lt;<cite>philo</cite>&gt; <q>anyone have  can sugest a good lcd screen to go with the beagle</q></li>
+<li class="join">[<a href="#T21:59:53" id="T21:59:53"><abbr title="2010-01-05T21:59:53+00:00">21:59:53</abbr></a>] <span>* GeneralAntilles (n=ryan@c-68-59-55-171.hsd1.fl.comcast.net) has joined #beagle</span></li>
