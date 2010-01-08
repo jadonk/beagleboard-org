@@ -297,3 +297,28 @@
 <li class="join">[<a href="#T04:37:42" id="T04:37:42"><abbr title="2010-01-08T04:37:42+00:00">04:37:42</abbr></a>] <span>* ppotera (n=ppotera@c-69-243-129-126.hsd1.il.comcast.net) has joined #beagle</span></li>
 <li class="message">[<a href="#T04:45:15" id="T04:45:15"><abbr title="2010-01-08T04:45:15+00:00">04:45:15</abbr></a>] &lt;<cite>philo</cite>&gt; <q>ok</q></li>
 <li class="quit">[<a href="#T04:52:29" id="T04:52:29"><abbr title="2010-01-08T04:52:29+00:00">04:52:29</abbr></a>] <span>* LegoMeEgo (n=jciccone@pool-71-187-243-198.nwrknj.fios.verizon.net) Quit (Read error: 110 (Connection timed out))</span></li>
+<li class="quit">[<a href="#T05:03:26" id="T05:03:26"><abbr title="2010-01-08T05:03:26+00:00">05:03:26</abbr></a>] <span>* philo (i=4618dd8c@gateway/web/freenode/x-jpsxemmgwpcjywzx) Quit (Ping timeout: 180 seconds)</span></li>
+<li class="quit">[<a href="#T05:05:09" id="T05:05:09"><abbr title="2010-01-08T05:05:09+00:00">05:05:09</abbr></a>] <span>* ppotera (n=ppotera@c-69-243-129-126.hsd1.il.comcast.net) Quit ()</span></li>
+<li class="join">[<a href="#T05:09:00" id="T05:09:00"><abbr title="2010-01-08T05:09:00+00:00">05:09:00</abbr></a>] <span>* jrmuizel (n=jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T05:10:08" id="T05:10:08"><abbr title="2010-01-08T05:10:08+00:00">05:10:08</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T05:10:12" id="T05:10:12"><abbr title="2010-01-08T05:10:12+00:00">05:10:12</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>trying to modprobe dsplinkk.ko</q></li>
+<li class="message">[<a href="#T05:10:20" id="T05:10:20"><abbr title="2010-01-08T05:10:20+00:00">05:10:20</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>but for some reaosn it keeps saying it cant find the module</q></li>
+<li class="message">[<a href="#T05:10:33" id="T05:10:33"><abbr title="2010-01-08T05:10:33+00:00">05:10:33</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>even though the .ko file is right htere in ../kernel/drivers/dsp</q></li>
+<li class="message">[<a href="#T05:14:47" id="T05:14:47"><abbr title="2010-01-08T05:14:47+00:00">05:14:47</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>anyone have any ideas?</q></li>
+<li class="message">[<a href="#T05:19:40" id="T05:19:40"><abbr title="2010-01-08T05:19:40+00:00">05:19:40</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>Aditya1 trying doing an insmod with a direct path to the module</q></li>
+<li class="message">[<a href="#T05:23:33" id="T05:23:33"><abbr title="2010-01-08T05:23:33+00:00">05:23:33</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T05:23:34" id="T05:23:34"><abbr title="2010-01-08T05:23:34+00:00">05:23:34</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>that worke</q></li>
+<li class="message">[<a href="#T05:23:47" id="T05:23:47"><abbr title="2010-01-08T05:23:47+00:00">05:23:47</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>but mknod still not liking the parameters</q></li>
+<li class="message">[<a href="#T05:27:22" id="T05:27:22"><abbr title="2010-01-08T05:27:22+00:00">05:27:22</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>why would modprobe not find the module?</q></li>
+<li class="message">[<a href="#T05:27:55" id="T05:27:55"><abbr title="2010-01-08T05:27:55+00:00">05:27:55</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>most likely your module dependency file is not up to date</q></li>
+<li class="message">[<a href="#T05:29:04" id="T05:29:04"><abbr title="2010-01-08T05:29:04+00:00">05:29:04</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>ooh</q></li>
+<li class="message">[<a href="#T05:29:06" id="T05:29:06"><abbr title="2010-01-08T05:29:06+00:00">05:29:06</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>depmod -a</q></li>
+<li class="message">[<a href="#T05:29:08" id="T05:29:08"><abbr title="2010-01-08T05:29:08+00:00">05:29:08</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>fixed it</q></li>
+<li class="message">[<a href="#T05:29:13" id="T05:29:13"><abbr title="2010-01-08T05:29:13+00:00">05:29:13</abbr></a>] &lt;<cite>Aditya1</cite>&gt; <q>guess it was what you said heh</q></li>
+<li class="join">[<a href="#T05:29:28" id="T05:29:28"><abbr title="2010-01-08T05:29:28+00:00">05:29:28</abbr></a>] <span>* ZeZu (n=null@c-69-245-229-8.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="part">[<a href="#T05:29:46" id="T05:29:46"><abbr title="2010-01-08T05:29:46+00:00">05:29:46</abbr></a>] <span>* ZeZu (n=null@c-69-245-229-8.hsd1.in.comcast.net) has left #beagle</span></li>
+<li class="join">[<a href="#T05:35:33" id="T05:35:33"><abbr title="2010-01-08T05:35:33+00:00">05:35:33</abbr></a>] <span>* virals1 (n=Viral_Sa@59.97.2.149) has joined #beagle</span></li>
+<li class="quit">[<a href="#T05:36:26" id="T05:36:26"><abbr title="2010-01-08T05:36:26+00:00">05:36:26</abbr></a>] <span>* virals (n=Viral_Sa@59.97.1.193) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="message">[<a href="#T05:43:45" id="T05:43:45"><abbr title="2010-01-08T05:43:45+00:00">05:43:45</abbr></a>] &lt;<cite>GrizzlyAdams</cite>&gt; <q><a href="http://enna.geexbox.org/index.html">http://enna.geexbox.org/index.html</a> &lt;- looks promising</q></li>
+<li class="join">[<a href="#T05:56:07" id="T05:56:07"><abbr title="2010-01-08T05:56:07+00:00">05:56:07</abbr></a>] <span>* william (i=74e43a4a@gateway/web/freenode/x-msilntxfmrarbznu) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T05:56:36" id="T05:56:36"><abbr title="2010-01-08T05:56:36+00:00">05:56:36</abbr></a>] <span>* william is now known as Guest43937</span></li>
