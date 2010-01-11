@@ -343,3 +343,59 @@
 <li class="quit">[<a href="#T13:56:16" id="T13:56:16"><abbr title="2010-01-11T13:56:16+00:00">13:56:16</abbr></a>] <span>* raster (n=raster@enlightenment/developer/raster) Quit ("Gettin' stinky!")</span></li>
 <li class="message">[<a href="#T13:58:35" id="T13:58:35"><abbr title="2010-01-11T13:58:35+00:00">13:58:35</abbr></a>] &lt;<cite>hrw</cite>&gt; <q>av500: organize cables</q></li>
 <li class="quit">[<a href="#T13:59:37" id="T13:59:37"><abbr title="2010-01-11T13:59:37+00:00">13:59:37</abbr></a>] <span>* flo_lap (n=fuchs@Maemo/community/contributor/florian) Quit ("Verlassend")</span></li>
+<li class="message">[<a href="#T14:04:08" id="T14:04:08"><abbr title="2010-01-11T14:04:08+00:00">14:04:08</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>anyone know much about configuring ffmpeg for NEON... I get this error: "Unknown option "-mfloat-abi=softfp". See ./configure --help for available options. ffmpeg failed to configure"</q></li>
+<li class="message">[<a href="#T14:04:45" id="T14:04:45"><abbr title="2010-01-11T14:04:45+00:00">14:04:45</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>it used to work, has there been a recent change or something im missing?</q></li>
+<li class="message">[<a href="#T14:05:06" id="T14:05:06"><abbr title="2010-01-11T14:05:06+00:00">14:05:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you probably missed some quotes</q></li>
+<li class="message">[<a href="#T14:06:27" id="T14:06:27"><abbr title="2010-01-11T14:06:27+00:00">14:06:27</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>hmm, i do this: ./configure --arch=arm --cpu=cortex-a8 --extra-cflags="-mfpu=neon -mfloat-abi=softfp" --extra-ldflags="-mfpu=neon -mfloat-abi=softfp" ...etc</q></li>
+<li class="message">[<a href="#T14:06:51" id="T14:06:51"><abbr title="2010-01-11T14:06:51+00:00">14:06:51</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hrw: hmmm</q></li>
+<li class="message">[<a href="#T14:07:15" id="T14:07:15"><abbr title="2010-01-11T14:07:15+00:00">14:07:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>evidently not</q></li>
+<li class="message">[<a href="#T14:07:27" id="T14:07:27"><abbr title="2010-01-11T14:07:27+00:00">14:07:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>btw, you can drop that --extra-ldflags entirely</q></li>
+<li class="message">[<a href="#T14:07:32" id="T14:07:32"><abbr title="2010-01-11T14:07:32+00:00">14:07:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's not useful</q></li>
+<li class="message">[<a href="#T14:07:33" id="T14:07:33"><abbr title="2010-01-11T14:07:33+00:00">14:07:33</abbr></a>] &lt;<cite>florian</cite>&gt; <q>mcgeagh: yep... try what happens if you use ' instead of " for quoting.</q></li>
+<li class="message">[<a href="#T14:07:47" id="T14:07:47"><abbr title="2010-01-11T14:07:47+00:00">14:07:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that shouldn't make a difference</q></li>
+<li class="message">[<a href="#T14:07:52" id="T14:07:52"><abbr title="2010-01-11T14:07:52+00:00">14:07:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>is that in a script or something?</q></li>
+<li class="message">[<a href="#T14:07:59" id="T14:07:59"><abbr title="2010-01-11T14:07:59+00:00">14:07:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>could something be dequoting it twice?</q></li>
+<li class="message">[<a href="#T14:08:04" id="T14:08:04"><abbr title="2010-01-11T14:08:04+00:00">14:08:04</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>" is twice as much, it must be better</q></li>
+<li class="message">[<a href="#T14:08:05" id="T14:08:05"><abbr title="2010-01-11T14:08:05+00:00">14:08:05</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T14:08:16" id="T14:08:16"><abbr title="2010-01-11T14:08:16+00:00">14:08:16</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>ill check</q></li>
+<li class="quit">[<a href="#T14:08:26" id="T14:08:26"><abbr title="2010-01-11T14:08:26+00:00">14:08:26</abbr></a>] <span>* rcn-ee (n=voodoo@thief-pool1-30.mncable.net) Quit ("Leaving")</span></li>
+<li class="message">[<a href="#T14:10:29" id="T14:10:29"><abbr title="2010-01-11T14:10:29+00:00">14:10:29</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>florian, single quotation didnt work btw</q></li>
+<li class="message">[<a href="#T14:12:02" id="T14:12:02"><abbr title="2010-01-11T14:12:02+00:00">14:12:02</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>interesting</q></li>
+<li class="message">[<a href="#T14:12:29" id="T14:12:29"><abbr title="2010-01-11T14:12:29+00:00">14:12:29</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>if i swap the parameters in my cflags, it always moans about the latter</q></li>
+<li class="quit">[<a href="#T14:12:49" id="T14:12:49"><abbr title="2010-01-11T14:12:49+00:00">14:12:49</abbr></a>] <span>* alecrim (n=alecrim@189.2.128.130) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="message">[<a href="#T14:14:30" id="T14:14:30"><abbr title="2010-01-11T14:14:30+00:00">14:14:30</abbr></a>] &lt;<cite>mcgeagh</cite>&gt; <q>figured it out... because of the way i did it in my script, had to use escape characters for the quotation, otherwise it was ignoring them</q></li>
+<li class="message">[<a href="#T14:15:52" id="T14:15:52"><abbr title="2010-01-11T14:15:52+00:00">14:15:52</abbr></a>] &lt;<cite>hrw</cite>&gt; <q>av500: it is pcb which has serial+power+usbhub+usbethernet - connects to BB by icd10, power, ehci</q></li>
+<li class="quit">[<a href="#T14:17:03" id="T14:17:03"><abbr title="2010-01-11T14:17:03+00:00">14:17:03</abbr></a>] <span>* prpplague (n=dave123_@ppp-70-244-166-158.dsl.rcsntx.swbell.net) Quit ()</span></li>
+<li class="join">[<a href="#T14:17:30" id="T14:17:30"><abbr title="2010-01-11T14:17:30+00:00">14:17:30</abbr></a>] <span>* jkridner (n=a0321898@nat/ti/x-wyozxxolkotsceae) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:17:36" id="T14:17:36"><abbr title="2010-01-11T14:17:36+00:00">14:17:36</abbr></a>] <span>* jkridner|work (n=a0321898@nat/ti/x-ricekanzbgbrqwxn) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:17:41" id="T14:17:41"><abbr title="2010-01-11T14:17:41+00:00">14:17:41</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hrw: ic</q></li>
+<li class="message">[<a href="#T14:17:48" id="T14:17:48"><abbr title="2010-01-11T14:17:48+00:00">14:17:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>morning jkridner</q></li>
+<li class="message">[<a href="#T14:17:52" id="T14:17:52"><abbr title="2010-01-11T14:17:52+00:00">14:17:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>both of them</q></li>
+<li class="message">[<a href="#T14:19:15" id="T14:19:15"><abbr title="2010-01-11T14:19:15+00:00">14:19:15</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>morning mru!</q></li>
+<li class="quit">[<a href="#T14:24:27" id="T14:24:27"><abbr title="2010-01-11T14:24:27+00:00">14:24:27</abbr></a>] <span>* Analias (n=Analias@c-68-35-8-162.hsd1.nm.comcast.net) Quit ("Leaving.")</span></li>
+<li class="nick-change">[<a href="#T14:24:42" id="T14:24:42"><abbr title="2010-01-11T14:24:42+00:00">14:24:42</abbr></a>] <span>* prpplague_afk is now known as prpplague</span></li>
+<li class="message">[<a href="#T14:25:25" id="T14:25:25"><abbr title="2010-01-11T14:25:25+00:00">14:25:25</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>greetings earthlings</q></li>
+<li class="quit">[<a href="#T14:27:30" id="T14:27:30"><abbr title="2010-01-11T14:27:30+00:00">14:27:30</abbr></a>] <span>* naeg (n=naeg@194.208.239.170) Quit (Read error: 60 (Operation timed out))</span></li>
+<li class="message">[<a href="#T14:29:20" id="T14:29:20"><abbr title="2010-01-11T14:29:20+00:00">14:29:20</abbr></a>] &lt;<cite>florian</cite>&gt; <q>hi prpplague </q></li>
+<li class="message">[<a href="#T14:29:43" id="T14:29:43"><abbr title="2010-01-11T14:29:43+00:00">14:29:43</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>florian: hey bud</q></li>
+<li class="message">[<a href="#T14:29:50" id="T14:29:50"><abbr title="2010-01-11T14:29:50+00:00">14:29:50</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>florian: hows biz?</q></li>
+<li class="message">[<a href="#T14:30:58" id="T14:30:58"><abbr title="2010-01-11T14:30:58+00:00">14:30:58</abbr></a>] &lt;<cite>florian</cite>&gt; <q>prpplague: Well... its the first working day for kc today. We'll see soon :-)</q></li>
+<li class="message">[<a href="#T14:31:12" id="T14:31:12"><abbr title="2010-01-11T14:31:12+00:00">14:31:12</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>florian: kc?</q></li>
+<li class="message">[<a href="#T14:31:26" id="T14:31:26"><abbr title="2010-01-11T14:31:26+00:00">14:31:26</abbr></a>] &lt;<cite>florian</cite>&gt; <q>prpplague: kernel concepts</q></li>
+<li class="message">[<a href="#T14:31:38" id="T14:31:38"><abbr title="2010-01-11T14:31:38+00:00">14:31:38</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>florian: ahh</q></li>
+<li class="action">[<a href="#T14:32:20" id="T14:32:20"><abbr title="2010-01-11T14:32:20+00:00">14:32:20</abbr></a>] <span>* florian really managed to take a few days off instead of doing the usual useful things</span></li>
+<li class="join">[<a href="#T14:37:15" id="T14:37:15"><abbr title="2010-01-11T14:37:15+00:00">14:37:15</abbr></a>] <span>* rhk (n=rhk@adsl-75-44-25-53.dsl.sfldmi.sbcglobal.net) has joined #beagle</span></li>
+<li class="part">[<a href="#T14:38:17" id="T14:38:17"><abbr title="2010-01-11T14:38:17+00:00">14:38:17</abbr></a>] <span>* rhk (n=rhk@adsl-75-44-25-53.dsl.sfldmi.sbcglobal.net) has left #beagle</span></li>
+<li class="quit">[<a href="#T14:41:15" id="T14:41:15"><abbr title="2010-01-11T14:41:15+00:00">14:41:15</abbr></a>] <span>* rupeshgujare (i=6f5d8504@gateway/web/freenode/x-rrpzuxvakgjvowao) Quit ("Page closed")</span></li>
+<li class="message">[<a href="#T14:41:23" id="T14:41:23"><abbr title="2010-01-11T14:41:23+00:00">14:41:23</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>florian: congrats :)</q></li>
+<li class="message">[<a href="#T14:42:04" id="T14:42:04"><abbr title="2010-01-11T14:42:04+00:00">14:42:04</abbr></a>] &lt;<cite>florian</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T14:42:11" id="T14:42:11"><abbr title="2010-01-11T14:42:11+00:00">14:42:11</abbr></a>] &lt;<cite>florian</cite>&gt; <q>javaJake: thanks :)</q></li>
+<li class="message">[<a href="#T14:45:32" id="T14:45:32"><abbr title="2010-01-11T14:45:32+00:00">14:45:32</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>florian: you have a concept for a kernel now? :)</q></li>
+<li class="message">[<a href="#T14:45:49" id="T14:45:49"><abbr title="2010-01-11T14:45:49+00:00">14:45:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>well, it's a start...</q></li>
+<li class="message">[<a href="#T14:45:55" id="T14:45:55"><abbr title="2010-01-11T14:45:55+00:00">14:45:55</abbr></a>] &lt;<cite>florian</cite>&gt; <q>_av500_: :-)</q></li>
+<li class="join">[<a href="#T14:53:09" id="T14:53:09"><abbr title="2010-01-11T14:53:09+00:00">14:53:09</abbr></a>] <span>* jayabharath (n=jayabhar@nat/ti/x-gzejtnkstnokttwp) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:55:18" id="T14:55:18"><abbr title="2010-01-11T14:55:18+00:00">14:55:18</abbr></a>] <span>* srv (i=7aa75463@gateway/web/freenode/x-yjobehbzuemdmxjr) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:55:35" id="T14:55:35"><abbr title="2010-01-11T14:55:35+00:00">14:55:35</abbr></a>] <span>* naeg (n=naeg@194.208.239.170) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:58:41" id="T14:58:41"><abbr title="2010-01-11T14:58:41+00:00">14:58:41</abbr></a>] <span>* virals1 (n=viral@122.167.76.230) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:58:47" id="T14:58:47"><abbr title="2010-01-11T14:58:47+00:00">14:58:47</abbr></a>] <span>* ppotera (n=ppotera@75.150.230.173) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:59:14" id="T14:59:14"><abbr title="2010-01-11T14:59:14+00:00">14:59:14</abbr></a>] <span>* srv (i=7aa75463@gateway/web/freenode/x-yjobehbzuemdmxjr) Quit (Client Quit)</span></li>
