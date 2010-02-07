@@ -305,3 +305,25 @@
 <li class="message">[<a href="#T13:41:32" id="T13:41:32"><abbr title="2010-02-07T13:41:32+00:00">13:41:32</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>no shell</q></li>
 <li class="message">[<a href="#T13:47:57" id="T13:47:57"><abbr title="2010-02-07T13:47:57+00:00">13:47:57</abbr></a>] &lt;<cite>dougztr</cite>&gt; <q>yaay! i finally got a working linux-omap kernel built</q></li>
 <li class="join">[<a href="#T13:55:00" id="T13:55:00"><abbr title="2010-02-07T13:55:00+00:00">13:55:00</abbr></a>] <span>* jean85 (~75c5bb28@gateway/web/freenode/x-gqzctxnzbbnvfltm) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:09:55" id="T14:09:55"><abbr title="2010-02-07T14:09:55+00:00">14:09:55</abbr></a>] <span>* CheBuzz_Home (~CheBuzz_H@88-202-45-98.ip.skylogicnet.com) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T14:11:39" id="T14:11:39"><abbr title="2010-02-07T14:11:39+00:00">14:11:39</abbr></a>] <span>* GPSFan (~kenm@64.92.145.112) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:11:59" id="T14:11:59"><abbr title="2010-02-07T14:11:59+00:00">14:11:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ant__: but you to (re)create devnodes</q></li>
+<li class="join">[<a href="#T14:14:19" id="T14:14:19"><abbr title="2010-02-07T14:14:19+00:00">14:14:19</abbr></a>] <span>* rschmidt (~Raphael@bas1-stjean93-2925321093.dsl.bell.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:14:53" id="T14:14:53"><abbr title="2010-02-07T14:14:53+00:00">14:14:53</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ant__: and why don't you upload those kexecboot kernels to the angstrom website</q></li>
+<li class="message">[<a href="#T14:16:19" id="T14:16:19"><abbr title="2010-02-07T14:16:19+00:00">14:16:19</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>it seems the lzma images could need some padding</q></li>
+<li class="message">[<a href="#T14:16:27" id="T14:16:27"><abbr title="2010-02-07T14:16:27+00:00">14:16:27</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>to be multiple of 16</q></li>
+<li class="message">[<a href="#T14:16:43" id="T14:16:43"><abbr title="2010-02-07T14:16:43+00:00">14:16:43</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>probably only on c700 :/</q></li>
+<li class="message">[<a href="#T14:16:57" id="T14:16:57"><abbr title="2010-02-07T14:16:57+00:00">14:16:57</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>on c860 all is fine</q></li>
+<li class="message">[<a href="#T14:17:07" id="T14:17:07"><abbr title="2010-02-07T14:17:07+00:00">14:17:07</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>and Eric Miao has c750</q></li>
+<li class="action">[<a href="#T14:17:30" id="T14:17:30"><abbr title="2010-02-07T14:17:30+00:00">14:17:30</abbr></a>] <span>* koen feels he's talking to a wall</span></li>
+<li class="message">[<a href="#T14:17:41" id="T14:17:41"><abbr title="2010-02-07T14:17:41+00:00">14:17:41</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>I'll upload *stable* kernels</q></li>
+<li class="message">[<a href="#T14:17:57" id="T14:17:57"><abbr title="2010-02-07T14:17:57+00:00">14:17:57</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>the new ones are really unusablke</q></li>
+<li class="message">[<a href="#T14:18:27" id="T14:18:27"><abbr title="2010-02-07T14:18:27+00:00">14:18:27</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>there is a very good momentum, though</q></li>
+<li class="message">[<a href="#T14:19:01" id="T14:19:01"><abbr title="2010-02-07T14:19:01+00:00">14:19:01</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>about devnodes, yes...</q></li>
+<li class="message">[<a href="#T14:21:55" id="T14:21:55"><abbr title="2010-02-07T14:21:55+00:00">14:21:55</abbr></a>] &lt;<cite>ant__</cite>&gt; <q>is just a mknod( device,</q></li>
+<li class="message">[<abbr title="2010-02-07T14:21:55+00:00">14:21:55</abbr>] &lt;<cite>ant__</cite>&gt; <q>&lt;------&gt;&lt;------&gt;&lt;------&gt;(S_IFBLK | S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IRO</q></li>
+<li class="message">[<abbr title="2010-02-07T14:21:55+00:00">14:21:55</abbr>] &lt;<cite>ant__</cite>&gt; <q>&lt;------&gt;&lt;------&gt;&lt;------&gt;makedev(major, minor) ) </q></li>
+<li class="quit">[<a href="#T14:33:26" id="T14:33:26"><abbr title="2010-02-07T14:33:26+00:00">14:33:26</abbr></a>] <span>* Entasis (~Jarred@ppp118-210-48-5.lns20.adl2.internode.on.net) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T14:37:48" id="T14:37:48"><abbr title="2010-02-07T14:37:48+00:00">14:37:48</abbr></a>] <span>* nrossi (~na@61.37.96.58.static.exetel.com.au) Quit ()</span></li>
+<li class="message">[<a href="#T14:39:54" id="T14:39:54"><abbr title="2010-02-07T14:39:54+00:00">14:39:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>_av500_: <a href="http://dominion.thruhere.net/git/cgit.cgi/narcissus/commit/?id=25fc5411ff9dfcca1b238dd0481c3fe4fb24e378">http://dominion.thruhere.net/git/cgit.cgi/narcissus/commit/?id=25fc5411ff9dfcca1b238dd0481c3fe4fb24e378</a></q></li>
+<li class="quit">[<a href="#T14:47:11" id="T14:47:11"><abbr title="2010-02-07T14:47:11+00:00">14:47:11</abbr></a>] <span>* soman (~somnath@dsl-jklbrasgw1-fe19fb00-113.dhcp.inet.fi) Quit (Ping timeout: 265 seconds)</span></li>
