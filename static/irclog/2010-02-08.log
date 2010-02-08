@@ -966,3 +966,91 @@
 <li class="message">[<a href="#T18:58:36" id="T18:58:36"><abbr title="2010-02-08T18:58:36+00:00">18:58:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or prehaps play DVB streams</q></li>
 <li class="action">[<a href="#T18:58:55" id="T18:58:55"><abbr title="2010-02-08T18:58:55+00:00">18:58:55</abbr></a>] <span>* _av500_ hum perhaps, perhaps, perhaps...</span></li>
 <li class="join">[<a href="#T18:59:24" id="T18:59:24"><abbr title="2010-02-08T18:59:24+00:00">18:59:24</abbr></a>] <span>* mobidev (~mobidev@94.127.205.30) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:01:17" id="T19:01:17"><abbr title="2010-02-08T19:01:17+00:00">19:01:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the master does indeed run a dhcp server</q></li>
+<li class="message">[<a href="#T19:01:26" id="T19:01:26"><abbr title="2010-02-08T19:01:26+00:00">19:01:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it then broadcasts the filename to play</q></li>
+<li class="message">[<a href="#T19:01:42" id="T19:01:42"><abbr title="2010-02-08T19:01:42+00:00">19:01:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>each slave has a different segment of the video stored with the same name</q></li>
+<li class="message">[<a href="#T19:02:04" id="T19:02:04"><abbr title="2010-02-08T19:02:04+00:00">19:02:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mru: is the video NFS?</q></li>
+<li class="message">[<a href="#T19:02:46" id="T19:02:46"><abbr title="2010-02-08T19:02:46+00:00">19:02:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>local SD card</q></li>
+<li class="message">[<a href="#T19:03:05" id="T19:03:05"><abbr title="2010-02-08T19:03:05+00:00">19:03:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I don't want to put too much traffic on the C3 ehci</q></li>
+<li class="message">[<a href="#T19:05:15" id="T19:05:15"><abbr title="2010-02-08T19:05:15+00:00">19:05:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>since av500 said omapfbplay, this is purely a NEON thing?</q></li>
+<li class="message">[<a href="#T19:05:22" id="T19:05:22"><abbr title="2010-02-08T19:05:22+00:00">19:05:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T19:05:38" id="T19:05:38"><abbr title="2010-02-08T19:05:38+00:00">19:05:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>1080p/6 is no match for the A8</q></li>
+<li class="message">[<a href="#T19:06:42" id="T19:06:42"><abbr title="2010-02-08T19:06:42+00:00">19:06:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that's PDA LCD size</q></li>
+<li class="message">[<a href="#T19:07:54" id="T19:07:54"><abbr title="2010-02-08T19:07:54+00:00">19:07:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I assume it waits for a sync message after each frame is done?</q></li>
+<li class="message">[<a href="#T19:09:23" id="T19:09:23"><abbr title="2010-02-08T19:09:23+00:00">19:09:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T19:09:29" id="T19:09:29"><abbr title="2010-02-08T19:09:29+00:00">19:09:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that would give too much jitter</q></li>
+<li class="message">[<a href="#T19:09:47" id="T19:09:47"><abbr title="2010-02-08T19:09:47+00:00">19:09:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>then how do you account for slight differences in the timebase of each board?</q></li>
+<li class="message">[<a href="#T19:10:08" id="T19:10:08"><abbr title="2010-02-08T19:10:08+00:00">19:10:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the master exchanges periodic messages with the slaves</q></li>
+<li class="message">[<a href="#T19:11:39" id="T19:11:39"><abbr title="2010-02-08T19:11:39+00:00">19:11:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>each message from the master contains the current value of the master system clock and an estimate of the roundtrip delay</q></li>
+<li class="quit">[<a href="#T19:12:05" id="T19:12:05"><abbr title="2010-02-08T19:12:05+00:00">19:12:05</abbr></a>] <span>* virals (~viral@122.167.64.72) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T19:12:11" id="T19:12:11"><abbr title="2010-02-08T19:12:11+00:00">19:12:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sort of a stripdown, special purpose NTP like protocol?</q></li>
+<li class="message">[<a href="#T19:12:27" id="T19:12:27"><abbr title="2010-02-08T19:12:27+00:00">19:12:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, same idea</q></li>
+<li class="message">[<a href="#T19:12:47" id="T19:12:47"><abbr title="2010-02-08T19:12:47+00:00">19:12:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but ntp is way more complicated than this requires</q></li>
+<li class="message">[<a href="#T19:13:38" id="T19:13:38"><abbr title="2010-02-08T19:13:38+00:00">19:13:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it would work fine even without taking the delay into account</q></li>
+<li class="message">[<abbr title="2010-02-08T19:13:38+00:00">19:13:38</abbr>] &lt;<cite>ds2</cite>&gt; <q>but your requirements are a bit looser.... as long as the worse case between 2 of the slaves is below eye detectable threshold, things are tolerable</q></li>
+<li class="message">[<a href="#T19:14:12" id="T19:14:12"><abbr title="2010-02-08T19:14:12+00:00">19:14:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>as long as it's within 10 ms or so it should be fine</q></li>
+<li class="message">[<a href="#T19:15:20" id="T19:15:20"><abbr title="2010-02-08T19:15:20+00:00">19:15:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>nicely done</q></li>
+<li class="message">[<a href="#T19:15:39" id="T19:15:39"><abbr title="2010-02-08T19:15:39+00:00">19:15:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prehaps bigger screens fewer beagles to push the A8?</q></li>
+<li class="message">[<a href="#T19:16:05" id="T19:16:05"><abbr title="2010-02-08T19:16:05+00:00">19:16:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>1280x1024 would push the beagles</q></li>
+<li class="message">[<a href="#T19:16:22" id="T19:16:22"><abbr title="2010-02-08T19:16:22+00:00">19:16:22</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>I'm cool with 640x480 or so.</q></li>
+<li class="message">[<a href="#T19:16:50" id="T19:16:50"><abbr title="2010-02-08T19:16:50+00:00">19:16:50</abbr></a>] &lt;<cite>dagle</cite>&gt; <q>If I want cheap JTAG hardware TinCanTools is the only alternative?</q></li>
+<li class="message">[<abbr title="2010-02-08T19:16:50+00:00">19:16:50</abbr>] &lt;<cite>mru</cite>&gt; <q>but I have no 3840x2048 video material</q></li>
+<li class="message">[<a href="#T19:17:14" id="T19:17:14"><abbr title="2010-02-08T19:17:14+00:00">19:17:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>dagle: there are many variations of the same design in the same price range</q></li>
+<li class="message">[<a href="#T19:17:22" id="T19:17:22"><abbr title="2010-02-08T19:17:22+00:00">19:17:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mru: go 3D </q></li>
+<li class="message">[<a href="#T19:17:58" id="T19:17:58"><abbr title="2010-02-08T19:17:58+00:00">19:17:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>left/right pictures on separate monitors, cross your eyes, job done</q></li>
+<li class="message">[<a href="#T19:18:13" id="T19:18:13"><abbr title="2010-02-08T19:18:13+00:00">19:18:13</abbr></a>] &lt;<cite>dagle</cite>&gt; <q>ds2: Ok. Found none from the links on the wiki that cost less then $200.</q></li>
+<li class="message">[<a href="#T19:18:26" id="T19:18:26"><abbr title="2010-02-08T19:18:26+00:00">19:18:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>dagle: SFE sells some of them</q></li>
+<li class="message">[<a href="#T19:18:39" id="T19:18:39"><abbr title="2010-02-08T19:18:39+00:00">19:18:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ds2: ever tried the cross-eyed diff?</q></li>
+<li class="message">[<a href="#T19:18:44" id="T19:18:44"><abbr title="2010-02-08T19:18:44+00:00">19:18:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for comparing columns of text</q></li>
+<li class="join">[<a href="#T19:18:56" id="T19:18:56"><abbr title="2010-02-08T19:18:56+00:00">19:18:56</abbr></a>] <span>* djlewis (~djlewis@75.15.67.3) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:19:06" id="T19:19:06"><abbr title="2010-02-08T19:19:06+00:00">19:19:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mru: no... I have a strong preference for diff -u</q></li>
+<li class="message">[<a href="#T19:19:13" id="T19:19:13"><abbr title="2010-02-08T19:19:13+00:00">19:19:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or diff by screen</q></li>
+<li class="message">[<a href="#T19:19:37" id="T19:19:37"><abbr title="2010-02-08T19:19:37+00:00">19:19:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>sometimes you don't have text in a form easily sent to diff</q></li>
+<li class="message">[<a href="#T19:19:50" id="T19:19:50"><abbr title="2010-02-08T19:19:50+00:00">19:19:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hence the diff by screen</q></li>
+<li class="message">[<a href="#T19:19:58" id="T19:19:58"><abbr title="2010-02-08T19:19:58+00:00">19:19:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>tell that to firefox</q></li>
+<li class="message">[<a href="#T19:20:07" id="T19:20:07"><abbr title="2010-02-08T19:20:07+00:00">19:20:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>get it shown on 1 different screen window and rapidly flicker between them</q></li>
+<li class="quit">[<a href="#T19:20:12" id="T19:20:12"><abbr title="2010-02-08T19:20:12+00:00">19:20:12</abbr></a>] <span>* gletelli (~chatzilla@fw-tnat.cambridge.arm.com) Quit (Quit: ChatZilla 0.9.86 [Firefox 3.5.7/20091221164558])</span></li>
+<li class="message">[<a href="#T19:20:16" id="T19:20:16"><abbr title="2010-02-08T19:20:16+00:00">19:20:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>firefox is a useless PoS</q></li>
+<li class="message">[<a href="#T19:20:22" id="T19:20:22"><abbr title="2010-02-08T19:20:22+00:00">19:20:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you look at the columns with eyes crossed so the merge into one, the differences literally jump out</q></li>
+<li class="message">[<a href="#T19:20:29" id="T19:20:29"><abbr title="2010-02-08T19:20:29+00:00">19:20:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ds2: tell that to firefox</q></li>
+<li class="message">[<a href="#T19:20:46" id="T19:20:46"><abbr title="2010-02-08T19:20:46+00:00">19:20:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mru: if it is a web page, w3m works </q></li>
+<li class="message">[<a href="#T19:21:08" id="T19:21:08"><abbr title="2010-02-08T19:21:08+00:00">19:21:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>my method works too</q></li>
+<li class="message">[<a href="#T19:21:23" id="T19:21:23"><abbr title="2010-02-08T19:21:23+00:00">19:21:23</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>mru, but what if your eyes get stuck?</q></li>
+<li class="message">[<a href="#T19:21:33" id="T19:21:33"><abbr title="2010-02-08T19:21:33+00:00">19:21:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>don't doubt it... just stereograms of that sort don't work well for me</q></li>
+<li class="message">[<a href="#T19:21:38" id="T19:21:38"><abbr title="2010-02-08T19:21:38+00:00">19:21:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>cwillu_at_work: then I reboot</q></li>
+<li class="action">[<a href="#T19:22:02" id="T19:22:02"><abbr title="2010-02-08T19:22:02+00:00">19:22:02</abbr></a>] <span>* cwillu_at_work bricks mrc3 </span></li>
+<li class="message">[<a href="#T19:22:06" id="T19:22:06"><abbr title="2010-02-08T19:22:06+00:00">19:22:06</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>mru rather</q></li>
+<li class="message">[<a href="#T19:22:11" id="T19:22:11"><abbr title="2010-02-08T19:22:11+00:00">19:22:11</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>(hi mrc3)</q></li>
+<li class="message">[<a href="#T19:26:25" id="T19:26:25"><abbr title="2010-02-08T19:26:25+00:00">19:26:25</abbr></a>] &lt;<cite>dagle</cite>&gt; <q>ds2: So what kit would you recommend under $200?</q></li>
+<li class="message">[<a href="#T19:27:09" id="T19:27:09"><abbr title="2010-02-08T19:27:09+00:00">19:27:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>dagle: I have no specific recommendations but I do like the TCT one</q></li>
+<li class="message">[<a href="#T19:27:17" id="T19:27:17"><abbr title="2010-02-08T19:27:17+00:00">19:27:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>folks have been very helpful</q></li>
+<li class="join">[<abbr title="2010-02-08T19:27:17+00:00">19:27:17</abbr>] <span>* ssvb (~ssvb___@a88-112-120-50.elisa-laajakaista.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:28:02" id="T19:28:02"><abbr title="2010-02-08T19:28:02+00:00">19:28:02</abbr></a>] &lt;<cite>dagle</cite>&gt; <q>Ok.</q></li>
+<li class="join">[<a href="#T19:29:57" id="T19:29:57"><abbr title="2010-02-08T19:29:57+00:00">19:29:57</abbr></a>] <span>* robclark (~robclark@nat/ti/x-yvjfbbuhihcjeonf) has joined #beagle</span></li>
+<li class="join">[<a href="#T19:34:32" id="T19:34:32"><abbr title="2010-02-08T19:34:32+00:00">19:34:32</abbr></a>] <span>* felipec (~felipec@a91-153-253-80.elisa-laajakaista.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:34:59" id="T19:34:59"><abbr title="2010-02-08T19:34:59+00:00">19:34:59</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>gm</q></li>
+<li class="message">[<a href="#T19:35:07" id="T19:35:07"><abbr title="2010-02-08T19:35:07+00:00">19:35:07</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>djlewis: whaterever</q></li>
+<li class="message">[<a href="#T19:35:14" id="T19:35:14"><abbr title="2010-02-08T19:35:14+00:00">19:35:14</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>djlewis: gm</q></li>
+<li class="action">[<a href="#T19:35:29" id="T19:35:29"><abbr title="2010-02-08T19:35:29+00:00">19:35:29</abbr></a>] <span>* djlewis often makes stereo video from webcams by crossing eyes .</span></li>
+<li class="message">[<a href="#T19:35:58" id="T19:35:58"><abbr title="2010-02-08T19:35:58+00:00">19:35:58</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>hi prpplague and _av500_</q></li>
+<li class="action">[<a href="#T19:36:12" id="T19:36:12"><abbr title="2010-02-08T19:36:12+00:00">19:36:12</abbr></a>] <span>* djlewis is snowed in again.</span></li>
+<li class="message">[<a href="#T19:36:51" id="T19:36:51"><abbr title="2010-02-08T19:36:51+00:00">19:36:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>djlewis: got salt?</q></li>
+<li class="message">[<a href="#T19:36:58" id="T19:36:58"><abbr title="2010-02-08T19:36:58+00:00">19:36:58</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>djlewis: got food</q></li>
+<li class="message">[<a href="#T19:37:03" id="T19:37:03"><abbr title="2010-02-08T19:37:03+00:00">19:37:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>to put salt on</q></li>
+<li class="message">[<a href="#T19:37:11" id="T19:37:11"><abbr title="2010-02-08T19:37:11+00:00">19:37:11</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>yep :)</q></li>
+<li class="message">[<a href="#T19:37:47" id="T19:37:47"><abbr title="2010-02-08T19:37:47+00:00">19:37:47</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q><a href="http://weather.djlewis.us/">http://weather.djlewis.us/</a></q></li>
+<li class="join">[<a href="#T19:37:57" id="T19:37:57"><abbr title="2010-02-08T19:37:57+00:00">19:37:57</abbr></a>] <span>* Meizirkki (~Meizirkki@bbwirelessgw2-fee1dc00-2.dhcp.inet.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:39:02" id="T19:39:02"><abbr title="2010-02-08T19:39:02+00:00">19:39:02</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>djlewis: looks fine, you can still see the outhouse</q></li>
+<li class="message">[<a href="#T19:39:10" id="T19:39:10"><abbr title="2010-02-08T19:39:10+00:00">19:39:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no snow gauge?</q></li>
+<li class="message">[<a href="#T19:39:13" id="T19:39:13"><abbr title="2010-02-08T19:39:13+00:00">19:39:13</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>hehee </q></li>
+<li class="message">[<a href="#T19:40:51" id="T19:40:51"><abbr title="2010-02-08T19:40:51+00:00">19:40:51</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>_av500_: I love your and mru video wall.</q></li>
+<li class="join">[<a href="#T19:43:26" id="T19:43:26"><abbr title="2010-02-08T19:43:26+00:00">19:43:26</abbr></a>] <span>* torusle (~nils@c212249.adsl.hansenet.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:43:36" id="T19:43:36"><abbr title="2010-02-08T19:43:36+00:00">19:43:36</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>hi folks.</q></li>
+<li class="quit">[<a href="#T19:43:40" id="T19:43:40"><abbr title="2010-02-08T19:43:40+00:00">19:43:40</abbr></a>] <span>* DaQatz (~db@c-66-30-48-150.hsd1.nh.comcast.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T19:43:57" id="T19:43:57"><abbr title="2010-02-08T19:43:57+00:00">19:43:57</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>you two had passers by standing drooling with jaws wide open ;)</q></li>
+<li class="join">[<a href="#T19:44:12" id="T19:44:12"><abbr title="2010-02-08T19:44:12+00:00">19:44:12</abbr></a>] <span>* DaQatz (~db@c-66-30-48-150.hsd1.nh.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:48:08" id="T19:48:08"><abbr title="2010-02-08T19:48:08+00:00">19:48:08</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>darn, the linux driver for wkstn wont support tray selection for hplj4100</q></li>
+<li class="quit">[<a href="#T19:50:56" id="T19:50:56"><abbr title="2010-02-08T19:50:56+00:00">19:50:56</abbr></a>] <span>* gdm (~gdm@190.173.102.143) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T19:52:01" id="T19:52:01"><abbr title="2010-02-08T19:52:01+00:00">19:52:01</abbr></a>] <span>* hrw|gone (~hrw@chello089078170228.chello.pl) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T19:52:40" id="T19:52:40"><abbr title="2010-02-08T19:52:40+00:00">19:52:40</abbr></a>] <span>* hrw|gone (~hrw@chello089078170228.chello.pl) has joined #beagle</span></li>
+<li class="join">[<a href="#T19:58:08" id="T19:58:08"><abbr title="2010-02-08T19:58:08+00:00">19:58:08</abbr></a>] <span>* armin76 (~armin@gentoo/developer/armin76) has joined #beagle</span></li>
