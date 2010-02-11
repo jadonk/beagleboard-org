@@ -374,3 +374,45 @@
 <li class="message">[<a href="#T08:59:45" id="T08:59:45"><abbr title="2010-02-11T08:59:45+00:00">08:59:45</abbr></a>] &lt;<cite>raster</cite>&gt; <q>thus u have to disable grab x11</q></li>
 <li class="message">[<a href="#T08:59:55" id="T08:59:55"><abbr title="2010-02-11T08:59:55+00:00">08:59:55</abbr></a>] &lt;<cite>raster</cite>&gt; <q>in memory keep hidden windows should work for now</q></li>
 <li class="message">[<a href="#T09:00:00" id="T09:00:00"><abbr title="2010-02-11T09:00:00+00:00">09:00:00</abbr></a>] &lt;<cite>raster</cite>&gt; <q>but it will consume lots of mem</q></li>
+<li class="message">[<a href="#T09:00:10" id="T09:00:10"><abbr title="2010-02-11T09:00:10+00:00">09:00:10</abbr></a>] &lt;<cite>raster</cite>&gt; <q>all the other options are "yet to be implemented</q></li>
+<li class="message">[<a href="#T09:00:29" id="T09:00:29"><abbr title="2010-02-11T09:00:29+00:00">09:00:29</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i hope your egl/gles actually implemented texture-from-pixmaop with the calls i mentioned</q></li>
+<li class="action">[<a href="#T09:01:10" id="T09:01:10"><abbr title="2010-02-11T09:01:10+00:00">09:01:10</abbr></a>] <span>* _koen_ hasn't checked yet</span></li>
+<li class="message">[<a href="#T09:01:33" id="T09:01:33"><abbr title="2010-02-11T09:01:33+00:00">09:01:33</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>but I now has DM3730 silicon that has a never 530 core running at 192MHz</q></li>
+<li class="message">[<a href="#T09:01:43" id="T09:01:43"><abbr title="2010-02-11T09:01:43+00:00">09:01:43</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>instead of the 110MHz in 3530</q></li>
+<li class="message">[<a href="#T09:02:20" id="T09:02:20"><abbr title="2010-02-11T09:02:20+00:00">09:02:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>better</q></li>
+<li class="message">[<a href="#T09:02:28" id="T09:02:28"><abbr title="2010-02-11T09:02:28+00:00">09:02:28</abbr></a>] &lt;<cite>raster</cite>&gt; <q>this one is 540 @ 200mhz</q></li>
+<li class="message">[<a href="#T09:03:28" id="T09:03:28"><abbr title="2010-02-11T09:03:28+00:00">09:03:28</abbr></a>] &lt;<cite>raster</cite>&gt; <q>so maybe not far off</q></li>
+<li class="message">[<a href="#T09:03:49" id="T09:03:49"><abbr title="2010-02-11T09:03:49+00:00">09:03:49</abbr></a>] &lt;<cite>raster</cite>&gt; <q>also does your eglswapbuffers use triple-buffering and actually do a fb swap/pan?</q></li>
+<li class="message">[<a href="#T09:04:03" id="T09:04:03"><abbr title="2010-02-11T09:04:03+00:00">09:04:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'd hope so - then the compositor will get tear-free rendering</q></li>
+<li class="message">[<a href="#T09:04:16" id="T09:04:16"><abbr title="2010-02-11T09:04:16+00:00">09:04:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>the vsynctearing is moved down a layer to compositor &lt;-&gt; apps</q></li>
+<li class="message">[<a href="#T09:04:22" id="T09:04:22"><abbr title="2010-02-11T09:04:22+00:00">09:04:22</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and thats what the sync options are for in comp</q></li>
+<li class="message">[<a href="#T09:04:51" id="T09:04:51"><abbr title="2010-02-11T09:04:51+00:00">09:04:51</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>it should be tripple buffering</q></li>
+<li class="message">[<a href="#T09:04:57" id="T09:04:57"><abbr title="2010-02-11T09:04:57+00:00">09:04:57</abbr></a>] &lt;<cite>raster</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T09:05:01" id="T09:05:01"><abbr title="2010-02-11T09:05:01+00:00">09:05:01</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>it's configured for that</q></li>
+<li class="message">[<a href="#T09:05:03" id="T09:05:03"><abbr title="2010-02-11T09:05:03+00:00">09:05:03</abbr></a>] &lt;<cite>raster</cite>&gt; <q>and for gles apps it double-buffers?</q></li>
+<li class="message">[<a href="#T09:05:16" id="T09:05:16"><abbr title="2010-02-11T09:05:16+00:00">09:05:16</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i'd hope u also do swaps for the buffers for app windows</q></li>
+<li class="message">[<a href="#T09:05:22" id="T09:05:22"><abbr title="2010-02-11T09:05:22+00:00">09:05:22</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>don't know about that</q></li>
+<li class="message">[<a href="#T09:05:25" id="T09:05:25"><abbr title="2010-02-11T09:05:25+00:00">09:05:25</abbr></a>] &lt;<cite>raster</cite>&gt; <q>instead of copying from back to front buffer</q></li>
+<li class="message">[<a href="#T09:05:31" id="T09:05:31"><abbr title="2010-02-11T09:05:31+00:00">09:05:31</abbr></a>] &lt;<cite>raster</cite>&gt; <q>(and front buffer is the pixmap)</q></li>
+<li class="action">[<a href="#T09:05:58" id="T09:05:58"><abbr title="2010-02-11T09:05:58+00:00">09:05:58</abbr></a>] <span>* _koen_ needs to try the new ti sgx release candidate</span></li>
+<li class="message">[<a href="#T09:07:30" id="T09:07:30"><abbr title="2010-02-11T09:07:30+00:00">09:07:30</abbr></a>] &lt;<cite>raster</cite>&gt; <q>i suggest you and your sgx driver homies get togehter and make sure your drivers work well - use evas gl enigne + compositor as a good sample app</q></li>
+<li class="message">[<a href="#T09:07:33" id="T09:07:33"><abbr title="2010-02-11T09:07:33+00:00">09:07:33</abbr></a>] &lt;<cite>raster</cite>&gt; <q>theres more of course</q></li>
+<li class="message">[<a href="#T09:07:43" id="T09:07:43"><abbr title="2010-02-11T09:07:43+00:00">09:07:43</abbr></a>] &lt;<cite>raster</cite>&gt; <q>as such - it does work here pretty well</q></li>
+<li class="join">[<a href="#T09:07:45" id="T09:07:45"><abbr title="2010-02-11T09:07:45+00:00">09:07:45</abbr></a>] <span>* _roger_ (~a0740758@nat/ti/x-rizftpyhmjicqnbg) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:07:51" id="T09:07:51"><abbr title="2010-02-11T09:07:51+00:00">09:07:51</abbr></a>] &lt;<cite>raster</cite>&gt; <q>had to clear up a bunch of things in the drivers tho</q></li>
+<li class="message">[<a href="#T09:08:50" id="T09:08:50"><abbr title="2010-02-11T09:08:50+00:00">09:08:50</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>raster: I can get it fixed a lot quicker if you make expedite say "QT 4.7.0 preview graphics test"</q></li>
+<li class="message">[<a href="#T09:09:04" id="T09:09:04"><abbr title="2010-02-11T09:09:04+00:00">09:09:04</abbr></a>] &lt;<cite>raster</cite>&gt; <q>hahahahahahahahhaha</q></li>
+<li class="join">[<a href="#T09:10:01" id="T09:10:01"><abbr title="2010-02-11T09:10:01+00:00">09:10:01</abbr></a>] <span>* Phrog (~chatzilla@ip-87-82-198-210.easynet.co.uk) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:15:20" id="T09:15:20"><abbr title="2010-02-11T09:15:20+00:00">09:15:20</abbr></a>] &lt;<cite>raster</cite>&gt; <q>_koen_: thats a little too underhanded for me</q></li>
+<li class="quit">[<a href="#T09:16:01" id="T09:16:01"><abbr title="2010-02-11T09:16:01+00:00">09:16:01</abbr></a>] <span>* BDavid (~blurgs@nat/ti/x-mbfnnqcohvndyxkx) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<a href="#T09:17:21" id="T09:17:21"><abbr title="2010-02-11T09:17:21+00:00">09:17:21</abbr></a>] <span>* prpplague (~dave123_a@ppp-70-244-161-133.dsl.rcsntx.swbell.net) Quit ()</span></li>
+<li class="quit">[<a href="#T09:18:40" id="T09:18:40"><abbr title="2010-02-11T09:18:40+00:00">09:18:40</abbr></a>] <span>* Sept (~bakljg@c-98-240-226-129.hsd1.mn.comcast.net) Quit ()</span></li>
+<li class="quit">[<a href="#T09:23:00" id="T09:23:00"><abbr title="2010-02-11T09:23:00+00:00">09:23:00</abbr></a>] <span>* thaytan (~jan@216.112.110.2.ptr.us.xo.net) Quit (Quit: Ex-Chat)</span></li>
+<li class="join">[<a href="#T09:23:59" id="T09:23:59"><abbr title="2010-02-11T09:23:59+00:00">09:23:59</abbr></a>] <span>* mikhas (~mikhas@85.183.48.167) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:36:40" id="T09:36:40"><abbr title="2010-02-11T09:36:40+00:00">09:36:40</abbr></a>] <span>* florian_kc (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T09:36:55" id="T09:36:55"><abbr title="2010-02-11T09:36:55+00:00">09:36:55</abbr></a>] <span>* florian_kc is now known as florian</span></li>
+<li class="quit">[<a href="#T09:47:09" id="T09:47:09"><abbr title="2010-02-11T09:47:09+00:00">09:47:09</abbr></a>] <span>* ogra (~ogra@ubuntu/member/ogra) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T09:47:35" id="T09:47:35"><abbr title="2010-02-11T09:47:35+00:00">09:47:35</abbr></a>] <span>* ogra (~ogra@ubuntu/member/ogra) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:52:30" id="T09:52:30"><abbr title="2010-02-11T09:52:30+00:00">09:52:30</abbr></a>] <span>* Stskeeps (~chobits@Maemo/community/distmaster/Stskeeps) Quit (Quit: Lost terminal)</span></li>
+<li class="join">[<a href="#T09:52:51" id="T09:52:51"><abbr title="2010-02-11T09:52:51+00:00">09:52:51</abbr></a>] <span>* Stskeeps (~chobits@Maemo/community/distmaster/Stskeeps) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:56:34" id="T09:56:34"><abbr title="2010-02-11T09:56:34+00:00">09:56:34</abbr></a>] <span>* denix0 (~denix@pool-71-251-51-225.washdc.east.verizon.net) has joined #beagle</span></li>
