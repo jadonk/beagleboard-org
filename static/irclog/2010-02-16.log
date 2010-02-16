@@ -1,0 +1,36 @@
+<li class="join">[<a href="#T00:04:42" id="T00:04:42"><abbr title="2010-02-16T00:04:42+00:00">00:04:42</abbr></a>] <span>* thaytan (~jan@198.23.233.220.static.exetel.com.au) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:07:07" id="T00:07:07"><abbr title="2010-02-16T00:07:07+00:00">00:07:07</abbr></a>] <span>* rsalveti (~rsalveti@187.59.242.71) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T00:09:52" id="T00:09:52"><abbr title="2010-02-16T00:09:52+00:00">00:09:52</abbr></a>] <span>* ant__ (~andrea@host129-75-dynamic.5-87-r.retail.telecomitalia.it) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T00:11:33" id="T00:11:33"><abbr title="2010-02-16T00:11:33+00:00">00:11:33</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Verlassend)</span></li>
+<li class="message">[<a href="#T00:11:35" id="T00:11:35"><abbr title="2010-02-16T00:11:35+00:00">00:11:35</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>sakoman_, ping</q></li>
+<li class="message">[<a href="#T00:18:04" id="T00:18:04"><abbr title="2010-02-16T00:18:04+00:00">00:18:04</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>pong</q></li>
+<li class="message">[<a href="#T00:18:11" id="T00:18:11"><abbr title="2010-02-16T00:18:11+00:00">00:18:11</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>Crofton: pong</q></li>
+<li class="join">[<a href="#T00:18:16" id="T00:18:16"><abbr title="2010-02-16T00:18:16+00:00">00:18:16</abbr></a>] <span>* BThompson (~a0193480@nat/ti/x-pwhncaxmzwszljjk) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:18:28" id="T00:18:28"><abbr title="2010-02-16T00:18:28+00:00">00:18:28</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I think I found the struct</q></li>
+<li class="message">[<a href="#T00:18:30" id="T00:18:30"><abbr title="2010-02-16T00:18:30+00:00">00:18:30</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>for mmc</q></li>
+<li class="message">[<a href="#T00:19:16" id="T00:19:16"><abbr title="2010-02-16T00:19:16+00:00">00:19:16</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>Crofton: I'm happy to look at your patch if you like</q></li>
+<li class="message">[<a href="#T00:20:59" id="T00:20:59"><abbr title="2010-02-16T00:20:59+00:00">00:20:59</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T00:21:14" id="T00:21:14"><abbr title="2010-02-16T00:21:14+00:00">00:21:14</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>so basically, I would just add the third entry</q></li>
+<li class="message">[<a href="#T00:21:23" id="T00:21:23"><abbr title="2010-02-16T00:21:23+00:00">00:21:23</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>which will likely be a copy of the second?</q></li>
+<li class="message">[<a href="#T00:21:38" id="T00:21:38"><abbr title="2010-02-16T00:21:38+00:00">00:21:38</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>except I have cd and wp on gpio's</q></li>
+<li class="join">[<a href="#T00:23:32" id="T00:23:32"><abbr title="2010-02-16T00:23:32+00:00">00:23:32</abbr></a>] <span>* prpplague (~dave123_a@ppp-70-249-155-242.dsl.rcsntx.swbell.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:23:53" id="T00:23:53"><abbr title="2010-02-16T00:23:53+00:00">00:23:53</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>Crofton: hang on, let me take a peak</q></li>
+<li class="join">[<a href="#T00:25:45" id="T00:25:45"><abbr title="2010-02-16T00:25:45+00:00">00:25:45</abbr></a>] <span>* eth1 (~975f2046@gateway/web/freenode/x-rrmlthzaolknplpp) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:27:33" id="T00:27:33"><abbr title="2010-02-16T00:27:33+00:00">00:27:33</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>Crofton: if your mmc is 4 bit, and uses say gpio 101 and 102 for cd and wp, and has a 3.3V supply, it would look something like this:</q></li>
+<li class="message">[<a href="#T00:27:46" id="T00:27:46"><abbr title="2010-02-16T00:27:46+00:00">00:27:46</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q><a href="http://pastebin.com/m5a9ac9b6">http://pastebin.com/m5a9ac9b6</a></q></li>
+<li class="message">[<a href="#T00:30:03" id="T00:30:03"><abbr title="2010-02-16T00:30:03+00:00">00:30:03</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>Crofton: u-boot pin mux should already be set up for mmc3 in 4 bit mode</q></li>
+<li class="message">[<a href="#T00:30:38" id="T00:30:38"><abbr title="2010-02-16T00:30:38+00:00">00:30:38</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah, it is 4 bit</q></li>
+<li class="message">[<a href="#T00:30:56" id="T00:30:56"><abbr title="2010-02-16T00:30:56+00:00">00:30:56</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I should give that a try tomorrow</q></li>
+<li class="message">[<a href="#T00:31:06" id="T00:31:06"><abbr title="2010-02-16T00:31:06+00:00">00:31:06</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>do you have any idea if u-boot will just work?</q></li>
+<li class="message">[<a href="#T00:31:56" id="T00:31:56"><abbr title="2010-02-16T00:31:56+00:00">00:31:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ewwwwwww u-boot pinmuxing</q></li>
+<li class="join">[<a href="#T00:33:35" id="T00:33:35"><abbr title="2010-02-16T00:33:35+00:00">00:33:35</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:37:02" id="T00:37:02"><abbr title="2010-02-16T00:37:02+00:00">00:37:02</abbr></a>] <span>* Aditya__1 (~Aditya@c-69-143-196-44.hsd1.md.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:37:23" id="T00:37:23"><abbr title="2010-02-16T00:37:23+00:00">00:37:23</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>Crofton:  it should just work.  I'm sure you will let me know if it doesn't</q></li>
+<li class="message">[<a href="#T00:37:33" id="T00:37:33"><abbr title="2010-02-16T00:37:33+00:00">00:37:33</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>:)</q></li>
+<li class="part">[<a href="#T00:41:09" id="T00:41:09"><abbr title="2010-02-16T00:41:09+00:00">00:41:09</abbr></a>] <span>* Aditya__1 (~Aditya@c-69-143-196-44.hsd1.md.comcast.net) has left #beagle</span></li>
+<li class="join">[<a href="#T00:41:21" id="T00:41:21"><abbr title="2010-02-16T00:41:21+00:00">00:41:21</abbr></a>] <span>* Aditya__1 (~Aditya@c-69-143-196-44.hsd1.md.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:41:42" id="T00:41:42"><abbr title="2010-02-16T00:41:42+00:00">00:41:42</abbr></a>] &lt;<cite>Aditya__1</cite>&gt; <q>aaaanyone here work with IMGLIB?</q></li>
+<li class="join">[<a href="#T00:41:43" id="T00:41:43"><abbr title="2010-02-16T00:41:43+00:00">00:41:43</abbr></a>] <span>* rsalveti (~rsalveti@187.59.242.71) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:42:23" id="T00:42:23"><abbr title="2010-02-16T00:42:23+00:00">00:42:23</abbr></a>] <span>* rsalveti (~rsalveti@187.59.242.71) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T00:50:24" id="T00:50:24"><abbr title="2010-02-16T00:50:24+00:00">00:50:24</abbr></a>] <span>* rsalveti (~rsalveti@187.59.242.71) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:52:55" id="T00:52:55"><abbr title="2010-02-16T00:52:55+00:00">00:52:55</abbr></a>] <span>* rcn-ee (~voodoo@thief-pool1-30.mncable.net) has joined #beagle</span></li>
