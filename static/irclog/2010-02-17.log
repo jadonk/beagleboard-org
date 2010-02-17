@@ -892,3 +892,40 @@
 <li class="message">[<a href="#T18:58:53" id="T18:58:53"><abbr title="2010-02-17T18:58:53+00:00">18:58:53</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>It should be 60Hz, not 35 Hz!</q></li>
 <li class="message">[<a href="#T18:59:00" id="T18:59:00"><abbr title="2010-02-17T18:59:00+00:00">18:59:00</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>how oes one turn on mmc debug</q></li>
 <li class="join">[<a href="#T18:59:04" id="T18:59:04"><abbr title="2010-02-17T18:59:04+00:00">18:59:04</abbr></a>] <span>* ajd (~quassel@cpe-098-121-111-042.triad.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:01:12" id="T19:01:12"><abbr title="2010-02-17T19:01:12+00:00">19:01:12</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>Anyone know how to fix that display?</q></li>
+<li class="message">[<a href="#T19:02:08" id="T19:02:08"><abbr title="2010-02-17T19:02:08+00:00">19:02:08</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>      CFLAGS_[filename].o := -DDEBUG ?</q></li>
+<li class="quit">[<a href="#T19:04:03" id="T19:04:03"><abbr title="2010-02-17T19:04:03+00:00">19:04:03</abbr></a>] <span>* argonaut_ (~d5c2df90@gateway/web/freenode/x-icxprsjmjgyvtfok) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T19:08:20" id="T19:08:20"><abbr title="2010-02-17T19:08:20+00:00">19:08:20</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>Crofton: in defconfig -- # CONFIG_MMC_DEBUG is not set</q></li>
+<li class="message">[<a href="#T19:08:32" id="T19:08:32"><abbr title="2010-02-17T19:08:32+00:00">19:08:32</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>just flip that to =y</q></li>
+<li class="message">[<a href="#T19:10:03" id="T19:10:03"><abbr title="2010-02-17T19:10:03+00:00">19:10:03</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T19:10:07" id="T19:10:07"><abbr title="2010-02-17T19:10:07+00:00">19:10:07</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>silly me</q></li>
+<li class="join">[<a href="#T19:11:43" id="T19:11:43"><abbr title="2010-02-17T19:11:43+00:00">19:11:43</abbr></a>] <span>* Guest32218 (~hitokiri@41.6.60.167) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:13:37" id="T19:13:37"><abbr title="2010-02-17T19:13:37+00:00">19:13:37</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>Crofton: not silly at all.  seems there are as many different ways to turn on debugging as there are subsystems</q></li>
+<li class="quit">[<a href="#T19:14:20" id="T19:14:20"><abbr title="2010-02-17T19:14:20+00:00">19:14:20</abbr></a>] <span>* prpplague (~dave123_a@ppp-70-249-155-242.dsl.rcsntx.swbell.net) Quit (Disconnected by services)</span></li>
+<li class="message">[<a href="#T19:14:29" id="T19:14:29"><abbr title="2010-02-17T19:14:29+00:00">19:14:29</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>Hmm, any tips for why my thingy would have the lcd turn off?</q></li>
+<li class="message">[<abbr title="2010-02-17T19:14:29+00:00">19:14:29</abbr>] &lt;<cite>robtow</cite>&gt; <q>Good morning.</q></li>
+<li class="nick-change">[<a href="#T19:14:30" id="T19:14:30"><abbr title="2010-02-17T19:14:30+00:00">19:14:30</abbr></a>] <span>* prpplague_afk is now known as prpplague</span></li>
+<li class="message">[<a href="#T19:14:42" id="T19:14:42"><abbr title="2010-02-17T19:14:42+00:00">19:14:42</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>Trying to use 1680x1050... it seems to be giving 35Hz.  FAIL.</q></li>
+<li class="quit">[<a href="#T19:17:22" id="T19:17:22"><abbr title="2010-02-17T19:17:22+00:00">19:17:22</abbr></a>] <span>* nullpuppy (~dustin@c-24-16-84-118.hsd1.wa.comcast.net) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="join">[<a href="#T19:19:32" id="T19:19:32"><abbr title="2010-02-17T19:19:32+00:00">19:19:32</abbr></a>] <span>* nullpuppy (~dustin@c-24-16-84-118.hsd1.wa.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:20:45" id="T19:20:45"><abbr title="2010-02-17T19:20:45+00:00">19:20:45</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>ugh, apparently it can't go that high.</q></li>
+<li class="message">[<a href="#T19:21:59" id="T19:21:59"><abbr title="2010-02-17T19:21:59+00:00">19:21:59</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q><a href="http://www.beagleboard.org/irclogs/index.php?date=2009-07-06#T17:16:17">http://www.beagleboard.org/irclogs/index.php?date=2009-07-06#T17:16:17</a></q></li>
+<li class="join">[<a href="#T19:27:42" id="T19:27:42"><abbr title="2010-02-17T19:27:42+00:00">19:27:42</abbr></a>] <span>* Meizirkki (~Meizirkki@bbwirelessgw2-fee1dc00-2.dhcp.inet.fi) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T19:27:46" id="T19:27:46"><abbr title="2010-02-17T19:27:46+00:00">19:27:46</abbr></a>] <span>* Meizirkki is now known as Fosus</span></li>
+<li class="join">[<a href="#T19:28:22" id="T19:28:22"><abbr title="2010-02-17T19:28:22+00:00">19:28:22</abbr></a>] <span>* mIKEjONES (~mIKEjONES@orbital.rh.rit.edu) has joined #beagle</span></li>
+<li class="join">[<a href="#T19:29:48" id="T19:29:48"><abbr title="2010-02-17T19:29:48+00:00">19:29:48</abbr></a>] <span>* nhg (~a0864305@nat/ti/x-qmvklgrdbpmikfsd) has joined #beagle</span></li>
+<li class="quit">[<a href="#T19:30:55" id="T19:30:55"><abbr title="2010-02-17T19:30:55+00:00">19:30:55</abbr></a>] <span>* nhg1 (~a0864305@nat/ti/x-snmnrwkudyvonaua) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T19:32:36" id="T19:32:36"><abbr title="2010-02-17T19:32:36+00:00">19:32:36</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:35:17" id="T19:35:17"><abbr title="2010-02-17T19:35:17+00:00">19:35:17</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>no mmc1 or mmc2 messges on dmesg</q></li>
+<li class="message">[<a href="#T19:35:26" id="T19:35:26"><abbr title="2010-02-17T19:35:26+00:00">19:35:26</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I think I over fill the log</q></li>
+<li class="message">[<a href="#T19:35:38" id="T19:35:38"><abbr title="2010-02-17T19:35:38+00:00">19:35:38</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ok back to gpmc controller ....</q></li>
+<li class="message">[<a href="#T19:35:39" id="T19:35:39"><abbr title="2010-02-17T19:35:39+00:00">19:35:39</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>Crofton: you still having mmc issues?</q></li>
+<li class="message">[<a href="#T19:35:43" id="T19:35:43"><abbr title="2010-02-17T19:35:43+00:00">19:35:43</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T19:35:54" id="T19:35:54"><abbr title="2010-02-17T19:35:54+00:00">19:35:54</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I think :)</q></li>
+<li class="message">[<a href="#T19:36:12" id="T19:36:12"><abbr title="2010-02-17T19:36:12+00:00">19:36:12</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>but I need to go work on something else now :(</q></li>
+<li class="join">[<a href="#T19:40:28" id="T19:40:28"><abbr title="2010-02-17T19:40:28+00:00">19:40:28</abbr></a>] <span>* naeg (~naeg@194.208.239.170) has joined #beagle</span></li>
+<li class="quit">[<a href="#T19:43:34" id="T19:43:34"><abbr title="2010-02-17T19:43:34+00:00">19:43:34</abbr></a>] <span>* khasim (~a0393720@192.163.20.231) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="quit">[<a href="#T19:48:19" id="T19:48:19"><abbr title="2010-02-17T19:48:19+00:00">19:48:19</abbr></a>] <span>* Guest32218 (~hitokiri@41.6.60.167) Quit (Quit: Nettalk6 - www.ntalk.de)</span></li>
+<li class="join">[<a href="#T19:54:36" id="T19:54:36"><abbr title="2010-02-17T19:54:36+00:00">19:54:36</abbr></a>] <span>* Jefro (~jefro@cust-67-203-89-34.static.o1.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T19:55:13" id="T19:55:13"><abbr title="2010-02-17T19:55:13+00:00">19:55:13</abbr></a>] <span>* djlewis_ (~41401e0d@gateway/web/freenode/x-ihfvnnongpurfhtc) Quit (Quit: Page closed)</span></li>
+<li class="quit">[<a href="#T19:59:15" id="T19:59:15"><abbr title="2010-02-17T19:59:15+00:00">19:59:15</abbr></a>] <span>* DanaG (~danag@129.65.138.74) Quit (Quit: Java user signed off)</span></li>
