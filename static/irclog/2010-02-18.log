@@ -137,3 +137,34 @@
 <li class="nick-change">[<a href="#T01:57:59" id="T01:57:59"><abbr title="2010-02-18T01:57:59+00:00">01:57:59</abbr></a>] <span>* orbarron is now known as orbarron|OoO</span></li>
 <li class="quit">[<a href="#T01:58:14" id="T01:58:14"><abbr title="2010-02-18T01:58:14+00:00">01:58:14</abbr></a>] <span>* jrmuizel (~jrmuizel@74.198.8.70) Quit (Ping timeout: 246 seconds)</span></li>
 <li class="nick-change">[<abbr title="2010-02-18T01:58:14+00:00">01:58:14</abbr>] <span>* jrmuizel_ is now known as jrmuizel</span></li>
+<li class="join">[<a href="#T02:01:53" id="T02:01:53"><abbr title="2010-02-18T02:01:53+00:00">02:01:53</abbr></a>] <span>* thaytan (~jan@ppp121-44-244-74.lns20.syd7.internode.on.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T02:04:41" id="T02:04:41"><abbr title="2010-02-18T02:04:41+00:00">02:04:41</abbr></a>] <span>* djlewis (~djlewis@75.15.67.3) has joined #beagle</span></li>
+<li class="join">[<a href="#T02:09:37" id="T02:09:37"><abbr title="2010-02-18T02:09:37+00:00">02:09:37</abbr></a>] <span>* DanaG (~dana@pcp057515pcs.wireless.calpoly.edu) has joined #beagle</span></li>
+<li class="message">[<a href="#T02:12:10" id="T02:12:10"><abbr title="2010-02-18T02:12:10+00:00">02:12:10</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>Anyone know the right type of "mount" command to mount a .img file produced by the Narcissus image builder?</q></li>
+<li class="message">[<a href="#T02:13:48" id="T02:13:48"><abbr title="2010-02-18T02:13:48+00:00">02:13:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>try - "mount -o loop foo.img /mnt"</q></li>
+<li class="quit">[<a href="#T02:14:48" id="T02:14:48"><abbr title="2010-02-18T02:14:48+00:00">02:14:48</abbr></a>] <span>* DanaG (~dana@pcp057515pcs.wireless.calpoly.edu) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T02:15:05" id="T02:15:05"><abbr title="2010-02-18T02:15:05+00:00">02:15:05</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>ds2 - says I must specify the filesystem type.</q></li>
+<li class="message">[<a href="#T02:15:28" id="T02:15:28"><abbr title="2010-02-18T02:15:28+00:00">02:15:28</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>file sd.img says:</q></li>
+<li class="message">[<a href="#T02:15:42" id="T02:15:42"><abbr title="2010-02-18T02:15:42+00:00">02:15:42</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>sd.img: x86 boot sector; partition 1: ID=0xc, active, starthead 1, startsector 63, 144522 sectors; partition 2: ID=0x83, starthead 0, startsector 144585, 1815345 sectors</q></li>
+<li class="message">[<a href="#T02:15:57" id="T02:15:57"><abbr title="2010-02-18T02:15:57+00:00">02:15:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oh that... you need to figure out the offset for the partitions</q></li>
+<li class="message">[<a href="#T02:16:08" id="T02:16:08"><abbr title="2010-02-18T02:16:08+00:00">02:16:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>nevermind what I said</q></li>
+<li class="message">[<a href="#T02:16:52" id="T02:16:52"><abbr title="2010-02-18T02:16:52+00:00">02:16:52</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>:-(</q></li>
+<li class="message">[<a href="#T02:17:34" id="T02:17:34"><abbr title="2010-02-18T02:17:34+00:00">02:17:34</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>Sighs</q></li>
+<li class="quit">[<a href="#T02:19:30" id="T02:19:30"><abbr title="2010-02-18T02:19:30+00:00">02:19:30</abbr></a>] <span>* thaytan (~jan@ppp121-44-244-74.lns20.syd7.internode.on.net) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T02:19:44" id="T02:19:44"><abbr title="2010-02-18T02:19:44+00:00">02:19:44</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I think you just dd it to the sd card ....</q></li>
+<li class="quit">[<a href="#T02:20:20" id="T02:20:20"><abbr title="2010-02-18T02:20:20+00:00">02:20:20</abbr></a>] <span>* Zoxc (~zoxc@ti0128a340-dhcp0501.bb.online.no) Quit ()</span></li>
+<li class="message">[<a href="#T02:21:21" id="T02:21:21"><abbr title="2010-02-18T02:21:21+00:00">02:21:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is a way to compute the offset</q></li>
+<li class="message">[<a href="#T02:21:43" id="T02:21:43"><abbr title="2010-02-18T02:21:43+00:00">02:21:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>did it years ago but don't recall it</q></li>
+<li class="message">[<a href="#T02:24:08" id="T02:24:08"><abbr title="2010-02-18T02:24:08+00:00">02:24:08</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>Crofton - I was hooping to not have to use a sd card.</q></li>
+<li class="message">[<a href="#T02:24:20" id="T02:24:20"><abbr title="2010-02-18T02:24:20+00:00">02:24:20</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>&lt;grumbles&gt;</q></li>
+<li class="message">[<a href="#T02:24:30" id="T02:24:30"><abbr title="2010-02-18T02:24:30+00:00">02:24:30</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T02:25:02" id="T02:25:02"><abbr title="2010-02-18T02:25:02+00:00">02:25:02</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>I want to grab just the kernel off it, and put it on an already existing card.</q></li>
+<li class="quit">[<a href="#T02:30:22" id="T02:30:22"><abbr title="2010-02-18T02:30:22+00:00">02:30:22</abbr></a>] <span>* robclark (~robclark@ppp-70-253-157-93.dsl.rcsntx.swbell.net) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T02:31:39" id="T02:31:39"><abbr title="2010-02-18T02:31:39+00:00">02:31:39</abbr></a>] <span>* ajd (~quassel@cpe-098-121-111-042.triad.res.rr.com) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T02:31:49" id="T02:31:49"><abbr title="2010-02-18T02:31:49+00:00">02:31:49</abbr></a>] &lt;<cite>robtow</cite>&gt; <q>Oh, well, I'll just wipe an existing card temporarily!</q></li>
+<li class="quit">[<a href="#T02:33:12" id="T02:33:12"><abbr title="2010-02-18T02:33:12+00:00">02:33:12</abbr></a>] <span>* mrc3 (~ddiaz@122.181.11.126) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T02:42:27" id="T02:42:27"><abbr title="2010-02-18T02:42:27+00:00">02:42:27</abbr></a>] <span>* thaytan (~jan@198.23.233.220.static.exetel.com.au) has joined #beagle</span></li>
+<li class="join">[<a href="#T02:42:48" id="T02:42:48"><abbr title="2010-02-18T02:42:48+00:00">02:42:48</abbr></a>] <span>* denix|air (~denys@pool-71-251-51-225.washdc.east.verizon.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T02:48:21" id="T02:48:21"><abbr title="2010-02-18T02:48:21+00:00">02:48:21</abbr></a>] <span>* mrc3 (~ddiaz@122.181.11.126) has joined #beagle</span></li>
+<li class="message">[<a href="#T02:54:46" id="T02:54:46"><abbr title="2010-02-18T02:54:46+00:00">02:54:46</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T02:55:06" id="T02:55:06"><abbr title="2010-02-18T02:55:06+00:00">02:55:06</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>the image builder is designed to easy to build working cards :)</q></li>
