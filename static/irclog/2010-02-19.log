@@ -755,3 +755,42 @@
 <li class="message">[<a href="#T17:51:57" id="T17:51:57"><abbr title="2010-02-19T17:51:57+00:00">17:51:57</abbr></a>] &lt;<cite>zlfita</cite>&gt; <q>I have no monitor connected</q></li>
 <li class="join">[<a href="#T17:56:24" id="T17:56:24"><abbr title="2010-02-19T17:56:24+00:00">17:56:24</abbr></a>] <span>* Sirisian (~Sirisian@pix050-209.pix.wmich.edu) has joined #beagle</span></li>
 <li class="message">[<a href="#T17:59:29" id="T17:59:29"><abbr title="2010-02-19T17:59:29+00:00">17:59:29</abbr></a>] &lt;<cite>Sirisian</cite>&gt; <q>prpplague, okay that ultrasonic sensor can do analog and pulse width also. Does beagle have an easy way to interface iwth those?</q></li>
+<li class="quit">[<a href="#T18:00:30" id="T18:00:30"><abbr title="2010-02-19T18:00:30+00:00">18:00:30</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T18:01:42" id="T18:01:42"><abbr title="2010-02-19T18:01:42+00:00">18:01:42</abbr></a>] <span>* djlewis_ (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:02:48" id="T18:02:48"><abbr title="2010-02-19T18:02:48+00:00">18:02:48</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:02:56" id="T18:02:56"><abbr title="2010-02-19T18:02:56+00:00">18:02:56</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>gm</q></li>
+<li class="join">[<a href="#T18:05:54" id="T18:05:54"><abbr title="2010-02-19T18:05:54+00:00">18:05:54</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:15:27" id="T18:15:27"><abbr title="2010-02-19T18:15:27+00:00">18:15:27</abbr></a>] &lt;<cite>zlfita</cite>&gt; <q>why would my android image fail to open an initial console and try to kill init?</q></li>
+<li class="message">[<a href="#T18:15:52" id="T18:15:52"><abbr title="2010-02-19T18:15:52+00:00">18:15:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that message means /dev/console doesn't exist</q></li>
+<li class="message">[<a href="#T18:16:03" id="T18:16:03"><abbr title="2010-02-19T18:16:03+00:00">18:16:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you need a basic /dev even if udev does the rest</q></li>
+<li class="message">[<a href="#T18:16:30" id="T18:16:30"><abbr title="2010-02-19T18:16:30+00:00">18:16:30</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>android does not do udev</q></li>
+<li class="message">[<a href="#T18:16:44" id="T18:16:44"><abbr title="2010-02-19T18:16:44+00:00">18:16:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>well, then you need a full /dev</q></li>
+<li class="message">[<a href="#T18:17:12" id="T18:17:12"><abbr title="2010-02-19T18:17:12+00:00">18:17:12</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>zlfita: what is your kernel command line</q></li>
+<li class="message">[<a href="#T18:17:29" id="T18:17:29"><abbr title="2010-02-19T18:17:29+00:00">18:17:29</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ndroid needs some special console foo there</q></li>
+<li class="message">[<a href="#T18:17:58" id="T18:17:58"><abbr title="2010-02-19T18:17:58+00:00">18:17:58</abbr></a>] &lt;<cite>zlfita</cite>&gt; <q>av500: i boot manually by fitst setting: setenv bootargs console=ttyS2,115200n8 noinitrd root=/dev/mmcblk0p2 video=omapfb.mode=dvi:1280x720MR-24@50 init=/init rootfstype=ext3 rw rootdelay=1 nohz=off androidboot.console=ttyS2 </q></li>
+<li class="quit">[<a href="#T18:18:13" id="T18:18:13"><abbr title="2010-02-19T18:18:13+00:00">18:18:13</abbr></a>] <span>* bearsh|work (~quassel@inst-232.173.zhaw.ch) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T18:18:20" id="T18:18:20"><abbr title="2010-02-19T18:18:20+00:00">18:18:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok so you have that</q></li>
+<li class="message">[<a href="#T18:18:32" id="T18:18:32"><abbr title="2010-02-19T18:18:32+00:00">18:18:32</abbr></a>] &lt;<cite>zlfita</cite>&gt; <q>i see a message saying the last argument is unrecognized and ignored</q></li>
+<li class="message">[<a href="#T18:18:43" id="T18:18:43"><abbr title="2010-02-19T18:18:43+00:00">18:18:43</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>that is not good</q></li>
+<li class="message">[<a href="#T18:18:59" id="T18:18:59"><abbr title="2010-02-19T18:18:59+00:00">18:18:59</abbr></a>] &lt;<cite>zlfita</cite>&gt; <q>uh-oh</q></li>
+<li class="message">[<a href="#T18:19:00" id="T18:19:00"><abbr title="2010-02-19T18:19:00+00:00">18:19:00</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>sure you have  android patches in kernel?</q></li>
+<li class="message">[<a href="#T18:19:44" id="T18:19:44"><abbr title="2010-02-19T18:19:44+00:00">18:19:44</abbr></a>] &lt;<cite>zlfita</cite>&gt; <q>I downloaded cupcake binaries from embinux.org</q></li>
+<li class="message">[<a href="#T18:19:50" id="T18:19:50"><abbr title="2010-02-19T18:19:50+00:00">18:19:50</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:19:55" id="T18:19:55"><abbr title="2010-02-19T18:19:55+00:00">18:19:55</abbr></a>] &lt;<cite>zlfita</cite>&gt; <q>so I guess I have</q></li>
+<li class="message">[<a href="#T18:20:21" id="T18:20:21"><abbr title="2010-02-19T18:20:21+00:00">18:20:21</abbr></a>] &lt;<cite>zlfita</cite>&gt; <q>I have no monitor connected</q></li>
+<li class="join">[<a href="#T18:22:19" id="T18:22:19"><abbr title="2010-02-19T18:22:19+00:00">18:22:19</abbr></a>] <span>* LearnIt_ (~404f7f0a@gateway/web/freenode/x-wllagtupufrneebz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:23:24" id="T18:23:24"><abbr title="2010-02-19T18:23:24+00:00">18:23:24</abbr></a>] <span>* LearnIt (~404f7f0a@gateway/web/freenode/x-meycqzgebicouluj) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T18:30:57" id="T18:30:57"><abbr title="2010-02-19T18:30:57+00:00">18:30:57</abbr></a>] <span>* Sirisian (~Sirisian@pix050-209.pix.wmich.edu) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T18:32:31" id="T18:32:31"><abbr title="2010-02-19T18:32:31+00:00">18:32:31</abbr></a>] <span>* LearnIt_ (~404f7f0a@gateway/web/freenode/x-wllagtupufrneebz) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T18:32:47" id="T18:32:47"><abbr title="2010-02-19T18:32:47+00:00">18:32:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Morning!</q></li>
+<li class="quit">[<a href="#T18:35:42" id="T18:35:42"><abbr title="2010-02-19T18:35:42+00:00">18:35:42</abbr></a>] <span>* pH5 (~ph5@e178203042.adsl.alicedsl.de) Quit (Quit: bye)</span></li>
+<li class="message">[<a href="#T18:37:53" id="T18:37:53"><abbr title="2010-02-19T18:37:53+00:00">18:37:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ds2: gm</q></li>
+<li class="quit">[<a href="#T18:44:58" id="T18:44:58"><abbr title="2010-02-19T18:44:58+00:00">18:44:58</abbr></a>] <span>* _roger_ (~a0740758@nat/ti/x-ohtauaatnaiywgkn) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T18:45:15" id="T18:45:15"><abbr title="2010-02-19T18:45:15+00:00">18:45:15</abbr></a>] <span>* Belna (~Thomas@ppp-93-104-149-187.dynamic.mnet-online.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:50:24" id="T18:50:24"><abbr title="2010-02-19T18:50:24+00:00">18:50:24</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>hm</q></li>
+<li class="message">[<a href="#T18:50:37" id="T18:50:37"><abbr title="2010-02-19T18:50:37+00:00">18:50:37</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>I'm using the eclair image from embinux</q></li>
+<li class="message">[<a href="#T18:50:49" id="T18:50:49"><abbr title="2010-02-19T18:50:49+00:00">18:50:49</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>but I built mine from source, didn't use the binaries.</q></li>
+<li class="message">[<a href="#T18:54:58" id="T18:54:58"><abbr title="2010-02-19T18:54:58+00:00">18:54:58</abbr></a>] &lt;<cite>anunakin</cite>&gt; <q>muriani: here git/repo dont pass on kernel clone stage</q></li>
+<li class="message">[<a href="#T18:55:27" id="T18:55:27"><abbr title="2010-02-19T18:55:27+00:00">18:55:27</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>oh?</q></li>
+<li class="message">[<a href="#T18:55:40" id="T18:55:40"><abbr title="2010-02-19T18:55:40+00:00">18:55:40</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>hm.</q></li>
+<li class="message">[<a href="#T18:55:50" id="T18:55:50"><abbr title="2010-02-19T18:55:50+00:00">18:55:50</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>I didn't have any issues when following the embinux wiki.</q></li>
