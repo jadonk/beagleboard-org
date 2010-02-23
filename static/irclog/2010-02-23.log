@@ -733,3 +733,80 @@
 <li class="message">[<a href="#T21:57:42" id="T21:57:42"><abbr title="2010-02-23T21:57:42+00:00">21:57:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that enables the console earlier</q></li>
 <li class="message">[<a href="#T21:58:01" id="T21:58:01"><abbr title="2010-02-23T21:58:01+00:00">21:58:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so if you are not getting output and assuming you have the right console defined, you have a very low level problem</q></li>
 <li class="message">[<a href="#T21:58:21" id="T21:58:21"><abbr title="2010-02-23T21:58:21+00:00">21:58:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you do have a reasonable console=... line in your commandline, right?</q></li>
+<li class="message">[<a href="#T22:02:57" id="T22:02:57"><abbr title="2010-02-23T22:02:57+00:00">22:02:57</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: Yep</q></li>
+<li class="message">[<a href="#T22:03:12" id="T22:03:12"><abbr title="2010-02-23T22:03:12+00:00">22:03:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>is your pinmux sane?</q></li>
+<li class="message">[<a href="#T22:03:33" id="T22:03:33"><abbr title="2010-02-23T22:03:33+00:00">22:03:33</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: console=ttyS2,115200n8</q></li>
+<li class="message">[<a href="#T22:03:40" id="T22:03:40"><abbr title="2010-02-23T22:03:40+00:00">22:03:40</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: Didn't touch the pinmux</q></li>
+<li class="message">[<a href="#T22:04:45" id="T22:04:45"><abbr title="2010-02-23T22:04:45+00:00">22:04:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>usually when this happens, it is some option in your config</q></li>
+<li class="message">[<a href="#T22:04:59" id="T22:04:59"><abbr title="2010-02-23T22:04:59+00:00">22:04:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>double check it against a known working config... NOT a defconfig one</q></li>
+<li class="message">[<a href="#T22:05:15" id="T22:05:15"><abbr title="2010-02-23T22:05:15+00:00">22:05:15</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>alright</q></li>
+<li class="message">[<a href="#T22:05:43" id="T22:05:43"><abbr title="2010-02-23T22:05:43+00:00">22:05:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is usually menu options relating to the OMAP/ARM stuff</q></li>
+<li class="message">[<a href="#T22:05:54" id="T22:05:54"><abbr title="2010-02-23T22:05:54+00:00">22:05:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>like the enable or disable errata support things</q></li>
+<li class="quit">[<a href="#T22:09:11" id="T22:09:11"><abbr title="2010-02-23T22:09:11+00:00">22:09:11</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-fvqkeltjjiodbuir) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T22:12:11" id="T22:12:11"><abbr title="2010-02-23T22:12:11+00:00">22:12:11</abbr></a>] &lt;<cite>dv_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T22:12:16" id="T22:12:16"><abbr title="2010-02-23T22:12:16+00:00">22:12:16</abbr></a>] &lt;<cite>dv_</cite>&gt; <q>is the "devmem2 0x48004b40 w 0" still valid?</q></li>
+<li class="message">[<a href="#T22:12:21" id="T22:12:21"><abbr title="2010-02-23T22:12:21+00:00">22:12:21</abbr></a>] &lt;<cite>dv_</cite>&gt; <q>for full sgx speed</q></li>
+<li class="message">[<a href="#T22:12:30" id="T22:12:30"><abbr title="2010-02-23T22:12:30+00:00">22:12:30</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: How do you cross-compile your kernels?</q></li>
+<li class="message">[<a href="#T22:12:46" id="T22:12:46"><abbr title="2010-02-23T22:12:46+00:00">22:12:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>with make</q></li>
+<li class="message">[<a href="#T22:12:50" id="T22:12:50"><abbr title="2010-02-23T22:12:50+00:00">22:12:50</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>openembedded is a pain in the arse</q></li>
+<li class="message">[<a href="#T22:12:51" id="T22:12:51"><abbr title="2010-02-23T22:12:51+00:00">22:12:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>not sure what you are asking</q></li>
+<li class="message">[<a href="#T22:13:17" id="T22:13:17"><abbr title="2010-02-23T22:13:17+00:00">22:13:17</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: Do you do kernel development?</q></li>
+<li class="message">[<a href="#T22:13:40" id="T22:13:40"><abbr title="2010-02-23T22:13:40+00:00">22:13:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yes it is but I shall not comment more on the OE stuff or else I risk having the pitchfork mob come after me :D</q></li>
+<li class="message">[<a href="#T22:13:41" id="T22:13:41"><abbr title="2010-02-23T22:13:41+00:00">22:13:41</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: Do you rely on openembedded to build your kernels or do you do it yourself?</q></li>
+<li class="message">[<a href="#T22:13:55" id="T22:13:55"><abbr title="2010-02-23T22:13:55+00:00">22:13:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>bgamari: yes, I mainly do kernel development</q></li>
+<li class="message">[<a href="#T22:14:06" id="T22:14:06"><abbr title="2010-02-23T22:14:06+00:00">22:14:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>bgamari: I only use OE when requested and only for userland</q></li>
+<li class="message">[<a href="#T22:14:27" id="T22:14:27"><abbr title="2010-02-23T22:14:27+00:00">22:14:27</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: Alright, so you have an arm toolchain installed?</q></li>
+<li class="message">[<a href="#T22:14:46" id="T22:14:46"><abbr title="2010-02-23T22:14:46+00:00">22:14:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yes, many of them infact :D</q></li>
+<li class="message">[<a href="#T22:15:48" id="T22:15:48"><abbr title="2010-02-23T22:15:48+00:00">22:15:48</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>What in particular?</q></li>
+<li class="message">[<a href="#T22:16:16" id="T22:16:16"><abbr title="2010-02-23T22:16:16+00:00">22:16:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>crosstools built, various CS versions, the MV flavors..that's for Linux</q></li>
+<li class="message">[<a href="#T22:16:25" id="T22:16:25"><abbr title="2010-02-23T22:16:25+00:00">22:16:25</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>Or would you have any tips for using the openembedded toolchain from outside of OE?</q></li>
+<li class="message">[<a href="#T22:16:35" id="T22:16:35"><abbr title="2010-02-23T22:16:35+00:00">22:16:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>even some older versions from the Z development days </q></li>
+<li class="message">[<a href="#T22:16:56" id="T22:16:56"><abbr title="2010-02-23T22:16:56+00:00">22:16:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I don't see the point but you can do that if you so wish...just setup your path</q></li>
+<li class="message">[<a href="#T22:17:26" id="T22:17:26"><abbr title="2010-02-23T22:17:26+00:00">22:17:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is the quick and easy way of development and then there is the customer requested way :D</q></li>
+<li class="message">[<a href="#T22:17:56" id="T22:17:56"><abbr title="2010-02-23T22:17:56+00:00">22:17:56</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: The issue is that I really would like a gcc 4.4 compiler</q></li>
+<li class="message">[<a href="#T22:18:08" id="T22:18:08"><abbr title="2010-02-23T22:18:08+00:00">22:18:08</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>Due to C++0x feature coverage</q></li>
+<li class="message">[<a href="#T22:18:23" id="T22:18:23"><abbr title="2010-02-23T22:18:23+00:00">22:18:23</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>export PATH=${HOME}/oe/tmp/cross/armv7a/bin:${PATH}</q></li>
+<li class="message">[<a href="#T22:18:24" id="T22:18:24"><abbr title="2010-02-23T22:18:24+00:00">22:18:24</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>export CROSS_COMPILE=arm-angstrom-linux-gnueabi-</q></li>
+<li class="message">[<a href="#T22:18:26" id="T22:18:26"><abbr title="2010-02-23T22:18:26+00:00">22:18:26</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T22:18:27" id="T22:18:27"><abbr title="2010-02-23T22:18:27+00:00">22:18:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and that isn't a problem</q></li>
+<li class="message">[<a href="#T22:18:32" id="T22:18:32"><abbr title="2010-02-23T22:18:32+00:00">22:18:32</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>is how I build kernels</q></li>
+<li class="message">[<a href="#T22:18:36" id="T22:18:36"><abbr title="2010-02-23T22:18:36+00:00">22:18:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: that's fine if you don't switch arch's often </q></li>
+<li class="message">[<a href="#T22:18:43" id="T22:18:43"><abbr title="2010-02-23T22:18:43+00:00">22:18:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I just do it all on the commnadline</q></li>
+<li class="message">[<a href="#T22:19:14" id="T22:19:14"><abbr title="2010-02-23T22:19:14+00:00">22:19:14</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>Crofton: Ahh, thanks!</q></li>
+<li class="message">[<a href="#T22:19:40" id="T22:19:40"><abbr title="2010-02-23T22:19:40+00:00">22:19:40</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>Same issue unfortunately</q></li>
+<li class="message">[<a href="#T22:19:45" id="T22:19:45"><abbr title="2010-02-23T22:19:45+00:00">22:19:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>i.e. make ARCH=arm CROSS_COMPILE=arm_v7_vfp_le-</q></li>
+<li class="message">[<a href="#T22:19:49" id="T22:19:49"><abbr title="2010-02-23T22:19:49+00:00">22:19:49</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>There seems to be some issue with header paths</q></li>
+<li class="message">[<a href="#T22:20:07" id="T22:20:07"><abbr title="2010-02-23T22:20:07+00:00">22:20:07</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>/home/bgamari/OE/angstrom-dev/staging/armv7a-angstrom-linux-gnueabi/usr/include/stdio.h:34:21: error: stddef.h: No such file or directory</q></li>
+<li class="message">[<a href="#T22:20:34" id="T22:20:34"><abbr title="2010-02-23T22:20:34+00:00">22:20:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>*shrug*</q></li>
+<li class="message">[<a href="#T22:20:45" id="T22:20:45"><abbr title="2010-02-23T22:20:45+00:00">22:20:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I freely switch toolchains and don't see that sort of problem</q></li>
+<li class="join">[<a href="#T22:28:20" id="T22:28:20"><abbr title="2010-02-23T22:28:20+00:00">22:28:20</abbr></a>] <span>* ddompe (~ddompe@200.122.155.113) has joined #beagle</span></li>
+<li class="join">[<a href="#T22:29:04" id="T22:29:04"><abbr title="2010-02-23T22:29:04+00:00">22:29:04</abbr></a>] <span>* tlab (~tlab@c-69-243-187-136.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T22:29:08" id="T22:29:08"><abbr title="2010-02-23T22:29:08+00:00">22:29:08</abbr></a>] <span>* tlab (~tlab@c-69-243-187-136.hsd1.in.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T22:29:58" id="T22:29:58"><abbr title="2010-02-23T22:29:58+00:00">22:29:58</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>Cool, that works</q></li>
+<li class="message">[<a href="#T22:30:12" id="T22:30:12"><abbr title="2010-02-23T22:30:12+00:00">22:30:12</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>so make uImage should give me a usable image, correct?</q></li>
+<li class="message">[<a href="#T22:30:20" id="T22:30:20"><abbr title="2010-02-23T22:30:20+00:00">22:30:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if you are using uboot, sure</q></li>
+<li class="message">[<a href="#T22:30:22" id="T22:30:22"><abbr title="2010-02-23T22:30:22+00:00">22:30:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>btw, which works?</q></li>
+<li class="message">[<a href="#T22:30:25" id="T22:30:25"><abbr title="2010-02-23T22:30:25+00:00">22:30:25</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>bgamari, works for me :)</q></li>
+<li class="message">[<a href="#T22:30:30" id="T22:30:30"><abbr title="2010-02-23T22:30:30+00:00">22:30:30</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>Or is there more funkiness that OE does?</q></li>
+<li class="message">[<a href="#T22:30:33" id="T22:30:33"><abbr title="2010-02-23T22:30:33+00:00">22:30:33</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>alright, awesome</q></li>
+<li class="message">[<a href="#T22:30:42" id="T22:30:42"><abbr title="2010-02-23T22:30:42+00:00">22:30:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>OE does a lot fo funkiness</q></li>
+<li class="message">[<a href="#T22:30:48" id="T22:30:48"><abbr title="2010-02-23T22:30:48+00:00">22:30:48</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>you will need mkimage in your ath</q></li>
+<li class="message">[<a href="#T22:30:50" id="T22:30:50"><abbr title="2010-02-23T22:30:50+00:00">22:30:50</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>path</q></li>
+<li class="message">[<a href="#T22:30:54" id="T22:30:54"><abbr title="2010-02-23T22:30:54+00:00">22:30:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is so you get embedded in your project ;)</q></li>
+<li class="message">[<a href="#T22:30:57" id="T22:30:57"><abbr title="2010-02-23T22:30:57+00:00">22:30:57</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ds2, rubbish :)</q></li>
+<li class="message">[<a href="#T22:31:05" id="T22:31:05"><abbr title="2010-02-23T22:31:05+00:00">22:31:05</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>make ARCH=arm CROSS_COMPILE=arm_v7_vfp</q></li>
+<li class="join">[<a href="#T22:31:06" id="T22:31:06"><abbr title="2010-02-23T22:31:06+00:00">22:31:06</abbr></a>] <span>* ant__ (~andrea@host219-248-dynamic.5-87-r.retail.telecomitalia.it) has joined #beagle</span></li>
+<li class="message">[<abbr title="2010-02-23T22:31:06+00:00">22:31:06</abbr>] &lt;<cite>bgamari</cite>&gt; <q>make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- CFLAGS="/home/bgamari/OE/angstrom-dev/cross/armv7a/lib/gcc/arm-angstrom-linux-gnueabi/4.3.1/include"</q></li>
+<li class="message">[<a href="#T22:31:22" id="T22:31:22"><abbr title="2010-02-23T22:31:22+00:00">22:31:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>heh... :D</q></li>
+<li class="message">[<a href="#T22:31:46" id="T22:31:46"><abbr title="2010-02-23T22:31:46+00:00">22:31:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: python is not funkiness? ;) </q></li>
+<li class="message">[<a href="#T22:31:59" id="T22:31:59"><abbr title="2010-02-23T22:31:59+00:00">22:31:59</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>using or building?</q></li>
+<li class="message">[<a href="#T22:32:08" id="T22:32:08"><abbr title="2010-02-23T22:32:08+00:00">22:32:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>either </q></li>
+<li class="quit">[<a href="#T22:32:24" id="T22:32:24"><abbr title="2010-02-23T22:32:24+00:00">22:32:24</abbr></a>] <span>* rsalveti (~rsalveti@200.184.118.130) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T22:34:19" id="T22:34:19"><abbr title="2010-02-23T22:34:19+00:00">22:34:19</abbr></a>] <span>* Sirisian (~Sirisian@141.218.225.95) has joined #beagle</span></li>
+<li class="message">[<a href="#T22:36:38" id="T22:36:38"><abbr title="2010-02-23T22:36:38+00:00">22:36:38</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>ds2: Where is the resulting uImage placed?</q></li>
+<li class="quit">[<a href="#T22:37:22" id="T22:37:22"><abbr title="2010-02-23T22:37:22+00:00">22:37:22</abbr></a>] <span>* jpirko (~jirka@ip-89-103-91-23.karneval.cz) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T22:37:58" id="T22:37:58"><abbr title="2010-02-23T22:37:58+00:00">22:37:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>arch/arm/boot/uImage</q></li>
+<li class="join">[<a href="#T22:40:45" id="T22:40:45"><abbr title="2010-02-23T22:40:45+00:00">22:40:45</abbr></a>] <span>* DanaG (~dana@pcp057515pcs.wireless.calpoly.edu) has joined #beagle</span></li>
+<li class="join">[<a href="#T22:40:53" id="T22:40:53"><abbr title="2010-02-23T22:40:53+00:00">22:40:53</abbr></a>] <span>* PuffTheMagic (~quassel@unaffiliated/puffthemagic) has joined #beagle</span></li>
+<li class="join">[<a href="#T22:44:51" id="T22:44:51"><abbr title="2010-02-23T22:44:51+00:00">22:44:51</abbr></a>] <span>* tlab (~tlab@c-69-243-187-136.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T22:49:57" id="T22:49:57"><abbr title="2010-02-23T22:49:57+00:00">22:49:57</abbr></a>] <span>* DanaG (~dana@pcp057515pcs.wireless.calpoly.edu) Quit (Ping timeout: 260 seconds)</span></li>
