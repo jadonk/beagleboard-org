@@ -624,3 +624,87 @@
 <li class="message">[<a href="#T19:58:51" id="T19:58:51"><abbr title="2010-02-26T19:58:51+00:00">19:58:51</abbr></a>] &lt;<cite>Josh</cite>&gt; <q>would you say wpa_supplicant is aggressive enough to jump to a different AP (same BSSID) if the signal level fell to 20-30%</q></li>
 <li class="message">[<a href="#T19:59:05" id="T19:59:05"><abbr title="2010-02-26T19:59:05+00:00">19:59:05</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>Josh: look into the source, no?</q></li>
 <li class="message">[<a href="#T19:59:56" id="T19:59:56"><abbr title="2010-02-26T19:59:56+00:00">19:59:56</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>I have an expansion board which causes the beagle to reset</q></li>
+<li class="message">[<a href="#T20:00:11" id="T20:00:11"><abbr title="2010-02-26T20:00:11+00:00">20:00:11</abbr></a>] &lt;<cite>Josh</cite>&gt; <q>sure but i thought i would ask the experts for a quick answer, not too wifi savy</q></li>
+<li class="message">[<a href="#T20:00:15" id="T20:00:15"><abbr title="2010-02-26T20:00:15+00:00">20:00:15</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>The 1V8 line goes to ground when I plug it in</q></li>
+<li class="message">[<a href="#T20:00:21" id="T20:00:21"><abbr title="2010-02-26T20:00:21+00:00">20:00:21</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: doh</q></li>
+<li class="message">[<a href="#T20:00:28" id="T20:00:28"><abbr title="2010-02-26T20:00:28+00:00">20:00:28</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>prpplague: Yep</q></li>
+<li class="message">[<a href="#T20:00:34" id="T20:00:34"><abbr title="2010-02-26T20:00:34+00:00">20:00:34</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>I can't figure it out for the life of me</q></li>
+<li class="message">[<a href="#T20:00:47" id="T20:00:47"><abbr title="2010-02-26T20:00:47+00:00">20:00:47</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>There are still lights on on the beagle</q></li>
+<li class="nick-change">[<a href="#T20:00:51" id="T20:00:51"><abbr title="2010-02-26T20:00:51+00:00">20:00:51</abbr></a>] <span>* hrw is now known as hrw|gone</span></li>
+<li class="message">[<a href="#T20:01:03" id="T20:01:03"><abbr title="2010-02-26T20:01:03+00:00">20:01:03</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>Namely PWR</q></li>
+<li class="message">[<a href="#T20:01:22" id="T20:01:22"><abbr title="2010-02-26T20:01:22+00:00">20:01:22</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: yea but i suspect the current load is probably pretty high</q></li>
+<li class="message">[<a href="#T20:01:35" id="T20:01:35"><abbr title="2010-02-26T20:01:35+00:00">20:01:35</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>Yet I can apply power to my board with an external DC power supply without an issue</q></li>
+<li class="message">[<a href="#T20:01:39" id="T20:01:39"><abbr title="2010-02-26T20:01:39+00:00">20:01:39</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>prpplague: Possibly</q></li>
+<li class="message">[<a href="#T20:01:41" id="T20:01:41"><abbr title="2010-02-26T20:01:41+00:00">20:01:41</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: i think i still have your schematic handy</q></li>
+<li class="action">[<a href="#T20:01:44" id="T20:01:44"><abbr title="2010-02-26T20:01:44+00:00">20:01:44</abbr></a>] <span>* prpplague goes to check</span></li>
+<li class="message">[<a href="#T20:01:48" id="T20:01:48"><abbr title="2010-02-26T20:01:48+00:00">20:01:48</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>Nothing's getting warm though</q></li>
+<li class="message">[<a href="#T20:02:30" id="T20:02:30"><abbr title="2010-02-26T20:02:30+00:00">20:02:30</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>It's almost like I'm pulling nRESET down or something</q></li>
+<li class="message">[<a href="#T20:02:54" id="T20:02:54"><abbr title="2010-02-26T20:02:54+00:00">20:02:54</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>The draw is quite reasonable when powered from my external supply</q></li>
+<li class="message">[<a href="#T20:03:22" id="T20:03:22"><abbr title="2010-02-26T20:03:22+00:00">20:03:22</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>I've been thinking of trying external power while hooked up to the beagle</q></li>
+<li class="message">[<a href="#T20:03:33" id="T20:03:33"><abbr title="2010-02-26T20:03:33+00:00">20:03:33</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>but that seems like a possibly very bad idea</q></li>
+<li class="message">[<a href="#T20:05:51" id="T20:05:51"><abbr title="2010-02-26T20:05:51+00:00">20:05:51</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: i'd remove R4, R5 and C7 first</q></li>
+<li class="message">[<a href="#T20:06:01" id="T20:06:01"><abbr title="2010-02-26T20:06:01+00:00">20:06:01</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: and retest</q></li>
+<li class="message">[<a href="#T20:07:15" id="T20:07:15"><abbr title="2010-02-26T20:07:15+00:00">20:07:15</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>alright, one sec</q></li>
+<li class="message">[<a href="#T20:08:42" id="T20:08:42"><abbr title="2010-02-26T20:08:42+00:00">20:08:42</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>In fact, it's only the 1V8 line that goes low</q></li>
+<li class="message">[<a href="#T20:08:49" id="T20:08:49"><abbr title="2010-02-26T20:08:49+00:00">20:08:49</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>5V stays on</q></li>
+<li class="message">[<a href="#T20:09:01" id="T20:09:01"><abbr title="2010-02-26T20:09:01+00:00">20:09:01</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: yea</q></li>
+<li class="message">[<a href="#T20:09:05" id="T20:09:05"><abbr title="2010-02-26T20:09:05+00:00">20:09:05</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>which is the same behavior the board exhibits if you bring nRESET low</q></li>
+<li class="message">[<a href="#T20:09:53" id="T20:09:53"><abbr title="2010-02-26T20:09:53+00:00">20:09:53</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>yet there seems to be open circuit between GND and nRESET</q></li>
+<li class="message">[<a href="#T20:09:58" id="T20:09:58"><abbr title="2010-02-26T20:09:58+00:00">20:09:58</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>Why R4 and R5?</q></li>
+<li class="message">[<a href="#T20:11:31" id="T20:11:31"><abbr title="2010-02-26T20:11:31+00:00">20:11:31</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>those disconnect the LED's from the power</q></li>
+<li class="message">[<a href="#T20:12:13" id="T20:12:13"><abbr title="2010-02-26T20:12:13+00:00">20:12:13</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: you assembly the board yourself by hand?</q></li>
+<li class="message">[<a href="#T20:19:04" id="T20:19:04"><abbr title="2010-02-26T20:19:04+00:00">20:19:04</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>prpplague: Yeah</q></li>
+<li class="message">[<a href="#T20:19:21" id="T20:19:21"><abbr title="2010-02-26T20:19:21+00:00">20:19:21</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>prpplague: There is some flux residue by the expansion connector</q></li>
+<li class="message">[<a href="#T20:19:31" id="T20:19:31"><abbr title="2010-02-26T20:19:31+00:00">20:19:31</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: did you re-test with those components removed?</q></li>
+<li class="message">[<a href="#T20:19:43" id="T20:19:43"><abbr title="2010-02-26T20:19:43+00:00">20:19:43</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>C7 was actually already removed</q></li>
+<li class="message">[<a href="#T20:19:53" id="T20:19:53"><abbr title="2010-02-26T20:19:53+00:00">20:19:53</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>I don't think it's the LEDs</q></li>
+<li class="message">[<a href="#T20:20:34" id="T20:20:34"><abbr title="2010-02-26T20:20:34+00:00">20:20:34</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>It draws less than 10mA on the 1V8 rail according to my voltage source</q></li>
+<li class="message">[<a href="#T20:20:50" id="T20:20:50"><abbr title="2010-02-26T20:20:50+00:00">20:20:50</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>However, the resistance from GND to nRESET is on the order of 500kohms it seems</q></li>
+<li class="message">[<a href="#T20:20:58" id="T20:20:58"><abbr title="2010-02-26T20:20:58+00:00">20:20:58</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>would that be enough to draw that line down?</q></li>
+<li class="message">[<a href="#T20:21:39" id="T20:21:39"><abbr title="2010-02-26T20:21:39+00:00">20:21:39</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>oops, never mind</q></li>
+<li class="message">[<a href="#T20:21:45" id="T20:21:45"><abbr title="2010-02-26T20:21:45+00:00">20:21:45</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: found it?</q></li>
+<li class="message">[<a href="#T20:21:47" id="T20:21:47"><abbr title="2010-02-26T20:21:47+00:00">20:21:47</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>that was my skin which was around 500kohms</q></li>
+<li class="message">[<a href="#T20:21:55" id="T20:21:55"><abbr title="2010-02-26T20:21:55+00:00">20:21:55</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari: ahh</q></li>
+<li class="message">[<a href="#T20:21:56" id="T20:21:56"><abbr title="2010-02-26T20:21:56+00:00">20:21:56</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T20:22:10" id="T20:22:10"><abbr title="2010-02-26T20:22:10+00:00">20:22:10</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>not yet</q></li>
+<li class="message">[<a href="#T20:22:20" id="T20:22:20"><abbr title="2010-02-26T20:22:20+00:00">20:22:20</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: well i suspect you have some sort of logic error, i.e. pin numbering backwards or something</q></li>
+<li class="message">[<a href="#T20:22:27" id="T20:22:27"><abbr title="2010-02-26T20:22:27+00:00">20:22:27</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>bah</q></li>
+<li class="message">[<a href="#T20:22:30" id="T20:22:30"><abbr title="2010-02-26T20:22:30+00:00">20:22:30</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: how many boards did you get made?</q></li>
+<li class="message">[<a href="#T20:22:32" id="T20:22:32"><abbr title="2010-02-26T20:22:32+00:00">20:22:32</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>yeah, I'm afraid you might be right</q></li>
+<li class="message">[<a href="#T20:22:34" id="T20:22:34"><abbr title="2010-02-26T20:22:34+00:00">20:22:34</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>5</q></li>
+<li class="message">[<a href="#T20:22:43" id="T20:22:43"><abbr title="2010-02-26T20:22:43+00:00">20:22:43</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>only have enough (sampled) parts for one though</q></li>
+<li class="message">[<a href="#T20:22:47" id="T20:22:47"><abbr title="2010-02-26T20:22:47+00:00">20:22:47</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari: do you have one that is un assembled?</q></li>
+<li class="message">[<a href="#T20:22:50" id="T20:22:50"><abbr title="2010-02-26T20:22:50+00:00">20:22:50</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T20:22:56" id="T20:22:56"><abbr title="2010-02-26T20:22:56+00:00">20:22:56</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>only assembled one so far</q></li>
+<li class="message">[<a href="#T20:23:00" id="T20:23:00"><abbr title="2010-02-26T20:23:00+00:00">20:23:00</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: solder just the header on the board and nothing else</q></li>
+<li class="message">[<a href="#T20:23:10" id="T20:23:10"><abbr title="2010-02-26T20:23:10+00:00">20:23:10</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: plug it into the board and see if you have the same problem</q></li>
+<li class="message">[<a href="#T20:23:49" id="T20:23:49"><abbr title="2010-02-26T20:23:49+00:00">20:23:49</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>alright</q></li>
+<li class="message">[<a href="#T20:23:50" id="T20:23:50"><abbr title="2010-02-26T20:23:50+00:00">20:23:50</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>one sec</q></li>
+<li class="quit">[<a href="#T20:24:36" id="T20:24:36"><abbr title="2010-02-26T20:24:36+00:00">20:24:36</abbr></a>] <span>* kg4giy (~kg4giy@linuxjournal/staff/DavidLane) Quit (Quit: Time to track the dreaded Jabberwocky!)</span></li>
+<li class="message">[<a href="#T20:31:25" id="T20:31:25"><abbr title="2010-02-26T20:31:25+00:00">20:31:25</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>bah</q></li>
+<li class="message">[<a href="#T20:31:29" id="T20:31:29"><abbr title="2010-02-26T20:31:29+00:00">20:31:29</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T20:31:38" id="T20:31:38"><abbr title="2010-02-26T20:31:38+00:00">20:31:38</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>the board survives</q></li>
+<li class="message">[<a href="#T20:31:44" id="T20:31:44"><abbr title="2010-02-26T20:31:44+00:00">20:31:44</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>with no components</q></li>
+<li class="message">[<a href="#T20:33:02" id="T20:33:02"><abbr title="2010-02-26T20:33:02+00:00">20:33:02</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>prpplague: Any other ideas?</q></li>
+<li class="join">[<a href="#T20:33:03" id="T20:33:03"><abbr title="2010-02-26T20:33:03+00:00">20:33:03</abbr></a>] <span>* mlip2 (~mlip2@85-127-150-205.dynamic.xdsl-line.inode.at) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:33:11" id="T20:33:11"><abbr title="2010-02-26T20:33:11+00:00">20:33:11</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>Anyone know exactly how the REGEN pin works?</q></li>
+<li class="message">[<a href="#T20:33:18" id="T20:33:18"><abbr title="2010-02-26T20:33:18+00:00">20:33:18</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>The manual is pretty vague</q></li>
+<li class="message">[<a href="#T20:36:54" id="T20:36:54"><abbr title="2010-02-26T20:36:54+00:00">20:36:54</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>I'm going to try soldering one of the level shifters on this new board and see what happens</q></li>
+<li class="message">[<a href="#T20:37:09" id="T20:37:09"><abbr title="2010-02-26T20:37:09+00:00">20:37:09</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: the regen signal is from the twl4030 and controls the startup of external power supplies</q></li>
+<li class="message">[<a href="#T20:37:25" id="T20:37:25"><abbr title="2010-02-26T20:37:25+00:00">20:37:25</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>It's strictly an output?</q></li>
+<li class="message">[<a href="#T20:37:53" id="T20:37:53"><abbr title="2010-02-26T20:37:53+00:00">20:37:53</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: correct</q></li>
+<li class="message">[<a href="#T20:38:11" id="T20:38:11"><abbr title="2010-02-26T20:38:11+00:00">20:38:11</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T20:38:26" id="T20:38:26"><abbr title="2010-02-26T20:38:26+00:00">20:38:26</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: i'd solder on the power leds first</q></li>
+<li class="message">[<a href="#T20:38:31" id="T20:38:31"><abbr title="2010-02-26T20:38:31+00:00">20:38:31</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>alright</q></li>
+<li class="message">[<a href="#T20:38:36" id="T20:38:36"><abbr title="2010-02-26T20:38:36+00:00">20:38:36</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>Easy enough</q></li>
+<li class="quit">[<a href="#T20:43:45" id="T20:43:45"><abbr title="2010-02-26T20:43:45+00:00">20:43:45</abbr></a>] <span>* bgamari_ (~ben@physnat56.physics.umass.edu) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T20:47:01" id="T20:47:01"><abbr title="2010-02-26T20:47:01+00:00">20:47:01</abbr></a>] <span>* bgamari_ (~ben@umass-959-186.wireless.umass.edu) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:50:22" id="T20:50:22"><abbr title="2010-02-26T20:50:22+00:00">20:50:22</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>prpplague: well, LEDs seem fine</q></li>
+<li class="message">[<a href="#T20:50:53" id="T20:50:53"><abbr title="2010-02-26T20:50:53+00:00">20:50:53</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>level shifters next</q></li>
+<li class="message">[<a href="#T20:51:16" id="T20:51:16"><abbr title="2010-02-26T20:51:16+00:00">20:51:16</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: do one and retest</q></li>
+<li class="message">[<a href="#T20:51:41" id="T20:51:41"><abbr title="2010-02-26T20:51:41+00:00">20:51:41</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>certainly</q></li>
+<li class="quit">[<a href="#T20:55:16" id="T20:55:16"><abbr title="2010-02-26T20:55:16+00:00">20:55:16</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) Quit (Quit: Up and at 'em, Atom Ant!)</span></li>
+<li class="message">[<a href="#T20:56:23" id="T20:56:23"><abbr title="2010-02-26T20:56:23+00:00">20:56:23</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>LS1 works</q></li>
+<li class="message">[<a href="#T20:56:43" id="T20:56:43"><abbr title="2010-02-26T20:56:43+00:00">20:56:43</abbr></a>] &lt;<cite>bgamari_</cite>&gt; <q>In hindsight, I suppose it was pretty naive to believe that everything would just work on plugging it in</q></li>
+<li class="message">[<a href="#T20:58:36" id="T20:58:36"><abbr title="2010-02-26T20:58:36+00:00">20:58:36</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>bgamari_: welcome to the wonderful world of board bringup</q></li>
+<li class="quit">[<a href="#T20:59:40" id="T20:59:40"><abbr title="2010-02-26T20:59:40+00:00">20:59:40</abbr></a>] <span>* killring (~killring@adsl-76-234-150-254.dsl.sfldmi.sbcglobal.net) Quit (Quit: killring)</span></li>
