@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1267475642209">
+  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1267816466631">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -10,8 +10,8 @@
     <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
     <uri>default</uri>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.8) Gecko/20100202 Firefox/3.5.8</http_browser>
-    <time type="date">01.03.2010 14:34:02 CST</time>
-    <hopsession>127.0.0.192.91.75.17ixm3axfuafm</hopsession>
+    <time type="date">05.03.2010 13:14:26 CST</time>
+    <hopsession>127.0.0.192.94.94.bkz7pvnwss2w</hopsession>
     <body>
  &lt;a href=&quot;http://ad.doubleclick.net/jump/N4481.115138.5376011835521/B3997865;sz=1x1;ord=[timestamp]?&quot;&gt;
   &lt;img src=&quot;http://ad.doubleclick.net/ad/N4481.115138.5376011835521/B3997865;sz=1x1;ord=[timestamp]?&quot; border=&quot;0&quot; width=&quot;1&quot; height=&quot;1&quot; alt=&quot;Click Here&quot;/&gt;
@@ -239,6 +239,9 @@ customization at any volume.
      Watch NthCode&apos;s BeagleBoard media player demo
     &lt;/a&gt;
    &lt;/p&gt;
+   &lt;p id=&quot;video6&quot;&gt;
+    &lt;a href=&quot;http://www.youtube.com/watch?v=Coj9y49Ysuk&quot;&gt;See DSK&apos;s Moblis portable computer based on the OMAP3 and targeting the Indian rural market&lt;/a&gt;
+   &lt;/p&gt;
    &lt;br/&gt;
    &lt;p class=&quot;action&quot;&gt;
     &lt;a href=&quot;/media&quot;&gt;View more videos/pics&lt;/a&gt;
@@ -283,6 +286,7 @@ customization at any volume.
   dojo.style(&quot;video3&quot;, &quot;display&quot;, &quot;none&quot;);
   dojo.style(&quot;video4&quot;, &quot;display&quot;, &quot;none&quot;);
   dojo.style(&quot;video5&quot;, &quot;display&quot;, &quot;none&quot;);
+  dojo.style(&quot;video6&quot;, &quot;display&quot;, &quot;none&quot;);
   dojo.style(&quot;ad1&quot;, &quot;display&quot;, &quot;none&quot;);
   dojo.style(&quot;ad2&quot;, &quot;display&quot;, &quot;none&quot;);
   dojo.style(&quot;ad3&quot;, &quot;display&quot;, &quot;none&quot;);
@@ -293,14 +297,14 @@ customization at any volume.
   timer.x2 = Math.ceil(Math.random()*6);
   timer.onTick = function() {
    dojo.style(&quot;video&quot; + this.x1, &quot;display&quot;, &quot;none&quot;);
-   dojo.style(&quot;ad&quot; + this.x2, &quot;display&quot;, &quot;none&quot;);
    this.x1++;
-   this.x2++;
-   if (this.x1 &gt; 5)
+   if (this.x1 &gt; 6)
     this.x1 = 1;
+   dojo.style(&quot;video&quot; + this.x1, &quot;display&quot;, &quot;block&quot;);
+   dojo.style(&quot;ad&quot; + this.x2, &quot;display&quot;, &quot;none&quot;);
+   this.x2++;
    if (this.x2 &gt; 6)
     this.x2 = 1;
-   dojo.style(&quot;video&quot; + this.x1, &quot;display&quot;, &quot;block&quot;);
    dojo.style(&quot;ad&quot; + this.x2, &quot;display&quot;, &quot;block&quot;);
   };
   timer.onTick();
