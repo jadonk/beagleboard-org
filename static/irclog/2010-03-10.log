@@ -1,0 +1,53 @@
+<li class="message">[<a href="#T00:01:52" id="T00:01:52"><abbr title="2010-03-10T00:01:52+00:00">00:01:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if your version string is unique, installing it to your host is harmless</q></li>
+<li class="message">[<a href="#T00:03:05" id="T00:03:05"><abbr title="2010-03-10T00:03:05+00:00">00:03:05</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>true.</q></li>
+<li class="message">[<a href="#T00:03:35" id="T00:03:35"><abbr title="2010-03-10T00:03:35+00:00">00:03:35</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>grrr -   CC [M]  fs/binfmt_aout.o</q></li>
+<li class="message">[<abbr title="2010-03-10T00:03:35+00:00">00:03:35</abbr>] &lt;<cite>emeb</cite>&gt; <q>fs/binfmt_aout.c: In function 'load_aout_binary':</q></li>
+<li class="message">[<abbr title="2010-03-10T00:03:35+00:00">00:03:35</abbr>] &lt;<cite>emeb</cite>&gt; <q>fs/binfmt_aout.c:272: error: 'SEGMENT_SIZE' undeclared (first use in this function)</q></li>
+<li class="message">[<a href="#T00:03:57" id="T00:03:57"><abbr title="2010-03-10T00:03:57+00:00">00:03:57</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>why is aout declared as module in this config I used?</q></li>
+<li class="message">[<a href="#T00:04:08" id="T00:04:08"><abbr title="2010-03-10T00:04:08+00:00">00:04:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is YOUR config...</q></li>
+<li class="join">[<a href="#T00:04:09" id="T00:04:09"><abbr title="2010-03-10T00:04:09+00:00">00:04:09</abbr></a>] <span>* jrmuizel (~jrmuizel@CPE000f1f252b2b-CM001a666a8f68.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:04:28" id="T00:04:28"><abbr title="2010-03-10T00:04:28+00:00">00:04:28</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>grabbed from sakoman</q></li>
+<li class="message">[<a href="#T00:04:52" id="T00:04:52"><abbr title="2010-03-10T00:04:52+00:00">00:04:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but you are using it so it becomes YOUR config ;)</q></li>
+<li class="message">[<a href="#T00:05:32" id="T00:05:32"><abbr title="2010-03-10T00:05:32+00:00">00:05:32</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T00:05:39" id="T00:05:39"><abbr title="2010-03-10T00:05:39+00:00">00:05:39</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>never assume...</q></li>
+<li class="message">[<a href="#T00:06:58" id="T00:06:58"><abbr title="2010-03-10T00:06:58+00:00">00:06:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>unless you hacked your makefile or have your environment set, you are probally doing the wrong thing ;)</q></li>
+<li class="message">[<a href="#T00:07:25" id="T00:07:25"><abbr title="2010-03-10T00:07:25+00:00">00:07:25</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Um - yeah. Considering what a n00b I am at cross-compiling for ARM, that's likely.</q></li>
+<li class="message">[<a href="#T00:07:38" id="T00:07:38"><abbr title="2010-03-10T00:07:38+00:00">00:07:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so - do you have any of those set?</q></li>
+<li class="message">[<a href="#T00:08:02" id="T00:08:02"><abbr title="2010-03-10T00:08:02+00:00">00:08:02</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>CONFIG_HAVE_AOUT=y</q></li>
+<li class="message">[<a href="#T00:08:03" id="T00:08:03"><abbr title="2010-03-10T00:08:03+00:00">00:08:03</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>CONFIG_BINFMT_AOUT=m</q></li>
+<li class="message">[<abbr title="2010-03-10T00:08:03+00:00">00:08:03</abbr>] &lt;<cite>emeb</cite>&gt; <q>CONFIG_BINFMT_MISC=y</q></li>
+<li class="message">[<a href="#T00:08:14" id="T00:08:14"><abbr title="2010-03-10T00:08:14+00:00">00:08:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>No</q></li>
+<li class="message">[<a href="#T00:08:15" id="T00:08:15"><abbr title="2010-03-10T00:08:15+00:00">00:08:15</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>does that make sense for OMAP?</q></li>
+<li class="message">[<a href="#T00:08:29" id="T00:08:29"><abbr title="2010-03-10T00:08:29+00:00">00:08:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>do you have the makefile hacked up or the env. setup?</q></li>
+<li class="message">[<a href="#T00:09:06" id="T00:09:06"><abbr title="2010-03-10T00:09:06+00:00">00:09:06</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Set arch=arm &amp; cross_compile = arm_none_eabi- that's all</q></li>
+<li class="message">[<a href="#T00:09:21" id="T00:09:21"><abbr title="2010-03-10T00:09:21+00:00">00:09:21</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>(in makefile)</q></li>
+<li class="message">[<a href="#T00:09:35" id="T00:09:35"><abbr title="2010-03-10T00:09:35+00:00">00:09:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so you went that route</q></li>
+<li class="message">[<a href="#T00:09:40" id="T00:09:40"><abbr title="2010-03-10T00:09:40+00:00">00:09:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>let me check my configs</q></li>
+<li class="message">[<a href="#T00:10:25" id="T00:10:25"><abbr title="2010-03-10T00:10:25+00:00">00:10:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yep, I have that setup that way too</q></li>
+<li class="message">[<a href="#T00:10:51" id="T00:10:51"><abbr title="2010-03-10T00:10:51+00:00">00:10:51</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>you mean the config/module stuff?</q></li>
+<li class="message">[<a href="#T00:11:03" id="T00:11:03"><abbr title="2010-03-10T00:11:03+00:00">00:11:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the AOUT stuff</q></li>
+<li class="message">[<a href="#T00:11:10" id="T00:11:10"><abbr title="2010-03-10T00:11:10+00:00">00:11:10</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T00:12:01" id="T00:12:01"><abbr title="2010-03-10T00:12:01+00:00">00:12:01</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>so SEGMENT_SIZE error is something to chase down.</q></li>
+<li class="message">[<a href="#T00:13:49" id="T00:13:49"><abbr title="2010-03-10T00:13:49+00:00">00:13:49</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>this is a git clone from git://gitorious.org/linux-omap/mainline.git (recommended from sakoman's git site for clone)</q></li>
+<li class="message">[<a href="#T00:14:09" id="T00:14:09"><abbr title="2010-03-10T00:14:09+00:00">00:14:09</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>heading home... :)</q></li>
+<li class="message">[<a href="#T00:14:12" id="T00:14:12"><abbr title="2010-03-10T00:14:12+00:00">00:14:12</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>I've got another one with Tony's you sent me last night.</q></li>
+<li class="message">[<a href="#T00:14:21" id="T00:14:21"><abbr title="2010-03-10T00:14:21+00:00">00:14:21</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>djlewis - drive safe.</q></li>
+<li class="message">[<a href="#T00:14:28" id="T00:14:28"><abbr title="2010-03-10T00:14:28+00:00">00:14:28</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>:)</q></li>
+<li class="quit">[<a href="#T00:14:38" id="T00:14:38"><abbr title="2010-03-10T00:14:38+00:00">00:14:38</abbr></a>] <span>* djlewis_ (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<a href="#T00:15:14" id="T00:15:14"><abbr title="2010-03-10T00:15:14+00:00">00:15:14</abbr></a>] <span>* jrmuizel (~jrmuizel@CPE000f1f252b2b-CM001a666a8f68.cpe.net.cable.rogers.com) Quit (Quit: jrmuizel)</span></li>
+<li class="quit">[<a href="#T00:16:00" id="T00:16:00"><abbr title="2010-03-10T00:16:00+00:00">00:16:00</abbr></a>] <span>* jpirko (~jirka@ip-89-103-91-100.karneval.cz) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T00:26:45" id="T00:26:45"><abbr title="2010-03-10T00:26:45+00:00">00:26:45</abbr></a>] <span>* tdh2002 (~tt@58.63.12.129) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:31:13" id="T00:31:13"><abbr title="2010-03-10T00:31:13+00:00">00:31:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you have built the kernel itself first, right? </q></li>
+<li class="join">[<a href="#T00:35:34" id="T00:35:34"><abbr title="2010-03-10T00:35:34+00:00">00:35:34</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:39:00" id="T00:39:00"><abbr title="2010-03-10T00:39:00+00:00">00:39:00</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Yes. However.... I mistyped the make modules_install command line. Added the destination override &amp; forgot the modules_install. :O</q></li>
+<li class="message">[<a href="#T00:39:21" id="T00:39:21"><abbr title="2010-03-10T00:39:21+00:00">00:39:21</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Tried again with more success. Thanks for your help</q></li>
+<li class="join">[<a href="#T00:40:00" id="T00:40:00"><abbr title="2010-03-10T00:40:00+00:00">00:40:00</abbr></a>] <span>* RoHS (~cruxphoto@c-67-161-139-147.hsd1.co.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:40:05" id="T00:40:05"><abbr title="2010-03-10T00:40:05+00:00">00:40:05</abbr></a>] <span>* pablo (~pablo@201.250.147.57) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:47:09" id="T00:47:09"><abbr title="2010-03-10T00:47:09+00:00">00:47:09</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-ngnwyjkbodstzsny) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T00:47:46" id="T00:47:46"><abbr title="2010-03-10T00:47:46+00:00">00:47:46</abbr></a>] <span>* tlab (~tlab@c-69-243-187-136.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:49:00" id="T00:49:00"><abbr title="2010-03-10T00:49:00+00:00">00:49:00</abbr></a>] <span>* jacques (~6217fec1@nslu2-linux/jacques) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T00:49:48" id="T00:49:48"><abbr title="2010-03-10T00:49:48+00:00">00:49:48</abbr></a>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:52:27" id="T00:52:27"><abbr title="2010-03-10T00:52:27+00:00">00:52:27</abbr></a>] &lt;<cite>tdh2002</cite>&gt; <q>Morning everyone</q></li>
+<li class="join">[<a href="#T00:55:35" id="T00:55:35"><abbr title="2010-03-10T00:55:35+00:00">00:55:35</abbr></a>] <span>* DanaG (~dana@66-169-236-186.static.snlo.ca.charter.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:56:13" id="T00:56:13"><abbr title="2010-03-10T00:56:13+00:00">00:56:13</abbr></a>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="join">[<a href="#T00:59:56" id="T00:59:56"><abbr title="2010-03-10T00:59:56+00:00">00:59:56</abbr></a>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) has joined #beagle</span></li>
