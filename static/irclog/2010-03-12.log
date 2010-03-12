@@ -1,0 +1,47 @@
+<li class="message">[<a href="#T00:05:08" id="T00:05:08"><abbr title="2010-03-12T00:05:08+00:00">00:05:08</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>heading home, later guys...</q></li>
+<li class="message">[<a href="#T00:05:51" id="T00:05:51"><abbr title="2010-03-12T00:05:51+00:00">00:05:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if cost is really an issue, USB would not be the interface of choice</q></li>
+<li class="quit">[<a href="#T00:06:08" id="T00:06:08"><abbr title="2010-03-12T00:06:08+00:00">00:06:08</abbr></a>] <span>* djlewis_ (~41401e0d@gateway/web/freenode/x-secthnygvbwjthxz) Quit ()</span></li>
+<li class="join">[<a href="#T00:11:02" id="T00:11:02"><abbr title="2010-03-12T00:11:02+00:00">00:11:02</abbr></a>] <span>* jipi (~jipi@cm128.omega114.maxonline.com.sg) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:13:42" id="T00:13:42"><abbr title="2010-03-12T00:13:42+00:00">00:13:42</abbr></a>] <span>* kg4giy (~kg4giy@64.241.37.140) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2010-03-12T00:13:42+00:00">00:13:42</abbr>] <span>* kg4giy (~kg4giy@64.241.37.140) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2010-03-12T00:13:42+00:00">00:13:42</abbr>] <span>* kg4giy (~kg4giy@linuxjournal/staff/DavidLane) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:15:30" id="T00:15:30"><abbr title="2010-03-12T00:15:30+00:00">00:15:30</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>are there any debug logs of failing usb driver, at point of disconnect?</q></li>
+<li class="message">[<a href="#T00:16:32" id="T00:16:32"><abbr title="2010-03-12T00:16:32+00:00">00:16:32</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>mine just says "usb 1-2: USB disconnect" or something very similar - one line</q></li>
+<li class="message">[<a href="#T00:16:42" id="T00:16:42"><abbr title="2010-03-12T00:16:42+00:00">00:16:42</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>I mean detailed </q></li>
+<li class="message">[<a href="#T00:16:44" id="T00:16:44"><abbr title="2010-03-12T00:16:44+00:00">00:16:44</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>after that, it's as if the port is powered down</q></li>
+<li class="message">[<a href="#T00:16:52" id="T00:16:52"><abbr title="2010-03-12T00:16:52+00:00">00:16:52</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>nm, I will look at it later this evening</q></li>
+<li class="message">[<a href="#T00:16:57" id="T00:16:57"><abbr title="2010-03-12T00:16:57+00:00">00:16:57</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>that would require a kernel built with USB debugging enabled</q></li>
+<li class="message">[<a href="#T00:17:08" id="T00:17:08"><abbr title="2010-03-12T00:17:08+00:00">00:17:08</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>yes, thats what I will do</q></li>
+<li class="message">[<a href="#T00:17:17" id="T00:17:17"><abbr title="2010-03-12T00:17:17+00:00">00:17:17</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>I think its the debounce cap...</q></li>
+<li class="message">[<a href="#T00:17:43" id="T00:17:43"><abbr title="2010-03-12T00:17:43+00:00">00:17:43</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>I'm hoping it's not hardware, but old kernel used in validation procedure</q></li>
+<li class="quit">[<a href="#T00:18:34" id="T00:18:34"><abbr title="2010-03-12T00:18:34+00:00">00:18:34</abbr></a>] <span>* robclark (~robclark@nat/ti/x-jyumkqxjvcjkwaug) Quit (Quit: robclark)</span></li>
+<li class="join">[<a href="#T00:18:47" id="T00:18:47"><abbr title="2010-03-12T00:18:47+00:00">00:18:47</abbr></a>] <span>* noway (~29e1d562@gateway/web/freenode/x-qphabkurpdgzvbch) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:20:13" id="T00:20:13"><abbr title="2010-03-12T00:20:13+00:00">00:20:13</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>it may be as simple as forcing the module not to exit, and reinit the usb stack</q></li>
+<li class="message">[<a href="#T00:20:57" id="T00:20:57"><abbr title="2010-03-12T00:20:57+00:00">00:20:57</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>as long as there is no segfault, or pipe breakage</q></li>
+<li class="message">[<a href="#T00:21:12" id="T00:21:12"><abbr title="2010-03-12T00:21:12+00:00">00:21:12</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>or stack ovf </q></li>
+<li class="message">[<a href="#T00:21:40" id="T00:21:40"><abbr title="2010-03-12T00:21:40+00:00">00:21:40</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>adding signal ignorance to the module, may also help</q></li>
+<li class="message">[<a href="#T00:23:47" id="T00:23:47"><abbr title="2010-03-12T00:23:47+00:00">00:23:47</abbr></a>] &lt;<cite>noway</cite>&gt; <q>hi i have 3 partition in my mmc the first mmcblk0p1 (fat32) contain the uImage, the second mmcblk0p2 (squashfs) which contain the root filesystem ,and the last partition mmcblk0p3 (ext3) ,so i ve modified the /etc/init.d/rcS  ''mount -t ext3 /dev/mmcblk0p3 /files'' the error that i get when i boot mount: mounting /dev/mmblk0p3 on /files failed: No such file or directory please help </q></li>
+<li class="message">[<a href="#T00:24:55" id="T00:24:55"><abbr title="2010-03-12T00:24:55+00:00">00:24:55</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T00:25:00" id="T00:25:00"><abbr title="2010-03-12T00:25:00+00:00">00:25:00</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>found it</q></li>
+<li class="message">[<a href="#T00:25:02" id="T00:25:02"><abbr title="2010-03-12T00:25:02+00:00">00:25:02</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>#ifdef HAVE_SIGSET</q></li>
+<li class="message">[<a href="#T00:25:04" id="T00:25:04"><abbr title="2010-03-12T00:25:04+00:00">00:25:04</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>  sigset(SIGPIPE, SIG_IGN);</q></li>
+<li class="message">[<a href="#T00:25:06" id="T00:25:06"><abbr title="2010-03-12T00:25:06+00:00">00:25:06</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>#elif defined(HAVE_SIGACTION)</q></li>
+<li class="message">[<a href="#T00:25:08" id="T00:25:08"><abbr title="2010-03-12T00:25:08+00:00">00:25:08</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>HAVE_SIGSET is not defined</q></li>
+<li class="message">[<a href="#T00:25:34" id="T00:25:34"><abbr title="2010-03-12T00:25:34+00:00">00:25:34</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>the module dies with SIGPIPE when GPP is too busy to respond...</q></li>
+<li class="message">[<a href="#T00:27:58" id="T00:27:58"><abbr title="2010-03-12T00:27:58+00:00">00:27:58</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>GPP ?</q></li>
+<li class="message">[<a href="#T00:30:11" id="T00:30:11"><abbr title="2010-03-12T00:30:11+00:00">00:30:11</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>General Purpose Processor</q></li>
+<li class="message">[<a href="#T00:30:33" id="T00:30:33"><abbr title="2010-03-12T00:30:33+00:00">00:30:33</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>Brokie: so the USB host driver module is "dying" ?</q></li>
+<li class="message">[<a href="#T00:30:47" id="T00:30:47"><abbr title="2010-03-12T00:30:47+00:00">00:30:47</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>appears so</q></li>
+<li class="message">[<a href="#T00:31:01" id="T00:31:01"><abbr title="2010-03-12T00:31:01+00:00">00:31:01</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>I'm trying to debug it now</q></li>
+<li class="message">[<abbr title="2010-03-12T00:31:01+00:00">00:31:01</abbr>] &lt;<cite>jacques</cite>&gt; <q>is it a module? if so re-loading it might help</q></li>
+<li class="message">[<a href="#T00:31:08" id="T00:31:08"><abbr title="2010-03-12T00:31:08+00:00">00:31:08</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>well, until someone plugs something in again :-)</q></li>
+<li class="message">[<a href="#T00:31:11" id="T00:31:11"><abbr title="2010-03-12T00:31:11+00:00">00:31:11</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>can't once it dies</q></li>
+<li class="message">[<a href="#T00:31:16" id="T00:31:16"><abbr title="2010-03-12T00:31:16+00:00">00:31:16</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>d'oh</q></li>
+<li class="message">[<a href="#T00:31:22" id="T00:31:22"><abbr title="2010-03-12T00:31:22+00:00">00:31:22</abbr></a>] &lt;<cite>jacques</cite>&gt; <q>force ?</q></li>
+<li class="message">[<a href="#T00:31:39" id="T00:31:39"><abbr title="2010-03-12T00:31:39+00:00">00:31:39</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>zombie is left behind</q></li>
+<li class="message">[<a href="#T00:31:46" id="T00:31:46"><abbr title="2010-03-12T00:31:46+00:00">00:31:46</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>looking at it now</q></li>
+<li class="message">[<a href="#T00:31:59" id="T00:31:59"><abbr title="2010-03-12T00:31:59+00:00">00:31:59</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>process * pid *, </q></li>
+<li class="join">[<a href="#T00:37:14" id="T00:37:14"><abbr title="2010-03-12T00:37:14+00:00">00:37:14</abbr></a>] <span>* tdh2002 (~tt@58.63.95.13) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T00:56:08" id="T00:56:08"><abbr title="2010-03-12T00:56:08+00:00">00:56:08</abbr></a>] <span>* Tryum is now known as Try`0xff</span></li>
+<li class="quit">[<a href="#T00:58:17" id="T00:58:17"><abbr title="2010-03-12T00:58:17+00:00">00:58:17</abbr></a>] <span>* jacques (~6217fec1@nslu2-linux/jacques) Quit ()</span></li>
+<li class="quit">[<a href="#T00:58:45" id="T00:58:45"><abbr title="2010-03-12T00:58:45+00:00">00:58:45</abbr></a>] <span>* andruk (~chatzilla@unaffiliated/andruk) Quit (Read error: Operation timed out)</span></li>
