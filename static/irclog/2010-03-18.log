@@ -2192,3 +2192,137 @@
 <li class="join">[<abbr title="2010-03-18T22:59:35+00:00">22:59:35</abbr>] <span>* _don_ (~ddarling@nat/ti/x-fhpwroaarekciyak) has joined #beagle</span></li>
 <li class="join">[<abbr title="2010-03-18T22:59:35+00:00">22:59:35</abbr>] <span>* chakie_work (~jeh@vpn-pub2.hard.ware.fi) has joined #beagle</span></li>
 <li class="join">[<abbr title="2010-03-18T22:59:35+00:00">22:59:35</abbr>] <span>* Darek- (darek@work.sznajder.org) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:01:31" id="T23:01:31"><abbr title="2010-03-18T23:01:31+00:00">23:01:31</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>seems kernel.org git repo ist brokeded</q></li>
+<li class="message">[<a href="#T23:02:00" id="T23:02:00"><abbr title="2010-03-18T23:02:00+00:00">23:02:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>git://git.kernel.org/pub/scm/linux/kernel/git/tmlind/linux-omap-2.6.git</q></li>
+<li class="message">[<a href="#T23:02:07" id="T23:02:07"><abbr title="2010-03-18T23:02:07+00:00">23:02:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's the one you want apparently</q></li>
+<li class="quit">[<a href="#T23:02:46" id="T23:02:46"><abbr title="2010-03-18T23:02:46+00:00">23:02:46</abbr></a>] <span>* rshortt (~quassel@freevo/developer/rshortt) Quit (Quit: No Ping reply in 180 seconds.)</span></li>
+<li class="message">[<a href="#T23:02:47" id="T23:02:47"><abbr title="2010-03-18T23:02:47+00:00">23:02:47</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>ah, I got the usbtty working.</q></li>
+<li class="message">[<a href="#T23:02:50" id="T23:02:50"><abbr title="2010-03-18T23:02:50+00:00">23:02:50</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>had to erase u-boot env.</q></li>
+<li class="message">[<a href="#T23:03:33" id="T23:03:33"><abbr title="2010-03-18T23:03:33+00:00">23:03:33</abbr></a>] &lt;<cite>djenkins</cite>&gt; <q>hello, does anyone have a good link about using usbnet with the beagleboard?</q></li>
+<li class="message">[<a href="#T23:04:17" id="T23:04:17"><abbr title="2010-03-18T23:04:17+00:00">23:04:17</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>this is 20 times faster, thanks MRU</q></li>
+<li class="join">[<a href="#T23:04:31" id="T23:04:31"><abbr title="2010-03-18T23:04:31+00:00">23:04:31</abbr></a>] <span>* BThompsonGR (~bernie@cpe-76-184-159-129.tx.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:04:41" id="T23:04:41"><abbr title="2010-03-18T23:04:41+00:00">23:04:41</abbr></a>] <span>* Zoxc- (~zoxc@ti0128a340-dhcp0330.bb.online.no) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:04:48" id="T23:04:48"><abbr title="2010-03-18T23:04:48+00:00">23:04:48</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>hmm, seems like I can't have stdin on both serial and usbtty.</q></li>
+<li class="nick-change">[<a href="#T23:05:05" id="T23:05:05"><abbr title="2010-03-18T23:05:05+00:00">23:05:05</abbr></a>] <span>* XorA is now known as XorA|gone</span></li>
+<li class="message">[<abbr title="2010-03-18T23:05:05+00:00">23:05:05</abbr>] &lt;<cite>mru</cite>&gt; <q>you can't have more than one stdin of course</q></li>
+<li class="message">[<a href="#T23:05:24" id="T23:05:24"><abbr title="2010-03-18T23:05:24+00:00">23:05:24</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>DanaG, try setenv bootargs console=/dev/ttyS3 console=/dev/tty0.... continue your bootargs.....</q></li>
+<li class="message">[<a href="#T23:05:27" id="T23:05:27"><abbr title="2010-03-18T23:05:27+00:00">23:05:27</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>oh, comma, not space.</q></li>
+<li class="message">[<a href="#T23:05:33" id="T23:05:33"><abbr title="2010-03-18T23:05:33+00:00">23:05:33</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>yep</q></li>
+<li class="message">[<abbr title="2010-03-18T23:05:33+00:00">23:05:33</abbr>] &lt;<cite>_av500_</cite>&gt; <q>fd = 1.5</q></li>
+<li class="message">[<a href="#T23:05:39" id="T23:05:39"><abbr title="2010-03-18T23:05:39+00:00">23:05:39</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>DanaG, try setenv bootargs console=/dev/ttyS3,console=/dev/tty0.... continue your bootargs.....</q></li>
+<li class="message">[<a href="#T23:05:46" id="T23:05:46"><abbr title="2010-03-18T23:05:46+00:00">23:05:46</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>I mean u-boot.</q></li>
+<li class="message">[<a href="#T23:05:48" id="T23:05:48"><abbr title="2010-03-18T23:05:48+00:00">23:05:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that won't work</q></li>
+<li class="message">[<a href="#T23:06:55" id="T23:06:55"><abbr title="2010-03-18T23:06:55+00:00">23:06:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>console=ttyS2,115200n8 console=tty0</q></li>
+<li class="quit">[<a href="#T23:07:01" id="T23:07:01"><abbr title="2010-03-18T23:07:01+00:00">23:07:01</abbr></a>] <span>* mps (~mpr@aggr.com) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="join">[<abbr title="2010-03-18T23:07:01+00:00">23:07:01</abbr>] <span>* mpr (~mpr@aggr.com) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2010-03-18T23:07:01+00:00">23:07:01</abbr>] <span>* Zoxc (~zoxc@ti0128a340-dhcp0330.bb.online.no) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<a href="#T23:07:02" id="T23:07:02"><abbr title="2010-03-18T23:07:02+00:00">23:07:02</abbr></a>] <span>* viridior (~viridis@173-45-235-117.slicehost.net) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T23:07:03" id="T23:07:03"><abbr title="2010-03-18T23:07:03+00:00">23:07:03</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>hmm, I meant on u-boot.  I know grub, for example, lets you set input to both serial and local at the same time.</q></li>
+<li class="join">[<a href="#T23:07:07" id="T23:07:07"><abbr title="2010-03-18T23:07:07+00:00">23:07:07</abbr></a>] <span>* viridior (~viridis@173-45-235-117.slicehost.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:07:18" id="T23:07:18"><abbr title="2010-03-18T23:07:18+00:00">23:07:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's not an accurate description</q></li>
+<li class="message">[<a href="#T23:07:40" id="T23:07:40"><abbr title="2010-03-18T23:07:40+00:00">23:07:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>multiple console arguments will send kernel _output_ to multiple places</q></li>
+<li class="message">[<a href="#T23:07:51" id="T23:07:51"><abbr title="2010-03-18T23:07:51+00:00">23:07:51</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>mru, my board has serial port 3 connected to PC, not 2, sorry, habit</q></li>
+<li class="message">[<a href="#T23:08:32" id="T23:08:32"><abbr title="2010-03-18T23:08:32+00:00">23:08:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>make it ttyS3 then</q></li>
+<li class="message">[<a href="#T23:08:36" id="T23:08:36"><abbr title="2010-03-18T23:08:36+00:00">23:08:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the rest stays unchanged</q></li>
+<li class="message">[<a href="#T23:08:57" id="T23:08:57"><abbr title="2010-03-18T23:08:57+00:00">23:08:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>standard beagle uses ttyS2</q></li>
+<li class="join">[<a href="#T23:11:03" id="T23:11:03"><abbr title="2010-03-18T23:11:03+00:00">23:11:03</abbr></a>] <span>* BThompsonGR1 (~bernie@cpe-76-184-159-129.tx.res.rr.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:12:01" id="T23:12:01"><abbr title="2010-03-18T23:12:01+00:00">23:12:01</abbr></a>] <span>* flavioribeiro (~flavio@187.64.42.101) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T23:12:14" id="T23:12:14"><abbr title="2010-03-18T23:12:14+00:00">23:12:14</abbr></a>] <span>* robtow1 (~rob@12.156.66.34) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:12:36" id="T23:12:36"><abbr title="2010-03-18T23:12:36+00:00">23:12:36</abbr></a>] <span>* WinterMute (~wntrmute@cpc2-pmth10-2-0-cust939.6-1.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:13:00" id="T23:13:00"><abbr title="2010-03-18T23:13:00+00:00">23:13:00</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>I mean U-BOOT!</q></li>
+<li class="message">[<a href="#T23:13:03" id="T23:13:03"><abbr title="2010-03-18T23:13:03+00:00">23:13:03</abbr></a>] &lt;<cite>WinterMute</cite>&gt; <q>ooo, busy</q></li>
+<li class="message">[<a href="#T23:13:16" id="T23:13:16"><abbr title="2010-03-18T23:13:16+00:00">23:13:16</abbr></a>] &lt;<cite>WinterMute</cite>&gt; <q>couple of familiar nicks in here too</q></li>
+<li class="message">[<a href="#T23:13:18" id="T23:13:18"><abbr title="2010-03-18T23:13:18+00:00">23:13:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>DanaG: don't shout, I'm talking about u-boot too</q></li>
+<li class="message">[<a href="#T23:13:25" id="T23:13:25"><abbr title="2010-03-18T23:13:25+00:00">23:13:25</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T23:13:28" id="T23:13:28"><abbr title="2010-03-18T23:13:28+00:00">23:13:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that string is passed directly to the kernel</q></li>
+<li class="message">[<a href="#T23:13:31" id="T23:13:31"><abbr title="2010-03-18T23:13:31+00:00">23:13:31</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>"console=ttyS2" is a kernel argument.</q></li>
+<li class="message">[<a href="#T23:13:37" id="T23:13:37"><abbr title="2010-03-18T23:13:37+00:00">23:13:37</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>DanaG, U-boot, and grub serve the same purpose</q></li>
+<li class="message">[<a href="#T23:13:45" id="T23:13:45"><abbr title="2010-03-18T23:13:45+00:00">23:13:45</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>What I want: I want u-boot's output to go to usbtty and serial.</q></li>
+<li class="message">[<a href="#T23:13:54" id="T23:13:54"><abbr title="2010-03-18T23:13:54+00:00">23:13:54</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>they load kernel to his running place, and pass him some arguments</q></li>
+<li class="message">[<a href="#T23:14:17" id="T23:14:17"><abbr title="2010-03-18T23:14:17+00:00">23:14:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh, the u-boot output... then don't talk about bootargs</q></li>
+<li class="quit">[<a href="#T23:14:20" id="T23:14:20"><abbr title="2010-03-18T23:14:20+00:00">23:14:20</abbr></a>] <span>* BThompsonGR (~bernie@cpe-76-184-159-129.tx.res.rr.com) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T23:14:29" id="T23:14:29"><abbr title="2010-03-18T23:14:29+00:00">23:14:29</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>I wasn't, actually. =??</q></li>
+<li class="message">[<a href="#T23:14:31" id="T23:14:31"><abbr title="2010-03-18T23:14:31+00:00">23:14:31</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T23:14:37" id="T23:14:37"><abbr title="2010-03-18T23:14:37+00:00">23:14:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>someone was</q></li>
+<li class="action">[<a href="#T23:14:46" id="T23:14:46"><abbr title="2010-03-18T23:14:46+00:00">23:14:46</abbr></a>] <span>* Brokie shirks away quietly</span></li>
+<li class="message">[<a href="#T23:15:00" id="T23:15:00"><abbr title="2010-03-18T23:15:00+00:00">23:15:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>well, I don't know if that's possible</q></li>
+<li class="message">[<a href="#T23:15:10" id="T23:15:10"><abbr title="2010-03-18T23:15:10+00:00">23:15:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I've always found plain serial adequate</q></li>
+<li class="message">[<a href="#T23:16:13" id="T23:16:13"><abbr title="2010-03-18T23:16:13+00:00">23:16:13</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>same here; I was just hoping I could put u-boot stuff in both places at once.</q></li>
+<li class="join">[<a href="#T23:16:44" id="T23:16:44"><abbr title="2010-03-18T23:16:44+00:00">23:16:44</abbr></a>] <span>* tlab (~tlab@c-69-243-187-136.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:17:22" id="T23:17:22"><abbr title="2010-03-18T23:17:22+00:00">23:17:22</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q><a href="http://www.mail-archive.com/u-boot@lists.denx.de/msg04545.html">http://www.mail-archive.com/u-boot@lists.denx.de/msg04545.html</a></q></li>
+<li class="message">[<a href="#T23:18:26" id="T23:18:26"><abbr title="2010-03-18T23:18:26+00:00">23:18:26</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>heh, u-boot gets confused by arrow keys.</q></li>
+<li class="message">[<a href="#T23:18:32" id="T23:18:32"><abbr title="2010-03-18T23:18:32+00:00">23:18:32</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>Unknown command ' ' - try 'help'</q></li>
+<li class="message">[<a href="#T23:18:35" id="T23:18:35"><abbr title="2010-03-18T23:18:35+00:00">23:18:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh yes</q></li>
+<li class="message">[<a href="#T23:18:37" id="T23:18:37"><abbr title="2010-03-18T23:18:37+00:00">23:18:37</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T23:18:42" id="T23:18:42"><abbr title="2010-03-18T23:18:42+00:00">23:18:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no ansi escape support there</q></li>
+<li class="message">[<a href="#T23:18:44" id="T23:18:44"><abbr title="2010-03-18T23:18:44+00:00">23:18:44</abbr></a>] &lt;<cite>Brokie</cite>&gt; <q>terminal doesn't translate them</q></li>
+<li class="message">[<a href="#T23:18:48" id="T23:18:48"><abbr title="2010-03-18T23:18:48+00:00">23:18:48</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>wintermute is a familiar nick, but can't place it... were you involved with the nwn community ever?</q></li>
+<li class="message">[<a href="#T23:19:01" id="T23:19:01"><abbr title="2010-03-18T23:19:01+00:00">23:19:01</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>I'd be nice if it could at least detect and discard them, instead of trashing the command line.</q></li>
+<li class="message">[<a href="#T23:19:14" id="T23:19:14"><abbr title="2010-03-18T23:19:14+00:00">23:19:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>patches welcome</q></li>
+<li class="message">[<a href="#T23:19:49" id="T23:19:49"><abbr title="2010-03-18T23:19:49+00:00">23:19:49</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>oh yeah, what is mpurate?</q></li>
+<li class="message">[<a href="#T23:22:47" id="T23:22:47"><abbr title="2010-03-18T23:22:47+00:00">23:22:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the rate of the mpu</q></li>
+<li class="message">[<abbr title="2010-03-18T23:22:47+00:00">23:22:47</abbr>] &lt;<cite>thurbad</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T23:22:48" id="T23:22:48"><abbr title="2010-03-18T23:22:48+00:00">23:22:48</abbr></a>] &lt;<cite>DanaG</cite>&gt; <q>hmm, what is mpu, though?</q></li>
+<li class="message">[<abbr title="2010-03-18T23:22:48+00:00">23:22:48</abbr>] &lt;<cite>mru</cite>&gt; <q>the ARM</q></li>
+<li class="join">[<abbr title="2010-03-18T23:22:48+00:00">23:22:48</abbr>] <span>* Xerion_ (~xerion@82-170-197-160.ip.telfort.nl) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:23:35" id="T23:23:35"><abbr title="2010-03-18T23:23:35+00:00">23:23:35</abbr></a>] <span>* flo_lap (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:24:04" id="T23:24:04"><abbr title="2010-03-18T23:24:04+00:00">23:24:04</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Disconnected by services)</span></li>
+<li class="nick-change">[<a href="#T23:24:07" id="T23:24:07"><abbr title="2010-03-18T23:24:07+00:00">23:24:07</abbr></a>] <span>* flo_lap is now known as florian</span></li>
+<li class="message">[<a href="#T23:24:11" id="T23:24:11"><abbr title="2010-03-18T23:24:11+00:00">23:24:11</abbr></a>] &lt;<cite>WinterMute</cite>&gt; <q>thurbad, it's all too common these days</q></li>
+<li class="message">[<a href="#T23:24:18" id="T23:24:18"><abbr title="2010-03-18T23:24:18+00:00">23:24:18</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>ah</q></li>
+<li class="action">[<a href="#T23:24:19" id="T23:24:19"><abbr title="2010-03-18T23:24:19+00:00">23:24:19</abbr></a>] <span>* WinterMute is the devkitPro guy</span></li>
+<li class="message">[<a href="#T23:24:31" id="T23:24:31"><abbr title="2010-03-18T23:24:31+00:00">23:24:31</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>oh.. nds.. that's probably it then</q></li>
+<li class="join">[<a href="#T23:24:35" id="T23:24:35"><abbr title="2010-03-18T23:24:35+00:00">23:24:35</abbr></a>] <span>* cody (~cody@dslb-084-056-104-039.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:24:46" id="T23:24:46"><abbr title="2010-03-18T23:24:46+00:00">23:24:46</abbr></a>] &lt;<cite>WinterMute</cite>&gt; <q>:)</q></li>
+<li class="join">[<a href="#T23:24:55" id="T23:24:55"><abbr title="2010-03-18T23:24:55+00:00">23:24:55</abbr></a>] <span>* javaJake_ (~javaJake@unaffiliated/javajake) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:25:15" id="T23:25:15"><abbr title="2010-03-18T23:25:15+00:00">23:25:15</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>knew it was related to gaming somehow :)</q></li>
+<li class="join">[<a href="#T23:25:32" id="T23:25:32"><abbr title="2010-03-18T23:25:32+00:00">23:25:32</abbr></a>] <span>* arathald_ (~jacksogc@lug-0.csse.rose-hulman.edu) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:25:40" id="T23:25:40"><abbr title="2010-03-18T23:25:40+00:00">23:25:40</abbr></a>] <span>* Sirisian_ (~Sirisian@141.218.211.114) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:26:11" id="T23:26:11"><abbr title="2010-03-18T23:26:11+00:00">23:26:11</abbr></a>] &lt;<cite>WinterMute</cite>&gt; <q>someone asked me about using devkitARM for beagle recently, not entirely sure why tbh, you guys are mostly linux bods aren't you?</q></li>
+<li class="join">[<a href="#T23:26:32" id="T23:26:32"><abbr title="2010-03-18T23:26:32+00:00">23:26:32</abbr></a>] <span>* philv_ (~huh@lebesgue.cowpig.ca) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:27:03" id="T23:27:03"><abbr title="2010-03-18T23:27:03+00:00">23:27:03</abbr></a>] <span>* cody_ (~cody@dslb-084-056-104-039.pools.arcor-ip.net) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<abbr title="2010-03-18T23:27:03+00:00">23:27:03</abbr>] <span>* javaJake (~javaJake@unaffiliated/javajake) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<abbr title="2010-03-18T23:27:03+00:00">23:27:03</abbr>] <span>* Xerion (~xerion@82-170-197-160.ip.telfort.nl) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<a href="#T23:27:04" id="T23:27:04"><abbr title="2010-03-18T23:27:04+00:00">23:27:04</abbr></a>] <span>* gdm (~gdm@190.55.34.222) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<abbr title="2010-03-18T23:27:04+00:00">23:27:04</abbr>] <span>* arathald (~jacksogc@lug-0.csse.rose-hulman.edu) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<abbr title="2010-03-18T23:27:04+00:00">23:27:04</abbr>] <span>* philv (~huh@lebesgue.cowpig.ca) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<abbr title="2010-03-18T23:27:04+00:00">23:27:04</abbr>] <span>* Sirisian (~Sirisian@resnet211-114.resnet.wmich.edu) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<abbr title="2010-03-18T23:27:04+00:00">23:27:04</abbr>] <span>* calculus (~calculus@gentoo/user/calculus) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="nick-change">[<abbr title="2010-03-18T23:27:04+00:00">23:27:04</abbr>] <span>* Xerion_ is now known as Xerion</span></li>
+<li class="message">[<a href="#T23:27:12" id="T23:27:12"><abbr title="2010-03-18T23:27:12+00:00">23:27:12</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>probably wanted to play nds roms at 10x speed :P</q></li>
+<li class="message">[<a href="#T23:27:24" id="T23:27:24"><abbr title="2010-03-18T23:27:24+00:00">23:27:24</abbr></a>] &lt;<cite>WinterMute</cite>&gt; <q>rofl</q></li>
+<li class="join">[<a href="#T23:27:32" id="T23:27:32"><abbr title="2010-03-18T23:27:32+00:00">23:27:32</abbr></a>] <span>* calculus (~calculus@gentoo/user/calculus) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:27:36" id="T23:27:36"><abbr title="2010-03-18T23:27:36+00:00">23:27:36</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>although without the nifty things like sprite buffers</q></li>
+<li class="message">[<a href="#T23:27:41" id="T23:27:41"><abbr title="2010-03-18T23:27:41+00:00">23:27:41</abbr></a>] &lt;<cite>WinterMute</cite>&gt; <q>well, devkitARM is more than just a DS toolchain :p</q></li>
+<li class="message">[<a href="#T23:28:00" id="T23:28:00"><abbr title="2010-03-18T23:28:00+00:00">23:28:00</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>yeah, I know.. but that's all that I used it for</q></li>
+<li class="quit">[<a href="#T23:28:10" id="T23:28:10"><abbr title="2010-03-18T23:28:10+00:00">23:28:10</abbr></a>] <span>* DanaG (~dana@66-169-236-186.static.snlo.ca.charter.com) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="message">[<a href="#T23:28:24" id="T23:28:24"><abbr title="2010-03-18T23:28:24+00:00">23:28:24</abbr></a>] &lt;<cite>WinterMute</cite>&gt; <q>it'll handle cortex chips too, I even have the multilibs in there for them</q></li>
+<li class="join">[<a href="#T23:28:41" id="T23:28:41"><abbr title="2010-03-18T23:28:41+00:00">23:28:41</abbr></a>] <span>* gdm (~gdm@190.55.34.222) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:30:06" id="T23:30:06"><abbr title="2010-03-18T23:30:06+00:00">23:30:06</abbr></a>] <span>* Ragha (~Ragha@nat/ti/x-lghpudksenfzoxpo) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T23:32:40" id="T23:32:40"><abbr title="2010-03-18T23:32:40+00:00">23:32:40</abbr></a>] <span>* plasmab (~Stephen@client-86-23-122-114.brhm.adsl.virginmedia.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:32:55" id="T23:32:55"><abbr title="2010-03-18T23:32:55+00:00">23:32:55</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>but yeah, most of the beagle users run their apps inside of some linux variant</q></li>
+<li class="message">[<a href="#T23:34:28" id="T23:34:28"><abbr title="2010-03-18T23:34:28+00:00">23:34:28</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>Brokie, got my system stabilized.. just had to remove my serial to ethernet adapter :/</q></li>
+<li class="message">[<a href="#T23:34:39" id="T23:34:39"><abbr title="2010-03-18T23:34:39+00:00">23:34:39</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>back to OTG internet</q></li>
+<li class="quit">[<a href="#T23:35:55" id="T23:35:55"><abbr title="2010-03-18T23:35:55+00:00">23:35:55</abbr></a>] <span>* Animule (~Animal@67-40-45-29.hlrn.qwest.net) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T23:35:58" id="T23:35:58"><abbr title="2010-03-18T23:35:58+00:00">23:35:58</abbr></a>] <span>* Animule (~Animal@67-40-45-29.hlrn.qwest.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:36:23" id="T23:36:23"><abbr title="2010-03-18T23:36:23+00:00">23:36:23</abbr></a>] <span>* TheUni (~quassel@xbmc/staff/theuni) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T23:37:15" id="T23:37:15"><abbr title="2010-03-18T23:37:15+00:00">23:37:15</abbr></a>] <span>* TheUni (~quassel@xbmc/staff/theuni) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:37:34" id="T23:37:34"><abbr title="2010-03-18T23:37:34+00:00">23:37:34</abbr></a>] <span>* kulve (bc24cca5ea@humboldt.pingu.fi) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T23:37:39" id="T23:37:39"><abbr title="2010-03-18T23:37:39+00:00">23:37:39</abbr></a>] <span>* kulve (8fcab0e2d4@humboldt.pingu.fi) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:38:16" id="T23:38:16"><abbr title="2010-03-18T23:38:16+00:00">23:38:16</abbr></a>] <span>* notaz (~notaz@213-190-49-43.static.zebra.lt) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T23:38:59" id="T23:38:59"><abbr title="2010-03-18T23:38:59+00:00">23:38:59</abbr></a>] <span>* notaz (~notaz@213-190-49-43.static.zebra.lt) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:39:29" id="T23:39:29"><abbr title="2010-03-18T23:39:29+00:00">23:39:29</abbr></a>] <span>* dougztr (~quassel@2001:4830:16e9:0:20a:e6ff:fed8:419e) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T23:39:30" id="T23:39:30"><abbr title="2010-03-18T23:39:30+00:00">23:39:30</abbr></a>] <span>* dougztr (~quassel@2001:4830:16e9:0:20a:e6ff:fed8:419e) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:40:23" id="T23:40:23"><abbr title="2010-03-18T23:40:23+00:00">23:40:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hmmm</q></li>
+<li class="quit">[<a href="#T23:40:53" id="T23:40:53"><abbr title="2010-03-18T23:40:53+00:00">23:40:53</abbr></a>] <span>* Openfree|H (~Openfree`@222.65.143.236) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T23:41:59" id="T23:41:59"><abbr title="2010-03-18T23:41:59+00:00">23:41:59</abbr></a>] <span>* fbond (~fab@storm.alittletooquiet.net) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T23:42:52" id="T23:42:52"><abbr title="2010-03-18T23:42:52+00:00">23:42:52</abbr></a>] <span>* fbond (~fab@storm.alittletooquiet.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:47:16" id="T23:47:16"><abbr title="2010-03-18T23:47:16+00:00">23:47:16</abbr></a>] <span>* t1 (~86753b63@gateway/web/freenode/x-aovrmbngcgqzibzw) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:47:56" id="T23:47:56"><abbr title="2010-03-18T23:47:56+00:00">23:47:56</abbr></a>] <span>* t1 (~86753b63@gateway/web/freenode/x-aovrmbngcgqzibzw) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T23:49:36" id="T23:49:36"><abbr title="2010-03-18T23:49:36+00:00">23:49:36</abbr></a>] <span>* djlewis_ (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T23:54:14" id="T23:54:14"><abbr title="2010-03-18T23:54:14+00:00">23:54:14</abbr></a>] <span>* Openfree|H (~Openfree`@222.65.143.236) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:54:42" id="T23:54:42"><abbr title="2010-03-18T23:54:42+00:00">23:54:42</abbr></a>] <span>* jacques_ (~6217fec1@nslu2-linux/jacques) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T23:56:09" id="T23:56:09"><abbr title="2010-03-18T23:56:09+00:00">23:56:09</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>sakoman_: I got x-load to load a zImage</q></li>
+<li class="message">[<a href="#T23:56:21" id="T23:56:21"><abbr title="2010-03-18T23:56:21+00:00">23:56:21</abbr></a>] &lt;<cite>plasmab</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T23:59:39" id="T23:59:39"><abbr title="2010-03-18T23:59:39+00:00">23:59:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>zImage? </q></li>
+<li class="message">[<a href="#T23:59:59" id="T23:59:59"><abbr title="2010-03-18T23:59:59+00:00">23:59:59</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>instead of u-boot I got x-load to load a linux zImage directly</q></li>
