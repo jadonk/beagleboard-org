@@ -373,3 +373,33 @@
 <li class="join">[<a href="#T05:58:59" id="T05:58:59"><abbr title="2010-03-26T05:58:59+00:00">05:58:59</abbr></a>] <span>* Openfree` (~Openfreer@116.228.88.98) has joined #beagle</span></li>
 <li class="message">[<a href="#T05:59:06" id="T05:59:06"><abbr title="2010-03-26T05:59:06+00:00">05:59:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so you need an independent instruction before you use the result to avoid stalls</q></li>
 <li class="quit">[<a href="#T05:59:49" id="T05:59:49"><abbr title="2010-03-26T05:59:49+00:00">05:59:49</abbr></a>] <span>* DanaG (~DanaG@66-169-236-186.static.snlo.ca.charter.com) Quit (Quit: Bye-yuzz.)</span></li>
+<li class="message">[<a href="#T06:01:11" id="T06:01:11"><abbr title="2010-03-26T06:01:11+00:00">06:01:11</abbr></a>] &lt;<cite>denis_</cite>&gt; <q>is it possible to issue dual NEON instuctions at a time</q></li>
+<li class="message">[<a href="#T06:01:26" id="T06:01:26"><abbr title="2010-03-26T06:01:26+00:00">06:01:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>some pairs can dual-issue</q></li>
+<li class="message">[<a href="#T06:01:29" id="T06:01:29"><abbr title="2010-03-26T06:01:29+00:00">06:01:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's in the manual</q></li>
+<li class="message">[<a href="#T06:01:43" id="T06:01:43"><abbr title="2010-03-26T06:01:43+00:00">06:01:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>data processing can dual-issue with load/store/permute</q></li>
+<li class="message">[<a href="#T06:02:38" id="T06:02:38"><abbr title="2010-03-26T06:02:38+00:00">06:02:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>are you writing an entire decoder from scratch?</q></li>
+<li class="message">[<a href="#T06:02:44" id="T06:02:44"><abbr title="2010-03-26T06:02:44+00:00">06:02:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or optimising an existing one?</q></li>
+<li class="message">[<a href="#T06:03:46" id="T06:03:46"><abbr title="2010-03-26T06:03:46+00:00">06:03:46</abbr></a>] &lt;<cite>denis_</cite>&gt; <q>this is my first module</q></li>
+<li class="message">[<a href="#T06:04:38" id="T06:04:38"><abbr title="2010-03-26T06:04:38+00:00">06:04:38</abbr></a>] &lt;<cite>denis_</cite>&gt; <q>i am having a beagleboard </q></li>
+<li class="message">[<a href="#T06:04:46" id="T06:04:46"><abbr title="2010-03-26T06:04:46+00:00">06:04:46</abbr></a>] &lt;<cite>NotZed</cite>&gt; <q>pity there's no tool like spu_timing, or is there?</q></li>
+<li class="message">[<a href="#T06:05:24" id="T06:05:24"><abbr title="2010-03-26T06:05:24+00:00">06:05:24</abbr></a>] &lt;<cite>denis_</cite>&gt; <q>i will write transform , and just loop filtering</q></li>
+<li class="message">[<a href="#T06:05:25" id="T06:05:25"><abbr title="2010-03-26T06:05:25+00:00">06:05:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what does that do?</q></li>
+<li class="message">[<a href="#T06:06:08" id="T06:06:08"><abbr title="2010-03-26T06:06:08+00:00">06:06:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the filter is rather easy</q></li>
+<li class="quit">[<a href="#T06:06:10" id="T06:06:10"><abbr title="2010-03-26T06:06:10+00:00">06:06:10</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.tiscali.ch) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T06:06:22" id="T06:06:22"><abbr title="2010-03-26T06:06:22+00:00">06:06:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>qpel mc is the worst</q></li>
+<li class="message">[<a href="#T06:06:50" id="T06:06:50"><abbr title="2010-03-26T06:06:50+00:00">06:06:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>~1000 lines of neon code</q></li>
+<li class="message">[<a href="#T06:06:51" id="T06:06:51"><abbr title="2010-03-26T06:06:51+00:00">06:06:51</abbr></a>] &lt;<cite>denis_</cite>&gt; <q>i want to make simple video deocder application using beable board</q></li>
+<li class="message">[<a href="#T06:06:54" id="T06:06:54"><abbr title="2010-03-26T06:06:54+00:00">06:06:54</abbr></a>] &lt;<cite>NotZed</cite>&gt; <q>dumps the assembly with staticly analysed timing info.  shows dual-issue, takes into account data-stalls, etc.  easy to see if there's wasted cycles/etc</q></li>
+<li class="join">[<a href="#T06:07:22" id="T06:07:22"><abbr title="2010-03-26T06:07:22+00:00">06:07:22</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.tiscali.ch) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:07:38" id="T06:07:38"><abbr title="2010-03-26T06:07:38+00:00">06:07:38</abbr></a>] &lt;<cite>denis_</cite>&gt; <q>still i have to study h264 decoder</q></li>
+<li class="quit">[<a href="#T06:08:21" id="T06:08:21"><abbr title="2010-03-26T06:08:21+00:00">06:08:21</abbr></a>] <span>* Openfree` (~Openfreer@116.228.88.98) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T06:08:38" id="T06:08:38"><abbr title="2010-03-26T06:08:38+00:00">06:08:38</abbr></a>] <span>* thaytan (~jan@ppp59-167-167-201.static.internode.on.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:08:54" id="T06:08:54"><abbr title="2010-03-26T06:08:54+00:00">06:08:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's not possible to statically determine accurate timings on a modern arm</q></li>
+<li class="message">[<a href="#T06:10:07" id="T06:10:07"><abbr title="2010-03-26T06:10:07+00:00">06:10:07</abbr></a>] &lt;<cite>NotZed</cite>&gt; <q>it isn't for accurate timings, but as a guide</q></li>
+<li class="message">[<a href="#T06:10:51" id="T06:10:51"><abbr title="2010-03-26T06:10:51+00:00">06:10:51</abbr></a>] &lt;<cite>denis_</cite>&gt; <q>you are using ffmpeg code only</q></li>
+<li class="message">[<a href="#T06:16:26" id="T06:16:26"><abbr title="2010-03-26T06:16:26+00:00">06:16:26</abbr></a>] &lt;<cite>denis_</cite>&gt; <q>mru any document which i can refer for this</q></li>
+<li class="join">[<a href="#T06:29:17" id="T06:29:17"><abbr title="2010-03-26T06:29:17+00:00">06:29:17</abbr></a>] <span>* tasslehoff (~Mich@147.84-49-231.nextgentel.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:35:24" id="T06:35:24"><abbr title="2010-03-26T06:35:24+00:00">06:35:24</abbr></a>] <span>* emeb|mac (~ericb@ip72-223-81-194.ph.ph.cox.net) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T06:47:01" id="T06:47:01"><abbr title="2010-03-26T06:47:01+00:00">06:47:01</abbr></a>] <span>* zodttd (~me@user-0c90n1c.cable.mindspring.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:48:49" id="T06:48:49"><abbr title="2010-03-26T06:48:49+00:00">06:48:49</abbr></a>] <span>* soman (~somnath@stargate.starnet.fi) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:57:54" id="T06:57:54"><abbr title="2010-03-26T06:57:54+00:00">06:57:54</abbr></a>] <span>* matthsu (~matt@61-30-10-70.static.tfn.net.tw) Quit (Quit: Lost terminal)</span></li>
