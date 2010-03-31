@@ -593,3 +593,44 @@
 <li class="message">[<a href="#T15:59:23" id="T15:59:23"><abbr title="2010-03-31T15:59:23+00:00">15:59:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>cuts out the linux interrupt latency</q></li>
 <li class="message">[<a href="#T15:59:34" id="T15:59:34"><abbr title="2010-03-31T15:59:34+00:00">15:59:34</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>exactly</q></li>
 <li class="message">[<a href="#T15:59:35" id="T15:59:35"><abbr title="2010-03-31T15:59:35+00:00">15:59:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I would assume this adc samples continously</q></li>
+<li class="message">[<a href="#T16:00:09" id="T16:00:09"><abbr title="2010-03-31T16:00:09+00:00">16:00:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so the total system latency could be an issue</q></li>
+<li class="message">[<a href="#T16:01:08" id="T16:01:08"><abbr title="2010-03-31T16:01:08+00:00">16:01:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>bfrog: it can be done of course</q></li>
+<li class="quit">[<a href="#T16:01:26" id="T16:01:26"><abbr title="2010-03-31T16:01:26+00:00">16:01:26</abbr></a>] <span>* thaytan (~jan@ppp59-167-167-201.static.internode.on.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T16:03:50" id="T16:03:50"><abbr title="2010-03-31T16:03:50+00:00">16:03:50</abbr></a>] <span>* jayabharath (~a0866114@nat/ti/x-lhmduydhhnmozpom) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<a href="#T16:05:16" id="T16:05:16"><abbr title="2010-03-31T16:05:16+00:00">16:05:16</abbr></a>] <span>* brendank310 (~brendank3@cpe-24-168-53-154.hvc.res.rr.com) Quit (Quit: brendank310)</span></li>
+<li class="message">[<a href="#T16:08:09" id="T16:08:09"><abbr title="2010-03-31T16:08:09+00:00">16:08:09</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>excellent</q></li>
+<li class="message">[<a href="#T16:08:16" id="T16:08:16"><abbr title="2010-03-31T16:08:16+00:00">16:08:16</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>thats what I was thinking reading everything</q></li>
+<li class="message">[<a href="#T16:08:26" id="T16:08:26"><abbr title="2010-03-31T16:08:26+00:00">16:08:26</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>but I thought I'd do some crowdsourcing for more information</q></li>
+<li class="message">[<a href="#T16:08:38" id="T16:08:38"><abbr title="2010-03-31T16:08:38+00:00">16:08:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but then you might want mcspi for spi, not mcbsp</q></li>
+<li class="message">[<a href="#T16:08:40" id="T16:08:40"><abbr title="2010-03-31T16:08:40+00:00">16:08:40</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>woo, just got the beagle in the mail</q></li>
+<li class="message">[<a href="#T16:08:50" id="T16:08:50"><abbr title="2010-03-31T16:08:50+00:00">16:08:50</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>well mcbsp can be used as spi</q></li>
+<li class="message">[<a href="#T16:08:53" id="T16:08:53"><abbr title="2010-03-31T16:08:53+00:00">16:08:53</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>but yeah</q></li>
+<li class="message">[<a href="#T16:08:58" id="T16:08:58"><abbr title="2010-03-31T16:08:58+00:00">16:08:58</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>I guess it makes sense to save some pins</q></li>
+<li class="message">[<a href="#T16:09:02" id="T16:09:02"><abbr title="2010-03-31T16:09:02+00:00">16:09:02</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>by setting it up for spi</q></li>
+<li class="message">[<a href="#T16:10:00" id="T16:10:00"><abbr title="2010-03-31T16:10:00+00:00">16:10:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>don't forget the level shifters</q></li>
+<li class="message">[<a href="#T16:10:30" id="T16:10:30"><abbr title="2010-03-31T16:10:30+00:00">16:10:30</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>yeah I got those already</q></li>
+<li class="message">[<a href="#T16:10:43" id="T16:10:43"><abbr title="2010-03-31T16:10:43+00:00">16:10:43</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>3.3 to 1.8 and vice versa</q></li>
+<li class="message">[<a href="#T16:11:17" id="T16:11:17"><abbr title="2010-03-31T16:11:17+00:00">16:11:17</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>though I think that adc can be setup to do 1.8, they say lvds</q></li>
+<li class="message">[<a href="#T16:11:21" id="T16:11:21"><abbr title="2010-03-31T16:11:21+00:00">16:11:21</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>isn't lvds 1.8?</q></li>
+<li class="message">[<a href="#T16:11:44" id="T16:11:44"><abbr title="2010-03-31T16:11:44+00:00">16:11:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>lv is low voltage, but ds is differential signaling</q></li>
+<li class="message">[<a href="#T16:11:52" id="T16:11:52"><abbr title="2010-03-31T16:11:52+00:00">16:11:52</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>gotcha</q></li>
+<li class="join">[<a href="#T16:11:53" id="T16:11:53"><abbr title="2010-03-31T16:11:53+00:00">16:11:53</abbr></a>] <span>* emeb (~ericb@ip72-223-81-194.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:12:06" id="T16:12:06"><abbr title="2010-03-31T16:12:06+00:00">16:12:06</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>noice reduction reasons?</q></li>
+<li class="message">[<a href="#T16:12:15" id="T16:12:15"><abbr title="2010-03-31T16:12:15+00:00">16:12:15</abbr></a>] &lt;<cite>bfrog</cite>&gt; <q>I guess if its clocked high enough it might make sense?</q></li>
+<li class="message">[<a href="#T16:12:32" id="T16:12:32"><abbr title="2010-03-31T16:12:32+00:00">16:12:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you supress common mode noise</q></li>
+<li class="join">[<a href="#T16:13:32" id="T16:13:32"><abbr title="2010-03-31T16:13:32+00:00">16:13:32</abbr></a>] <span>* prpplague (~danders@nat/ti/x-rwqacmatsovuhvie) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:14:46" id="T16:14:46"><abbr title="2010-03-31T16:14:46+00:00">16:14:46</abbr></a>] <span>* Crofton (~balister@rrcs-96-10-208-67.midsouth.biz.rr.com) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T16:18:17" id="T16:18:17"><abbr title="2010-03-31T16:18:17+00:00">16:18:17</abbr></a>] <span>* niclas_ (~n-anderbe@nat/ti/x-nwcspxnmagmuahcb) Quit ()</span></li>
+<li class="join">[<a href="#T16:18:31" id="T16:18:31"><abbr title="2010-03-31T16:18:31+00:00">16:18:31</abbr></a>] <span>* jpirko (~jirka@ip-89-103-91-100.karneval.cz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:19:42" id="T16:19:42"><abbr title="2010-03-31T16:19:42+00:00">16:19:42</abbr></a>] <span>* soman (~somnath@stargate.starnet.fi) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T16:21:22" id="T16:21:22"><abbr title="2010-03-31T16:21:22+00:00">16:21:22</abbr></a>] <span>* KosiNuss (~tom@p4FD12501.dip0.t-ipconnect.de) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T16:21:28" id="T16:21:28"><abbr title="2010-03-31T16:21:28+00:00">16:21:28</abbr></a>] <span>* theholyduck (~holyduck@2001:8c0:9840:59a:21f:d0ff:fe5a:3252) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T16:27:02" id="T16:27:02"><abbr title="2010-03-31T16:27:02+00:00">16:27:02</abbr></a>] <span>* theholyduck (holyduck@nanoha-chan.e59-1.tg10.gathering.org) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:33:22" id="T16:33:22"><abbr title="2010-03-31T16:33:22+00:00">16:33:22</abbr></a>] <span>* gdm (~gdm@190.55.34.222) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:35:26" id="T16:35:26"><abbr title="2010-03-31T16:35:26+00:00">16:35:26</abbr></a>] <span>* ant_home (~andrea@host207-251-dynamic.8-87-r.retail.telecomitalia.it) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:38:26" id="T16:38:26"><abbr title="2010-03-31T16:38:26+00:00">16:38:26</abbr></a>] <span>* maltanar (~82f382fd@gateway/web/freenode/x-vzhhxwbeucvksmkg) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T16:39:06" id="T16:39:06"><abbr title="2010-03-31T16:39:06+00:00">16:39:06</abbr></a>] <span>* j_ack (~j_ack@p57A42BF8.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:41:33" id="T16:41:33"><abbr title="2010-03-31T16:41:33+00:00">16:41:33</abbr></a>] <span>* mrc3_ (~ddiaz@189.157.110.236) Quit (Read error: No route to host)</span></li>
+<li class="join">[<a href="#T16:42:40" id="T16:42:40"><abbr title="2010-03-31T16:42:40+00:00">16:42:40</abbr></a>] <span>* mrc3_ (~ddiaz@189.157.110.236) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:47:32" id="T16:47:32"><abbr title="2010-03-31T16:47:32+00:00">16:47:32</abbr></a>] <span>* theholyduck (holyduck@nanoha-chan.e59-1.tg10.gathering.org) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T16:51:45" id="T16:51:45"><abbr title="2010-03-31T16:51:45+00:00">16:51:45</abbr></a>] <span>* haggisbasheruk (~haggisbas@unaffiliated/hagisbasheruk) has joined #beagle</span></li>
