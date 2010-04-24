@@ -503,3 +503,36 @@
 <li class="join">[<a href="#T20:51:10" id="T20:51:10"><abbr title="2010-04-24T20:51:10+00:00">20:51:10</abbr></a>] <span>* DanaG (~dana@66-169-236-186.static.snlo.ca.charter.com) has joined #beagle</span></li>
 <li class="quit">[<a href="#T20:52:35" id="T20:52:35"><abbr title="2010-04-24T20:52:35+00:00">20:52:35</abbr></a>] <span>* peksha1 (~peksha@145.86.broadband10.iol.cz) Quit (Quit: Leaving.)</span></li>
 <li class="quit">[<a href="#T20:55:10" id="T20:55:10"><abbr title="2010-04-24T20:55:10+00:00">20:55:10</abbr></a>] <span>* DanaG1 (~dana@66-169-236-186.static.snlo.ca.charter.com) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T21:01:17" id="T21:01:17"><abbr title="2010-04-24T21:01:17+00:00">21:01:17</abbr></a>] <span>* jkridner1 (~a0321898@nat/ti/x-gvzcxznzbkcecfkj) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:02:35" id="T21:02:35"><abbr title="2010-04-24T21:02:35+00:00">21:02:35</abbr></a>] <span>* jkridner (~a0321898@pdpc/supporter/active/jkridner) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="join">[<a href="#T21:02:59" id="T21:02:59"><abbr title="2010-04-24T21:02:59+00:00">21:02:59</abbr></a>] <span>* RazZziel (~raziel@90.5.16.95.dynamic.jazztel.es) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:21:01" id="T21:21:01"><abbr title="2010-04-24T21:21:01+00:00">21:21:01</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.datacomm.ch) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T21:22:10" id="T21:22:10"><abbr title="2010-04-24T21:22:10+00:00">21:22:10</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.datacomm.ch) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:22:42" id="T21:22:42"><abbr title="2010-04-24T21:22:42+00:00">21:22:42</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) Quit (Quit: L?mnar)</span></li>
+<li class="message">[<a href="#T21:39:16" id="T21:39:16"><abbr title="2010-04-24T21:39:16+00:00">21:39:16</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>is there a page on writing mlo to nand</q></li>
+<li class="message">[<a href="#T21:42:39" id="T21:42:39"><abbr title="2010-04-24T21:42:39+00:00">21:42:39</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>IIRC you dont want to do that</q></li>
+<li class="message">[<a href="#T21:42:46" id="T21:42:46"><abbr title="2010-04-24T21:42:46+00:00">21:42:46</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>you need a signed x-load </q></li>
+<li class="quit">[<a href="#T21:42:51" id="T21:42:51"><abbr title="2010-04-24T21:42:51+00:00">21:42:51</abbr></a>] <span>* theholyduck (~holyduck@77.106.154.65) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T21:43:40" id="T21:43:40"><abbr title="2010-04-24T21:43:40+00:00">21:43:40</abbr></a>] <span>* mdavey (~chatzilla@host217-35-75-188.in-addr.btopenworld.com) Quit (Quit: ChatZilla 0.9.86 [Firefox 3.6.3/20100401080539])</span></li>
+<li class="message">[<a href="#T21:44:50" id="T21:44:50"><abbr title="2010-04-24T21:44:50+00:00">21:44:50</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>otherwise just init mmc,  load to 0x80200000 erase 0 -&gt; 80000 write 0x80200000 0 80000</q></li>
+<li class="message">[<a href="#T21:45:23" id="T21:45:23"><abbr title="2010-04-24T21:45:23+00:00">21:45:23</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>ala <a href="http://code.google.com/p/beagleboard/wiki/BeagleNANDFlashing">http://code.google.com/p/beagleboard/wiki/BeagleNANDFlashing</a></q></li>
+<li class="message">[<a href="#T21:45:52" id="T21:45:52"><abbr title="2010-04-24T21:45:52+00:00">21:45:52</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>though if you have a newer version of u-boot some of those commands are a bit old,  read comments</q></li>
+<li class="join">[<a href="#T21:47:21" id="T21:47:21"><abbr title="2010-04-24T21:47:21+00:00">21:47:21</abbr></a>] <span>* theholyduck (~holyduck@77.106.154.65) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:49:43" id="T21:49:43"><abbr title="2010-04-24T21:49:43+00:00">21:49:43</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>hmm,</q></li>
+<li class="message">[<a href="#T21:49:55" id="T21:49:55"><abbr title="2010-04-24T21:49:55+00:00">21:49:55</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I wish I had a spare micro sd card</q></li>
+<li class="message">[<a href="#T21:50:03" id="T21:50:03"><abbr title="2010-04-24T21:50:03+00:00">21:50:03</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>why micro ?</q></li>
+<li class="message">[<a href="#T21:50:37" id="T21:50:37"><abbr title="2010-04-24T21:50:37+00:00">21:50:37</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I'm using an overo</q></li>
+<li class="message">[<a href="#T21:54:27" id="T21:54:27"><abbr title="2010-04-24T21:54:27+00:00">21:54:27</abbr></a>] &lt;<cite>ZeZu</cite>&gt; <q>ah</q></li>
+<li class="join">[<a href="#T21:55:50" id="T21:55:50"><abbr title="2010-04-24T21:55:50+00:00">21:55:50</abbr></a>] <span>* bazbell (~a0192809@nat/ti/x-gqcsrhbwzthqztzo) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:56:28" id="T21:56:28"><abbr title="2010-04-24T21:56:28+00:00">21:56:28</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T21:56:31" id="T21:56:31"><abbr title="2010-04-24T21:56:31+00:00">21:56:31</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>made that work</q></li>
+<li class="message">[<a href="#T21:56:52" id="T21:56:52"><abbr title="2010-04-24T21:56:52+00:00">21:56:52</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>bazbell, do you know much about gpio's and interrupts?</q></li>
+<li class="message">[<a href="#T21:58:35" id="T21:58:35"><abbr title="2010-04-24T21:58:35+00:00">21:58:35</abbr></a>] &lt;<cite>bazbell</cite>&gt; <q>Crofton: A bit.</q></li>
+<li class="message">[<a href="#T21:58:45" id="T21:58:45"><abbr title="2010-04-24T21:58:45+00:00">21:58:45</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>hehh</q></li>
+<li class="message">[<a href="#T21:59:01" id="T21:59:01"><abbr title="2010-04-24T21:59:01+00:00">21:59:01</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>someone mentioned your name and gpio in the same sentence on the e2e website</q></li>
+<li class="message">[<a href="#T21:59:02" id="T21:59:02"><abbr title="2010-04-24T21:59:02+00:00">21:59:02</abbr></a>] &lt;<cite>bazbell</cite>&gt; <q>I know a little bit about them.  What do you need?</q></li>
+<li class="message">[<a href="#T21:59:04" id="T21:59:04"><abbr title="2010-04-24T21:59:04+00:00">21:59:04</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>anyway</q></li>
+<li class="message">[<a href="#T21:59:18" id="T21:59:18"><abbr title="2010-04-24T21:59:18+00:00">21:59:18</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I am triggering an interupt from a gpio</q></li>
+<li class="message">[<a href="#T21:59:24" id="T21:59:24"><abbr title="2010-04-24T21:59:24+00:00">21:59:24</abbr></a>] &lt;<cite>bazbell</cite>&gt; <q>Great.  My reputation preceeds me.</q></li>
+<li class="message">[<a href="#T21:59:36" id="T21:59:36"><abbr title="2010-04-24T21:59:36+00:00">21:59:36</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>and I have all this displayed on a fanccy logic analyer</q></li>
+<li class="message">[<a href="#T21:59:39" id="T21:59:39"><abbr title="2010-04-24T21:59:39+00:00">21:59:39</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>:)</q></li>
