@@ -356,3 +356,36 @@
 <li class="join">[<abbr title="2010-05-15T14:53:53+00:00">14:53:53</abbr>] <span>* emeb|mac (~ericb@ip72-223-81-194.ph.ph.cox.net) has joined #beagle</span></li>
 <li class="message">[<a href="#T14:54:29" id="T14:54:29"><abbr title="2010-05-15T14:54:29+00:00">14:54:29</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>hi</q></li>
 <li class="join">[<a href="#T14:55:01" id="T14:55:01"><abbr title="2010-05-15T14:55:01+00:00">14:55:01</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:13:41" id="T15:13:41"><abbr title="2010-05-15T15:13:41+00:00">15:13:41</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
+<li class="join">[<a href="#T15:20:26" id="T15:20:26"><abbr title="2010-05-15T15:20:26+00:00">15:20:26</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:23:34" id="T15:23:34"><abbr title="2010-05-15T15:23:34+00:00">15:23:34</abbr></a>] <span>* robtow (~rob@64.62.142.114) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:25:42" id="T15:25:42"><abbr title="2010-05-15T15:25:42+00:00">15:25:42</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:30:08" id="T15:30:08"><abbr title="2010-05-15T15:30:08+00:00">15:30:08</abbr></a>] <span>* TypoError1 (~jacopo@109.115.153.124) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:32:16" id="T15:32:16"><abbr title="2010-05-15T15:32:16+00:00">15:32:16</abbr></a>] &lt;<cite>TypoError1</cite>&gt; <q>HI all, some of you know if angstrom shipped precompiled u-boot version disable in some way J4 and J5? I'm definitly getting crazy, I've enabled UART2 on j3 few day ago, but UART1 on j4 and j5 does not work at all....</q></li>
+<li class="message">[<a href="#T15:39:25" id="T15:39:25"><abbr title="2010-05-15T15:39:25+00:00">15:39:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>did you check the pinmux setup in uboot?</q></li>
+<li class="message">[<a href="#T15:39:46" id="T15:39:46"><abbr title="2010-05-15T15:39:46+00:00">15:39:46</abbr></a>] &lt;<cite>TypoError1</cite>&gt; <q>I'm doing all in kernel</q></li>
+<li class="message">[<a href="#T15:39:50" id="T15:39:50"><abbr title="2010-05-15T15:39:50+00:00">15:39:50</abbr></a>] &lt;<cite>TypoError1</cite>&gt; <q>not  touvhed u-boot</q></li>
+<li class="message">[<a href="#T15:39:55" id="T15:39:55"><abbr title="2010-05-15T15:39:55+00:00">15:39:55</abbr></a>] &lt;<cite>TypoError1</cite>&gt; <q>*touched</q></li>
+<li class="message">[<a href="#T15:40:43" id="T15:40:43"><abbr title="2010-05-15T15:40:43+00:00">15:40:43</abbr></a>] &lt;<cite>TypoError1</cite>&gt; <q>kernel setting overwrites bootloader ones, don't they?</q></li>
+<li class="message">[<a href="#T15:41:32" id="T15:41:32"><abbr title="2010-05-15T15:41:32+00:00">15:41:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>not really</q></li>
+<li class="message">[<a href="#T15:41:36" id="T15:41:36"><abbr title="2010-05-15T15:41:36+00:00">15:41:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the in kernel mux is broken</q></li>
+<li class="message">[<a href="#T15:41:39" id="T15:41:39"><abbr title="2010-05-15T15:41:39+00:00">15:41:39</abbr></a>] &lt;<cite>TypoError1</cite>&gt; <q>doh</q></li>
+<li class="message">[<a href="#T15:41:41" id="T15:41:41"><abbr title="2010-05-15T15:41:41+00:00">15:41:41</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so we do it all in uboot</q></li>
+<li class="message">[<a href="#T15:42:13" id="T15:42:13"><abbr title="2010-05-15T15:42:13+00:00">15:42:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>in the future we should move it to the kernel, but noone has bother to implement something that works on all beaglerevisions and with all expansionboards</q></li>
+<li class="message">[<a href="#T15:42:40" id="T15:42:40"><abbr title="2010-05-15T15:42:40+00:00">15:42:40</abbr></a>] &lt;<cite>TypoError1</cite>&gt; <q>I see</q></li>
+<li class="message">[<a href="#T15:43:21" id="T15:43:21"><abbr title="2010-05-15T15:43:21+00:00">15:43:21</abbr></a>] &lt;<cite>TypoError1</cite>&gt; <q>I'll check uboot repo</q></li>
+<li class="message">[<a href="#T15:43:31" id="T15:43:31"><abbr title="2010-05-15T15:43:31+00:00">15:43:31</abbr></a>] &lt;<cite>koen</cite>&gt; <q>would be nice to make that a stretch goal for the .34 TI kernel</q></li>
+<li class="message">[<a href="#T15:48:50" id="T15:48:50"><abbr title="2010-05-15T15:48:50+00:00">15:48:50</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>koen: ping</q></li>
+<li class="message">[<a href="#T15:51:39" id="T15:51:39"><abbr title="2010-05-15T15:51:39+00:00">15:51:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>emeb|mac: pong</q></li>
+<li class="message">[<a href="#T15:51:53" id="T15:51:53"><abbr title="2010-05-15T15:51:53+00:00">15:51:53</abbr></a>] &lt;<cite>koen</cite>&gt; <q>emeb|mac: <a href="http://cgit.openembedded.org/cgit.cgi/openembedded/commit/?id=84de51631e1e7bb76141332807ed2ba9e8df02ae">http://cgit.openembedded.org/cgit.cgi/openembedded/commit/?id=84de51631e1e7bb76141332807ed2ba9e8df02ae</a></q></li>
+<li class="message">[<a href="#T15:52:18" id="T15:52:18"><abbr title="2010-05-15T15:52:18+00:00">15:52:18</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>you read my mind</q></li>
+<li class="message">[<a href="#T15:52:26" id="T15:52:26"><abbr title="2010-05-15T15:52:26+00:00">15:52:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>no, the backlog :)</q></li>
+<li class="message">[<a href="#T15:52:33" id="T15:52:33"><abbr title="2010-05-15T15:52:33+00:00">15:52:33</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T15:53:33" id="T15:53:33"><abbr title="2010-05-15T15:53:33+00:00">15:53:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I had been wondering about the monstrous size as well</q></li>
+<li class="join">[<a href="#T15:53:39" id="T15:53:39"><abbr title="2010-05-15T15:53:39+00:00">15:53:39</abbr></a>] <span>* djlewis (~djlewis@65-66-76-63.dsl.tcworks.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:53:46" id="T15:53:46"><abbr title="2010-05-15T15:53:46+00:00">15:53:46</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but my explanation was "meh. git"</q></li>
+<li class="message">[<a href="#T15:53:54" id="T15:53:54"><abbr title="2010-05-15T15:53:54+00:00">15:53:54</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T15:54:13" id="T15:54:13"><abbr title="2010-05-15T15:54:13+00:00">15:54:13</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>is that ready to update or does it need more work?</q></li>
+<li class="message">[<a href="#T15:54:33" id="T15:54:33"><abbr title="2010-05-15T15:54:33+00:00">15:54:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yes, opkg update &amp;&amp; opkg install git</q></li>
+<li class="message">[<a href="#T15:54:44" id="T15:54:44"><abbr title="2010-05-15T15:54:44+00:00">15:54:44</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>cool - I'll try it out.</q></li>
+<li class="join">[<a href="#T15:58:39" id="T15:58:39"><abbr title="2010-05-15T15:58:39+00:00">15:58:39</abbr></a>] <span>* emeb (~ericb@ip72-223-81-194.ph.ph.cox.net) has joined #beagle</span></li>
