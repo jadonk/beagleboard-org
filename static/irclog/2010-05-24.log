@@ -72,3 +72,43 @@
 <li class="quit">[<a href="#T03:40:13" id="T03:40:13"><abbr title="2010-05-24T03:40:13+00:00">03:40:13</abbr></a>] <span>* bgamari (~ben@pool-96-240-192-139.spfdma.east.verizon.net) Quit (Ping timeout: 240 seconds)</span></li>
 <li class="join">[<a href="#T03:55:17" id="T03:55:17"><abbr title="2010-05-24T03:55:17+00:00">03:55:17</abbr></a>] <span>* soman (~somnath@118.102.130.6) has joined #beagle</span></li>
 <li class="join">[<a href="#T03:58:56" id="T03:58:56"><abbr title="2010-05-24T03:58:56+00:00">03:58:56</abbr></a>] <span>* khasim (~a0393720@192.163.20.231) has joined #beagle</span></li>
+<li class="quit">[<a href="#T04:03:43" id="T04:03:43"><abbr title="2010-05-24T04:03:43+00:00">04:03:43</abbr></a>] <span>* khasim (~a0393720@192.163.20.231) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T04:04:58" id="T04:04:58"><abbr title="2010-05-24T04:04:58+00:00">04:04:58</abbr></a>] <span>* zuh_ (a7d8c906e7@humboldt.pingu.fi) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2010-05-24T04:04:58+00:00">04:04:58</abbr>] <span>* zuh_ (a7d8c906e7@humboldt.pingu.fi) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T04:09:39" id="T04:09:39"><abbr title="2010-05-24T04:09:39+00:00">04:09:39</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>ds2: what's false? a) issues resolved, b) you're a good mux guy, c) power mgmt is mucking up pin muxes?</q></li>
+<li class="join">[<a href="#T04:15:12" id="T04:15:12"><abbr title="2010-05-24T04:15:12+00:00">04:15:12</abbr></a>] <span>* theholyduck (~holyduck@ip-40-139-106-77.eidsiva.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T04:33:34" id="T04:33:34"><abbr title="2010-05-24T04:33:34+00:00">04:33:34</abbr></a>] <span>* sombunall (~sawdis@modemcable203.209-56-74.mc.videotron.ca) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T04:34:22" id="T04:34:22"><abbr title="2010-05-24T04:34:22+00:00">04:34:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>(c)</q></li>
+<li class="message">[<a href="#T04:34:29" id="T04:34:29"><abbr title="2010-05-24T04:34:29+00:00">04:34:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>they work fine as a GPIO</q></li>
+<li class="message">[<a href="#T04:38:18" id="T04:38:18"><abbr title="2010-05-24T04:38:18+00:00">04:38:18</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>ds2: not in my kernel</q></li>
+<li class="message">[<a href="#T04:39:49" id="T04:39:49"><abbr title="2010-05-24T04:39:49+00:00">04:39:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>emeb|mac: which kernel is this?</q></li>
+<li class="message">[<a href="#T04:40:22" id="T04:40:22"><abbr title="2010-05-24T04:40:22+00:00">04:40:22</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>ds2: This is a 2.6.32 from the unstable Angstrom</q></li>
+<li class="message">[<a href="#T04:40:32" id="T04:40:32"><abbr title="2010-05-24T04:40:32+00:00">04:40:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the PM stuff should be playing with the extra register on the UART and not the GPIO mode selection. It has no reliable way of determining your routing for the uart.</q></li>
+<li class="message">[<a href="#T04:40:49" id="T04:40:49"><abbr title="2010-05-24T04:40:49+00:00">04:40:49</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>OK - not that then</q></li>
+<li class="message">[<a href="#T04:41:27" id="T04:41:27"><abbr title="2010-05-24T04:41:27+00:00">04:41:27</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>Thing is, I'm dumping the pinmux regs in the board init file, then forcing them to the values I want, then re-dumping them and they look fine.</q></li>
+<li class="message">[<a href="#T04:41:29" id="T04:41:29"><abbr title="2010-05-24T04:41:29+00:00">04:41:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the UART can come out of at least 2 different sets of balls</q></li>
+<li class="message">[<a href="#T04:41:51" id="T04:41:51"><abbr title="2010-05-24T04:41:51+00:00">04:41:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why do you believe they got changed away to something else?</q></li>
+<li class="message">[<a href="#T04:42:35" id="T04:42:35"><abbr title="2010-05-24T04:42:35+00:00">04:42:35</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>because when I try to use them with gpio sysfs they don't work, and sending data to UART2 still shows serial data on the pins.</q></li>
+<li class="message">[<a href="#T04:43:13" id="T04:43:13"><abbr title="2010-05-24T04:43:13+00:00">04:43:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>okay, fair test</q></li>
+<li class="message">[<a href="#T04:43:23" id="T04:43:23"><abbr title="2010-05-24T04:43:23+00:00">04:43:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>how do  you know your changes to the pin mux took effect?</q></li>
+<li class="message">[<a href="#T04:43:53" id="T04:43:53"><abbr title="2010-05-24T04:43:53+00:00">04:43:53</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>because I re-read them after changing them, dumping the results with a printk() and the values are correct.</q></li>
+<li class="message">[<a href="#T04:44:22" id="T04:44:22"><abbr title="2010-05-24T04:44:22+00:00">04:44:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>okay</q></li>
+<li class="message">[<a href="#T04:44:46" id="T04:44:46"><abbr title="2010-05-24T04:44:46+00:00">04:44:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why not have that code that does the printk also flip the pins around </q></li>
+<li class="join">[<a href="#T04:44:53" id="T04:44:53"><abbr title="2010-05-24T04:44:53+00:00">04:44:53</abbr></a>] <span>* gdm (~gdm@190.55.34.222) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:45:00" id="T04:45:00"><abbr title="2010-05-24T04:45:00+00:00">04:45:00</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>errr - what?</q></li>
+<li class="message">[<a href="#T04:45:12" id="T04:45:12"><abbr title="2010-05-24T04:45:12+00:00">04:45:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>right after the line that does the printk</q></li>
+<li class="message">[<a href="#T04:45:18" id="T04:45:18"><abbr title="2010-05-24T04:45:18+00:00">04:45:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>grab the GPIO pin</q></li>
+<li class="message">[<a href="#T04:45:21" id="T04:45:21"><abbr title="2010-05-24T04:45:21+00:00">04:45:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>toggle it a few times</q></li>
+<li class="message">[<a href="#T04:45:32" id="T04:45:32"><abbr title="2010-05-24T04:45:32+00:00">04:45:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and drop a LA on that pin before running it</q></li>
+<li class="message">[<a href="#T04:46:19" id="T04:46:19"><abbr title="2010-05-24T04:46:19+00:00">04:46:19</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>Hmmm. That would prove that I can set them up as gpio for a moment before something else changes them back.</q></li>
+<li class="message">[<a href="#T04:46:47" id="T04:46:47"><abbr title="2010-05-24T04:46:47+00:00">04:46:47</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>but I still need to figure out what's changing them and disable it.</q></li>
+<li class="message">[<a href="#T04:47:21" id="T04:47:21"><abbr title="2010-05-24T04:47:21+00:00">04:47:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>is this a  L-O, L-O/PM, or a PSP kernel?</q></li>
+<li class="message">[<a href="#T04:47:41" id="T04:47:41"><abbr title="2010-05-24T04:47:41+00:00">04:47:41</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>psp I think. what's the diff?</q></li>
+<li class="message">[<a href="#T04:47:47" id="T04:47:47"><abbr title="2010-05-24T04:47:47+00:00">04:47:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Oh</q></li>
+<li class="action">[<abbr title="2010-05-24T04:47:47+00:00">04:47:47</abbr>] <span>* emeb|mac in n00b mode now</span></li>
+<li class="message">[<a href="#T04:47:55" id="T04:47:55"><abbr title="2010-05-24T04:47:55+00:00">04:47:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that could be screwed up... </q></li>
+<li class="message">[<a href="#T04:48:09" id="T04:48:09"><abbr title="2010-05-24T04:48:09+00:00">04:48:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>use a L-O or a L-O/PM kernel, please</q></li>
+<li class="message">[<a href="#T04:48:33" id="T04:48:33"><abbr title="2010-05-24T04:48:33+00:00">04:48:33</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>I suppose I can read the .config to see fur sure.</q></li>
+<li class="message">[<a href="#T04:49:17" id="T04:49:17"><abbr title="2010-05-24T04:49:17+00:00">04:49:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>look in recipe</q></li>
+<li class="message">[<a href="#T04:49:25" id="T04:49:25"><abbr title="2010-05-24T04:49:25+00:00">04:49:25</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>'k</q></li>
+<li class="message">[<a href="#T04:50:23" id="T04:50:23"><abbr title="2010-05-24T04:50:23+00:00">04:50:23</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>just a moment - that machine is off so I gotta fire it up...</q></li>
