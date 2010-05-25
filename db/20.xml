@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="20" name="project" prototype="Page" created="1202836452756" lastModified="1274758447741">
+  <hopobject id="20" name="project" prototype="Page" created="1202836452756" lastModified="1274758786497">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,7 +9,7 @@
     <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
     <uri>project</uri>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3</http_browser>
-    <time type="date">24.05.2010 22:34:07 CDT</time>
+    <time type="date">24.05.2010 22:39:46 CDT</time>
     <hopsession>127.0.0.192.94.94.xvdr1dtq7agu</hopsession>
     <body>
  &lt;div id=&quot;create_project&quot;&gt;
@@ -61,24 +61,30 @@
  &lt;/div&gt;
  &lt;h2 id=&quot;registered&quot;&gt;List of registered projects&lt;/h2&gt;
  &lt;script language=&quot;javascript&quot; src=&quot;/static/jquery-1.4.2.min.js&quot;&gt;/* Do nothing */&lt;/script&gt;
- &lt;script language=&quot;javascript&quot;&gt;$(document).ready(
+ &lt;script language=&quot;javascript&quot;&gt;var update_count = function () {
+ var visible = 0;
+ var total = 0;
+ $(&quot;#list:hidden li&quot;).each(function () {
+  total++;
+ });
+ $(&quot;#list:visible li&quot;).each(function () {
+  visible++;
+  total++;
+ });
+ $(&apos;#visible_count&apos;).html(visible);
+ $(&apos;#total_count&apos;).html(total);
+};
+
+$(document).ready(
  function() {
   $(&apos;#hosting&apos;).hide(&apos;fast&apos;);
   $(&apos;#search_links&apos;).hide(&apos;fast&apos;);
-  var visible = 0;
-  var total = 0;
-  $(&quot;#list:first li&quot;).each(function () {
-   $(this).hide();
-   total++;
-  });
   var visible_count = document.createElement(&quot;span&quot;);
   visible_count.style.cssFloat=&quot;none&quot;;
   $(visible_count).attr(&quot;id&quot;, &quot;visible_count&quot;);
-  $(visible_count).html(visible);
   var total_count = document.createElement(&quot;span&quot;);
   total_count.style.cssFloat=&quot;none&quot;;
   $(total_count).attr(&quot;id&quot;, &quot;total_count&quot;);
-  $(total_count).html(total);
   $(&apos;#registered&apos;).append(&apos; (showing &apos;);
   $(&apos;#registered&apos;).append(visible_count);
   $(&apos;#registered&apos;).append(&apos; of &apos;);
@@ -86,6 +92,7 @@
   $(&apos;#registered&apos;).append(&apos;)&apos;);
  }
 );
+
 $(&apos;#create_project&apos;).hover(
  function () {
   $(&apos;#hosting:hidden&apos;).show(&apos;fast&apos;);
@@ -105,6 +112,7 @@ $(&apos;#search_project&apos;).hover(
 $(&apos;#registered&apos;).hover(
  function () {
   $(&apos;#list li:hidden&apos;).show(&apos;fast&apos;);
+  update_count();
  },
  function () {
  }
@@ -114,6 +122,7 @@ $(&apos;#list&apos;).hover(
  },
  function () {
   $(&apos;#list li&apos;).hide(&apos;fast&apos;);
+  update_count();
  }
 );&lt;/script&gt;
 </body>
