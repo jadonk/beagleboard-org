@@ -6,3 +6,53 @@
 <li class="quit">[<a href="#T00:43:28" id="T00:43:28"><abbr title="2010-06-05T00:43:28+00:00">00:43:28</abbr></a>] <span>* alancam (~a-campbel@nat/ti/x-esppjxdizgabwczn) Quit (Ping timeout: 260 seconds)</span></li>
 <li class="quit">[<a href="#T00:55:46" id="T00:55:46"><abbr title="2010-06-05T00:55:46+00:00">00:55:46</abbr></a>] <span>* eAndrius (~andr@88-222-169-44.meganet.lt) Quit (Quit: Leaving)</span></li>
 <li class="quit">[<a href="#T00:56:53" id="T00:56:53"><abbr title="2010-06-05T00:56:53+00:00">00:56:53</abbr></a>] <span>* thaytan (~jan@5.273.dsl.mel.iprimus.net.au) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T01:02:28" id="T01:02:28"><abbr title="2010-06-05T01:02:28+00:00">01:02:28</abbr></a>] <span>* Cru_N_cher (~luls_lol@dslb-088-069-113-021.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:04:35" id="T01:04:35"><abbr title="2010-06-05T01:04:35+00:00">01:04:35</abbr></a>] <span>* khasim (~a0393720@192.163.20.231) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:07:04" id="T01:07:04"><abbr title="2010-06-05T01:07:04+00:00">01:07:04</abbr></a>] <span>* Openfree (~Openfree`@218.1.217.14) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:12:25" id="T01:12:25"><abbr title="2010-06-05T01:12:25+00:00">01:12:25</abbr></a>] <span>* jrmuizel (~jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:28:48" id="T01:28:48"><abbr title="2010-06-05T01:28:48+00:00">01:28:48</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:30:57" id="T01:30:57"><abbr title="2010-06-05T01:30:57+00:00">01:30:57</abbr></a>] <span>* GrizzlyAdams (~Grizzly@ip98-184-88-41.mc.at.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:34:29" id="T01:34:29"><abbr title="2010-06-05T01:34:29+00:00">01:34:29</abbr></a>] <span>* cmurillo (~cmurillo@201.199.246.232) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T01:36:51" id="T01:36:51"><abbr title="2010-06-05T01:36:51+00:00">01:36:51</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>I'm getting the weirdest kernel intervention/prevention I've ever seen:</q></li>
+<li class="message">[<a href="#T01:37:09" id="T01:37:09"><abbr title="2010-06-05T01:37:09+00:00">01:37:09</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q> # dd if=/dev/zero of=swapfile2 bs=512M count=1</q></li>
+<li class="message">[<abbr title="2010-06-05T01:37:09+00:00">01:37:09</abbr>] &lt;<cite>javaJake</cite>&gt; <q>Killed</q></li>
+<li class="message">[<abbr title="2010-06-05T01:37:09+00:00">01:37:09</abbr>] &lt;<cite>javaJake</cite>&gt; <q>pandora store # echo $?</q></li>
+<li class="message">[<abbr title="2010-06-05T01:37:09+00:00">01:37:09</abbr>] &lt;<cite>javaJake</cite>&gt; <q>137</q></li>
+<li class="message">[<a href="#T01:37:47" id="T01:37:47"><abbr title="2010-06-05T01:37:47+00:00">01:37:47</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q> # dmesg | tail -n 2</q></li>
+<li class="message">[<abbr title="2010-06-05T01:37:47+00:00">01:37:47</abbr>] &lt;<cite>javaJake</cite>&gt; <q>[25446.198394] select 8780 (dd), adj 0, size 23009, to kill</q></li>
+<li class="message">[<abbr title="2010-06-05T01:37:47+00:00">01:37:47</abbr>] &lt;<cite>javaJake</cite>&gt; <q>[25446.198425] send sigkill to 8780 (dd), adj 0, size 23009</q></li>
+<li class="message">[<a href="#T01:37:58" id="T01:37:58"><abbr title="2010-06-05T01:37:58+00:00">01:37:58</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>Anyone else seen this before?</q></li>
+<li class="message">[<a href="#T01:44:34" id="T01:44:34"><abbr title="2010-06-05T01:44:34+00:00">01:44:34</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>Interesting, it's an "OOM" (out-of-memory) kill</q></li>
+<li class="message">[<a href="#T01:44:39" id="T01:44:39"><abbr title="2010-06-05T01:44:39+00:00">01:44:39</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>Oh. Wow.</q></li>
+<li class="join">[<a href="#T01:44:51" id="T01:44:51"><abbr title="2010-06-05T01:44:51+00:00">01:44:51</abbr></a>] <span>* BThompsonGR (~bernie@cpe-76-183-65-93.tx.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:45:14" id="T01:45:14"><abbr title="2010-06-05T01:45:14+00:00">01:45:14</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>LOL. aholler, that dd command loads "1" 512M block of 0's before writing to swapfile2 :P</q></li>
+<li class="join">[<a href="#T01:45:24" id="T01:45:24"><abbr title="2010-06-05T01:45:24+00:00">01:45:24</abbr></a>] <span>* Dead1nside (~Dead1nsid@78.86.212.180) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:45:52" id="T01:45:52"><abbr title="2010-06-05T01:45:52+00:00">01:45:52</abbr></a>] <span>* jonrp (~Dead1nsid@78.86.212.180) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:48:25" id="T01:48:25"><abbr title="2010-06-05T01:48:25+00:00">01:48:25</abbr></a>] <span>* jonrp (~Dead1nsid@78.86.212.180) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T01:48:35" id="T01:48:35"><abbr title="2010-06-05T01:48:35+00:00">01:48:35</abbr></a>] <span>* putz (~4308d4b2@gateway/web/freenode/x-qvdifwepdblpdvvm) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:48:36" id="T01:48:36"><abbr title="2010-06-05T01:48:36+00:00">01:48:36</abbr></a>] &lt;<cite>putz</cite>&gt; <q>hello</q></li>
+<li class="message">[<a href="#T01:48:41" id="T01:48:41"><abbr title="2010-06-05T01:48:41+00:00">01:48:41</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>Hey</q></li>
+<li class="message">[<a href="#T01:48:47" id="T01:48:47"><abbr title="2010-06-05T01:48:47+00:00">01:48:47</abbr></a>] &lt;<cite>putz</cite>&gt; <q>whats all this hubub about</q></li>
+<li class="nick-change">[<a href="#T01:49:03" id="T01:49:03"><abbr title="2010-06-05T01:49:03+00:00">01:49:03</abbr></a>] <span>* putz is now known as Guest25696</span></li>
+<li class="message">[<a href="#T01:49:12" id="T01:49:12"><abbr title="2010-06-05T01:49:12+00:00">01:49:12</abbr></a>] &lt;<cite>Guest25696</cite>&gt; <q>what?</q></li>
+<li class="message">[<a href="#T01:49:28" id="T01:49:28"><abbr title="2010-06-05T01:49:28+00:00">01:49:28</abbr></a>] &lt;<cite>Guest25696</cite>&gt; <q>why am i guest</q></li>
+<li class="join">[<a href="#T01:50:10" id="T01:50:10"><abbr title="2010-06-05T01:50:10+00:00">01:50:10</abbr></a>] <span>* GrizzlyAdams1 (~Grizzly@ip98-184-88-41.mc.at.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:50:23" id="T01:50:23"><abbr title="2010-06-05T01:50:23+00:00">01:50:23</abbr></a>] &lt;<cite>Guest25696</cite>&gt; <q>anyone?</q></li>
+<li class="message">[<a href="#T01:50:30" id="T01:50:30"><abbr title="2010-06-05T01:50:30+00:00">01:50:30</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>/nick putz</q></li>
+<li class="message">[<a href="#T01:50:41" id="T01:50:41"><abbr title="2010-06-05T01:50:41+00:00">01:50:41</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q>Say that ^^^</q></li>
+<li class="message">[<a href="#T01:50:44" id="T01:50:44"><abbr title="2010-06-05T01:50:44+00:00">01:50:44</abbr></a>] &lt;<cite>Guest25696</cite>&gt; <q>hi</q></li>
+<li class="message">[<a href="#T01:50:48" id="T01:50:48"><abbr title="2010-06-05T01:50:48+00:00">01:50:48</abbr></a>] &lt;<cite>Guest25696</cite>&gt; <q>i did</q></li>
+<li class="message">[<a href="#T01:50:56" id="T01:50:56"><abbr title="2010-06-05T01:50:56+00:00">01:50:56</abbr></a>] &lt;<cite>Guest25696</cite>&gt; <q>nothing happens</q></li>
+<li class="quit">[<a href="#T01:51:22" id="T01:51:22"><abbr title="2010-06-05T01:51:22+00:00">01:51:22</abbr></a>] <span>* GrizzlyAdams (~Grizzly@ip98-184-88-41.mc.at.cox.net) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="nick-change">[<a href="#T01:51:36" id="T01:51:36"><abbr title="2010-06-05T01:51:36+00:00">01:51:36</abbr></a>] <span>* Guest25696 is now known as anythinkg</span></li>
+<li class="nick-change">[<a href="#T01:51:41" id="T01:51:41"><abbr title="2010-06-05T01:51:41+00:00">01:51:41</abbr></a>] <span>* anythinkg is now known as putzke</span></li>
+<li class="message">[<a href="#T01:51:43" id="T01:51:43"><abbr title="2010-06-05T01:51:43+00:00">01:51:43</abbr></a>] &lt;<cite>putzke</cite>&gt; <q>hi</q></li>
+<li class="message">[<a href="#T01:51:46" id="T01:51:46"><abbr title="2010-06-05T01:51:46+00:00">01:51:46</abbr></a>] &lt;<cite>putzke</cite>&gt; <q>there we go</q></li>
+<li class="message">[<a href="#T01:51:53" id="T01:51:53"><abbr title="2010-06-05T01:51:53+00:00">01:51:53</abbr></a>] &lt;<cite>putzke</cite>&gt; <q>so whats a beagleboard</q></li>
+<li class="message">[<a href="#T01:52:00" id="T01:52:00"><abbr title="2010-06-05T01:52:00+00:00">01:52:00</abbr></a>] &lt;<cite>javaJake</cite>&gt; <q><a href="http://beagleboard.org/">http://beagleboard.org/</a></q></li>
+<li class="message">[<a href="#T01:52:07" id="T01:52:07"><abbr title="2010-06-05T01:52:07+00:00">01:52:07</abbr></a>] &lt;<cite>putzke</cite>&gt; <q>nooooo not reading</q></li>
+<li class="quit">[<a href="#T01:56:48" id="T01:56:48"><abbr title="2010-06-05T01:56:48+00:00">01:56:48</abbr></a>] <span>* Dead1nside (~Dead1nsid@78.86.212.180) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T01:58:39" id="T01:58:39"><abbr title="2010-06-05T01:58:39+00:00">01:58:39</abbr></a>] &lt;<cite>putzke</cite>&gt; <q>anyonez!!!</q></li>
+<li class="message">[<a href="#T01:59:03" id="T01:59:03"><abbr title="2010-06-05T01:59:03+00:00">01:59:03</abbr></a>] &lt;<cite>putzke</cite>&gt; <q>please</q></li>
+<li class="message">[<a href="#T01:59:04" id="T01:59:04"><abbr title="2010-06-05T01:59:04+00:00">01:59:04</abbr></a>] &lt;<cite>putzke</cite>&gt; <q>someone</q></li>
+<li class="quit">[<a href="#T01:59:19" id="T01:59:19"><abbr title="2010-06-05T01:59:19+00:00">01:59:19</abbr></a>] <span>* putzke (~4308d4b2@gateway/web/freenode/x-qvdifwepdblpdvvm) Quit (Quit: Page closed)</span></li>
