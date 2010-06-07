@@ -913,3 +913,124 @@
 <li class="message">[<a href="#T20:55:12" id="T20:55:12"><abbr title="2010-06-07T20:55:12+00:00">20:55:12</abbr></a>] &lt;<cite>|nfecteD</cite>&gt; <q>heeey... UART is working</q></li>
 <li class="quit">[<a href="#T20:55:49" id="T20:55:49"><abbr title="2010-06-07T20:55:49+00:00">20:55:49</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Quit: Leaving)</span></li>
 <li class="message">[<a href="#T20:56:52" id="T20:56:52"><abbr title="2010-06-07T20:56:52+00:00">20:56:52</abbr></a>] &lt;<cite>|nfecteD</cite>&gt; <q>atleast the lights on the beagle are happily flashing now</q></li>
+<li class="message">[<a href="#T21:00:29" id="T21:00:29"><abbr title="2010-06-07T21:00:29+00:00">21:00:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>flashing is good</q></li>
+<li class="message">[<a href="#T21:01:06" id="T21:01:06"><abbr title="2010-06-07T21:01:06+00:00">21:01:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>flash LEDs, not NAND</q></li>
+<li class="message">[<a href="#T21:03:18" id="T21:03:18"><abbr title="2010-06-07T21:03:18+00:00">21:03:18</abbr></a>] &lt;<cite>synack-</cite>&gt; <q>how are you flashing the LEDs? using the led-gpio kernel modules or did you write something to poke at /dev/mem?</q></li>
+<li class="action">[<a href="#T21:03:37" id="T21:03:37"><abbr title="2010-06-07T21:03:37+00:00">21:03:37</abbr></a>] <span>* mru guesses it's the heartbeat</span></li>
+<li class="message">[<a href="#T21:03:49" id="T21:03:49"><abbr title="2010-06-07T21:03:49+00:00">21:03:49</abbr></a>] &lt;<cite>synack-</cite>&gt; <q>oh... using an interrupt?</q></li>
+<li class="message">[<a href="#T21:03:53" id="T21:03:53"><abbr title="2010-06-07T21:03:53+00:00">21:03:53</abbr></a>] &lt;<cite>|nfecteD</cite>&gt; <q>mru: indeed</q></li>
+<li class="action">[<a href="#T21:06:52" id="T21:06:52"><abbr title="2010-06-07T21:06:52+00:00">21:06:52</abbr></a>] <span>* djlewis_ likes the little BeagleBoards heartbeat.</span></li>
+<li class="quit">[<a href="#T21:07:50" id="T21:07:50"><abbr title="2010-06-07T21:07:50+00:00">21:07:50</abbr></a>] <span>* cody (~cody@dslb-084-056-124-180.pools.arcor-ip.net) Quit (Quit: leaving)</span></li>
+<li class="quit">[<a href="#T21:08:10" id="T21:08:10"><abbr title="2010-06-07T21:08:10+00:00">21:08:10</abbr></a>] <span>* jevin (~jevin@c-24-13-122-71.hsd1.in.comcast.net) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T21:08:15" id="T21:08:15"><abbr title="2010-06-07T21:08:15+00:00">21:08:15</abbr></a>] <span>* gustavoz (~gustavoz@201.252.31.213) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T21:08:31" id="T21:08:31"><abbr title="2010-06-07T21:08:31+00:00">21:08:31</abbr></a>] <span>* cody (~cody@dslb-084-056-102-044.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:10:28" id="T21:10:28"><abbr title="2010-06-07T21:10:28+00:00">21:10:28</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) Quit (Read error: Operation timed out)</span></li>
+<li class="action">[<a href="#T21:12:21" id="T21:12:21"><abbr title="2010-06-07T21:12:21+00:00">21:12:21</abbr></a>] <span>* av500 calls day a day</span></li>
+<li class="action">[<a href="#T21:12:29" id="T21:12:29"><abbr title="2010-06-07T21:12:29+00:00">21:12:29</abbr></a>] <span>* mru calls night a day</span></li>
+<li class="join">[<a href="#T21:13:40" id="T21:13:40"><abbr title="2010-06-07T21:13:40+00:00">21:13:40</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:16:06" id="T21:16:06"><abbr title="2010-06-07T21:16:06+00:00">21:16:06</abbr></a>] <span>* jevin (~jevin@c-24-13-122-71.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="action">[<a href="#T21:16:30" id="T21:16:30"><abbr title="2010-06-07T21:16:30+00:00">21:16:30</abbr></a>] <span>* jedix calls it a duck</span></li>
+<li class="message">[<a href="#T21:16:44" id="T21:16:44"><abbr title="2010-06-07T21:16:44+00:00">21:16:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's what floats in water</q></li>
+<li class="message">[<a href="#T21:17:23" id="T21:17:23"><abbr title="2010-06-07T21:17:23+00:00">21:17:23</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>yeah, they're tasty</q></li>
+<li class="action">[<a href="#T21:17:24" id="T21:17:24"><abbr title="2010-06-07T21:17:24+00:00">21:17:24</abbr></a>] <span>* BrknCodes calls day, night, and night day, cuz I live on the opposite side of the world from myself workwise</span></li>
+<li class="join">[<a href="#T21:17:38" id="T21:17:38"><abbr title="2010-06-07T21:17:38+00:00">21:17:38</abbr></a>] <span>* glutd (~816e055a@gateway/web/freenode/x-hjdphxiesgdyoycz) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:17:43" id="T21:17:43"><abbr title="2010-06-07T21:17:43+00:00">21:17:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jedix: witches are tasty?</q></li>
+<li class="message">[<a href="#T21:17:46" id="T21:17:46"><abbr title="2010-06-07T21:17:46+00:00">21:17:46</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>btw, Mru, thanks for the help the other night</q></li>
+<li class="message">[<a href="#T21:18:00" id="T21:18:00"><abbr title="2010-06-07T21:18:00+00:00">21:18:00</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>hello everyone</q></li>
+<li class="message">[<a href="#T21:18:04" id="T21:18:04"><abbr title="2010-06-07T21:18:04+00:00">21:18:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you're welcome</q></li>
+<li class="message">[<a href="#T21:18:19" id="T21:18:19"><abbr title="2010-06-07T21:18:19+00:00">21:18:19</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>powerPC has no BSWAP</q></li>
+<li class="message">[<a href="#T21:18:21" id="T21:18:21"><abbr title="2010-06-07T21:18:21+00:00">21:18:21</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>mru: ducks are, but witches do float too</q></li>
+<li class="message">[<a href="#T21:18:56" id="T21:18:56"><abbr title="2010-06-07T21:18:56+00:00">21:18:56</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>I have a question, can I pose it?</q></li>
+<li class="message">[<a href="#T21:19:19" id="T21:19:19"><abbr title="2010-06-07T21:19:19+00:00">21:19:19</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>glutd, no, you just posed a question, and now you must pay for another</q></li>
+<li class="message">[<a href="#T21:19:20" id="T21:19:20"><abbr title="2010-06-07T21:19:20+00:00">21:19:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>try</q></li>
+<li class="message">[<a href="#T21:19:22" id="T21:19:22"><abbr title="2010-06-07T21:19:22+00:00">21:19:22</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>no, questions are not allowed.</q></li>
+<li class="message">[<a href="#T21:19:34" id="T21:19:34"><abbr title="2010-06-07T21:19:34+00:00">21:19:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>BrknCodes: ppc does have lwbrx though</q></li>
+<li class="message">[<a href="#T21:19:46" id="T21:19:46"><abbr title="2010-06-07T21:19:46+00:00">21:19:46</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>you must inquire, not question</q></li>
+<li class="message">[<a href="#T21:19:57" id="T21:19:57"><abbr title="2010-06-07T21:19:57+00:00">21:19:57</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T21:20:07" id="T21:20:07"><abbr title="2010-06-07T21:20:07+00:00">21:20:07</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>My Beagle board's Angstron GUI is restarting when I connect the HDMI to DVI to an LCD</q></li>
+<li class="message">[<a href="#T21:20:08" id="T21:20:08"><abbr title="2010-06-07T21:20:08+00:00">21:20:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>nobody expects the spanish inquisition</q></li>
+<li class="message">[<a href="#T21:20:11" id="T21:20:11"><abbr title="2010-06-07T21:20:11+00:00">21:20:11</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>yes, but the dang configure added HAVE_BSWAP</q></li>
+<li class="message">[<a href="#T21:20:25" id="T21:20:25"><abbr title="2010-06-07T21:20:25+00:00">21:20:25</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>haven't found anywhere info about this</q></li>
+<li class="message">[<a href="#T21:20:46" id="T21:20:46"><abbr title="2010-06-07T21:20:46+00:00">21:20:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>BrknCodes: what configure?</q></li>
+<li class="message">[<a href="#T21:20:57" id="T21:20:57"><abbr title="2010-06-07T21:20:57+00:00">21:20:57</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>for ffmpeg</q></li>
+<li class="quit">[<a href="#T21:21:00" id="T21:21:00"><abbr title="2010-06-07T21:21:00+00:00">21:21:00</abbr></a>] <span>* plasmab2 (~stephen@client-86-23-95-49.brhm.adsl.virginmedia.com) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:21:16" id="T21:21:16"><abbr title="2010-06-07T21:21:16+00:00">21:21:16</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>remember, I showed myself out...lol</q></li>
+<li class="message">[<a href="#T21:21:22" id="T21:21:22"><abbr title="2010-06-07T21:21:22+00:00">21:21:22</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>I see the X and the little keyboard on the screen and suddently it seems to restart with the underscore _ blinking</q></li>
+<li class="message">[<a href="#T21:21:29" id="T21:21:29"><abbr title="2010-06-07T21:21:29+00:00">21:21:29</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>the keyboard reappears</q></li>
+<li class="message">[<a href="#T21:21:37" id="T21:21:37"><abbr title="2010-06-07T21:21:37+00:00">21:21:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>BrknCodes: that's harmless</q></li>
+<li class="message">[<a href="#T21:21:42" id="T21:21:42"><abbr title="2010-06-07T21:21:42+00:00">21:21:42</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>and then it restarts again</q></li>
+<li class="message">[<a href="#T21:21:51" id="T21:21:51"><abbr title="2010-06-07T21:21:51+00:00">21:21:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's a mistake, but it doesn't do any damage</q></li>
+<li class="message">[<abbr title="2010-06-07T21:21:51+00:00">21:21:51</abbr>] &lt;<cite>BrknCodes</cite>&gt; <q>the DVI-D port on beagle is not quite hotswappable</q></li>
+<li class="message">[<a href="#T21:22:06" id="T21:22:06"><abbr title="2010-06-07T21:22:06+00:00">21:22:06</abbr></a>] &lt;<cite>MostAwesomeDude</cite>&gt; <q>Yay omapfb.</q></li>
+<li class="message">[<a href="#T21:22:14" id="T21:22:14"><abbr title="2010-06-07T21:22:14+00:00">21:22:14</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>I followed the instructions on the board guide where I first connect and then turn it on</q></li>
+<li class="message">[<a href="#T21:22:18" id="T21:22:18"><abbr title="2010-06-07T21:22:18+00:00">21:22:18</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>didn't make a difference</q></li>
+<li class="message">[<a href="#T21:22:48" id="T21:22:48"><abbr title="2010-06-07T21:22:48+00:00">21:22:48</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>glutd, then how is it that you know that adding an LCD restarts the X Server?</q></li>
+<li class="join">[<a href="#T21:23:05" id="T21:23:05"><abbr title="2010-06-07T21:23:05+00:00">21:23:05</abbr></a>] <span>* jkridner1 (~a0321898@nat/ti/x-qdnscufmgojjzfam) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:24:05" id="T21:24:05"><abbr title="2010-06-07T21:24:05+00:00">21:24:05</abbr></a>] <span>* ppotera_ (~ppotera@99-100-130-116.lightspeed.stlsmo.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:24:10" id="T21:24:10"><abbr title="2010-06-07T21:24:10+00:00">21:24:10</abbr></a>] <span>* sombunall (~sawdis@modemcable203.209-56-74.mc.videotron.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:24:17" id="T21:24:17"><abbr title="2010-06-07T21:24:17+00:00">21:24:17</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>BrknCodes: It's an assumption. In fact I might be wrong since at the beginning of the whole thing I see Angstrom boot up with its progress bar</q></li>
+<li class="message">[<a href="#T21:24:35" id="T21:24:35"><abbr title="2010-06-07T21:24:35+00:00">21:24:35</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>the only thing that restarts is that keyboard where I guess I would put some information</q></li>
+<li class="quit">[<a href="#T21:25:01" id="T21:25:01"><abbr title="2010-06-07T21:25:01+00:00">21:25:01</abbr></a>] <span>* rsalveti (~rsalveti@200.184.118.130) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:25:19" id="T21:25:19"><abbr title="2010-06-07T21:25:19+00:00">21:25:19</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>glutd, are you removing the DVI-D connected device and replugging either that one, or another while the board is running?</q></li>
+<li class="message">[<a href="#T21:25:31" id="T21:25:31"><abbr title="2010-06-07T21:25:31+00:00">21:25:31</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T21:25:47" id="T21:25:47"><abbr title="2010-06-07T21:25:47+00:00">21:25:47</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>although it seems my monitor switches to the VGA connector and then I switch it back</q></li>
+<li class="message">[<a href="#T21:25:51" id="T21:25:51"><abbr title="2010-06-07T21:25:51+00:00">21:25:51</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>then what are you asking again?</q></li>
+<li class="message">[<a href="#T21:26:03" id="T21:26:03"><abbr title="2010-06-07T21:26:03+00:00">21:26:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>BrknCodes: I hot swap the DVI all the time</q></li>
+<li class="message">[<a href="#T21:26:32" id="T21:26:32"><abbr title="2010-06-07T21:26:32+00:00">21:26:32</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>he's got dvi-&gt;hdmi-&gt;monitor though, right?</q></li>
+<li class="message">[<a href="#T21:26:41" id="T21:26:41"><abbr title="2010-06-07T21:26:41+00:00">21:26:41</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>My question is whether anyone had the experience where Angstrom boots up and then the last part keeps reseting</q></li>
+<li class="message">[<a href="#T21:26:47" id="T21:26:47"><abbr title="2010-06-07T21:26:47+00:00">21:26:47</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>and the User LED blinks as well</q></li>
+<li class="message">[<a href="#T21:26:55" id="T21:26:55"><abbr title="2010-06-07T21:26:55+00:00">21:26:55</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>did you check the logs?</q></li>
+<li class="message">[<a href="#T21:27:03" id="T21:27:03"><abbr title="2010-06-07T21:27:03+00:00">21:27:03</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>no</q></li>
+<li class="message">[<abbr title="2010-06-07T21:27:03+00:00">21:27:03</abbr>] &lt;<cite>BrknCodes</cite>&gt; <q>av500, certain people should be relegated to act more safely with the devices at hand, which is why, in the manual, it states to not swap video devices on the beagle while it is running...</q></li>
+<li class="action">[<a href="#T21:27:06" id="T21:27:06"><abbr title="2010-06-07T21:27:06+00:00">21:27:06</abbr></a>] <span>* jedix doesn't have a beagle.. he has an omap4</span></li>
+<li class="message">[<a href="#T21:27:20" id="T21:27:20"><abbr title="2010-06-07T21:27:20+00:00">21:27:20</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T21:27:28" id="T21:27:28"><abbr title="2010-06-07T21:27:28+00:00">21:27:28</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>I will look into the logs and see what they say</q></li>
+<li class="message">[<a href="#T21:27:42" id="T21:27:42"><abbr title="2010-06-07T21:27:42+00:00">21:27:42</abbr></a>] &lt;<cite>glutd</cite>&gt; <q>thank you very much</q></li>
+<li class="message">[<a href="#T21:27:49" id="T21:27:49"><abbr title="2010-06-07T21:27:49+00:00">21:27:49</abbr></a>] &lt;<cite>BrknCodes</cite>&gt; <q>not a problem</q></li>
+<li class="message">[<a href="#T21:27:56" id="T21:27:56"><abbr title="2010-06-07T21:27:56+00:00">21:27:56</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>should check the logs and possibly pastebin them for people here</q></li>
+<li class="message">[<a href="#T21:28:13" id="T21:28:13"><abbr title="2010-06-07T21:28:13+00:00">21:28:13</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>someone might know more when they see the logs</q></li>
+<li class="quit">[<a href="#T21:28:27" id="T21:28:27"><abbr title="2010-06-07T21:28:27+00:00">21:28:27</abbr></a>] <span>* ceyusa (~vjaquez@155.99.117.91.static.mundo-r.com) Quit (Quit: leaving)</span></li>
+<li class="join">[<a href="#T21:31:22" id="T21:31:22"><abbr title="2010-06-07T21:31:22+00:00">21:31:22</abbr></a>] <span>* jkridner2 (~a0321898@nat/ti/x-ztktqgftnfmijhqh) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:31:42" id="T21:31:42"><abbr title="2010-06-07T21:31:42+00:00">21:31:42</abbr></a>] &lt;<cite>jkridner2</cite>&gt; <q>ugh.</q></li>
+<li class="message">[<a href="#T21:31:50" id="T21:31:50"><abbr title="2010-06-07T21:31:50+00:00">21:31:50</abbr></a>] &lt;<cite>jkridner2</cite>&gt; <q>network connectivity here is not the best.</q></li>
+<li class="message">[<a href="#T21:32:13" id="T21:32:13"><abbr title="2010-06-07T21:32:13+00:00">21:32:13</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>jkridnertry a sleepy Vista laptop :(</q></li>
+<li class="message">[<a href="#T21:32:29" id="T21:32:29"><abbr title="2010-06-07T21:32:29+00:00">21:32:29</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>jkridner (space) ....</q></li>
+<li class="action">[<a href="#T21:32:48" id="T21:32:48"><abbr title="2010-06-07T21:32:48+00:00">21:32:48</abbr></a>] <span>* jkridner2 can't imagine it is any worse than my XP laptop that randomly freezes.</span></li>
+<li class="message">[<a href="#T21:33:04" id="T21:33:04"><abbr title="2010-06-07T21:33:04+00:00">21:33:04</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>people still use windows?</q></li>
+<li class="quit">[<a href="#T21:33:15" id="T21:33:15"><abbr title="2010-06-07T21:33:15+00:00">21:33:15</abbr></a>] <span>* jkridner1 (~a0321898@nat/ti/x-qdnscufmgojjzfam) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="action">[<a href="#T21:33:43" id="T21:33:43"><abbr title="2010-06-07T21:33:43+00:00">21:33:43</abbr></a>] <span>* djlewis_ still has to do stuff in the .Net world</span></li>
+<li class="message">[<a href="#T21:34:07" id="T21:34:07"><abbr title="2010-06-07T21:34:07+00:00">21:34:07</abbr></a>] &lt;<cite>jkridner2</cite>&gt; <q>doesn't involve ATL or MFC does it?</q></li>
+<li class="message">[<a href="#T21:34:13" id="T21:34:13"><abbr title="2010-06-07T21:34:13+00:00">21:34:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jedix: windows are  necessary for a defenestration</q></li>
+<li class="message">[<a href="#T21:34:38" id="T21:34:38"><abbr title="2010-06-07T21:34:38+00:00">21:34:38</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>c# and .net libs</q></li>
+<li class="quit">[<a href="#T21:34:47" id="T21:34:47"><abbr title="2010-06-07T21:34:47+00:00">21:34:47</abbr></a>] <span>* eAndrius (~andr@88-222-169-44.meganet.lt) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:34:48" id="T21:34:48"><abbr title="2010-06-07T21:34:48+00:00">21:34:48</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>jkridner2: name alternative</q></li>
+<li class="action">[<a href="#T21:34:49" id="T21:34:49"><abbr title="2010-06-07T21:34:49+00:00">21:34:49</abbr></a>] <span>* jkridner2 learns a new word. :)</span></li>
+<li class="action">[<a href="#T21:35:38" id="T21:35:38"><abbr title="2010-06-07T21:35:38+00:00">21:35:38</abbr></a>] <span>* djlewis_ can't pronounce new word.</span></li>
+<li class="action">[<a href="#T21:36:27" id="T21:36:27"><abbr title="2010-06-07T21:36:27+00:00">21:36:27</abbr></a>] <span>* mru likes his words sesquipedalian</span></li>
+<li class="message">[<a href="#T21:36:40" id="T21:36:40"><abbr title="2010-06-07T21:36:40+00:00">21:36:40</abbr></a>] &lt;<cite>|nfecteD</cite>&gt; <q>im going to continue unbricking my beagle tomorrow</q></li>
+<li class="message">[<a href="#T21:36:42" id="T21:36:42"><abbr title="2010-06-07T21:36:42+00:00">21:36:42</abbr></a>] &lt;<cite>|nfecteD</cite>&gt; <q>sleeeep</q></li>
+<li class="message">[<a href="#T21:37:05" id="T21:37:05"><abbr title="2010-06-07T21:37:05+00:00">21:37:05</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>its already tomorrow somewhere, stay up and finish what you started ;)</q></li>
+<li class="message">[<a href="#T21:38:17" id="T21:38:17"><abbr title="2010-06-07T21:38:17+00:00">21:38:17</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>but then again, it might make matters even worse :p</q></li>
+<li class="join">[<a href="#T21:39:51" id="T21:39:51"><abbr title="2010-06-07T21:39:51+00:00">21:39:51</abbr></a>] <span>* mykhal (~59b01664@gateway/web/freenode/x-ubzcwtaocefalgiv) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:40:31" id="T21:40:31"><abbr title="2010-06-07T21:40:31+00:00">21:40:31</abbr></a>] &lt;<cite>mykhal</cite>&gt; <q>i have found a secret code on beagleboard.org/hardware-xm . what it can be used for? :)</q></li>
+<li class="message">[<a href="#T21:41:02" id="T21:41:02"><abbr title="2010-06-07T21:41:02+00:00">21:41:02</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>bricking the beagle ;)</q></li>
+<li class="message">[<a href="#T21:41:10" id="T21:41:10"><abbr title="2010-06-07T21:41:10+00:00">21:41:10</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>omfg</q></li>
+<li class="message">[<a href="#T21:41:18" id="T21:41:18"><abbr title="2010-06-07T21:41:18+00:00">21:41:18</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>i just bought beagle board week ago</q></li>
+<li class="message">[<a href="#T21:41:48" id="T21:41:48"><abbr title="2010-06-07T21:41:48+00:00">21:41:48</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>and?</q></li>
+<li class="message">[<a href="#T21:41:50" id="T21:41:50"><abbr title="2010-06-07T21:41:50+00:00">21:41:50</abbr></a>] &lt;<cite>mykhal</cite>&gt; <q>it's rather short one ("S.....5")</q></li>
+<li class="join">[<a href="#T21:43:20" id="T21:43:20"><abbr title="2010-06-07T21:43:20+00:00">21:43:20</abbr></a>] <span>* Phrog (~chatzilla@ip-87-82-198-210.easynet.co.uk) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:43:21" id="T21:43:21"><abbr title="2010-06-07T21:43:21+00:00">21:43:21</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>djlewis_: new one is much better</q></li>
+<li class="message">[<a href="#T21:44:08" id="T21:44:08"><abbr title="2010-06-07T21:44:08+00:00">21:44:08</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>jacekowski: oh. that.. I anticipated you were having BB problems </q></li>
+<li class="message">[<a href="#T21:44:39" id="T21:44:39"><abbr title="2010-06-07T21:44:39+00:00">21:44:39</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>that is a problem</q></li>
+<li class="message">[<a href="#T21:44:53" id="T21:44:53"><abbr title="2010-06-07T21:44:53+00:00">21:44:53</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>i'm thinking about sending my back</q></li>
+<li class="quit">[<a href="#T21:49:03" id="T21:49:03"><abbr title="2010-06-07T21:49:03+00:00">21:49:03</abbr></a>] <span>* maqr (~maqr@httpcraft/hax) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T21:50:31" id="T21:50:31"><abbr title="2010-06-07T21:50:31+00:00">21:50:31</abbr></a>] <span>* glutd (~816e055a@gateway/web/freenode/x-hjdphxiesgdyoycz) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T21:52:34" id="T21:52:34"><abbr title="2010-06-07T21:52:34+00:00">21:52:34</abbr></a>] <span>* thaytan (~jan@ppp59-167-167-201.static.internode.on.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:54:39" id="T21:54:39"><abbr title="2010-06-07T21:54:39+00:00">21:54:39</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jkridner2: venc ok?</q></li>
+<li class="message">[<a href="#T21:54:57" id="T21:54:57"><abbr title="2010-06-07T21:54:57+00:00">21:54:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_av500_: got any better photos of the beast?</q></li>
+<li class="message">[<a href="#T21:55:28" id="T21:55:28"><abbr title="2010-06-07T21:55:28+00:00">21:55:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>err, no</q></li>
+<li class="message">[<a href="#T21:55:43" id="T21:55:43"><abbr title="2010-06-07T21:55:43+00:00">21:55:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh well, I brought a camera</q></li>
+<li class="message">[<a href="#T21:55:55" id="T21:55:55"><abbr title="2010-06-07T21:55:55+00:00">21:55:55</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>right</q></li>
+<li class="quit">[<a href="#T21:57:12" id="T21:57:12"><abbr title="2010-06-07T21:57:12+00:00">21:57:12</abbr></a>] <span>* zodttd (~me@24.144.92.44) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T21:57:44" id="T21:57:44"><abbr title="2010-06-07T21:57:44+00:00">21:57:44</abbr></a>] &lt;<cite>mykhal</cite>&gt; <q>who has the widom, deCSS the hardware-xm page and reveal the code. it can be used for i dunno what</q></li>
+<li class="join">[<a href="#T21:58:34" id="T21:58:34"><abbr title="2010-06-07T21:58:34+00:00">21:58:34</abbr></a>] <span>* zodttd (~me@24.144.92.44) has joined #beagle</span></li>
