@@ -263,3 +263,70 @@
 <li class="quit">[<a href="#T05:51:52" id="T05:51:52"><abbr title="2010-06-16T05:51:52+00:00">05:51:52</abbr></a>] <span>* jrmuizel (~jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) Quit (Quit: jrmuizel)</span></li>
 <li class="join">[<a href="#T05:53:20" id="T05:53:20"><abbr title="2010-06-16T05:53:20+00:00">05:53:20</abbr></a>] <span>* screwgoth (~raseel@122.169.73.171) has joined #beagle</span></li>
 <li class="quit">[<a href="#T05:57:15" id="T05:57:15"><abbr title="2010-06-16T05:57:15+00:00">05:57:15</abbr></a>] <span>* katie (~katierh@nat/ti/x-mgigmojjmbzatcgq) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T06:01:13" id="T06:01:13"><abbr title="2010-06-16T06:01:13+00:00">06:01:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>this is ugly: <a href="http://github.com/neo01124/omap3-pwm/blob/master/README">http://github.com/neo01124/omap3-pwm/blob/master/README</a></q></li>
+<li class="join">[<a href="#T06:01:34" id="T06:01:34"><abbr title="2010-06-16T06:01:34+00:00">06:01:34</abbr></a>] <span>* tsjsieb (~tsjsieb@80.101.185.65) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:01:42" id="T06:01:42"><abbr title="2010-06-16T06:01:42+00:00">06:01:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>used the /dev/pwm only to change the duty cycle</q></li>
+<li class="message">[<a href="#T06:01:45" id="T06:01:45"><abbr title="2010-06-16T06:01:45+00:00">06:01:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>using the /dev/pwm only to change the duty cycle</q></li>
+<li class="quit">[<a href="#T06:02:12" id="T06:02:12"><abbr title="2010-06-16T06:02:12+00:00">06:02:12</abbr></a>] <span>* _don_ (~ddarling@nat/ti/x-krcyhztqbymnbzdi) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T06:02:32" id="T06:02:32"><abbr title="2010-06-16T06:02:32+00:00">06:02:32</abbr></a>] <span>* _don_ (~ddarling@nat/ti/x-ofrugomlfltlizow) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:02:41" id="T06:02:41"><abbr title="2010-06-16T06:02:41+00:00">06:02:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>basically you are using /dev/pwm the same as /sys/.../pwm</q></li>
+<li class="message">[<a href="#T06:02:51" id="T06:02:51"><abbr title="2010-06-16T06:02:51+00:00">06:02:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>might as well keep it all in /sys/...</q></li>
+<li class="message">[<a href="#T06:07:53" id="T06:07:53"><abbr title="2010-06-16T06:07:53+00:00">06:07:53</abbr></a>] &lt;<cite>neo01124</cite>&gt; <q>av500, ok</q></li>
+<li class="message">[<a href="#T06:08:11" id="T06:08:11"><abbr title="2010-06-16T06:08:11+00:00">06:08:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>why it is the pwm duty cycle that you can write() to /dev?</q></li>
+<li class="message">[<a href="#T06:08:14" id="T06:08:14"><abbr title="2010-06-16T06:08:14+00:00">06:08:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>why not the freq?</q></li>
+<li class="message">[<a href="#T06:08:32" id="T06:08:32"><abbr title="2010-06-16T06:08:32+00:00">06:08:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if you cannot make that choice obvious, I would make read/write fail on /dev/pw,</q></li>
+<li class="message">[<a href="#T06:08:40" id="T06:08:40"><abbr title="2010-06-16T06:08:40+00:00">06:08:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and do everything with ioctl()</q></li>
+<li class="message">[<a href="#T06:09:13" id="T06:09:13"><abbr title="2010-06-16T06:09:13+00:00">06:09:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it's like e.g. v4l2 where nobody uses read/write, it is all via ioctls</q></li>
+<li class="message">[<a href="#T06:09:36" id="T06:09:36"><abbr title="2010-06-16T06:09:36+00:00">06:09:36</abbr></a>] &lt;<cite>neo01124</cite>&gt; <q>av500, I will check out ioctl(). What is the downside with sysfs ?</q></li>
+<li class="message">[<a href="#T06:10:02" id="T06:10:02"><abbr title="2010-06-16T06:10:02+00:00">06:10:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well, unix philosophy is "everything is a file", so you open(), get an file handle and then use it</q></li>
+<li class="message">[<a href="#T06:10:13" id="T06:10:13"><abbr title="2010-06-16T06:10:13+00:00">06:10:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you can pass file handles around etc..</q></li>
+<li class="quit">[<a href="#T06:10:38" id="T06:10:38"><abbr title="2010-06-16T06:10:38+00:00">06:10:38</abbr></a>] <span>* topi` (topi@kaverit.org) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T06:10:59" id="T06:10:59"><abbr title="2010-06-16T06:10:59+00:00">06:10:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sysfs makes you convert all your information to text for the sysfs to parse it back to the values</q></li>
+<li class="message">[<a href="#T06:11:21" id="T06:11:21"><abbr title="2010-06-16T06:11:21+00:00">06:11:21</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ioctly with defined control structures lets you pass all info in the "native" format</q></li>
+<li class="message">[<a href="#T06:11:29" id="T06:11:29"><abbr title="2010-06-16T06:11:29+00:00">06:11:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>struct pwm_foo {</q></li>
+<li class="message">[<a href="#T06:11:32" id="T06:11:32"><abbr title="2010-06-16T06:11:32+00:00">06:11:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>int freq;</q></li>
+<li class="message">[<a href="#T06:11:35" id="T06:11:35"><abbr title="2010-06-16T06:11:35+00:00">06:11:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>int duty;</q></li>
+<li class="message">[<a href="#T06:11:38" id="T06:11:38"><abbr title="2010-06-16T06:11:38+00:00">06:11:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>int enabled;</q></li>
+<li class="message">[<a href="#T06:11:40" id="T06:11:40"><abbr title="2010-06-16T06:11:40+00:00">06:11:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>int bar..</q></li>
+<li class="message">[<a href="#T06:11:43" id="T06:11:43"><abbr title="2010-06-16T06:11:43+00:00">06:11:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>}</q></li>
+<li class="message">[<a href="#T06:12:09" id="T06:12:09"><abbr title="2010-06-16T06:12:09+00:00">06:12:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I would still leave sysfs as an easy way to test and debug</q></li>
+<li class="message">[<a href="#T06:12:44" id="T06:12:44"><abbr title="2010-06-16T06:12:44+00:00">06:12:44</abbr></a>] &lt;<cite>cwillu</cite>&gt; <q>echo 1 &gt; /dev/anything is just wrong :p</q></li>
+<li class="message">[<a href="#T06:12:56" id="T06:12:56"><abbr title="2010-06-16T06:12:56+00:00">06:12:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T06:13:10" id="T06:13:10"><abbr title="2010-06-16T06:13:10+00:00">06:13:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>unless it is a symlink to /sys/.. :)</q></li>
+<li class="message">[<a href="#T06:13:21" id="T06:13:21"><abbr title="2010-06-16T06:13:21+00:00">06:13:21</abbr></a>] &lt;<cite>cwillu</cite>&gt; <q>even then</q></li>
+<li class="message">[<a href="#T06:13:44" id="T06:13:44"><abbr title="2010-06-16T06:13:44+00:00">06:13:44</abbr></a>] &lt;<cite>neo01124</cite>&gt; <q>so echo 1 &gt; /sys/... is fine ?</q></li>
+<li class="message">[<a href="#T06:13:51" id="T06:13:51"><abbr title="2010-06-16T06:13:51+00:00">06:13:51</abbr></a>] &lt;<cite>cwillu</cite>&gt; <q>that's what /sys is for</q></li>
+<li class="message">[<a href="#T06:14:08" id="T06:14:08"><abbr title="2010-06-16T06:14:08+00:00">06:14:08</abbr></a>] &lt;<cite>cwillu</cite>&gt; <q>peek and pokable values :p</q></li>
+<li class="message">[<a href="#T06:14:15" id="T06:14:15"><abbr title="2010-06-16T06:14:15+00:00">06:14:15</abbr></a>] &lt;<cite>neo01124</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T06:14:30" id="T06:14:30"><abbr title="2010-06-16T06:14:30+00:00">06:14:30</abbr></a>] &lt;<cite>cwillu</cite>&gt; <q>led's all show up in there for instance</q></li>
+<li class="message">[<a href="#T06:14:38" id="T06:14:38"><abbr title="2010-06-16T06:14:38+00:00">06:14:38</abbr></a>] &lt;<cite>cwillu</cite>&gt; <q>that's how you set the block scheduler settings, etc</q></li>
+<li class="message">[<a href="#T06:15:12" id="T06:15:12"><abbr title="2010-06-16T06:15:12+00:00">06:15:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>dev is nicer, IMO</q></li>
+<li class="message">[<a href="#T06:15:25" id="T06:15:25"><abbr title="2010-06-16T06:15:25+00:00">06:15:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but ugly or not, I like working features </q></li>
+<li class="message">[<a href="#T06:15:37" id="T06:15:37"><abbr title="2010-06-16T06:15:37+00:00">06:15:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>nah, that is not the right path! :)=</q></li>
+<li class="message">[<a href="#T06:16:21" id="T06:16:21"><abbr title="2010-06-16T06:16:21+00:00">06:16:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>&lt;--- part EE</q></li>
+<li class="message">[<a href="#T06:17:32" id="T06:17:32"><abbr title="2010-06-16T06:17:32+00:00">06:17:32</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>too friggin' pragmatic...</q></li>
+<li class="message">[<a href="#T06:18:02" id="T06:18:02"><abbr title="2010-06-16T06:18:02+00:00">06:18:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>same here</q></li>
+<li class="message">[<a href="#T06:18:43" id="T06:18:43"><abbr title="2010-06-16T06:18:43+00:00">06:18:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the kernel tries to hide from me when I do cd /linux</q></li>
+<li class="message">[<a href="#T06:20:01" id="T06:20:01"><abbr title="2010-06-16T06:20:01+00:00">06:20:01</abbr></a>] &lt;<cite>screwgoth</cite>&gt; <q>So, I goofed up a bit in my first attempt to build Angstorm. The question is will I have to git clone the whole damn thing again, or can reuse it? </q></li>
+<li class="message">[<a href="#T06:20:59" id="T06:20:59"><abbr title="2010-06-16T06:20:59+00:00">06:20:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>just clean your build stuff</q></li>
+<li class="quit">[<a href="#T06:21:21" id="T06:21:21"><abbr title="2010-06-16T06:21:21+00:00">06:21:21</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Read error: Operation timed out)</span></li>
+<li class="message">[<a href="#T06:23:20" id="T06:23:20"><abbr title="2010-06-16T06:23:20+00:00">06:23:20</abbr></a>] &lt;<cite>screwgoth</cite>&gt; <q>@av500 : Like, just remove the sources and tmp directories and run bitbake again ?</q></li>
+<li class="action">[<a href="#T06:24:00" id="T06:24:00"><abbr title="2010-06-16T06:24:00+00:00">06:24:00</abbr></a>] <span>* av500 no oe expert, but something like that</span></li>
+<li class="message">[<a href="#T06:24:25" id="T06:24:25"><abbr title="2010-06-16T06:24:25+00:00">06:24:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>git should be able to tell you which files are not part of what it cloned</q></li>
+<li class="part">[<a href="#T06:24:41" id="T06:24:41"><abbr title="2010-06-16T06:24:41+00:00">06:24:41</abbr></a>] <span>* emeb (~ericb@ip72-223-81-194.ph.ph.cox.net) has left #beagle</span></li>
+<li class="message">[<a href="#T06:24:43" id="T06:24:43"><abbr title="2010-06-16T06:24:43+00:00">06:24:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or even better, build full out-of-tree....</q></li>
+<li class="message">[<a href="#T06:25:06" id="T06:25:06"><abbr title="2010-06-16T06:25:06+00:00">06:25:06</abbr></a>] &lt;<cite>screwgoth</cite>&gt; <q>av500: "out-of-tree" ? didn't get ya ?</q></li>
+<li class="message">[<a href="#T06:26:09" id="T06:26:09"><abbr title="2010-06-16T06:26:09+00:00">06:26:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>make your build folder outside of whatever you git cloned</q></li>
+<li class="message">[<a href="#T06:26:22" id="T06:26:22"><abbr title="2010-06-16T06:26:22+00:00">06:26:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then all you need is to wipe that one in order to start fresh again</q></li>
+<li class="message">[<a href="#T06:26:38" id="T06:26:38"><abbr title="2010-06-16T06:26:38+00:00">06:26:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I guess oe supports that, oe experts?</q></li>
+<li class="join">[<a href="#T06:35:13" id="T06:35:13"><abbr title="2010-06-16T06:35:13+00:00">06:35:13</abbr></a>] <span>* ArunC (aa8a68fa@gateway/web/freenode/ip.170.138.104.250) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:35:14" id="T06:35:14"><abbr title="2010-06-16T06:35:14+00:00">06:35:14</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:37:23" id="T06:37:23"><abbr title="2010-06-16T06:37:23+00:00">06:37:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>OE tend to default to out of tree</q></li>
+<li class="quit">[<a href="#T06:39:22" id="T06:39:22"><abbr title="2010-06-16T06:39:22+00:00">06:39:22</abbr></a>] <span>* drinkcat (~nicolas@181-162.4-85.cust.bluewin.ch) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<a href="#T06:39:45" id="T06:39:45"><abbr title="2010-06-16T06:39:45+00:00">06:39:45</abbr></a>] <span>* soman (~somnath@118.102.130.6) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T06:41:45" id="T06:41:45"><abbr title="2010-06-16T06:41:45+00:00">06:41:45</abbr></a>] <span>* soman (~somnath@118.102.130.6) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:42:05" id="T06:42:05"><abbr title="2010-06-16T06:42:05+00:00">06:42:05</abbr></a>] &lt;<cite>screwgoth</cite>&gt; <q>ds2: What do you mean ?</q></li>
+<li class="join">[<a href="#T06:47:46" id="T06:47:46"><abbr title="2010-06-16T06:47:46+00:00">06:47:46</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:48:32" id="T06:48:32"><abbr title="2010-06-16T06:48:32+00:00">06:48:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>OE dumps stuff in your OEDIR</q></li>
+<li class="message">[<a href="#T06:48:49" id="T06:48:49"><abbr title="2010-06-16T06:48:49+00:00">06:48:49</abbr></a>] &lt;<cite>screwgoth</cite>&gt; <q>correct</q></li>
+<li class="quit">[<a href="#T06:55:12" id="T06:55:12"><abbr title="2010-06-16T06:55:12+00:00">06:55:12</abbr></a>] <span>* calculus (~calculus@gentoo/user/calculus) Quit (Ping timeout: 248 seconds)</span></li>
