@@ -462,3 +462,64 @@
 <li class="message">[<a href="#T17:59:33" id="T17:59:33"><abbr title="2010-06-19T17:59:33+00:00">17:59:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>it hints at the worldview that there will be a single sw config for a board</q></li>
 <li class="quit">[<abbr title="2010-06-19T17:59:33+00:00">17:59:33</abbr>] <span>* b7500af1 (~vt@c-71-63-90-176.hsd1.va.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
 <li class="message">[<a href="#T17:59:55" id="T17:59:55"><abbr title="2010-06-19T17:59:55+00:00">17:59:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>"tegra will always run at 16bpp on softvfp glibc"</q></li>
+<li class="message">[<a href="#T18:00:18" id="T18:00:18"><abbr title="2010-06-19T18:00:18+00:00">18:00:18</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>ah, yeah the initialization is far from sturdy</q></li>
+<li class="message">[<a href="#T18:00:25" id="T18:00:25"><abbr title="2010-06-19T18:00:25+00:00">18:00:25</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>Even on desktop it leaves much to be desired</q></li>
+<li class="message">[<a href="#T18:00:34" id="T18:00:34"><abbr title="2010-06-19T18:00:34+00:00">18:00:34</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>IIRC if you don't have 24bit it crashes</q></li>
+<li class="join">[<a href="#T18:00:51" id="T18:00:51"><abbr title="2010-06-19T18:00:51+00:00">18:00:51</abbr></a>] <span>* b7500af1 (~vt@c-71-63-90-176.hsd1.va.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:01:16" id="T18:01:16"><abbr title="2010-06-19T18:01:16+00:00">18:01:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>what does 'fbset' say on your beagle?</q></li>
+<li class="message">[<a href="#T18:01:28" id="T18:01:28"><abbr title="2010-06-19T18:01:28+00:00">18:01:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>(the geometry line)</q></li>
+<li class="quit">[<abbr title="2010-06-19T18:01:28+00:00">18:01:28</abbr>] <span>* b7500af1 (~vt@c-71-63-90-176.hsd1.va.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T18:01:37" id="T18:01:37"><abbr title="2010-06-19T18:01:37+00:00">18:01:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>geometry 1280 720 1280 2160 32</q></li>
+<li class="message">[<a href="#T18:01:58" id="T18:01:58"><abbr title="2010-06-19T18:01:58+00:00">18:01:58</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>geometry 640 480 640 480 32</q></li>
+<li class="message">[<a href="#T18:02:14" id="T18:02:14"><abbr title="2010-06-19T18:02:14+00:00">18:02:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mine shows a triple buffer capable 720p60@32bit</q></li>
+<li class="message">[<a href="#T18:03:36" id="T18:03:36"><abbr title="2010-06-19T18:03:36+00:00">18:03:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so yours is 32 bit as well</q></li>
+<li class="message">[<a href="#T18:05:21" id="T18:05:21"><abbr title="2010-06-19T18:05:21+00:00">18:05:21</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>but you don't get the splash showing then?</q></li>
+<li class="message">[<a href="#T18:05:28" id="T18:05:28"><abbr title="2010-06-19T18:05:28+00:00">18:05:28</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>just a black screen?</q></li>
+<li class="message">[<a href="#T18:05:33" id="T18:05:33"><abbr title="2010-06-19T18:05:33+00:00">18:05:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T18:05:56" id="T18:05:56"><abbr title="2010-06-19T18:05:56+00:00">18:05:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>17:11:19 T:1112856672 M:361594880  NOTICE: Starting XBMC, Platform: Linux (Description:    Angstrom GNU/Linux 2010.4-test-20100617 (foo), 2.6.32 armv7l). Built on Jun 19 2010 (SVN:31176)</q></li>
+<li class="message">[<a href="#T18:06:01" id="T18:06:01"><abbr title="2010-06-19T18:06:01+00:00">18:06:01</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>My bet is that something regarding the tegra patches have destroyed it for the beagle :)</q></li>
+<li class="message">[<a href="#T18:06:04" id="T18:06:04"><abbr title="2010-06-19T18:06:04+00:00">18:06:04</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>Need to backtrack them</q></li>
+<li class="message">[<a href="#T18:06:05" id="T18:06:05"><abbr title="2010-06-19T18:06:05+00:00">18:06:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>my lsb_release script works :)</q></li>
+<li class="message">[<a href="#T18:06:14" id="T18:06:14"><abbr title="2010-06-19T18:06:14+00:00">18:06:14</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>hehe, awesome!</q></li>
+<li class="message">[<a href="#T18:06:30" id="T18:06:30"><abbr title="2010-06-19T18:06:30+00:00">18:06:30</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>you added that one to the narcissuss aswell?</q></li>
+<li class="message">[<a href="#T18:06:45" id="T18:06:45"><abbr title="2010-06-19T18:06:45+00:00">18:06:45</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton|work, XorA|gone: please help think of a better codename than 'foo'</q></li>
+<li class="message">[<a href="#T18:06:57" id="T18:06:57"><abbr title="2010-06-19T18:06:57+00:00">18:06:57</abbr></a>] &lt;<cite>koen</cite>&gt; <q>topfs2: yes, the 'angstrom-version' package has it</q></li>
+<li class="message">[<a href="#T18:07:45" id="T18:07:45"><abbr title="2010-06-19T18:07:45+00:00">18:07:45</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>well meant as a dependency to the xbmc package</q></li>
+<li class="message">[<a href="#T18:09:21" id="T18:09:21"><abbr title="2010-06-19T18:09:21+00:00">18:09:21</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>(added the new dependencies to wiki)</q></li>
+<li class="message">[<a href="#T18:09:27" id="T18:09:27"><abbr title="2010-06-19T18:09:27+00:00">18:09:27</abbr></a>] &lt;<cite>koen</cite>&gt; <q>narcissus should always install angstrom-version :)</q></li>
+<li class="message">[<a href="#T18:10:24" id="T18:10:24"><abbr title="2010-06-19T18:10:24+00:00">18:10:24</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>Heck I wished the make process had a progress bar at times :)</q></li>
+<li class="join">[<a href="#T18:11:00" id="T18:11:00"><abbr title="2010-06-19T18:11:00+00:00">18:11:00</abbr></a>] <span>* Belna_ (~Thomas@ppp-88-217-110-84.dynamic.mnet-online.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:12:00" id="T18:12:00"><abbr title="2010-06-19T18:12:00+00:00">18:12:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>topfs2: btw, if you install angstrom-uboot-scripts you will get a bunch of boot.scr files in /boot/u-boot-scripts</q></li>
+<li class="message">[<a href="#T18:12:23" id="T18:12:23"><abbr title="2010-06-19T18:12:23+00:00">18:12:23</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>So I can flash nand and such?</q></li>
+<li class="message">[<a href="#T18:12:58" id="T18:12:58"><abbr title="2010-06-19T18:12:58+00:00">18:12:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you can use one of those to replace /media/mmcblk0p1/boot.scr to change bootargs</q></li>
+<li class="quit">[<a href="#T18:14:37" id="T18:14:37"><abbr title="2010-06-19T18:14:37+00:00">18:14:37</abbr></a>] <span>* Belna (~Thomas@ppp-88-217-125-193.dynamic.mnet-online.de) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T18:17:57" id="T18:17:57"><abbr title="2010-06-19T18:17:57+00:00">18:17:57</abbr></a>] <span>* bort_ (44c74adc@gateway/web/freenode/ip.68.199.74.220) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:18:57" id="T18:18:57"><abbr title="2010-06-19T18:18:57+00:00">18:18:57</abbr></a>] <span>* b7500af1 (~vt@c-71-63-90-176.hsd1.va.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:20:03" id="T18:20:03"><abbr title="2010-06-19T18:20:03+00:00">18:20:03</abbr></a>] &lt;<cite>koen</cite>&gt; <q>maybe I should try 16bpp</q></li>
+<li class="quit">[<a href="#T18:20:34" id="T18:20:34"><abbr title="2010-06-19T18:20:34+00:00">18:20:34</abbr></a>] <span>* b7500af1 (~vt@c-71-63-90-176.hsd1.va.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T18:21:30" id="T18:21:30"><abbr title="2010-06-19T18:21:30+00:00">18:21:30</abbr></a>] <span>* b7500af1 (~vt@c-71-63-90-176.hsd1.va.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:22:18" id="T18:22:18"><abbr title="2010-06-19T18:22:18+00:00">18:22:18</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2010-06-19T18:22:18+00:00">18:22:18</abbr>] <span>* b7500af1 (~vt@c-71-63-90-176.hsd1.va.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T18:23:05" id="T18:23:05"><abbr title="2010-06-19T18:23:05+00:00">18:23:05</abbr></a>] <span>* b7500af1 (~vt@c-71-63-90-176.hsd1.va.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:27:30" id="T18:27:30"><abbr title="2010-06-19T18:27:30+00:00">18:27:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>nope, same with 16bpp</q></li>
+<li class="message">[<a href="#T18:27:42" id="T18:27:42"><abbr title="2010-06-19T18:27:42+00:00">18:27:42</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>btw koen you know if beagle likes rgba 8888 instead of 565?</q></li>
+<li class="message">[<a href="#T18:28:03" id="T18:28:03"><abbr title="2010-06-19T18:28:03+00:00">18:28:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>like bothj</q></li>
+<li class="message">[<a href="#T18:28:09" id="T18:28:09"><abbr title="2010-06-19T18:28:09+00:00">18:28:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>likes both</q></li>
+<li class="join">[<a href="#T18:28:34" id="T18:28:34"><abbr title="2010-06-19T18:28:34+00:00">18:28:34</abbr></a>] <span>* Cru_N_cher (~luls_lol@dslb-088-068-135-058.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:28:36" id="T18:28:36"><abbr title="2010-06-19T18:28:36+00:00">18:28:36</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>ah ok</q></li>
+<li class="message">[<a href="#T18:29:07" id="T18:29:07"><abbr title="2010-06-19T18:29:07+00:00">18:29:07</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>Could define RGBA8888 in xbmc/WinSystemEGL.cpp</q></li>
+<li class="quit">[<a href="#T18:30:33" id="T18:30:33"><abbr title="2010-06-19T18:30:33+00:00">18:30:33</abbr></a>] <span>* arunjoseph (~arun@192.163.20.231) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T18:31:00" id="T18:31:00"><abbr title="2010-06-19T18:31:00+00:00">18:31:00</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>topfs2: but then u need to set fb to 8888 as well, no?</q></li>
+<li class="join">[<a href="#T18:31:13" id="T18:31:13"><abbr title="2010-06-19T18:31:13+00:00">18:31:13</abbr></a>] <span>* arunjoseph (~arun@192.163.20.231) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:33:37" id="T18:33:37"><abbr title="2010-06-19T18:33:37+00:00">18:33:37</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>well it kindof already is</q></li>
+<li class="message">[<a href="#T18:33:40" id="T18:33:40"><abbr title="2010-06-19T18:33:40+00:00">18:33:40</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>atleast I think</q></li>
+<li class="message">[<a href="#T18:33:49" id="T18:33:49"><abbr title="2010-06-19T18:33:49+00:00">18:33:49</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>    rgba 8/16,8/8,8/0,8/24 from fbset</q></li>
+<li class="message">[<a href="#T18:34:06" id="T18:34:06"><abbr title="2010-06-19T18:34:06+00:00">18:34:06</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>looks to be bgra even?</q></li>
+<li class="message">[<a href="#T18:34:30" id="T18:34:30"><abbr title="2010-06-19T18:34:30+00:00">18:34:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>argb I'd say</q></li>
+<li class="message">[<a href="#T18:35:04" id="T18:35:04"><abbr title="2010-06-19T18:35:04+00:00">18:35:04</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://www.youtube.com/watch?v=E3W43pyEgSk&amp;feature=youtube_gdata">http://www.youtube.com/watch?v=E3W43pyEgSk&amp;feature=youtube_gdata</a></q></li>
+<li class="message">[<a href="#T18:39:08" id="T18:39:08"><abbr title="2010-06-19T18:39:08+00:00">18:39:08</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>cute</q></li>
+<li class="join">[<a href="#T18:40:38" id="T18:40:38"><abbr title="2010-06-19T18:40:38+00:00">18:40:38</abbr></a>] <span>* rsalveti (~rsalveti@187.58.109.125) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:42:24" id="T18:42:24"><abbr title="2010-06-19T18:42:24+00:00">18:42:24</abbr></a>] &lt;<cite>topfs2</cite>&gt; <q>haha</q></li>
+<li class="join">[<a href="#T18:43:13" id="T18:43:13"><abbr title="2010-06-19T18:43:13+00:00">18:43:13</abbr></a>] <span>* neo01124 (~neo@122.163.102.118) has joined #beagle</span></li>
+<li class="action">[<a href="#T18:44:09" id="T18:44:09"><abbr title="2010-06-19T18:44:09+00:00">18:44:09</abbr></a>] <span>* mru would rather not have an xss hack take over his chainsaw...</span></li>
+<li class="quit">[<a href="#T18:45:55" id="T18:45:55"><abbr title="2010-06-19T18:45:55+00:00">18:45:55</abbr></a>] <span>* Redb3ard (~SF0010MAC@75.110.202.83) Quit (Quit: Redb3ard)</span></li>
