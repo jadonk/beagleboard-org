@@ -217,3 +217,143 @@
 <li class="message">[<a href="#T07:59:00" id="T07:59:00"><abbr title="2010-07-02T07:59:00+00:00">07:59:00</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>i use resizer element in my pipeline which seems to be the problem...</q></li>
 <li class="message">[<a href="#T07:59:48" id="T07:59:48"><abbr title="2010-07-02T07:59:48+00:00">07:59:48</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>should i worry about the encoded parameters of the video source for this issue??</q></li>
 <li class="message">[<a href="#T08:00:01" id="T08:00:01"><abbr title="2010-07-02T08:00:01+00:00">08:00:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T08:00:13" id="T08:00:13"><abbr title="2010-07-02T08:00:13+00:00">08:00:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the omap3 resizes to 1280x720 just fine</q></li>
+<li class="message">[<a href="#T08:00:17" id="T08:00:17"><abbr title="2010-07-02T08:00:17+00:00">08:00:17</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>currently i encode videos to to VGA resolution</q></li>
+<li class="message">[<a href="#T08:00:27" id="T08:00:27"><abbr title="2010-07-02T08:00:27+00:00">08:00:27</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>and resize to 720P etc</q></li>
+<li class="message">[<a href="#T08:00:39" id="T08:00:39"><abbr title="2010-07-02T08:00:39+00:00">08:00:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T08:00:51" id="T08:00:51"><abbr title="2010-07-02T08:00:51+00:00">08:00:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>there is no issue with that wrt HW</q></li>
+<li class="message">[<a href="#T08:01:18" id="T08:01:18"><abbr title="2010-07-02T08:01:18+00:00">08:01:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>with both resizers, ISP and DSS</q></li>
+<li class="join">[<a href="#T08:01:58" id="T08:01:58"><abbr title="2010-07-02T08:01:58+00:00">08:01:58</abbr></a>] <span>* W_I (~W_I@ip-87-108-76-187.customer.academica.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:03:21" id="T08:03:21"><abbr title="2010-07-02T08:03:21+00:00">08:03:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there are limits to how much the dss can rescale</q></li>
+<li class="message">[<a href="#T08:04:24" id="T08:04:24"><abbr title="2010-07-02T08:04:24+00:00">08:04:24</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>if i use the same video source, same pipeline but smaller final display resolution say VGA it is fluent but if i increase display resolution to 720p is not as fluent before</q></li>
+<li class="quit">[<a href="#T08:04:26" id="T08:04:26"><abbr title="2010-07-02T08:04:26+00:00">08:04:26</abbr></a>] <span>* ogra (~ogra@ubuntu/member/ogra) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T08:04:56" id="T08:04:56"><abbr title="2010-07-02T08:04:56+00:00">08:04:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: yes, but VGA to 720p is well within limits</q></li>
+<li class="message">[<a href="#T08:05:01" id="T08:05:01"><abbr title="2010-07-02T08:05:01+00:00">08:05:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh yes</q></li>
+<li class="join">[<a href="#T08:05:06" id="T08:05:06"><abbr title="2010-07-02T08:05:06+00:00">08:05:06</abbr></a>] <span>* ogra (~ogra@ubuntu/member/ogra) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:05:09" id="T08:05:09"><abbr title="2010-07-02T08:05:09+00:00">08:05:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the limit is something like 8x</q></li>
+<li class="message">[<a href="#T08:05:53" id="T08:05:53"><abbr title="2010-07-02T08:05:53+00:00">08:05:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: "pipeline" implies gst which implies dragons</q></li>
+<li class="message">[<a href="#T08:06:06" id="T08:06:06"><abbr title="2010-07-02T08:06:06+00:00">08:06:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>software rescaler</q></li>
+<li class="message">[<a href="#T08:06:09" id="T08:06:09"><abbr title="2010-07-02T08:06:09+00:00">08:06:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>probably a crummy one</q></li>
+<li class="message">[<a href="#T08:06:25" id="T08:06:25"><abbr title="2010-07-02T08:06:25+00:00">08:06:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: or the ISP one and "waiting" for it...</q></li>
+<li class="message">[<a href="#T08:06:38" id="T08:06:38"><abbr title="2010-07-02T08:06:38+00:00">08:06:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>that time is lost for decode then</q></li>
+<li class="message">[<a href="#T08:07:31" id="T08:07:31"><abbr title="2010-07-02T08:07:31+00:00">08:07:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: you know that #gst_ti is the proper place to get help on that....  :)</q></li>
+<li class="message">[<a href="#T08:08:18" id="T08:08:18"><abbr title="2010-07-02T08:08:18+00:00">08:08:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>from a HW point of view, what you want to achieve is possible</q></li>
+<li class="message">[<a href="#T08:08:28" id="T08:08:28"><abbr title="2010-07-02T08:08:28+00:00">08:08:28</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>tried with different resizer pipeline options, some configuration consume about 35-40% (gst-launch), using elements such as TIVidResize or dmairesizer did reduce the CPU usage to (15%-20%), but fluency got still worser</q></li>
+<li class="message">[<a href="#T08:08:49" id="T08:08:49"><abbr title="2010-07-02T08:08:49+00:00">08:08:49</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>av500: av500 likes teasing :)</q></li>
+<li class="message">[<a href="#T08:09:56" id="T08:09:56"><abbr title="2010-07-02T08:09:56+00:00">08:09:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I only state facts</q></li>
+<li class="message">[<a href="#T08:11:39" id="T08:11:39"><abbr title="2010-07-02T08:11:39+00:00">08:11:39</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>dsp clk tied up with resizer??</q></li>
+<li class="action">[<a href="#T08:11:51" id="T08:11:51"><abbr title="2010-07-02T08:11:51+00:00">08:11:51</abbr></a>] <span>* av500 is currently playing VGA size video with resize and 5% CPU....</span></li>
+<li class="message">[<a href="#T08:11:59" id="T08:11:59"><abbr title="2010-07-02T08:11:59+00:00">08:11:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: no</q></li>
+<li class="message">[<a href="#T08:12:12" id="T08:12:12"><abbr title="2010-07-02T08:12:12+00:00">08:12:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>dsp and resizer are not coupled at all</q></li>
+<li class="message">[<a href="#T08:12:24" id="T08:12:24"><abbr title="2010-07-02T08:12:24+00:00">08:12:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but, dsp clock is tied to arm clock</q></li>
+<li class="message">[<a href="#T08:12:37" id="T08:12:37"><abbr title="2010-07-02T08:12:37+00:00">08:12:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>artificially</q></li>
+<li class="message">[<a href="#T08:12:40" id="T08:12:40"><abbr title="2010-07-02T08:12:40+00:00">08:12:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so for max dsp clock, you want to run at max arm clock as well</q></li>
+<li class="message">[<a href="#T08:12:41" id="T08:12:41"><abbr title="2010-07-02T08:12:41+00:00">08:12:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: yes</q></li>
+<li class="message">[<a href="#T08:12:43" id="T08:12:43"><abbr title="2010-07-02T08:12:43+00:00">08:12:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>they run off different PLLs</q></li>
+<li class="message">[<a href="#T08:12:54" id="T08:12:54"><abbr title="2010-07-02T08:12:54+00:00">08:12:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:13:12" id="T08:13:12"><abbr title="2010-07-02T08:13:12+00:00">08:13:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but that is the current state in the kernel</q></li>
+<li class="message">[<a href="#T08:13:31" id="T08:13:31"><abbr title="2010-07-02T08:13:31+00:00">08:13:31</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>i am operating dsp at lower clock, but i guess it has nothing to do with my issue as my video is encoded to 1mbps</q></li>
+<li class="message">[<a href="#T08:13:44" id="T08:13:44"><abbr title="2010-07-02T08:13:44+00:00">08:13:44</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>av500: i am using 2.6.33.2</q></li>
+<li class="message">[<a href="#T08:13:54" id="T08:13:54"><abbr title="2010-07-02T08:13:54+00:00">08:13:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it was the same on 2.6.22</q></li>
+<li class="message">[<a href="#T08:14:30" id="T08:14:30"><abbr title="2010-07-02T08:14:30+00:00">08:14:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: try with higher dsp clock</q></li>
+<li class="message">[<a href="#T08:15:15" id="T08:15:15"><abbr title="2010-07-02T08:15:15+00:00">08:15:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I can make a 1Mbps video you'll struggle to decode at top speed</q></li>
+<li class="message">[<a href="#T08:15:17" id="T08:15:17"><abbr title="2010-07-02T08:15:17+00:00">08:15:17</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>av500: will try that first</q></li>
+<li class="action">[<a href="#T08:15:37" id="T08:15:37"><abbr title="2010-07-02T08:15:37+00:00">08:15:37</abbr></a>] <span>* mru assumes he didn't mean millibit</span></li>
+<li class="join">[<a href="#T08:16:17" id="T08:16:17"><abbr title="2010-07-02T08:16:17+00:00">08:16:17</abbr></a>] <span>* _roger_ (~a0740758@nat/ti/x-gghcuudbthhlmqev) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:16:27" id="T08:16:27"><abbr title="2010-07-02T08:16:27+00:00">08:16:27</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Read error: Connection reset by peer)</span></li>
+<li class="action">[<a href="#T08:16:38" id="T08:16:38"><abbr title="2010-07-02T08:16:38+00:00">08:16:38</abbr></a>] <span>* av500 asks _roger_ for freebies</span></li>
+<li class="message">[<a href="#T08:16:42" id="T08:16:42"><abbr title="2010-07-02T08:16:42+00:00">08:16:42</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>mru: :) it is 1Mbps, but does have that much motion/action, but still playback for higher res is not fluent</q></li>
+<li class="message">[<a href="#T08:16:46" id="T08:16:46"><abbr title="2010-07-02T08:16:46+00:00">08:16:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>morning _roger_ </q></li>
+<li class="message">[<a href="#T08:16:59" id="T08:16:59"><abbr title="2010-07-02T08:16:59+00:00">08:16:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: bitrate is not the only factor</q></li>
+<li class="message">[<a href="#T08:17:40" id="T08:17:40"><abbr title="2010-07-02T08:17:40+00:00">08:17:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for small changes, decoding time scales linearly with bitrate</q></li>
+<li class="message">[<a href="#T08:18:17" id="T08:18:17"><abbr title="2010-07-02T08:18:17+00:00">08:18:17</abbr></a>] &lt;<cite>_roger_</cite>&gt; <q>mornin!</q></li>
+<li class="message">[<a href="#T08:19:14" id="T08:19:14"><abbr title="2010-07-02T08:19:14+00:00">08:19:14</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>in zoom2, how to set up fs inNFS and booter in SD card, I can not find it works well</q></li>
+<li class="join">[<a href="#T08:20:08" id="T08:20:08"><abbr title="2010-07-02T08:20:08+00:00">08:20:08</abbr></a>] <span>* mlip (~mlip@62.218.44.194) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:20:40" id="T08:20:40"><abbr title="2010-07-02T08:20:40+00:00">08:20:40</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>sorry i meant video source did not have much motion, but still playback for higher res is not fluent</q></li>
+<li class="message">[<a href="#T08:21:24" id="T08:21:24"><abbr title="2010-07-02T08:21:24+00:00">08:21:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: yes, we understand</q></li>
+<li class="message">[<a href="#T08:21:38" id="T08:21:38"><abbr title="2010-07-02T08:21:38+00:00">08:21:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>still the issue is in gst/gst_ti/dmai/ etc..</q></li>
+<li class="message">[<a href="#T08:21:50" id="T08:21:50"><abbr title="2010-07-02T08:21:50+00:00">08:21:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the HW can do it</q></li>
+<li class="message">[<a href="#T08:22:38" id="T08:22:38"><abbr title="2010-07-02T08:22:38+00:00">08:22:38</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>av500: iam using fbdev and not v4l??</q></li>
+<li class="message">[<a href="#T08:23:30" id="T08:23:30"><abbr title="2010-07-02T08:23:30+00:00">08:23:30</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>fb drivers the recent kernel 2.6.33.2 </q></li>
+<li class="message">[<a href="#T08:27:54" id="T08:27:54"><abbr title="2010-07-02T08:27:54+00:00">08:27:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: same clip, from 3.8Mbit to 8.1Mbit (mpeg4) 22ms/frame to 27ms/frame</q></li>
+<li class="message">[<a href="#T08:28:09" id="T08:28:09"><abbr title="2010-07-02T08:28:09+00:00">08:28:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>level of at 5Mbit somewhat</q></li>
+<li class="message">[<a href="#T08:28:42" id="T08:28:42"><abbr title="2010-07-02T08:28:42+00:00">08:28:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's not a small change</q></li>
+<li class="message">[<a href="#T08:28:54" id="T08:28:54"><abbr title="2010-07-02T08:28:54+00:00">08:28:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and it only holds for reasonable bitrates</q></li>
+<li class="message">[<a href="#T08:31:10" id="T08:31:10"><abbr title="2010-07-02T08:31:10+00:00">08:31:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it was a clip that I had in various bitrates...</q></li>
+<li class="message">[<a href="#T08:31:38" id="T08:31:38"><abbr title="2010-07-02T08:31:38+00:00">08:31:38</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>Understanding DSP code flow becomes more difficult for beginners when using the gstreamer . </q></li>
+<li class="message">[<a href="#T08:32:09" id="T08:32:09"><abbr title="2010-07-02T08:32:09+00:00">08:32:09</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>Could i have the encoding parameters for h.264BP?</q></li>
+<li class="message">[<a href="#T08:33:02" id="T08:33:02"><abbr title="2010-07-02T08:33:02+00:00">08:33:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T08:33:16" id="T08:33:16"><abbr title="2010-07-02T08:33:16+00:00">08:33:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: then dont use gstreamer</q></li>
+<li class="message">[<a href="#T08:34:31" id="T08:34:31"><abbr title="2010-07-02T08:34:31+00:00">08:34:31</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>then i have to write demuxer for mp4, which i am not familiar with..also i am long way from making that decision</q></li>
+<li class="message">[<a href="#T08:34:39" id="T08:34:39"><abbr title="2010-07-02T08:34:39+00:00">08:34:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: no you dont</q></li>
+<li class="message">[<a href="#T08:34:48" id="T08:34:48"><abbr title="2010-07-02T08:34:48+00:00">08:34:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>demuxers for mp4 exist outside of gst</q></li>
+<li class="quit">[<a href="#T08:35:25" id="T08:35:25"><abbr title="2010-07-02T08:35:25+00:00">08:35:25</abbr></a>] <span>* Artanis (Artanis@159.108.165.83.dynamic.mundo-r.com) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<a href="#T08:36:15" id="T08:36:15"><abbr title="2010-07-02T08:36:15+00:00">08:36:15</abbr></a>] <span>* signal11 (esteban@gnv.quaddro.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T08:36:25" id="T08:36:25"><abbr title="2010-07-02T08:36:25+00:00">08:36:25</abbr></a>] <span>* Artanis (Artanis@159.108.165.83.dynamic.mundo-r.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:38:18" id="T08:38:18"><abbr title="2010-07-02T08:38:18+00:00">08:38:18</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>i wish i started that way..i will work on it...that is the way i wanted to learn...but i have deadline to meet..</q></li>
+<li class="message">[<a href="#T08:38:27" id="T08:38:27"><abbr title="2010-07-02T08:38:27+00:00">08:38:27</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>right now..</q></li>
+<li class="message">[<a href="#T08:38:37" id="T08:38:37"><abbr title="2010-07-02T08:38:37+00:00">08:38:37</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>vcodec="libx264" acodec="libfaac" bitrate="1000000" arate="32k" mux="mp4" width="640" height="480" achannels="2" samplerate="24000" fps="25" aspect="default" deint=no</q></li>
+<li class="message">[<a href="#T08:38:46" id="T08:38:46"><abbr title="2010-07-02T08:38:46+00:00">08:38:46</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>iam using ffmpeg for the conversion</q></li>
+<li class="message">[<a href="#T08:39:10" id="T08:39:10"><abbr title="2010-07-02T08:39:10+00:00">08:39:10</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>i do two pass encoding</q></li>
+<li class="message">[<a href="#T08:41:15" id="T08:41:15"><abbr title="2010-07-02T08:41:15+00:00">08:41:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: <a href="http://pastebin.com/8UJBdHub">http://pastebin.com/8UJBdHub</a></q></li>
+<li class="message">[<a href="#T08:41:31" id="T08:41:31"><abbr title="2010-07-02T08:41:31+00:00">08:41:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: use mpeg4</q></li>
+<li class="message">[<a href="#T08:42:15" id="T08:42:15"><abbr title="2010-07-02T08:42:15+00:00">08:42:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hmm, must be spending silly amounts of time in MC</q></li>
+<li class="message">[<a href="#T08:42:45" id="T08:42:45"><abbr title="2010-07-02T08:42:45+00:00">08:42:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: dunno, but for mpeg4, bitrate is not the issue...</q></li>
+<li class="message">[<a href="#T08:43:23" id="T08:43:23"><abbr title="2010-07-02T08:43:23+00:00">08:43:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: see my numbers (at 500mhz)</q></li>
+<li class="message">[<a href="#T08:43:41" id="T08:43:41"><abbr title="2010-07-02T08:43:41+00:00">08:43:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you can decode 2Mbit mpeg4 and still have time to wait for the isp resizer if needed</q></li>
+<li class="message">[<a href="#T08:44:02" id="T08:44:02"><abbr title="2010-07-02T08:44:02+00:00">08:44:02</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>so finally it comes to dsp performance</q></li>
+<li class="message">[<a href="#T08:44:07" id="T08:44:07"><abbr title="2010-07-02T08:44:07+00:00">08:44:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T08:44:12" id="T08:44:12"><abbr title="2010-07-02T08:44:12+00:00">08:44:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the dsp and the arm run in parallel</q></li>
+<li class="message">[<a href="#T08:44:15" id="T08:44:15"><abbr title="2010-07-02T08:44:15+00:00">08:44:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>can run</q></li>
+<li class="message">[<a href="#T08:44:24" id="T08:44:24"><abbr title="2010-07-02T08:44:24+00:00">08:44:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you can load the dsp to 100% and still use 5% of the arm</q></li>
+<li class="message">[<a href="#T08:44:36" id="T08:44:36"><abbr title="2010-07-02T08:44:36+00:00">08:44:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>same for the ISP or dss resizer, it all runs in parallel</q></li>
+<li class="join">[<a href="#T08:44:47" id="T08:44:47"><abbr title="2010-07-02T08:44:47+00:00">08:44:47</abbr></a>] <span>* signal11 (esteban@gnv.quaddro.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:49:23" id="T08:49:23"><abbr title="2010-07-02T08:49:23+00:00">08:49:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: why fb and not v4l2?</q></li>
+<li class="message">[<a href="#T08:49:24" id="T08:49:24"><abbr title="2010-07-02T08:49:24+00:00">08:49:24</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>av500: mpeg4 is less intensive than h.264</q></li>
+<li class="message">[<a href="#T08:49:30" id="T08:49:30"><abbr title="2010-07-02T08:49:30+00:00">08:49:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: yes</q></li>
+<li class="message">[<a href="#T08:49:50" id="T08:49:50"><abbr title="2010-07-02T08:49:50+00:00">08:49:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: fb is much easier to use and just as fast if done right</q></li>
+<li class="message">[<a href="#T08:50:20" id="T08:50:20"><abbr title="2010-07-02T08:50:20+00:00">08:50:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>when using the isp resizer, yes</q></li>
+<li class="message">[<a href="#T08:50:26" id="T08:50:26"><abbr title="2010-07-02T08:50:26+00:00">08:50:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>as it involves a copy step anyway</q></li>
+<li class="message">[<a href="#T08:50:44" id="T08:50:44"><abbr title="2010-07-02T08:50:44+00:00">08:50:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what are you talking about?</q></li>
+<li class="message">[<a href="#T08:50:51" id="T08:50:51"><abbr title="2010-07-02T08:50:51+00:00">08:50:51</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>av500: i need transparency features supported only by alpha mode of fbdev</q></li>
+<li class="message">[<a href="#T08:51:08" id="T08:51:08"><abbr title="2010-07-02T08:51:08+00:00">08:51:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hgs: I have nive transparency here</q></li>
+<li class="message">[<a href="#T08:51:11" id="T08:51:11"><abbr title="2010-07-02T08:51:11+00:00">08:51:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T08:51:37" id="T08:51:37"><abbr title="2010-07-02T08:51:37+00:00">08:51:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: fbdev can use user buffers?</q></li>
+<li class="message">[<a href="#T08:51:56" id="T08:51:56"><abbr title="2010-07-02T08:51:56+00:00">08:51:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no need to</q></li>
+<li class="action">[<a href="#T08:52:07" id="T08:52:07"><abbr title="2010-07-02T08:52:07+00:00">08:52:07</abbr></a>] <span>* mru points at omapfbplay</span></li>
+<li class="message">[<a href="#T08:52:25" id="T08:52:25"><abbr title="2010-07-02T08:52:25+00:00">08:52:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>how does the cmem buffer get into fb?</q></li>
+<li class="join">[<a href="#T08:52:31" id="T08:52:31"><abbr title="2010-07-02T08:52:31+00:00">08:52:31</abbr></a>] <span>* drinkcat (~nicolas@181-162.4-85.cust.bluewin.ch) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:52:39" id="T08:52:39"><abbr title="2010-07-02T08:52:39+00:00">08:52:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what cmem buffer?</q></li>
+<li class="message">[<a href="#T08:52:49" id="T08:52:49"><abbr title="2010-07-02T08:52:49+00:00">08:52:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>we are talking decoding on the dsp...</q></li>
+<li class="message">[<a href="#T08:52:58" id="T08:52:58"><abbr title="2010-07-02T08:52:58+00:00">08:52:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and resizing</q></li>
+<li class="message">[<abbr title="2010-07-02T08:52:58+00:00">08:52:58</abbr>] &lt;<cite>mru</cite>&gt; <q>so let it decode into framebuffer</q></li>
+<li class="message">[<a href="#T08:53:04" id="T08:53:04"><abbr title="2010-07-02T08:53:04+00:00">08:53:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>resizing</q></li>
+<li class="message">[<a href="#T08:53:05" id="T08:53:05"><abbr title="2010-07-02T08:53:05+00:00">08:53:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and have dss resize</q></li>
+<li class="message">[<a href="#T08:53:22" id="T08:53:22"><abbr title="2010-07-02T08:53:22+00:00">08:53:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, that could work</q></li>
+<li class="message">[<a href="#T08:53:32" id="T08:53:32"><abbr title="2010-07-02T08:53:32+00:00">08:53:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but that code does not exist either</q></li>
+<li class="message">[<a href="#T08:53:42" id="T08:53:42"><abbr title="2010-07-02T08:53:42+00:00">08:53:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what code?</q></li>
+<li class="message">[<a href="#T08:53:59" id="T08:53:59"><abbr title="2010-07-02T08:53:59+00:00">08:53:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's a simple matter of feeding the decoder a pointer to the framebuffer</q></li>
+<li class="message">[<a href="#T08:54:18" id="T08:54:18"><abbr title="2010-07-02T08:54:18+00:00">08:54:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, but current CE/link only allows pointer from cmem range</q></li>
+<li class="message">[<a href="#T08:54:24" id="T08:54:24"><abbr title="2010-07-02T08:54:24+00:00">08:54:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>bull</q></li>
+<li class="message">[<a href="#T08:54:41" id="T08:54:41"><abbr title="2010-07-02T08:54:41+00:00">08:54:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T08:54:59" id="T08:54:59"><abbr title="2010-07-02T08:54:59+00:00">08:54:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you can easily find out the physical address of the frame buffer</q></li>
+<li class="message">[<a href="#T08:55:10" id="T08:55:10"><abbr title="2010-07-02T08:55:10+00:00">08:55:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: yes</q></li>
+<li class="message">[<a href="#T08:55:13" id="T08:55:13"><abbr title="2010-07-02T08:55:13+00:00">08:55:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>my bad</q></li>
+<li class="message">[<a href="#T08:55:20" id="T08:55:20"><abbr title="2010-07-02T08:55:20+00:00">08:55:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so what stops you sending that to decoder?</q></li>
+<li class="message">[<a href="#T08:55:44" id="T08:55:44"><abbr title="2010-07-02T08:55:44+00:00">08:55:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i remember cmem checking if the phys was from its allocated range</q></li>
+<li class="message">[<a href="#T08:55:48" id="T08:55:48"><abbr title="2010-07-02T08:55:48+00:00">08:55:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but maybe that is gone</q></li>
+<li class="message">[<a href="#T08:56:04" id="T08:56:04"><abbr title="2010-07-02T08:56:04+00:00">08:56:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>how does it know something is a pointer?</q></li>
+<li class="message">[<a href="#T08:56:11" id="T08:56:11"><abbr title="2010-07-02T08:56:11+00:00">08:56:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>address</q></li>
+<li class="message">[<a href="#T08:56:18" id="T08:56:18"><abbr title="2010-07-02T08:56:18+00:00">08:56:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh, you don't ask cmem for the fb addr</q></li>
+<li class="message">[<a href="#T08:56:21" id="T08:56:21"><abbr title="2010-07-02T08:56:21+00:00">08:56:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you ask fbdev for that</q></li>
+<li class="message">[<a href="#T08:56:28" id="T08:56:28"><abbr title="2010-07-02T08:56:28+00:00">08:56:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and pass it to cmem</q></li>
+<li class="action">[<a href="#T08:56:29" id="T08:56:29"><abbr title="2010-07-02T08:56:29+00:00">08:56:29</abbr></a>] <span>* mru points at omapfbplay</span></li>
+<li class="message">[<a href="#T08:56:35" id="T08:56:35"><abbr title="2010-07-02T08:56:35+00:00">08:56:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>cmem is not involved</q></li>
+<li class="message">[<a href="#T08:56:44" id="T08:56:44"><abbr title="2010-07-02T08:56:44+00:00">08:56:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>because you dont use the dsp....</q></li>
+<li class="message">[<a href="#T08:56:54" id="T08:56:54"><abbr title="2010-07-02T08:56:54+00:00">08:56:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>wouldn't matter</q></li>
+<li class="message">[<a href="#T08:57:19" id="T08:57:19"><abbr title="2010-07-02T08:57:19+00:00">08:57:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>dsp side is unaware of cmem anyway</q></li>
+<li class="quit">[<abbr title="2010-07-02T08:57:19+00:00">08:57:19</abbr>] <span>* bearsh (~quassel@adsl-245-48-fixip.datacomm.ch) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T08:57:37" id="T08:57:37"><abbr title="2010-07-02T08:57:37+00:00">08:57:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: true, but codec engine is aware</q></li>
+<li class="join">[<a href="#T08:58:39" id="T08:58:39"><abbr title="2010-07-02T08:58:39+00:00">08:58:39</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.datacomm.ch) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:58:43" id="T08:58:43"><abbr title="2010-07-02T08:58:43+00:00">08:58:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: I am not disputing that is is not possible, just that the current available SW might not allow it</q></li>
+<li class="message">[<a href="#T08:59:03" id="T08:59:03"><abbr title="2010-07-02T08:59:03+00:00">08:59:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>like CE/link does not use the DSP mmu, so you need cmem in the 1st place....</q></li>
