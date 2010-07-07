@@ -368,3 +368,154 @@
 <li class="message">[<a href="#T10:59:30" id="T10:59:30"><abbr title="2010-07-07T10:59:30+00:00">10:59:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>basically you define a new memory space that goes from 0x00 to sizeof(cmem block)</q></li>
 <li class="message">[<a href="#T10:59:43" id="T10:59:43"><abbr title="2010-07-07T10:59:43+00:00">10:59:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>gpp adds virt</q></li>
 <li class="message">[<a href="#T10:59:46" id="T10:59:46"><abbr title="2010-07-07T10:59:46+00:00">10:59:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>dsp adds phys</q></li>
+<li class="message">[<a href="#T11:00:10" id="T11:00:10"><abbr title="2010-07-07T11:00:10+00:00">11:00:10</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>exactly :)</q></li>
+<li class="message">[<a href="#T11:00:29" id="T11:00:29"><abbr title="2010-07-07T11:00:29+00:00">11:00:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so, the reverse map of offset_x is offset_x :)</q></li>
+<li class="message">[<a href="#T11:00:57" id="T11:00:57"><abbr title="2010-07-07T11:00:57+00:00">11:00:57</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>though it's a problem if the user wants to print some string alloc'd from the DSP heap or stack</q></li>
+<li class="message">[<a href="#T11:01:13" id="T11:01:13"><abbr title="2010-07-07T11:01:13+00:00">11:01:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>int reverse_map( int ofs ) { return ofs; }</q></li>
+<li class="message">[<a href="#T11:01:28" id="T11:01:28"><abbr title="2010-07-07T11:01:28+00:00">11:01:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>maltanar: of course</q></li>
+<li class="message">[<a href="#T11:01:40" id="T11:01:40"><abbr title="2010-07-07T11:01:40+00:00">11:01:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>how do you handle that?</q></li>
+<li class="join">[<a href="#T11:01:47" id="T11:01:47"><abbr title="2010-07-07T11:01:47+00:00">11:01:47</abbr></a>] <span>* Phrog_ (~chatzilla@ip-87-82-198-210.easynet.co.uk) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:02:30" id="T11:02:30"><abbr title="2010-07-07T11:02:30+00:00">11:02:30</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>we don't, at least not for now :) we ask that all RPC calls involving pointers should have those buffers alloc'd using rpc_malloc</q></li>
+<li class="message">[<a href="#T11:02:34" id="T11:02:34"><abbr title="2010-07-07T11:02:34+00:00">11:02:34</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>which uses CMEM</q></li>
+<li class="message">[<a href="#T11:03:12" id="T11:03:12"><abbr title="2010-07-07T11:03:12+00:00">11:03:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so, back to one gib cmem</q></li>
+<li class="message">[<a href="#T11:03:15" id="T11:03:15"><abbr title="2010-07-07T11:03:15+00:00">11:03:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>big</q></li>
+<li class="message">[<a href="#T11:03:27" id="T11:03:27"><abbr title="2010-07-07T11:03:27+00:00">11:03:27</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>I haven't been able to come up with any brilliant solutions to that problem, unfortunately.</q></li>
+<li class="quit">[<a href="#T11:03:33" id="T11:03:33"><abbr title="2010-07-07T11:03:33+00:00">11:03:33</abbr></a>] <span>* Phrog (~chatzilla@host86-178-147-132.range86-178.btcentralplus.com) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="nick-change">[<a href="#T11:03:44" id="T11:03:44"><abbr title="2010-07-07T11:03:44+00:00">11:03:44</abbr></a>] <span>* Phrog_ is now known as Phrog</span></li>
+<li class="message">[<a href="#T11:04:21" id="T11:04:21"><abbr title="2010-07-07T11:04:21+00:00">11:04:21</abbr></a>] &lt;<cite>av500</cite>&gt; <q>maltanar: it will always involve some kind of shared mem</q></li>
+<li class="message">[<a href="#T11:04:26" id="T11:04:26"><abbr title="2010-07-07T11:04:26+00:00">11:04:26</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>if we assume we know the size of everything (let's say, force the user to declare that) then we can manually copy the buffers into somewhere shared</q></li>
+<li class="message">[<a href="#T11:04:32" id="T11:04:32"><abbr title="2010-07-07T11:04:32+00:00">11:04:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T11:04:57" id="T11:04:57"><abbr title="2010-07-07T11:04:57+00:00">11:04:57</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>but that's one big assumption to make :)</q></li>
+<li class="message">[<a href="#T11:05:34" id="T11:05:34"><abbr title="2010-07-07T11:05:34+00:00">11:05:34</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>DSP/Link funcs PROC_read and PROC_write can read/write to the DSP memory space, but then we'd have to map all GPP-side mem read/write calls to those</q></li>
+<li class="message">[<a href="#T11:05:37" id="T11:05:37"><abbr title="2010-07-07T11:05:37+00:00">11:05:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well, or you have a rule that says that dsp call to gpp assume that the mem involved is from shared</q></li>
+<li class="message">[<a href="#T11:05:59" id="T11:05:59"><abbr title="2010-07-07T11:05:59+00:00">11:05:59</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>yes. it's much cleaner to implement that way, so katie and daniel suggested we go for that for now.</q></li>
+<li class="quit">[<a href="#T11:06:22" id="T11:06:22"><abbr title="2010-07-07T11:06:22+00:00">11:06:22</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.datacomm.ch) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:22+00:00">11:06:22</abbr>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:22+00:00">11:06:22</abbr>] <span>* qdot (~qdot@vorlon.vm.bytemark.co.uk) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:22+00:00">11:06:22</abbr>] <span>* cody_ (~cody@dslb-084-056-124-126.pools.arcor-ip.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T11:06:23" id="T11:06:23"><abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr></a>] <span>* whittenburg (~whittenbu@mail.tacticalelectronics.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* matthsu_ (~matt@61-30-10-70.static.tfn.net.tw) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* XorA (~XorA@www.xora.org.uk) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* duffolonious (~bryan@75-168-87-92.mpls.qwest.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* gdm (~gdm@190.55.34.222) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* jamuraa (~jamuraa@c-75-72-149-7.hsd1.mn.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* anderson_s (~anderson@cpe-071-076-030-085.sc.res.rr.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* lool (~lool@debian/developer/lool) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2010-07-07T11:06:23+00:00">11:06:23</abbr>] <span>* mru (~mru@hotblack.mansr.com) Quit (*.net *.split)</span></li>
+<li class="message">[<a href="#T11:06:45" id="T11:06:45"><abbr title="2010-07-07T11:06:45+00:00">11:06:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>dping stuff like printf that can involve a random amout of mem cleanly is hard</q></li>
+<li class="message">[<a href="#T11:06:48" id="T11:06:48"><abbr title="2010-07-07T11:06:48+00:00">11:06:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>doing</q></li>
+<li class="message">[<a href="#T11:07:33" id="T11:07:33"><abbr title="2010-07-07T11:07:33+00:00">11:07:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>maltanar: hmm, but this means you cant do a simple printf("hello\") from the dsp</q></li>
+<li class="message">[<a href="#T11:07:42" id="T11:07:42"><abbr title="2010-07-07T11:07:42+00:00">11:07:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>coz that "hello" is in dsp mem</q></li>
+<li class="message">[<a href="#T11:07:45" id="T11:07:45"><abbr title="2010-07-07T11:07:45+00:00">11:07:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>not shared...</q></li>
+<li class="message">[<a href="#T11:08:20" id="T11:08:20"><abbr title="2010-07-07T11:08:20+00:00">11:08:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or?</q></li>
+<li class="join">[<a href="#T11:08:26" id="T11:08:26"><abbr title="2010-07-07T11:08:26+00:00">11:08:26</abbr></a>] <span>* lool (~lool@debian/developer/lool) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:08:41" id="T11:08:41"><abbr title="2010-07-07T11:08:41+00:00">11:08:41</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>well</q></li>
+<li class="message">[<a href="#T11:08:51" id="T11:08:51"><abbr title="2010-07-07T11:08:51+00:00">11:08:51</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>C6Run's existing I/O handles that</q></li>
+<li class="message">[<a href="#T11:08:56" id="T11:08:56"><abbr title="2010-07-07T11:08:56+00:00">11:08:56</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>so you can still do that</q></li>
+<li class="message">[<a href="#T11:09:09" id="T11:09:09"><abbr title="2010-07-07T11:09:09+00:00">11:09:09</abbr></a>] &lt;<cite>maltanar</cite>&gt; <q>but if you actually want to call the RPC printf</q></li>
+<li class="join">[<a href="#T11:09:39" id="T11:09:39"><abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.datacomm.ch) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* qdot (~qdot@vorlon.vm.bytemark.co.uk) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* cody_ (~cody@dslb-084-056-124-126.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* whittenburg (~whittenbu@mail.tacticalelectronics.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* matthsu_ (~matt@61-30-10-70.static.tfn.net.tw) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* XorA (~XorA@www.xora.org.uk) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* duffolonious (~bryan@75-168-87-92.mpls.qwest.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* gdm (~gdm@190.55.34.222) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* jamuraa (~jamuraa@c-75-72-149-7.hsd1.mn.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* anderson_s (~anderson@cpe-071-076-030-085.sc.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2010-07-07T11:09:39+00:00">11:09:39</abbr>] <span>* mru (~mru@hotblack.mansr.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:13:32" id="T11:13:32"><abbr title="2010-07-07T11:13:32+00:00">11:13:32</abbr></a>] <span>* maltanar (58feb2bc@gateway/web/freenode/ip.88.254.178.188) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T11:17:44" id="T11:17:44"><abbr title="2010-07-07T11:17:44+00:00">11:17:44</abbr></a>] <span>* maltanar (58feb2bc@gateway/web/freenode/ip.88.254.178.188) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:18:07" id="T11:18:07"><abbr title="2010-07-07T11:18:07+00:00">11:18:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>RPC printf?</q></li>
+<li class="join">[<a href="#T11:23:29" id="T11:23:29"><abbr title="2010-07-07T11:23:29+00:00">11:23:29</abbr></a>] <span>* _roger_ (~a0740758@nat/ti/x-rqugwsdikbczelio) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:24:45" id="T11:24:45"><abbr title="2010-07-07T11:24:45+00:00">11:24:45</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:25:37" id="T11:25:37"><abbr title="2010-07-07T11:25:37+00:00">11:25:37</abbr></a>] <span>* xMDKx (~mdkcore@nat/mandriva/x-giwjefgrimfgnloi) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:27:55" id="T11:27:55"><abbr title="2010-07-07T11:27:55+00:00">11:27:55</abbr></a>] <span>* Phrog_ (~chatzilla@ip-87-82-198-210.easynet.co.uk) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:29:00" id="T11:29:00"><abbr title="2010-07-07T11:29:00+00:00">11:29:00</abbr></a>] &lt;<cite>Kmus</cite>&gt; <q>Anyone messed with the audio in/out features of the beagle? wondering how good the quality is?</q></li>
+<li class="message">[<a href="#T11:29:49" id="T11:29:49"><abbr title="2010-07-07T11:29:49+00:00">11:29:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>probably about as good as you'd expect from a dinky little DAC/ADC sharing chipspace with a power regulator</q></li>
+<li class="message">[<a href="#T11:30:27" id="T11:30:27"><abbr title="2010-07-07T11:30:27+00:00">11:30:27</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Kmus: well, i saw better audio </q></li>
+<li class="message">[<a href="#T11:30:33" id="T11:30:33"><abbr title="2010-07-07T11:30:33+00:00">11:30:33</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>you see audio?</q></li>
+<li class="message">[<a href="#T11:30:34" id="T11:30:34"><abbr title="2010-07-07T11:30:34+00:00">11:30:34</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>wow</q></li>
+<li class="message">[<a href="#T11:30:59" id="T11:30:59"><abbr title="2010-07-07T11:30:59+00:00">11:30:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_koen_: synesthesia</q></li>
+<li class="message">[<a href="#T11:31:39" id="T11:31:39"><abbr title="2010-07-07T11:31:39+00:00">11:31:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or maybe he's just running a spectrum analyser</q></li>
+<li class="quit">[<a href="#T11:31:48" id="T11:31:48"><abbr title="2010-07-07T11:31:48+00:00">11:31:48</abbr></a>] <span>* Phrog (~chatzilla@ip-87-82-198-210.easynet.co.uk) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="nick-change">[<a href="#T11:31:52" id="T11:31:52"><abbr title="2010-07-07T11:31:52+00:00">11:31:52</abbr></a>] <span>* Phrog_ is now known as Phrog</span></li>
+<li class="message">[<a href="#T11:32:44" id="T11:32:44"><abbr title="2010-07-07T11:32:44+00:00">11:32:44</abbr></a>] &lt;<cite>Kmus</cite>&gt; <q>jacekowski - so you think the quality is ok?</q></li>
+<li class="nick-change">[<a href="#T11:33:49" id="T11:33:49"><abbr title="2010-07-07T11:33:49+00:00">11:33:49</abbr></a>] <span>* amitk-afk is now known as amitk</span></li>
+<li class="quit">[<a href="#T11:35:45" id="T11:35:45"><abbr title="2010-07-07T11:35:45+00:00">11:35:45</abbr></a>] <span>* maltanar (58feb2bc@gateway/web/freenode/ip.88.254.178.188) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T11:37:20" id="T11:37:20"><abbr title="2010-07-07T11:37:20+00:00">11:37:20</abbr></a>] &lt;<cite>Kmus</cite>&gt; <q>mru - I accept the chip used isn't exactly pro-audio, but this product is for cheap end consumers :)</q></li>
+<li class="message">[<a href="#T11:37:50" id="T11:37:50"><abbr title="2010-07-07T11:37:50+00:00">11:37:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so u are fine</q></li>
+<li class="message">[<a href="#T11:38:15" id="T11:38:15"><abbr title="2010-07-07T11:38:15+00:00">11:38:15</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Kmus: no that was me saying very diplomaticaly that it's shit</q></li>
+<li class="message">[<a href="#T11:38:46" id="T11:38:46"><abbr title="2010-07-07T11:38:46+00:00">11:38:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jacekowski: and Kmus said he's ok with his end users having that</q></li>
+<li class="message">[<a href="#T11:38:48" id="T11:38:48"><abbr title="2010-07-07T11:38:48+00:00">11:38:48</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Kmus: i mean - cheap SB live! can do much better sound that beagle board</q></li>
+<li class="message">[<a href="#T11:38:57" id="T11:38:57"><abbr title="2010-07-07T11:38:57+00:00">11:38:57</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>than*</q></li>
+<li class="message">[<a href="#T11:39:13" id="T11:39:13"><abbr title="2010-07-07T11:39:13+00:00">11:39:13</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but well, most people are deaf and don't notice a difference</q></li>
+<li class="message">[<a href="#T11:39:26" id="T11:39:26"><abbr title="2010-07-07T11:39:26+00:00">11:39:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>at least it shouldn't pick up noise from the dram interface like the onboard sound on an computer I had</q></li>
+<li class="message">[<a href="#T11:39:59" id="T11:39:59"><abbr title="2010-07-07T11:39:59+00:00">11:39:59</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but anybody with half decent hi-fi system would be able to pick up difference between beagle board DAC </q></li>
+<li class="message">[<a href="#T11:40:07" id="T11:40:07"><abbr title="2010-07-07T11:40:07+00:00">11:40:07</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and usb sound blaster for example</q></li>
+<li class="action">[<a href="#T11:40:44" id="T11:40:44"><abbr title="2010-07-07T11:40:44+00:00">11:40:44</abbr></a>] <span>* mru uses optical output fed to a proper receiver</span></li>
+<li class="message">[<a href="#T11:41:24" id="T11:41:24"><abbr title="2010-07-07T11:41:24+00:00">11:41:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hmm, the beagle has a blinkable LED, no?</q></li>
+<li class="message">[<a href="#T11:41:30" id="T11:41:30"><abbr title="2010-07-07T11:41:30+00:00">11:41:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>two</q></li>
+<li class="message">[<a href="#T11:41:45" id="T11:41:45"><abbr title="2010-07-07T11:41:45+00:00">11:41:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>stereo!</q></li>
+<li class="message">[<a href="#T11:41:51" id="T11:41:51"><abbr title="2010-07-07T11:41:51+00:00">11:41:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>bitbang spdif?</q></li>
+<li class="message">[<a href="#T11:42:04" id="T11:42:04"><abbr title="2010-07-07T11:42:04+00:00">11:42:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure, I have the frame code here :)</q></li>
+<li class="message">[<a href="#T11:43:55" id="T11:43:55"><abbr title="2010-07-07T11:43:55+00:00">11:43:55</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>i doubt you could bitbang spdif with these leds</q></li>
+<li class="action">[<a href="#T11:44:06" id="T11:44:06"><abbr title="2010-07-07T11:44:06+00:00">11:44:06</abbr></a>] <span>* mru too</span></li>
+<li class="message">[<a href="#T11:44:11" id="T11:44:11"><abbr title="2010-07-07T11:44:11+00:00">11:44:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>gpio speed is prolly to slow</q></li>
+<li class="message">[<a href="#T11:44:13" id="T11:44:13"><abbr title="2010-07-07T11:44:13+00:00">11:44:13</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but i would buy you a crate of beer if you would</q></li>
+<li class="message">[<a href="#T11:44:38" id="T11:44:38"><abbr title="2010-07-07T11:44:38+00:00">11:44:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>simpler to hook an spi to an spdif interface chip</q></li>
+<li class="message">[<a href="#T11:44:51" id="T11:44:51"><abbr title="2010-07-07T11:44:51+00:00">11:44:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and a level shifter of course</q></li>
+<li class="message">[<a href="#T11:45:02" id="T11:45:02"><abbr title="2010-07-07T11:45:02+00:00">11:45:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: always a level shifter (from TI)</q></li>
+<li class="message">[<a href="#T11:45:08" id="T11:45:08"><abbr title="2010-07-07T11:45:08+00:00">11:45:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>level shifters are to TI what ink is to HP</q></li>
+<li class="message">[<a href="#T11:45:13" id="T11:45:13"><abbr title="2010-07-07T11:45:13+00:00">11:45:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T11:45:18" id="T11:45:18"><abbr title="2010-07-07T11:45:18+00:00">11:45:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but we beat the system</q></li>
+<li class="message">[<a href="#T11:47:07" id="T11:47:07"><abbr title="2010-07-07T11:47:07+00:00">11:47:07</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>yeah, transistors do the same thing</q></li>
+<li class="message">[<a href="#T11:47:13" id="T11:47:13"><abbr title="2010-07-07T11:47:13+00:00">11:47:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T11:47:15" id="T11:47:15"><abbr title="2010-07-07T11:47:15+00:00">11:47:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well yes</q></li>
+<li class="message">[<a href="#T11:47:46" id="T11:47:46"><abbr title="2010-07-07T11:47:46+00:00">11:47:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>we found that for the number of pins we needed, it was cheaper to use a small fpga than level shifters</q></li>
+<li class="message">[<a href="#T11:47:57" id="T11:47:57"><abbr title="2010-07-07T11:47:57+00:00">11:47:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and the fpga could level shift itself</q></li>
+<li class="action">[<a href="#T11:48:56" id="T11:48:56"><abbr title="2010-07-07T11:48:56+00:00">11:48:56</abbr></a>] <span>* mru patents self-shifting signals</span></li>
+<li class="message">[<a href="#T11:48:58" id="T11:48:58"><abbr title="2010-07-07T11:48:58+00:00">11:48:58</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>i would just don't use level shifter at all</q></li>
+<li class="message">[<a href="#T11:49:04" id="T11:49:04"><abbr title="2010-07-07T11:49:04+00:00">11:49:04</abbr></a>] &lt;<cite>Kmus</cite>&gt; <q>so I`d be safer (even in a consumer market) to spin my own hardware with analogue inputs and digital SPDIF hardware (via SPI)</q></li>
+<li class="message">[<a href="#T11:49:11" id="T11:49:11"><abbr title="2010-07-07T11:49:11+00:00">11:49:11</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and have everything running on 1.8V</q></li>
+<li class="message">[<a href="#T11:50:00" id="T11:50:00"><abbr title="2010-07-07T11:50:00+00:00">11:50:00</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>mru: gcc question: how can I instruct gcc to use vfpv3 for doubles and still be able to compile neon stuff?</q></li>
+<li class="message">[<a href="#T11:50:20" id="T11:50:20"><abbr title="2010-07-07T11:50:20+00:00">11:50:20</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>mru: I guess doing gcc -mfpu=neon -mfpu=vfpv3 won't work as I intend</q></li>
+<li class="message">[<a href="#T11:50:36" id="T11:50:36"><abbr title="2010-07-07T11:50:36+00:00">11:50:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no, that will give you vfpv3 only</q></li>
+<li class="message">[<a href="#T11:50:49" id="T11:50:49"><abbr title="2010-07-07T11:50:49+00:00">11:50:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hold on, let me check the source code</q></li>
+<li class="message">[<a href="#T11:52:50" id="T11:52:50"><abbr title="2010-07-07T11:52:50+00:00">11:52:50</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>I still need to verify the report at whetstone getting a 2x boot with -mfpu=vfpv3 myself, but I would like to know my options :)</q></li>
+<li class="message">[<a href="#T11:53:03" id="T11:53:03"><abbr title="2010-07-07T11:53:03+00:00">11:53:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's ridiculous</q></li>
+<li class="message">[<a href="#T11:53:12" id="T11:53:12"><abbr title="2010-07-07T11:53:12+00:00">11:53:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>raster: in france yet?</q></li>
+<li class="message">[<a href="#T11:53:14" id="T11:53:14"><abbr title="2010-07-07T11:53:14+00:00">11:53:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>whetstone spends 103% of the time in libm calls</q></li>
+<li class="message">[<a href="#T11:53:24" id="T11:53:24"><abbr title="2010-07-07T11:53:24+00:00">11:53:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>make sure you use hardfloat abi</q></li>
+<li class="message">[<a href="#T11:53:36" id="T11:53:36"><abbr title="2010-07-07T11:53:36+00:00">11:53:36</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>yes, it's about building libm with vfpv3</q></li>
+<li class="message">[<a href="#T11:53:39" id="T11:53:39"><abbr title="2010-07-07T11:53:39+00:00">11:53:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>otherwise you'll be spending all your time moving stuff from vfp to arm regs</q></li>
+<li class="message">[<a href="#T11:53:55" id="T11:53:55"><abbr title="2010-07-07T11:53:55+00:00">11:53:55</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>hardfloat is not an option currently, but will be in the future</q></li>
+<li class="message">[<a href="#T11:54:12" id="T11:54:12"><abbr title="2010-07-07T11:54:12+00:00">11:54:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what do you mean by that?</q></li>
+<li class="message">[<a href="#T11:54:17" id="T11:54:17"><abbr title="2010-07-07T11:54:17+00:00">11:54:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>recent gcc supports it</q></li>
+<li class="message">[<a href="#T11:54:23" id="T11:54:23"><abbr title="2010-07-07T11:54:23+00:00">11:54:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>glibc works fine</q></li>
+<li class="message">[<a href="#T11:55:08" id="T11:55:08"><abbr title="2010-07-07T11:55:08+00:00">11:55:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ah, -mfpu=neon implies vfpv3</q></li>
+<li class="message">[<a href="#T11:55:16" id="T11:55:16"><abbr title="2010-07-07T11:55:16+00:00">11:55:16</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>I currently need to stay compatible  with stuff out there</q></li>
+<li class="message">[<a href="#T11:55:32" id="T11:55:32"><abbr title="2010-07-07T11:55:32+00:00">11:55:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I meant for benchmarking only</q></li>
+<li class="message">[<a href="#T11:55:35" id="T11:55:35"><abbr title="2010-07-07T11:55:35+00:00">11:55:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>_koen_: falling into the vendor kernel trap, are we?</q></li>
+<li class="message">[<a href="#T11:55:37" id="T11:55:37"><abbr title="2010-07-07T11:55:37+00:00">11:55:37</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>mru: it implies vfpv3 for gcc 4.4 I suspect</q></li>
+<li class="message">[<a href="#T11:55:46" id="T11:55:46"><abbr title="2010-07-07T11:55:46+00:00">11:55:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm looking at gcc 4.5.0 source</q></li>
+<li class="message">[<a href="#T11:55:47" id="T11:55:47"><abbr title="2010-07-07T11:55:47+00:00">11:55:47</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>I wonder what 4.3 does</q></li>
+<li class="message">[<a href="#T11:55:56" id="T11:55:56"><abbr title="2010-07-07T11:55:56+00:00">11:55:56</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>4.4.0 added -mpfu=vfpv3</q></li>
+<li class="message">[<a href="#T11:56:01" id="T11:56:01"><abbr title="2010-07-07T11:56:01+00:00">11:56:01</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>av500: sadly, yes</q></li>
+<li class="message">[<a href="#T11:56:06" id="T11:56:06"><abbr title="2010-07-07T11:56:06+00:00">11:56:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>tsk tsk tsk</q></li>
+<li class="message">[<a href="#T11:56:39" id="T11:56:39"><abbr title="2010-07-07T11:56:39+00:00">11:56:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_koen_: -mfpu=vfpv3 selects vfpv3 without neon</q></li>
+<li class="message">[<a href="#T11:56:46" id="T11:56:46"><abbr title="2010-07-07T11:56:46+00:00">11:56:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>"vfp" means vfpv2</q></li>
+<li class="message">[<a href="#T11:57:21" id="T11:57:21"><abbr title="2010-07-07T11:57:21+00:00">11:57:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you can't have neon without the high regs</q></li>
+<li class="message">[<a href="#T11:57:48" id="T11:57:48"><abbr title="2010-07-07T11:57:48+00:00">11:57:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc is missing an option for integer-only neon though</q></li>
+<li class="message">[<a href="#T11:58:49" id="T11:58:49"><abbr title="2010-07-07T11:58:49+00:00">11:58:49</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>well, arm core can do integer stuff as fast as neon</q></li>
+<li class="message">[<a href="#T11:58:57" id="T11:58:57"><abbr title="2010-07-07T11:58:57+00:00">11:58:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>untrue</q></li>
+<li class="message">[<a href="#T11:59:06" id="T11:59:06"><abbr title="2010-07-07T11:59:06+00:00">11:59:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>neon can do 16 8-bit ops per cycle</q></li>
+<li class="message">[<a href="#T11:59:15" id="T11:59:15"><abbr title="2010-07-07T11:59:15+00:00">11:59:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>arm can only do 4</q></li>
+<li class="message">[<a href="#T11:59:25" id="T11:59:25"><abbr title="2010-07-07T11:59:25+00:00">11:59:25</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>and neon runs in parallel to arm</q></li>
+<li class="message">[<abbr title="2010-07-07T11:59:25+00:00">11:59:25</abbr>] &lt;<cite>jacekowski</cite>&gt; <q>but you have to push data to neon as well</q></li>
+<li class="message">[<a href="#T11:59:34" id="T11:59:34"><abbr title="2010-07-07T11:59:34+00:00">11:59:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you have to push data to arm too</q></li>
+<li class="message">[<a href="#T11:59:46" id="T11:59:46"><abbr title="2010-07-07T11:59:46+00:00">11:59:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and neon load/store moves 16 bytes per cycle</q></li>
+<li class="message">[<a href="#T11:59:49" id="T11:59:49"><abbr title="2010-07-07T11:59:49+00:00">11:59:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>arm only 8</q></li>
