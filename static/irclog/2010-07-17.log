@@ -976,3 +976,121 @@
 <li class="message">[<a href="#T21:58:14" id="T21:58:14"><abbr title="2010-07-17T21:58:14+00:00">21:58:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>looks like I need to backport the beagletouch panel driver to do some proper debugging</q></li>
 <li class="message">[<a href="#T21:58:47" id="T21:58:47"><abbr title="2010-07-17T21:58:47+00:00">21:58:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>blasted things needs spi to get initialised</q></li>
 <li class="join">[<a href="#T21:59:46" id="T21:59:46"><abbr title="2010-07-17T21:59:46+00:00">21:59:46</abbr></a>] <span>* Zoxc (~zoxc@ti0128a340-dhcp0032.bb.online.no) has joined #beagle</span></li>
+<li class="message">[<a href="#T22:00:27" id="T22:00:27"><abbr title="2010-07-17T22:00:27+00:00">22:00:27</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>koen: dumb question - what does it mean when something is in the 'drivers/staging' area of the kernel source?</q></li>
+<li class="message">[<a href="#T22:00:41" id="T22:00:41"><abbr title="2010-07-17T22:00:41+00:00">22:00:41</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>it doesn't seem to have an entry in .config</q></li>
+<li class="join">[<a href="#T22:02:17" id="T22:02:17"><abbr title="2010-07-17T22:02:17+00:00">22:02:17</abbr></a>] <span>* ant__ (~andrea@host19-249-dynamic.4-87-r.retail.telecomitalia.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T22:04:52" id="T22:04:52"><abbr title="2010-07-17T22:04:52+00:00">22:04:52</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>"The Linux Staging tree (or just "staging" from now on) is used to hold stand-alone drivers and filesystems that are not ready to be merged into the main portion of the Linux kernel tree at this point in time for various technical reasons."</q></li>
+<li class="action">[<a href="#T22:05:01" id="T22:05:01"><abbr title="2010-07-17T22:05:01+00:00">22:05:01</abbr></a>] <span>* emeb tries not to be google-impaired</span></li>
+<li class="quit">[<a href="#T22:08:00" id="T22:08:00"><abbr title="2010-07-17T22:08:00+00:00">22:08:00</abbr></a>] <span>* drinkcat (~nicolas@181-162.4-85.cust.bluewin.ch) Quit (Read error: Operation timed out)</span></li>
+<li class="join">[<a href="#T22:10:03" id="T22:10:03"><abbr title="2010-07-17T22:10:03+00:00">22:10:03</abbr></a>] <span>* gdm (~gdm@190.55.34.222) has joined #beagle</span></li>
+<li class="message">[<a href="#T22:12:50" id="T22:12:50"><abbr title="2010-07-17T22:12:50+00:00">22:12:50</abbr></a>] &lt;<cite>koen</cite>&gt; <q>emeb: it's a place to put crappy stuff in the hope it gets cleaned up</q></li>
+<li class="message">[<a href="#T22:13:09" id="T22:13:09"><abbr title="2010-07-17T22:13:09+00:00">22:13:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>in the android case, it got removed again</q></li>
+<li class="message">[<a href="#T22:14:02" id="T22:14:02"><abbr title="2010-07-17T22:14:02+00:00">22:14:02</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I wonder if the panel thing is a uboot issue</q></li>
+<li class="message">[<a href="#T22:14:17" id="T22:14:17"><abbr title="2010-07-17T22:14:17+00:00">22:14:17</abbr></a>] &lt;<cite>koen</cite>&gt; <q>guess that's something to try tomorrow</q></li>
+<li class="message">[<a href="#T22:14:58" id="T22:14:58"><abbr title="2010-07-17T22:14:58+00:00">22:14:58</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>koen: looks like the RTL8192SU driver is in there in .32</q></li>
+<li class="message">[<a href="#T22:15:12" id="T22:15:12"><abbr title="2010-07-17T22:15:12+00:00">22:15:12</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Trying to figure out how to turn it on in .config</q></li>
+<li class="message">[<a href="#T22:16:30" id="T22:16:30"><abbr title="2010-07-17T22:16:30+00:00">22:16:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>enable staging firs</q></li>
+<li class="message">[<a href="#T22:16:33" id="T22:16:33"><abbr title="2010-07-17T22:16:33+00:00">22:16:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>t</q></li>
+<li class="message">[<a href="#T22:16:48" id="T22:16:48"><abbr title="2010-07-17T22:16:48+00:00">22:16:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>CONFIG_STAGING=y</q></li>
+<li class="message">[<abbr title="2010-07-17T22:16:48+00:00">22:16:48</abbr>] &lt;<cite>koen</cite>&gt; <q># CONFIG_STAGING_EXCLUDE_BUILD is not set</q></li>
+<li class="message">[<a href="#T22:17:26" id="T22:17:26"><abbr title="2010-07-17T22:17:26+00:00">22:17:26</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yup - got that far.</q></li>
+<li class="message">[<a href="#T22:17:53" id="T22:17:53"><abbr title="2010-07-17T22:17:53+00:00">22:17:53</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>doesn't seem to be a lower level for that one though - just hope it builds it anyway?</q></li>
+<li class="message">[<a href="#T22:19:13" id="T22:19:13"><abbr title="2010-07-17T22:19:13+00:00">22:19:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>are you sure you need SU?</q></li>
+<li class="message">[<a href="#T22:19:30" id="T22:19:30"><abbr title="2010-07-17T22:19:30+00:00">22:19:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>config RTL8192SU tristate "RealTek RTL8192SU Wireless LAN NIC driver" depends on PCI &amp;&amp; WLAN &amp;&amp; USB</q></li>
+<li class="message">[<a href="#T22:19:37" id="T22:19:37"><abbr title="2010-07-17T22:19:37+00:00">22:19:37</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>that's the name of the driver that ships with the hardware (on CD)</q></li>
+<li class="message">[<a href="#T22:19:40" id="T22:19:40"><abbr title="2010-07-17T22:19:40+00:00">22:19:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you could try removing the PCI &amp;&amp;</q></li>
+<li class="message">[<a href="#T22:20:01" id="T22:20:01"><abbr title="2010-07-17T22:20:01+00:00">22:20:01</abbr></a>] &lt;<cite>koen</cite>&gt; <q>there's also an 'e' and 'u' driver</q></li>
+<li class="message">[<a href="#T22:20:22" id="T22:20:22"><abbr title="2010-07-17T22:20:22+00:00">22:20:22</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>hmmm - worth looking into.</q></li>
+<li class="message">[<a href="#T22:20:23" id="T22:20:23"><abbr title="2010-07-17T22:20:23+00:00">22:20:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>pci &amp;&amp; usb hmm...</q></li>
+<li class="message">[<a href="#T22:20:25" id="T22:20:25"><abbr title="2010-07-17T22:20:25+00:00">22:20:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and they all require PCI</q></li>
+<li class="message">[<a href="#T22:20:34" id="T22:20:34"><abbr title="2010-07-17T22:20:34+00:00">22:20:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>smells like cargo cult</q></li>
+<li class="message">[<a href="#T22:20:40" id="T22:20:40"><abbr title="2010-07-17T22:20:40+00:00">22:20:40</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T22:20:43" id="T22:20:43"><abbr title="2010-07-17T22:20:43+00:00">22:20:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>guess now we know why it's in staging</q></li>
+<li class="message">[<a href="#T22:20:53" id="T22:20:53"><abbr title="2010-07-17T22:20:53+00:00">22:20:53</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>"we do it that way because we've always done it that way"</q></li>
+<li class="message">[<a href="#T22:22:32" id="T22:22:32"><abbr title="2010-07-17T22:22:32+00:00">22:22:32</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>probably need to let that one age &amp; mellow a bit.</q></li>
+<li class="message">[<a href="#T22:22:45" id="T22:22:45"><abbr title="2010-07-17T22:22:45+00:00">22:22:45</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>not like I _need_ this hw right now.</q></li>
+<li class="message">[<a href="#T22:25:43" id="T22:25:43"><abbr title="2010-07-17T22:25:43+00:00">22:25:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>needing and wanting are 2 different things</q></li>
+<li class="message">[<a href="#T22:25:55" id="T22:25:55"><abbr title="2010-07-17T22:25:55+00:00">22:25:55</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>true dat. </q></li>
+<li class="message">[<a href="#T22:26:10" id="T22:26:10"><abbr title="2010-07-17T22:26:10+00:00">22:26:10</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>anyway CONFIG_STAGING was already set in default build</q></li>
+<li class="message">[<a href="#T22:26:28" id="T22:26:28"><abbr title="2010-07-17T22:26:28+00:00">22:26:28</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>so there must be additional magic to get that going on BB</q></li>
+<li class="join">[<a href="#T22:26:37" id="T22:26:37"><abbr title="2010-07-17T22:26:37+00:00">22:26:37</abbr></a>] <span>* drinkcat (~nicolas@181-162.4-85.cust.bluewin.ch) has joined #beagle</span></li>
+<li class="message">[<a href="#T22:26:52" id="T22:26:52"><abbr title="2010-07-17T22:26:52+00:00">22:26:52</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>maybe gets excluded because of the PCI thing?</q></li>
+<li class="message">[<a href="#T22:28:16" id="T22:28:16"><abbr title="2010-07-17T22:28:16+00:00">22:28:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T22:28:21" id="T22:28:21"><abbr title="2010-07-17T22:28:21+00:00">22:28:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>no pci on omap3</q></li>
+<li class="message">[<a href="#T22:28:27" id="T22:28:27"><abbr title="2010-07-17T22:28:27+00:00">22:28:27</abbr></a>] &lt;<cite>koen</cite>&gt; <q>wait for netra :)</q></li>
+<li class="message">[<a href="#T22:29:15" id="T22:29:15"><abbr title="2010-07-17T22:29:15+00:00">22:29:15</abbr></a>] &lt;<cite>koen</cite>&gt; <q>emeb: do you have the device and a beagle ready?</q></li>
+<li class="message">[<a href="#T22:29:29" id="T22:29:29"><abbr title="2010-07-17T22:29:29+00:00">22:29:29</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T22:29:46" id="T22:29:46"><abbr title="2010-07-17T22:29:46+00:00">22:29:46</abbr></a>] &lt;<cite>koen</cite>&gt; <q>emeb: <a href="http://dominion.thruhere.net/koen/OE/r8192s_usb.ko">http://dominion.thruhere.net/koen/OE/r8192s_usb.ko</a></q></li>
+<li class="message">[<a href="#T22:30:03" id="T22:30:03"><abbr title="2010-07-17T22:30:03+00:00">22:30:03</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>got it</q></li>
+<li class="message">[<a href="#T22:30:23" id="T22:30:23"><abbr title="2010-07-17T22:30:23+00:00">22:30:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I ported teh kconfig:</q></li>
+<li class="message">[<a href="#T22:30:24" id="T22:30:24"><abbr title="2010-07-17T22:30:24+00:00">22:30:24</abbr></a>] &lt;<cite>koen</cite>&gt; <q><a href="http://pastebin.com/MCSPFr0G">http://pastebin.com/MCSPFr0G</a></q></li>
+<li class="action">[<a href="#T22:30:27" id="T22:30:27"><abbr title="2010-07-17T22:30:27+00:00">22:30:27</abbr></a>] <span>* koen coughs</span></li>
+<li class="message">[<a href="#T22:31:06" id="T22:31:06"><abbr title="2010-07-17T22:31:06+00:00">22:31:06</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>interesting</q></li>
+<li class="message">[<a href="#T22:31:44" id="T22:31:44"><abbr title="2010-07-17T22:31:44+00:00">22:31:44</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>insmod loaded it... </q></li>
+<li class="message">[<a href="#T22:31:48" id="T22:31:48"><abbr title="2010-07-17T22:31:48+00:00">22:31:48</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>now to plug in the hw</q></li>
+<li class="message">[<a href="#T22:32:51" id="T22:32:51"><abbr title="2010-07-17T22:32:51+00:00">22:32:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>looks like mru is right again</q></li>
+<li class="message">[<a href="#T22:33:46" id="T22:33:46"><abbr title="2010-07-17T22:33:46+00:00">22:33:46</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>no joy: <a href="http://pastebin.com/rriQ1AVc">http://pastebin.com/rriQ1AVc</a></q></li>
+<li class="message">[<a href="#T22:34:48" id="T22:34:48"><abbr title="2010-07-17T22:34:48+00:00">22:34:48</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>maybe need to put the USB IDs in the driver, or wherever HAL looks...</q></li>
+<li class="message">[<a href="#T22:35:00" id="T22:35:00"><abbr title="2010-07-17T22:35:00+00:00">22:35:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q><a href="http://www.kerneltrap.com/mailarchive/git-commits-head/2010/4/30/32351">http://www.kerneltrap.com/mailarchive/git-commits-head/2010/4/30/32351</a></q></li>
+<li class="message">[<a href="#T22:35:05" id="T22:35:05"><abbr title="2010-07-17T22:35:05+00:00">22:35:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>give me a minute to rebuild</q></li>
+<li class="message">[<a href="#T22:37:33" id="T22:37:33"><abbr title="2010-07-17T22:37:33+00:00">22:37:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ok, 5 minutes</q></li>
+<li class="message">[<a href="#T22:37:40" id="T22:37:40"><abbr title="2010-07-17T22:37:40+00:00">22:37:40</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>&lt;jeopardy theme&gt;</q></li>
+<li class="message">[<a href="#T22:37:49" id="T22:37:49"><abbr title="2010-07-17T22:37:49+00:00">22:37:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>openjdk and xbmc are building in parallel</q></li>
+<li class="message">[<a href="#T22:38:02" id="T22:38:02"><abbr title="2010-07-17T22:38:02+00:00">22:38:02</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>lotsa balls in the air</q></li>
+<li class="message">[<a href="#T22:38:19" id="T22:38:19"><abbr title="2010-07-17T22:38:19+00:00">22:38:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>emeb: same link</q></li>
+<li class="message">[<a href="#T22:39:24" id="T22:39:24"><abbr title="2010-07-17T22:39:24+00:00">22:39:24</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>hmm - same result.</q></li>
+<li class="message">[<a href="#T22:39:29" id="T22:39:29"><abbr title="2010-07-17T22:39:29+00:00">22:39:29</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and diff: <a href="http://pastebin.com/0Rp63uj3">http://pastebin.com/0Rp63uj3</a></q></li>
+<li class="message">[<a href="#T22:39:38" id="T22:39:38"><abbr title="2010-07-17T22:39:38+00:00">22:39:38</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>maybe browser cached previous one...</q></li>
+<li class="message">[<a href="#T22:39:55" id="T22:39:55"><abbr title="2010-07-17T22:39:55+00:00">22:39:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>5ff0e01a61e4c81c1900a43860b0d7e1  /var/www/koen/OE/r8192s_usb.ko</q></li>
+<li class="message">[<a href="#T22:40:41" id="T22:40:41"><abbr title="2010-07-17T22:40:41+00:00">22:40:41</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yep - mine's different</q></li>
+<li class="message">[<a href="#T22:40:49" id="T22:40:49"><abbr title="2010-07-17T22:40:49+00:00">22:40:49</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>maybe wget...</q></li>
+<li class="message">[<a href="#T22:41:11" id="T22:41:11"><abbr title="2010-07-17T22:41:11+00:00">22:41:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q><a href="http://dominion.thruhere.net/koen/OE/emeb.ko">http://dominion.thruhere.net/koen/OE/emeb.ko</a></q></li>
+<li class="message">[<a href="#T22:41:41" id="T22:41:41"><abbr title="2010-07-17T22:41:41+00:00">22:41:41</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>hehee, that ought to do it ;)</q></li>
+<li class="message">[<a href="#T22:42:53" id="T22:42:53"><abbr title="2010-07-17T22:42:53+00:00">22:42:53</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>got further: <a href="http://pastebin.com/ipHy2gcn">http://pastebin.com/ipHy2gcn</a></q></li>
+<li class="message">[<a href="#T22:43:26" id="T22:43:26"><abbr title="2010-07-17T22:43:26+00:00">22:43:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>progress :)</q></li>
+<li class="message">[<a href="#T22:43:27" id="T22:43:27"><abbr title="2010-07-17T22:43:27+00:00">22:43:27</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>shows up in ifconfig</q></li>
+<li class="message">[<a href="#T22:44:01" id="T22:44:01"><abbr title="2010-07-17T22:44:01+00:00">22:44:01</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>There's a whole lot of setup scripting to run for this, including a firmware download. I'll bang on that and let you know how it goes.</q></li>
+<li class="message">[<a href="#T22:44:11" id="T22:44:11"><abbr title="2010-07-17T22:44:11+00:00">22:44:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ok</q></li>
+<li class="action">[<a href="#T22:44:14" id="T22:44:14"><abbr title="2010-07-17T22:44:14+00:00">22:44:14</abbr></a>] <span>* koen zzz now</span></li>
+<li class="message">[<a href="#T22:44:22" id="T22:44:22"><abbr title="2010-07-17T22:44:22+00:00">22:44:22</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Thanks for doing the heavy lifting!</q></li>
+<li class="message">[<abbr title="2010-07-17T22:44:22+00:00">22:44:22</abbr>] &lt;<cite>koen</cite>&gt; <q>almost 1 am here</q></li>
+<li class="message">[<a href="#T22:44:28" id="T22:44:28"><abbr title="2010-07-17T22:44:28+00:00">22:44:28</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>gn</q></li>
+<li class="message">[<a href="#T22:44:29" id="T22:44:29"><abbr title="2010-07-17T22:44:29+00:00">22:44:29</abbr></a>] &lt;<cite>koen</cite>&gt; <q>heh, 2 line diff</q></li>
+<li class="message">[<a href="#T22:44:38" id="T22:44:38"><abbr title="2010-07-17T22:44:38+00:00">22:44:38</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>(but knowing where)</q></li>
+<li class="message">[<a href="#T22:45:42" id="T22:45:42"><abbr title="2010-07-17T22:45:42+00:00">22:45:42</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>emeb: is this one of the cheap dealextreme units?</q></li>
+<li class="message">[<a href="#T22:45:58" id="T22:45:58"><abbr title="2010-07-17T22:45:58+00:00">22:45:58</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>djlewis: This particular one isn't from DX </q></li>
+<li class="message">[<a href="#T22:46:05" id="T22:46:05"><abbr title="2010-07-17T22:46:05+00:00">22:46:05</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>got it locally for $15</q></li>
+<li class="message">[<a href="#T22:46:19" id="T22:46:19"><abbr title="2010-07-17T22:46:19+00:00">22:46:19</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>but the chipset is the same as an $11 one from DX</q></li>
+<li class="message">[<abbr title="2010-07-17T22:46:19+00:00">22:46:19</abbr>] &lt;<cite>djlewis</cite>&gt; <q>that works if it works ..</q></li>
+<li class="message">[<a href="#T22:46:45" id="T22:46:45"><abbr title="2010-07-17T22:46:45+00:00">22:46:45</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>true</q></li>
+<li class="message">[<a href="#T22:46:55" id="T22:46:55"><abbr title="2010-07-17T22:46:55+00:00">22:46:55</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>and the DX one has an antenna - this one doesn't</q></li>
+<li class="message">[<a href="#T22:47:05" id="T22:47:05"><abbr title="2010-07-17T22:47:05+00:00">22:47:05</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>(or rather, the antenna is internal)</q></li>
+<li class="action">[<a href="#T22:47:07" id="T22:47:07"><abbr title="2010-07-17T22:47:07+00:00">22:47:07</abbr></a>] <span>* djlewis tries to decide if buying one eyepiece now, which one is most beneficial :P</span></li>
+<li class="message">[<a href="#T22:47:43" id="T22:47:43"><abbr title="2010-07-17T22:47:43+00:00">22:47:43</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I'm still using a wifi ckt bd pull from a small desktop HP</q></li>
+<li class="message">[<a href="#T22:47:58" id="T22:47:58"><abbr title="2010-07-17T22:47:58+00:00">22:47:58</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>It has antenna</q></li>
+<li class="message">[<a href="#T22:48:14" id="T22:48:14"><abbr title="2010-07-17T22:48:14+00:00">22:48:14</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>ralink I think</q></li>
+<li class="message">[<a href="#T22:48:24" id="T22:48:24"><abbr title="2010-07-17T22:48:24+00:00">22:48:24</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>I've heard those work</q></li>
+<li class="message">[<a href="#T22:48:47" id="T22:48:47"><abbr title="2010-07-17T22:48:47+00:00">22:48:47</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>this one has done well. streams shoutcast for hours</q></li>
+<li class="message">[<a href="#T22:49:07" id="T22:49:07"><abbr title="2010-07-17T22:49:07+00:00">22:49:07</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Here's the current one:  <a href="http://inlandproduct.com/prominiusbtowifidongle.aspx">http://inlandproduct.com/prominiusbtowifidongle.aspx</a></q></li>
+<li class="message">[<a href="#T22:49:36" id="T22:49:36"><abbr title="2010-07-17T22:49:36+00:00">22:49:36</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>i wouldn't count on it for much range.</q></li>
+<li class="message">[<a href="#T22:49:41" id="T22:49:41"><abbr title="2010-07-17T22:49:41+00:00">22:49:41</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>and here's the DX one: <a href="http://www.dealextreme.com/details.dx/sku.33997">http://www.dealextreme.com/details.dx/sku.33997</a></q></li>
+<li class="message">[<a href="#T22:50:19" id="T22:50:19"><abbr title="2010-07-17T22:50:19+00:00">22:50:19</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>last one looks more reliable for signal</q></li>
+<li class="message">[<a href="#T22:50:34" id="T22:50:34"><abbr title="2010-07-17T22:50:34+00:00">22:50:34</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>with that whippor snapper on it</q></li>
+<li class="join">[<a href="#T22:51:31" id="T22:51:31"><abbr title="2010-07-17T22:51:31+00:00">22:51:31</abbr></a>] <span>* Septalici (~bakljg@c-24-131-138-21.hsd1.mn.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T22:51:37" id="T22:51:37"><abbr title="2010-07-17T22:51:37+00:00">22:51:37</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yep</q></li>
+<li class="quit">[<a href="#T22:52:22" id="T22:52:22"><abbr title="2010-07-17T22:52:22+00:00">22:52:22</abbr></a>] <span>* Sept (~bakljg@c-24-131-138-21.hsd1.mn.comcast.net) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T22:52:29" id="T22:52:29"><abbr title="2010-07-17T22:52:29+00:00">22:52:29</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I've had a guy come in and pay twice to resolder usb leads on his broken majicjack.</q></li>
+<li class="message">[<a href="#T22:52:55" id="T22:52:55"><abbr title="2010-07-17T22:52:55+00:00">22:52:55</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>anybody with a zippy2 board around?</q></li>
+<li class="message">[<a href="#T22:53:15" id="T22:53:15"><abbr title="2010-07-17T22:53:15+00:00">22:53:15</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>seems mj support is nill to non existant and he wants to keep his ph #</q></li>
+<li class="message">[<a href="#T22:53:33" id="T22:53:33"><abbr title="2010-07-17T22:53:33+00:00">22:53:33</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>cwillu_at_work: hi</q></li>
+<li class="message">[<a href="#T22:53:45" id="T22:53:45"><abbr title="2010-07-17T22:53:45+00:00">22:53:45</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>djlewis, hi;  can you check something for me? :)</q></li>
+<li class="message">[<a href="#T22:54:50" id="T22:54:50"><abbr title="2010-07-17T22:54:50+00:00">22:54:50</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>djlewis, with a zippy2 plugged into the network, check "slabtop -s s"</q></li>
+<li class="message">[<a href="#T22:55:06" id="T22:55:06"><abbr title="2010-07-17T22:55:06+00:00">22:55:06</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>I'm interested in the "size-2048" slab</q></li>
+<li class="message">[<a href="#T22:55:41" id="T22:55:41"><abbr title="2010-07-17T22:55:41+00:00">22:55:41</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>sorry man, just saying hi, no zippyx</q></li>
+<li class="message">[<a href="#T22:55:44" id="T22:55:44"><abbr title="2010-07-17T22:55:44+00:00">22:55:44</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T22:55:50" id="T22:55:50"><abbr title="2010-07-17T22:55:50+00:00">22:55:50</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>hi then :)</q></li>
+<li class="message">[<a href="#T22:55:59" id="T22:55:59"><abbr title="2010-07-17T22:55:59+00:00">22:55:59</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>*grumble grumble* :p</q></li>
+<li class="quit">[<a href="#T22:56:55" id="T22:56:55"><abbr title="2010-07-17T22:56:55+00:00">22:56:55</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Verlassend)</span></li>
+<li class="action">[<a href="#T22:57:03" id="T22:57:03"><abbr title="2010-07-17T22:57:03+00:00">22:57:03</abbr></a>] <span>* cwillu_at_work hands djlewis a zippy</span></li>
+<li class="message">[<a href="#T22:57:06" id="T22:57:06"><abbr title="2010-07-17T22:57:06+00:00">22:57:06</abbr></a>] &lt;<cite>cwillu_at_work</cite>&gt; <q>test, damnit :p</q></li>
+<li class="quit">[<a href="#T22:59:59" id="T22:59:59"><abbr title="2010-07-17T22:59:59+00:00">22:59:59</abbr></a>] <span>* Septalici (~bakljg@c-24-131-138-21.hsd1.mn.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
