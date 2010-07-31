@@ -112,3 +112,35 @@
 <li class="message">[<a href="#T08:45:13" id="T08:45:13"><abbr title="2010-07-31T08:45:13+00:00">08:45:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I build most things in tmpfs and delete the build tree afterwards</q></li>
 <li class="message">[<a href="#T08:48:00" id="T08:48:00"><abbr title="2010-07-31T08:48:00+00:00">08:48:00</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>OE builds in build/tmp-&lt;distro&gt; ?</q></li>
 <li class="quit">[<a href="#T08:50:48" id="T08:50:48"><abbr title="2010-07-31T08:50:48+00:00">08:50:48</abbr></a>] <span>* khasim (~a0393720@192.163.20.231) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="nick-change">[<a href="#T09:04:18" id="T09:04:18"><abbr title="2010-07-31T09:04:18+00:00">09:04:18</abbr></a>] <span>* mchua_afk is now known as mchua</span></li>
+<li class="join">[<a href="#T09:18:37" id="T09:18:37"><abbr title="2010-07-31T09:18:37+00:00">09:18:37</abbr></a>] <span>* lag (~lag@cpc2-sout2-0-0-cust274.basl.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:34:41" id="T09:34:41"><abbr title="2010-07-31T09:34:41+00:00">09:34:41</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>whoa</q></li>
+<li class="message">[<a href="#T09:34:53" id="T09:34:53"><abbr title="2010-07-31T09:34:53+00:00">09:34:53</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>mru: how big a tmpfs do you use?</q></li>
+<li class="message">[<a href="#T09:35:26" id="T09:35:26"><abbr title="2010-07-31T09:35:26+00:00">09:35:26</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>I'm about to run out of 3GB storage right now</q></li>
+<li class="message">[<a href="#T09:35:54" id="T09:35:54"><abbr title="2010-07-31T09:35:54+00:00">09:35:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the default 50% of ram</q></li>
+<li class="message">[<a href="#T09:35:57" id="T09:35:57"><abbr title="2010-07-31T09:35:57+00:00">09:35:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so 6GB for me</q></li>
+<li class="message">[<a href="#T09:36:01" id="T09:36:01"><abbr title="2010-07-31T09:36:01+00:00">09:36:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>4GB on the laptop</q></li>
+<li class="message">[<a href="#T09:36:16" id="T09:36:16"><abbr title="2010-07-31T09:36:16+00:00">09:36:16</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>only got 4 gig oon this machine</q></li>
+<li class="message">[<a href="#T09:36:24" id="T09:36:24"><abbr title="2010-07-31T09:36:24+00:00">09:36:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>OE eats diskspace like crazy</q></li>
+<li class="message">[<a href="#T09:36:29" id="T09:36:29"><abbr title="2010-07-31T09:36:29+00:00">09:36:29</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>so I noticed</q></li>
+<li class="message">[<a href="#T09:36:40" id="T09:36:40"><abbr title="2010-07-31T09:36:40+00:00">09:36:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it doesn't delete anything until _everything_ has been built</q></li>
+<li class="join">[<a href="#T09:37:41" id="T09:37:41"><abbr title="2010-07-31T09:37:41+00:00">09:37:41</abbr></a>] <span>* eAndrius (~andrius@88-222-169-44.meganet.lt) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:38:03" id="T09:38:03"><abbr title="2010-07-31T09:38:03+00:00">09:38:03</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>there we go, out of 3 gig</q></li>
+<li class="message">[<a href="#T09:38:42" id="T09:38:42"><abbr title="2010-07-31T09:38:42+00:00">09:38:42</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>I guess I need to reformat my data partition to cope with the number of files</q></li>
+<li class="quit">[<abbr title="2010-07-31T09:38:42+00:00">09:38:42</abbr>] <span>* lag (~lag@cpc2-sout2-0-0-cust274.basl.cable.virginmedia.com) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T09:40:32" id="T09:40:32"><abbr title="2010-07-31T09:40:32+00:00">09:40:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>not entirely true</q></li>
+<li class="message">[<a href="#T09:40:44" id="T09:40:44"><abbr title="2010-07-31T09:40:44+00:00">09:40:44</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the rm_work_all task runs at the end</q></li>
+<li class="message">[<a href="#T09:41:00" id="T09:41:00"><abbr title="2010-07-31T09:41:00+00:00">09:41:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and some rm_work tasks run in between</q></li>
+<li class="message">[<a href="#T09:41:11" id="T09:41:11"><abbr title="2010-07-31T09:41:11+00:00">09:41:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>still mostly true</q></li>
+<li class="message">[<a href="#T09:41:14" id="T09:41:14"><abbr title="2010-07-31T09:41:14+00:00">09:41:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but it's up to the scheduler to say when</q></li>
+<li class="message">[<a href="#T09:41:28" id="T09:41:28"><abbr title="2010-07-31T09:41:28+00:00">09:41:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's way too space hungry</q></li>
+<li class="quit">[<a href="#T09:42:28" id="T09:42:28"><abbr title="2010-07-31T09:42:28+00:00">09:42:28</abbr></a>] <span>* drinkcat (~nicolas@119.56.3.26) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T09:45:43" id="T09:45:43"><abbr title="2010-07-31T09:45:43+00:00">09:45:43</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>hehe</q></li>
+<li class="message">[<abbr title="2010-07-31T09:45:43+00:00">09:45:43</abbr>] &lt;<cite>koen</cite>&gt; <q>no doubt about that</q></li>
+<li class="message">[<a href="#T09:45:57" id="T09:45:57"><abbr title="2010-07-31T09:45:57+00:00">09:45:57</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>let's try this again. mount -o loop to the rescue</q></li>
+<li class="message">[<a href="#T09:45:58" id="T09:45:58"><abbr title="2010-07-31T09:45:58+00:00">09:45:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but it builds nicely in a 36GB ramdisk :)</q></li>
+<li class="message">[<a href="#T09:46:35" id="T09:46:35"><abbr title="2010-07-31T09:46:35+00:00">09:46:35</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>koen: right.. I think I've got a machine like that in my pocket somewhere</q></li>
+<li class="quit">[<a href="#T09:48:15" id="T09:48:15"><abbr title="2010-07-31T09:48:15+00:00">09:48:15</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T09:56:29" id="T09:56:29"><abbr title="2010-07-31T09:56:29+00:00">09:56:29</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.datacomm.ch) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T09:57:53" id="T09:57:53"><abbr title="2010-07-31T09:57:53+00:00">09:57:53</abbr></a>] <span>* bearsh (~quassel@adsl-245-48-fixip.datacomm.ch) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:59:28" id="T09:59:28"><abbr title="2010-07-31T09:59:28+00:00">09:59:28</abbr></a>] <span>* russ (foobar@ip70-176-251-1.ph.ph.cox.net) Quit (Ping timeout: 240 seconds)</span></li>
