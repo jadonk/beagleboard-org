@@ -94,3 +94,21 @@
 <li class="join">[<a href="#T07:55:23" id="T07:55:23"><abbr title="2010-07-31T07:55:23+00:00">07:55:23</abbr></a>] <span>* cwillu_at_work (~cwillu@cwillu.com) has joined #beagle</span></li>
 <li class="quit">[<a href="#T07:55:37" id="T07:55:37"><abbr title="2010-07-31T07:55:37+00:00">07:55:37</abbr></a>] <span>* Crofton|work (~balister@pool-96-240-180-89.ronkva.east.verizon.net) Quit (Ping timeout: 265 seconds)</span></li>
 <li class="join">[<a href="#T07:55:58" id="T07:55:58"><abbr title="2010-07-31T07:55:58+00:00">07:55:58</abbr></a>] <span>* Crofton|work (~balister@pool-96-240-180-89.ronkva.east.verizon.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:00:55" id="T08:00:55"><abbr title="2010-07-31T08:00:55+00:00">08:00:55</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>morning folks</q></li>
+<li class="quit">[<a href="#T08:11:53" id="T08:11:53"><abbr title="2010-07-31T08:11:53+00:00">08:11:53</abbr></a>] <span>* eFfeM (~frans@j200125.upc-j.chello.nl) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T08:12:34" id="T08:12:34"><abbr title="2010-07-31T08:12:34+00:00">08:12:34</abbr></a>] <span>* eFfeM (~frans@j200125.upc-j.chello.nl) has joined #beagle</span></li>
+<li class="action">[<a href="#T08:15:21" id="T08:15:21"><abbr title="2010-07-31T08:15:21+00:00">08:15:21</abbr></a>] <span>* cwillu_at_work grumbles something about energy drinks</span></li>
+<li class="message">[<a href="#T08:19:09" id="T08:19:09"><abbr title="2010-07-31T08:19:09+00:00">08:19:09</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>hm, is OE supposed to spit out tons of tar errors on kernel files when I bitbake something?</q></li>
+<li class="join">[<a href="#T08:20:01" id="T08:20:01"><abbr title="2010-07-31T08:20:01+00:00">08:20:01</abbr></a>] <span>* hitlin37 (6eea0302@gateway/web/freenode/ip.110.234.3.2) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:34:55" id="T08:34:55"><abbr title="2010-07-31T08:34:55+00:00">08:34:55</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>what the heck?</q></li>
+<li class="message">[<a href="#T08:35:39" id="T08:35:39"><abbr title="2010-07-31T08:35:39+00:00">08:35:39</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>error: cannot open .git/FETCH_HEAD: No space left on device</q></li>
+<li class="message">[<a href="#T08:36:07" id="T08:36:07"><abbr title="2010-07-31T08:36:07+00:00">08:36:07</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>there's &gt; 150 GB left on that device, how big can a file that contains a sha1sum be?</q></li>
+<li class="message">[<a href="#T08:39:57" id="T08:39:57"><abbr title="2010-07-31T08:39:57+00:00">08:39:57</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you can run out of inodes or quotum</q></li>
+<li class="message">[<a href="#T08:40:11" id="T08:40:11"><abbr title="2010-07-31T08:40:11+00:00">08:40:11</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>looks like</q></li>
+<li class="message">[<a href="#T08:41:10" id="T08:41:10"><abbr title="2010-07-31T08:41:10+00:00">08:41:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>fun</q></li>
+<li class="message">[<a href="#T08:43:27" id="T08:43:27"><abbr title="2010-07-31T08:43:27+00:00">08:43:27</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>hm, crud</q></li>
+<li class="message">[<a href="#T08:44:14" id="T08:44:14"><abbr title="2010-07-31T08:44:14+00:00">08:44:14</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>a bit hard to fix on a filesystem I use for development (lots of small files) and virtual machines (some really big files)</q></li>
+<li class="message">[<a href="#T08:44:52" id="T08:44:52"><abbr title="2010-07-31T08:44:52+00:00">08:44:52</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>I guess I need to look into some other option of cross-building samba</q></li>
+<li class="message">[<a href="#T08:45:13" id="T08:45:13"><abbr title="2010-07-31T08:45:13+00:00">08:45:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I build most things in tmpfs and delete the build tree afterwards</q></li>
+<li class="message">[<a href="#T08:48:00" id="T08:48:00"><abbr title="2010-07-31T08:48:00+00:00">08:48:00</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>OE builds in build/tmp-&lt;distro&gt; ?</q></li>
+<li class="quit">[<a href="#T08:50:48" id="T08:50:48"><abbr title="2010-07-31T08:50:48+00:00">08:50:48</abbr></a>] <span>* khasim (~a0393720@192.163.20.231) Quit (Ping timeout: 240 seconds)</span></li>
