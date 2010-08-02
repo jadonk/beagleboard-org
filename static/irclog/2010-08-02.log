@@ -501,3 +501,98 @@
 <li class="join">[<a href="#T11:53:19" id="T11:53:19"><abbr title="2010-08-02T11:53:19+00:00">11:53:19</abbr></a>] <span>* naeg (~naeg@194.208.239.170) has joined #beagle</span></li>
 <li class="message">[<a href="#T11:58:49" id="T11:58:49"><abbr title="2010-08-02T11:58:49+00:00">11:58:49</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>hi, where can i find the source contents on which the compilation happen in oe/angstrom build , for ex i cannot find the source for gstreamer-ti inside "oe/angstrom-setup-scripts/build/tmp-angstrom_2008_1/work/beagleboard-angstrom-linux-gnueabi/gstreamer-ti-svnr612-r59+r84/".  though i find the sysrootfs has binaries created </q></li>
 <li class="message">[<a href="#T11:59:41" id="T11:59:41"><abbr title="2010-08-02T11:59:41+00:00">11:59:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>oe tends to delete stuff after build</q></li>
+<li class="message">[<a href="#T12:01:03" id="T12:01:03"><abbr title="2010-08-02T12:01:03+00:00">12:01:03</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>inherits "rm_work"</q></li>
+<li class="message">[<a href="#T12:01:06" id="T12:01:06"><abbr title="2010-08-02T12:01:06+00:00">12:01:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>does it</q></li>
+<li class="quit">[<a href="#T12:01:15" id="T12:01:15"><abbr title="2010-08-02T12:01:15+00:00">12:01:15</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-ncvhrctktigwsbrt) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T12:01:29" id="T12:01:29"><abbr title="2010-08-02T12:01:29+00:00">12:01:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hgs do bitbake -c clean gstreamer-ti</q></li>
+<li class="join">[<abbr title="2010-08-02T12:01:29+00:00">12:01:29</abbr>] <span>* rcranetx (~rcranetx@nat/ti/x-jbhswpheimshuoib) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:01:34" id="T12:01:34"><abbr title="2010-08-02T12:01:34+00:00">12:01:34</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>INHERIT += "rm_work" local conf file has it</q></li>
+<li class="message">[<a href="#T12:01:38" id="T12:01:38"><abbr title="2010-08-02T12:01:38+00:00">12:01:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>bitbake -c build gstreamer-ti</q></li>
+<li class="message">[<a href="#T12:01:46" id="T12:01:46"><abbr title="2010-08-02T12:01:46+00:00">12:01:46</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and then you have all</q></li>
+<li class="message">[<a href="#T12:01:52" id="T12:01:52"><abbr title="2010-08-02T12:01:52+00:00">12:01:52</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>not deleted</q></li>
+<li class="join">[<abbr title="2010-08-02T12:01:52+00:00">12:01:52</abbr>] <span>* NishanthMenon (~nmenon@nat/ti/x-onqxzghszsgpdxfm) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:02:22" id="T12:02:22"><abbr title="2010-08-02T12:02:22+00:00">12:02:22</abbr></a>] <span>* gustavoz (~gustavoz@host5.201-253-237.telecom.net.ar) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:02:25" id="T12:02:25"><abbr title="2010-08-02T12:02:25+00:00">12:02:25</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>woglinde: thanks tried bitbake do_compiled gstreamer-ti but it failed may be i should have clean it before</q></li>
+<li class="message">[<a href="#T12:02:38" id="T12:02:38"><abbr title="2010-08-02T12:02:38+00:00">12:02:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>o.O?</q></li>
+<li class="message">[<a href="#T12:02:57" id="T12:02:57"><abbr title="2010-08-02T12:02:57+00:00">12:02:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>it will do nothing because the stamps are already there</q></li>
+<li class="message">[<a href="#T12:02:58" id="T12:02:58"><abbr title="2010-08-02T12:02:58+00:00">12:02:58</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>may be do_stag*** something before</q></li>
+<li class="message">[<a href="#T12:03:10" id="T12:03:10"><abbr title="2010-08-02T12:03:10+00:00">12:03:10</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>-c clean removes them</q></li>
+<li class="message">[<a href="#T12:03:17" id="T12:03:17"><abbr title="2010-08-02T12:03:17+00:00">12:03:17</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or -f ignores them</q></li>
+<li class="message">[<a href="#T12:05:53" id="T12:05:53"><abbr title="2010-08-02T12:05:53+00:00">12:05:53</abbr></a>] &lt;<cite>hgs</cite>&gt; <q>woglinde: thanks</q></li>
+<li class="join">[<a href="#T12:14:33" id="T12:14:33"><abbr title="2010-08-02T12:14:33+00:00">12:14:33</abbr></a>] <span>* Nitin__ (7aa6082d@gateway/web/freenode/ip.122.166.8.45) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:15:09" id="T12:15:09"><abbr title="2010-08-02T12:15:09+00:00">12:15:09</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>is it possible to connect /dev/video1 to overlay1 and enable overlay1?</q></li>
+<li class="message">[<a href="#T12:15:19" id="T12:15:19"><abbr title="2010-08-02T12:15:19+00:00">12:15:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T12:15:39" id="T12:15:39"><abbr title="2010-08-02T12:15:39+00:00">12:15:39</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>how to see which overlays /dev/video1 is connected?</q></li>
+<li class="message">[<a href="#T12:16:07" id="T12:16:07"><abbr title="2010-08-02T12:16:07+00:00">12:16:07</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>I could easily see while using frame buffers, i.e /dev/fb1 and /dev/fb2</q></li>
+<li class="message">[<a href="#T12:16:48" id="T12:16:48"><abbr title="2010-08-02T12:16:48+00:00">12:16:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i think it is dynamic</q></li>
+<li class="message">[<a href="#T12:17:08" id="T12:17:08"><abbr title="2010-08-02T12:17:08+00:00">12:17:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q> /dev/videoX could be anything, a camera or an outout device</q></li>
+<li class="join">[<a href="#T12:17:25" id="T12:17:25"><abbr title="2010-08-02T12:17:25+00:00">12:17:25</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-kwficvoaoztxomgg) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:17:39" id="T12:17:39"><abbr title="2010-08-02T12:17:39+00:00">12:17:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>opannotate is funny: vshll.s16       d18, &lt;illegal reg q4.5&gt;, #11</q></li>
+<li class="message">[<a href="#T12:17:51" id="T12:17:51"><abbr title="2010-08-02T12:17:51+00:00">12:17:51</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>for me it's output device</q></li>
+<li class="message">[<a href="#T12:18:35" id="T12:18:35"><abbr title="2010-08-02T12:18:35+00:00">12:18:35</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>My understanding is that video1 should be connected to overlay1 and overlay1 should be enabled</q></li>
+<li class="message">[<a href="#T12:18:47" id="T12:18:47"><abbr title="2010-08-02T12:18:47+00:00">12:18:47</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>then only I can see something on output</q></li>
+<li class="message">[<a href="#T12:18:50" id="T12:18:50"><abbr title="2010-08-02T12:18:50+00:00">12:18:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Nitin__: <a href="http://processors.wiki.ti.com/index.php/UserGuideDisplayDrivers_PSP_03.00.00.04">http://processors.wiki.ti.com/index.php/UserGuideDisplayDrivers_PSP_03.00.00.04</a></q></li>
+<li class="message">[<a href="#T12:20:43" id="T12:20:43"><abbr title="2010-08-02T12:20:43+00:00">12:20:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q> /sys/devices/virtual/video4linux/video1/</q></li>
+<li class="message">[<a href="#T12:25:17" id="T12:25:17"><abbr title="2010-08-02T12:25:17+00:00">12:25:17</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>What is equivalent to /sys/class/graphics/fb0/overlays for /dev/video1</q></li>
+<li class="nick-change">[<a href="#T12:25:46" id="T12:25:46"><abbr title="2010-08-02T12:25:46+00:00">12:25:46</abbr></a>] <span>* jconnolly is now known as jc|mobile</span></li>
+<li class="message">[<a href="#T12:26:37" id="T12:26:37"><abbr title="2010-08-02T12:26:37+00:00">12:26:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if all you have on v4l2 is omap_vout, then video0 is overlay0 and video1 is overlay1</q></li>
+<li class="join">[<a href="#T12:26:47" id="T12:26:47"><abbr title="2010-08-02T12:26:47+00:00">12:26:47</abbr></a>] <span>* calculus (~calculus@gentoo/user/calculus) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:27:06" id="T12:27:06"><abbr title="2010-08-02T12:27:06+00:00">12:27:06</abbr></a>] <span>* pcacjr (~pcacjr@unaffiliated/pcacjr) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:27:08" id="T12:27:08"><abbr title="2010-08-02T12:27:08+00:00">12:27:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>err, 1 + 2</q></li>
+<li class="message">[<a href="#T12:27:13" id="T12:27:13"><abbr title="2010-08-02T12:27:13+00:00">12:27:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>overlay0 is gfx</q></li>
+<li class="message">[<a href="#T12:28:27" id="T12:28:27"><abbr title="2010-08-02T12:28:27+00:00">12:28:27</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>You mean implicitly video1 is connected to overlay1</q></li>
+<li class="message">[<a href="#T12:28:36" id="T12:28:36"><abbr title="2010-08-02T12:28:36+00:00">12:28:36</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>and video 2 is connected to iverlay2</q></li>
+<li class="message">[<a href="#T12:28:40" id="T12:28:40"><abbr title="2010-08-02T12:28:40+00:00">12:28:40</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>overlay2</q></li>
+<li class="message">[<a href="#T12:28:55" id="T12:28:55"><abbr title="2010-08-02T12:28:55+00:00">12:28:55</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>I am new to v4l2, so these questions</q></li>
+<li class="message">[<a href="#T12:29:04" id="T12:29:04"><abbr title="2010-08-02T12:29:04+00:00">12:29:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>less linux/drivers/media/video/omap/omap_vout.c</q></li>
+<li class="message">[<a href="#T12:29:27" id="T12:29:27"><abbr title="2010-08-02T12:29:27+00:00">12:29:27</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>Fine I will see that source</q></li>
+<li class="message">[<a href="#T12:29:30" id="T12:29:30"><abbr title="2010-08-02T12:29:30+00:00">12:29:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>as said, the mapping between videoX and overlayX is dynamic</q></li>
+<li class="message">[<a href="#T12:29:44" id="T12:29:44"><abbr title="2010-08-02T12:29:44+00:00">12:29:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it depends on all the V4L2 drivers you have</q></li>
+<li class="message">[<a href="#T12:29:47" id="T12:29:47"><abbr title="2010-08-02T12:29:47+00:00">12:29:47</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>What do you mean by dynamic</q></li>
+<li class="message">[<a href="#T12:29:58" id="T12:29:58"><abbr title="2010-08-02T12:29:58+00:00">12:29:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>[14:17] &lt;av500&gt;  /dev/videoX could be anything, a camera or an outout device</q></li>
+<li class="message">[<a href="#T12:30:11" id="T12:30:11"><abbr title="2010-08-02T12:30:11+00:00">12:30:11</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>I C</q></li>
+<li class="message">[<a href="#T12:30:35" id="T12:30:35"><abbr title="2010-08-02T12:30:35+00:00">12:30:35</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>I am not able to enable overlay1 through sysfs interface</q></li>
+<li class="message">[<a href="#T12:31:13" id="T12:31:13"><abbr title="2010-08-02T12:31:13+00:00">12:31:13</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>Is it that I need to set width and height before enabling overlay1</q></li>
+<li class="message">[<a href="#T12:31:28" id="T12:31:28"><abbr title="2010-08-02T12:31:28+00:00">12:31:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>why else would you enable it?</q></li>
+<li class="message">[<a href="#T12:31:51" id="T12:31:51"><abbr title="2010-08-02T12:31:51+00:00">12:31:51</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>Thanks for your inputs</q></li>
+<li class="message">[<a href="#T12:32:18" id="T12:32:18"><abbr title="2010-08-02T12:32:18+00:00">12:32:18</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>Also I am trying to enable global alpha from App code, it returns me -EINVAL</q></li>
+<li class="message">[<a href="#T12:32:32" id="T12:32:32"><abbr title="2010-08-02T12:32:32+00:00">12:32:32</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>thats the main problem</q></li>
+<li class="message">[<a href="#T12:32:35" id="T12:32:35"><abbr title="2010-08-02T12:32:35+00:00">12:32:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>how?</q></li>
+<li class="message">[<a href="#T12:32:59" id="T12:32:59"><abbr title="2010-08-02T12:32:59+00:00">12:32:59</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>from liboverlay from Android</q></li>
+<li class="message">[<a href="#T12:33:50" id="T12:33:50"><abbr title="2010-08-02T12:33:50+00:00">12:33:50</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>First issuing G_FBUF</q></li>
+<li class="message">[<a href="#T12:34:13" id="T12:34:13"><abbr title="2010-08-02T12:34:13+00:00">12:34:13</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>Then saying fbuf.flags |= V4L2_FBUF_FLAG_GLOBAL_ALPHA;</q></li>
+<li class="message">[<a href="#T12:34:26" id="T12:34:26"><abbr title="2010-08-02T12:34:26+00:00">12:34:26</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>and then issuing S_FBUF</q></li>
+<li class="message">[<a href="#T12:34:58" id="T12:34:58"><abbr title="2010-08-02T12:34:58+00:00">12:34:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="join">[<a href="#T12:35:01" id="T12:35:01"><abbr title="2010-08-02T12:35:01+00:00">12:35:01</abbr></a>] <span>* GrouchoMarx (~gmarx@rrcs-67-53-159-201.west.biz.rr.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:35:06" id="T12:35:06"><abbr title="2010-08-02T12:35:06+00:00">12:35:06</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-yfzqtblbihjalgwq) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:36:04" id="T12:36:04"><abbr title="2010-08-02T12:36:04+00:00">12:36:04</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>Call to S_FBUF is failing with -EINVAL</q></li>
+<li class="message">[<a href="#T12:36:05" id="T12:36:05"><abbr title="2010-08-02T12:36:05+00:00">12:36:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>read the doc I linked</q></li>
+<li class="message">[<a href="#T12:36:16" id="T12:36:16"><abbr title="2010-08-02T12:36:16+00:00">12:36:16</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>I will do that</q></li>
+<li class="message">[<a href="#T12:37:24" id="T12:37:24"><abbr title="2010-08-02T12:37:24+00:00">12:37:24</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>Also whats equivalent of fbset in v4l2</q></li>
+<li class="message">[<a href="#T12:38:18" id="T12:38:18"><abbr title="2010-08-02T12:38:18+00:00">12:38:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>what v4l2.c does in liboverlay</q></li>
+<li class="quit">[<a href="#T12:40:26" id="T12:40:26"><abbr title="2010-08-02T12:40:26+00:00">12:40:26</abbr></a>] <span>* lag (~lag@cpc2-aztw21-0-0-cust264.aztw.cable.virginmedia.com) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="quit">[<a href="#T12:41:17" id="T12:41:17"><abbr title="2010-08-02T12:41:17+00:00">12:41:17</abbr></a>] <span>* new2bb (a4a4fa0a@gateway/web/freenode/ip.164.164.250.10) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T12:41:52" id="T12:41:52"><abbr title="2010-08-02T12:41:52+00:00">12:41:52</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>You mean you are asking that?</q></li>
+<li class="message">[<a href="#T12:42:53" id="T12:42:53"><abbr title="2010-08-02T12:42:53+00:00">12:42:53</abbr></a>] &lt;<cite>Nitin__</cite>&gt; <q>Or you are saying whatever v4l2_utils.c does, thats the only way</q></li>
+<li class="join">[<a href="#T12:45:12" id="T12:45:12"><abbr title="2010-08-02T12:45:12+00:00">12:45:12</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:50:31" id="T12:50:31"><abbr title="2010-08-02T12:50:31+00:00">12:50:31</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I think I'm going to port ffmpeg to beagle C4</q></li>
+<li class="message">[<a href="#T12:50:57" id="T12:50:57"><abbr title="2010-08-02T12:50:57+00:00">12:50:57</abbr></a>] &lt;<cite>DaveDavenport</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T12:51:04" id="T12:51:04"><abbr title="2010-08-02T12:51:04+00:00">12:51:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: I can help you</q></li>
+<li class="message">[<a href="#T12:51:17" id="T12:51:17"><abbr title="2010-08-02T12:51:17+00:00">12:51:17</abbr></a>] &lt;<cite>DaveDavenport</cite>&gt; <q>what is so different that you have to port it specific to C4?</q></li>
+<li class="join">[<a href="#T12:51:31" id="T12:51:31"><abbr title="2010-08-02T12:51:31+00:00">12:51:31</abbr></a>] <span>* rodrigo_golive (~rodrigo_g@nat/mandriva/x-rbyfjfzziypftiej) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:51:50" id="T12:51:50"><abbr title="2010-08-02T12:51:50+00:00">12:51:50</abbr></a>] &lt;<cite>koen</cite>&gt; <q>seems my sarcasm didn't translate to IRC</q></li>
+<li class="message">[<a href="#T12:52:00" id="T12:52:00"><abbr title="2010-08-02T12:52:00+00:00">12:52:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>DaveDavenport: all those android using are "porting" android</q></li>
+<li class="message">[<a href="#T12:52:11" id="T12:52:11"><abbr title="2010-08-02T12:52:11+00:00">12:52:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>when they actuall mean "download, unpack to SD, boot"</q></li>
+<li class="message">[<a href="#T12:52:32" id="T12:52:32"><abbr title="2010-08-02T12:52:32+00:00">12:52:32</abbr></a>] &lt;<cite>DaveDavenport</cite>&gt; <q>aah</q></li>
+<li class="message">[<a href="#T12:52:45" id="T12:52:45"><abbr title="2010-08-02T12:52:45+00:00">12:52:45</abbr></a>] &lt;<cite>DaveDavenport</cite>&gt; <q>I was confused</q></li>
+<li class="message">[<a href="#T12:52:52" id="T12:52:52"><abbr title="2010-08-02T12:52:52+00:00">12:52:52</abbr></a>] &lt;<cite>DaveDavenport</cite>&gt; <q>you forgot that &lt;sarcasm&gt; tags</q></li>
+<li class="message">[<a href="#T12:53:40" id="T12:53:40"><abbr title="2010-08-02T12:53:40+00:00">12:53:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>DaveDavenport: not really</q></li>
+<li class="message">[<a href="#T12:54:28" id="T12:54:28"><abbr title="2010-08-02T12:54:28+00:00">12:54:28</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I wan port DSP to android</q></li>
+<li class="message">[<a href="#T12:54:36" id="T12:54:36"><abbr title="2010-08-02T12:54:36+00:00">12:54:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*g*</q></li>
+<li class="message">[<a href="#T12:54:51" id="T12:54:51"><abbr title="2010-08-02T12:54:51+00:00">12:54:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: now add: "please send my the codes"</q></li>
+<li class="join">[<a href="#T12:55:26" id="T12:55:26"><abbr title="2010-08-02T12:55:26+00:00">12:55:26</abbr></a>] <span>* neo01124 (~neo@122.177.74.101) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:55:27" id="T12:55:27"><abbr title="2010-08-02T12:55:27+00:00">12:55:27</abbr></a>] <span>* sol-invictus (~chatzilla@pidellelle.ifit.uni-klu.ac.at) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T12:57:26" id="T12:57:26"><abbr title="2010-08-02T12:57:26+00:00">12:57:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>or "please send me all the exact steps"</q></li>
+<li class="message">[<a href="#T12:58:44" id="T12:58:44"><abbr title="2010-08-02T12:58:44+00:00">12:58:44</abbr></a>] &lt;<cite>DaveDavenport</cite>&gt; <q>coffee!</q></li>
+<li class="message">[<a href="#T12:59:44" id="T12:59:44"><abbr title="2010-08-02T12:59:44+00:00">12:59:44</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>mhhhm, caffeinated beverage...</q></li>
+<li class="join">[<a href="#T12:59:57" id="T12:59:57"><abbr title="2010-08-02T12:59:57+00:00">12:59:57</abbr></a>] <span>* lag (~lag@cpc2-aztw21-0-0-cust264.aztw.cable.virginmedia.com) has joined #beagle</span></li>
