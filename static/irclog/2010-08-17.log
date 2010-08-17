@@ -48,3 +48,37 @@
 <li class="message">[<a href="#T00:57:20" id="T00:57:20"><abbr title="2010-08-17T00:57:20+00:00">00:57:20</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>gettext depends on ncurses</q></li>
 <li class="message">[<a href="#T00:58:25" id="T00:58:25"><abbr title="2010-08-17T00:58:25+00:00">00:58:25</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>ncurses pre 5.0 provided tinfo functions but now they're broken out</q></li>
 <li class="message">[<a href="#T00:59:12" id="T00:59:12"><abbr title="2010-08-17T00:59:12+00:00">00:59:12</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>that change happened long ago tho, so this shouldn't be new issue</q></li>
+<li class="message">[<a href="#T01:01:20" id="T01:01:20"><abbr title="2010-08-17T01:01:20+00:00">01:01:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>let me look</q></li>
+<li class="message">[<a href="#T01:01:49" id="T01:01:49"><abbr title="2010-08-17T01:01:49+00:00">01:01:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>f8f94</q></li>
+<li class="message">[<a href="#T01:02:03" id="T01:02:03"><abbr title="2010-08-17T01:02:03+00:00">01:02:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>must be angstrom then :D</q></li>
+<li class="message">[<a href="#T01:02:18" id="T01:02:18"><abbr title="2010-08-17T01:02:18+00:00">01:02:18</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>do you have a libtinfo in your armv7a-angstrom-linux-gnueabi dir?</q></li>
+<li class="message">[<a href="#T01:02:56" id="T01:02:56"><abbr title="2010-08-17T01:02:56+00:00">01:02:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>doing a find on all of OEDIR... going to take a moment</q></li>
+<li class="message">[<a href="#T01:03:22" id="T01:03:22"><abbr title="2010-08-17T01:03:22+00:00">01:03:22</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>find rules</q></li>
+<li class="message">[<a href="#T01:03:41" id="T01:03:41"><abbr title="2010-08-17T01:03:41+00:00">01:03:41</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>grep -r is pretty handy too</q></li>
+<li class="message">[<a href="#T01:03:59" id="T01:03:59"><abbr title="2010-08-17T01:03:59+00:00">01:03:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I prefer git grep when available</q></li>
+<li class="message">[<a href="#T01:04:08" id="T01:04:08"><abbr title="2010-08-17T01:04:08+00:00">01:04:08</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>need to learn that</q></li>
+<li class="message">[<a href="#T01:04:28" id="T01:04:28"><abbr title="2010-08-17T01:04:28+00:00">01:04:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it does a grep of only things git knows about so it ignores the .o's and other cruft</q></li>
+<li class="message">[<a href="#T01:04:38" id="T01:04:38"><abbr title="2010-08-17T01:04:38+00:00">01:04:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wow... no matches for libtinfo* in my OEDIR</q></li>
+<li class="quit">[<a href="#T01:04:42" id="T01:04:42"><abbr title="2010-08-17T01:04:42+00:00">01:04:42</abbr></a>] <span>* Zoxc (~zoxc@ti0128a340-dhcp0032.bb.online.no) Quit ()</span></li>
+<li class="message">[<a href="#T01:05:20" id="T01:05:20"><abbr title="2010-08-17T01:05:20+00:00">01:05:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wonder if you are doing something that cause libtool to suck in crap</q></li>
+<li class="message">[<abbr title="2010-08-17T01:05:20+00:00">01:05:20</abbr>] &lt;<cite>emeb</cite>&gt; <q>none here either</q></li>
+<li class="join">[<a href="#T01:08:22" id="T01:08:22"><abbr title="2010-08-17T01:08:22+00:00">01:08:22</abbr></a>] <span>* jkridner2 (~a0321898@nat/ti/x-gmyimzcyrdfmzlbw) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:09:12" id="T01:09:12"><abbr title="2010-08-17T01:09:12+00:00">01:09:12</abbr></a>] <span>* pcacjr (~pcacjr@unaffiliated/pcacjr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:11:03" id="T01:11:03"><abbr title="2010-08-17T01:11:03+00:00">01:11:03</abbr></a>] <span>* jkridner1 (~a0321898@nat/ti/x-lyyjxvslcgybmsmw) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T01:12:14" id="T01:12:14"><abbr title="2010-08-17T01:12:14+00:00">01:12:14</abbr></a>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:13:42" id="T01:13:42"><abbr title="2010-08-17T01:13:42+00:00">01:13:42</abbr></a>] <span>* Crofton (~balister@207.47.37.8.static.nextweb.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:16:55" id="T01:16:55"><abbr title="2010-08-17T01:16:55+00:00">01:16:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>emeb: look at the build logs in $OEDIR/work and see if you can determine why tinfo got sucked in. I suspect libtool</q></li>
+<li class="message">[<a href="#T01:17:54" id="T01:17:54"><abbr title="2010-08-17T01:17:54+00:00">01:17:54</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I suspect there is a configure option</q></li>
+<li class="message">[<a href="#T01:18:24" id="T01:18:24"><abbr title="2010-08-17T01:18:24+00:00">01:18:24</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>from the emails, it was not clear where the proper place to fix it was</q></li>
+<li class="message">[<a href="#T01:19:07" id="T01:19:07"><abbr title="2010-08-17T01:19:07+00:00">01:19:07</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>OK - sounds like there's lotsa eyeballs on this one.</q></li>
+<li class="message">[<a href="#T01:19:29" id="T01:19:29"><abbr title="2010-08-17T01:19:29+00:00">01:19:29</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>at least it appeared on the gumstix list</q></li>
+<li class="message">[<a href="#T01:19:46" id="T01:19:46"><abbr title="2010-08-17T01:19:46+00:00">01:19:46</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I am going to beat the drum in #oe in the morning, when more people are up</q></li>
+<li class="message">[<a href="#T01:20:01" id="T01:20:01"><abbr title="2010-08-17T01:20:01+00:00">01:20:01</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>you could look at the logs for the als bb fiel and the ncurses one</q></li>
+<li class="message">[<a href="#T01:20:11" id="T01:20:11"><abbr title="2010-08-17T01:20:11+00:00">01:20:11</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>OK</q></li>
+<li class="message">[<a href="#T01:20:16" id="T01:20:16"><abbr title="2010-08-17T01:20:16+00:00">01:20:16</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>see what I can dig up</q></li>
+<li class="message">[<a href="#T01:20:59" id="T01:20:59"><abbr title="2010-08-17T01:20:59+00:00">01:20:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: if it were a configure option, I'd think it would show up in the recipe</q></li>
+<li class="message">[<a href="#T01:21:07" id="T01:21:07"><abbr title="2010-08-17T01:21:07+00:00">01:21:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Crofton: I can build that .bb file just fine</q></li>
+<li class="quit">[<a href="#T01:21:55" id="T01:21:55"><abbr title="2010-08-17T01:21:55+00:00">01:21:55</abbr></a>] <span>* radhermit (~radhermit@radhermit-1-pt.tunnel.tserv3.fmt2.ipv6.he.net) Quit (Read error: Operation timed out)</span></li>
+<li class="join">[<a href="#T01:25:50" id="T01:25:50"><abbr title="2010-08-17T01:25:50+00:00">01:25:50</abbr></a>] <span>* radhermit (~radhermit@radhermit-1-pt.tunnel.tserv3.fmt2.ipv6.he.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:34:20" id="T01:34:20"><abbr title="2010-08-17T01:34:20+00:00">01:34:20</abbr></a>] <span>* cmurillo (~cmurillo@186.4.15.155) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<a href="#T01:35:53" id="T01:35:53"><abbr title="2010-08-17T01:35:53+00:00">01:35:53</abbr></a>] <span>* maria1 (~mrodrigue@186.4.15.155) Quit (Quit: Leaving.)</span></li>
