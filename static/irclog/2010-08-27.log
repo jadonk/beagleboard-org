@@ -376,3 +376,99 @@
 <li class="message">[<a href="#T09:54:57" id="T09:54:57"><abbr title="2010-08-27T09:54:57+00:00">09:54:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ahaczewski: btw, I read 30MB/s from emmc (linux)</q></li>
 <li class="message">[<a href="#T09:55:53" id="T09:55:53"><abbr title="2010-08-27T09:55:53+00:00">09:55:53</abbr></a>] &lt;<cite>ahaczewski</cite>&gt; <q>av500: I guess I'll have to look at x-loader and u-boot mmc driver then, as this might be the best way to speedup boot</q></li>
 <li class="nick-change">[<a href="#T09:59:33" id="T09:59:33"><abbr title="2010-08-27T09:59:33+00:00">09:59:33</abbr></a>] <span>* amitk is now known as amitk-afk</span></li>
+<li class="join">[<a href="#T10:00:38" id="T10:00:38"><abbr title="2010-08-27T10:00:38+00:00">10:00:38</abbr></a>] <span>* rbarraud_ (~rbarraud@118-93-178-14.dsl.dyn.ihug.co.nz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:03:38" id="T10:03:38"><abbr title="2010-08-27T10:03:38+00:00">10:03:38</abbr></a>] <span>* rbarraud (~rbarraud@118-92-26-130.dsl.dyn.ihug.co.nz) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T10:04:13" id="T10:04:13"><abbr title="2010-08-27T10:04:13+00:00">10:04:13</abbr></a>] <span>* rbarraud__ (~rbarraud@118-92-0-90.dsl.dyn.ihug.co.nz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:07:20" id="T10:07:20"><abbr title="2010-08-27T10:07:20+00:00">10:07:20</abbr></a>] <span>* rbarraud_ (~rbarraud@118-93-178-14.dsl.dyn.ihug.co.nz) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T10:08:49" id="T10:08:49"><abbr title="2010-08-27T10:08:49+00:00">10:08:49</abbr></a>] <span>* rbarraud__ (~rbarraud@118-92-0-90.dsl.dyn.ihug.co.nz) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T10:17:34" id="T10:17:34"><abbr title="2010-08-27T10:17:34+00:00">10:17:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ahaczewski: e.g. xloader and uboot split is artificial, you could load uboot via the rom code afaik</q></li>
+<li class="message">[<a href="#T10:17:49" id="T10:17:49"><abbr title="2010-08-27T10:17:49+00:00">10:17:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>that removes one "stage" in the process</q></li>
+<li class="message">[<a href="#T10:18:59" id="T10:18:59"><abbr title="2010-08-27T10:18:59+00:00">10:18:59</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>not easily</q></li>
+<li class="message">[<a href="#T10:19:11" id="T10:19:11"><abbr title="2010-08-27T10:19:11+00:00">10:19:11</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>rom code has size limits and stuff</q></li>
+<li class="message">[<a href="#T10:19:25" id="T10:19:25"><abbr title="2010-08-27T10:19:25+00:00">10:19:25</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>so rom couldn't load uboot</q></li>
+<li class="message">[<a href="#T10:20:49" id="T10:20:49"><abbr title="2010-08-27T10:20:49+00:00">10:20:49</abbr></a>] &lt;<cite>ahaczewski</cite>&gt; <q>I compiled u-boot with mthumb and it takes less than 200 K</q></li>
+<li class="part">[<a href="#T10:21:55" id="T10:21:55"><abbr title="2010-08-27T10:21:55+00:00">10:21:55</abbr></a>] <span>* zl2at (~ubuntu@122-57-235-91.jetstream.xtra.co.nz) has left #beagle</span></li>
+<li class="message">[<a href="#T10:22:11" id="T10:22:11"><abbr title="2010-08-27T10:22:11+00:00">10:22:11</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>too big</q></li>
+<li class="message">[<a href="#T10:22:18" id="T10:22:18"><abbr title="2010-08-27T10:22:18+00:00">10:22:18</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>rom code can load 128k iirc</q></li>
+<li class="join">[<a href="#T10:22:32" id="T10:22:32"><abbr title="2010-08-27T10:22:32+00:00">10:22:32</abbr></a>] <span>* daurni (76d1529f@freenode/staff/daurnimator) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:22:38" id="T10:22:38"><abbr title="2010-08-27T10:22:38+00:00">10:22:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>not sure</q></li>
+<li class="message">[<a href="#T10:22:41" id="T10:22:41"><abbr title="2010-08-27T10:22:41+00:00">10:22:41</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>because it's not loaded into memory </q></li>
+<li class="message">[<a href="#T10:22:47" id="T10:22:47"><abbr title="2010-08-27T10:22:47+00:00">10:22:47</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but into cpu cache</q></li>
+<li class="message">[<a href="#T10:22:49" id="T10:22:49"><abbr title="2010-08-27T10:22:49+00:00">10:22:49</abbr></a>] &lt;<cite>daurni</cite>&gt; <q>digikey don't seem to have the xm?</q></li>
+<li class="message">[<a href="#T10:22:51" id="T10:22:51"><abbr title="2010-08-27T10:22:51+00:00">10:22:51</abbr></a>] &lt;<cite>ahaczewski</cite>&gt; <q>so why x-loader has reserved 512K for x-loader?</q></li>
+<li class="message">[<a href="#T10:22:55" id="T10:22:55"><abbr title="2010-08-27T10:22:55+00:00">10:22:55</abbr></a>] &lt;<cite>daurni</cite>&gt; <q>I'm confused by the order page</q></li>
+<li class="message">[<a href="#T10:23:01" id="T10:23:01"><abbr title="2010-08-27T10:23:01+00:00">10:23:01</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and then xloader initialises memory</q></li>
+<li class="message">[<a href="#T10:23:10" id="T10:23:10"><abbr title="2010-08-27T10:23:10+00:00">10:23:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jacekowski: no need for that</q></li>
+<li class="message">[<a href="#T10:23:12" id="T10:23:12"><abbr title="2010-08-27T10:23:12+00:00">10:23:12</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>hmm, no</q></li>
+<li class="message">[<a href="#T10:23:14" id="T10:23:14"><abbr title="2010-08-27T10:23:14+00:00">10:23:14</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>it's 64k</q></li>
+<li class="message">[<a href="#T10:23:15" id="T10:23:15"><abbr title="2010-08-27T10:23:15+00:00">10:23:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>configration headers can do that</q></li>
+<li class="message">[<a href="#T10:23:22" id="T10:23:22"><abbr title="2010-08-27T10:23:22+00:00">10:23:22</abbr></a>] &lt;<cite>ahaczewski</cite>&gt; <q>I mean 512K in Nand is reserved for x-loader</q></li>
+<li class="message">[<a href="#T10:23:33" id="T10:23:33"><abbr title="2010-08-27T10:23:33+00:00">10:23:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you can setup dram via conf headers</q></li>
+<li class="message">[<a href="#T10:24:00" id="T10:24:00"><abbr title="2010-08-27T10:24:00+00:00">10:24:00</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>conf headers of what?</q></li>
+<li class="message">[<a href="#T10:24:07" id="T10:24:07"><abbr title="2010-08-27T10:24:07+00:00">10:24:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jacekowski: <a href="http://nishanthmenon.blogspot.com/2009/05/configuration-header-no-more-x-loader.html">http://nishanthmenon.blogspot.com/2009/05/configuration-header-no-more-x-loader.html</a></q></li>
+<li class="message">[<a href="#T10:24:34" id="T10:24:34"><abbr title="2010-08-27T10:24:34+00:00">10:24:34</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>well, yeah </q></li>
+<li class="message">[<a href="#T10:24:51" id="T10:24:51"><abbr title="2010-08-27T10:24:51+00:00">10:24:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T10:24:59" id="T10:24:59"><abbr title="2010-08-27T10:24:59+00:00">10:24:59</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>you can do it</q></li>
+<li class="message">[<a href="#T10:25:06" id="T10:25:06"><abbr title="2010-08-27T10:25:06+00:00">10:25:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i said nothing else :)</q></li>
+<li class="message">[<a href="#T10:25:13" id="T10:25:13"><abbr title="2010-08-27T10:25:13+00:00">10:25:13</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but you need to configure ram somehow</q></li>
+<li class="message">[<a href="#T10:25:20" id="T10:25:20"><abbr title="2010-08-27T10:25:20+00:00">10:25:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, via conf headers</q></li>
+<li class="message">[<a href="#T10:25:21" id="T10:25:21"><abbr title="2010-08-27T10:25:21+00:00">10:25:21</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>in this case it's done by rom</q></li>
+<li class="message">[<a href="#T10:25:37" id="T10:25:37"><abbr title="2010-08-27T10:25:37+00:00">10:25:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>rom reads a table of register addresses and values</q></li>
+<li class="message">[<a href="#T10:25:41" id="T10:25:41"><abbr title="2010-08-27T10:25:41+00:00">10:25:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and pokes them into the omap</q></li>
+<li class="message">[<a href="#T10:25:52" id="T10:25:52"><abbr title="2010-08-27T10:25:52+00:00">10:25:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>aka configration headers</q></li>
+<li class="quit">[<a href="#T10:25:53" id="T10:25:53"><abbr title="2010-08-27T10:25:53+00:00">10:25:53</abbr></a>] <span>* daurni (76d1529f@freenode/staff/daurnimator) Quit (Client Quit)</span></li>
+<li class="action">[<a href="#T10:26:18" id="T10:26:18"><abbr title="2010-08-27T10:26:18+00:00">10:26:18</abbr></a>] <span>* av500 remembers having that on custom SH-1 ROM code in 2001 :)</span></li>
+<li class="message">[<a href="#T10:27:51" id="T10:27:51"><abbr title="2010-08-27T10:27:51+00:00">10:27:51</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>i'm just wondering if anybody have m-shield datasheets here</q></li>
+<li class="message">[<a href="#T10:28:01" id="T10:28:01"><abbr title="2010-08-27T10:28:01+00:00">10:28:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i might :)</q></li>
+<li class="message">[<a href="#T10:28:19" id="T10:28:19"><abbr title="2010-08-27T10:28:19+00:00">10:28:19</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>what you had to do to get them?</q></li>
+<li class="message">[<a href="#T10:28:34" id="T10:28:34"><abbr title="2010-08-27T10:28:34+00:00">10:28:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its the "tell you, kill you" thing :)</q></li>
+<li class="message">[<a href="#T10:28:40" id="T10:28:40"><abbr title="2010-08-27T10:28:40+00:00">10:28:40</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>he sold his soul years ago</q></li>
+<li class="message">[<a href="#T10:28:54" id="T10:28:54"><abbr title="2010-08-27T10:28:54+00:00">10:28:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jacekowski: talk to your friendly TI rep</q></li>
+<li class="message">[<a href="#T10:29:00" id="T10:29:00"><abbr title="2010-08-27T10:29:00+00:00">10:29:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>predict him huge sales</q></li>
+<li class="message">[<a href="#T10:29:11" id="T10:29:11"><abbr title="2010-08-27T10:29:11+00:00">10:29:11</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>was there any NDA to sign?</q></li>
+<li class="message">[<a href="#T10:29:13" id="T10:29:13"><abbr title="2010-08-27T10:29:13+00:00">10:29:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>show him bank account statement</q></li>
+<li class="message">[<a href="#T10:29:17" id="T10:29:17"><abbr title="2010-08-27T10:29:17+00:00">10:29:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jacekowski: of course</q></li>
+<li class="action">[<a href="#T10:29:29" id="T10:29:29"><abbr title="2010-08-27T10:29:29+00:00">10:29:29</abbr></a>] <span>* XorA is going to assume m-sheild is a varient of pretty standard silicon defences</span></li>
+<li class="message">[<a href="#T10:29:33" id="T10:29:33"><abbr title="2010-08-27T10:29:33+00:00">10:29:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I sing NDAs all day</q></li>
+<li class="message">[<a href="#T10:30:05" id="T10:30:05"><abbr title="2010-08-27T10:30:05+00:00">10:30:05</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and really</q></li>
+<li class="message">[<a href="#T10:30:32" id="T10:30:32"><abbr title="2010-08-27T10:30:32+00:00">10:30:32</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>hmm, i'll have to send them an e-mail</q></li>
+<li class="nick-change">[<a href="#T10:30:40" id="T10:30:40"><abbr title="2010-08-27T10:30:40+00:00">10:30:40</abbr></a>] <span>* amitk-afk is now known as amitk</span></li>
+<li class="message">[<a href="#T10:30:46" id="T10:30:46"><abbr title="2010-08-27T10:30:46+00:00">10:30:46</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>av500: you _sing_ them? I pity alex and the rest...</q></li>
+<li class="message">[<abbr title="2010-08-27T10:30:46+00:00">10:30:46</abbr>] &lt;<cite>jacekowski</cite>&gt; <q>or you did it over a phone?</q></li>
+<li class="message">[<a href="#T10:31:04" id="T10:31:04"><abbr title="2010-08-27T10:31:04+00:00">10:31:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>dm8tbr: lalalalaaaaa</q></li>
+<li class="message">[<a href="#T10:31:15" id="T10:31:15"><abbr title="2010-08-27T10:31:15+00:00">10:31:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>over the phone, I shout :)</q></li>
+<li class="quit">[<a href="#T10:35:40" id="T10:35:40"><abbr title="2010-08-27T10:35:40+00:00">10:35:40</abbr></a>] <span>* tasslehoff (~Mich@147.84-49-231.nextgentel.com) Quit (Quit: Lost terminal)</span></li>
+<li class="join">[<a href="#T10:35:48" id="T10:35:48"><abbr title="2010-08-27T10:35:48+00:00">10:35:48</abbr></a>] <span>* naeg (~naeg@194.208.239.170) has joined #beagle</span></li>
+<li class="join">[<a href="#T10:41:40" id="T10:41:40"><abbr title="2010-08-27T10:41:40+00:00">10:41:40</abbr></a>] <span>* jd823592 (~user@193.107.254.237) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:43:28" id="T10:43:28"><abbr title="2010-08-27T10:43:28+00:00">10:43:28</abbr></a>] <span>* likewise (~likewise@82-170-243-215.ip.telfort.nl) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="quit">[<a href="#T10:44:29" id="T10:44:29"><abbr title="2010-08-27T10:44:29+00:00">10:44:29</abbr></a>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="join">[<a href="#T10:45:18" id="T10:45:18"><abbr title="2010-08-27T10:45:18+00:00">10:45:18</abbr></a>] <span>* negril (~negril@fsr.e-technik.uni-rostock.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T10:45:23" id="T10:45:23"><abbr title="2010-08-27T10:45:23+00:00">10:45:23</abbr></a>] <span>* daurn (76d1529f@freenode/staff/daurnimator) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:45:45" id="T10:45:45"><abbr title="2010-08-27T10:45:45+00:00">10:45:45</abbr></a>] &lt;<cite>daurn</cite>&gt; <q>sorry, got d/c</q></li>
+<li class="message">[<a href="#T10:46:05" id="T10:46:05"><abbr title="2010-08-27T10:46:05+00:00">10:46:05</abbr></a>] &lt;<cite>daurn</cite>&gt; <q>regarding the xm: I don't understand the digikey order page; </q></li>
+<li class="message">[<a href="#T10:46:28" id="T10:46:28"><abbr title="2010-08-27T10:46:28+00:00">10:46:28</abbr></a>] &lt;<cite>daurn</cite>&gt; <q>i understand they are $179?</q></li>
+<li class="message">[<a href="#T10:46:32" id="T10:46:32"><abbr title="2010-08-27T10:46:32+00:00">10:46:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T10:46:43" id="T10:46:43"><abbr title="2010-08-27T10:46:43+00:00">10:46:43</abbr></a>] &lt;<cite>daurn</cite>&gt; <q>also it says lead time, then 10/8/2010... which confuses me</q></li>
+<li class="message">[<a href="#T10:48:37" id="T10:48:37"><abbr title="2010-08-27T10:48:37+00:00">10:48:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>read the mailing lisrt</q></li>
+<li class="message">[<a href="#T10:48:39" id="T10:48:39"><abbr title="2010-08-27T10:48:39+00:00">10:48:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>list</q></li>
+<li class="message">[<a href="#T10:48:46" id="T10:48:46"><abbr title="2010-08-27T10:48:46+00:00">10:48:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>xm have started shipping</q></li>
+<li class="message">[<a href="#T10:48:48" id="T10:48:48"><abbr title="2010-08-27T10:48:48+00:00">10:48:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so go order</q></li>
+<li class="message">[<a href="#T10:50:19" id="T10:50:19"><abbr title="2010-08-27T10:50:19+00:00">10:50:19</abbr></a>] &lt;<cite>jd823592</cite>&gt; <q>av500: i forgot to ask yesterday, are there opensource drivers for the BB? i suppose there are</q></li>
+<li class="message">[<a href="#T10:50:29" id="T10:50:29"><abbr title="2010-08-27T10:50:29+00:00">10:50:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>????????</q></li>
+<li class="message">[<a href="#T10:52:28" id="T10:52:28"><abbr title="2010-08-27T10:52:28+00:00">10:52:28</abbr></a>] &lt;<cite>jd823592</cite>&gt; <q>i guess you need drivers to use the ethernet card on XM etc.. so what about all those question marks?</q></li>
+<li class="message">[<a href="#T10:53:05" id="T10:53:05"><abbr title="2010-08-27T10:53:05+00:00">10:53:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jd823592: yes, there are opensource drivers</q></li>
+<li class="message">[<a href="#T10:53:13" id="T10:53:13"><abbr title="2010-08-27T10:53:13+00:00">10:53:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>XM runs linux</q></li>
+<li class="message">[<a href="#T10:53:50" id="T10:53:50"><abbr title="2010-08-27T10:53:50+00:00">10:53:50</abbr></a>] &lt;<cite>jd823592</cite>&gt; <q>i know it does.. that doesnt imply the drivers are open</q></li>
+<li class="message">[<a href="#T10:54:35" id="T10:54:35"><abbr title="2010-08-27T10:54:35+00:00">10:54:35</abbr></a>] &lt;<cite>jd823592</cite>&gt; <q>they are probably GPLed i guess</q></li>
+<li class="message">[<a href="#T10:54:40" id="T10:54:40"><abbr title="2010-08-27T10:54:40+00:00">10:54:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="quit">[<a href="#T10:54:54" id="T10:54:54"><abbr title="2010-08-27T10:54:54+00:00">10:54:54</abbr></a>] <span>* raster (raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
+<li class="message">[<a href="#T10:55:00" id="T10:55:00"><abbr title="2010-08-27T10:55:00+00:00">10:55:00</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>I guess only SGX is non-open?</q></li>
+<li class="message">[<a href="#T10:55:16" id="T10:55:16"><abbr title="2010-08-27T10:55:16+00:00">10:55:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T10:55:25" id="T10:55:25"><abbr title="2010-08-27T10:55:25+00:00">10:55:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and some odd bits and pieces</q></li>
+<li class="message">[<a href="#T10:56:07" id="T10:56:07"><abbr title="2010-08-27T10:56:07+00:00">10:56:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>damn, lunchpack not delivered coz nobody home :(</q></li>
+<li class="message">[<abbr title="2010-08-27T10:56:07+00:00">10:56:07</abbr>] &lt;<cite>jd823592</cite>&gt; <q>so its not entirely open?</q></li>
+<li class="message">[<a href="#T10:56:42" id="T10:56:42"><abbr title="2010-08-27T10:56:42+00:00">10:56:42</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>jd823592: SGX is optional. you don't want fancy 3D EGL. you don't install it.</q></li>
+<li class="message">[<a href="#T10:57:05" id="T10:57:05"><abbr title="2010-08-27T10:57:05+00:00">10:57:05</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>glibc is now FOSS though ;)</q></li>
+<li class="quit">[<a href="#T10:57:53" id="T10:57:53"><abbr title="2010-08-27T10:57:53+00:00">10:57:53</abbr></a>] <span>* andrevs (~Andre@2001:41d0:1:7ab1::1) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T10:58:39" id="T10:58:39"><abbr title="2010-08-27T10:58:39+00:00">10:58:39</abbr></a>] <span>* AndrevS (~Andre@2001:41d0:1:7ab1::1) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T10:58:53" id="T10:58:53"><abbr title="2010-08-27T10:58:53+00:00">10:58:53</abbr></a>] <span>* AndrevS is now known as andrevs</span></li>
