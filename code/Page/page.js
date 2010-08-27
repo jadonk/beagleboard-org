@@ -126,6 +126,7 @@ function cleanBody()
      );
     cleaner.setOmitUnknownTags(true);
     cleaner.setTreatDeprecatedTagsAsContent(true);
+    //cleaner.useCdata(true);
     cleaner.clean();
     var s = "" + cleaner.getXmlAsString();
     var x = new XML(s);
