@@ -413,3 +413,49 @@
 <li class="quit">[<a href="#T12:51:53" id="T12:51:53"><abbr title="2010-09-07T12:51:53+00:00">12:51:53</abbr></a>] <span>* marco____ (570c4727@gateway/web/freenode/ip.87.12.71.39) Quit (Client Quit)</span></li>
 <li class="join">[<a href="#T12:56:19" id="T12:56:19"><abbr title="2010-09-07T12:56:19+00:00">12:56:19</abbr></a>] <span>* torez (~torez@cpe-70-123-142-200.austin.res.rr.com) has joined #beagle</span></li>
 <li class="join">[<a href="#T12:57:57" id="T12:57:57"><abbr title="2010-09-07T12:57:57+00:00">12:57:57</abbr></a>] <span>* _koen_1 (~x0115699@nat/ti/x-pdfvxnxdcarnsyjn) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:01:18" id="T13:01:18"><abbr title="2010-09-07T13:01:18+00:00">13:01:18</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-iesapmuebhjermnb) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T13:01:47" id="T13:01:47"><abbr title="2010-09-07T13:01:47+00:00">13:01:47</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>_koen_1: any ideas on a fix for the libstdc++ issue?</q></li>
+<li class="message">[<a href="#T13:02:04" id="T13:02:04"><abbr title="2010-09-07T13:02:04+00:00">13:02:04</abbr></a>] &lt;<cite>_koen_1</cite>&gt; <q>yes, bug khem :)</q></li>
+<li class="message">[<a href="#T13:02:10" id="T13:02:10"><abbr title="2010-09-07T13:02:10+00:00">13:02:10</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>OK :-)</q></li>
+<li class="message">[<a href="#T13:02:28" id="T13:02:28"><abbr title="2010-09-07T13:02:28+00:00">13:02:28</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>hmm . . . audio seems to be broken on a top of tree build too :-(</q></li>
+<li class="message">[<a href="#T13:03:14" id="T13:03:14"><abbr title="2010-09-07T13:03:14+00:00">13:03:14</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>3 steps forward, 2 steps back . . .</q></li>
+<li class="quit">[<a href="#T13:03:49" id="T13:03:49"><abbr title="2010-09-07T13:03:49+00:00">13:03:49</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-aueevvdewpzlwtqg) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T13:05:10" id="T13:05:10"><abbr title="2010-09-07T13:05:10+00:00">13:05:10</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-mvbmtvwxgjdvgqyr) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:06:17" id="T13:06:17"><abbr title="2010-09-07T13:06:17+00:00">13:06:17</abbr></a>] <span>* robclark (~robclark@nat/ti/x-cdcjrpdjxwumvhpr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:17:31" id="T13:17:31"><abbr title="2010-09-07T13:17:31+00:00">13:17:31</abbr></a>] <span>* ucasano (~ucasano@151.12.47.139) Quit (Quit: ucasano)</span></li>
+<li class="message">[<a href="#T13:19:42" id="T13:19:42"><abbr title="2010-09-07T13:19:42+00:00">13:19:42</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>even if khem isn't the right guy, I think he would like to understand how it is broken</q></li>
+<li class="message">[<a href="#T13:20:52" id="T13:20:52"><abbr title="2010-09-07T13:20:52+00:00">13:20:52</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I think we merged some bits from poky, but too much</q></li>
+<li class="message">[<a href="#T13:21:00" id="T13:21:00"><abbr title="2010-09-07T13:21:00+00:00">13:21:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>e.g. caught some bits of the gcc-runtime</q></li>
+<li class="message">[<a href="#T13:21:29" id="T13:21:29"><abbr title="2010-09-07T13:21:29+00:00">13:21:29</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>koen, does the gdb2 patch also apply to angstrom-2010</q></li>
+<li class="message">[<a href="#T13:22:08" id="T13:22:08"><abbr title="2010-09-07T13:22:08+00:00">13:22:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>it does</q></li>
+<li class="message">[<a href="#T13:22:11" id="T13:22:11"><abbr title="2010-09-07T13:22:11+00:00">13:22:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and it works</q></li>
+<li class="message">[<a href="#T13:22:12" id="T13:22:12"><abbr title="2010-09-07T13:22:12+00:00">13:22:12</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>good</q></li>
+<li class="message">[<a href="#T13:22:21" id="T13:22:21"><abbr title="2010-09-07T13:22:21+00:00">13:22:21</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>that was the second question</q></li>
+<li class="join">[<a href="#T13:22:33" id="T13:22:33"><abbr title="2010-09-07T13:22:33+00:00">13:22:33</abbr></a>] <span>* GatorBoz (0c08e006@gateway/web/freenode/ip.12.8.224.6) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:23:51" id="T13:23:51"><abbr title="2010-09-07T13:23:51+00:00">13:23:51</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>Crofton: when will angstrom-2010 switch occur?</q></li>
+<li class="message">[<a href="#T13:24:10" id="T13:24:10"><abbr title="2010-09-07T13:24:10+00:00">13:24:10</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>check with koen</q></li>
+<li class="message">[<a href="#T13:24:18" id="T13:24:18"><abbr title="2010-09-07T13:24:18+00:00">13:24:18</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I am using it know</q></li>
+<li class="message">[<a href="#T13:24:27" id="T13:24:27"><abbr title="2010-09-07T13:24:27+00:00">13:24:27</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>trying to test what I can</q></li>
+<li class="message">[<a href="#T13:24:48" id="T13:24:48"><abbr title="2010-09-07T13:24:48+00:00">13:24:48</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>basically trying to get testing on gcc 4.5.x</q></li>
+<li class="message">[<a href="#T13:26:58" id="T13:26:58"><abbr title="2010-09-07T13:26:58+00:00">13:26:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>sakoman: switch?</q></li>
+<li class="message">[<a href="#T13:27:04" id="T13:27:04"><abbr title="2010-09-07T13:27:04+00:00">13:27:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>there are parallel efforts</q></li>
+<li class="join">[<a href="#T13:28:00" id="T13:28:00"><abbr title="2010-09-07T13:28:00+00:00">13:28:00</abbr></a>] <span>* djlewis (~djlewis@75.15.67.41) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:30:04" id="T13:30:04"><abbr title="2010-09-07T13:30:04+00:00">13:30:04</abbr></a>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T13:30:18" id="T13:30:18"><abbr title="2010-09-07T13:30:18+00:00">13:30:18</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>koen: well, I mean when is it ready to switch to?</q></li>
+<li class="quit">[<a href="#T13:32:49" id="T13:32:49"><abbr title="2010-09-07T13:32:49+00:00">13:32:49</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-mjuudlzhwivutaes) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T13:33:16" id="T13:33:16"><abbr title="2010-09-07T13:33:16+00:00">13:33:16</abbr></a>] <span>* ucasano (~ucasano@151.12.47.139) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:33:19" id="T13:33:19"><abbr title="2010-09-07T13:33:19+00:00">13:33:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>with my TI hat on: with xdctools gets fixed to build with gcc 4.5</q></li>
+<li class="message">[<a href="#T13:35:03" id="T13:35:03"><abbr title="2010-09-07T13:35:03+00:00">13:35:03</abbr></a>] &lt;<cite>Crofton_|work</cite>&gt; <q> as koen says, they both should work</q></li>
+<li class="quit">[<a href="#T13:37:04" id="T13:37:04"><abbr title="2010-09-07T13:37:04+00:00">13:37:04</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-mvbmtvwxgjdvgqyr) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T13:37:57" id="T13:37:57"><abbr title="2010-09-07T13:37:57+00:00">13:37:57</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-boiaigvekfbmluhq) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:38:12" id="T13:38:12"><abbr title="2010-09-07T13:38:12+00:00">13:38:12</abbr></a>] <span>* robclark (~robclark@nat/ti/x-cdcjrpdjxwumvhpr) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:38:18" id="T13:38:18"><abbr title="2010-09-07T13:38:18+00:00">13:38:18</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-xozzkesocokqinvl) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:43:43" id="T13:43:43"><abbr title="2010-09-07T13:43:43+00:00">13:43:43</abbr></a>] <span>* guesto (~zach@d58-107-149-179.sbr28.nsw.optusnet.com.au) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:43:49" id="T13:43:49"><abbr title="2010-09-07T13:43:49+00:00">13:43:49</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:45:33" id="T13:45:33"><abbr title="2010-09-07T13:45:33+00:00">13:45:33</abbr></a>] <span>* mmadrigal1 (~mmadrigal@201.196.107.110) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T13:45:54" id="T13:45:54"><abbr title="2010-09-07T13:45:54+00:00">13:45:54</abbr></a>] <span>* rupesh (ca5030af@gateway/web/freenode/ip.202.80.48.175) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T13:47:08" id="T13:47:08"><abbr title="2010-09-07T13:47:08+00:00">13:47:08</abbr></a>] <span>* ucasano_ (~ucasano@151.12.47.139) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2010-09-07T13:47:08+00:00">13:47:08</abbr>] <span>* ucasano (~ucasano@151.12.47.139) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T13:52:29" id="T13:52:29"><abbr title="2010-09-07T13:52:29+00:00">13:52:29</abbr></a>] <span>* tasslehoff (~Mich@147.84-49-231.nextgentel.com) Quit (Quit: Lost terminal)</span></li>
+<li class="join">[<a href="#T13:52:38" id="T13:52:38"><abbr title="2010-09-07T13:52:38+00:00">13:52:38</abbr></a>] <span>* robclark (~robclark@nat/ti/x-buhkazzoxmgxlvrg) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:54:30" id="T13:54:30"><abbr title="2010-09-07T13:54:30+00:00">13:54:30</abbr></a>] <span>* Zoxc (~zoxc@ti0128a380-dhcp0593.bb.online.no) has joined #beagle</span></li>
