@@ -344,3 +344,107 @@
 <li class="message">[<a href="#T06:57:45" id="T06:57:45"><abbr title="2010-09-09T06:57:45+00:00">06:57:45</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>for 720P</q></li>
 <li class="message">[<a href="#T06:59:04" id="T06:59:04"><abbr title="2010-09-09T06:59:04+00:00">06:59:04</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>hvaibhav: ok. my issue is that the resolution I'm adding already exists, I'm just adjusting the porch-lengths</q></li>
 <li class="message">[<a href="#T06:59:50" id="T06:59:50"><abbr title="2010-09-09T06:59:50+00:00">06:59:50</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>BRB</q></li>
+<li class="message">[<a href="#T07:00:37" id="T07:00:37"><abbr title="2010-09-09T07:00:37+00:00">07:00:37</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>back</q></li>
+<li class="message">[<a href="#T07:00:50" id="T07:00:50"><abbr title="2010-09-09T07:00:50+00:00">07:00:50</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>tasslehoff: name should also work actually</q></li>
+<li class="quit">[<a href="#T07:01:12" id="T07:01:12"><abbr title="2010-09-09T07:01:12+00:00">07:01:12</abbr></a>] <span>* raster (raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
+<li class="message">[<a href="#T07:02:09" id="T07:02:09"><abbr title="2010-09-09T07:02:09+00:00">07:02:09</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>hvaibhav: it's probably just my bootargs that are wrong. </q></li>
+<li class="message">[<a href="#T07:03:12" id="T07:03:12"><abbr title="2010-09-09T07:03:12+00:00">07:03:12</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>let me try</q></li>
+<li class="message">[<a href="#T07:04:39" id="T07:04:39"><abbr title="2010-09-09T07:04:39+00:00">07:04:39</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>hvaibhav: thanks. I tried to follow &lt;name&gt;[-&lt;bpp&gt;][@&lt;refresh&gt;], so I set omapfb.mode=dvi:mytiming-24@60, and speculated that the dvi: would be stripped somewhere :)</q></li>
+<li class="message">[<a href="#T07:05:07" id="T07:05:07"><abbr title="2010-09-09T07:05:07+00:00">07:05:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>tasslehoff: remove the -24@60 after mytiming</q></li>
+<li class="message">[<a href="#T07:05:10" id="T07:05:10"><abbr title="2010-09-09T07:05:10+00:00">07:05:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it doesn't make sense</q></li>
+<li class="message">[<a href="#T07:05:40" id="T07:05:40"><abbr title="2010-09-09T07:05:40+00:00">07:05:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>tasslehoff: could the "mytiming" be parsed numerically?</q></li>
+<li class="message">[<a href="#T07:05:52" id="T07:05:52"><abbr title="2010-09-09T07:05:52+00:00">07:05:52</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>yes thats right, it doesn't</q></li>
+<li class="message">[<a href="#T07:05:54" id="T07:05:54"><abbr title="2010-09-09T07:05:54+00:00">07:05:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>as in WxH?</q></li>
+<li class="message">[<a href="#T07:06:10" id="T07:06:10"><abbr title="2010-09-09T07:06:10+00:00">07:06:10</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>tasslehoff: I just tried and it is working for me</q></li>
+<li class="message">[<a href="#T07:06:14" id="T07:06:14"><abbr title="2010-09-09T07:06:14+00:00">07:06:14</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>mru: hm, right.</q></li>
+<li class="message">[<a href="#T07:06:27" id="T07:06:27"><abbr title="2010-09-09T07:06:27+00:00">07:06:27</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>fbset</q></li>
+<li class="message">[<abbr title="2010-09-09T07:06:27+00:00">07:06:27</abbr>] &lt;<cite>hvaibhav</cite>&gt; <q>mode "1280x720-60"</q></li>
+<li class="message">[<a href="#T07:06:38" id="T07:06:38"><abbr title="2010-09-09T07:06:38+00:00">07:06:38</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>console=ttyS0,115200n8 mem=128M root=/dev/nfs noinitrd nfsroot=172.24.190.19:/home/vaibhav/remote/2009.11-rc2/omap3evm,nolock,rsize=1024,wsize=1024 ip=dhcp omapdss.def_disp="dvi" omapfb.mode=dvi:720p-32@60 mpurate=720</q></li>
+<li class="message">[<a href="#T07:06:43" id="T07:06:43"><abbr title="2010-09-09T07:06:43+00:00">07:06:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hvaibhav: that doesn't give proper 720p timings</q></li>
+<li class="message">[<a href="#T07:06:48" id="T07:06:48"><abbr title="2010-09-09T07:06:48+00:00">07:06:48</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>av500: don't think so, since 800x600 already exists</q></li>
+<li class="message">[<a href="#T07:07:18" id="T07:07:18"><abbr title="2010-09-09T07:07:18+00:00">07:07:18</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>mru: I used "omapfb.mode=dvi:720p-32@60" string in my bootargs</q></li>
+<li class="message">[<a href="#T07:07:25" id="T07:07:25"><abbr title="2010-09-09T07:07:25+00:00">07:07:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>don't do that</q></li>
+<li class="message">[<a href="#T07:07:28" id="T07:07:28"><abbr title="2010-09-09T07:07:28+00:00">07:07:28</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>and the output of fbset was what i pasted above</q></li>
+<li class="message">[<a href="#T07:07:33" id="T07:07:33"><abbr title="2010-09-09T07:07:33+00:00">07:07:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>720p isn't defined anywhere</q></li>
+<li class="join">[<a href="#T07:07:35" id="T07:07:35"><abbr title="2010-09-09T07:07:35+00:00">07:07:35</abbr></a>] <span>* ucasano (~ucasano@95.231.79.71) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:07:54" id="T07:07:54"><abbr title="2010-09-09T07:07:54+00:00">07:07:54</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>hold on, I defiened it in modedb.c file to simulate this issue</q></li>
+<li class="message">[<a href="#T07:08:12" id="T07:08:12"><abbr title="2010-09-09T07:08:12+00:00">07:08:12</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>i have 720P timings named with "720p" string</q></li>
+<li class="message">[<a href="#T07:08:25" id="T07:08:25"><abbr title="2010-09-09T07:08:25+00:00">07:08:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ah, ok</q></li>
+<li class="message">[<a href="#T07:08:27" id="T07:08:27"><abbr title="2010-09-09T07:08:27+00:00">07:08:27</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>and I am using name to configure it, which is working for me.</q></li>
+<li class="message">[<a href="#T07:08:35" id="T07:08:35"><abbr title="2010-09-09T07:08:35+00:00">07:08:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hvaibhav: and why no patch to modedb sent? :)</q></li>
+<li class="message">[<a href="#T07:09:14" id="T07:09:14"><abbr title="2010-09-09T07:09:14+00:00">07:09:14</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>hvaibhav: hm, then you did the same as me (adding -bpp@res) behind the name</q></li>
+<li class="message">[<a href="#T07:09:26" id="T07:09:26"><abbr title="2010-09-09T07:09:26+00:00">07:09:26</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>This is pending item from my plate which is lagging behind big time</q></li>
+<li class="message">[<a href="#T07:09:33" id="T07:09:33"><abbr title="2010-09-09T07:09:33+00:00">07:09:33</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T07:09:53" id="T07:09:53"><abbr title="2010-09-09T07:09:53+00:00">07:09:53</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>tasslehoff: yes</q></li>
+<li class="message">[<a href="#T07:10:13" id="T07:10:13"><abbr title="2010-09-09T07:10:13+00:00">07:10:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>my modedb.c has an "hd720" mode added by koen</q></li>
+<li class="message">[<a href="#T07:10:37" id="T07:10:37"><abbr title="2010-09-09T07:10:37+00:00">07:10:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>names starting with numbers might confuse something</q></li>
+<li class="join">[<a href="#T07:10:40" id="T07:10:40"><abbr title="2010-09-09T07:10:40+00:00">07:10:40</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:11:03" id="T07:11:03"><abbr title="2010-09-09T07:11:03+00:00">07:11:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I also have another 1280x720 mode added by hvaibhav</q></li>
+<li class="join">[<a href="#T07:11:08" id="T07:11:08"><abbr title="2010-09-09T07:11:08+00:00">07:11:08</abbr></a>] <span>* Proxyles (~henrik@c-9f93e255.56-4-64736c14.cust.bredbandsbolaget.se) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:11:09" id="T07:11:09"><abbr title="2010-09-09T07:11:09+00:00">07:11:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>with different timings</q></li>
+<li class="message">[<a href="#T07:11:20" id="T07:11:20"><abbr title="2010-09-09T07:11:20+00:00">07:11:20</abbr></a>] &lt;<cite>hvaibhav</cite>&gt; <q>yes thats right, I just added to try tasslehoff issue.</q></li>
+<li class="message">[<a href="#T07:11:31" id="T07:11:31"><abbr title="2010-09-09T07:11:31+00:00">07:11:31</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>ah, typo. </q></li>
+<li class="message">[<a href="#T07:11:33" id="T07:11:33"><abbr title="2010-09-09T07:11:33+00:00">07:11:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>to _my_ hard disk?</q></li>
+<li class="message">[<a href="#T07:11:35" id="T07:11:35"><abbr title="2010-09-09T07:11:35+00:00">07:11:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hardly</q></li>
+<li class="action">[<abbr title="2010-09-09T07:11:35+00:00">07:11:35</abbr>] <span>* tasslehoff tries again</span></li>
+<li class="message">[<a href="#T07:11:49" id="T07:11:49"><abbr title="2010-09-09T07:11:49+00:00">07:11:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and in november last year</q></li>
+<li class="join">[<a href="#T07:12:21" id="T07:12:21"><abbr title="2010-09-09T07:12:21+00:00">07:12:21</abbr></a>] <span>* ssvb (~ssvb@viktor.cosmicparrot.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:12:40" id="T07:12:40"><abbr title="2010-09-09T07:12:40+00:00">07:12:40</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-zamtjkvkrkrdfxub) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:14:10" id="T07:14:10"><abbr title="2010-09-09T07:14:10+00:00">07:14:10</abbr></a>] <span>* courville (~courville@archos.rain.fr) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:15:13" id="T07:15:13"><abbr title="2010-09-09T07:15:13+00:00">07:15:13</abbr></a>] <span>* raster (raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:22:14" id="T07:22:14"><abbr title="2010-09-09T07:22:14+00:00">07:22:14</abbr></a>] &lt;<cite>Pradeep</cite>&gt; <q>wats the power required to run beagle board?</q></li>
+<li class="message">[<a href="#T07:22:30" id="T07:22:30"><abbr title="2010-09-09T07:22:30+00:00">07:22:30</abbr></a>] &lt;<cite>Pradeep</cite>&gt; <q>If I connect through a Lithium battery.. </q></li>
+<li class="quit">[<a href="#T07:23:21" id="T07:23:21"><abbr title="2010-09-09T07:23:21+00:00">07:23:21</abbr></a>] <span>* rbarraud (~rbarraud@118-93-183-205.dsl.dyn.ihug.co.nz) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T07:25:55" id="T07:25:55"><abbr title="2010-09-09T07:25:55+00:00">07:25:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>5V</q></li>
+<li class="message">[<a href="#T07:26:38" id="T07:26:38"><abbr title="2010-09-09T07:26:38+00:00">07:26:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: see, there is a TI backdoor in the BB</q></li>
+<li class="message">[<abbr title="2010-09-09T07:26:38+00:00">07:26:38</abbr>] &lt;<cite>koen</cite>&gt; <q>that's voltage</q></li>
+<li class="message">[<a href="#T07:26:50" id="T07:26:50"><abbr title="2010-09-09T07:26:50+00:00">07:26:50</abbr></a>] &lt;<cite>koen</cite>&gt; <q>power is usually in Watts</q></li>
+<li class="action">[<a href="#T07:27:06" id="T07:27:06"><abbr title="2010-09-09T07:27:06+00:00">07:27:06</abbr></a>] <span>* av500 googles Watts</span></li>
+<li class="quit">[<a href="#T07:28:14" id="T07:28:14"><abbr title="2010-09-09T07:28:14+00:00">07:28:14</abbr></a>] <span>* thurbad (~nathan@76.91.0.58) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<a href="#T07:28:33" id="T07:28:33"><abbr title="2010-09-09T07:28:33+00:00">07:28:33</abbr></a>] <span>* killring (~killring@adsl-76-234-170-211.dsl.sfldmi.sbcglobal.net) Quit (Quit: killring)</span></li>
+<li class="message">[<a href="#T07:30:22" id="T07:30:22"><abbr title="2010-09-09T07:30:22+00:00">07:30:22</abbr></a>] &lt;<cite>amitk</cite>&gt; <q>Pradeep: 5V AC and this is very easily found on Google</q></li>
+<li class="message">[<a href="#T07:31:01" id="T07:31:01"><abbr title="2010-09-09T07:31:01+00:00">07:31:01</abbr></a>] &lt;<cite>amitk</cite>&gt; <q>err, 5V input from AC adapter</q></li>
+<li class="message">[<a href="#T07:31:03" id="T07:31:03"><abbr title="2010-09-09T07:31:03+00:00">07:31:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>AC?</q></li>
+<li class="message">[<a href="#T07:31:29" id="T07:31:29"><abbr title="2010-09-09T07:31:29+00:00">07:31:29</abbr></a>] &lt;<cite>koen</cite>&gt; <q>thunder!</q></li>
+<li class="join">[<a href="#T07:33:13" id="T07:33:13"><abbr title="2010-09-09T07:33:13+00:00">07:33:13</abbr></a>] <span>* Radiao (~sg@port-87-193-237-134.static.qsc.de) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T07:35:35" id="T07:35:35"><abbr title="2010-09-09T07:35:35+00:00">07:35:35</abbr></a>] <span>* hrw|gone is now known as hrw</span></li>
+<li class="message">[<a href="#T07:36:56" id="T07:36:56"><abbr title="2010-09-09T07:36:56+00:00">07:36:56</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>Hello, I have a question - do you think that a linux-based system that works on a Beagleboard also works on the <a href="http://www.ic-board.de/product_info.php?info=p105_ICnova-SAM9G45-OEM.html">http://www.ic-board.de/product_info.php?info=p105_ICnova-SAM9G45-OEM.html</a> ? -&gt; click "Eigenschaften" for technical details ---- (using the same image, kernel and binaries). It's an ARM9 architecture</q></li>
+<li class="message">[<a href="#T07:37:26" id="T07:37:26"><abbr title="2010-09-09T07:37:26+00:00">07:37:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>of course not</q></li>
+<li class="message">[<a href="#T07:37:34" id="T07:37:34"><abbr title="2010-09-09T07:37:34+00:00">07:37:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's an arm9</q></li>
+<li class="message">[<a href="#T07:37:40" id="T07:37:40"><abbr title="2010-09-09T07:37:40+00:00">07:37:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it can't run armv7 code</q></li>
+<li class="quit">[<a href="#T07:37:58" id="T07:37:58"><abbr title="2010-09-09T07:37:58+00:00">07:37:58</abbr></a>] <span>* jpirko (~jirka@ip-89-103-91-100.net.upcbroadband.cz) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T07:39:00" id="T07:39:00"><abbr title="2010-09-09T07:39:00+00:00">07:39:00</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>ok, so there is no backward compatibility from arm9 to arm7, thank you.</q></li>
+<li class="message">[<a href="#T07:39:06" id="T07:39:06"><abbr title="2010-09-09T07:39:06+00:00">07:39:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T07:39:32" id="T07:39:32"><abbr title="2010-09-09T07:39:32+00:00">07:39:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you mixed up ARM9 and armv7</q></li>
+<li class="message">[<a href="#T07:39:45" id="T07:39:45"><abbr title="2010-09-09T07:39:45+00:00">07:39:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ARM9 is armv5</q></li>
+<li class="message">[<a href="#T07:39:50" id="T07:39:50"><abbr title="2010-09-09T07:39:50+00:00">07:39:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or v4</q></li>
+<li class="message">[<a href="#T07:39:51" id="T07:39:51"><abbr title="2010-09-09T07:39:51+00:00">07:39:51</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>same applies to ARM11 ?</q></li>
+<li class="message">[<a href="#T07:39:55" id="T07:39:55"><abbr title="2010-09-09T07:39:55+00:00">07:39:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if it's a 9tdmi</q></li>
+<li class="message">[<a href="#T07:39:56" id="T07:39:56"><abbr title="2010-09-09T07:39:56+00:00">07:39:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>armv6</q></li>
+<li class="message">[<a href="#T07:44:04" id="T07:44:04"><abbr title="2010-09-09T07:44:04+00:00">07:44:04</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>I'm a bit confused now. If I see a debian for example and it says just  "arm" - which arm is that for?</q></li>
+<li class="message">[<a href="#T07:44:15" id="T07:44:15"><abbr title="2010-09-09T07:44:15+00:00">07:44:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>armv5</q></li>
+<li class="message">[<a href="#T07:45:03" id="T07:45:03"><abbr title="2010-09-09T07:45:03+00:00">07:45:03</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>so it'd run on beagleboard?</q></li>
+<li class="message">[<a href="#T07:45:10" id="T07:45:10"><abbr title="2010-09-09T07:45:10+00:00">07:45:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T07:45:15" id="T07:45:15"><abbr title="2010-09-09T07:45:15+00:00">07:45:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>armv5 runs on armv7</q></li>
+<li class="message">[<a href="#T07:45:20" id="T07:45:20"><abbr title="2010-09-09T07:45:20+00:00">07:45:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>not vice versa</q></li>
+<li class="message">[<a href="#T07:46:07" id="T07:46:07"><abbr title="2010-09-09T07:46:07+00:00">07:46:07</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>hvaibhav: after fixing my typo all is well :)</q></li>
+<li class="message">[<a href="#T07:46:11" id="T07:46:11"><abbr title="2010-09-09T07:46:11+00:00">07:46:11</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>ok thank you . was a bit confused that ARM-x is very different to ARMv-x</q></li>
+<li class="quit">[<a href="#T07:46:39" id="T07:46:39"><abbr title="2010-09-09T07:46:39+00:00">07:46:39</abbr></a>] <span>* fungus (4cafeb5d@gateway/web/freenode/ip.76.175.235.93) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T07:47:17" id="T07:47:17"><abbr title="2010-09-09T07:47:17+00:00">07:47:17</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>so when going back to my first question ... it applies not in the direction I asked, but in the other direction</q></li>
+<li class="message">[<a href="#T07:47:41" id="T07:47:41"><abbr title="2010-09-09T07:47:41+00:00">07:47:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, that is more likely to work</q></li>
+<li class="message">[<a href="#T07:48:00" id="T07:48:00"><abbr title="2010-09-09T07:48:00+00:00">07:48:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>assuming that the kernel and hw support works on both boarsds</q></li>
+<li class="nick-change">[<a href="#T07:48:02" id="T07:48:02"><abbr title="2010-09-09T07:48:02+00:00">07:48:02</abbr></a>] <span>* ynezz_ is now known as ynezz</span></li>
+<li class="message">[<a href="#T07:48:33" id="T07:48:33"><abbr title="2010-09-09T07:48:33+00:00">07:48:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: it's possible to write armv5 code that doesn't run on armv7</q></li>
+<li class="message">[<a href="#T07:48:53" id="T07:48:53"><abbr title="2010-09-09T07:48:53+00:00">07:48:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>kerne's can't be moved around either</q></li>
+<li class="message">[<a href="#T07:49:07" id="T07:49:07"><abbr title="2010-09-09T07:49:07+00:00">07:49:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: is debian that clever?</q></li>
+<li class="message">[<a href="#T07:49:08" id="T07:49:08"><abbr title="2010-09-09T07:49:08+00:00">07:49:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>they hardcode things like cache operations that differ</q></li>
+<li class="message">[<a href="#T07:49:19" id="T07:49:19"><abbr title="2010-09-09T07:49:19+00:00">07:49:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: that would be fun</q></li>
+<li class="message">[<a href="#T07:50:06" id="T07:50:06"><abbr title="2010-09-09T07:50:06+00:00">07:50:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Radiao: it would depend on your application which board you chose</q></li>
+<li class="message">[<a href="#T07:50:26" id="T07:50:26"><abbr title="2010-09-09T07:50:26+00:00">07:50:26</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>regarding the openembedded project -- the machine.conf for beagleboard has TARGET_ARCH = "arm" ... so it actually builds armv5?</q></li>
+<li class="message">[<a href="#T07:50:42" id="T07:50:42"><abbr title="2010-09-09T07:50:42+00:00">07:50:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T07:50:49" id="T07:50:49"><abbr title="2010-09-09T07:50:49+00:00">07:50:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it builds armv7 code for beagle</q></li>
+<li class="message">[<a href="#T07:50:57" id="T07:50:57"><abbr title="2010-09-09T07:50:57+00:00">07:50:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i guess it mentions a cortex a8 somewhere</q></li>
+<li class="message">[<a href="#T07:52:21" id="T07:52:21"><abbr title="2010-09-09T07:52:21+00:00">07:52:21</abbr></a>] &lt;<cite>Radiao</cite>&gt; <q>oh yes, it says OMAP3 and TARGET_CC_ARCH = "-march=armv7-a -mtune=cortex-a8 -mfpu=neon ${ARM_FP_OPT}" -- so probably yes</q></li>
+<li class="message">[<a href="#T07:52:46" id="T07:52:46"><abbr title="2010-09-09T07:52:46+00:00">07:52:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="quit">[<a href="#T07:57:38" id="T07:57:38"><abbr title="2010-09-09T07:57:38+00:00">07:57:38</abbr></a>] <span>* PuffTheMagic (~PuffTheMa@unaffiliated/puffthemagic) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T07:58:23" id="T07:58:23"><abbr title="2010-09-09T07:58:23+00:00">07:58:23</abbr></a>] <span>* siji (~siji@122.169.53.89) has joined #beagle</span></li>
