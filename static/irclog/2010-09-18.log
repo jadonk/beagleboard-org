@@ -361,3 +361,23 @@
 <li class="message">[<a href="#T12:59:28" id="T12:59:28"><abbr title="2010-09-18T12:59:28+00:00">12:59:28</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>Hi all</q></li>
 <li class="message">[<a href="#T12:59:45" id="T12:59:45"><abbr title="2010-09-18T12:59:45+00:00">12:59:45</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>if anyone is able to help with driver for ENC28j60</q></li>
 <li class="message">[<a href="#T12:59:46" id="T12:59:46"><abbr title="2010-09-18T12:59:46+00:00">12:59:46</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>??</q></li>
+<li class="message">[<a href="#T13:00:46" id="T13:00:46"><abbr title="2010-09-18T13:00:46+00:00">13:00:46</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>what has it todo with beagleboad?</q></li>
+<li class="message">[<a href="#T13:01:34" id="T13:01:34"><abbr title="2010-09-18T13:01:34+00:00">13:01:34</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>I have the beagle and the zippy board</q></li>
+<li class="message">[<a href="#T13:01:38" id="T13:01:38"><abbr title="2010-09-18T13:01:38+00:00">13:01:38</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>with enc28j60</q></li>
+<li class="message">[<a href="#T13:02:10" id="T13:02:10"><abbr title="2010-09-18T13:02:10+00:00">13:02:10</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>I can't compile kernel for linux with enc28j60</q></li>
+<li class="message">[<a href="#T13:03:59" id="T13:03:59"><abbr title="2010-09-18T13:03:59+00:00">13:03:59</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>I choose ENC28J60 form network driver, when kernel is started on beagle, driver is not run</q></li>
+<li class="message">[<a href="#T13:05:10" id="T13:05:10"><abbr title="2010-09-18T13:05:10+00:00">13:05:10</abbr></a>] &lt;<cite>adj</cite>&gt; <q>you propably should also tell the kernel that you have such a device on some SPI port</q></li>
+<li class="message">[<a href="#T13:05:33" id="T13:05:33"><abbr title="2010-09-18T13:05:33+00:00">13:05:33</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>yes I choose the SPI</q></li>
+<li class="message">[<a href="#T13:05:38" id="T13:05:38"><abbr title="2010-09-18T13:05:38+00:00">13:05:38</abbr></a>] &lt;<cite>adj</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T13:06:08" id="T13:06:08"><abbr title="2010-09-18T13:06:08+00:00">13:06:08</abbr></a>] &lt;<cite>adj</cite>&gt; <q>does it also ask the SPI port number?</q></li>
+<li class="message">[<a href="#T13:06:12" id="T13:06:12"><abbr title="2010-09-18T13:06:12+00:00">13:06:12</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>but, i should tell the kerenl that on SPI 4 I have enc28j60??</q></li>
+<li class="message">[<a href="#T13:06:18" id="T13:06:18"><abbr title="2010-09-18T13:06:18+00:00">13:06:18</abbr></a>] &lt;<cite>adj</cite>&gt; <q>and chip select number</q></li>
+<li class="message">[<a href="#T13:06:44" id="T13:06:44"><abbr title="2010-09-18T13:06:44+00:00">13:06:44</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>ok, where I can set this</q></li>
+<li class="message">[<a href="#T13:07:22" id="T13:07:22"><abbr title="2010-09-18T13:07:22+00:00">13:07:22</abbr></a>] &lt;<cite>adj</cite>&gt; <q>board file would be my guess</q></li>
+<li class="message">[<a href="#T13:08:10" id="T13:08:10"><abbr title="2010-09-18T13:08:10+00:00">13:08:10</abbr></a>] &lt;<cite>adj</cite>&gt; <q>and naturally you will have to set up muxing for SPI pins, or at least make sure they are correct</q></li>
+<li class="message">[<a href="#T13:10:26" id="T13:10:26"><abbr title="2010-09-18T13:10:26+00:00">13:10:26</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>I can setup this in kernel configuration?</q></li>
+<li class="message">[<a href="#T13:12:56" id="T13:12:56"><abbr title="2010-09-18T13:12:56+00:00">13:12:56</abbr></a>] &lt;<cite>adj</cite>&gt; <q>with menuconfig or similar? no.</q></li>
+<li class="message">[<a href="#T13:13:41" id="T13:13:41"><abbr title="2010-09-18T13:13:41+00:00">13:13:41</abbr></a>] &lt;<cite>adj</cite>&gt; <q>they should propably be set in arch/arm/mach-omap2/board-omap3beagle.c</q></li>
+<li class="message">[<a href="#T13:14:26" id="T13:14:26"><abbr title="2010-09-18T13:14:26+00:00">13:14:26</abbr></a>] &lt;<cite>adj</cite>&gt; <q>mux config needs to be done somewhere else</q></li>
+<li class="message">[<a href="#T13:16:24" id="T13:16:24"><abbr title="2010-09-18T13:16:24+00:00">13:16:24</abbr></a>] &lt;<cite>zakri</cite>&gt; <q>ok thnaks for  help </q></li>
+<li class="quit">[<a href="#T13:38:10" id="T13:38:10"><abbr title="2010-09-18T13:38:10+00:00">13:38:10</abbr></a>] <span>* akumar1 (~mm4@122.170.30.152) Quit (Quit: Leaving.)</span></li>
