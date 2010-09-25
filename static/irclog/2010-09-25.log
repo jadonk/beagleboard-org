@@ -385,3 +385,45 @@
 <li class="message">[<a href="#T14:53:48" id="T14:53:48"><abbr title="2010-09-25T14:53:48+00:00">14:53:48</abbr></a>] &lt;<cite>ynezz</cite>&gt; <q>it's mr. builder</q></li>
 <li class="message">[<a href="#T14:54:00" id="T14:54:00"><abbr title="2010-09-25T14:54:00+00:00">14:54:00</abbr></a>] &lt;<cite>ynezz</cite>&gt; <q>or mrs., who knows</q></li>
 <li class="message">[<a href="#T14:54:31" id="T14:54:31"><abbr title="2010-09-25T14:54:31+00:00">14:54:31</abbr></a>] &lt;<cite>peterretief</cite>&gt; <q>person builder?</q></li>
+<li class="part">[<a href="#T15:06:35" id="T15:06:35"><abbr title="2010-09-25T15:06:35+00:00">15:06:35</abbr></a>] <span>* peterretief (~peterreti@41-132-49-147.dsl.mweb.co.za) has left #beagle</span></li>
+<li class="join">[<a href="#T15:08:22" id="T15:08:22"><abbr title="2010-09-25T15:08:22+00:00">15:08:22</abbr></a>] <span>* prpplague (~danders@nat/ti/x-aeloguybxiojvxmb) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:16:10" id="T15:16:10"><abbr title="2010-09-25T15:16:10+00:00">15:16:10</abbr></a>] <span>* emeb|mac (~ericb@ip72-223-86-148.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:24:55" id="T15:24:55"><abbr title="2010-09-25T15:24:55+00:00">15:24:55</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: all right, I ran 6 test runs, and ffmpeg takes on average 6 seconds, while flac takes 7.5</q></li>
+<li class="message">[<a href="#T15:25:23" id="T15:25:23"><abbr title="2010-09-25T15:25:23+00:00">15:25:23</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: the problem seems to be GStreamer's flacparse which performs like shit</q></li>
+<li class="message">[<a href="#T15:25:56" id="T15:25:56"><abbr title="2010-09-25T15:25:56+00:00">15:25:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>felpic flac on dsp?</q></li>
+<li class="message">[<a href="#T15:26:06" id="T15:26:06"><abbr title="2010-09-25T15:26:06+00:00">15:26:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's odd</q></li>
+<li class="message">[<a href="#T15:26:19" id="T15:26:19"><abbr title="2010-09-25T15:26:19+00:00">15:26:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I got a bigger difference</q></li>
+<li class="message">[<a href="#T15:26:35" id="T15:26:35"><abbr title="2010-09-25T15:26:35+00:00">15:26:35</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>woglinde: nope, FFmpeg</q></li>
+<li class="message">[<a href="#T15:26:59" id="T15:26:59"><abbr title="2010-09-25T15:26:59+00:00">15:26:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>felipec I meant gstreamer with dsp</q></li>
+<li class="message">[<a href="#T15:27:26" id="T15:27:26"><abbr title="2010-09-25T15:27:26+00:00">15:27:26</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>woglinde: nope: <a href="http://github.com/felipec/gst-av">http://github.com/felipec/gst-av</a></q></li>
+<li class="message">[<a href="#T15:27:59" id="T15:27:59"><abbr title="2010-09-25T15:27:59+00:00">15:27:59</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: I ran like this: time /opt/ffmpeg/bin/ffmpeg -i "MyDocs/test-music/The XX - Islands.flac" -y test.wav</q></li>
+<li class="message">[<a href="#T15:28:14" id="T15:28:14"><abbr title="2010-09-25T15:28:14+00:00">15:28:14</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>and used the real time</q></li>
+<li class="message">[<a href="#T15:28:19" id="T15:28:19"><abbr title="2010-09-25T15:28:19+00:00">15:28:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>use user time</q></li>
+<li class="message">[<a href="#T15:28:38" id="T15:28:38"><abbr title="2010-09-25T15:28:38+00:00">15:28:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>otherwise you're including file read/write speed</q></li>
+<li class="join">[<a href="#T15:29:18" id="T15:29:18"><abbr title="2010-09-25T15:29:18+00:00">15:29:18</abbr></a>] <span>* mmadrigal (~mmadrigal@186.32.57.22) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:29:35" id="T15:29:35"><abbr title="2010-09-25T15:29:35+00:00">15:29:35</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>yeah, I know, but I thought that would be more realistic... anyway, I'll run again... however, would be nice if there was an ffmpeg -silent option</q></li>
+<li class="message">[<a href="#T15:29:53" id="T15:29:53"><abbr title="2010-09-25T15:29:53+00:00">15:29:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you want to compare the decoders</q></li>
+<li class="message">[<a href="#T15:29:55" id="T15:29:55"><abbr title="2010-09-25T15:29:55+00:00">15:29:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ffmpeg -v -1</q></li>
+<li class="message">[<a href="#T15:30:17" id="T15:30:17"><abbr title="2010-09-25T15:30:17+00:00">15:30:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>when used in gst, you'll be using the same i/o</q></li>
+<li class="message">[<a href="#T15:32:50" id="T15:32:50"><abbr title="2010-09-25T15:32:50+00:00">15:32:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the speed difference could also depend on the sample</q></li>
+<li class="message">[<a href="#T15:34:22" id="T15:34:22"><abbr title="2010-09-25T15:34:22+00:00">15:34:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no matter, ffmpeg was undoubtedly faster for you as well</q></li>
+<li class="message">[<a href="#T15:34:43" id="T15:34:43"><abbr title="2010-09-25T15:34:43+00:00">15:34:43</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hihi the caty price sesam video</q></li>
+<li class="quit">[<a href="#T15:36:19" id="T15:36:19"><abbr title="2010-09-25T15:36:19+00:00">15:36:19</abbr></a>] <span>* jonpry (~jonpry@63.245.31.4) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T15:36:35" id="T15:36:35"><abbr title="2010-09-25T15:36:35+00:00">15:36:35</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: ok, ffmpeg=2.77 and flac=3.87</q></li>
+<li class="message">[<a href="#T15:37:17" id="T15:37:17"><abbr title="2010-09-25T15:37:17+00:00">15:37:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>testing on a long sample I get ffmpeg 14.6s, flac 26.1</q></li>
+<li class="message">[<a href="#T15:37:24" id="T15:37:24"><abbr title="2010-09-25T15:37:24+00:00">15:37:24</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>yeah, as I said, the problem was that for gst-av I use gst flacparse, while flacdec doesn't need it</q></li>
+<li class="join">[<a href="#T15:37:32" id="T15:37:32"><abbr title="2010-09-25T15:37:32+00:00">15:37:32</abbr></a>] <span>* gdm (~gdm@186.19.159.138) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:38:27" id="T15:38:27"><abbr title="2010-09-25T15:38:27+00:00">15:38:27</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>I guess I'll have to wrap FFmpeg's flac parser as well</q></li>
+<li class="join">[<a href="#T15:38:38" id="T15:38:38"><abbr title="2010-09-25T15:38:38+00:00">15:38:38</abbr></a>] <span>* jonpry (~jonpry@63.245.31.4) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:39:43" id="T15:39:43"><abbr title="2010-09-25T15:39:43+00:00">15:39:43</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>wrap?</q></li>
+<li class="message">[<a href="#T15:40:36" id="T15:40:36"><abbr title="2010-09-25T15:40:36+00:00">15:40:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm ah</q></li>
+<li class="message">[<a href="#T15:40:38" id="T15:40:38"><abbr title="2010-09-25T15:40:38+00:00">15:40:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay</q></li>
+<li class="join">[<a href="#T15:40:47" id="T15:40:47"><abbr title="2010-09-25T15:40:47+00:00">15:40:47</abbr></a>] <span>* drakkan1000 (~drakkan@dynamic-adsl-94-34-21-109.clienti.tiscali.it) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:41:48" id="T15:41:48"><abbr title="2010-09-25T15:41:48+00:00">15:41:48</abbr></a>] <span>* drakkan1000 (~drakkan@dynamic-adsl-94-34-21-109.clienti.tiscali.it) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T15:43:30" id="T15:43:30"><abbr title="2010-09-25T15:43:30+00:00">15:43:30</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>woglinde: or implement my own flacparser... anything's better than using the current one</q></li>
+<li class="message">[<a href="#T15:44:48" id="T15:44:48"><abbr title="2010-09-25T15:44:48+00:00">15:44:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>with dsp</q></li>
+<li class="message">[<a href="#T15:44:49" id="T15:44:49"><abbr title="2010-09-25T15:44:49+00:00">15:44:49</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:45:31" id="T15:45:31"><abbr title="2010-09-25T15:45:31+00:00">15:45:31</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>woglinde: no... nothing related to DSP</q></li>
+<li class="message">[<a href="#T15:46:18" id="T15:46:18"><abbr title="2010-09-25T15:46:18+00:00">15:46:18</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>pffff</q></li>
+<li class="message">[<a href="#T15:48:41" id="T15:48:41"><abbr title="2010-09-25T15:48:41+00:00">15:48:41</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>ah, the sound magic smoke makes</q></li>
+<li class="join">[<a href="#T15:56:15" id="T15:56:15"><abbr title="2010-09-25T15:56:15+00:00">15:56:15</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
