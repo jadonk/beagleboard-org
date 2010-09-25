@@ -191,3 +191,25 @@
 <li class="join">[<a href="#T10:48:14" id="T10:48:14"><abbr title="2010-09-25T10:48:14+00:00">10:48:14</abbr></a>] <span>* CMoH (~cipi@95.76.71.81) has joined #beagle</span></li>
 <li class="quit">[<abbr title="2010-09-25T10:48:14+00:00">10:48:14</abbr>] <span>* CMoH (~cipi@95.76.71.81) Quit (Changing host)</span></li>
 <li class="join">[<abbr title="2010-09-25T10:48:14+00:00">10:48:14</abbr>] <span>* CMoH (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:04:27" id="T11:04:27"><abbr title="2010-09-25T11:04:27+00:00">11:04:27</abbr></a>] <span>* ceyusa (~vjaquez@95.61.238.167) Quit (Quit: leaving)</span></li>
+<li class="message">[<a href="#T11:05:24" id="T11:05:24"><abbr title="2010-09-25T11:05:24+00:00">11:05:24</abbr></a>] &lt;<cite>mang</cite>&gt; <q>echo "hmc6352 0x42" &gt; /sys/devices/platform/i2c_omap.3/i2c-3/new_device</q></li>
+<li class="message">[<a href="#T11:05:30" id="T11:05:30"><abbr title="2010-09-25T11:05:30+00:00">11:05:30</abbr></a>] &lt;<cite>mang</cite>&gt; <q>def adds the device heh</q></li>
+<li class="message">[<a href="#T11:05:42" id="T11:05:42"><abbr title="2010-09-25T11:05:42+00:00">11:05:42</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: neat</q></li>
+<li class="message">[<a href="#T11:05:53" id="T11:05:53"><abbr title="2010-09-25T11:05:53+00:00">11:05:53</abbr></a>] &lt;<cite>mang</cite>&gt; <q>0x42 is what it says in the product sheet,  but when i try to cat the sys heading file, gives i2c error</q></li>
+<li class="message">[<a href="#T11:05:55" id="T11:05:55"><abbr title="2010-09-25T11:05:55+00:00">11:05:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it built without patching</q></li>
+<li class="message">[<a href="#T11:06:03" id="T11:06:03"><abbr title="2010-09-25T11:06:03+00:00">11:06:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's a first for a gcc</q></li>
+<li class="message">[<a href="#T11:06:04" id="T11:06:04"><abbr title="2010-09-25T11:06:04+00:00">11:06:04</abbr></a>] &lt;<cite>mang</cite>&gt; <q>i wonder if i should definitely see it in i2cdetect -r</q></li>
+<li class="message">[<a href="#T11:06:18" id="T11:06:18"><abbr title="2010-09-25T11:06:18+00:00">11:06:18</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: hrw|gone is in charge of keeping it building, so no surprise there</q></li>
+<li class="message">[<a href="#T11:06:24" id="T11:06:24"><abbr title="2010-09-25T11:06:24+00:00">11:06:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T11:06:34" id="T11:06:34"><abbr title="2010-09-25T11:06:34+00:00">11:06:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but it's still gcc</q></li>
+<li class="message">[<a href="#T11:06:37" id="T11:06:37"><abbr title="2010-09-25T11:06:37+00:00">11:06:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T11:11:25" id="T11:11:25"><abbr title="2010-09-25T11:11:25+00:00">11:11:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>is there any point to testing the linaro-gcc 4.4 branch?</q></li>
+<li class="quit">[<a href="#T11:17:02" id="T11:17:02"><abbr title="2010-09-25T11:17:02+00:00">11:17:02</abbr></a>] <span>* CMoH (~cipi@unaffiliated/c-moh) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T11:22:06" id="T11:22:06"><abbr title="2010-09-25T11:22:06+00:00">11:22:06</abbr></a>] <span>* kmargar (~markos@athedsl-434902.home.otenet.gr) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T11:28:46" id="T11:28:46"><abbr title="2010-09-25T11:28:46+00:00">11:28:46</abbr></a>] <span>* household (79493a60@gateway/web/freenode/ip.121.73.58.96) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:39:46" id="T11:39:46"><abbr title="2010-09-25T11:39:46+00:00">11:39:46</abbr></a>] &lt;<cite>household</cite>&gt; <q>Hi :) I have a query regarding the xM. I'm trying to enable S-Video out. The test pattern displays when it boots, but I can't get it to display anything once it boots into angstrom. I've read through all the forum posts I could find, the dss2 documentation, and a number of wiki pages, but none of the files referenced appear to be in sysfs. Is there anything specific I'm missing? Do I need to build a specific image?</q></li>
+<li class="message">[<a href="#T11:46:32" id="T11:46:32"><abbr title="2010-09-25T11:46:32+00:00">11:46:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: dunno, I dislike 4.4</q></li>
+<li class="message">[<a href="#T11:46:40" id="T11:46:40"><abbr title="2010-09-25T11:46:40+00:00">11:46:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>me too</q></li>
+<li class="message">[<a href="#T11:46:49" id="T11:46:49"><abbr title="2010-09-25T11:46:49+00:00">11:46:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>household: did you check /boot/DSS ?</q></li>
+<li class="message">[<a href="#T11:52:37" id="T11:52:37"><abbr title="2010-09-25T11:52:37+00:00">11:52:37</abbr></a>] &lt;<cite>household</cite>&gt; <q>No I have not. Thank you, I'll check it out</q></li>
+<li class="message">[<abbr title="2010-09-25T11:52:37+00:00">11:52:37</abbr>] &lt;<cite>household</cite>&gt; <q>:)</q></li>
