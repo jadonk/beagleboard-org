@@ -603,3 +603,205 @@
 <li class="message">[<a href="#T17:55:50" id="T17:55:50"><abbr title="2010-09-25T17:55:50+00:00">17:55:50</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ahh ok</q></li>
 <li class="message">[<a href="#T17:56:02" id="T17:56:02"><abbr title="2010-09-25T17:56:02+00:00">17:56:02</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>brb</q></li>
 <li class="join">[<a href="#T17:58:02" id="T17:58:02"><abbr title="2010-09-25T17:58:02+00:00">17:58:02</abbr></a>] <span>* rcn-ee (~voodoo@thief-pool1-30.mncable.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:00:14" id="T18:00:14"><abbr title="2010-09-25T18:00:14+00:00">18:00:14</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>dsp_init: dsp open failed</q></li>
+<li class="message">[<a href="#T18:00:20" id="T18:00:20"><abbr title="2010-09-25T18:00:20+00:00">18:00:20</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>how can I have more infos</q></li>
+<li class="message">[<a href="#T18:00:23" id="T18:00:23"><abbr title="2010-09-25T18:00:23+00:00">18:00:23</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>dmesg is silent</q></li>
+<li class="quit">[<a href="#T18:03:08" id="T18:03:08"><abbr title="2010-09-25T18:03:08+00:00">18:03:08</abbr></a>] <span>* PierreLuc (~PierreLuc@QUBCPQ14-1176249035.sdsl.bell.ca) Quit (Quit: Bye)</span></li>
+<li class="message">[<a href="#T18:04:53" id="T18:04:53"><abbr title="2010-09-25T18:04:53+00:00">18:04:53</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok I looked in the source</q></li>
+<li class="message">[<a href="#T18:04:59" id="T18:04:59"><abbr title="2010-09-25T18:04:59+00:00">18:04:59</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>and found that it should open that:</q></li>
+<li class="message">[<a href="#T18:05:00" id="T18:05:00"><abbr title="2010-09-25T18:05:00+00:00">18:05:00</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>/dev/DspBridge</q></li>
+<li class="message">[<a href="#T18:05:19" id="T18:05:19"><abbr title="2010-09-25T18:05:19+00:00">18:05:19</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>and I've no such file</q></li>
+<li class="message">[<a href="#T18:05:24" id="T18:05:24"><abbr title="2010-09-25T18:05:24+00:00">18:05:24</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>s/file/node//</q></li>
+<li class="message">[<a href="#T18:07:36" id="T18:07:36"><abbr title="2010-09-25T18:07:36+00:00">18:07:36</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>hmmm I had to modprobe dspbridge</q></li>
+<li class="message">[<a href="#T18:07:38" id="T18:07:38"><abbr title="2010-09-25T18:07:38+00:00">18:07:38</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>now I have:</q></li>
+<li class="message">[<a href="#T18:07:39" id="T18:07:39"><abbr title="2010-09-25T18:07:39+00:00">18:07:39</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>dsp_init: dsp attach failed</q></li>
+<li class="message">[<a href="#T18:10:01" id="T18:10:01"><abbr title="2010-09-25T18:10:01+00:00">18:10:01</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: which bridge drive rare you using?</q></li>
+<li class="message">[<a href="#T18:10:10" id="T18:10:10"><abbr title="2010-09-25T18:10:10+00:00">18:10:10</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I don't know</q></li>
+<li class="message">[<a href="#T18:10:21" id="T18:10:21"><abbr title="2010-09-25T18:10:21+00:00">18:10:21</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I know nothing about ti DSPs</q></li>
+<li class="message">[<a href="#T18:10:33" id="T18:10:33"><abbr title="2010-09-25T18:10:33+00:00">18:10:33</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: which kernel? which system?</q></li>
+<li class="message">[<a href="#T18:10:37" id="T18:10:37"><abbr title="2010-09-25T18:10:37+00:00">18:10:37</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ah ok</q></li>
+<li class="message">[<a href="#T18:10:38" id="T18:10:38"><abbr title="2010-09-25T18:10:38+00:00">18:10:38</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>n900</q></li>
+<li class="message">[<a href="#T18:10:48" id="T18:10:48"><abbr title="2010-09-25T18:10:48+00:00">18:10:48</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>Linux nokia900 2.6.28-omap1 #1 PREEMPT Sat Sep 25 17:22:18 CEST 2010 armv7l GNU/Linux</q></li>
+<li class="message">[<a href="#T18:10:53" id="T18:10:53"><abbr title="2010-09-25T18:10:53+00:00">18:10:53</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>the maemo's kernel</q></li>
+<li class="message">[<abbr title="2010-09-25T18:10:53+00:00">18:10:53</abbr>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: ahh, build with 'make DSP_API=0'</q></li>
+<li class="message">[<a href="#T18:11:01" id="T18:11:01"><abbr title="2010-09-25T18:11:01+00:00">18:11:01</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:14:30" id="T18:14:30"><abbr title="2010-09-25T18:14:30+00:00">18:14:30</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: have you been able to build anything from FFmpeg in the DSP? I'm interested in theora or vp8</q></li>
+<li class="message">[<a href="#T18:15:20" id="T18:15:20"><abbr title="2010-09-25T18:15:20+00:00">18:15:20</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>init_node: dsp node creation failed</q></li>
+<li class="message">[<a href="#T18:15:45" id="T18:15:45"><abbr title="2010-09-25T18:15:45+00:00">18:15:45</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>create_node: dsp node allocate failed</q></li>
+<li class="message">[<a href="#T18:15:46" id="T18:15:46"><abbr title="2010-09-25T18:15:46+00:00">18:15:46</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>etc..</q></li>
+<li class="message">[<a href="#T18:15:57" id="T18:15:57"><abbr title="2010-09-25T18:15:57+00:00">18:15:57</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>felipec: there was the ds project</q></li>
+<li class="message">[<a href="#T18:16:03" id="T18:16:03"><abbr title="2010-09-25T18:16:03+00:00">18:16:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>for theora on the c64</q></li>
+<li class="message">[<a href="#T18:16:20" id="T18:16:20"><abbr title="2010-09-25T18:16:20+00:00">18:16:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>not much came out of it</q></li>
+<li class="message">[<a href="#T18:16:28" id="T18:16:28"><abbr title="2010-09-25T18:16:28+00:00">18:16:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>except hype</q></li>
+<li class="quit">[<a href="#T18:16:49" id="T18:16:49"><abbr title="2010-09-25T18:16:49+00:00">18:16:49</abbr></a>] <span>* djlewis (~djlewis@75.15.67.41) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T18:16:53" id="T18:16:53"><abbr title="2010-09-25T18:16:53+00:00">18:16:53</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: ok, a bit of progress... what kind of clip is that? resolution?</q></li>
+<li class="message">[<a href="#T18:17:08" id="T18:17:08"><abbr title="2010-09-25T18:17:08+00:00">18:17:08</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>let me look</q></li>
+<li class="action">[<a href="#T18:17:25" id="T18:17:25"><abbr title="2010-09-25T18:17:25+00:00">18:17:25</abbr></a>] <span>* dm8tbr blinks</span></li>
+<li class="message">[<a href="#T18:17:39" id="T18:17:39"><abbr title="2010-09-25T18:17:39+00:00">18:17:39</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>854x480</q></li>
+<li class="message">[<a href="#T18:17:45" id="T18:17:45"><abbr title="2010-09-25T18:17:45+00:00">18:17:45</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>#meego-arm and #beagle overlap a _lot_ it seems</q></li>
+<li class="message">[<a href="#T18:17:53" id="T18:17:53"><abbr title="2010-09-25T18:17:53+00:00">18:17:53</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>h264</q></li>
+<li class="message">[<a href="#T18:18:10" id="T18:18:10"><abbr title="2010-09-25T18:18:10+00:00">18:18:10</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>_av500_: yeah, I know... I saw it working, but it's not in the most useful form right now, I want to try to make it more usable</q></li>
+<li class="message">[<a href="#T18:18:12" id="T18:18:12"><abbr title="2010-09-25T18:18:12+00:00">18:18:12</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>the filename is sintel_trailer-480p.mp4</q></li>
+<li class="message">[<a href="#T18:18:32" id="T18:18:32"><abbr title="2010-09-25T18:18:32+00:00">18:18:32</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>_av500_: but I'm pretty sure if the same was done with FFmpeg it would perform even better</q></li>
+<li class="message">[<a href="#T18:18:47" id="T18:18:47"><abbr title="2010-09-25T18:18:47+00:00">18:18:47</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>same with:</q></li>
+<li class="message">[<a href="#T18:18:50" id="T18:18:50"><abbr title="2010-09-25T18:18:50+00:00">18:18:50</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>big_buck_bunny_480p_h264.mov</q></li>
+<li class="message">[<a href="#T18:19:18" id="T18:19:18"><abbr title="2010-09-25T18:19:18+00:00">18:19:18</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: that should work... are you using the maemo binaries in /lib/dsp? or the public ones from TI?</q></li>
+<li class="message">[<a href="#T18:19:26" id="T18:19:26"><abbr title="2010-09-25T18:19:26+00:00">18:19:26</abbr></a>] &lt;<cite>mang</cite>&gt; <q>double checked i2detect -r 3 is all blank on older kernel also</q></li>
+<li class="message">[<a href="#T18:19:29" id="T18:19:29"><abbr title="2010-09-25T18:19:29+00:00">18:19:29</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>no one</q></li>
+<li class="message">[<a href="#T18:19:30" id="T18:19:30"><abbr title="2010-09-25T18:19:30+00:00">18:19:30</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: and gst-dsp 0.8.0 I presume</q></li>
+<li class="message">[<a href="#T18:19:32" id="T18:19:32"><abbr title="2010-09-25T18:19:32+00:00">18:19:32</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>just the firmware</q></li>
+<li class="message">[<a href="#T18:19:51" id="T18:19:51"><abbr title="2010-09-25T18:19:51+00:00">18:19:51</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>that's why I asked that at the beginning:</q></li>
+<li class="message">[<a href="#T18:19:52" id="T18:19:52"><abbr title="2010-09-25T18:19:52+00:00">18:19:52</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>&lt;GNUtoo|laptop&gt; are the ti libs mandatory or do I just need the firmware</q></li>
+<li class="message">[<a href="#T18:19:57" id="T18:19:57"><abbr title="2010-09-25T18:19:57+00:00">18:19:57</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: that's what I meant: DSP binaries = firmware</q></li>
+<li class="message">[<a href="#T18:20:03" id="T18:20:03"><abbr title="2010-09-25T18:20:03+00:00">18:20:03</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:20:08" id="T18:20:08"><abbr title="2010-09-25T18:20:08+00:00">18:20:08</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I just used that:</q></li>
+<li class="message">[<a href="#T18:20:30" id="T18:20:30"><abbr title="2010-09-25T18:20:30+00:00">18:20:30</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>modprobe bridgedriver base_img=/lib/firmware/baseimage.dof</q></li>
+<li class="message">[<a href="#T18:20:35" id="T18:20:35"><abbr title="2010-09-25T18:20:35+00:00">18:20:35</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>are some other firmware necessary?</q></li>
+<li class="message">[<a href="#T18:20:43" id="T18:20:43"><abbr title="2010-09-25T18:20:43+00:00">18:20:43</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>oops</q></li>
+<li class="message">[<a href="#T18:20:48" id="T18:20:48"><abbr title="2010-09-25T18:20:48+00:00">18:20:48</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: where did you get that baseimage.dof?</q></li>
+<li class="message">[<abbr title="2010-09-25T18:20:48+00:00">18:20:48</abbr>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I meant /lib/dsp</q></li>
+<li class="message">[<a href="#T18:20:52" id="T18:20:52"><abbr title="2010-09-25T18:20:52+00:00">18:20:52</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>from my device</q></li>
+<li class="message">[<a href="#T18:21:02" id="T18:21:02"><abbr title="2010-09-25T18:21:02+00:00">18:21:02</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I mounted the ubifs filesystem</q></li>
+<li class="message">[<a href="#T18:21:07" id="T18:21:07"><abbr title="2010-09-25T18:21:07+00:00">18:21:07</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>and copied it</q></li>
+<li class="action">[<a href="#T18:21:15" id="T18:21:15"><abbr title="2010-09-25T18:21:15+00:00">18:21:15</abbr></a>] <span>* _av500_ always reads that as .doof</span></li>
+<li class="message">[<a href="#T18:21:22" id="T18:21:22"><abbr title="2010-09-25T18:21:22+00:00">18:21:22</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>so roughly it's comming from maemo</q></li>
+<li class="message">[<a href="#T18:21:27" id="T18:21:27"><abbr title="2010-09-25T18:21:27+00:00">18:21:27</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: which ubifs? maemo? meego?</q></li>
+<li class="message">[<a href="#T18:21:33" id="T18:21:33"><abbr title="2010-09-25T18:21:33+00:00">18:21:33</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>maemo</q></li>
+<li class="message">[<a href="#T18:22:47" id="T18:22:47"><abbr title="2010-09-25T18:22:47+00:00">18:22:47</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: ok, so you have /lib/dsp/h264vdec_sn.dll64P, and you are compiling gst-dsp 0.8.0?</q></li>
+<li class="message">[<a href="#T18:22:54" id="T18:22:54"><abbr title="2010-09-25T18:22:54+00:00">18:22:54</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T18:23:06" id="T18:23:06"><abbr title="2010-09-25T18:23:06+00:00">18:23:06</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I'll add everything in /lib/dsp</q></li>
+<li class="message">[<a href="#T18:23:12" id="T18:23:12"><abbr title="2010-09-25T18:23:12+00:00">18:23:12</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>because I just copied the .dof</q></li>
+<li class="message">[<a href="#T18:23:23" id="T18:23:23"><abbr title="2010-09-25T18:23:23+00:00">18:23:23</abbr></a>] &lt;<cite>DJWillis</cite>&gt; <q>!seen jkridner</q></li>
+<li class="message">[<a href="#T18:23:31" id="T18:23:31"><abbr title="2010-09-25T18:23:31+00:00">18:23:31</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>and I have b97557d26d6ee69a25d64ad0628ba1a44254a7c3</q></li>
+<li class="message">[<a href="#T18:23:39" id="T18:23:39"><abbr title="2010-09-25T18:23:39+00:00">18:23:39</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I'll add the other firmware there</q></li>
+<li class="message">[<a href="#T18:23:50" id="T18:23:50"><abbr title="2010-09-25T18:23:50+00:00">18:23:50</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>but what are libs and what are firmwares?</q></li>
+<li class="message">[<a href="#T18:24:26" id="T18:24:26"><abbr title="2010-09-25T18:24:26+00:00">18:24:26</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>all firmware I bet</q></li>
+<li class="message">[<a href="#T18:24:43" id="T18:24:43"><abbr title="2010-09-25T18:24:43+00:00">18:24:43</abbr></a>] &lt;<cite>ynezz</cite>&gt; <q>mang: maybe it's related <a href="http://www.mail-archive.com/openembedded-devel@lists.openembedded.org/msg08839.html">http://www.mail-archive.com/openembedded-devel@lists.openembedded.org/msg08839.html</a></q></li>
+<li class="message">[<a href="#T18:25:15" id="T18:25:15"><abbr title="2010-09-25T18:25:15+00:00">18:25:15</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>now I got furthurer</q></li>
+<li class="message">[<a href="#T18:25:52" id="T18:25:52"><abbr title="2010-09-25T18:25:52+00:00">18:25:52</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>GNUtoo|laptop: baseimage is the dsp os</q></li>
+<li class="message">[<a href="#T18:25:55" id="T18:25:55"><abbr title="2010-09-25T18:25:55+00:00">18:25:55</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>map_buffer: buffer not aligned: 0x443c4008-0x4448c288</q></li>
+<li class="message">[<a href="#T18:25:56" id="T18:25:56"><abbr title="2010-09-25T18:25:56+00:00">18:25:56</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:26:03" id="T18:26:03"><abbr title="2010-09-25T18:26:03+00:00">18:26:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>the dll64p are the socket nodes</q></li>
+<li class="message">[<abbr title="2010-09-25T18:26:03+00:00">18:26:03</abbr>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>h264dec_out_recv_cb: decode error</q></li>
+<li class="message">[<a href="#T18:26:04" id="T18:26:04"><abbr title="2010-09-25T18:26:04+00:00">18:26:04</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>etc...</q></li>
+<li class="message">[<a href="#T18:26:05" id="T18:26:05"><abbr title="2010-09-25T18:26:05+00:00">18:26:05</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>aka codecs</q></li>
+<li class="message">[<a href="#T18:26:08" id="T18:26:08"><abbr title="2010-09-25T18:26:08+00:00">18:26:08</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:26:24" id="T18:26:24"><abbr title="2010-09-25T18:26:24+00:00">18:26:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>buffers must be aligned</q></li>
+<li class="message">[<a href="#T18:26:25" id="T18:26:25"><abbr title="2010-09-25T18:26:25+00:00">18:26:25</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: "buffer not aligned" is just a warning</q></li>
+<li class="message">[<a href="#T18:26:31" id="T18:26:31"><abbr title="2010-09-25T18:26:31+00:00">18:26:31</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:26:48" id="T18:26:48"><abbr title="2010-09-25T18:26:48+00:00">18:26:48</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>output_loop: empty buffer</q></li>
+<li class="message">[<a href="#T18:26:52" id="T18:26:52"><abbr title="2010-09-25T18:26:52+00:00">18:26:52</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>that must be the error?</q></li>
+<li class="message">[<a href="#T18:26:56" id="T18:26:56"><abbr title="2010-09-25T18:26:56+00:00">18:26:56</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: do you know how was that clip generated? Only H.264 baseprofile is supported</q></li>
+<li class="message">[<a href="#T18:27:02" id="T18:27:02"><abbr title="2010-09-25T18:27:02+00:00">18:27:02</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:27:07" id="T18:27:07"><abbr title="2010-09-25T18:27:07+00:00">18:27:07</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I'll try something else then</q></li>
+<li class="message">[<a href="#T18:27:12" id="T18:27:12"><abbr title="2010-09-25T18:27:12+00:00">18:27:12</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>no I don't know</q></li>
+<li class="message">[<a href="#T18:27:17" id="T18:27:17"><abbr title="2010-09-25T18:27:17+00:00">18:27:17</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: no, that's also a warning, "h264dec_out_recv_cb: decode error" &lt;- that's the error</q></li>
+<li class="message">[<a href="#T18:28:00" id="T18:28:00"><abbr title="2010-09-25T18:28:00+00:00">18:28:00</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: I use '-vpre medium -vpre baseline' on FFmpeg, but you would probably have better chances with an MPEG-4 clip</q></li>
+<li class="message">[<a href="#T18:28:12" id="T18:28:12"><abbr title="2010-09-25T18:28:12+00:00">18:28:12</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:29:09" id="T18:29:09"><abbr title="2010-09-25T18:29:09+00:00">18:29:09</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>_av500_: oh, did you manage to get the tidsp stuff working?</q></li>
+<li class="message">[<a href="#T18:29:14" id="T18:29:14"><abbr title="2010-09-25T18:29:14+00:00">18:29:14</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T18:29:29" id="T18:29:29"><abbr title="2010-09-25T18:29:29+00:00">18:29:29</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>had some other stuff to finish</q></li>
+<li class="join">[<a href="#T18:29:30" id="T18:29:30"><abbr title="2010-09-25T18:29:30+00:00">18:29:30</abbr></a>] <span>* stefan_schmidt (~stefan@p5B033DA9.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:29:33" id="T18:29:33"><abbr title="2010-09-25T18:29:33+00:00">18:29:33</abbr></a>] &lt;<cite>stefan_schmidt</cite>&gt; <q>hi all</q></li>
+<li class="message">[<a href="#T18:29:51" id="T18:29:51"><abbr title="2010-09-25T18:29:51+00:00">18:29:51</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>ohh, ok</q></li>
+<li class="message">[<a href="#T18:30:15" id="T18:30:15"><abbr title="2010-09-25T18:30:15+00:00">18:30:15</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and i solved the issue in my framework</q></li>
+<li class="message">[<a href="#T18:30:28" id="T18:30:28"><abbr title="2010-09-25T18:30:28+00:00">18:30:28</abbr></a>] &lt;<cite>stefan_schmidt</cite>&gt; <q>anybody here knows about an OE recipe for the 4_00_00_02 powerrv drivers</q></li>
+<li class="message">[<a href="#T18:30:34" id="T18:30:34"><abbr title="2010-09-25T18:30:34+00:00">18:30:34</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and i made lcml not flush out bufs</q></li>
+<li class="message">[<a href="#T18:30:50" id="T18:30:50"><abbr title="2010-09-25T18:30:50+00:00">18:30:50</abbr></a>] &lt;<cite>stefan_schmidt</cite>&gt; <q>or to be more correct for the graphics SDK</q></li>
+<li class="message">[<a href="#T18:31:13" id="T18:31:13"><abbr title="2010-09-25T18:31:13+00:00">18:31:13</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>buglabs will use powervr?</q></li>
+<li class="message">[<a href="#T18:31:35" id="T18:31:35"><abbr title="2010-09-25T18:31:35+00:00">18:31:35</abbr></a>] &lt;<cite>stefan_schmidt</cite>&gt; <q>GNUtoo|laptop: no, not for the public builds</q></li>
+<li class="message">[<a href="#T18:31:40" id="T18:31:40"><abbr title="2010-09-25T18:31:40+00:00">18:31:40</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ah ok nice</q></li>
+<li class="message">[<a href="#T18:31:48" id="T18:31:48"><abbr title="2010-09-25T18:31:48+00:00">18:31:48</abbr></a>] &lt;<cite>stefan_schmidt</cite>&gt; <q>GNUtoo|laptop: but we want to see what the hw is able to do anyway :)</q></li>
+<li class="message">[<a href="#T18:31:52" id="T18:31:52"><abbr title="2010-09-25T18:31:52+00:00">18:31:52</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:32:01" id="T18:32:01"><abbr title="2010-09-25T18:32:01+00:00">18:32:01</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>in case some client needs it</q></li>
+<li class="message">[<a href="#T18:32:03" id="T18:32:03"><abbr title="2010-09-25T18:32:03+00:00">18:32:03</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I bet</q></li>
+<li class="message">[<a href="#T18:32:18" id="T18:32:18"><abbr title="2010-09-25T18:32:18+00:00">18:32:18</abbr></a>] &lt;<cite>stefan_schmidt</cite>&gt; <q>GNUtoo|laptop: for example, yes :)</q></li>
+<li class="message">[<a href="#T18:32:36" id="T18:32:36"><abbr title="2010-09-25T18:32:36+00:00">18:32:36</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>felipec, it works!!! at 1fps</q></li>
+<li class="message">[<a href="#T18:32:38" id="T18:32:38"><abbr title="2010-09-25T18:32:38+00:00">18:32:38</abbr></a>] &lt;<cite>stefan_schmidt</cite>&gt; <q>GNUtoo|laptop: Is there a channel you aren't in, btw? ;)</q></li>
+<li class="message">[<a href="#T18:32:44" id="T18:32:44"><abbr title="2010-09-25T18:32:44+00:00">18:32:44</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>lol</q></li>
+<li class="join">[<a href="#T18:32:49" id="T18:32:49"><abbr title="2010-09-25T18:32:49+00:00">18:32:49</abbr></a>] <span>* scrp3l (~scrp3l@201.250.145.135) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:33:07" id="T18:33:07"><abbr title="2010-09-25T18:33:07+00:00">18:33:07</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>_av500_: for output buffers ideally you should clean the cache before sending to DSP, and invalidate afterwards (before reading)</q></li>
+<li class="message">[<a href="#T18:33:12" id="T18:33:12"><abbr title="2010-09-25T18:33:12+00:00">18:33:12</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>GNUtoo|laptop: increase supply voltage</q></li>
+<li class="message">[<a href="#T18:33:25" id="T18:33:25"><abbr title="2010-09-25T18:33:25+00:00">18:33:25</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>felipec: no, output buffers go to dss</q></li>
+<li class="message">[<a href="#T18:33:38" id="T18:33:38"><abbr title="2010-09-25T18:33:38+00:00">18:33:38</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>_av500_, how?</q></li>
+<li class="message">[<a href="#T18:33:56" id="T18:33:56"><abbr title="2010-09-25T18:33:56+00:00">18:33:56</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>_av500_: oh, then there's no need... omapfb or v4l2?</q></li>
+<li class="message">[<a href="#T18:34:10" id="T18:34:10"><abbr title="2010-09-25T18:34:10+00:00">18:34:10</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: how are you testing?</q></li>
+<li class="message">[<a href="#T18:34:18" id="T18:34:18"><abbr title="2010-09-25T18:34:18+00:00">18:34:18</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>gst-launch-0.10 playbin2 uri=file://$(pwd)/enemy_of_the_state.mkv</q></li>
+<li class="message">[<a href="#T18:34:31" id="T18:34:31"><abbr title="2010-09-25T18:34:31+00:00">18:34:31</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>felipec: v4l2</q></li>
+<li class="message">[<abbr title="2010-09-25T18:34:31+00:00">18:34:31</abbr>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: playbin2 flags=99</q></li>
+<li class="message">[<a href="#T18:34:36" id="T18:34:36"><abbr title="2010-09-25T18:34:36+00:00">18:34:36</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:34:50" id="T18:34:50"><abbr title="2010-09-25T18:34:50+00:00">18:34:50</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GStreamer is not that smart =/</q></li>
+<li class="message">[<a href="#T18:35:22" id="T18:35:22"><abbr title="2010-09-25T18:35:22+00:00">18:35:22</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>flags=99 makes it exit</q></li>
+<li class="message">[<a href="#T18:36:53" id="T18:36:53"><abbr title="2010-09-25T18:36:53+00:00">18:36:53</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>gst-launch-0.10 playbin2 flags=99 uri=file://$PWD/enemy_of_the_state.mkv ?</q></li>
+<li class="message">[<a href="#T18:37:40" id="T18:37:40"><abbr title="2010-09-25T18:37:40+00:00">18:37:40</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>stream stopped, reason not-negotiated</q></li>
+<li class="message">[<a href="#T18:37:54" id="T18:37:54"><abbr title="2010-09-25T18:37:54+00:00">18:37:54</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ah ok one sec</q></li>
+<li class="message">[<a href="#T18:38:11" id="T18:38:11"><abbr title="2010-09-25T18:38:11+00:00">18:38:11</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>why did I encode the video in ac3?</q></li>
+<li class="join">[<a href="#T18:38:52" id="T18:38:52"><abbr title="2010-09-25T18:38:52+00:00">18:38:52</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:39:22" id="T18:39:22"><abbr title="2010-09-25T18:39:22+00:00">18:39:22</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>it's not</q></li>
+<li class="message">[<a href="#T18:39:25" id="T18:39:25"><abbr title="2010-09-25T18:39:25+00:00">18:39:25</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>it's in stereo</q></li>
+<li class="message">[<a href="#T18:39:29" id="T18:39:29"><abbr title="2010-09-25T18:39:29+00:00">18:39:29</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>but gstreamer says:</q></li>
+<li class="message">[<a href="#T18:39:31" id="T18:39:31"><abbr title="2010-09-25T18:39:31+00:00">18:39:31</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>WARNING: from element /GstPlayBin2:playbin20/GstURIDecodeBin:uridecodebin0: No decoder available for type 'audio/x-ac3, channels=(int)6, rate=(int)48000'.</q></li>
+<li class="message">[<a href="#T18:39:33" id="T18:39:33"><abbr title="2010-09-25T18:39:33+00:00">18:39:33</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>anyway</q></li>
+<li class="quit">[<a href="#T18:39:55" id="T18:39:55"><abbr title="2010-09-25T18:39:55+00:00">18:39:55</abbr></a>] <span>* Russ (foobar@ip70-176-251-1.ph.ph.cox.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T18:40:05" id="T18:40:05"><abbr title="2010-09-25T18:40:05+00:00">18:40:05</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: looks like a bug in the matroska demuxer =/</q></li>
+<li class="message">[<a href="#T18:40:34" id="T18:40:34"><abbr title="2010-09-25T18:40:34+00:00">18:40:34</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>without the flags=99 it seem to works but at 1fps</q></li>
+<li class="message">[<a href="#T18:41:26" id="T18:41:26"><abbr title="2010-09-25T18:41:26+00:00">18:41:26</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: probably because there's some heavy conversion going on</q></li>
+<li class="message">[<a href="#T18:41:35" id="T18:41:35"><abbr title="2010-09-25T18:41:35+00:00">18:41:35</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:42:05" id="T18:42:05"><abbr title="2010-09-25T18:42:05+00:00">18:42:05</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>the DSP seem rather limitated(I thought I could use them to play some videos that were too slow with the CPU)</q></li>
+<li class="message">[<abbr title="2010-09-25T18:42:05+00:00">18:42:05</abbr>] &lt;<cite>_av500_</cite>&gt; <q>its gst after all</q></li>
+<li class="message">[<a href="#T18:42:18" id="T18:42:18"><abbr title="2010-09-25T18:42:18+00:00">18:42:18</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>or is it gstreamer?</q></li>
+<li class="message">[<a href="#T18:42:30" id="T18:42:30"><abbr title="2010-09-25T18:42:30+00:00">18:42:30</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: if you try flags=65 it should only play the video</q></li>
+<li class="message">[<a href="#T18:42:59" id="T18:42:59"><abbr title="2010-09-25T18:42:59+00:00">18:42:59</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>not 54?</q></li>
+<li class="message">[<a href="#T18:43:22" id="T18:43:22"><abbr title="2010-09-25T18:43:22+00:00">18:43:22</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>isn't it flag=65</q></li>
+<li class="message">[<a href="#T18:43:27" id="T18:43:27"><abbr title="2010-09-25T18:43:27+00:00">18:43:27</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>instead of flags=65</q></li>
+<li class="message">[<a href="#T18:43:44" id="T18:43:44"><abbr title="2010-09-25T18:43:44+00:00">18:43:44</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: no</q></li>
+<li class="message">[<a href="#T18:43:53" id="T18:43:53"><abbr title="2010-09-25T18:43:53+00:00">18:43:53</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:43:54" id="T18:43:54"><abbr title="2010-09-25T18:43:54+00:00">18:43:54</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>:(</q></li>
+<li class="quit">[<a href="#T18:43:56" id="T18:43:56"><abbr title="2010-09-25T18:43:56+00:00">18:43:56</abbr></a>] <span>* r1nu- (~remmargor@unaffiliated/r1nu-) Quit (Quit: #codemasters)</span></li>
+<li class="message">[<a href="#T18:44:21" id="T18:44:21"><abbr title="2010-09-25T18:44:21+00:00">18:44:21</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>it exits the same way</q></li>
+<li class="message">[<a href="#T18:44:31" id="T18:44:31"><abbr title="2010-09-25T18:44:31+00:00">18:44:31</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: the limitation on the DSP side is on the formats supported (H.264 baseprofile), but the issue you are experiencing is GStreamer</q></li>
+<li class="message">[<a href="#T18:44:37" id="T18:44:37"><abbr title="2010-09-25T18:44:37+00:00">18:44:37</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:45:06" id="T18:45:06"><abbr title="2010-09-25T18:45:06+00:00">18:45:06</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: ahg... can you with -v and paste the output in a pastebin? gst-launch-0.10 -v playbin2 ....</q></li>
+<li class="message">[<a href="#T18:45:14" id="T18:45:14"><abbr title="2010-09-25T18:45:14+00:00">18:45:14</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T18:45:21" id="T18:45:21"><abbr title="2010-09-25T18:45:21+00:00">18:45:21</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>looks like it's time to build a manual pipeline</q></li>
+<li class="message">[<a href="#T18:46:29" id="T18:46:29"><abbr title="2010-09-25T18:46:29+00:00">18:46:29</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q><a href="http://pastebin.com/WqKJqLaD">http://pastebin.com/WqKJqLaD</a></q></li>
+<li class="message">[<a href="#T18:46:33" id="T18:46:33"><abbr title="2010-09-25T18:46:33+00:00">18:46:33</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:48:24" id="T18:48:24"><abbr title="2010-09-25T18:48:24+00:00">18:48:24</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: huh... are you using a maemo system or something else?</q></li>
+<li class="message">[<a href="#T18:48:33" id="T18:48:33"><abbr title="2010-09-25T18:48:33+00:00">18:48:33</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>a new distro</q></li>
+<li class="message">[<a href="#T18:48:35" id="T18:48:35"><abbr title="2010-09-25T18:48:35+00:00">18:48:35</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>SHR</q></li>
+<li class="message">[<a href="#T18:48:37" id="T18:48:37"><abbr title="2010-09-25T18:48:37+00:00">18:48:37</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>it's picking ximagesink... should use xvimagesink</q></li>
+<li class="message">[<a href="#T18:48:38" id="T18:48:38"><abbr title="2010-09-25T18:48:38+00:00">18:48:38</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>based on angstrom</q></li>
+<li class="message">[<a href="#T18:48:42" id="T18:48:42"><abbr title="2010-09-25T18:48:42+00:00">18:48:42</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:48:46" id="T18:48:46"><abbr title="2010-09-25T18:48:46+00:00">18:48:46</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I'll remove ximagesink</q></li>
+<li class="message">[<a href="#T18:48:56" id="T18:48:56"><abbr title="2010-09-25T18:48:56+00:00">18:48:56</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>so there's a colorspace conversion</q></li>
+<li class="join">[<a href="#T18:49:24" id="T18:49:24"><abbr title="2010-09-25T18:49:24+00:00">18:49:24</abbr></a>] <span>* koen|phone (~koen@ip5451781a.direct-adsl.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:49:34" id="T18:49:34"><abbr title="2010-09-25T18:49:34+00:00">18:49:34</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ahhh now...it's better</q></li>
+<li class="message">[<a href="#T18:49:51" id="T18:49:51"><abbr title="2010-09-25T18:49:51+00:00">18:49:51</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>now....is there a usable player that use gstreamer</q></li>
+<li class="message">[<abbr title="2010-09-25T18:49:51+00:00">18:49:51</abbr>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T18:49:58" id="T18:49:58"><abbr title="2010-09-25T18:49:58+00:00">18:49:58</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>should I install totem?</q></li>
+<li class="message">[<a href="#T18:50:22" id="T18:50:22"><abbr title="2010-09-25T18:50:22+00:00">18:50:22</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>thanks a lot!!!!</q></li>
+<li class="message">[<a href="#T18:50:25" id="T18:50:25"><abbr title="2010-09-25T18:50:25+00:00">18:50:25</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: totem is bloated to the extreme</q></li>
+<li class="message">[<a href="#T18:50:34" id="T18:50:34"><abbr title="2010-09-25T18:50:34+00:00">18:50:34</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: I would use <a href="http://code.google.com/p/gst-player/">http://code.google.com/p/gst-player/</a></q></li>
+<li class="message">[<a href="#T18:50:50" id="T18:50:50"><abbr title="2010-09-25T18:50:50+00:00">18:50:50</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>indeed I tried it and it was ultra-slow</q></li>
+<li class="message">[<a href="#T18:52:27" id="T18:52:27"><abbr title="2010-09-25T18:52:27+00:00">18:52:27</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: you don't need to remove ximagesink, autovideosink should handle that... but perhaps ximagesink is configured in GConf</q></li>
+<li class="message">[<a href="#T18:52:52" id="T18:52:52"><abbr title="2010-09-25T18:52:52+00:00">18:52:52</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>I forgott the v</q></li>
+<li class="message">[<a href="#T18:52:55" id="T18:52:55"><abbr title="2010-09-25T18:52:55+00:00">18:52:55</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>in xvimagesink</q></li>
+<li class="message">[<a href="#T18:52:59" id="T18:52:59"><abbr title="2010-09-25T18:52:59+00:00">18:52:59</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>when opkg installing it</q></li>
+<li class="message">[<a href="#T18:53:19" id="T18:53:19"><abbr title="2010-09-25T18:53:19+00:00">18:53:19</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>ohh... pretty big difference :)</q></li>
+<li class="message">[<a href="#T18:54:07" id="T18:54:07"><abbr title="2010-09-25T18:54:07+00:00">18:54:07</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>little question</q></li>
+<li class="message">[<a href="#T18:54:29" id="T18:54:29"><abbr title="2010-09-25T18:54:29+00:00">18:54:29</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>there were some demos of big buck bunny running on the beagleboard</q></li>
+<li class="message">[<a href="#T18:54:34" id="T18:54:34"><abbr title="2010-09-25T18:54:34+00:00">18:54:34</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>what did they use?</q></li>
+<li class="message">[<a href="#T18:54:44" id="T18:54:44"><abbr title="2010-09-25T18:54:44+00:00">18:54:44</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>the DSPs</q></li>
+<li class="message">[<a href="#T18:54:45" id="T18:54:45"><abbr title="2010-09-25T18:54:45+00:00">18:54:45</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T18:55:10" id="T18:55:10"><abbr title="2010-09-25T18:55:10+00:00">18:55:10</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>GNUtoo|laptop: I uploaded some... but I don't know which one you are talking about</q></li>
+<li class="message">[<a href="#T18:55:48" id="T18:55:48"><abbr title="2010-09-25T18:55:48+00:00">18:55:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>gnutoo you mean this? <a href="http://www.schleef.org/blog/2009/11/11/theora-on-ti-c64x-dsp-and-omap3/">http://www.schleef.org/blog/2009/11/11/theora-on-ti-c64x-dsp-and-omap3/</a></q></li>
+<li class="message">[<a href="#T18:55:55" id="T18:55:55"><abbr title="2010-09-25T18:55:55+00:00">18:55:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T18:56:02" id="T18:56:02"><abbr title="2010-09-25T18:56:02+00:00">18:56:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>mru?</q></li>
+<li class="message">[<a href="#T18:56:13" id="T18:56:13"><abbr title="2010-09-25T18:56:13+00:00">18:56:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ffmpeg with neon is faster</q></li>
+<li class="message">[<a href="#T18:56:49" id="T18:56:49"><abbr title="2010-09-25T18:56:49+00:00">18:56:49</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: perhaps, but takes 100% of the CPU :)</q></li>
+<li class="message">[<a href="#T18:57:15" id="T18:57:15"><abbr title="2010-09-25T18:57:15+00:00">18:57:15</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>[10718.842834] WMD_DEH_Notify: DSP_SYSERROR, errInfo = 0x102</q></li>
+<li class="message">[<a href="#T18:57:25" id="T18:57:25"><abbr title="2010-09-25T18:57:25+00:00">18:57:25</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>no I mean koen's demos</q></li>
+<li class="message">[<a href="#T18:57:51" id="T18:57:51"><abbr title="2010-09-25T18:57:51+00:00">18:57:51</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>that is also interesting</q></li>
+<li class="message">[<a href="#T18:57:52" id="T18:57:52"><abbr title="2010-09-25T18:57:52+00:00">18:57:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the theora dsp codec is embarrassingly slow</q></li>
+<li class="message">[<a href="#T18:57:58" id="T18:57:58"><abbr title="2010-09-25T18:57:58+00:00">18:57:58</abbr></a>] &lt;<cite>GNUtoo|laptop</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:59:49" id="T18:59:49"><abbr title="2010-09-25T18:59:49+00:00">18:59:49</abbr></a>] &lt;<cite>felipec</cite>&gt; <q>mru: ah, yeah, but I'm pretty sure ds made a mistake; you need at least 2 buffers; while one is being processed on the DSP, the other is being pushed</q></li>
