@@ -856,3 +856,123 @@
 <li class="message">[<a href="#T19:59:27" id="T19:59:27"><abbr title="2010-09-29T19:59:27+00:00">19:59:27</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>_av500_: sure, how?</q></li>
 <li class="message">[<a href="#T19:59:34" id="T19:59:34"><abbr title="2010-09-29T19:59:34+00:00">19:59:34</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you like your pixel mushed around?</q></li>
 <li class="message">[<a href="#T20:00:01" id="T20:00:01"><abbr title="2010-09-29T20:00:01+00:00">20:00:01</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>it booted at 1280x768 on its own</q></li>
+<li class="message">[<a href="#T20:00:22" id="T20:00:22"><abbr title="2010-09-29T20:00:22+00:00">20:00:22</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>it can be told not to</q></li>
+<li class="message">[<a href="#T20:00:33" id="T20:00:33"><abbr title="2010-09-29T20:00:33+00:00">20:00:33</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>kernel cmd line</q></li>
+<li class="message">[<a href="#T20:00:53" id="T20:00:53"><abbr title="2010-09-29T20:00:53+00:00">20:00:53</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>well, the uboot says 1024x768</q></li>
+<li class="message">[<a href="#T20:01:01" id="T20:01:01"><abbr title="2010-09-29T20:01:01+00:00">20:01:01</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>I don't know where it got 1280x768 from</q></li>
+<li class="message">[<a href="#T20:01:24" id="T20:01:24"><abbr title="2010-09-29T20:01:24+00:00">20:01:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>boot.scr?</q></li>
+<li class="message">[<a href="#T20:02:01" id="T20:02:01"><abbr title="2010-09-29T20:02:01+00:00">20:02:01</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>there's not boot.scr on my fat partition for sure.</q></li>
+<li class="message">[<a href="#T20:02:11" id="T20:02:11"><abbr title="2010-09-29T20:02:11+00:00">20:02:11</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>printenv says dvimode=1024x768MR-16@60</q></li>
+<li class="message">[<a href="#T20:02:19" id="T20:02:19"><abbr title="2010-09-29T20:02:19+00:00">20:02:19</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>how do I set that to 800x600?</q></li>
+<li class="quit">[<a href="#T20:02:26" id="T20:02:26"><abbr title="2010-09-29T20:02:26+00:00">20:02:26</abbr></a>] <span>* denix (~denys@nat/ti/x-znaqhipxmezmcpph) Quit (Quit: <a href="http://arago-project.org)">http://arago-project.org)</a></span></li>
+<li class="message">[<a href="#T20:03:33" id="T20:03:33"><abbr title="2010-09-29T20:03:33+00:00">20:03:33</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>jedix: if a revC have you erased user nand area?</q></li>
+<li class="message">[<a href="#T20:04:00" id="T20:04:00"><abbr title="2010-09-29T20:04:00+00:00">20:04:00</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>djlewis_: negative</q></li>
+<li class="message">[<a href="#T20:04:14" id="T20:04:14"><abbr title="2010-09-29T20:04:14+00:00">20:04:14</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>if you do it should refresh those settings with yours</q></li>
+<li class="message">[<a href="#T20:04:30" id="T20:04:30"><abbr title="2010-09-29T20:04:30+00:00">20:04:30</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>but..  how does it know what mine are?</q></li>
+<li class="message">[<a href="#T20:04:54" id="T20:04:54"><abbr title="2010-09-29T20:04:54+00:00">20:04:54</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>it should read the env vars on boot</q></li>
+<li class="message">[<a href="#T20:05:20" id="T20:05:20"><abbr title="2010-09-29T20:05:20+00:00">20:05:20</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>the env vars were there when I turned it on</q></li>
+<li class="message">[<a href="#T20:05:38" id="T20:05:38"><abbr title="2010-09-29T20:05:38+00:00">20:05:38</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>nand erase 260000 20000</q></li>
+<li class="message">[<a href="#T20:06:10" id="T20:06:10"><abbr title="2010-09-29T20:06:10+00:00">20:06:10</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>shouldn't "set dvimode 800x600MR-16@60</q></li>
+<li class="message">[<a href="#T20:06:16" id="T20:06:16"><abbr title="2010-09-29T20:06:16+00:00">20:06:16</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>set it to 800x600?</q></li>
+<li class="message">[<a href="#T20:07:28" id="T20:07:28"><abbr title="2010-09-29T20:07:28+00:00">20:07:28</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>oh, I see.. it sets it at the bottom, where it doesn't matter.</q></li>
+<li class="message">[<a href="#T20:08:54" id="T20:08:54"><abbr title="2010-09-29T20:08:54+00:00">20:08:54</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>even with setenv bootargs console=${console} vram=${vram} omapfb.mode=dvi:800x600MR-16@60 omapfb.debug=y omapdss.def_disp=${defaultdisplay}... I get it detecting 1280x768</q></li>
+<li class="quit">[<a href="#T20:09:01" id="T20:09:01"><abbr title="2010-09-29T20:09:01+00:00">20:09:01</abbr></a>] <span>* ceyusa (~vjaquez@155.99.117.91.static.mundo-r.com) Quit (Quit: leaving)</span></li>
+<li class="message">[<a href="#T20:09:41" id="T20:09:41"><abbr title="2010-09-29T20:09:41+00:00">20:09:41</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>beagleboards dont detect video modes of monitor</q></li>
+<li class="message">[<a href="#T20:10:50" id="T20:10:50"><abbr title="2010-09-29T20:10:50+00:00">20:10:50</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>well, I'm trying to set the mode</q></li>
+<li class="message">[<a href="#T20:10:57" id="T20:10:57"><abbr title="2010-09-29T20:10:57+00:00">20:10:57</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>not detect it</q></li>
+<li class="quit">[<a href="#T20:13:32" id="T20:13:32"><abbr title="2010-09-29T20:13:32+00:00">20:13:32</abbr></a>] <span>* major (~major@99-12-196-36.lightspeed.austtx.sbcglobal.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T20:13:47" id="T20:13:47"><abbr title="2010-09-29T20:13:47+00:00">20:13:47</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jedix: check what ends up in the kernel command line</q></li>
+<li class="message">[<a href="#T20:13:51" id="T20:13:51"><abbr title="2010-09-29T20:13:51+00:00">20:13:51</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>in your logs</q></li>
+<li class="message">[<a href="#T20:14:14" id="T20:14:14"><abbr title="2010-09-29T20:14:14+00:00">20:14:14</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>this 1280x768 is not "detected"</q></li>
+<li class="message">[<a href="#T20:14:22" id="T20:14:22"><abbr title="2010-09-29T20:14:22+00:00">20:14:22</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>uboot gets that from "somewhere"</q></li>
+<li class="message">[<a href="#T20:14:28" id="T20:14:28"><abbr title="2010-09-29T20:14:28+00:00">20:14:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>nand</q></li>
+<li class="message">[<a href="#T20:14:30" id="T20:14:30"><abbr title="2010-09-29T20:14:30+00:00">20:14:30</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>or boot.scr</q></li>
+<li class="message">[<a href="#T20:14:33" id="T20:14:33"><abbr title="2010-09-29T20:14:33+00:00">20:14:33</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>or default</q></li>
+<li class="message">[<a href="#T20:14:37" id="T20:14:37"><abbr title="2010-09-29T20:14:37+00:00">20:14:37</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>or dunno</q></li>
+<li class="message">[<a href="#T20:14:39" id="T20:14:39"><abbr title="2010-09-29T20:14:39+00:00">20:14:39</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>or magic</q></li>
+<li class="quit">[<a href="#T20:15:21" id="T20:15:21"><abbr title="2010-09-29T20:15:21+00:00">20:15:21</abbr></a>] <span>* CMoH-office (~cipi@unaffiliated/c-moh) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T20:16:08" id="T20:16:08"><abbr title="2010-09-29T20:16:08+00:00">20:16:08</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>it's in uboot for sure.</q></li>
+<li class="message">[<a href="#T20:16:12" id="T20:16:12"><abbr title="2010-09-29T20:16:12+00:00">20:16:12</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>but I'm overwriting it</q></li>
+<li class="message">[<abbr title="2010-09-29T20:16:12+00:00">20:16:12</abbr>] &lt;<cite>djlewis_</cite>&gt; <q>or erase the ser env varrs as suggested</q></li>
+<li class="message">[<a href="#T20:16:16" id="T20:16:16"><abbr title="2010-09-29T20:16:16+00:00">20:16:16</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>with 800x600</q></li>
+<li class="message">[<a href="#T20:16:23" id="T20:16:23"><abbr title="2010-09-29T20:16:23+00:00">20:16:23</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>s/ser/user</q></li>
+<li class="message">[<a href="#T20:16:26" id="T20:16:26"><abbr title="2010-09-29T20:16:26+00:00">20:16:26</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>800x480, no?</q></li>
+<li class="message">[<a href="#T20:16:28" id="T20:16:28"><abbr title="2010-09-29T20:16:28+00:00">20:16:28</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>dvimode=1024x768MR-16@60</q></li>
+<li class="quit">[<a href="#T20:16:35" id="T20:16:35"><abbr title="2010-09-29T20:16:35+00:00">20:16:35</abbr></a>] <span>* naeg (~naeg@194.208.239.170) Quit (Quit: WeeChat 0.3.3)</span></li>
+<li class="message">[<a href="#T20:16:41" id="T20:16:41"><abbr title="2010-09-29T20:16:41+00:00">20:16:41</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>so I try and just set bootargs directly</q></li>
+<li class="message">[<a href="#T20:17:25" id="T20:17:25"><abbr title="2010-09-29T20:17:25+00:00">20:17:25</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>ah, right..</q></li>
+<li class="message">[<a href="#T20:17:28" id="T20:17:28"><abbr title="2010-09-29T20:17:28+00:00">20:17:28</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>let me try that..</q></li>
+<li class="message">[<a href="#T20:17:38" id="T20:17:38"><abbr title="2010-09-29T20:17:38+00:00">20:17:38</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>no, the monitor still thinks it's 1280x768</q></li>
+<li class="message">[<a href="#T20:18:35" id="T20:18:35"><abbr title="2010-09-29T20:18:35+00:00">20:18:35</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>what is your kernel cmd line?</q></li>
+<li class="message">[<a href="#T20:20:29" id="T20:20:29"><abbr title="2010-09-29T20:20:29+00:00">20:20:29</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>setenv bootargs console=${console} vram=${vram} omapfb.mode=dvi:800x480 mapfb.debug=y omapdss.def_disp=${defaultdisplay} root=${mmcroot} rootfstype=${mmcrootfstype}</q></li>
+<li class="message">[<a href="#T20:20:35" id="T20:20:35"><abbr title="2010-09-29T20:20:35+00:00">20:20:35</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>then I did "boot"</q></li>
+<li class="message">[<a href="#T20:21:40" id="T20:21:40"><abbr title="2010-09-29T20:21:40+00:00">20:21:40</abbr></a>] &lt;<cite>jedix</cite>&gt; <q><a href="http://pastebin.com/PZ0caWC9">http://pastebin.com/PZ0caWC9</a></q></li>
+<li class="message">[<a href="#T20:23:19" id="T20:23:19"><abbr title="2010-09-29T20:23:19+00:00">20:23:19</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>Does that make sense?</q></li>
+<li class="quit">[<a href="#T20:23:20" id="T20:23:20"><abbr title="2010-09-29T20:23:20+00:00">20:23:20</abbr></a>] <span>* Electric_Monk (~colin@87-194-159-227.bethere.co.uk) Quit (Quit: Electric_Monk)</span></li>
+<li class="join">[<a href="#T20:26:06" id="T20:26:06"><abbr title="2010-09-29T20:26:06+00:00">20:26:06</abbr></a>] <span>* PierreLuc (~PierreLuc@ip-66-254-44-78.mqdsl.megaquebec.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:26:38" id="T20:26:38"><abbr title="2010-09-29T20:26:38+00:00">20:26:38</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>yes, so what comes after the "boot" :)</q></li>
+<li class="message">[<a href="#T20:26:46" id="T20:26:46"><abbr title="2010-09-29T20:26:46+00:00">20:26:46</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>hehe, k</q></li>
+<li class="quit">[<a href="#T20:26:50" id="T20:26:50"><abbr title="2010-09-29T20:26:50+00:00">20:26:50</abbr></a>] <span>* mmarker (~crichton@4.sub-97-236-166.myvzw.com) Quit (Quit: Bye)</span></li>
+<li class="message">[<a href="#T20:27:03" id="T20:27:03"><abbr title="2010-09-29T20:27:03+00:00">20:27:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>but i guess it ends up being 1024x768</q></li>
+<li class="join">[<a href="#T20:28:51" id="T20:28:51"><abbr title="2010-09-29T20:28:51+00:00">20:28:51</abbr></a>] <span>* Electric_Monk (~colin@87-194-159-227.bethere.co.uk) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:29:47" id="T20:29:47"><abbr title="2010-09-29T20:29:47+00:00">20:29:47</abbr></a>] &lt;<cite>jedix</cite>&gt; <q><a href="http://pastebin.com/Wrzh4yac">http://pastebin.com/Wrzh4yac</a></q></li>
+<li class="message">[<a href="#T20:30:06" id="T20:30:06"><abbr title="2010-09-29T20:30:06+00:00">20:30:06</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>even with my setenv bootargs line specifying 800x480?</q></li>
+<li class="message">[<a href="#T20:32:51" id="T20:32:51"><abbr title="2010-09-29T20:32:51+00:00">20:32:51</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>damn monitor.</q></li>
+<li class="message">[<a href="#T20:33:55" id="T20:33:55"><abbr title="2010-09-29T20:33:55+00:00">20:33:55</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>your log is incomplete</q></li>
+<li class="join">[<a href="#T20:34:34" id="T20:34:34"><abbr title="2010-09-29T20:34:34+00:00">20:34:34</abbr></a>] <span>* Iow (~kira@41.174.9.140) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:35:06" id="T20:35:06"><abbr title="2010-09-29T20:35:06+00:00">20:35:06</abbr></a>] &lt;<cite>Iow</cite>&gt; <q>Hi</q></li>
+<li class="message">[<a href="#T20:35:56" id="T20:35:56"><abbr title="2010-09-29T20:35:56+00:00">20:35:56</abbr></a>] &lt;<cite>Iow</cite>&gt; <q>has anyone here had success with auto direction level shifting for the mmc2?</q></li>
+<li class="message">[<a href="#T20:36:03" id="T20:36:03"><abbr title="2010-09-29T20:36:03+00:00">20:36:03</abbr></a>] &lt;<cite>jedix</cite>&gt; <q> ?</q></li>
+<li class="message">[<a href="#T20:36:17" id="T20:36:17"><abbr title="2010-09-29T20:36:17+00:00">20:36:17</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>_av500_: what do you mean?</q></li>
+<li class="message">[<a href="#T20:36:43" id="T20:36:43"><abbr title="2010-09-29T20:36:43+00:00">20:36:43</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>_av500_: the only thing it's missing is "welcome to meego"</q></li>
+<li class="message">[<a href="#T20:36:49" id="T20:36:49"><abbr title="2010-09-29T20:36:49+00:00">20:36:49</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>no, at the statr</q></li>
+<li class="message">[<a href="#T20:36:51" id="T20:36:51"><abbr title="2010-09-29T20:36:51+00:00">20:36:51</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>start</q></li>
+<li class="message">[<a href="#T20:36:56" id="T20:36:56"><abbr title="2010-09-29T20:36:56+00:00">20:36:56</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>cpu type etc and kernel command line</q></li>
+<li class="message">[<a href="#T20:37:22" id="T20:37:22"><abbr title="2010-09-29T20:37:22+00:00">20:37:22</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jedix: what kernel yre you running btw?</q></li>
+<li class="message">[<a href="#T20:38:28" id="T20:38:28"><abbr title="2010-09-29T20:38:28+00:00">20:38:28</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>2.6.34</q></li>
+<li class="message">[<a href="#T20:38:32" id="T20:38:32"><abbr title="2010-09-29T20:38:32+00:00">20:38:32</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>that's all I have at the start.</q></li>
+<li class="part">[<a href="#T20:39:33" id="T20:39:33"><abbr title="2010-09-29T20:39:33+00:00">20:39:33</abbr></a>] <span>* grund (~grund@host65-17-84-58.birch.net) has left #beagle</span></li>
+<li class="message">[<a href="#T20:39:44" id="T20:39:44"><abbr title="2010-09-29T20:39:44+00:00">20:39:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jedix: where is this kernel from?</q></li>
+<li class="message">[<a href="#T20:39:52" id="T20:39:52"><abbr title="2010-09-29T20:39:52+00:00">20:39:52</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ah right mego</q></li>
+<li class="message">[<a href="#T20:39:59" id="T20:39:59"><abbr title="2010-09-29T20:39:59+00:00">20:39:59</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>meego</q></li>
+<li class="message">[<a href="#T20:41:48" id="T20:41:48"><abbr title="2010-09-29T20:41:48+00:00">20:41:48</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>let go my meego.. set it fre... da da da da</q></li>
+<li class="join">[<a href="#T20:42:01" id="T20:42:01"><abbr title="2010-09-29T20:42:01+00:00">20:42:01</abbr></a>] <span>* rbarraud (~rbarraud@118-92-140-168.dsl.dyn.ihug.co.nz) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:45:24" id="T20:45:24"><abbr title="2010-09-29T20:45:24+00:00">20:45:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jedix: ?</q></li>
+<li class="message">[<a href="#T20:45:30" id="T20:45:30"><abbr title="2010-09-29T20:45:30+00:00">20:45:30</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>yeah?</q></li>
+<li class="message">[<a href="#T20:45:42" id="T20:45:42"><abbr title="2010-09-29T20:45:42+00:00">20:45:42</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jedix: where is this kernel from?</q></li>
+<li class="message">[<a href="#T20:45:58" id="T20:45:58"><abbr title="2010-09-29T20:45:58+00:00">20:45:58</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>I built it</q></li>
+<li class="message">[<a href="#T20:46:06" id="T20:46:06"><abbr title="2010-09-29T20:46:06+00:00">20:46:06</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>let me grab meego's directly.</q></li>
+<li class="message">[<a href="#T20:46:09" id="T20:46:09"><abbr title="2010-09-29T20:46:09+00:00">20:46:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>WITH HEXEDIT?</q></li>
+<li class="message">[<a href="#T20:46:16" id="T20:46:16"><abbr title="2010-09-29T20:46:16+00:00">20:46:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>oops</q></li>
+<li class="message">[<a href="#T20:46:19" id="T20:46:19"><abbr title="2010-09-29T20:46:19+00:00">20:46:19</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>with hexedit?</q></li>
+<li class="message">[<a href="#T20:46:31" id="T20:46:31"><abbr title="2010-09-29T20:46:31+00:00">20:46:31</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>hexedit?</q></li>
+<li class="message">[<a href="#T20:46:41" id="T20:46:41"><abbr title="2010-09-29T20:46:41+00:00">20:46:41</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>why would I build my kernel with hexedit?</q></li>
+<li class="message">[<a href="#T20:46:54" id="T20:46:54"><abbr title="2010-09-29T20:46:54+00:00">20:46:54</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>sorry, I don't understand what you mean</q></li>
+<li class="message">[<a href="#T20:46:58" id="T20:46:58"><abbr title="2010-09-29T20:46:58+00:00">20:46:58</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jedix: where is this kernel from?</q></li>
+<li class="message">[<a href="#T20:47:13" id="T20:47:13"><abbr title="2010-09-29T20:47:13+00:00">20:47:13</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>I built it from source</q></li>
+<li class="message">[<a href="#T20:47:29" id="T20:47:29"><abbr title="2010-09-29T20:47:29+00:00">20:47:29</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>there are a million kernel git trees out there</q></li>
+<li class="message">[<a href="#T20:48:19" id="T20:48:19"><abbr title="2010-09-29T20:48:19+00:00">20:48:19</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>k, let me grab the meego kernel directly and use that.</q></li>
+<li class="message">[<a href="#T20:48:48" id="T20:48:48"><abbr title="2010-09-29T20:48:48+00:00">20:48:48</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>kernel-n900 okay?</q></li>
+<li class="message">[<a href="#T20:49:04" id="T20:49:04"><abbr title="2010-09-29T20:49:04+00:00">20:49:04</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>does the beagleboard look like a n900?</q></li>
+<li class="message">[<a href="#T20:49:26" id="T20:49:26"><abbr title="2010-09-29T20:49:26+00:00">20:49:26</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T20:50:03" id="T20:50:03"><abbr title="2010-09-29T20:50:03+00:00">20:50:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>so why dont you use a beagleboard kernel, like e.g. the one from angstrom</q></li>
+<li class="message">[<a href="#T20:50:36" id="T20:50:36"><abbr title="2010-09-29T20:50:36+00:00">20:50:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>dm8tbr: whats the news on meego-arm for bb?</q></li>
+<li class="message">[<a href="#T20:50:46" id="T20:50:46"><abbr title="2010-09-29T20:50:46+00:00">20:50:46</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>because I'm not using angstrom</q></li>
+<li class="message">[<abbr title="2010-09-29T20:50:46+00:00">20:50:46</abbr>] &lt;<cite>jannau</cite>&gt; <q><a href="http://wiki.meego.com/ARM/Meego_on_the_Beagle">http://wiki.meego.com/ARM/Meego_on_the_Beagle</a></q></li>
+<li class="message">[<a href="#T20:51:20" id="T20:51:20"><abbr title="2010-09-29T20:51:20+00:00">20:51:20</abbr></a>] &lt;<cite>jannau</cite>&gt; <q>jedix: userspace shouldn't care too much about the actual used kernel</q></li>
+<li class="quit">[<a href="#T20:52:27" id="T20:52:27"><abbr title="2010-09-29T20:52:27+00:00">20:52:27</abbr></a>] <span>* rlameiro (~lameiro@87.196.151.221) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T20:52:37" id="T20:52:37"><abbr title="2010-09-29T20:52:37+00:00">20:52:37</abbr></a>] &lt;<cite>jannau</cite>&gt; <q>jedix: <a href="http://wiki.meego.com/images/Meego-beagle-kernel.tar.bz2">http://wiki.meego.com/images/Meego-beagle-kernel.tar.bz2</a> should have a meego 2.6.34 kernel for BB</q></li>
+<li class="message">[<a href="#T20:54:38" id="T20:54:38"><abbr title="2010-09-29T20:54:38+00:00">20:54:38</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>thanks</q></li>
+<li class="quit">[<a href="#T20:56:14" id="T20:56:14"><abbr title="2010-09-29T20:56:14+00:00">20:56:14</abbr></a>] <span>* gustavoz (~gustavoz@host181.201-252-8.telecom.net.ar) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T20:57:09" id="T20:57:09"><abbr title="2010-09-29T20:57:09+00:00">20:57:09</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>I guess htis is the like you were looking for: Kernel command line: console=ttyS2,115200n8 vram=12M omapfb.mode=dvi:1024x768MR-16@60 omapfb.debug=y omapdss.def_disp=dvi root=/dev/mmcblk0p2 rw rootfstype=ext3 rootwait</q></li>
+<li class="message">[<a href="#T20:57:28" id="T20:57:28"><abbr title="2010-09-29T20:57:28+00:00">20:57:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T20:57:37" id="T20:57:37"><abbr title="2010-09-29T20:57:37+00:00">20:57:37</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>so 1024x768 ends up in there</q></li>
+<li class="join">[<a href="#T20:57:54" id="T20:57:54"><abbr title="2010-09-29T20:57:54+00:00">20:57:54</abbr></a>] <span>* fozay (58e6b043@gateway/web/freenode/ip.88.230.176.67) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:58:47" id="T20:58:47"><abbr title="2010-09-29T20:58:47+00:00">20:58:47</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>thanks</q></li>
+<li class="message">[<a href="#T20:59:01" id="T20:59:01"><abbr title="2010-09-29T20:59:01+00:00">20:59:01</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>so, make it have 800x480 there</q></li>
+<li class="message">[<a href="#T20:59:14" id="T20:59:14"><abbr title="2010-09-29T20:59:14+00:00">20:59:14</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>dunno if that will work further down in DSS land</q></li>
+<li class="message">[<a href="#T20:59:25" id="T20:59:25"><abbr title="2010-09-29T20:59:25+00:00">20:59:25</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you might check if the kernel modedb has such an entry</q></li>
+<li class="message">[<a href="#T20:59:28" id="T20:59:28"><abbr title="2010-09-29T20:59:28+00:00">20:59:28</abbr></a>] &lt;<cite>jedix</cite>&gt; <q>yeah, I tried that with setenv bootargs but it doesn't change what's going int here :/</q></li>
+<li class="message">[<a href="#T20:59:43" id="T20:59:43"><abbr title="2010-09-29T20:59:43+00:00">20:59:43</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you should change setenv dvimode, no?</q></li>
+<li class="quit">[<a href="#T20:59:48" id="T20:59:48"><abbr title="2010-09-29T20:59:48+00:00">20:59:48</abbr></a>] <span>* slo (~slo@fik1.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T20:59:53" id="T20:59:53"><abbr title="2010-09-29T20:59:53+00:00">20:59:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>since bootaregs uses $dvimode...</q></li>
