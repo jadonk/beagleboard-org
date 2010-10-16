@@ -1011,3 +1011,45 @@
 <li class="message">[<a href="#T21:59:27" id="T21:59:27"><abbr title="2010-10-16T21:59:27+00:00">21:59:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>two ways: clean the cache or _look in the cache_</q></li>
 <li class="message">[<a href="#T21:59:37" id="T21:59:37"><abbr title="2010-10-16T21:59:37+00:00">21:59:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the latter is a bit tricky of course...</q></li>
 <li class="message">[<a href="#T21:59:53" id="T21:59:53"><abbr title="2010-10-16T21:59:53+00:00">21:59:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>are you sure that dsp side flushes the cache?</q></li>
+<li class="message">[<a href="#T22:00:09" id="T22:00:09"><abbr title="2010-10-16T22:00:09+00:00">22:00:09</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T22:00:11" id="T22:00:11"><abbr title="2010-10-16T22:00:11+00:00">22:00:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it obviously _can_ do it</q></li>
+<li class="message">[<a href="#T22:00:14" id="T22:00:14"><abbr title="2010-10-16T22:00:14+00:00">22:00:14</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>how do i make sure that?</q></li>
+<li class="message">[<a href="#T22:00:16" id="T22:00:16"><abbr title="2010-10-16T22:00:16+00:00">22:00:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>dsp has to flush and arm has to inv</q></li>
+<li class="message">[<a href="#T22:00:17" id="T22:00:17"><abbr title="2010-10-16T22:00:17+00:00">22:00:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>useless otherwise</q></li>
+<li class="message">[<a href="#T22:00:44" id="T22:00:44"><abbr title="2010-10-16T22:00:44+00:00">22:00:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or turn of cache and use the dsp L1 and L2 cleverly</q></li>
+<li class="message">[<a href="#T22:00:55" id="T22:00:55"><abbr title="2010-10-16T22:00:55+00:00">22:00:55</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>how dsp can flush?</q></li>
+<li class="message">[<a href="#T22:00:58" id="T22:00:58"><abbr title="2010-10-16T22:00:58+00:00">22:00:58</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>Beagle_user: you were doing c6accell, right?</q></li>
+<li class="message">[<a href="#T22:01:14" id="T22:01:14"><abbr title="2010-10-16T22:01:14+00:00">22:01:14</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>nope, C6Runlib</q></li>
+<li class="message">[<a href="#T22:01:31" id="T22:01:31"><abbr title="2010-10-16T22:01:31+00:00">22:01:31</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>now what was that again</q></li>
+<li class="message">[<a href="#T22:01:38" id="T22:01:38"><abbr title="2010-10-16T22:01:38+00:00">22:01:38</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>C6Run</q></li>
+<li class="message">[<a href="#T22:01:57" id="T22:01:57"><abbr title="2010-10-16T22:01:57+00:00">22:01:57</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>it was initially called dspeasy!</q></li>
+<li class="message">[<a href="#T22:02:19" id="T22:02:19"><abbr title="2010-10-16T22:02:19+00:00">22:02:19</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>so easy</q></li>
+<li class="message">[<a href="#T22:04:24" id="T22:04:24"><abbr title="2010-10-16T22:04:24+00:00">22:04:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>...By assuming that the buffer is input/output, all potentially required cache operations will be executed....</q></li>
+<li class="message">[<a href="#T22:04:36" id="T22:04:36"><abbr title="2010-10-16T22:04:36+00:00">22:04:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>c6runlib does that for you it seems</q></li>
+<li class="join">[<a href="#T22:05:07" id="T22:05:07"><abbr title="2010-10-16T22:05:07+00:00">22:05:07</abbr></a>] <span>* pcacjr_ (~pcacjr@187.78.51.3) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2010-10-16T22:05:07+00:00">22:05:07</abbr>] <span>* pcacjr_ (~pcacjr@187.78.51.3) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2010-10-16T22:05:07+00:00">22:05:07</abbr>] <span>* pcacjr_ (~pcacjr@unaffiliated/pcacjr) has joined #beagle</span></li>
+<li class="message">[<a href="#T22:05:22" id="T22:05:22"><abbr title="2010-10-16T22:05:22+00:00">22:05:22</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and think this is c6accel by anyther name</q></li>
+<li class="quit">[<a href="#T22:06:11" id="T22:06:11"><abbr title="2010-10-16T22:06:11+00:00">22:06:11</abbr></a>] <span>* pcacjr (~pcacjr@unaffiliated/pcacjr) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T22:06:24" id="T22:06:24"><abbr title="2010-10-16T22:06:24+00:00">22:06:24</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>the problem is that: the DSP can see the values initialized by ARM, but when DSP does some change, the ARM is not able to see that change</q></li>
+<li class="message">[<a href="#T22:06:25" id="T22:06:25"><abbr title="2010-10-16T22:06:25+00:00">22:06:25</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ah no</q></li>
+<li class="message">[<a href="#T22:06:41" id="T22:06:41"><abbr title="2010-10-16T22:06:41+00:00">22:06:41</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>so i thought this might be some caching problem on DSP side</q></li>
+<li class="message">[<a href="#T22:06:46" id="T22:06:46"><abbr title="2010-10-16T22:06:46+00:00">22:06:46</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>c6runlib is your code, c6accell is precanned library functions</q></li>
+<li class="message">[<a href="#T22:07:11" id="T22:07:11"><abbr title="2010-10-16T22:07:11+00:00">22:07:11</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>Beagle_user: best is to ask TI ppl who wrote it</q></li>
+<li class="message">[<a href="#T22:07:37" id="T22:07:37"><abbr title="2010-10-16T22:07:37+00:00">22:07:37</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>I already posted it into e2e forums, but not reply yet :(</q></li>
+<li class="message">[<a href="#T22:07:57" id="T22:07:57"><abbr title="2010-10-16T22:07:57+00:00">22:07:57</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ti e2e should get you a response</q></li>
+<li class="message">[<a href="#T22:08:16" id="T22:08:16"><abbr title="2010-10-16T22:08:16+00:00">22:08:16</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>my post is @</q></li>
+<li class="message">[<a href="#T22:08:17" id="T22:08:17"><abbr title="2010-10-16T22:08:17+00:00">22:08:17</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q><a href="http://e2e.ti.com/support/dsp/omap_applications_processors/f/447/t/68103.aspx">http://e2e.ti.com/support/dsp/omap_applications_processors/f/447/t/68103.aspx</a></q></li>
+<li class="message">[<a href="#T22:08:26" id="T22:08:26"><abbr title="2010-10-16T22:08:26+00:00">22:08:26</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>or ask your money back</q></li>
+<li class="message">[<a href="#T22:08:49" id="T22:08:49"><abbr title="2010-10-16T22:08:49+00:00">22:08:49</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T22:09:09" id="T22:09:09"><abbr title="2010-10-16T22:09:09+00:00">22:09:09</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>money back in open-source! hhaha~</q></li>
+<li class="message">[<a href="#T22:09:38" id="T22:09:38"><abbr title="2010-10-16T22:09:38+00:00">22:09:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>time is money</q></li>
+<li class="message">[<a href="#T22:09:42" id="T22:09:42"><abbr title="2010-10-16T22:09:42+00:00">22:09:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I want my time back</q></li>
+<li class="message">[<a href="#T22:09:56" id="T22:09:56"><abbr title="2010-10-16T22:09:56+00:00">22:09:56</abbr></a>] &lt;<cite>Beagle_user</cite>&gt; <q>thts true!</q></li>
+<li class="quit">[<a href="#T22:11:23" id="T22:11:23"><abbr title="2010-10-16T22:11:23+00:00">22:11:23</abbr></a>] <span>* pcacjr_ (~pcacjr@unaffiliated/pcacjr) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T22:19:40" id="T22:19:40"><abbr title="2010-10-16T22:19:40+00:00">22:19:40</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="quit">[<a href="#T22:27:56" id="T22:27:56"><abbr title="2010-10-16T22:27:56+00:00">22:27:56</abbr></a>] <span>* johnnyg (~johnnyg@27-32-126-185.static.tpgi.com.au) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T22:31:22" id="T22:31:22"><abbr title="2010-10-16T22:31:22+00:00">22:31:22</abbr></a>] <span>* johnnyg (~Johnny@27-32-126-185.static.tpgi.com.au) has joined #beagle</span></li>
+<li class="quit">[<a href="#T22:31:46" id="T22:31:46"><abbr title="2010-10-16T22:31:46+00:00">22:31:46</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Verlassend)</span></li>
+<li class="quit">[<a href="#T22:47:47" id="T22:47:47"><abbr title="2010-10-16T22:47:47+00:00">22:47:47</abbr></a>] <span>* woglinde (~heinold@f052225147.adsl.alicedsl.de) Quit (Quit: zapp)</span></li>
+<li class="join">[<a href="#T22:56:16" id="T22:56:16"><abbr title="2010-10-16T22:56:16+00:00">22:56:16</abbr></a>] <span>* ben_kludged (~ben@65-122-139-147.dia.static.qwest.net) has joined #beagle</span></li>
