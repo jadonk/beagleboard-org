@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1287694768551">
+  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1287732016344">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -10,7 +10,7 @@
     <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
     <uri>default</uri>
     <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.10) Gecko/20100914 Firefox/3.6.10</http_browser>
-    <time type="date">21.10.2010 15:59:28 CDT</time>
+    <time type="date">22.10.2010 02:20:16 CDT</time>
     <hopsession>127.0.0.192.94.94.mh59qo2fsk9y</hopsession>
     <body>
  &lt;a href=&quot;http://ad.doubleclick.net/jump/N4481.115138.5376011835521/B3997865;sz=1x1;ord=[timestamp]?&quot;&gt;
@@ -183,6 +183,32 @@ customization at any volume.
   &lt;h2&gt;
    &lt;a href=&quot;/media&quot;&gt;Videos and Pictures&lt;/a&gt;
   &lt;/h2&gt;
+  &lt;div id=&quot;videoBar-bar&quot;&gt;
+   &lt;span style=&quot;color:#676767;font-size:11px;margin:10px;padding:4px;&quot;&gt;Loading...&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;script src=&quot;http://www.google.com/uds/api?file=uds.js&amp;amp;v=1.0&amp;amp;source=uds-vbw&quot; type=&quot;text/javascript&quot;/&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;window._uds_vbw_donotrepair = true;&lt;/script&gt;
+  &lt;script src=&quot;http://www.google.com/uds/solutions/videobar/gsvideobar.js?mode=new&quot; type=&quot;text/javascript&quot;/&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;function LoadVideoBar() {
+
+    var videoBar;
+    var options = {
+        largeResultSet : !true,
+        horizontal : true,
+        autoExecuteList : {
+          cycleTime : GSvideoBar.CYCLE_TIME_MEDIUM,
+          cycleMode : GSvideoBar.CYCLE_MODE_LINEAR,
+          executeList : [&quot;ytchannel:beagleboard&quot;,&quot;beagleboard&quot;]
+        }
+      }
+
+    videoBar = new GSvideoBar(document.getElementById(&quot;videoBar-bar&quot;),
+                              GSvideoBar.PLAYER_ROOT_FLOATING,
+                              options);
+    }
+    // arrange for this function to be called during body.onload
+    // event processing
+    GSearch.setOnLoadCallback(LoadVideoBar);&lt;/script&gt;
   &lt;div&gt;
    &lt;p id=&quot;video1&quot;&gt;
     &lt;a href=&quot;http://www.youtube.com/watch?v=EH4ZSpehNQw&quot;&gt;
