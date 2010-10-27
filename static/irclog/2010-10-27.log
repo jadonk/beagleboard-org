@@ -1322,3 +1322,83 @@
 <li class="message">[<a href="#T10:59:11" id="T10:59:11"><abbr title="2010-10-27T10:59:11+00:00">10:59:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>then you're holding it wrong</q></li>
 <li class="message">[<a href="#T10:59:32" id="T10:59:32"><abbr title="2010-10-27T10:59:32+00:00">10:59:32</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>same code with 50 if's is faster than 50 case switch</q></li>
 <li class="message">[<a href="#T10:59:57" id="T10:59:57"><abbr title="2010-10-27T10:59:57+00:00">10:59:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm not saying gcc doesn't generate crap for some kinds of switch statements</q></li>
+<li class="message">[<a href="#T11:00:03" id="T11:00:03"><abbr title="2010-10-27T11:00:03+00:00">11:00:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but they _are_ predicted</q></li>
+<li class="message">[<a href="#T11:00:39" id="T11:00:39"><abbr title="2010-10-27T11:00:39+00:00">11:00:39</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>branch prediction only predicts if branch is taken or not</q></li>
+<li class="message">[<a href="#T11:00:44" id="T11:00:44"><abbr title="2010-10-27T11:00:44+00:00">11:00:44</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>not where is it branching</q></li>
+<li class="join">[<a href="#T11:00:49" id="T11:00:49"><abbr title="2010-10-27T11:00:49+00:00">11:00:49</abbr></a>] <span>* jkridner|work1 (~a0321898@nat/ti/x-klcciajagrjthkbp) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:00:51" id="T11:00:51"><abbr title="2010-10-27T11:00:51+00:00">11:00:51</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and that's a problem with jumptables</q></li>
+<li class="message">[<a href="#T11:01:18" id="T11:01:18"><abbr title="2010-10-27T11:01:18+00:00">11:01:18</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>does 'hard' option works for u mru</q></li>
+<li class="message">[<a href="#T11:01:26" id="T11:01:26"><abbr title="2010-10-27T11:01:26+00:00">11:01:26</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>in 4.5</q></li>
+<li class="message">[<a href="#T11:01:30" id="T11:01:30"><abbr title="2010-10-27T11:01:30+00:00">11:01:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jacekowski: you are wrong</q></li>
+<li class="message">[<a href="#T11:01:40" id="T11:01:40"><abbr title="2010-10-27T11:01:40+00:00">11:01:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ldr pc, [rn] is predicted</q></li>
+<li class="message">[<a href="#T11:01:57" id="T11:01:57"><abbr title="2010-10-27T11:01:57+00:00">11:01:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q><a href="http://infocenter.arm.com/help/topic/com.arm.doc.ddi0344k/Cacichgi.html">http://infocenter.arm.com/help/topic/com.arm.doc.ddi0344k/Cacichgi.html</a></q></li>
+<li class="message">[<a href="#T11:02:02" id="T11:02:02"><abbr title="2010-10-27T11:02:02+00:00">11:02:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>talking about cortex-a8</q></li>
+<li class="quit">[<a href="#T11:03:27" id="T11:03:27"><abbr title="2010-10-27T11:03:27+00:00">11:03:27</abbr></a>] <span>* jkridner|work (~a0321898@nat/ti/x-fosjnhttrnnknhov) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T11:03:44" id="T11:03:44"><abbr title="2010-10-27T11:03:44+00:00">11:03:44</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>it works for me on armcc</q></li>
+<li class="message">[<a href="#T11:04:08" id="T11:04:08"><abbr title="2010-10-27T11:04:08+00:00">11:04:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>-mfloat-abi=hard works fine</q></li>
+<li class="message">[<a href="#T11:04:17" id="T11:04:17"><abbr title="2010-10-27T11:04:17+00:00">11:04:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you have to use it for the entire system of course</q></li>
+<li class="message">[<a href="#T11:05:00" id="T11:05:00"><abbr title="2010-10-27T11:05:00+00:00">11:05:00</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>i thought its enabled in kernel..i generated mine frm narcissus</q></li>
+<li class="message">[<a href="#T11:05:08" id="T11:05:08"><abbr title="2010-10-27T11:05:08+00:00">11:05:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>kernel doesn't care</q></li>
+<li class="message">[<a href="#T11:05:15" id="T11:05:15"><abbr title="2010-10-27T11:05:15+00:00">11:05:15</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>then</q></li>
+<li class="message">[<a href="#T11:05:22" id="T11:05:22"><abbr title="2010-10-27T11:05:22+00:00">11:05:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you need vfp support enabled of course</q></li>
+<li class="message">[<a href="#T11:05:29" id="T11:05:29"><abbr title="2010-10-27T11:05:29+00:00">11:05:29</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: look at switch code</q></li>
+<li class="message">[<a href="#T11:05:42" id="T11:05:42"><abbr title="2010-10-27T11:05:42+00:00">11:05:42</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: it does math and then loads ready adress into PC</q></li>
+<li class="message">[<a href="#T11:06:14" id="T11:06:14"><abbr title="2010-10-27T11:06:14+00:00">11:06:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jacekowski: which instruction updates PC?</q></li>
+<li class="message">[<a href="#T11:06:29" id="T11:06:29"><abbr title="2010-10-27T11:06:29+00:00">11:06:29</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>LDR</q></li>
+<li class="message">[<a href="#T11:06:44" id="T11:06:44"><abbr title="2010-10-27T11:06:44+00:00">11:06:44</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>so imagine you have like </q></li>
+<li class="message">[<a href="#T11:06:48" id="T11:06:48"><abbr title="2010-10-27T11:06:48+00:00">11:06:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so it's predicted</q></li>
+<li class="message">[<a href="#T11:06:49" id="T11:06:49"><abbr title="2010-10-27T11:06:49+00:00">11:06:49</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>hmm i don't remember opcode</q></li>
+<li class="message">[<a href="#T11:06:56" id="T11:06:56"><abbr title="2010-10-27T11:06:56+00:00">11:06:56</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: adress isn't</q></li>
+<li class="message">[<a href="#T11:07:02" id="T11:07:02"><abbr title="2010-10-27T11:07:02+00:00">11:07:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>is too</q></li>
+<li class="message">[<a href="#T11:07:06" id="T11:07:06"><abbr title="2010-10-27T11:07:06+00:00">11:07:06</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: it's only predicting if branch is taken</q></li>
+<li class="message">[<a href="#T11:07:17" id="T11:07:17"><abbr title="2010-10-27T11:07:17+00:00">11:07:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you are wrong</q></li>
+<li class="message">[<abbr title="2010-10-27T11:07:17+00:00">11:07:17</abbr>] &lt;<cite>jacekowski</cite>&gt; <q>no because adres is from previous instruction</q></li>
+<li class="message">[<a href="#T11:07:23" id="T11:07:23"><abbr title="2010-10-27T11:07:23+00:00">11:07:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>go read about the branch target buffer</q></li>
+<li class="message">[<a href="#T11:07:24" id="T11:07:24"><abbr title="2010-10-27T11:07:24+00:00">11:07:24</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>i'll send e-mail to arm</q></li>
+<li class="message">[<a href="#T11:07:27" id="T11:07:27"><abbr title="2010-10-27T11:07:27+00:00">11:07:27</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and ask them directly</q></li>
+<li class="message">[<a href="#T11:07:35" id="T11:07:35"><abbr title="2010-10-27T11:07:35+00:00">11:07:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>do that</q></li>
+<li class="message">[<a href="#T11:07:41" id="T11:07:41"><abbr title="2010-10-27T11:07:41+00:00">11:07:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I already gave you the answer</q></li>
+<li class="message">[<a href="#T11:07:52" id="T11:07:52"><abbr title="2010-10-27T11:07:52+00:00">11:07:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>on ARM's website</q></li>
+<li class="nick-change">[<a href="#T11:08:03" id="T11:08:03"><abbr title="2010-10-27T11:08:03+00:00">11:08:03</abbr></a>] <span>* ksinkar_ is now known as ksinkar</span></li>
+<li class="message">[<a href="#T11:09:07" id="T11:09:07"><abbr title="2010-10-27T11:09:07+00:00">11:09:07</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>mru:what do you mean by entire system...where else you say i need to enable</q></li>
+<li class="message">[<a href="#T11:09:26" id="T11:09:26"><abbr title="2010-10-27T11:09:26+00:00">11:09:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>everything</q></li>
+<li class="message">[<a href="#T11:09:31" id="T11:09:31"><abbr title="2010-10-27T11:09:31+00:00">11:09:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>glibc etc</q></li>
+<li class="message">[<a href="#T11:09:39" id="T11:09:39"><abbr title="2010-10-27T11:09:39+00:00">11:09:39</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: it's not saying what is predicted</q></li>
+<li class="message">[<a href="#T11:09:45" id="T11:09:45"><abbr title="2010-10-27T11:09:45+00:00">11:09:45</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T11:09:49" id="T11:09:49"><abbr title="2010-10-27T11:09:49+00:00">11:09:49</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: if it's adress or branch taken/not taken</q></li>
+<li class="message">[<a href="#T11:09:50" id="T11:09:50"><abbr title="2010-10-27T11:09:50+00:00">11:09:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jacekowski: oh but it does</q></li>
+<li class="message">[<a href="#T11:10:17" id="T11:10:17"><abbr title="2010-10-27T11:10:17+00:00">11:10:17</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>d</q></li>
+<li class="message">[<a href="#T11:10:30" id="T11:10:30"><abbr title="2010-10-27T11:10:30+00:00">11:10:30</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and back...</q></li>
+<li class="message">[<a href="#T11:13:21" id="T11:13:21"><abbr title="2010-10-27T11:13:21+00:00">11:13:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>_av500_: maybe you can teach jacekowski to read</q></li>
+<li class="message">[<a href="#T11:13:37" id="T11:13:37"><abbr title="2010-10-27T11:13:37+00:00">11:13:37</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>abc...</q></li>
+<li class="message">[<a href="#T11:13:57" id="T11:13:57"><abbr title="2010-10-27T11:13:57+00:00">11:13:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>...trm...</q></li>
+<li class="message">[<a href="#T11:15:35" id="T11:15:35"><abbr title="2010-10-27T11:15:35+00:00">11:15:35</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: <a href="http://pastebin.com/uHYZb6AK">http://pastebin.com/uHYZb6AK</a></q></li>
+<li class="message">[<a href="#T11:15:39" id="T11:15:39"><abbr title="2010-10-27T11:15:39+00:00">11:15:39</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>that sort of thing</q></li>
+<li class="message">[<a href="#T11:16:09" id="T11:16:09"><abbr title="2010-10-27T11:16:09+00:00">11:16:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>...xyz</q></li>
+<li class="message">[<a href="#T11:16:46" id="T11:16:46"><abbr title="2010-10-27T11:16:46+00:00">11:16:46</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>even without that shift</q></li>
+<li class="message">[<a href="#T11:17:52" id="T11:17:52"><abbr title="2010-10-27T11:17:52+00:00">11:17:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for the record, that branch is predicted</q></li>
+<li class="message">[<a href="#T11:18:03" id="T11:18:03"><abbr title="2010-10-27T11:18:03+00:00">11:18:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>further discussion is pointless</q></li>
+<li class="join">[<a href="#T11:25:56" id="T11:25:56"><abbr title="2010-10-27T11:25:56+00:00">11:25:56</abbr></a>] <span>* siji (~siji@203.194.99.96) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:26:52" id="T11:26:52"><abbr title="2010-10-27T11:26:52+00:00">11:26:52</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: i'll get back to you on that when they will send me answer</q></li>
+<li class="message">[<a href="#T11:27:00" id="T11:27:00"><abbr title="2010-10-27T11:27:00+00:00">11:27:00</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>an answer*</q></li>
+<li class="message">[<a href="#T11:27:10" id="T11:27:10"><abbr title="2010-10-27T11:27:10+00:00">11:27:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T11:29:04" id="T11:29:04"><abbr title="2010-10-27T11:29:04+00:00">11:29:04</abbr></a>] &lt;<cite>jannau</cite>&gt; <q>mru: you doesn't seem to be very trustworthy ;) no wonder why TI doesn't want to send you a board</q></li>
+<li class="quit">[<a href="#T11:34:33" id="T11:34:33"><abbr title="2010-10-27T11:34:33+00:00">11:34:33</abbr></a>] <span>* Crofton (~balister@217.206.93.210) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T11:42:44" id="T11:42:44"><abbr title="2010-10-27T11:42:44+00:00">11:42:44</abbr></a>] <span>* raven_the_bard (d5f898b5@gateway/web/freenode/ip.213.248.152.181) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:42:52" id="T11:42:52"><abbr title="2010-10-27T11:42:52+00:00">11:42:52</abbr></a>] &lt;<cite>raven_the_bard</cite>&gt; <q>hi , </q></li>
+<li class="quit">[<a href="#T11:43:06" id="T11:43:06"><abbr title="2010-10-27T11:43:06+00:00">11:43:06</abbr></a>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T11:43:20" id="T11:43:20"><abbr title="2010-10-27T11:43:20+00:00">11:43:20</abbr></a>] &lt;<cite>raven_the_bard</cite>&gt; <q>I'm trying to build angstorm by scripts</q></li>
+<li class="message">[<a href="#T11:43:59" id="T11:43:59"><abbr title="2010-10-27T11:43:59+00:00">11:43:59</abbr></a>] &lt;<cite>raven_the_bard</cite>&gt; <q>but it gaves "oebb.sh: 46: Syntax error: "(" unexpected" error ,when I attemted to execute oebb.sh</q></li>
+<li class="message">[<a href="#T11:44:05" id="T11:44:05"><abbr title="2010-10-27T11:44:05+00:00">11:44:05</abbr></a>] &lt;<cite>raven_the_bard</cite>&gt; <q>I use ubuntu 10.4</q></li>
+<li class="message">[<a href="#T11:44:38" id="T11:44:38"><abbr title="2010-10-27T11:44:38+00:00">11:44:38</abbr></a>] &lt;<cite>raven_the_bard</cite>&gt; <q>how can I fix this ?</q></li>
+<li class="message">[<a href="#T11:47:00" id="T11:47:00"><abbr title="2010-10-27T11:47:00+00:00">11:47:00</abbr></a>] &lt;<cite>cwillu_</cite>&gt; <q>raven_the_bard: what oes oebb.sh say on line 46?</q></li>
+<li class="message">[<a href="#T11:47:03" id="T11:47:03"><abbr title="2010-10-27T11:47:03+00:00">11:47:03</abbr></a>] &lt;<cite>cwillu_</cite>&gt; <q>does, rather</q></li>
+<li class="quit">[<a href="#T11:47:45" id="T11:47:45"><abbr title="2010-10-27T11:47:45+00:00">11:47:45</abbr></a>] <span>* kanru (~kanru@61-30-10-70.static.tfn.net.tw) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T11:48:09" id="T11:48:09"><abbr title="2010-10-27T11:48:09+00:00">11:48:09</abbr></a>] <span>* raven_the_bard (d5f898b5@gateway/web/freenode/ip.213.248.152.181) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T11:48:51" id="T11:48:51"><abbr title="2010-10-27T11:48:51+00:00">11:48:51</abbr></a>] <span>* bard_the_raven_ (d5f898b5@gateway/web/freenode/ip.213.248.152.181) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:49:29" id="T11:49:29"><abbr title="2010-10-27T11:49:29+00:00">11:49:29</abbr></a>] <span>* bard_the_raven_ (d5f898b5@gateway/web/freenode/ip.213.248.152.181) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T11:49:59" id="T11:49:59"><abbr title="2010-10-27T11:49:59+00:00">11:49:59</abbr></a>] <span>* bard_the_raven_ (d5f898b5@gateway/web/freenode/ip.213.248.152.181) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:52:39" id="T11:52:39"><abbr title="2010-10-27T11:52:39+00:00">11:52:39</abbr></a>] &lt;<cite>bard_the_raven_</cite>&gt; <q>is there any solution for this oebb.sh: 46: Syntax error: "(" unexpected problem ?</q></li>
+<li class="quit">[<a href="#T11:54:03" id="T11:54:03"><abbr title="2010-10-27T11:54:03+00:00">11:54:03</abbr></a>] <span>* daurn (~daurnimat@freenode/staff/daurnimator) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T11:55:13" id="T11:55:13"><abbr title="2010-10-27T11:55:13+00:00">11:55:13</abbr></a>] <span>* nataraj (~nataraj@122.165.223.135) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T11:56:02" id="T11:56:02"><abbr title="2010-10-27T11:56:02+00:00">11:56:02</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-knfshavxvlovhcly) has joined #beagle</span></li>
