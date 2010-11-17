@@ -756,3 +756,26 @@
 <li class="message">[<abbr title="2010-11-17T20:52:55+00:00">20:52:55</abbr>] &lt;<cite>ds2</cite>&gt; <q>=)</q></li>
 <li class="quit">[<a href="#T20:55:04" id="T20:55:04"><abbr title="2010-11-17T20:55:04+00:00">20:55:04</abbr></a>] <span>* gustavoz (~gustavoz@host39.201-252-58.telecom.net.ar) Quit (Quit: Leaving)</span></li>
 <li class="quit">[<a href="#T20:59:30" id="T20:59:30"><abbr title="2010-11-17T20:59:30+00:00">20:59:30</abbr></a>] <span>* b7500af1 (~vt@2001:468:c80:4240:21c:bfff:fe8b:9c32) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T21:02:13" id="T21:02:13"><abbr title="2010-11-17T21:02:13+00:00">21:02:13</abbr></a>] <span>* courville (~courville@courville.org) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="quit">[<a href="#T21:32:11" id="T21:32:11"><abbr title="2010-11-17T21:32:11+00:00">21:32:11</abbr></a>] <span>* Ceriand|work (~Ceriand@unaffiliated/ceriand) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T21:33:38" id="T21:33:38"><abbr title="2010-11-17T21:33:38+00:00">21:33:38</abbr></a>] <span>* Ceriand|work (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:48:31" id="T21:48:31"><abbr title="2010-11-17T21:48:31+00:00">21:48:31</abbr></a>] &lt;<cite>jkridner|work</cite>&gt; <q>my understanding is that the 'S' was by luck in the first place.  These TTY letters make no sense.</q></li>
+<li class="message">[<a href="#T21:51:26" id="T21:51:26"><abbr title="2010-11-17T21:51:26+00:00">21:51:26</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>jkridner|work: btw, my new xm is working just fine for all I can see. didn't test everything yet, but it boots and all of that :)</q></li>
+<li class="message">[<a href="#T21:51:48" id="T21:51:48"><abbr title="2010-11-17T21:51:48+00:00">21:51:48</abbr></a>] &lt;<cite>jkridner|work</cite>&gt; <q>that's good news.</q></li>
+<li class="message">[<a href="#T21:55:06" id="T21:55:06"><abbr title="2010-11-17T21:55:06+00:00">21:55:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>jkrinder|work: they are tied to the driver</q></li>
+<li class="message">[<a href="#T21:55:21" id="T21:55:21"><abbr title="2010-11-17T21:55:21+00:00">21:55:21</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>s=serial?</q></li>
+<li class="message">[<a href="#T21:55:26" id="T21:55:26"><abbr title="2010-11-17T21:55:26+00:00">21:55:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>S is tied to 8250.c driver</q></li>
+<li class="message">[<a href="#T21:55:37" id="T21:55:37"><abbr title="2010-11-17T21:55:37+00:00">21:55:37</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and 8250 is very serial</q></li>
+<li class="action">[<a href="#T21:56:32" id="T21:56:32"><abbr title="2010-11-17T21:56:32+00:00">21:56:32</abbr></a>] <span>* Ceriand|work is not a fan of the new serial driver</span></li>
+<li class="message">[<a href="#T21:56:52" id="T21:56:52"><abbr title="2010-11-17T21:56:52+00:00">21:56:52</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>caused my board to fail to resume from suspend</q></li>
+<li class="message">[<a href="#T21:57:00" id="T21:57:00"><abbr title="2010-11-17T21:57:00+00:00">21:57:00</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ds2: btw, is there a driver to expose the 8250 scratch byte to user space?</q></li>
+<li class="message">[<a href="#T21:57:36" id="T21:57:36"><abbr title="2010-11-17T21:57:36+00:00">21:57:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>_av500_: not that I know of</q></li>
+<li class="message">[<a href="#T21:57:38" id="T21:57:38"><abbr title="2010-11-17T21:57:38+00:00">21:57:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>here's teh code -</q></li>
+<li class="message">[<a href="#T21:57:42" id="T21:57:42"><abbr title="2010-11-17T21:57:42+00:00">21:57:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>static struct console serial8250_console = {</q></li>
+<li class="message">[<a href="#T21:57:45" id="T21:57:45"><abbr title="2010-11-17T21:57:45+00:00">21:57:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>        .name           = "ttyS",</q></li>
+<li class="message">[<a href="#T21:57:46" id="T21:57:46"><abbr title="2010-11-17T21:57:46+00:00">21:57:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>....</q></li>
+<li class="message">[<a href="#T21:57:56" id="T21:57:56"><abbr title="2010-11-17T21:57:56+00:00">21:57:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>next doubt? :D</q></li>
+<li class="message">[<a href="#T21:58:19" id="T21:58:19"><abbr title="2010-11-17T21:58:19+00:00">21:58:19</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>nobody doubted that</q></li>
+<li class="join">[<a href="#T21:58:35" id="T21:58:35"><abbr title="2010-11-17T21:58:35+00:00">21:58:35</abbr></a>] <span>* djlewis_ (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:59:06" id="T21:59:06"><abbr title="2010-11-17T21:59:06+00:00">21:59:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>&lt;jkridner|work&gt; my understanding is that the 'S' was by luck in the first</q></li>
+<li class="message">[<a href="#T21:59:07" id="T21:59:07"><abbr title="2010-11-17T21:59:07+00:00">21:59:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>...</q></li>
