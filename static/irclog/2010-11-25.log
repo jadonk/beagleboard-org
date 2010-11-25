@@ -373,3 +373,62 @@
 <li class="message">[<a href="#T11:55:29" id="T11:55:29"><abbr title="2010-11-25T11:55:29+00:00">11:55:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>"ok"</q></li>
 <li class="quit">[<a href="#T11:56:41" id="T11:56:41"><abbr title="2010-11-25T11:56:41+00:00">11:56:41</abbr></a>] <span>* raster (raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
 <li class="message">[<a href="#T11:59:58" id="T11:59:58"><abbr title="2010-11-25T11:59:58+00:00">11:59:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: any sugestions for what I can try to narrow down the problem?</q></li>
+<li class="join">[<a href="#T12:00:30" id="T12:00:30"><abbr title="2010-11-25T12:00:30+00:00">12:00:30</abbr></a>] <span>* gustavoz (~gustavoz@host155.201-252-51.telecom.net.ar) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:00:38" id="T12:00:38"><abbr title="2010-11-25T12:00:38+00:00">12:00:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>try an old version</q></li>
+<li class="join">[<a href="#T12:09:01" id="T12:09:01"><abbr title="2010-11-25T12:09:01+00:00">12:09:01</abbr></a>] <span>* jonrp (~Dead1nsid@78.86.212.180) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:11:50" id="T12:11:50"><abbr title="2010-11-25T12:11:50+00:00">12:11:50</abbr></a>] <span>* Dead1nside (~Dead1nsid@78.86.212.180) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T12:12:55" id="T12:12:55"><abbr title="2010-11-25T12:12:55+00:00">12:12:55</abbr></a>] <span>* hitlin37__ (6eea0302@gateway/web/freenode/ip.110.234.3.2) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T12:15:22" id="T12:15:22"><abbr title="2010-11-25T12:15:22+00:00">12:15:22</abbr></a>] <span>* hitlin37__ (6eea0302@gateway/web/freenode/ip.110.234.3.2) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:16:42" id="T12:16:42"><abbr title="2010-11-25T12:16:42+00:00">12:16:42</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>looks like the omap-mmc-stuff in u-boot isn't adopted to relocation.</q></li>
+<li class="message">[<a href="#T12:17:49" id="T12:17:49"><abbr title="2010-11-25T12:17:49+00:00">12:17:49</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>at least it doesn't work with binutils 2.20.1</q></li>
+<li class="quit">[<a href="#T12:20:23" id="T12:20:23"><abbr title="2010-11-25T12:20:23+00:00">12:20:23</abbr></a>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T12:22:34" id="T12:22:34"><abbr title="2010-11-25T12:22:34+00:00">12:22:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: 70bc185cfc3dd64399dc664a90a56a15796fb2e8 works</q></li>
+<li class="message">[<a href="#T12:24:26" id="T12:24:26"><abbr title="2010-11-25T12:24:26+00:00">12:24:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>cb4d9eab679bf49dd2520398f4ced1474b30d0fe doesn't, bisecting again</q></li>
+<li class="quit">[<a href="#T12:26:41" id="T12:26:41"><abbr title="2010-11-25T12:26:41+00:00">12:26:41</abbr></a>] <span>* ksinkar (~ksinkar@static-mum-59.181.108.105.mtnl.net.in) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T12:31:07" id="T12:31:07"><abbr title="2010-11-25T12:31:07+00:00">12:31:07</abbr></a>] &lt;<cite>hitlin37__</cite>&gt; <q>is it required to have a entry point in a shared library</q></li>
+<li class="quit">[<a href="#T12:31:43" id="T12:31:43"><abbr title="2010-11-25T12:31:43+00:00">12:31:43</abbr></a>] <span>* ant_work (~andrea@host6-80-static.42-85-b.business.telecomitalia.it) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T12:32:32" id="T12:32:32"><abbr title="2010-11-25T12:32:32+00:00">12:32:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T12:35:32" id="T12:35:32"><abbr title="2010-11-25T12:35:32+00:00">12:35:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: <a href="http://git.mansr.com/?p=omapfbplay;a=commitdiff;h=cb4d9eab679bf49dd2520398f4ced1474b30d0fe">http://git.mansr.com/?p=omapfbplay;a=commitdiff;h=cb4d9eab679bf49dd2520398f4ced1474b30d0fe</a> is the first revision that breaks for me</q></li>
+<li class="message">[<a href="#T12:36:28" id="T12:36:28"><abbr title="2010-11-25T12:36:28+00:00">12:36:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>8191f703a9681bbfd90b54fae66b704efd72d07a still works</q></li>
+<li class="message">[<a href="#T12:36:55" id="T12:36:55"><abbr title="2010-11-25T12:36:55+00:00">12:36:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and it fails the same way?</q></li>
+<li class="message">[<a href="#T12:37:28" id="T12:37:28"><abbr title="2010-11-25T12:37:28+00:00">12:37:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T12:37:35" id="T12:37:35"><abbr title="2010-11-25T12:37:35+00:00">12:37:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>well, AFAICS</q></li>
+<li class="message">[<a href="#T12:37:50" id="T12:37:50"><abbr title="2010-11-25T12:37:50+00:00">12:37:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what display resolution?</q></li>
+<li class="message">[<a href="#T12:38:00" id="T12:38:00"><abbr title="2010-11-25T12:38:00+00:00">12:38:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and what size video?</q></li>
+<li class="message">[<a href="#T12:38:06" id="T12:38:06"><abbr title="2010-11-25T12:38:06+00:00">12:38:06</abbr></a>] &lt;<cite>koen</cite>&gt; <q>720p on beagle xm and 800x480 on zoom2</q></li>
+<li class="message">[<a href="#T12:38:11" id="T12:38:11"><abbr title="2010-11-25T12:38:11+00:00">12:38:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>480p mpeg bunny</q></li>
+<li class="message">[<a href="#T12:38:34" id="T12:38:34"><abbr title="2010-11-25T12:38:34+00:00">12:38:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>    Stream #0.0: Video: mpeg4, yuv420p, 854x480 [PAR 1:1 DAR 427:240], 24 tbr, 24 tbn, 24 tbc</q></li>
+<li class="join">[<a href="#T12:41:15" id="T12:41:15"><abbr title="2010-11-25T12:41:15+00:00">12:41:15</abbr></a>] <span>* dpc (~dpc@gnu194.internetdsl.tpnet.pl) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:41:49" id="T12:41:49"><abbr title="2010-11-25T12:41:49+00:00">12:41:49</abbr></a>] &lt;<cite>dpc</cite>&gt; <q>Hi. I've just fired up my BB-xm for a first time and I get "hub 2-2:1.0: over-current change on port 3". Google says that my hub is damaged ... :/</q></li>
+<li class="message">[<a href="#T12:41:51" id="T12:41:51"><abbr title="2010-11-25T12:41:51+00:00">12:41:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>does it fail with the speed test as well?</q></li>
+<li class="quit">[<a href="#T12:42:14" id="T12:42:14"><abbr title="2010-11-25T12:42:14+00:00">12:42:14</abbr></a>] <span>* CruNcher (~luls_lol@dslb-094-219-151-085.pools.arcor-ip.net) Quit ()</span></li>
+<li class="message">[<a href="#T12:42:21" id="T12:42:21"><abbr title="2010-11-25T12:42:21+00:00">12:42:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>how do I run that again?</q></li>
+<li class="message">[<a href="#T12:42:24" id="T12:42:24"><abbr title="2010-11-25T12:42:24+00:00">12:42:24</abbr></a>] &lt;<cite>koen</cite>&gt; <q>-T ?</q></li>
+<li class="message">[<a href="#T12:42:29" id="T12:42:29"><abbr title="2010-11-25T12:42:29+00:00">12:42:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>-t WxH</q></li>
+<li class="message">[<a href="#T12:43:20" id="T12:43:20"><abbr title="2010-11-25T12:43:20+00:00">12:43:20</abbr></a>] &lt;<cite>koen</cite>&gt; <q>that works with the cb4 rev</q></li>
+<li class="message">[<a href="#T12:43:21" id="T12:43:21"><abbr title="2010-11-25T12:43:21+00:00">12:43:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>16497 ms, 60 fps, read 34915439 B/s, write 46553918 B/s</q></li>
+<li class="message">[<a href="#T12:43:26" id="T12:43:26"><abbr title="2010-11-25T12:43:26+00:00">12:43:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>(on zoom2)</q></li>
+<li class="message">[<a href="#T12:45:15" id="T12:45:15"><abbr title="2010-11-25T12:45:15+00:00">12:45:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and on HEAD?</q></li>
+<li class="message">[<a href="#T12:45:37" id="T12:45:37"><abbr title="2010-11-25T12:45:37+00:00">12:45:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what size did you test?</q></li>
+<li class="message">[<a href="#T12:46:35" id="T12:46:35"><abbr title="2010-11-25T12:46:35+00:00">12:46:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>8omapfbplay -t 800x480</q></li>
+<li class="message">[<a href="#T12:46:41" id="T12:46:41"><abbr title="2010-11-25T12:46:41+00:00">12:46:41</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I'll try head now</q></li>
+<li class="message">[<a href="#T12:46:49" id="T12:46:49"><abbr title="2010-11-25T12:46:49+00:00">12:46:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>try same size as the bunny</q></li>
+<li class="message">[<a href="#T12:47:16" id="T12:47:16"><abbr title="2010-11-25T12:47:16+00:00">12:47:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>same size as bunny segfaults on cb6</q></li>
+<li class="message">[<a href="#T12:47:33" id="T12:47:33"><abbr title="2010-11-25T12:47:33+00:00">12:47:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ugh</q></li>
+<li class="join">[<a href="#T12:48:20" id="T12:48:20"><abbr title="2010-11-25T12:48:20+00:00">12:48:20</abbr></a>] <span>* tolot (~tolot@82.113.106.204) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:49:29" id="T12:49:29"><abbr title="2010-11-25T12:49:29+00:00">12:49:29</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I'll try with head</q></li>
+<li class="message">[<a href="#T12:50:43" id="T12:50:43"><abbr title="2010-11-25T12:50:43+00:00">12:50:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: head doesn't segfault</q></li>
+<li class="message">[<a href="#T12:50:55" id="T12:50:55"><abbr title="2010-11-25T12:50:55+00:00">12:50:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>does it work?</q></li>
+<li class="message">[<a href="#T12:51:00" id="T12:51:00"><abbr title="2010-11-25T12:51:00+00:00">12:51:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Using 1 frame buffers, frame_size=622080</q></li>
+<li class="message">[<abbr title="2010-11-25T12:51:00+00:00">12:51:00</abbr>] &lt;<cite>koen</cite>&gt; <q>1982 ms, 504 fps, read 308052472 B/s, write 410736629 B/s</q></li>
+<li class="message">[<a href="#T12:51:10" id="T12:51:10"><abbr title="2010-11-25T12:51:10+00:00">12:51:10</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and pretty colours on the screen</q></li>
+<li class="message">[<a href="#T12:51:14" id="T12:51:14"><abbr title="2010-11-25T12:51:14+00:00">12:51:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hmm, vsync is off</q></li>
+<li class="message">[<a href="#T12:56:34" id="T12:56:34"><abbr title="2010-11-25T12:56:34+00:00">12:56:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>weird</q></li>
+<li class="message">[<abbr title="2010-11-25T12:56:34+00:00">12:56:34</abbr>] &lt;<cite>koen</cite>&gt; <q>Using 1 frame buffers, frame_size=622080</q></li>
+<li class="message">[<a href="#T12:56:35" id="T12:56:35"><abbr title="2010-11-25T12:56:35+00:00">12:56:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>16468 ms, 60 fps, read 37075540 B/s, write 49434053 B/s</q></li>
+<li class="message">[<a href="#T12:56:40" id="T12:56:40"><abbr title="2010-11-25T12:56:40+00:00">12:56:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>now it is using vsync</q></li>
+<li class="quit">[<a href="#T12:56:42" id="T12:56:42"><abbr title="2010-11-25T12:56:42+00:00">12:56:42</abbr></a>] <span>* amitk (~amit@122.169.32.87) Quit (Quit: leaving)</span></li>
+<li class="message">[<a href="#T12:58:28" id="T12:58:28"><abbr title="2010-11-25T12:58:28+00:00">12:58:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>V4L2: driver=omap_vout card=omap_vout caps=4000002</q></li>
+<li class="message">[<abbr title="2010-11-25T12:58:28+00:00">12:58:28</abbr>] &lt;<cite>koen</cite>&gt; <q>V4L2: device /dev/video1 lacks required capabilities</q></li>
+<li class="message">[<a href="#T12:58:36" id="T12:58:36"><abbr title="2010-11-25T12:58:36+00:00">12:58:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>now pixconv for v4l2?</q></li>
+<li class="message">[<a href="#T12:58:39" id="T12:58:39"><abbr title="2010-11-25T12:58:39+00:00">12:58:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>-w</q></li>
