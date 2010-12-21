@@ -1,0 +1,36 @@
+<li class="join">[<a href="#T00:01:03" id="T00:01:03"><abbr title="2010-12-21T00:01:03+00:00">00:01:03</abbr></a>] <span>* thaytan (~jan@ppp59-167-167-201.static.internode.on.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:02:55" id="T00:02:55"><abbr title="2010-12-21T00:02:55+00:00">00:02:55</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-trfpkfuonworwqhd) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<a href="#T00:03:48" id="T00:03:48"><abbr title="2010-12-21T00:03:48+00:00">00:03:48</abbr></a>] <span>* tconant (~tconant@68.111.35.226) Quit (Quit: tconant)</span></li>
+<li class="nick-change">[<a href="#T00:04:15" id="T00:04:15"><abbr title="2010-12-21T00:04:15+00:00">00:04:15</abbr></a>] <span>* cpg|away is now known as cpg</span></li>
+<li class="quit">[<a href="#T00:04:30" id="T00:04:30"><abbr title="2010-12-21T00:04:30+00:00">00:04:30</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Verlassend)</span></li>
+<li class="quit">[<a href="#T00:11:06" id="T00:11:06"><abbr title="2010-12-21T00:11:06+00:00">00:11:06</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-ofwdxwyxxfantwcr) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T00:21:42" id="T00:21:42"><abbr title="2010-12-21T00:21:42+00:00">00:21:42</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>hmm, reading that again, why not drectly booting the kernel? there can't be much stuff missing in the kernel</q></li>
+<li class="message">[<a href="#T00:23:11" id="T00:23:11"><abbr title="2010-12-21T00:23:11+00:00">00:23:11</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>aholler: for the omap3 at least, there's ~128kB limit to what the rom will load</q></li>
+<li class="message">[<a href="#T00:23:36" id="T00:23:36"><abbr title="2010-12-21T00:23:36+00:00">00:23:36</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>but not if loading from nand, if I read that correctly</q></li>
+<li class="message">[<a href="#T00:24:22" id="T00:24:22"><abbr title="2010-12-21T00:24:22+00:00">00:24:22</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>I believe you're correct</q></li>
+<li class="message">[<a href="#T00:24:48" id="T00:24:48"><abbr title="2010-12-21T00:24:48+00:00">00:24:48</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>all you'd need to do is add a small bit of code to setup the ATAGs with the memory map and board ID</q></li>
+<li class="message">[<a href="#T00:25:20" id="T00:25:20"><abbr title="2010-12-21T00:25:20+00:00">00:25:20</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>and maybe setting up the clocks, don't know.</q></li>
+<li class="message">[<a href="#T00:26:28" id="T00:26:28"><abbr title="2010-12-21T00:26:28+00:00">00:26:28</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>could be interessting to try that.</q></li>
+<li class="message">[<a href="#T00:26:50" id="T00:26:50"><abbr title="2010-12-21T00:26:50+00:00">00:26:50</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>I though about doing that for my custom omap board, but we load from MMC</q></li>
+<li class="message">[<a href="#T00:27:23" id="T00:27:23"><abbr title="2010-12-21T00:27:23+00:00">00:27:23</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>so I my version of x-load boot kernels directly instead</q></li>
+<li class="message">[<a href="#T00:27:56" id="T00:27:56"><abbr title="2010-12-21T00:27:56+00:00">00:27:56</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>so I could eliminate the u-boot middle-man</q></li>
+<li class="message">[<a href="#T00:28:22" id="T00:28:22"><abbr title="2010-12-21T00:28:22+00:00">00:28:22</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>maybe the 128k-limit is fat only.</q></li>
+<li class="join">[<a href="#T00:30:48" id="T00:30:48"><abbr title="2010-12-21T00:30:48+00:00">00:30:48</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-fedmdopcatyukbkd) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:31:23" id="T00:31:23"><abbr title="2010-12-21T00:31:23+00:00">00:31:23</abbr></a>] <span>* Openfree` (~Openfreer@116.228.88.131) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T00:32:46" id="T00:32:46"><abbr title="2010-12-21T00:32:46+00:00">00:32:46</abbr></a>] <span>* Openfree` (~Openfreer@116.228.88.131) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:37:28" id="T00:37:28"><abbr title="2010-12-21T00:37:28+00:00">00:37:28</abbr></a>] <span>* alancam (~a-campbel@nat/ti/x-qobnvedgohlzoams) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="nick-change">[<a href="#T00:39:29" id="T00:39:29"><abbr title="2010-12-21T00:39:29+00:00">00:39:29</abbr></a>] <span>* cpg is now known as cpg|brb</span></li>
+<li class="quit">[<a href="#T00:42:43" id="T00:42:43"><abbr title="2010-12-21T00:42:43+00:00">00:42:43</abbr></a>] <span>* peabody124 (~peabody12@128.249.96.124) Quit (Quit: peabody124)</span></li>
+<li class="quit">[<a href="#T00:45:08" id="T00:45:08"><abbr title="2010-12-21T00:45:08+00:00">00:45:08</abbr></a>] <span>* katie (~katierh@nat/ti/x-tezsgggigddcfbnd) Quit ()</span></li>
+<li class="quit">[<a href="#T00:46:40" id="T00:46:40"><abbr title="2010-12-21T00:46:40+00:00">00:46:40</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-fedmdopcatyukbkd) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T00:52:40" id="T00:52:40"><abbr title="2010-12-21T00:52:40+00:00">00:52:40</abbr></a>] <span>* cwicks (c05e5e6a@gateway/web/freenode/ip.192.94.94.106) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:55:20" id="T00:55:20"><abbr title="2010-12-21T00:55:20+00:00">00:55:20</abbr></a>] &lt;<cite>cwicks</cite>&gt; <q>Looking forward to our UT Beagleboard Challenge Monday Nite Office Hours!</q></li>
+<li class="join">[<a href="#T00:59:05" id="T00:59:05"><abbr title="2010-12-21T00:59:05+00:00">00:59:05</abbr></a>] <span>* Dan_ (4ce271e9@gateway/web/freenode/ip.76.226.113.233) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:59:22" id="T00:59:22"><abbr title="2010-12-21T00:59:22+00:00">00:59:22</abbr></a>] &lt;<cite>cwicks</cite>&gt; <q>Hi Dan!</q></li>
+<li class="message">[<a href="#T00:59:26" id="T00:59:26"><abbr title="2010-12-21T00:59:26+00:00">00:59:26</abbr></a>] &lt;<cite>Dan_</cite>&gt; <q>hey</q></li>
+<li class="message">[<a href="#T00:59:35" id="T00:59:35"><abbr title="2010-12-21T00:59:35+00:00">00:59:35</abbr></a>] &lt;<cite>Dan_</cite>&gt; <q>oh right, it's "office hour" time</q></li>
+<li class="part">[<a href="#T00:59:40" id="T00:59:40"><abbr title="2010-12-21T00:59:40+00:00">00:59:40</abbr></a>] <span>* hpham (~hpham@fwdweb.net) has left #beagle</span></li>
+<li class="join">[<abbr title="2010-12-21T00:59:40+00:00">00:59:40</abbr>] <span>* hpham (~hpham@fwdweb.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:59:43" id="T00:59:43"><abbr title="2010-12-21T00:59:43+00:00">00:59:43</abbr></a>] &lt;<cite>Dan_</cite>&gt; <q>i actually forgot about that</q></li>
+<li class="message">[<a href="#T00:59:58" id="T00:59:58"><abbr title="2010-12-21T00:59:58+00:00">00:59:58</abbr></a>] &lt;<cite>Dan_</cite>&gt; <q>does anyone know how to measure VDD1 on the board?</q></li>
+<li class="message">[<a href="#T01:00:03" id="T01:00:03"><abbr title="2010-12-21T01:00:03+00:00">01:00:03</abbr></a>] &lt;<cite>cwicks</cite>&gt; <q>So glad you could join us how is your project going?</q></li>
