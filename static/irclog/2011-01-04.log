@@ -515,3 +515,167 @@
 <li class="quit">[<a href="#T09:57:14" id="T09:57:14"><abbr title="2011-01-04T09:57:14+00:00">09:57:14</abbr></a>] <span>* awozniak (~awozniak@adsl-76-205-222-173.dsl.snlo01.sbcglobal.net) Quit (Ping timeout: 255 seconds)</span></li>
 <li class="message">[<a href="#T09:58:52" id="T09:58:52"><abbr title="2011-01-04T09:58:52+00:00">09:58:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jacekowski: you are wrong</q></li>
 <li class="message">[<a href="#T09:58:56" id="T09:58:56"><abbr title="2011-01-04T09:58:56+00:00">09:58:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>as usual</q></li>
+<li class="message">[<a href="#T10:00:49" id="T10:00:49"><abbr title="2011-01-04T10:00:49+00:00">10:00:49</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: wrong about what?</q></li>
+<li class="message">[<a href="#T10:01:15" id="T10:01:15"><abbr title="2011-01-04T10:01:15+00:00">10:01:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>neon and vfp scheduling</q></li>
+<li class="message">[<a href="#T10:01:29" id="T10:01:29"><abbr title="2011-01-04T10:01:29+00:00">10:01:29</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: which part of it?</q></li>
+<li class="message">[<a href="#T10:02:05" id="T10:02:05"><abbr title="2011-01-04T10:02:05+00:00">10:02:05</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>do you really want me to ask ARM directly again?</q></li>
+<li class="message">[<a href="#T10:02:21" id="T10:02:21"><abbr title="2011-01-04T10:02:21+00:00">10:02:21</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>i already proved that somebody was wrong here about branch prediction</q></li>
+<li class="message">[<a href="#T10:02:31" id="T10:02:31"><abbr title="2011-01-04T10:02:31+00:00">10:02:31</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and i think it was you</q></li>
+<li class="join">[<a href="#T10:03:10" id="T10:03:10"><abbr title="2011-01-04T10:03:10+00:00">10:03:10</abbr></a>] <span>* awozniak (~awozniak@adsl-76-205-222-173.dsl.snlo01.sbcglobal.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:03:25" id="T10:03:25"><abbr title="2011-01-04T10:03:25+00:00">10:03:25</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>as long as all code is in cache and there are no other factors that would block it ( like dependency between results ) it will execute in parallel</q></li>
+<li class="join">[<a href="#T10:04:04" id="T10:04:04"><abbr title="2011-01-04T10:04:04+00:00">10:04:04</abbr></a>] <span>* rodrigo_golive (c8bab803@gateway/web/freenode/ip.200.186.184.3) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:09:34" id="T10:09:34"><abbr title="2011-01-04T10:09:34+00:00">10:09:34</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>so on the gumstix the gpmc is broken out, mc = memory controller?</q></li>
+<li class="message">[<a href="#T10:10:03" id="T10:10:03"><abbr title="2011-01-04T10:10:03+00:00">10:10:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T10:10:06" id="T10:10:06"><abbr title="2011-01-04T10:10:06+00:00">10:10:06</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>general purpose memory controller</q></li>
+<li class="message">[<a href="#T10:10:26" id="T10:10:26"><abbr title="2011-01-04T10:10:26+00:00">10:10:26</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>if so is is already tied to external memory, and assuming I use linux It would be uber complicated to introduce another memory mapped device (fpga) right?</q></li>
+<li class="message">[<a href="#T10:10:34" id="T10:10:34"><abbr title="2011-01-04T10:10:34+00:00">10:10:34</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but even then pushing data will take quite considerable amount of time</q></li>
+<li class="message">[<a href="#T10:10:51" id="T10:10:51"><abbr title="2011-01-04T10:10:51+00:00">10:10:51</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: not uber complicated</q></li>
+<li class="message">[<a href="#T10:11:09" id="T10:11:09"><abbr title="2011-01-04T10:11:09+00:00">10:11:09</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but, there are simpler things to do</q></li>
+<li class="message">[<a href="#T10:11:12" id="T10:11:12"><abbr title="2011-01-04T10:11:12+00:00">10:11:12</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>but doesn't the memory on gumstix function at 166MHz, that quite fast</q></li>
+<li class="message">[<a href="#T10:11:23" id="T10:11:23"><abbr title="2011-01-04T10:11:23+00:00">10:11:23</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>that's other controller</q></li>
+<li class="message">[<a href="#T10:11:33" id="T10:11:33"><abbr title="2011-01-04T10:11:33+00:00">10:11:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Serj: thats the sdram controller</q></li>
+<li class="message">[<a href="#T10:11:45" id="T10:11:45"><abbr title="2011-01-04T10:11:45+00:00">10:11:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>gpmc is used for e.g. NAND or NOR flash</q></li>
+<li class="message">[<a href="#T10:11:58" id="T10:11:58"><abbr title="2011-01-04T10:11:58+00:00">10:11:58</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>thanks</q></li>
+<li class="message">[<a href="#T10:12:01" id="T10:12:01"><abbr title="2011-01-04T10:12:01+00:00">10:12:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but there are several chip select lines, so you could add your fpga</q></li>
+<li class="message">[<a href="#T10:12:11" id="T10:12:11"><abbr title="2011-01-04T10:12:11+00:00">10:12:11</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>on the sdram controlelr?</q></li>
+<li class="message">[<a href="#T10:12:15" id="T10:12:15"><abbr title="2011-01-04T10:12:15+00:00">10:12:15</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T10:12:18" id="T10:12:18"><abbr title="2011-01-04T10:12:18+00:00">10:12:18</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>:P</q></li>
+<li class="message">[<a href="#T10:12:26" id="T10:12:26"><abbr title="2011-01-04T10:12:26+00:00">10:12:26</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>well, you possibly could add it there</q></li>
+<li class="message">[<a href="#T10:12:32" id="T10:12:32"><abbr title="2011-01-04T10:12:32+00:00">10:12:32</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but that would be complicated</q></li>
+<li class="message">[<a href="#T10:12:38" id="T10:12:38"><abbr title="2011-01-04T10:12:38+00:00">10:12:38</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>that would be a hell of a hack</q></li>
+<li class="message">[<a href="#T10:12:51" id="T10:12:51"><abbr title="2011-01-04T10:12:51+00:00">10:12:51</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>i have to try it once</q></li>
+<li class="message">[<a href="#T10:13:09" id="T10:13:09"><abbr title="2011-01-04T10:13:09+00:00">10:13:09</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>pfff.. there seems to be no solution to connect the arm to the fpga</q></li>
+<li class="message">[<a href="#T10:13:15" id="T10:13:15"><abbr title="2011-01-04T10:13:15+00:00">10:13:15</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>atleast not at a high speed</q></li>
+<li class="quit">[<a href="#T10:13:26" id="T10:13:26"><abbr title="2011-01-04T10:13:26+00:00">10:13:26</abbr></a>] <span>* awozniak (~awozniak@adsl-76-205-222-173.dsl.snlo01.sbcglobal.net) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="join">[<a href="#T10:13:34" id="T10:13:34"><abbr title="2011-01-04T10:13:34+00:00">10:13:34</abbr></a>] <span>* woglinde (~henning@p5DDC09B0.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:13:38" id="T10:13:38"><abbr title="2011-01-04T10:13:38+00:00">10:13:38</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>spi maxes out at about how much?</q></li>
+<li class="message">[<a href="#T10:13:42" id="T10:13:42"><abbr title="2011-01-04T10:13:42+00:00">10:13:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Serj: gpmc</q></li>
+<li class="message">[<a href="#T10:13:48" id="T10:13:48"><abbr title="2011-01-04T10:13:48+00:00">10:13:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>there is a solution</q></li>
+<li class="message">[<a href="#T10:13:52" id="T10:13:52"><abbr title="2011-01-04T10:13:52+00:00">10:13:52</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: gpmc</q></li>
+<li class="message">[<a href="#T10:14:05" id="T10:14:05"><abbr title="2011-01-04T10:14:05+00:00">10:14:05</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>av500: Whats the top speed you think can be achieved?</q></li>
+<li class="message">[<a href="#T10:14:16" id="T10:14:16"><abbr title="2011-01-04T10:14:16+00:00">10:14:16</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: General Purpose Memory Controller  Flexible Asynchronous Protocol Control for Interface to Custom Logic (FPGA, .......</q></li>
+<li class="message">[<a href="#T10:14:22" id="T10:14:22"><abbr title="2011-01-04T10:14:22+00:00">10:14:22</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: quite fast</q></li>
+<li class="message">[<a href="#T10:14:23" id="T10:14:23"><abbr title="2011-01-04T10:14:23+00:00">10:14:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Serj: i dont think at all, I just look into data sheets</q></li>
+<li class="message">[<a href="#T10:14:43" id="T10:14:43"><abbr title="2011-01-04T10:14:43+00:00">10:14:43</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>I get it.. thanks</q></li>
+<li class="message">[<a href="#T10:14:44" id="T10:14:44"><abbr title="2011-01-04T10:14:44+00:00">10:14:44</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but it's adding delays </q></li>
+<li class="message">[<a href="#T10:14:58" id="T10:14:58"><abbr title="2011-01-04T10:14:58+00:00">10:14:58</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>so you have to have that in mind when you design it</q></li>
+<li class="message">[<a href="#T10:15:13" id="T10:15:13"><abbr title="2011-01-04T10:15:13+00:00">10:15:13</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T10:15:15" id="T10:15:15"><abbr title="2011-01-04T10:15:15+00:00">10:15:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Serj: I still dont get what you need that fpga for</q></li>
+<li class="message">[<a href="#T10:15:34" id="T10:15:34"><abbr title="2011-01-04T10:15:34+00:00">10:15:34</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: it'll be faster to do it on arm probably</q></li>
+<li class="message">[<a href="#T10:15:42" id="T10:15:42"><abbr title="2011-01-04T10:15:42+00:00">10:15:42</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>av500: its more of an academic experience</q></li>
+<li class="message">[<abbr title="2011-01-04T10:15:42+00:00">10:15:42</abbr>] &lt;<cite>jacekowski</cite>&gt; <q>rather than push it to fpga, and get it back</q></li>
+<li class="message">[<a href="#T10:16:05" id="T10:16:05"><abbr title="2011-01-04T10:16:05+00:00">10:16:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Serj: then ask Crofton|work, he did fpga and has academic experience too</q></li>
+<li class="message">[<a href="#T10:16:17" id="T10:16:17"><abbr title="2011-01-04T10:16:17+00:00">10:16:17</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>look at wiki</q></li>
+<li class="message">[<a href="#T10:16:26" id="T10:16:26"><abbr title="2011-01-04T10:16:26+00:00">10:16:26</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>there is another example of fpga connected to bb</q></li>
+<li class="message">[<a href="#T10:16:29" id="T10:16:29"><abbr title="2011-01-04T10:16:29+00:00">10:16:29</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>jacekowski: thanks, you people are excelent</q></li>
+<li class="message">[<a href="#T10:16:31" id="T10:16:31"><abbr title="2011-01-04T10:16:31+00:00">10:16:31</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>with code published</q></li>
+<li class="message">[<a href="#T10:16:32" id="T10:16:32"><abbr title="2011-01-04T10:16:32+00:00">10:16:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>depends all on the math-operations</q></li>
+<li class="message">[<a href="#T10:17:11" id="T10:17:11"><abbr title="2011-01-04T10:17:11+00:00">10:17:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>depends on a lot of stuff</q></li>
+<li class="message">[<a href="#T10:17:12" id="T10:17:12"><abbr title="2011-01-04T10:17:12+00:00">10:17:12</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: and read the manual</q></li>
+<li class="message">[<a href="#T10:17:16" id="T10:17:16"><abbr title="2011-01-04T10:17:16+00:00">10:17:16</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: it's all there</q></li>
+<li class="message">[<a href="#T10:17:19" id="T10:17:19"><abbr title="2011-01-04T10:17:19+00:00">10:17:19</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>rtfm :P</q></li>
+<li class="message">[<a href="#T10:17:27" id="T10:17:27"><abbr title="2011-01-04T10:17:27+00:00">10:17:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, all 3530 pages :)</q></li>
+<li class="message">[<a href="#T10:17:35" id="T10:17:35"><abbr title="2011-01-04T10:17:35+00:00">10:17:35</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>haha, geezz..</q></li>
+<li class="message">[<a href="#T10:18:00" id="T10:18:00"><abbr title="2011-01-04T10:18:00+00:00">10:18:00</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: you have 3530 pages?</q></li>
+<li class="message">[<a href="#T10:18:06" id="T10:18:06"><abbr title="2011-01-04T10:18:06+00:00">10:18:06</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mine only has 3423</q></li>
+<li class="message">[<a href="#T10:18:10" id="T10:18:10"><abbr title="2011-01-04T10:18:10+00:00">10:18:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jacekowski: i one of them</q></li>
+<li class="message">[<a href="#T10:18:12" id="T10:18:12"><abbr title="2011-01-04T10:18:12+00:00">10:18:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>in</q></li>
+<li class="message">[<a href="#T10:18:23" id="T10:18:23"><abbr title="2011-01-04T10:18:23+00:00">10:18:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jacekowski: maybe it was 3430</q></li>
+<li class="message">[<a href="#T10:18:51" id="T10:18:51"><abbr title="2011-01-04T10:18:51+00:00">10:18:51</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: chapter about gpmc isn't that long</q></li>
+<li class="message">[<a href="#T10:18:56" id="T10:18:56"><abbr title="2011-01-04T10:18:56+00:00">10:18:56</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: only 110 pages with pictures</q></li>
+<li class="message">[<a href="#T10:19:16" id="T10:19:16"><abbr title="2011-01-04T10:19:16+00:00">10:19:16</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>jacekowski: you are right, i apologize</q></li>
+<li class="message">[<a href="#T10:21:09" id="T10:21:09"><abbr title="2011-01-04T10:21:09+00:00">10:21:09</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>Serj: <a href="http://maemo.jacekowski.org/docs/spruf98g_omap3530TRM.pdf">http://maemo.jacekowski.org/docs/spruf98g_omap3530TRM.pdf</a></q></li>
+<li class="message">[<a href="#T10:21:14" id="T10:21:14"><abbr title="2011-01-04T10:21:14+00:00">10:21:14</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>if you are looking for manual</q></li>
+<li class="message">[<a href="#T10:21:20" id="T10:21:20"><abbr title="2011-01-04T10:21:20+00:00">10:21:20</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>it's PITA to get it from ti website</q></li>
+<li class="message">[<a href="#T10:21:25" id="T10:21:25"><abbr title="2011-01-04T10:21:25+00:00">10:21:25</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>its just that I don't know whether to buy a bigger fpga board, I get a arm board. But FPGAs with embedded hard processors are expensive</q></li>
+<li class="message">[<a href="#T10:21:30" id="T10:21:30"><abbr title="2011-01-04T10:21:30+00:00">10:21:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jacekowski: neon and vfp do not execute in parallel on c-a8</q></li>
+<li class="message">[<a href="#T10:21:52" id="T10:21:52"><abbr title="2011-01-04T10:21:52+00:00">10:21:52</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hi mru</q></li>
+<li class="message">[<a href="#T10:21:53" id="T10:21:53"><abbr title="2011-01-04T10:21:53+00:00">10:21:53</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: i never said that they do</q></li>
+<li class="message">[<a href="#T10:22:01" id="T10:22:01"><abbr title="2011-01-04T10:22:01+00:00">10:22:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jacekowski: and I was right about the branch pred</q></li>
+<li class="message">[<a href="#T10:22:03" id="T10:22:03"><abbr title="2011-01-04T10:22:03+00:00">10:22:03</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: i said that arm and neon and vfp execute in parallel</q></li>
+<li class="message">[<a href="#T10:22:08" id="T10:22:08"><abbr title="2011-01-04T10:22:08+00:00">10:22:08</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: you were wrong</q></li>
+<li class="message">[<a href="#T10:22:18" id="T10:22:18"><abbr title="2011-01-04T10:22:18+00:00">10:22:18</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: do you want me to paste ARM response again</q></li>
+<li class="message">[<a href="#T10:22:22" id="T10:22:22"><abbr title="2011-01-04T10:22:22+00:00">10:22:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>in your dreams maybe</q></li>
+<li class="message">[<a href="#T10:22:25" id="T10:22:25"><abbr title="2011-01-04T10:22:25+00:00">10:22:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T10:22:34" id="T10:22:34"><abbr title="2011-01-04T10:22:34+00:00">10:22:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I believe mru more</q></li>
+<li class="message">[<a href="#T10:22:36" id="T10:22:36"><abbr title="2011-01-04T10:22:36+00:00">10:22:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>a8 has vfp-lite</q></li>
+<li class="message">[<a href="#T10:22:40" id="T10:22:40"><abbr title="2011-01-04T10:22:40+00:00">10:22:40</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>so you know better than people that designed the chip?</q></li>
+<li class="message">[<a href="#T10:22:49" id="T10:22:49"><abbr title="2011-01-04T10:22:49+00:00">10:22:49</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>woglinde: i believe people from arm mode</q></li>
+<li class="message">[<a href="#T10:22:51" id="T10:22:51"><abbr title="2011-01-04T10:22:51+00:00">10:22:51</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>more*</q></li>
+<li class="message">[<a href="#T10:23:12" id="T10:23:12"><abbr title="2011-01-04T10:23:12+00:00">10:23:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>depends in who you talk to</q></li>
+<li class="message">[<a href="#T10:23:21" id="T10:23:21"><abbr title="2011-01-04T10:23:21+00:00">10:23:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>s/in/on/</q></li>
+<li class="message">[<a href="#T10:23:52" id="T10:23:52"><abbr title="2011-01-04T10:23:52+00:00">10:23:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I believe the cycle counter</q></li>
+<li class="message">[<a href="#T10:24:02" id="T10:24:02"><abbr title="2011-01-04T10:24:02+00:00">10:24:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>design can be wrong</q></li>
+<li class="message">[<a href="#T10:24:30" id="T10:24:30"><abbr title="2011-01-04T10:24:30+00:00">10:24:30</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and not work as expected</q></li>
+<li class="quit">[<abbr title="2011-01-04T10:24:30+00:00">10:24:30</abbr>] <span>* raster (raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
+<li class="message">[<a href="#T10:24:34" id="T10:24:34"><abbr title="2011-01-04T10:24:34+00:00">10:24:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I already found one silicon bug in a8</q></li>
+<li class="message">[<a href="#T10:24:48" id="T10:24:48"><abbr title="2011-01-04T10:24:48+00:00">10:24:48</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>do you guys currently work on embedded hardware? I ask this because I graduated recently and where I live there isn't much opportunities to work on embedded hardware </q></li>
+<li class="message">[<a href="#T10:25:14" id="T10:25:14"><abbr title="2011-01-04T10:25:14+00:00">10:25:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>serj we are mostly makeing software</q></li>
+<li class="message">[<a href="#T10:25:18" id="T10:25:18"><abbr title="2011-01-04T10:25:18+00:00">10:25:18</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or make it run</q></li>
+<li class="message">[<a href="#T10:25:30" id="T10:25:30"><abbr title="2011-01-04T10:25:30+00:00">10:25:30</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>so I really don't have the knowing of what the proffesional work "aks for"</q></li>
+<li class="message">[<abbr title="2011-01-04T10:25:30+00:00">10:25:30</abbr>] &lt;<cite>mru</cite>&gt; <q>or make it run fast</q></li>
+<li class="message">[<a href="#T10:25:40" id="T10:25:40"><abbr title="2011-01-04T10:25:40+00:00">10:25:40</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: embedded software?</q></li>
+<li class="quit">[<a href="#T10:25:48" id="T10:25:48"><abbr title="2011-01-04T10:25:48+00:00">10:25:48</abbr></a>] <span>* av500 (~av500@p50996ded.dip0.t-ipconnect.de) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T10:25:55" id="T10:25:55"><abbr title="2011-01-04T10:25:55+00:00">10:25:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>serj what ever you call it</q></li>
+<li class="message">[<a href="#T10:26:06" id="T10:26:06"><abbr title="2011-01-04T10:26:06+00:00">10:26:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>serj or do you mean dsp programming?</q></li>
+<li class="message">[<a href="#T10:26:15" id="T10:26:15"><abbr title="2011-01-04T10:26:15+00:00">10:26:15</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: ok</q></li>
+<li class="join">[<a href="#T10:26:24" id="T10:26:24"><abbr title="2011-01-04T10:26:24+00:00">10:26:24</abbr></a>] <span>* av500 (~av500@p50996ded.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:26:39" id="T10:26:39"><abbr title="2011-01-04T10:26:39+00:00">10:26:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>professional?</q></li>
+<li class="message">[<abbr title="2011-01-04T10:26:39+00:00">10:26:39</abbr>] &lt;<cite>woglinde</cite>&gt; <q>re av500</q></li>
+<li class="message">[<a href="#T10:26:40" id="T10:26:40"><abbr title="2011-01-04T10:26:40+00:00">10:26:40</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: I guess.. dsp is everywere </q></li>
+<li class="message">[<abbr title="2011-01-04T10:26:40+00:00">10:26:40</abbr>] &lt;<cite>koen</cite>&gt; <q>54!</q></li>
+<li class="message">[<a href="#T10:26:58" id="T10:26:58"><abbr title="2011-01-04T10:26:58+00:00">10:26:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>as for the scheduling, a8 can execute at most 2 arm insns and 2 neon insns in one cycle</q></li>
+<li class="message">[<a href="#T10:27:10" id="T10:27:10"><abbr title="2011-01-04T10:27:10+00:00">10:27:10</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: you can make code run fast by putting the a8 in run fast mode, of course!</q></li>
+<li class="message">[<a href="#T10:27:23" id="T10:27:23"><abbr title="2011-01-04T10:27:23+00:00">10:27:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>neon/vfp dual issue is quite limited though</q></li>
+<li class="message">[<a href="#T10:27:30" id="T10:27:30"><abbr title="2011-01-04T10:27:30+00:00">10:27:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>man, today feels like friday</q></li>
+<li class="message">[<a href="#T10:27:38" id="T10:27:38"><abbr title="2011-01-04T10:27:38+00:00">10:27:38</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>koen: professional -&gt; work</q></li>
+<li class="message">[<a href="#T10:27:57" id="T10:27:57"><abbr title="2011-01-04T10:27:57+00:00">10:27:57</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ok so i'm pasting response from ARM</q></li>
+<li class="message">[<a href="#T10:28:05" id="T10:28:05"><abbr title="2011-01-04T10:28:05+00:00">10:28:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T10:28:11" id="T10:28:11"><abbr title="2011-01-04T10:28:11+00:00">10:28:11</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>The branch prediction scheme on the Cortex-A8 predicts whether a branch</q></li>
+<li class="message">[<abbr title="2011-01-04T10:28:11+00:00">10:28:11</abbr>] &lt;<cite>jacekowski</cite>&gt; <q>will be taken or not.  If it is predicted as taken, then it can in some</q></li>
+<li class="message">[<a href="#T10:28:12" id="T10:28:12"><abbr title="2011-01-04T10:28:12+00:00">10:28:12</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>cases also predict the destination of the branch.  This is usually only</q></li>
+<li class="message">[<abbr title="2011-01-04T10:28:12+00:00">10:28:12</abbr>] &lt;<cite>jacekowski</cite>&gt; <q>possible for direct (PC relative) branches, or function returns.</q></li>
+<li class="join">[<a href="#T10:28:33" id="T10:28:33"><abbr title="2011-01-04T10:28:33+00:00">10:28:33</abbr></a>] <span>* florian_kc (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:28:39" id="T10:28:39"><abbr title="2011-01-04T10:28:39+00:00">10:28:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hi florian</q></li>
+<li class="message">[<abbr title="2011-01-04T10:28:39+00:00">10:28:39</abbr>] &lt;<cite>mru</cite>&gt; <q>that is not the whole truth</q></li>
+<li class="message">[<a href="#T10:29:07" id="T10:29:07"><abbr title="2011-01-04T10:29:07+00:00">10:29:07</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>do you want me to take a screenshot of message?</q></li>
+<li class="message">[<a href="#T10:29:19" id="T10:29:19"><abbr title="2011-01-04T10:29:19+00:00">10:29:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jacekowski: do you have a wooden table?</q></li>
+<li class="message">[<a href="#T10:29:37" id="T10:29:37"><abbr title="2011-01-04T10:29:37+00:00">10:29:37</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: well, it's not real wood</q></li>
+<li class="message">[<a href="#T10:29:40" id="T10:29:40"><abbr title="2011-01-04T10:29:40+00:00">10:29:40</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but sort of</q></li>
+<li class="message">[<a href="#T10:30:06" id="T10:30:06"><abbr title="2011-01-04T10:30:06+00:00">10:30:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jacekowski: then go ahead: <a href="http://thedailywtf.com/Articles/Web_0_0x2e_1.aspx">http://thedailywtf.com/Articles/Web_0_0x2e_1.aspx</a></q></li>
+<li class="message">[<a href="#T10:30:17" id="T10:30:17"><abbr title="2011-01-04T10:30:17+00:00">10:30:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I don't care about the message</q></li>
+<li class="message">[<a href="#T10:30:31" id="T10:30:31"><abbr title="2011-01-04T10:30:31+00:00">10:30:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I care about the cycle counter</q></li>
+<li class="message">[<a href="#T10:30:34" id="T10:30:34"><abbr title="2011-01-04T10:30:34+00:00">10:30:34</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>mru: prove it</q></li>
+<li class="message">[<a href="#T10:30:43" id="T10:30:43"><abbr title="2011-01-04T10:30:43+00:00">10:30:43</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>so far i have evidence that you are wrong</q></li>
+<li class="message">[<a href="#T10:30:48" id="T10:30:48"><abbr title="2011-01-04T10:30:48+00:00">10:30:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I already did</q></li>
+<li class="message">[<a href="#T10:30:55" id="T10:30:55"><abbr title="2011-01-04T10:30:55+00:00">10:30:55</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: Which platform do you program, omap?</q></li>
+<li class="message">[<abbr title="2011-01-04T10:30:55+00:00">10:30:55</abbr>] &lt;<cite>jacekowski</cite>&gt; <q>and you have no evidence that i'm wrong</q></li>
+<li class="message">[<a href="#T10:31:05" id="T10:31:05"><abbr title="2011-01-04T10:31:05+00:00">10:31:05</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>serj serval</q></li>
+<li class="message">[<a href="#T10:31:15" id="T10:31:15"><abbr title="2011-01-04T10:31:15+00:00">10:31:15</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>atom and arm mostly</q></li>
+<li class="message">[<a href="#T10:31:19" id="T10:31:19"><abbr title="2011-01-04T10:31:19+00:00">10:31:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>in these days</q></li>
+<li class="message">[<a href="#T10:31:24" id="T10:31:24"><abbr title="2011-01-04T10:31:24+00:00">10:31:24</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: I'll check it out, thanks</q></li>
+<li class="message">[<a href="#T10:31:31" id="T10:31:31"><abbr title="2011-01-04T10:31:31+00:00">10:31:31</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>o.O</q></li>
+<li class="nick-change">[<a href="#T10:31:33" id="T10:31:33"><abbr title="2011-01-04T10:31:33+00:00">10:31:33</abbr></a>] <span>* florian_kc is now known as florian</span></li>
+<li class="join">[<a href="#T10:32:01" id="T10:32:01"><abbr title="2011-01-04T10:32:01+00:00">10:32:01</abbr></a>] <span>* awozniak (~awozniak@adsl-76-205-222-173.dsl.snlo01.sbcglobal.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:33:12" id="T10:33:12"><abbr title="2011-01-04T10:33:12+00:00">10:33:12</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: serval? Google gives me a cat lol</q></li>
+<li class="message">[<a href="#T10:33:26" id="T10:33:26"><abbr title="2011-01-04T10:33:26+00:00">10:33:26</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>its friday</q></li>
+<li class="message">[<a href="#T10:33:39" id="T10:33:39"><abbr title="2011-01-04T10:33:39+00:00">10:33:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and graduated student arent what they were in the past</q></li>
+<li class="message">[<a href="#T10:34:04" id="T10:34:04"><abbr title="2011-01-04T10:34:04+00:00">10:34:04</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>lol</q></li>
+<li class="quit">[<a href="#T10:34:07" id="T10:34:07"><abbr title="2011-01-04T10:34:07+00:00">10:34:07</abbr></a>] <span>* rsv (7aa62e54@gateway/web/freenode/ip.122.166.46.84) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T10:39:19" id="T10:39:19"><abbr title="2011-01-04T10:39:19+00:00">10:39:19</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: servalproject?</q></li>
+<li class="message">[<a href="#T10:39:59" id="T10:39:59"><abbr title="2011-01-04T10:39:59+00:00">10:39:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Serj: several</q></li>
+<li class="message">[<a href="#T10:40:07" id="T10:40:07"><abbr title="2011-01-04T10:40:07+00:00">10:40:07</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>HAHA</q></li>
+<li class="message">[<a href="#T10:40:20" id="T10:40:20"><abbr title="2011-01-04T10:40:20+00:00">10:40:20</abbr></a>] &lt;<cite>Serj</cite>&gt; <q><a href="http://www.servalproject.org/">http://www.servalproject.org/</a></q></li>
+<li class="message">[<a href="#T10:43:23" id="T10:43:23"><abbr title="2011-01-04T10:43:23+00:00">10:43:23</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: whats so bad about graduate students nowadays?</q></li>
+<li class="quit">[<a href="#T10:43:51" id="T10:43:51"><abbr title="2011-01-04T10:43:51+00:00">10:43:51</abbr></a>] <span>* awozniak (~awozniak@adsl-76-205-222-173.dsl.snlo01.sbcglobal.net) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T10:44:09" id="T10:44:09"><abbr title="2011-01-04T10:44:09+00:00">10:44:09</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>serj use a dictionary</q></li>
+<li class="message">[<a href="#T10:45:09" id="T10:45:09"><abbr title="2011-01-04T10:45:09+00:00">10:45:09</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>which word shall I look up for you?</q></li>
+<li class="message">[<a href="#T10:45:50" id="T10:45:50"><abbr title="2011-01-04T10:45:50+00:00">10:45:50</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm okay</q></li>
+<li class="action">[<a href="#T10:45:55" id="T10:45:55"><abbr title="2011-01-04T10:45:55+00:00">10:45:55</abbr></a>] <span>* woglinde goes hiding</span></li>
+<li class="message">[<a href="#T10:46:48" id="T10:46:48"><abbr title="2011-01-04T10:46:48+00:00">10:46:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I meant several </q></li>
+<li class="message">[<a href="#T10:47:21" id="T10:47:21"><abbr title="2011-01-04T10:47:21+00:00">10:47:21</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>woglinde: ok I was just being modest, how should I guess</q></li>
+<li class="message">[<a href="#T10:47:31" id="T10:47:31"><abbr title="2011-01-04T10:47:31+00:00">10:47:31</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>fuzzi</q></li>
+<li class="message">[<a href="#T10:47:37" id="T10:47:37"><abbr title="2011-01-04T10:47:37+00:00">10:47:37</abbr></a>] &lt;<cite>Serj</cite>&gt; <q>but thanks</q></li>
+<li class="join">[<a href="#T10:49:27" id="T10:49:27"><abbr title="2011-01-04T10:49:27+00:00">10:49:27</abbr></a>] <span>* Openfree` (~Openfreer@116.228.88.131) has joined #beagle</span></li>
+<li class="join">[<a href="#T10:56:57" id="T10:56:57"><abbr title="2011-01-04T10:56:57+00:00">10:56:57</abbr></a>] <span>* awozniak (~awozniak@adsl-76-205-222-173.dsl.snlo01.sbcglobal.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:59:42" id="T10:59:42"><abbr title="2011-01-04T10:59:42+00:00">10:59:42</abbr></a>] <span>* lag (~lag@ubuntu/member/lag) Quit (Quit: Coyote finally caught me)</span></li>
