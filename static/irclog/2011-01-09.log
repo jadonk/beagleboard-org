@@ -356,3 +356,127 @@
 <li class="join">[<a href="#T17:45:11" id="T17:45:11"><abbr title="2011-01-09T17:45:11+00:00">17:45:11</abbr></a>] <span>* mrc3 (~ddiaz@189.157.117.46) has joined #beagle</span></li>
 <li class="quit">[<a href="#T17:51:28" id="T17:51:28"><abbr title="2011-01-09T17:51:28+00:00">17:51:28</abbr></a>] <span>* hrw (~hrw@linaro/hrw) Quit (Ping timeout: 255 seconds)</span></li>
 <li class="join">[<a href="#T17:53:06" id="T17:53:06"><abbr title="2011-01-09T17:53:06+00:00">17:53:06</abbr></a>] <span>* hrw (~hrw@linaro/hrw) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:15:38" id="T18:15:38"><abbr title="2011-01-09T18:15:38+00:00">18:15:38</abbr></a>] <span>* plasmab (~stephen@client-82-26-191-184.pete.adsl.virginmedia.com) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T18:18:59" id="T18:18:59"><abbr title="2011-01-09T18:18:59+00:00">18:18:59</abbr></a>] <span>* plasmab (~Stephen@client-82-26-191-184.pete.adsl.virginmedia.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:24:23" id="T18:24:23"><abbr title="2011-01-09T18:24:23+00:00">18:24:23</abbr></a>] <span>* ghazni (52030014@gateway/web/freenode/ip.82.3.0.20) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:26:42" id="T18:26:42"><abbr title="2011-01-09T18:26:42+00:00">18:26:42</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>hi guys i have a question on accessing performance monitors on beagleboard. </q></li>
+<li class="message">[<a href="#T18:27:05" id="T18:27:05"><abbr title="2011-01-09T18:27:05+00:00">18:27:05</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>I am using linux from "<a href="http://code.google.com/p/beagleboard/wiki/BeagleboardRevC3Validation"">http://code.google.com/p/beagleboard/wiki/BeagleboardRevC3Validation"</a></q></li>
+<li class="message">[<a href="#T18:27:42" id="T18:27:42"><abbr title="2011-01-09T18:27:42+00:00">18:27:42</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>i am trying to access peformance monitors using below instructions</q></li>
+<li class="message">[<a href="#T18:27:57" id="T18:27:57"><abbr title="2011-01-09T18:27:57+00:00">18:27:57</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>asm ("MCR p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));</q></li>
+<li class="message">[<a href="#T18:28:13" id="T18:28:13"><abbr title="2011-01-09T18:28:13+00:00">18:28:13</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>then</q></li>
+<li class="message">[<a href="#T18:28:18" id="T18:28:18"><abbr title="2011-01-09T18:28:18+00:00">18:28:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>SIGILL</q></li>
+<li class="message">[<a href="#T18:28:19" id="T18:28:19"><abbr title="2011-01-09T18:28:19+00:00">18:28:19</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>disable overflow interrups</q></li>
+<li class="message">[<a href="#T18:28:26" id="T18:28:26"><abbr title="2011-01-09T18:28:26+00:00">18:28:26</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>asm ("MCR p15, 0, %0, C9, C14, 2\n\t" :: "r"(0x8000000f));</q></li>
+<li class="message">[<a href="#T18:29:06" id="T18:29:06"><abbr title="2011-01-09T18:29:06+00:00">18:29:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>are you doing this from userspace?</q></li>
+<li class="message">[<a href="#T18:29:17" id="T18:29:17"><abbr title="2011-01-09T18:29:17+00:00">18:29:17</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>but on beagleboard from within the linux when I execute this program previous instruction then get illegal instruction</q></li>
+<li class="message">[<a href="#T18:29:20" id="T18:29:20"><abbr title="2011-01-09T18:29:20+00:00">18:29:20</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>hi</q></li>
+<li class="message">[<a href="#T18:29:26" id="T18:29:26"><abbr title="2011-01-09T18:29:26+00:00">18:29:26</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>yes from user space</q></li>
+<li class="message">[<a href="#T18:29:41" id="T18:29:41"><abbr title="2011-01-09T18:29:41+00:00">18:29:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you need to enable userspace access to the perf monitor registers</q></li>
+<li class="message">[<a href="#T18:30:14" id="T18:30:14"><abbr title="2011-01-09T18:30:14+00:00">18:30:14</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>i have impression that</q></li>
+<li class="message">[<a href="#T18:30:16" id="T18:30:16"><abbr title="2011-01-09T18:30:16+00:00">18:30:16</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>asm ("MCR p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));</q></li>
+<li class="message">[<a href="#T18:30:32" id="T18:30:32"><abbr title="2011-01-09T18:30:32+00:00">18:30:32</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>this instruction is for that purpose as per TRMs</q></li>
+<li class="message">[<a href="#T18:30:43" id="T18:30:43"><abbr title="2011-01-09T18:30:43+00:00">18:30:43</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>maybe i am missing something</q></li>
+<li class="message">[<a href="#T18:30:46" id="T18:30:46"><abbr title="2011-01-09T18:30:46+00:00">18:30:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you have to do that in kernel mode</q></li>
+<li class="message">[<a href="#T18:30:53" id="T18:30:53"><abbr title="2011-01-09T18:30:53+00:00">18:30:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>would be rather pointless otherwise</q></li>
+<li class="message">[<a href="#T18:31:19" id="T18:31:19"><abbr title="2011-01-09T18:31:19+00:00">18:31:19</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>how would i switch to kernel mode </q></li>
+<li class="message">[<a href="#T18:31:28" id="T18:31:28"><abbr title="2011-01-09T18:31:28+00:00">18:31:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the kernel runs in kernel mode</q></li>
+<li class="message">[<a href="#T18:32:47" id="T18:32:47"><abbr title="2011-01-09T18:32:47+00:00">18:32:47</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>in my environment i am using pre-built binaries of angstorm and by default logged in as root</q></li>
+<li class="message">[<a href="#T18:32:57" id="T18:32:57"><abbr title="2011-01-09T18:32:57+00:00">18:32:57</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>so i assume that i am already in kernel mode</q></li>
+<li class="message">[<a href="#T18:33:12" id="T18:33:12"><abbr title="2011-01-09T18:33:12+00:00">18:33:12</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>but apparently i am not?</q></li>
+<li class="message">[<a href="#T18:34:31" id="T18:34:31"><abbr title="2011-01-09T18:34:31+00:00">18:34:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>root is still user mode</q></li>
+<li class="message">[<a href="#T18:35:22" id="T18:35:22"><abbr title="2011-01-09T18:35:22+00:00">18:35:22</abbr></a>] &lt;<cite>ghazni</cite>&gt; <q>any recommendations on how I can switch to kernel mode? </q></li>
+<li class="message">[<a href="#T18:37:42" id="T18:37:42"><abbr title="2011-01-09T18:37:42+00:00">18:37:42</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>mru, any thoughts why it feels like this does not loop: void dot(const float *c, const float *a, const float *res, int n)</q></li>
+<li class="message">[<abbr title="2011-01-09T18:37:42+00:00">18:37:42</abbr>] &lt;<cite>Crofton|work</cite>&gt; <q>{</q></li>
+<li class="message">[<abbr title="2011-01-09T18:37:42+00:00">18:37:42</abbr>] &lt;<cite>Crofton|work</cite>&gt; <q>#if 0</q></li>
+<li class="message">[<abbr title="2011-01-09T18:37:42+00:00">18:37:42</abbr>] &lt;<cite>Crofton|work</cite>&gt; <q>        res[0] = (c[0] * a[0]) + (c[2] * a[1]);</q></li>
+<li class="message">[<abbr title="2011-01-09T18:37:42+00:00">18:37:42</abbr>] &lt;<cite>Crofton|work</cite>&gt; <q>        res[1] = (c[1] * a[0]) + (c[2] * a[1]);</q></li>
+<li class="message">[<a href="#T18:37:43" id="T18:37:43"><abbr title="2011-01-09T18:37:43+00:00">18:37:43</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>#endif</q></li>
+<li class="message">[<a href="#T18:37:47" id="T18:37:47"><abbr title="2011-01-09T18:37:47+00:00">18:37:47</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        asm(    "vmov.f32       q14, #0.0               \n\t"</q></li>
+<li class="message">[<a href="#T18:37:49" id="T18:37:49"><abbr title="2011-01-09T18:37:49+00:00">18:37:49</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vmov.f32       q15, #0.0               \n\t"</q></li>
+<li class="message">[<a href="#T18:37:51" id="T18:37:51"><abbr title="2011-01-09T18:37:51+00:00">18:37:51</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "1:                                     \n\t"</q></li>
+<li class="message">[<a href="#T18:37:53" id="T18:37:53"><abbr title="2011-01-09T18:37:53+00:00">18:37:53</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "subs           %3, %3, #8              \n\t"</q></li>
+<li class="message">[<a href="#T18:37:55" id="T18:37:55"><abbr title="2011-01-09T18:37:55+00:00">18:37:55</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vld2.f32       {q0-q1}, [%1]!          \n\t"</q></li>
+<li class="message">[<a href="#T18:37:56" id="T18:37:56"><abbr title="2011-01-09T18:37:56+00:00">18:37:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|work: PASTEBIN!!!!!!!!!!!!!!</q></li>
+<li class="message">[<a href="#T18:37:57" id="T18:37:57"><abbr title="2011-01-09T18:37:57+00:00">18:37:57</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vld1.f32       {q2}, [%2]!             \n\t"</q></li>
+<li class="message">[<a href="#T18:37:59" id="T18:37:59"><abbr title="2011-01-09T18:37:59+00:00">18:37:59</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vmla.f32       q14, q0, q2             \n\t"</q></li>
+<li class="message">[<a href="#T18:38:01" id="T18:38:01"><abbr title="2011-01-09T18:38:01+00:00">18:38:01</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vmla.f32       q15, q1, q2             \n\t"</q></li>
+<li class="message">[<a href="#T18:38:03" id="T18:38:03"><abbr title="2011-01-09T18:38:03+00:00">18:38:03</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "bgt            1b                      \n\t"</q></li>
+<li class="message">[<a href="#T18:38:05" id="T18:38:05"><abbr title="2011-01-09T18:38:05+00:00">18:38:05</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vpadd.f32      d0, d28, d29            \n\t"</q></li>
+<li class="message">[<a href="#T18:38:07" id="T18:38:07"><abbr title="2011-01-09T18:38:07+00:00">18:38:07</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vpadd.f32      d1, d30, d31            \n\t"</q></li>
+<li class="message">[<a href="#T18:38:09" id="T18:38:09"><abbr title="2011-01-09T18:38:09+00:00">18:38:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vadd.f32       s0, s0, s1              \n\t"</q></li>
+<li class="message">[<a href="#T18:38:11" id="T18:38:11"><abbr title="2011-01-09T18:38:11+00:00">18:38:11</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vadd.f32       s1, s2, s3              \n\t"</q></li>
+<li class="message">[<a href="#T18:38:13" id="T18:38:13"><abbr title="2011-01-09T18:38:13+00:00">18:38:13</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                "vst1.f32       {d0}, [%0]              \n\t"</q></li>
+<li class="message">[<a href="#T18:38:17" id="T18:38:17"><abbr title="2011-01-09T18:38:17+00:00">18:38:17</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                :: "r"(res), "r"(c), "r"(a), "r"(n)</q></li>
+<li class="message">[<a href="#T18:38:19" id="T18:38:19"><abbr title="2011-01-09T18:38:19+00:00">18:38:19</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                : "d0", "d1", "d2", "d3");</q></li>
+<li class="message">[<a href="#T18:38:21" id="T18:38:21"><abbr title="2011-01-09T18:38:21+00:00">18:38:21</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>}</q></li>
+<li class="message">[<a href="#T18:38:23" id="T18:38:23"><abbr title="2011-01-09T18:38:23+00:00">18:38:23</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>int main(int argc, char *argv[])</q></li>
+<li class="message">[<a href="#T18:38:25" id="T18:38:25"><abbr title="2011-01-09T18:38:25+00:00">18:38:25</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>{</q></li>
+<li class="message">[<a href="#T18:38:27" id="T18:38:27"><abbr title="2011-01-09T18:38:27+00:00">18:38:27</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>#define LEN 8</q></li>
+<li class="message">[<a href="#T18:38:29" id="T18:38:29"><abbr title="2011-01-09T18:38:29+00:00">18:38:29</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        float c[LEN*2];</q></li>
+<li class="message">[<a href="#T18:38:31" id="T18:38:31"><abbr title="2011-01-09T18:38:31+00:00">18:38:31</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        float a[LEN];</q></li>
+<li class="message">[<a href="#T18:38:33" id="T18:38:33"><abbr title="2011-01-09T18:38:33+00:00">18:38:33</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        float res[2];</q></li>
+<li class="message">[<a href="#T18:38:35" id="T18:38:35"><abbr title="2011-01-09T18:38:35+00:00">18:38:35</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        float res_t[2];</q></li>
+<li class="message">[<a href="#T18:38:37" id="T18:38:37"><abbr title="2011-01-09T18:38:37+00:00">18:38:37</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        size_t i;</q></li>
+<li class="message">[<a href="#T18:38:39" id="T18:38:39"><abbr title="2011-01-09T18:38:39+00:00">18:38:39</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        res_t[0] = 0;</q></li>
+<li class="message">[<a href="#T18:38:41" id="T18:38:41"><abbr title="2011-01-09T18:38:41+00:00">18:38:41</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        res_t[1] = 0;</q></li>
+<li class="message">[<a href="#T18:38:43" id="T18:38:43"><abbr title="2011-01-09T18:38:43+00:00">18:38:43</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        for (i=0; i&lt;LEN; i++) {</q></li>
+<li class="message">[<a href="#T18:38:47" id="T18:38:47"><abbr title="2011-01-09T18:38:47+00:00">18:38:47</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                c[i*2] = i;</q></li>
+<li class="message">[<a href="#T18:38:49" id="T18:38:49"><abbr title="2011-01-09T18:38:49+00:00">18:38:49</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                c[i*2+1] = i+1;</q></li>
+<li class="message">[<a href="#T18:38:51" id="T18:38:51"><abbr title="2011-01-09T18:38:51+00:00">18:38:51</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                a[i] = i;</q></li>
+<li class="message">[<a href="#T18:38:53" id="T18:38:53"><abbr title="2011-01-09T18:38:53+00:00">18:38:53</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                res_t[0] += c[i*2] * a[i];</q></li>
+<li class="message">[<a href="#T18:38:55" id="T18:38:55"><abbr title="2011-01-09T18:38:55+00:00">18:38:55</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>                res_t[1] += c[i*2+1] * a[i];</q></li>
+<li class="message">[<a href="#T18:38:57" id="T18:38:57"><abbr title="2011-01-09T18:38:57+00:00">18:38:57</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        }</q></li>
+<li class="message">[<a href="#T18:38:59" id="T18:38:59"><abbr title="2011-01-09T18:38:59+00:00">18:38:59</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        dot(c, a, res, LEN);</q></li>
+<li class="message">[<a href="#T18:39:01" id="T18:39:01"><abbr title="2011-01-09T18:39:01+00:00">18:39:01</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        printf("res_t[0] = %f, res_t[1] = %f\n", res_t[0], res_t[1]);</q></li>
+<li class="message">[<a href="#T18:39:03" id="T18:39:03"><abbr title="2011-01-09T18:39:03+00:00">18:39:03</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>        printf("res[0] = %f, res[1] = %f\n", res[0], res[1]);</q></li>
+<li class="message">[<a href="#T18:39:05" id="T18:39:05"><abbr title="2011-01-09T18:39:05+00:00">18:39:05</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>}</q></li>
+<li class="message">[<a href="#T18:39:07" id="T18:39:07"><abbr title="2011-01-09T18:39:07+00:00">18:39:07</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>crap</q></li>
+<li class="message">[<a href="#T18:39:09" id="T18:39:09"><abbr title="2011-01-09T18:39:09+00:00">18:39:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>crap</q></li>
+<li class="message">[<a href="#T18:39:11" id="T18:39:11"><abbr title="2011-01-09T18:39:11+00:00">18:39:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>tell me when he's done so I can stop ignoring him</q></li>
+<li class="message">[<abbr title="2011-01-09T18:39:11+00:00">18:39:11</abbr>] &lt;<cite>Crofton|work</cite>&gt; <q>crpa</q></li>
+<li class="message">[<a href="#T18:39:13" id="T18:39:13"><abbr title="2011-01-09T18:39:13+00:00">18:39:13</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://pastebin.com/T9Mq7zPt">http://pastebin.com/T9Mq7zPt</a></q></li>
+<li class="message">[<a href="#T18:39:17" id="T18:39:17"><abbr title="2011-01-09T18:39:17+00:00">18:39:17</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>sorry guys</q></li>
+<li class="message">[<a href="#T18:39:19" id="T18:39:19"><abbr title="2011-01-09T18:39:19+00:00">18:39:19</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>same dumb mistake</q></li>
+<li class="message">[<a href="#T18:39:21" id="T18:39:21"><abbr title="2011-01-09T18:39:21+00:00">18:39:21</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>as the last time</q></li>
+<li class="action">[<a href="#T18:40:13" id="T18:40:13"><abbr title="2011-01-09T18:40:13+00:00">18:40:13</abbr></a>] <span>* djlewis slaps Crofton|work :)</span></li>
+<li class="message">[<a href="#T18:40:28" id="T18:40:28"><abbr title="2011-01-09T18:40:28+00:00">18:40:28</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>twice in two days is pretty bad</q></li>
+<li class="message">[<a href="#T18:40:37" id="T18:40:37"><abbr title="2011-01-09T18:40:37+00:00">18:40:37</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>YOU GETTING A RED FACE?</q></li>
+<li class="message">[<a href="#T18:40:43" id="T18:40:43"><abbr title="2011-01-09T18:40:43+00:00">18:40:43</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>oops</q></li>
+<li class="message">[<a href="#T18:40:48" id="T18:40:48"><abbr title="2011-01-09T18:40:48+00:00">18:40:48</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T18:40:55" id="T18:40:55"><abbr title="2011-01-09T18:40:55+00:00">18:40:55</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I will shovel the driveway to atone</q></li>
+<li class="action">[<a href="#T18:41:37" id="T18:41:37"><abbr title="2011-01-09T18:41:37+00:00">18:41:37</abbr></a>] <span>* mru orders 16 tonnes of dung to be delivered to Crofton|work's driveway</span></li>
+<li class="message">[<a href="#T18:42:19" id="T18:42:19"><abbr title="2011-01-09T18:42:19+00:00">18:42:19</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>that would please my wife</q></li>
+<li class="message">[<a href="#T18:45:37" id="T18:45:37"><abbr title="2011-01-09T18:45:37+00:00">18:45:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>well, where's the pastebin?</q></li>
+<li class="quit">[<a href="#T18:49:05" id="T18:49:05"><abbr title="2011-01-09T18:49:05+00:00">18:49:05</abbr></a>] <span>* hrw (~hrw@linaro/hrw) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T18:50:32" id="T18:50:32"><abbr title="2011-01-09T18:50:32+00:00">18:50:32</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>jeez</q></li>
+<li class="message">[<a href="#T18:50:36" id="T18:50:36"><abbr title="2011-01-09T18:50:36+00:00">18:50:36</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>now I am scared </q></li>
+<li class="message">[<a href="#T18:50:51" id="T18:50:51"><abbr title="2011-01-09T18:50:51+00:00">18:50:51</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://pastebin.com/T9Mq7zPt">http://pastebin.com/T9Mq7zPt</a></q></li>
+<li class="message">[<a href="#T18:51:02" id="T18:51:02"><abbr title="2011-01-09T18:51:02+00:00">18:51:02</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>wew</q></li>
+<li class="message">[<a href="#T18:52:36" id="T18:52:36"><abbr title="2011-01-09T18:52:36+00:00">18:52:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|work: your constraints are wrong</q></li>
+<li class="join">[<a href="#T18:52:51" id="T18:52:51"><abbr title="2011-01-09T18:52:51+00:00">18:52:51</abbr></a>] <span>* emeb (~ericb@ip70-190-178-182.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:53:41" id="T18:53:41"><abbr title="2011-01-09T18:53:41+00:00">18:53:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>your a, c, and n parameters must use +&amp;r constraints</q></li>
+<li class="message">[<a href="#T18:55:00" id="T18:55:00"><abbr title="2011-01-09T18:55:00+00:00">18:55:00</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>+&amp;</q></li>
+<li class="message">[<a href="#T18:55:04" id="T18:55:04"><abbr title="2011-01-09T18:55:04+00:00">18:55:04</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>what does that mean</q></li>
+<li class="message">[<a href="#T18:55:13" id="T18:55:13"><abbr title="2011-01-09T18:55:13+00:00">18:55:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>modify earlyclobber</q></li>
+<li class="message">[<a href="#T18:55:23" id="T18:55:23"><abbr title="2011-01-09T18:55:23+00:00">18:55:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>rtfm</q></li>
+<li class="join">[<a href="#T18:55:34" id="T18:55:34"><abbr title="2011-01-09T18:55:34+00:00">18:55:34</abbr></a>] <span>* rcranetx1 (~rcranetx@nat/ti/x-fynugdaltazljkaq) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:56:08" id="T18:56:08"><abbr title="2011-01-09T18:56:08+00:00">18:56:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and you're not telling gcc that you're accessing the memory those pointers point to</q></li>
+<li class="message">[<a href="#T18:56:31" id="T18:56:31"><abbr title="2011-01-09T18:56:31+00:00">18:56:31</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>the fm is pretty "vague"</q></li>
+<li class="message">[<a href="#T18:56:49" id="T18:56:49"><abbr title="2011-01-09T18:56:49+00:00">18:56:49</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>that is done via the "memory" clobber entry?</q></li>
+<li class="message">[<a href="#T18:57:00" id="T18:57:00"><abbr title="2011-01-09T18:57:00+00:00">18:57:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's a bit of a nuke from orbit solution</q></li>
+<li class="message">[<a href="#T18:57:02" id="T18:57:02"><abbr title="2011-01-09T18:57:02+00:00">18:57:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but try it</q></li>
+<li class="message">[<a href="#T18:57:23" id="T18:57:23"><abbr title="2011-01-09T18:57:23+00:00">18:57:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you're also not telling it about the d28-d31 clobbers</q></li>
+<li class="message">[<a href="#T18:57:33" id="T18:57:33"><abbr title="2011-01-09T18:57:33+00:00">18:57:33</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah, I know i need to fix that</q></li>
+<li class="message">[<a href="#T18:57:58" id="T18:57:58"><abbr title="2011-01-09T18:57:58+00:00">18:57:58</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I thought the clobbers are not critical since there is no code afterwards</q></li>
+<li class="message">[<a href="#T18:58:20" id="T18:58:20"><abbr title="2011-01-09T18:58:20+00:00">18:58:20</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>also, I have the params in inputs, so it refuses to accept the plus</q></li>
+<li class="message">[<a href="#T18:58:24" id="T18:58:24"><abbr title="2011-01-09T18:58:24+00:00">18:58:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you'll probably get away with it</q></li>
+<li class="message">[<a href="#T18:58:29" id="T18:58:29"><abbr title="2011-01-09T18:58:29+00:00">18:58:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so make them outputs</q></li>
+<li class="message">[<a href="#T18:58:45" id="T18:58:45"><abbr title="2011-01-09T18:58:45+00:00">18:58:45</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>ok, this I do not understand .....</q></li>
+<li class="quit">[<a href="#T18:58:53" id="T18:58:53"><abbr title="2011-01-09T18:58:53+00:00">18:58:53</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-ycfzxgbgpfpmmjrp) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T18:58:57" id="T18:58:57"><abbr title="2011-01-09T18:58:57+00:00">18:58:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>anything you modify is an output operand</q></li>
+<li class="message">[<a href="#T18:59:03" id="T18:59:03"><abbr title="2011-01-09T18:59:03+00:00">18:59:03</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>the registers are "inputs"</q></li>
+<li class="message">[<a href="#T18:59:06" id="T18:59:06"><abbr title="2011-01-09T18:59:06+00:00">18:59:06</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:59:07" id="T18:59:07"><abbr title="2011-01-09T18:59:07+00:00">18:59:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and outputs</q></li>
+<li class="message">[<a href="#T18:59:13" id="T18:59:13"><abbr title="2011-01-09T18:59:13+00:00">18:59:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>+ means in/out</q></li>
+<li class="message">[<a href="#T18:59:15" id="T18:59:15"><abbr title="2011-01-09T18:59:15+00:00">18:59:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>= means out</q></li>
+<li class="message">[<a href="#T18:59:30" id="T18:59:30"><abbr title="2011-01-09T18:59:30+00:00">18:59:30</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah, I sort of saw that before</q></li>
