@@ -178,3 +178,80 @@
 <li class="message">[<a href="#T02:57:14" id="T02:57:14"><abbr title="2011-01-11T02:57:14+00:00">02:57:14</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>is it possible to boot kernel,rootfilesystem from uart port</q></li>
 <li class="message">[<a href="#T02:58:20" id="T02:58:20"><abbr title="2011-01-11T02:58:20+00:00">02:58:20</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>sure, but you need much time and many painful work to achieve that ;)</q></li>
 <li class="message">[<a href="#T02:59:33" id="T02:59:33"><abbr title="2011-01-11T02:59:33+00:00">02:59:33</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>means you should not try that</q></li>
+<li class="message">[<a href="#T03:00:27" id="T03:00:27"><abbr title="2011-01-11T03:00:27+00:00">03:00:27</abbr></a>] &lt;<cite>ac</cite>&gt; <q>Crofton: thank you.</q></li>
+<li class="message">[<a href="#T03:00:43" id="T03:00:43"><abbr title="2011-01-11T03:00:43+00:00">03:00:43</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>aholler, why</q></li>
+<li class="message">[<a href="#T03:00:56" id="T03:00:56"><abbr title="2011-01-11T03:00:56+00:00">03:00:56</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>i am ready for painful work</q></li>
+<li class="message">[<a href="#T03:01:17" id="T03:01:17"><abbr title="2011-01-11T03:01:17+00:00">03:01:17</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>as there is no support for external usb ethernet in bb i need to try with uart</q></li>
+<li class="message">[<a href="#T03:01:30" id="T03:01:30"><abbr title="2011-01-11T03:01:30+00:00">03:01:30</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>i mean nfs boot</q></li>
+<li class="message">[<a href="#T03:01:53" id="T03:01:53"><abbr title="2011-01-11T03:01:53+00:00">03:01:53</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>which bb?</q></li>
+<li class="quit">[<a href="#T03:02:07" id="T03:02:07"><abbr title="2011-01-11T03:02:07+00:00">03:02:07</abbr></a>] <span>* HES (18eea22d@gateway/web/freenode/ip.24.238.162.45) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T03:03:02" id="T03:03:02"><abbr title="2011-01-11T03:03:02+00:00">03:03:02</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>put x-loader, u-boot and the kernel into nand or onto a sd-card and then you are ready to boot over nfs</q></li>
+<li class="message">[<a href="#T03:03:59" id="T03:03:59"><abbr title="2011-01-11T03:03:59+00:00">03:03:59</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>aholler, each time after chaningf in kernel adding that kernel in nand /sdcard is quite hectic task</q></li>
+<li class="message">[<a href="#T03:04:22" id="T03:04:22"><abbr title="2011-01-11T03:04:22+00:00">03:04:22</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>thiking to have kernel as well in dev system</q></li>
+<li class="join">[<a href="#T03:04:45" id="T03:04:45"><abbr title="2011-01-11T03:04:45+00:00">03:04:45</abbr></a>] <span>* espindola (~espindola@CPE30469af9ce48-CM001225dd5348.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:04:52" id="T03:04:52"><abbr title="2011-01-11T03:04:52+00:00">03:04:52</abbr></a>] <span>* killring (~killring@76.226.196.111) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T03:08:11" id="T03:08:11"><abbr title="2011-01-11T03:08:11+00:00">03:08:11</abbr></a>] &lt;<cite>ac</cite>&gt; <q>Ceriand: Thank you.</q></li>
+<li class="join">[<a href="#T03:10:15" id="T03:10:15"><abbr title="2011-01-11T03:10:15+00:00">03:10:15</abbr></a>] <span>* russ (foobar@ip70-176-251-1.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:10:42" id="T03:10:42"><abbr title="2011-01-11T03:10:42+00:00">03:10:42</abbr></a>] <span>* jkridner|mobi (~jkridnerm@c-98-250-139-108.hsd1.mi.comcast.net) Quit (Quit: Colloquy for iPad - <a href="http://colloquy.mobi)">http://colloquy.mobi)</a></span></li>
+<li class="message">[<a href="#T03:11:47" id="T03:11:47"><abbr title="2011-01-11T03:11:47+00:00">03:11:47</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>aksh1: u-boot has support to load sw via the serial, but i think you would have to add the same to the x-loader</q></li>
+<li class="join">[<a href="#T03:13:20" id="T03:13:20"><abbr title="2011-01-11T03:13:20+00:00">03:13:20</abbr></a>] <span>* killring (~killring@76.226.196.111) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:13:36" id="T03:13:36"><abbr title="2011-01-11T03:13:36+00:00">03:13:36</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>if you want all over the serial, otherwise put x-loader and u-boot to nand or sd-card and use u-boot to load the kernel via serial.</q></li>
+<li class="message">[<a href="#T03:13:57" id="T03:13:57"><abbr title="2011-01-11T03:13:57+00:00">03:13:57</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>aholler, yes this can be done</q></li>
+<li class="message">[<a href="#T03:14:20" id="T03:14:20"><abbr title="2011-01-11T03:14:20+00:00">03:14:20</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>in this case do i need to add uart support in xloader</q></li>
+<li class="message">[<a href="#T03:14:22" id="T03:14:22"><abbr title="2011-01-11T03:14:22+00:00">03:14:22</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T03:14:32" id="T03:14:32"><abbr title="2011-01-11T03:14:32+00:00">03:14:32</abbr></a>] &lt;<cite>JoeSchmo</cite>&gt; <q>i've used the booting via usb/serial method for recovering a device with a bad xload that was flashed, it was quite slow</q></li>
+<li class="message">[<a href="#T03:15:06" id="T03:15:06"><abbr title="2011-01-11T03:15:06+00:00">03:15:06</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>JoeSchmo, booting from uart is always slow</q></li>
+<li class="message">[<a href="#T03:15:07" id="T03:15:07"><abbr title="2011-01-11T03:15:07+00:00">03:15:07</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>aksh1: not if you don't need to load u-boot via serial</q></li>
+<li class="message">[<a href="#T03:15:50" id="T03:15:50"><abbr title="2011-01-11T03:15:50+00:00">03:15:50</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>aholler, what should be the uboot parameter to fetch kernel and filesystem from dev system over uart</q></li>
+<li class="message">[<a href="#T03:15:53" id="T03:15:53"><abbr title="2011-01-11T03:15:53+00:00">03:15:53</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>JoeSchmo: don't increase the confusion ;)</q></li>
+<li class="action">[<a href="#T03:16:01" id="T03:16:01"><abbr title="2011-01-11T03:16:01+00:00">03:16:01</abbr></a>] <span>* JoeSchmo ducks out</span></li>
+<li class="quit">[<a href="#T03:17:25" id="T03:17:25"><abbr title="2011-01-11T03:17:25+00:00">03:17:25</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-vtbmcsryzikwuhdj) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T03:17:41" id="T03:17:41"><abbr title="2011-01-11T03:17:41+00:00">03:17:41</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>aksh1: type help loads, help loadb or help loady in u-boot</q></li>
+<li class="message">[<a href="#T03:18:38" id="T03:18:38"><abbr title="2011-01-11T03:18:38+00:00">03:18:38</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>that's stuff used in the last century ;)</q></li>
+<li class="message">[<a href="#T03:19:47" id="T03:19:47"><abbr title="2011-01-11T03:19:47+00:00">03:19:47</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>it will be great if some uboot args i get which is tested</q></li>
+<li class="message">[<a href="#T03:21:13" id="T03:21:13"><abbr title="2011-01-11T03:21:13+00:00">03:21:13</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>aholler, but <a href="http://code.google.com/p/beagleboard/wiki/BootingBeagleBoard">http://code.google.com/p/beagleboard/wiki/BootingBeagleBoard</a> page says BB at present supports boot from nand and mmc only</q></li>
+<li class="message">[<a href="#T03:21:58" id="T03:21:58"><abbr title="2011-01-11T03:21:58+00:00">03:21:58</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>thats a wiki</q></li>
+<li class="quit">[<a href="#T03:22:49" id="T03:22:49"><abbr title="2011-01-11T03:22:49+00:00">03:22:49</abbr></a>] <span>* russ (foobar@ip70-176-251-1.ph.ph.cox.net) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="part">[<a href="#T03:23:29" id="T03:23:29"><abbr title="2011-01-11T03:23:29+00:00">03:23:29</abbr></a>] <span>* ac (425cb382@gateway/web/freenode/ip.66.92.179.130) has left #beagle</span></li>
+<li class="message">[<a href="#T03:25:20" id="T03:25:20"><abbr title="2011-01-11T03:25:20+00:00">03:25:20</abbr></a>] &lt;<cite>aksh1</cite>&gt; <q>aholler, thanks</q></li>
+<li class="quit">[<a href="#T03:25:27" id="T03:25:27"><abbr title="2011-01-11T03:25:27+00:00">03:25:27</abbr></a>] <span>* aksh1 (~aksh1@14.97.21.20) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T03:26:12" id="T03:26:12"><abbr title="2011-01-11T03:26:12+00:00">03:26:12</abbr></a>] <span>* prpplague^2 (~Dave@ppp-70-249-156-81.dsl.rcsntx.swbell.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:28:27" id="T03:28:27"><abbr title="2011-01-11T03:28:27+00:00">03:28:27</abbr></a>] <span>* mrj10 (~mrj10@c-98-212-200-198.hsd1.il.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:30:24" id="T03:30:24"><abbr title="2011-01-11T03:30:24+00:00">03:30:24</abbr></a>] <span>* javaJake_ (~javaJake@unaffiliated/javajake) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:30:31" id="T03:30:31"><abbr title="2011-01-11T03:30:31+00:00">03:30:31</abbr></a>] <span>* torez (~torez@linaro/torez) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="quit">[<a href="#T03:34:53" id="T03:34:53"><abbr title="2011-01-11T03:34:53+00:00">03:34:53</abbr></a>] <span>* prpplague (~Dave@ppp-70-249-156-81.dsl.rcsntx.swbell.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:53+00:00">03:34:53</abbr>] <span>* eFfeM_work (~frans@D4B26BC1.static.ziggozakelijk.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:53+00:00">03:34:53</abbr>] <span>* javaJake (~javaJake@unaffiliated/javajake) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:53+00:00">03:34:53</abbr>] <span>* cwicks (c05e5e69@gateway/web/freenode/ip.192.94.94.105) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T03:34:54" id="T03:34:54"><abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr></a>] <span>* aholler (~aholler@p57B20116.dip0.t-ipconnect.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* freetx (~freetx@adsl-76-247-251-51.dsl.hstntx.sbcglobal.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* Electric_Monk (~colin@87-194-159-227.bethere.co.uk) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* marcheu (~marcheu@annarchy.freedesktop.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* buq2 (~buq2@84.249.78.112) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* jannau (~janne@chybek.jannau.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* kulve (~kulve@humboldt.pingu.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* _bruce (bruce@pi.nxs.se) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-01-11T03:34:54+00:00">03:34:54</abbr>] <span>* mnemoc (~amery@shell.opensde.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T03:34:55" id="T03:34:55"><abbr title="2011-01-11T03:34:55+00:00">03:34:55</abbr></a>] <span>* armin76 (~armin@gentoo/developer/armin76) Quit (*.net *.split)</span></li>
+<li class="join">[<a href="#T03:35:59" id="T03:35:59"><abbr title="2011-01-11T03:35:59+00:00">03:35:59</abbr></a>] <span>* cwicks (c05e5e69@gateway/web/freenode/ip.192.94.94.105) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:36:03" id="T03:36:03"><abbr title="2011-01-11T03:36:03+00:00">03:36:03</abbr></a>] <span>* pupnik (~pupnik@p54866955.dip.t-dialin.net) Quit (Read error: Operation timed out)</span></li>
+<li class="join">[<a href="#T03:37:18" id="T03:37:18"><abbr title="2011-01-11T03:37:18+00:00">03:37:18</abbr></a>] <span>* russ (foobar@ip70-176-251-1.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:37:23" id="T03:37:23"><abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr></a>] <span>* aholler (~aholler@p57B20116.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* freetx (~freetx@adsl-76-247-251-51.dsl.hstntx.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* Electric_Monk (~colin@87-194-159-227.bethere.co.uk) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* marcheu (~marcheu@annarchy.freedesktop.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* buq2 (~buq2@84.249.78.112) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* jannau (~janne@chybek.jannau.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* kulve (~kulve@humboldt.pingu.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* _bruce (bruce@pi.nxs.se) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* mnemoc (~amery@shell.opensde.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-01-11T03:37:23+00:00">03:37:23</abbr>] <span>* armin76 (~armin@gentoo/developer/armin76) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:40:17" id="T03:40:17"><abbr title="2011-01-11T03:40:17+00:00">03:40:17</abbr></a>] <span>* pupnik (~pupnik@p54B2A529.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:42:42" id="T03:42:42"><abbr title="2011-01-11T03:42:42+00:00">03:42:42</abbr></a>] <span>* eFfeM_work (~frans@D4B26BC1.static.ziggozakelijk.nl) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:48:58" id="T03:48:58"><abbr title="2011-01-11T03:48:58+00:00">03:48:58</abbr></a>] <span>* killring (~killring@76.226.196.111) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T03:49:04" id="T03:49:04"><abbr title="2011-01-11T03:49:04+00:00">03:49:04</abbr></a>] <span>* jevin_ (~jevin@ee338pc2.ecn.purdue.edu) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T03:51:15" id="T03:51:15"><abbr title="2011-01-11T03:51:15+00:00">03:51:15</abbr></a>] <span>* killring (~killring@76.226.196.111) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:52:10" id="T03:52:10"><abbr title="2011-01-11T03:52:10+00:00">03:52:10</abbr></a>] <span>* prpplague^2 (~Dave@ppp-70-249-156-81.dsl.rcsntx.swbell.net) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T03:57:39" id="T03:57:39"><abbr title="2011-01-11T03:57:39+00:00">03:57:39</abbr></a>] <span>* scrp3l (~scrp3l@201.250.161.44) has joined #beagle</span></li>
