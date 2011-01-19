@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="20" name="project" prototype="Page" created="1202836452756" lastModified="1295339225190">
+  <hopobject id="20" name="project" prototype="Page" created="1202836452756" lastModified="1295469215980">
   <hop:parent idref="0" prototyperef="Root"/>
-    <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3</http_browser>
-    <lang>en-us</lang>
-    <uri>project</uri>
-    <http_host>beagleboard.org</http_host>
-    <time type="date">26.05.2010 06:37:47 CDT</time>
+    <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
-    <hopsession>127.0.0.192.94.94.xvdr1dtq7agu</hopsession>
-    <user>blog.hangerhead.com</user>
-    <body> &lt;div id=&quot;create_project&quot;&gt;
+    <beagleirclog>000000</beagleirclog>
+    <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
+    <uri>project</uri>
+    <http_browser>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13</http_browser>
+    <time type="date">19.01.2011 14:33:35 CST</time>
+    <hopsession>127.0.0.192.94.94.par4z9pdx93t</hopsession>
+    <body>
+ &lt;div id=&quot;create_project&quot;&gt;
   &lt;h2&gt;
    &lt;a href=&quot;/project/new/edit_project&quot; title=&quot;Register a new project on BeagleBoard.org&quot;&gt;Create project&lt;/a&gt;
   &lt;/h2&gt;
@@ -42,7 +43,7 @@
   &lt;/h2&gt;
   &lt;ul id=&quot;search_links&quot;&gt;
    &lt;li&gt;
-    &lt;a href=&quot;http://sourceforge.net/search/?type_of_search=soft&amp;type_of_search=soft&amp;words=omap+beagleboard&quot;&gt;Search SourceForge&lt;/a&gt;
+    &lt;a href=&quot;http://sourceforge.net/search/?type_of_search=soft&amp;amp;type_of_search=soft&amp;amp;words=omap+beagleboard&quot;&gt;Search SourceForge&lt;/a&gt;
    &lt;/li&gt;
    &lt;li&gt;
     &lt;a href=&quot;http://code.google.com/hosting/search?q=omap+beagleboard&quot;&gt;Search Google Project Hosting&lt;/a&gt;
@@ -60,14 +61,13 @@
  &lt;/div&gt;
  &lt;h2 id=&quot;registered&quot;&gt;List of registered projects&lt;/h2&gt;
  &lt;script language=&quot;javascript&quot; src=&quot;/static/jquery-1.4.2.min.js&quot;&gt;/* Do nothing */&lt;/script&gt;
- &lt;script language=&quot;javascript&quot;&gt;
-var update_count = function () {
+ &lt;script language=&quot;javascript&quot;&gt;var update_count = function () {
  var visible = 0;
  var total = 0;
- $(&quot;#list:hidden li&quot;).each(function () {
+ $(&quot;#list:hidden tr&quot;).each(function () {
   total++;
  });
- $(&quot;#list:visible li&quot;).each(function () {
+ $(&quot;#list:visible tr&quot;).each(function () {
   visible++;
   total++;
  });
@@ -100,7 +100,7 @@ $(document).ready(
    var filter = $(this).val();
    var visible = 0;
    $(&quot;#list:first li&quot;).each(function () {
-    if ($(this).text().search(new RegExp(filter, &quot;i&quot;)) &lt; 0) {
+    if ($(this).text().search(new RegExp(filter, &quot;i&quot;)) &amp;lt; 0) {
      $(this).hide();
     } else {
      $(this).show();
@@ -143,14 +143,13 @@ $(&apos;#list&apos;).hover(
   //$(&apos;#list li&apos;).hide(&apos;fast&apos;);
   //update_count();
  }
-);
-&lt;/script&gt;
+);&lt;/script&gt;
 </body>
     <list_children>true</list_children>
-    <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
-    <is_xhtml type="boolean">true</is_xhtml>
-    <beagleirclog>000000</beagleirclog>
     <http_referer>http://beagleboard.org/project/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <user>blog.hangerhead.com</user>
+    <lang>en-us</lang>
     <hop:child idref="248" prototyperef="Page"/>
     <hop:child idref="282" prototyperef="Page"/>
     <hop:child idref="288" prototyperef="Page"/>
