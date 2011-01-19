@@ -29,20 +29,22 @@ function listBody ()
     return (param);
    }
    
-  body += "<ul>\n";
+  if (collection[0].render_skin == "project")
+   body += "<table>\n";
+  else
+   body += "<ul>\n";
   for (var i in collection)
    {
     if (collection[i].render_skin == "project")
      {
       body +=
-       '<li><a href="' + collection[i].href() + '">'
+       '<tr><td><a href="' + collection[i].href() + '">'
        + collection[i].pname
-       + '</a><small> ' 
+       + '</a><br><small>' 
        ;
       if (("" + collection[i].homepage) != "")
        {
         body += ''
-         + '- '
 	 + '[<a href="'
          + fixUrl(collection[i].homepage)
          + '" target="_blank">homepage</a>] '
@@ -51,19 +53,18 @@ function listBody ()
       if (("" + collection[i].rssfeed) != "")
        {
         body += ''
-         + '- '
 	 + '[<a href="'
          + fixUrl(collection[i].rssfeed)
          + '" target="_blank">rss</a>]'
 	 ;
        }
-      body += '<br>'
+      body += '</small></td><td><small>'
        + encode(collection[i].shortdesc)
-       + '<br>Last updated by: '
+       + '</small></td><td><small>Last updated by: '
        + collection[i].registrant
-       + ' on '
+       + '<br>'
        + collection[i].updatetime
-       + '</small></li>\n'
+       + '</small></tr>\n'
        ;
      }
     else if (collection[i].render_skin == "rss")
@@ -86,7 +87,10 @@ function listBody ()
        + '</small></li>\n';
      }
    }
-  body += "</ul>\n";
+  if (collection[0].render_skin == "project")
+   body += "</table>\n";
+  else
+   body += "</ul>\n";
   return (body);
  }
 
