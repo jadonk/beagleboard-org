@@ -652,3 +652,62 @@
 <li class="quit">[<a href="#T16:59:02" id="T16:59:02"><abbr title="2011-01-24T16:59:02+00:00">16:59:02</abbr></a>] <span>* East (629b5446@gateway/web/freenode/ip.98.155.84.70) Quit (Quit: Page closed)</span></li>
 <li class="message">[<a href="#T16:59:36" id="T16:59:36"><abbr title="2011-01-24T16:59:36+00:00">16:59:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ggreer: url?</q></li>
 <li class="message">[<a href="#T16:59:44" id="T16:59:44"><abbr title="2011-01-24T16:59:44+00:00">16:59:44</abbr></a>] &lt;<cite>ggreer</cite>&gt; <q><a href="http://groups.google.com/group/beagleboard/browse_thread/thread/ae5b11fe0194bc90">http://groups.google.com/group/beagleboard/browse_thread/thread/ae5b11fe0194bc90</a></q></li>
+<li class="message">[<a href="#T17:00:36" id="T17:00:36"><abbr title="2011-01-24T17:00:36+00:00">17:00:36</abbr></a>] &lt;<cite>ggreer</cite>&gt; <q>running his script just garbles my screen. I'm betting we have different boot arguments</q></li>
+<li class="join">[<a href="#T17:01:30" id="T17:01:30"><abbr title="2011-01-24T17:01:30+00:00">17:01:30</abbr></a>] <span>* rcn-ee_at_work (~voodoo@thief-statics-245.mncable.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:01:33" id="T17:01:33"><abbr title="2011-01-24T17:01:33+00:00">17:01:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T17:02:04" id="T17:02:04"><abbr title="2011-01-24T17:02:04+00:00">17:02:04</abbr></a>] &lt;<cite>ggreer</cite>&gt; <q>and I'm in the US, so the ntsc timing should work</q></li>
+<li class="message">[<a href="#T17:02:16" id="T17:02:16"><abbr title="2011-01-24T17:02:16+00:00">17:02:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>what is your bootcmd?</q></li>
+<li class="quit">[<a href="#T17:03:00" id="T17:03:00"><abbr title="2011-01-24T17:03:00+00:00">17:03:00</abbr></a>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) Quit (Read error: Connection reset by peer)</span></li>
+<li class="nick-change">[<a href="#T17:03:02" id="T17:03:02"><abbr title="2011-01-24T17:03:02+00:00">17:03:02</abbr></a>] <span>* pupnik_ is now known as pupnik</span></li>
+<li class="quit">[<a href="#T17:03:07" id="T17:03:07"><abbr title="2011-01-24T17:03:07+00:00">17:03:07</abbr></a>] <span>* pupnik (~pupnik@p54B2B740.dip.t-dialin.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-01-24T17:03:07+00:00">17:03:07</abbr>] <span>* pupnik (~pupnik@unaffiliated/pupnik) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:03:39" id="T17:03:39"><abbr title="2011-01-24T17:03:39+00:00">17:03:39</abbr></a>] &lt;<cite>ggreer</cite>&gt; <q>setenv bootargs 'console=ttyS2,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext3 rootwait elevator=noop omapfb.mode=tv:ntsc omapdss.def_disp=tv mpurate=1000'</q></li>
+<li class="message">[<a href="#T17:03:40" id="T17:03:40"><abbr title="2011-01-24T17:03:40+00:00">17:03:40</abbr></a>] &lt;<cite>ggreer</cite>&gt; <q>setenv bootcmd 'fatload mmc 0 0x80300000 uImage; bootm 0x80300000'</q></li>
+<li class="message">[<abbr title="2011-01-24T17:03:40+00:00">17:03:40</abbr>] &lt;<cite>ggreer</cite>&gt; <q>boot</q></li>
+<li class="quit">[<a href="#T17:04:21" id="T17:04:21"><abbr title="2011-01-24T17:04:21+00:00">17:04:21</abbr></a>] <span>* rickdisco (~rickdisco@li136-102.members.linode.com) Quit (Quit: Boosh!)</span></li>
+<li class="message">[<a href="#T17:04:28" id="T17:04:28"><abbr title="2011-01-24T17:04:28+00:00">17:04:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I'm not sure what happens one sets 704x480 and not 720x480....</q></li>
+<li class="message">[<a href="#T17:05:20" id="T17:05:20"><abbr title="2011-01-24T17:05:20+00:00">17:05:20</abbr></a>] &lt;<cite>ggreer</cite>&gt; <q>for me it garbles the screen until I set it back to 720 :)</q></li>
+<li class="message">[<a href="#T17:05:54" id="T17:05:54"><abbr title="2011-01-24T17:05:54+00:00">17:05:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ggreer: well yes, if your X assumes 720</q></li>
+<li class="join">[<a href="#T17:05:58" id="T17:05:58"><abbr title="2011-01-24T17:05:58+00:00">17:05:58</abbr></a>] <span>* jeremiah (~jeremiah@li150-237.members.linode.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:06:02" id="T17:06:02"><abbr title="2011-01-24T17:06:02+00:00">17:06:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>do you change that before X starts?</q></li>
+<li class="message">[<a href="#T17:06:04" id="T17:06:04"><abbr title="2011-01-24T17:06:04+00:00">17:06:04</abbr></a>] &lt;<cite>ggreer</cite>&gt; <q>ditto if I'm in a console</q></li>
+<li class="message">[<a href="#T17:06:05" id="T17:06:05"><abbr title="2011-01-24T17:06:05+00:00">17:06:05</abbr></a>] &lt;<cite>ggreer</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T17:06:24" id="T17:06:24"><abbr title="2011-01-24T17:06:24+00:00">17:06:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and what does the x log say?</q></li>
+<li class="message">[<abbr title="2011-01-24T17:06:24+00:00">17:06:24</abbr>] &lt;<cite>jeremiah</cite>&gt; <q>What is the password for logging into Angstrom when the Beagleboard xM test SD card boots?</q></li>
+<li class="join">[<a href="#T17:06:33" id="T17:06:33"><abbr title="2011-01-24T17:06:33+00:00">17:06:33</abbr></a>] <span>* CMoH-notebook (~cipi@95.76.68.223) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-01-24T17:06:33+00:00">17:06:33</abbr>] <span>* CMoH-notebook (~cipi@95.76.68.223) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-01-24T17:06:33+00:00">17:06:33</abbr>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:06:44" id="T17:06:44"><abbr title="2011-01-24T17:06:44+00:00">17:06:44</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>enterkey?</q></li>
+<li class="message">[<a href="#T17:07:08" id="T17:07:08"><abbr title="2011-01-24T17:07:08+00:00">17:07:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or returnkey</q></li>
+<li class="message">[<a href="#T17:07:13" id="T17:07:13"><abbr title="2011-01-24T17:07:13+00:00">17:07:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: how do you spell that?</q></li>
+<li class="message">[<a href="#T17:07:27" id="T17:07:27"><abbr title="2011-01-24T17:07:27+00:00">17:07:27</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm its the biggestkey on keyboard?</q></li>
+<li class="quit">[<a href="#T17:07:28" id="T17:07:28"><abbr title="2011-01-24T17:07:28+00:00">17:07:28</abbr></a>] <span>* Crofton (~balister@207.47.37.2.static.nextweb.net) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T17:07:29" id="T17:07:29"><abbr title="2011-01-24T17:07:29+00:00">17:07:29</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>for horizontal blanking, you should be able to change it irrespective of the fb size with VENC_LLEN and VENC_SAVID_EAVID</q></li>
+<li class="join">[<a href="#T17:08:13" id="T17:08:13"><abbr title="2011-01-24T17:08:13+00:00">17:08:13</abbr></a>] <span>* pH5 (~ph5@e178220186.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:08:23" id="T17:08:23"><abbr title="2011-01-24T17:08:23+00:00">17:08:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Ceriand|work: yes, but how does dss2 expose that?</q></li>
+<li class="message">[<a href="#T17:08:24" id="T17:08:24"><abbr title="2011-01-24T17:08:24+00:00">17:08:24</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>unfortunately, there doesn't seem to be a way to change those without poking registers or modifying the kernel</q></li>
+<li class="join">[<a href="#T17:08:28" id="T17:08:28"><abbr title="2011-01-24T17:08:28+00:00">17:08:28</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:08:29" id="T17:08:29"><abbr title="2011-01-24T17:08:29+00:00">17:08:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>:)</q></li>
+<li class="join">[<a href="#T17:10:00" id="T17:10:00"><abbr title="2011-01-24T17:10:00+00:00">17:10:00</abbr></a>] <span>* Belna_ (~Thomas@ppp-93-104-128-65.dynamic.mnet-online.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:16:56" id="T17:16:56"><abbr title="2011-01-24T17:16:56+00:00">17:16:56</abbr></a>] <span>* ucasano (~ucasano@host185-90-static.5-79-b.business.telecomitalia.it) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:18:50" id="T17:18:50"><abbr title="2011-01-24T17:18:50+00:00">17:18:50</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-fzqieehktauslgjw) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:19:53" id="T17:19:53"><abbr title="2011-01-24T17:19:53+00:00">17:19:53</abbr></a>] &lt;<cite>jeremiah</cite>&gt; <q>Ah. One can just enter 'root' at the login prompt and away you go. :-)</q></li>
+<li class="message">[<a href="#T17:20:15" id="T17:20:15"><abbr title="2011-01-24T17:20:15+00:00">17:20:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, root is a superuser!</q></li>
+<li class="message">[<a href="#T17:20:20" id="T17:20:20"><abbr title="2011-01-24T17:20:20+00:00">17:20:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>with super powers</q></li>
+<li class="message">[<a href="#T17:22:36" id="T17:22:36"><abbr title="2011-01-24T17:22:36+00:00">17:22:36</abbr></a>] &lt;<cite>jeremiah</cite>&gt; <q>But not super cow powers.</q></li>
+<li class="quit">[<a href="#T17:25:53" id="T17:25:53"><abbr title="2011-01-24T17:25:53+00:00">17:25:53</abbr></a>] <span>* ucasano (~ucasano@host185-90-static.5-79-b.business.telecomitalia.it) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T17:32:07" id="T17:32:07"><abbr title="2011-01-24T17:32:07+00:00">17:32:07</abbr></a>] <span>* ucasano_ (~ucasano@151.83.90.173) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:33:34" id="T17:33:34"><abbr title="2011-01-24T17:33:34+00:00">17:33:34</abbr></a>] <span>* woglinde (~henning@p5DDC098E.dip0.t-ipconnect.de) Quit (Quit: zapp)</span></li>
+<li class="quit">[<a href="#T17:40:35" id="T17:40:35"><abbr title="2011-01-24T17:40:35+00:00">17:40:35</abbr></a>] <span>* ucasano_ (~ucasano@151.83.90.173) Quit (Quit: ucasano_)</span></li>
+<li class="quit">[<a href="#T17:42:02" id="T17:42:02"><abbr title="2011-01-24T17:42:02+00:00">17:42:02</abbr></a>] <span>* pH5 (~ph5@e178220186.adsl.alicedsl.de) Quit (Quit: bye)</span></li>
+<li class="quit">[<a href="#T17:43:37" id="T17:43:37"><abbr title="2011-01-24T17:43:37+00:00">17:43:37</abbr></a>] <span>* mcgeagh (~mcgeagh@xbmc/staff/mcgeagh) Quit (Quit: Ex-Chat)</span></li>
+<li class="quit">[<a href="#T17:44:55" id="T17:44:55"><abbr title="2011-01-24T17:44:55+00:00">17:44:55</abbr></a>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T17:46:03" id="T17:46:03"><abbr title="2011-01-24T17:46:03+00:00">17:46:03</abbr></a>] <span>* CMoH-notebook (~cipi@95.76.68.223) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-01-24T17:46:03+00:00">17:46:03</abbr>] <span>* CMoH-notebook (~cipi@95.76.68.223) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-01-24T17:46:03+00:00">17:46:03</abbr>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:49:28" id="T17:49:28"><abbr title="2011-01-24T17:49:28+00:00">17:49:28</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T17:51:30" id="T17:51:30"><abbr title="2011-01-24T17:51:30+00:00">17:51:30</abbr></a>] <span>* Crofton (~balister@adsl-75-37-22-143.dsl.pltn13.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:51:39" id="T17:51:39"><abbr title="2011-01-24T17:51:39+00:00">17:51:39</abbr></a>] <span>* PBansal (~pbansal@nat/ti/x-nlkmawtcppqeaqej) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:52:27" id="T17:52:27"><abbr title="2011-01-24T17:52:27+00:00">17:52:27</abbr></a>] <span>* cbrake (~cbrake@oh-69-34-21-229.sta.embarqhsd.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:55:17" id="T17:55:17"><abbr title="2011-01-24T17:55:17+00:00">17:55:17</abbr></a>] <span>* courville (~courville@archos.rain.fr) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T17:59:19" id="T17:59:19"><abbr title="2011-01-24T17:59:19+00:00">17:59:19</abbr></a>] <span>* mctouch (~mctouch@cpc5-sgyl27-2-0-cust167.sgyl.cable.virginmedia.com) Quit (Quit: Bye!)</span></li>
