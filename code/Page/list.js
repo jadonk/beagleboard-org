@@ -30,7 +30,7 @@ function listBody ()
    }
    
   if (collection[0].render_skin == "project")
-   body += "<table>\n";
+   body += "<table id='projects'>\n";
   else
    body += "<ul>\n";
   for (var i in collection)
@@ -64,7 +64,7 @@ function listBody ()
        + collection[i].registrant
        + '<br>'
        + collection[i].updatetime
-       + '</small></tr>\n'
+       + '</small></td></tr>\n'
        ;
      }
     else if (collection[i].render_skin == "rss")
