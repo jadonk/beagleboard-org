@@ -435,3 +435,88 @@
 <li class="quit">[<abbr title="2011-01-26T15:57:33+00:00">15:57:33</abbr>] <span>* rcranetx (~rcranetx@nat/ti/x-nmvmhxxtxtnnjjzu) Quit (Quit: Leaving.)</span></li>
 <li class="message">[<a href="#T15:58:19" id="T15:58:19"><abbr title="2011-01-26T15:58:19+00:00">15:58:19</abbr></a>] &lt;<cite>helo</cite>&gt; <q>it requres 120ma</q></li>
 <li class="message">[<a href="#T15:59:47" id="T15:59:47"><abbr title="2011-01-26T15:59:47+00:00">15:59:47</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>paddu_: no you can;t use the EHCI on the OTG port</q></li>
+<li class="message">[<a href="#T16:00:34" id="T16:00:34"><abbr title="2011-01-26T16:00:34+00:00">16:00:34</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>thankyou, actually we have problem with USB-Audio on OTG port</q></li>
+<li class="message">[<a href="#T16:00:58" id="T16:00:58"><abbr title="2011-01-26T16:00:58+00:00">16:00:58</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>so I thought if we could you the EHCI driver </q></li>
+<li class="quit">[<a href="#T16:01:00" id="T16:01:00"><abbr title="2011-01-26T16:01:00+00:00">16:01:00</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-fgqzgsginndvoxhg) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T16:01:09" id="T16:01:09"><abbr title="2011-01-26T16:01:09+00:00">16:01:09</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>for OTG port</q></li>
+<li class="message">[<a href="#T16:01:20" id="T16:01:20"><abbr title="2011-01-26T16:01:20+00:00">16:01:20</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>we may have three Host ports</q></li>
+<li class="message">[<a href="#T16:01:38" id="T16:01:38"><abbr title="2011-01-26T16:01:38+00:00">16:01:38</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>paddu_: best to add a hub</q></li>
+<li class="message">[<a href="#T16:02:14" id="T16:02:14"><abbr title="2011-01-26T16:02:14+00:00">16:02:14</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>ok, that would cost extra in our design</q></li>
+<li class="message">[<a href="#T16:03:00" id="T16:03:00"><abbr title="2011-01-26T16:03:00+00:00">16:03:00</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>paddu_: which beagle are you using ?</q></li>
+<li class="message">[<a href="#T16:03:09" id="T16:03:09"><abbr title="2011-01-26T16:03:09+00:00">16:03:09</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>paddu_: i assume it is the beagle and not beaglexm</q></li>
+<li class="message">[<a href="#T16:04:03" id="T16:04:03"><abbr title="2011-01-26T16:04:03+00:00">16:04:03</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>I am sorry for not mentioning it, we are using OMAP35x evm from TI</q></li>
+<li class="message">[<a href="#T16:06:00" id="T16:06:00"><abbr title="2011-01-26T16:06:00+00:00">16:06:00</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>we see missing IN request when running USB-Audio on the OTG port but it works fine on EHCI port </q></li>
+<li class="join">[<a href="#T16:07:04" id="T16:07:04"><abbr title="2011-01-26T16:07:04+00:00">16:07:04</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-rfvxoifyeosckpkm) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:07:05" id="T16:07:05"><abbr title="2011-01-26T16:07:05+00:00">16:07:05</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>According to TI people they are suspecting the reason may be beacause of DMA???s (Mentor DMA) limitation</q></li>
+<li class="message">[<a href="#T16:07:43" id="T16:07:43"><abbr title="2011-01-26T16:07:43+00:00">16:07:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, musb and dma have issues</q></li>
+<li class="quit">[<a href="#T16:07:51" id="T16:07:51"><abbr title="2011-01-26T16:07:51+00:00">16:07:51</abbr></a>] <span>* stone1 (~stone@123.147.251.120) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T16:08:05" id="T16:08:05"><abbr title="2011-01-26T16:08:05+00:00">16:08:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>like one has to use the musb dma for IN and the omap3 one for OUT</q></li>
+<li class="message">[<a href="#T16:08:10" id="T16:08:10"><abbr title="2011-01-26T16:08:10+00:00">16:08:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or the other way round..</q></li>
+<li class="message">[<a href="#T16:08:12" id="T16:08:12"><abbr title="2011-01-26T16:08:12+00:00">16:08:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I forgot</q></li>
+<li class="message">[<a href="#T16:09:09" id="T16:09:09"><abbr title="2011-01-26T16:09:09+00:00">16:09:09</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>ok, I don't know how this DMA issue would lead to a problem with USB-Audio IN requests</q></li>
+<li class="join">[<a href="#T16:09:26" id="T16:09:26"><abbr title="2011-01-26T16:09:26+00:00">16:09:26</abbr></a>] <span>* stone1 (~stone@123.147.251.116) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:09:29" id="T16:09:29"><abbr title="2011-01-26T16:09:29+00:00">16:09:29</abbr></a>] <span>* tasslehoff (~Tasslehof@147.84-49-231.nextgentel.com) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T16:09:31" id="T16:09:31"><abbr title="2011-01-26T16:09:31+00:00">16:09:31</abbr></a>] &lt;<cite>denix</cite>&gt; <q>XorA, av500: arago is alive and well - more and more TI commercial SDK offerings are arago-based. arago itself is angstrom-based though.</q></li>
+<li class="quit">[<a href="#T16:10:54" id="T16:10:54"><abbr title="2011-01-26T16:10:54+00:00">16:10:54</abbr></a>] <span>* stone1 (~stone@123.147.251.116) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T16:12:54" id="T16:12:54"><abbr title="2011-01-26T16:12:54+00:00">16:12:54</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>hi</q></li>
+<li class="message">[<a href="#T16:13:41" id="T16:13:41"><abbr title="2011-01-26T16:13:41+00:00">16:13:41</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>I would like to know how to  flush the IRQ register? </q></li>
+<li class="part">[<a href="#T16:14:00" id="T16:14:00"><abbr title="2011-01-26T16:14:00+00:00">16:14:00</abbr></a>] <span>* jeremiah (~jeremiah@li150-237.members.linode.com) has left #beagle</span></li>
+<li class="message">[<a href="#T16:15:04" id="T16:15:04"><abbr title="2011-01-26T16:15:04+00:00">16:15:04</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>Anybody got any ideas why there would be a boot stop without any errors?</q></li>
+<li class="message">[<a href="#T16:15:55" id="T16:15:55"><abbr title="2011-01-26T16:15:55+00:00">16:15:55</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>/var/log/* may know it</q></li>
+<li class="message">[<a href="#T16:17:11" id="T16:17:11"><abbr title="2011-01-26T16:17:11+00:00">16:17:11</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>hello &lt;aholler&gt; I think you may remember my question on the other day </q></li>
+<li class="message">[<a href="#T16:17:18" id="T16:17:18"><abbr title="2011-01-26T16:17:18+00:00">16:17:18</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>reagarding  "Spurious irq 95" </q></li>
+<li class="message">[<a href="#T16:17:33" id="T16:17:33"><abbr title="2011-01-26T16:17:33+00:00">16:17:33</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>and I was adviced to use new kernel version</q></li>
+<li class="message">[<a href="#T16:18:35" id="T16:18:35"><abbr title="2011-01-26T16:18:35+00:00">16:18:35</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>actually I came to know that "flushing the IRQSTS register" may solve this kind of error</q></li>
+<li class="message">[<a href="#T16:18:39" id="T16:18:39"><abbr title="2011-01-26T16:18:39+00:00">16:18:39</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>or warning</q></li>
+<li class="message">[<a href="#T16:19:37" id="T16:19:37"><abbr title="2011-01-26T16:19:37+00:00">16:19:37</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>but don't know what exactly "flushing the IRQSTS register" means and where exaclty do I have to change</q></li>
+<li class="message">[<a href="#T16:19:54" id="T16:19:54"><abbr title="2011-01-26T16:19:54+00:00">16:19:54</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>do you have any idea?</q></li>
+<li class="message">[<a href="#T16:19:55" id="T16:19:55"><abbr title="2011-01-26T16:19:55+00:00">16:19:55</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>aholler: I'll take a look at that.</q></li>
+<li class="message">[<a href="#T16:23:02" id="T16:23:02"><abbr title="2011-01-26T16:23:02+00:00">16:23:02</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>paddu_: irqsts is a shorthand for irq status. but you have to know when to flush that.</q></li>
+<li class="message">[<a href="#T16:24:17" id="T16:24:17"><abbr title="2011-01-26T16:24:17+00:00">16:24:17</abbr></a>] &lt;<cite>GatorBoz</cite>&gt; <q>in SVC32 mode, I should be ok to use a stack in the RAM Exception area, correct?</q></li>
+<li class="join">[<a href="#T16:25:10" id="T16:25:10"><abbr title="2011-01-26T16:25:10+00:00">16:25:10</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-drdezfawfuqtbllo) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:25:28" id="T16:25:28"><abbr title="2011-01-26T16:25:28+00:00">16:25:28</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>aholler: there wasn't even an /var/log folder</q></li>
+<li class="message">[<a href="#T16:29:09" id="T16:29:09"><abbr title="2011-01-26T16:29:09+00:00">16:29:09</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>I could get you the boot logs from the serial</q></li>
+<li class="message">[<a href="#T16:29:48" id="T16:29:48"><abbr title="2011-01-26T16:29:48+00:00">16:29:48</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>&lt;aholler&gt; The below link says "Just do a read-back of the last written register in the irq 24 handler"</q></li>
+<li class="message">[<a href="#T16:29:51" id="T16:29:51"><abbr title="2011-01-26T16:29:51+00:00">16:29:51</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q><a href="http://markmail.org/message/s3lp7xlyq7zxnjtc">http://markmail.org/message/s3lp7xlyq7zxnjtc</a></q></li>
+<li class="message">[<a href="#T16:30:07" id="T16:30:07"><abbr title="2011-01-26T16:30:07+00:00">16:30:07</abbr></a>] &lt;<cite>paddu_</cite>&gt; <q>but not the exactly procedure </q></li>
+<li class="quit">[<a href="#T16:35:33" id="T16:35:33"><abbr title="2011-01-26T16:35:33+00:00">16:35:33</abbr></a>] <span>* peabody124 (~peabody12@c-98-196-22-185.hsd1.tx.comcast.net) Quit (Quit: peabody124)</span></li>
+<li class="message">[<a href="#T16:38:38" id="T16:38:38"><abbr title="2011-01-26T16:38:38+00:00">16:38:38</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>read the whole thread, not just a sentence inbetween</q></li>
+<li class="quit">[<a href="#T16:40:10" id="T16:40:10"><abbr title="2011-01-26T16:40:10+00:00">16:40:10</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T16:43:48" id="T16:43:48"><abbr title="2011-01-26T16:43:48+00:00">16:43:48</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>do you have tried a newer version of the kernel?</q></li>
+<li class="message">[<a href="#T16:45:16" id="T16:45:16"><abbr title="2011-01-26T16:45:16+00:00">16:45:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>hmmm</q></li>
+<li class="action">[<a href="#T16:45:19" id="T16:45:19"><abbr title="2011-01-26T16:45:19+00:00">16:45:19</abbr></a>] <span>* koen flips a coin</span></li>
+<li class="message">[<a href="#T16:45:22" id="T16:45:22"><abbr title="2011-01-26T16:45:22+00:00">16:45:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>heads</q></li>
+<li class="action">[<a href="#T16:45:26" id="T16:45:26"><abbr title="2011-01-26T16:45:26+00:00">16:45:26</abbr></a>] <span>* koen stabs opencv</span></li>
+<li class="action">[<a href="#T16:45:32" id="T16:45:32"><abbr title="2011-01-26T16:45:32+00:00">16:45:32</abbr></a>] <span>* koen flips again</span></li>
+<li class="message">[<a href="#T16:45:38" id="T16:45:38"><abbr title="2011-01-26T16:45:38+00:00">16:45:38</abbr></a>] &lt;<cite>koen</cite>&gt; <q>tails</q></li>
+<li class="action">[<a href="#T16:45:41" id="T16:45:41"><abbr title="2011-01-26T16:45:41+00:00">16:45:41</abbr></a>] <span>* koen stabs cmake</span></li>
+<li class="quit">[<a href="#T16:48:46" id="T16:48:46"><abbr title="2011-01-26T16:48:46+00:00">16:48:46</abbr></a>] <span>* honta (~quassel@213.158.96.50) Quit (Quit: <a href="http://quassel-irc.org">http://quassel-irc.org</a> - Chat comfortably. Anywhere.)</span></li>
+<li class="message">[<a href="#T16:49:25" id="T16:49:25"><abbr title="2011-01-26T16:49:25+00:00">16:49:25</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>aholler that directed to me?</q></li>
+<li class="message">[<a href="#T16:49:59" id="T16:49:59"><abbr title="2011-01-26T16:49:59+00:00">16:49:59</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>GeniusGeeko: no, I don't know anything about angstrom</q></li>
+<li class="message">[<a href="#T16:50:31" id="T16:50:31"><abbr title="2011-01-26T16:50:31+00:00">16:50:31</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>koen: NO! Don't stab opencv!</q></li>
+<li class="message">[<a href="#T16:50:44" id="T16:50:44"><abbr title="2011-01-26T16:50:44+00:00">16:50:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>why not?</q></li>
+<li class="message">[<a href="#T16:51:10" id="T16:51:10"><abbr title="2011-01-26T16:51:10+00:00">16:51:10</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>I like OpenCV. ;D</q></li>
+<li class="action">[<a href="#T16:51:32" id="T16:51:32"><abbr title="2011-01-26T16:51:32+00:00">16:51:32</abbr></a>] <span>* helo watches GeniusGeeko get stabbed</span></li>
+<li class="message">[<a href="#T16:52:24" id="T16:52:24"><abbr title="2011-01-26T16:52:24+00:00">16:52:24</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>I have used it in my last 3 major projects</q></li>
+<li class="message">[<a href="#T16:52:37" id="T16:52:37"><abbr title="2011-01-26T16:52:37+00:00">16:52:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's not a reason to like it</q></li>
+<li class="message">[<a href="#T16:52:44" id="T16:52:44"><abbr title="2011-01-26T16:52:44+00:00">16:52:44</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the tests/ cmakefile in 2.2 is broken</q></li>
+<li class="message">[<a href="#T16:53:06" id="T16:53:06"><abbr title="2011-01-26T16:53:06+00:00">16:53:06</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>I like it better than to write all the algorithms myself.</q></li>
+<li class="message">[<a href="#T16:53:15" id="T16:53:15"><abbr title="2011-01-26T16:53:15+00:00">16:53:15</abbr></a>] &lt;<cite>koen</cite>&gt; <q>OTOH, looking at Cmakefiles motivated to work on uboot again</q></li>
+<li class="message">[<a href="#T16:53:31" id="T16:53:31"><abbr title="2011-01-26T16:53:31+00:00">16:53:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>cmakefiles are disgusting</q></li>
+<li class="action">[<a href="#T16:53:34" id="T16:53:34"><abbr title="2011-01-26T16:53:34+00:00">16:53:34</abbr></a>] <span>* koen never had problems implementing algorithms</span></li>
+<li class="message">[<a href="#T16:53:44" id="T16:53:44"><abbr title="2011-01-26T16:53:44+00:00">16:53:44</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the only problem I had was called matlab</q></li>
+<li class="message">[<a href="#T16:53:49" id="T16:53:49"><abbr title="2011-01-26T16:53:49+00:00">16:53:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T16:53:57" id="T16:53:57"><abbr title="2011-01-26T16:53:57+00:00">16:53:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>matlab isn't bad once you tame it</q></li>
+<li class="quit">[<a href="#T16:54:06" id="T16:54:06"><abbr title="2011-01-26T16:54:06+00:00">16:54:06</abbr></a>] <span>* paddu_ (ddf7b92a@gateway/web/freenode/ip.221.247.185.42) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T16:54:35" id="T16:54:35"><abbr title="2011-01-26T16:54:35+00:00">16:54:35</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>mru: Do you know anything about angstrom?</q></li>
+<li class="action">[<a href="#T16:54:45" id="T16:54:45"><abbr title="2011-01-26T16:54:45+00:00">16:54:45</abbr></a>] <span>* mru looks at koen </span></li>
+<li class="message">[<a href="#T16:55:22" id="T16:55:22"><abbr title="2011-01-26T16:55:22+00:00">16:55:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>GeniusGeeko: 1st man on the moon?</q></li>
+<li class="message">[<a href="#T16:55:32" id="T16:55:32"><abbr title="2011-01-26T16:55:32+00:00">16:55:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>non-SI unit?</q></li>
+<li class="message">[<a href="#T16:56:24" id="T16:56:24"><abbr title="2011-01-26T16:56:24+00:00">16:56:24</abbr></a>] &lt;<cite>koen</cite>&gt; <q>10^-10?</q></li>
+<li class="message">[<a href="#T16:57:08" id="T16:57:08"><abbr title="2011-01-26T16:57:08+00:00">16:57:08</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>av500: Hey, its this or spend an extra 3 days figuring it out for myself.</q></li>
+<li class="message">[<a href="#T16:57:30" id="T16:57:30"><abbr title="2011-01-26T16:57:30+00:00">16:57:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>GeniusGeeko: dont ask to ask, just ask</q></li>
+<li class="join">[<a href="#T16:57:46" id="T16:57:46"><abbr title="2011-01-26T16:57:46+00:00">16:57:46</abbr></a>] <span>* lyakh (~lyakh@pD9EB9720.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:58:43" id="T16:58:43"><abbr title="2011-01-26T16:58:43+00:00">16:58:43</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>maybe you should ask about ??ngstr??m ;)</q></li>
+<li class="message">[<a href="#T16:58:49" id="T16:58:49"><abbr title="2011-01-26T16:58:49+00:00">16:58:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or just ask</q></li>
+<li class="message">[<a href="#T16:59:01" id="T16:59:01"><abbr title="2011-01-26T16:59:01+00:00">16:59:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jkridner|work: ping</q></li>
+<li class="message">[<a href="#T16:59:39" id="T16:59:39"><abbr title="2011-01-26T16:59:39+00:00">16:59:39</abbr></a>] &lt;<cite>GeniusGeeko</cite>&gt; <q>I'll study the bootlogs a little more so I can get you guys a deep question.</q></li>
