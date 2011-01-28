@@ -273,3 +273,34 @@
 <li class="quit">[<abbr title="2011-01-28T08:54:05+00:00">08:54:05</abbr>] <span>* av500 (~av500@p50996ded.dip0.t-ipconnect.de) Quit (Client Quit)</span></li>
 <li class="join">[<a href="#T08:55:25" id="T08:55:25"><abbr title="2011-01-28T08:55:25+00:00">08:55:25</abbr></a>] <span>* av500 (~av500@p50996ded.dip0.t-ipconnect.de) has joined #beagle</span></li>
 <li class="join">[<a href="#T08:56:40" id="T08:56:40"><abbr title="2011-01-28T08:56:40+00:00">08:56:40</abbr></a>] <span>* kukyakya (~kukyakya@kukyakya.kaist.ac.kr) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:00:50" id="T09:00:50"><abbr title="2011-01-28T09:00:50+00:00">09:00:50</abbr></a>] &lt;<cite>koen</cite>&gt; <q>lyakh: splitting your patch is coming along nicely</q></li>
+<li class="message">[<a href="#T09:01:06" id="T09:01:06"><abbr title="2011-01-28T09:01:06+00:00">09:01:06</abbr></a>] &lt;<cite>koen</cite>&gt; <q>lyakh: do you have a preferred mail address I should use for the commits?</q></li>
+<li class="quit">[<a href="#T09:01:17" id="T09:01:17"><abbr title="2011-01-28T09:01:17+00:00">09:01:17</abbr></a>] <span>* kukyakya (~kukyakya@kukyakya.kaist.ac.kr) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T09:01:27" id="T09:01:27"><abbr title="2011-01-28T09:01:27+00:00">09:01:27</abbr></a>] <span>* kyu (dd70e12e@gateway/web/freenode/ip.221.112.225.46) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:01:39" id="T09:01:39"><abbr title="2011-01-28T09:01:39+00:00">09:01:39</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>koen: huh... where do you want to commit that stuff?</q></li>
+<li class="message">[<a href="#T09:02:06" id="T09:02:06"><abbr title="2011-01-28T09:02:06+00:00">09:02:06</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>I would submit it formally myself later, when I am more happy about it...</q></li>
+<li class="join">[<a href="#T09:02:17" id="T09:02:17"><abbr title="2011-01-28T09:02:17+00:00">09:02:17</abbr></a>] <span>* Badiss (~Badiss@LSt-Amand-152-31-12-194.w193-253.abo.wanadoo.fr) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:02:26" id="T09:02:26"><abbr title="2011-01-28T09:02:26+00:00">09:02:26</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>just to your local tree, I presume? it's on top of omap3isp...</q></li>
+<li class="quit">[<a href="#T09:04:00" id="T09:04:00"><abbr title="2011-01-28T09:04:00+00:00">09:04:00</abbr></a>] <span>* kyu (dd70e12e@gateway/web/freenode/ip.221.112.225.46) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T09:06:16" id="T09:06:16"><abbr title="2011-01-28T09:06:16+00:00">09:06:16</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>koen: so, have you tested that?</q></li>
+<li class="message">[<a href="#T09:07:12" id="T09:07:12"><abbr title="2011-01-28T09:07:12+00:00">09:07:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>commit to my local tree, I'm splitting it up right now before trying to test it</q></li>
+<li class="message">[<a href="#T09:07:47" id="T09:07:47"><abbr title="2011-01-28T09:07:47+00:00">09:07:47</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>ok</q></li>
+<li class="join">[<a href="#T09:14:15" id="T09:14:15"><abbr title="2011-01-28T09:14:15+00:00">09:14:15</abbr></a>] <span>* kukyakya (~kukyakya@kukyakya.kaist.ac.kr) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:35:35" id="T09:35:35"><abbr title="2011-01-28T09:35:35+00:00">09:35:35</abbr></a>] <span>* _roger_ (~a0740758@nat/ti/x-fmigtcjuagvewjco) has joined #beagle</span></li>
+<li class="part">[<a href="#T09:36:44" id="T09:36:44"><abbr title="2011-01-28T09:36:44+00:00">09:36:44</abbr></a>] <span>* virals (~vir@122.179.42.180) has left #beagle</span></li>
+<li class="message">[<a href="#T09:45:12" id="T09:45:12"><abbr title="2011-01-28T09:45:12+00:00">09:45:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>lyakh: in drivers/media/video/isp/isp.c you change isp_get(isp); to isp_enable_clocks(isp);</q></li>
+<li class="message">[<a href="#T09:45:24" id="T09:45:24"><abbr title="2011-01-28T09:45:24+00:00">09:45:24</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>yes... that's a hack</q></li>
+<li class="message">[<a href="#T09:45:28" id="T09:45:28"><abbr title="2011-01-28T09:45:28+00:00">09:45:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>lyakh: but isp_get looks like a wrapper for isp_get</q></li>
+<li class="message">[<a href="#T09:45:57" id="T09:45:57"><abbr title="2011-01-28T09:45:57+00:00">09:45:57</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>koen: otherwise it doesn't work with the bbxm - mt9p031 set up</q></li>
+<li class="message">[<a href="#T09:46:14" id="T09:46:14"><abbr title="2011-01-28T09:46:14+00:00">09:46:14</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>yes, one of them calls the other</q></li>
+<li class="message">[<a href="#T09:46:34" id="T09:46:34"><abbr title="2011-01-28T09:46:34+00:00">09:46:34</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>but also does refcounting</q></li>
+<li class="message">[<a href="#T09:46:44" id="T09:46:44"><abbr title="2011-01-28T09:46:44+00:00">09:46:44</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>which in our case becomes unbalanced...</q></li>
+<li class="message">[<a href="#T09:46:52" id="T09:46:52"><abbr title="2011-01-28T09:46:52+00:00">09:46:52</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>and then some clock stays disabled</q></li>
+<li class="message">[<a href="#T09:46:57" id="T09:46:57"><abbr title="2011-01-28T09:46:57+00:00">09:46:57</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>I talked to Laurent about it</q></li>
+<li class="message">[<a href="#T09:47:14" id="T09:47:14"><abbr title="2011-01-28T09:47:14+00:00">09:47:14</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>he said, it actually looks wrong - what I have done, and shouldn't be needed...</q></li>
+<li class="message">[<a href="#T09:47:36" id="T09:47:36"><abbr title="2011-01-28T09:47:36+00:00">09:47:36</abbr></a>] &lt;<cite>lyakh</cite>&gt; <q>so, when mainlining this will have to be revisited</q></li>
+<li class="message">[<a href="#T09:47:55" id="T09:47:55"><abbr title="2011-01-28T09:47:55+00:00">09:47:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ok</q></li>
+<li class="quit">[<a href="#T09:50:06" id="T09:50:06"><abbr title="2011-01-28T09:50:06+00:00">09:50:06</abbr></a>] <span>* kukyakya (~kukyakya@kukyakya.kaist.ac.kr) Quit (Read error: Operation timed out)</span></li>
+<li class="join">[<a href="#T09:53:19" id="T09:53:19"><abbr title="2011-01-28T09:53:19+00:00">09:53:19</abbr></a>] <span>* kukyakya (~kukyakya@kukyakya.kaist.ac.kr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:58:23" id="T09:58:23"><abbr title="2011-01-28T09:58:23+00:00">09:58:23</abbr></a>] <span>* kukyakya (~kukyakya@kukyakya.kaist.ac.kr) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T09:58:47" id="T09:58:47"><abbr title="2011-01-28T09:58:47+00:00">09:58:47</abbr></a>] <span>* kukyakya (~kukyakya@kukyakya.kaist.ac.kr) has joined #beagle</span></li>
