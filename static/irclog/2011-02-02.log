@@ -858,3 +858,73 @@
 <li class="message">[<a href="#T22:51:37" id="T22:51:37"><abbr title="2011-02-02T22:51:37+00:00">22:51:37</abbr></a>] &lt;<cite>rellin</cite>&gt; <q>Yaaaaaaaaay you fixed it!  Thanks again Ceriand!</q></li>
 <li class="message">[<a href="#T22:51:43" id="T22:51:43"><abbr title="2011-02-02T22:51:43+00:00">22:51:43</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>np</q></li>
 <li class="message">[<a href="#T22:56:13" id="T22:56:13"><abbr title="2011-02-02T22:56:13+00:00">22:56:13</abbr></a>] &lt;<cite>rellin</cite>&gt; <q>Oh man it's stuck at Starting network ...  Still no command line :(</q></li>
+<li class="message">[<a href="#T23:00:13" id="T23:00:13"><abbr title="2011-02-02T23:00:13+00:00">23:00:13</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>so I've just built a kernel. I got a zImage file. I'm guessing that's gz compression. What is the uImage? I'm getting an error at boot that says "incorrectiamge format"</q></li>
+<li class="message">[<a href="#T23:00:35" id="T23:00:35"><abbr title="2011-02-02T23:00:35+00:00">23:00:35</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>uImage is a zImage with a special u-boot wrapper</q></li>
+<li class="quit">[<a href="#T23:00:52" id="T23:00:52"><abbr title="2011-02-02T23:00:52+00:00">23:00:52</abbr></a>] <span>* alancam_ (~a-campbel@nat/ti/x-trljiwpjntgsdkbt) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T23:00:55" id="T23:00:55"><abbr title="2011-02-02T23:00:55+00:00">23:00:55</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>technically it could be a bzImage or just an Image too I believe</q></li>
+<li class="message">[<abbr title="2011-02-02T23:00:55+00:00">23:00:55</abbr>] &lt;<cite>TheLorax</cite>&gt; <q>can you tell me how to convert a xImage to uImage?</q></li>
+<li class="message">[<a href="#T23:01:39" id="T23:01:39"><abbr title="2011-02-02T23:01:39+00:00">23:01:39</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>man mkimage</q></li>
+<li class="message">[<a href="#T23:01:49" id="T23:01:49"><abbr title="2011-02-02T23:01:49+00:00">23:01:49</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>thanks</q></li>
+<li class="message">[<a href="#T23:02:13" id="T23:02:13"><abbr title="2011-02-02T23:02:13+00:00">23:02:13</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>if you're using a debian-like distro it's in the package uboot-mkimage</q></li>
+<li class="message">[<a href="#T23:02:30" id="T23:02:30"><abbr title="2011-02-02T23:02:30+00:00">23:02:30</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>or you can compile it from the u-boot sources</q></li>
+<li class="message">[<a href="#T23:02:48" id="T23:02:48"><abbr title="2011-02-02T23:02:48+00:00">23:02:48</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>gotta love open-source support. I hardly expected an answer</q></li>
+<li class="message">[<a href="#T23:15:35" id="T23:15:35"><abbr title="2011-02-02T23:15:35+00:00">23:15:35</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>well, looked ok at first. but now it just stops at "Uncompressing Linux........."</q></li>
+<li class="message">[<a href="#T23:15:46" id="T23:15:46"><abbr title="2011-02-02T23:15:46+00:00">23:15:46</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>with tons of disk activity</q></li>
+<li class="message">[<a href="#T23:17:21" id="T23:17:21"><abbr title="2011-02-02T23:17:21+00:00">23:17:21</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>maybe you started the kernel with 'quiet' as option</q></li>
+<li class="message">[<a href="#T23:17:26" id="T23:17:26"><abbr title="2011-02-02T23:17:26+00:00">23:17:26</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>then it outputs no messages</q></li>
+<li class="message">[<a href="#T23:18:07" id="T23:18:07"><abbr title="2011-02-02T23:18:07+00:00">23:18:07</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>no network activity, also it's sitting at 0.25 amps, normally hits ~0.8 during a boot</q></li>
+<li class="message">[<a href="#T23:18:12" id="T23:18:12"><abbr title="2011-02-02T23:18:12+00:00">23:18:12</abbr></a>] &lt;<cite>rellin</cite>&gt; <q>TheLorax, that happened to me.  For some reason changing the target address on bootm fixed it.</q></li>
+<li class="message">[<a href="#T23:18:20" id="T23:18:20"><abbr title="2011-02-02T23:18:20+00:00">23:18:20</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>i want your PSU :)</q></li>
+<li class="message">[<a href="#T23:18:33" id="T23:18:33"><abbr title="2011-02-02T23:18:33+00:00">23:18:33</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>250 CND ;)</q></li>
+<li class="message">[<a href="#T23:20:47" id="T23:20:47"><abbr title="2011-02-02T23:20:47+00:00">23:20:47</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>I actually have no idea what the load address and entry point are. </q></li>
+<li class="quit">[<a href="#T23:21:00" id="T23:21:00"><abbr title="2011-02-02T23:21:00+00:00">23:21:00</abbr></a>] <span>* peabody124 (~peabody12@128.249.96.21) Quit (Quit: peabody124)</span></li>
+<li class="message">[<a href="#T23:21:34" id="T23:21:34"><abbr title="2011-02-02T23:21:34+00:00">23:21:34</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>it you're building a kernel from source, make uImage should give you a uImage with the correct settings</q></li>
+<li class="message">[<a href="#T23:21:39" id="T23:21:39"><abbr title="2011-02-02T23:21:39+00:00">23:21:39</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>s/it/if</q></li>
+<li class="message">[<a href="#T23:21:51" id="T23:21:51"><abbr title="2011-02-02T23:21:51+00:00">23:21:51</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>ah, CAD</q></li>
+<li class="message">[<a href="#T23:22:17" id="T23:22:17"><abbr title="2011-02-02T23:22:17+00:00">23:22:17</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>I did form source. I downloaded right out of the omap tree (a tagged version)</q></li>
+<li class="message">[<a href="#T23:22:37" id="T23:22:37"><abbr title="2011-02-02T23:22:37+00:00">23:22:37</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>then "make uImage" should be what you want</q></li>
+<li class="message">[<a href="#T23:22:47" id="T23:22:47"><abbr title="2011-02-02T23:22:47+00:00">23:22:47</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>k, I'll give that a shot</q></li>
+<li class="join">[<a href="#T23:25:36" id="T23:25:36"><abbr title="2011-02-02T23:25:36+00:00">23:25:36</abbr></a>] <span>* woglinde (~woglinde@f052239226.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:25:56" id="T23:25:56"><abbr title="2011-02-02T23:25:56+00:00">23:25:56</abbr></a>] <span>* rellin (~ece395@eldhcp125.ece.illinois.edu) Quit (Read error: Connection reset by peer)</span></li>
+<li class="part">[<a href="#T23:27:14" id="T23:27:14"><abbr title="2011-02-02T23:27:14+00:00">23:27:14</abbr></a>] <span>* Guest12258 (c8181036@gateway/web/freenode/ip.200.24.16.54) has left #beagle</span></li>
+<li class="quit">[<a href="#T23:28:05" id="T23:28:05"><abbr title="2011-02-02T23:28:05+00:00">23:28:05</abbr></a>] <span>* tlab (~tlab@c-69-243-187-136.hsd1.in.comcast.net) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T23:29:32" id="T23:29:32"><abbr title="2011-02-02T23:29:32+00:00">23:29:32</abbr></a>] <span>* niclas_ (~niclas@nat/ti/x-stgdxmsdfkceheno) Quit ()</span></li>
+<li class="quit">[<a href="#T23:29:50" id="T23:29:50"><abbr title="2011-02-02T23:29:50+00:00">23:29:50</abbr></a>] <span>* djlewis_ (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T23:35:39" id="T23:35:39"><abbr title="2011-02-02T23:35:39+00:00">23:35:39</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>no good. just stops at "Uncompressing Linux............"</q></li>
+<li class="message">[<a href="#T23:37:49" id="T23:37:49"><abbr title="2011-02-02T23:37:49+00:00">23:37:49</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>TheLorax: what's your bootcmd?</q></li>
+<li class="message">[<a href="#T23:38:07" id="T23:38:07"><abbr title="2011-02-02T23:38:07+00:00">23:38:07</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>don't know. I'm a noob with uboot</q></li>
+<li class="message">[<a href="#T23:38:19" id="T23:38:19"><abbr title="2011-02-02T23:38:19+00:00">23:38:19</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>unoob</q></li>
+<li class="message">[<a href="#T23:38:26" id="T23:38:26"><abbr title="2011-02-02T23:38:26+00:00">23:38:26</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>_av500_: lol</q></li>
+<li class="message">[<a href="#T23:38:31" id="T23:38:31"><abbr title="2011-02-02T23:38:31+00:00">23:38:31</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>maybee you made the serial console wrong</q></li>
+<li class="message">[<a href="#T23:38:34" id="T23:38:34"><abbr title="2011-02-02T23:38:34+00:00">23:38:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hi av500</q></li>
+<li class="message">[<a href="#T23:38:36" id="T23:38:36"><abbr title="2011-02-02T23:38:36+00:00">23:38:36</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>TheLorax: printenv</q></li>
+<li class="message">[<a href="#T23:39:33" id="T23:39:33"><abbr title="2011-02-02T23:39:33+00:00">23:39:33</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>sec..it runs off the end of the screen</q></li>
+<li class="join">[<a href="#T23:39:53" id="T23:39:53"><abbr title="2011-02-02T23:39:53+00:00">23:39:53</abbr></a>] <span>* peabody124 (~peabody12@c-98-196-22-185.hsd1.tx.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:43:40" id="T23:43:40"><abbr title="2011-02-02T23:43:40+00:00">23:43:40</abbr></a>] <span>* lyakh (~lyakh@pD9EB905E.dip0.t-ipconnect.de) Quit (Quit: thanks, bye)</span></li>
+<li class="message">[<a href="#T23:45:02" id="T23:45:02"><abbr title="2011-02-02T23:45:02+00:00">23:45:02</abbr></a>] &lt;<cite>AlTheKiller</cite>&gt; <q>^a l</q></li>
+<li class="join">[<a href="#T23:46:02" id="T23:46:02"><abbr title="2011-02-02T23:46:02+00:00">23:46:02</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:46:05" id="T23:46:05"><abbr title="2011-02-02T23:46:05+00:00">23:46:05</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>woglinde: hi</q></li>
+<li class="quit">[<a href="#T23:46:37" id="T23:46:37"><abbr title="2011-02-02T23:46:37+00:00">23:46:37</abbr></a>] <span>* ozk (~ozk@nat/ti/x-ovsqidwtefdcnjay) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T23:52:57" id="T23:52:57"><abbr title="2011-02-02T23:52:57+00:00">23:52:57</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>hey, sorry that took so long</q></li>
+<li class="message">[<a href="#T23:52:58" id="T23:52:58"><abbr title="2011-02-02T23:52:58+00:00">23:52:58</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q><a href="http://codepad.org/J8AH6bZt">http://codepad.org/J8AH6bZt</a></q></li>
+<li class="message">[<a href="#T23:53:05" id="T23:53:05"><abbr title="2011-02-02T23:53:05+00:00">23:53:05</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>that's printenv</q></li>
+<li class="message">[<a href="#T23:53:50" id="T23:53:50"><abbr title="2011-02-02T23:53:50+00:00">23:53:50</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>change console to ttyO2,115200n8</q></li>
+<li class="quit">[<a href="#T23:54:18" id="T23:54:18"><abbr title="2011-02-02T23:54:18+00:00">23:54:18</abbr></a>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T23:54:31" id="T23:54:31"><abbr title="2011-02-02T23:54:31+00:00">23:54:31</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>what's that do?</q></li>
+<li class="message">[<a href="#T23:54:51" id="T23:54:51"><abbr title="2011-02-02T23:54:51+00:00">23:54:51</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>in newer kernels, they renamed the serial ports from ttyS to ttyO</q></li>
+<li class="message">[<a href="#T23:55:01" id="T23:55:01"><abbr title="2011-02-02T23:55:01+00:00">23:55:01</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>dont ask why</q></li>
+<li class="message">[<a href="#T23:55:24" id="T23:55:24"><abbr title="2011-02-02T23:55:24+00:00">23:55:24</abbr></a>] &lt;<cite>rcn-ee</cite>&gt; <q>who's up for renaming it again? ;)</q></li>
+<li class="quit">[<a href="#T23:55:29" id="T23:55:29"><abbr title="2011-02-02T23:55:29+00:00">23:55:29</abbr></a>] <span>* thurbad (~nates@76.91.0.58) Quit (Quit: down the rabbit hole....)</span></li>
+<li class="message">[<a href="#T23:55:44" id="T23:55:44"><abbr title="2011-02-02T23:55:44+00:00">23:55:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ttyBB</q></li>
+<li class="message">[<a href="#T23:55:59" id="T23:55:59"><abbr title="2011-02-02T23:55:59+00:00">23:55:59</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ttyTI</q></li>
+<li class="message">[<a href="#T23:56:10" id="T23:56:10"><abbr title="2011-02-02T23:56:10+00:00">23:56:10</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ttyCOM1</q></li>
+<li class="message">[<a href="#T23:56:23" id="T23:56:23"><abbr title="2011-02-02T23:56:23+00:00">23:56:23</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>hahah, com</q></li>
+<li class="message">[<a href="#T23:56:29" id="T23:56:29"><abbr title="2011-02-02T23:56:29+00:00">23:56:29</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>that would make people made</q></li>
+<li class="message">[<a href="#T23:56:47" id="T23:56:47"><abbr title="2011-02-02T23:56:47+00:00">23:56:47</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>mad</q></li>
+<li class="message">[<a href="#T23:57:00" id="T23:57:00"><abbr title="2011-02-02T23:57:00+00:00">23:57:00</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok, COM it is</q></li>
+<li class="message">[<a href="#T23:57:38" id="T23:57:38"><abbr title="2011-02-02T23:57:38+00:00">23:57:38</abbr></a>] &lt;<cite>rcn-ee</cite>&gt; <q>would we start with COM0 still? or do th m$ thing.. </q></li>
+<li class="message">[<a href="#T23:58:21" id="T23:58:21"><abbr title="2011-02-02T23:58:21+00:00">23:58:21</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and /dev/sdA:</q></li>
+<li class="message">[<a href="#T23:58:53" id="T23:58:53"><abbr title="2011-02-02T23:58:53+00:00">23:58:53</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>btw, I don't have boot.scr</q></li>
+<li class="message">[<a href="#T23:59:08" id="T23:59:08"><abbr title="2011-02-02T23:59:08+00:00">23:59:08</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>then uboot uses defaults</q></li>
+<li class="message">[<a href="#T23:59:24" id="T23:59:24"><abbr title="2011-02-02T23:59:24+00:00">23:59:24</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>oh, and look....it says "done, booting the kernel"</q></li>
+<li class="message">[<a href="#T23:59:30" id="T23:59:30"><abbr title="2011-02-02T23:59:30+00:00">23:59:30</abbr></a>] &lt;<cite>TheLorax</cite>&gt; <q>but nothing after</q></li>
