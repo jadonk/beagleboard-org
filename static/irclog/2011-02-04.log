@@ -152,3 +152,52 @@
 <li class="message">[<a href="#T08:45:42" id="T08:45:42"><abbr title="2011-02-04T08:45:42+00:00">08:45:42</abbr></a>] &lt;<cite>mbonnin</cite>&gt; <q>av500: ericb2 works at utbm, that's where thomas studied</q></li>
 <li class="join">[<a href="#T08:50:50" id="T08:50:50"><abbr title="2011-02-04T08:50:50+00:00">08:50:50</abbr></a>] <span>* kiwi_ (47ca368d@gateway/web/freenode/ip.71.202.54.141) has joined #beagle</span></li>
 <li class="message">[<a href="#T08:53:12" id="T08:53:12"><abbr title="2011-02-04T08:53:12+00:00">08:53:12</abbr></a>] &lt;<cite>sedrik</cite>&gt; <q>hi guys, what does the :not found error mean when the file I am trying to execute exist</q></li>
+<li class="join">[<a href="#T09:01:41" id="T09:01:41"><abbr title="2011-02-04T09:01:41+00:00">09:01:41</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-otjmwdavavnvhyku) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:03:19" id="T09:03:19"><abbr title="2011-02-04T09:03:19+00:00">09:03:19</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>sedrik: be more verbose</q></li>
+<li class="message">[<a href="#T09:04:16" id="T09:04:16"><abbr title="2011-02-04T09:04:16+00:00">09:04:16</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>paste somewhere what you are doing</q></li>
+<li class="join">[<a href="#T09:06:02" id="T09:06:02"><abbr title="2011-02-04T09:06:02+00:00">09:06:02</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-nrequiyrqkfruunz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:07:51" id="T09:07:51"><abbr title="2011-02-04T09:07:51+00:00">09:07:51</abbr></a>] <span>* _koen_1 (~x0115699@nat/ti/x-pokzzhyhjryjxiay) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T09:12:33" id="T09:12:33"><abbr title="2011-02-04T09:12:33+00:00">09:12:33</abbr></a>] <span>* florian_kc (~fuchs@port-217-146-132-69.static.qsc.de) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-02-04T09:12:33+00:00">09:12:33</abbr>] <span>* florian_kc (~fuchs@port-217-146-132-69.static.qsc.de) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-02-04T09:12:33+00:00">09:12:33</abbr>] <span>* florian_kc (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:12:51" id="T09:12:51"><abbr title="2011-02-04T09:12:51+00:00">09:12:51</abbr></a>] <span>* soundcyst (~soundcyst@108-73-101-7.lightspeed.irvnca.sbcglobal.net) Quit (Quit: salt, and it stains)</span></li>
+<li class="nick-change">[<a href="#T09:13:57" id="T09:13:57"><abbr title="2011-02-04T09:13:57+00:00">09:13:57</abbr></a>] <span>* florian_kc is now known as florian</span></li>
+<li class="join">[<a href="#T09:26:11" id="T09:26:11"><abbr title="2011-02-04T09:26:11+00:00">09:26:11</abbr></a>] <span>* hitlin37 (6eea0302@gateway/web/freenode/ip.110.234.3.2) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:27:40" id="T09:27:40"><abbr title="2011-02-04T09:27:40+00:00">09:27:40</abbr></a>] &lt;<cite>sedrik</cite>&gt; <q>aholler: I think I have boiled it down to that the toolchain I am building my app with is for glibc but my linux is for uclibc</q></li>
+<li class="join">[<a href="#T09:27:43" id="T09:27:43"><abbr title="2011-02-04T09:27:43+00:00">09:27:43</abbr></a>] <span>* _koen_1 (~x0115699@nat/ti/x-ejpnntskhflvager) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:27:51" id="T09:27:51"><abbr title="2011-02-04T09:27:51+00:00">09:27:51</abbr></a>] &lt;<cite>sedrik</cite>&gt; <q>so am building a uclibc toolchain =)</q></li>
+<li class="quit">[<a href="#T09:28:43" id="T09:28:43"><abbr title="2011-02-04T09:28:43+00:00">09:28:43</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-nrequiyrqkfruunz) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T09:28:51" id="T09:28:51"><abbr title="2011-02-04T09:28:51+00:00">09:28:51</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>ldd file will tell you if some libs are missing</q></li>
+<li class="message">[<a href="#T09:32:05" id="T09:32:05"><abbr title="2011-02-04T09:32:05+00:00">09:32:05</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>i would change your linux to glibc, will make the life much easier</q></li>
+<li class="message">[<a href="#T09:32:19" id="T09:32:19"><abbr title="2011-02-04T09:32:19+00:00">09:32:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well, uclibc works fine too</q></li>
+<li class="message">[<a href="#T09:32:22" id="T09:32:22"><abbr title="2011-02-04T09:32:22+00:00">09:32:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>just dont mix them</q></li>
+<li class="quit">[<a href="#T09:33:16" id="T09:33:16"><abbr title="2011-02-04T09:33:16+00:00">09:33:16</abbr></a>] <span>* guesto (~guesto@145.90.70.115.static.exetel.com.au) Quit (Quit: guesto)</span></li>
+<li class="message">[<a href="#T09:33:25" id="T09:33:25"><abbr title="2011-02-04T09:33:25+00:00">09:33:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uclibc is fine, yes</q></li>
+<li class="message">[<a href="#T09:33:36" id="T09:33:36"><abbr title="2011-02-04T09:33:36+00:00">09:33:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>builds in a jiffy too</q></li>
+<li class="message">[<a href="#T09:34:18" id="T09:34:18"><abbr title="2011-02-04T09:34:18+00:00">09:34:18</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>"fine" depends on the userland</q></li>
+<li class="message">[<a href="#T09:34:34" id="T09:34:34"><abbr title="2011-02-04T09:34:34+00:00">09:34:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>aholler: yeah, dont count on OOO</q></li>
+<li class="message">[<a href="#T09:34:39" id="T09:34:39"><abbr title="2011-02-04T09:34:39+00:00">09:34:39</abbr></a>] &lt;<cite>_koen_1</cite>&gt; <q>eglibc is a nice compromise</q></li>
+<li class="message">[<a href="#T09:34:58" id="T09:34:58"><abbr title="2011-02-04T09:34:58+00:00">09:34:58</abbr></a>] &lt;<cite>_koen_1</cite>&gt; <q>you can turn of lots of crap there, just like uclibc</q></li>
+<li class="message">[<a href="#T09:35:04" id="T09:35:04"><abbr title="2011-02-04T09:35:04+00:00">09:35:04</abbr></a>] &lt;<cite>_koen_1</cite>&gt; <q>and you get less drepper as well</q></li>
+<li class="message">[<a href="#T09:37:26" id="T09:37:26"><abbr title="2011-02-04T09:37:26+00:00">09:37:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>aholler: uclibc is fine but not all apps are</q></li>
+<li class="message">[<a href="#T09:38:14" id="T09:38:14"><abbr title="2011-02-04T09:38:14+00:00">09:38:14</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>s/not all/many/ for a board with 100M+ I wouldn't try use ulibc. why fiddle with that?</q></li>
+<li class="quit">[<a href="#T09:39:11" id="T09:39:11"><abbr title="2011-02-04T09:39:11+00:00">09:39:11</abbr></a>] <span>* amitk (~amit@a91-154-124-12.elisa-laajakaista.fi) Quit (Quit: leaving)</span></li>
+<li class="join">[<a href="#T09:39:16" id="T09:39:16"><abbr title="2011-02-04T09:39:16+00:00">09:39:16</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-reljdqlkcrqmrgxa) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:39:42" id="T09:39:42"><abbr title="2011-02-04T09:39:42+00:00">09:39:42</abbr></a>] <span>* _koen_1 (~x0115699@nat/ti/x-ejpnntskhflvager) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T09:41:10" id="T09:41:10"><abbr title="2011-02-04T09:41:10+00:00">09:41:10</abbr></a>] <span>* jpsaman (~jpsaman@150-195-ftth.onsbrabantnet.nl) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-02-04T09:41:10+00:00">09:41:10</abbr>] <span>* jpsaman (~jpsaman@150-195-ftth.onsbrabantnet.nl) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-02-04T09:41:10+00:00">09:41:10</abbr>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:42:16" id="T09:42:16"><abbr title="2011-02-04T09:42:16+00:00">09:42:16</abbr></a>] <span>* rsv (7aa76962@gateway/web/freenode/ip.122.167.105.98) has joined #beagle</span></li>
+<li class="part">[<a href="#T09:42:38" id="T09:42:38"><abbr title="2011-02-04T09:42:38+00:00">09:42:38</abbr></a>] <span>* rsv (7aa76962@gateway/web/freenode/ip.122.167.105.98) has left #beagle</span></li>
+<li class="action">[<a href="#T09:57:51" id="T09:57:51"><abbr title="2011-02-04T09:57:51+00:00">09:57:51</abbr></a>] <span>* mru curses mistral</span></li>
+<li class="message">[<a href="#T09:58:03" id="T09:58:03"><abbr title="2011-02-04T09:58:03+00:00">09:58:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mistral shrugs</q></li>
+<li class="join">[<a href="#T09:58:38" id="T09:58:38"><abbr title="2011-02-04T09:58:38+00:00">09:58:38</abbr></a>] <span>* kunguz (~kaan@212.175.32.132) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:58:54" id="T09:58:54"><abbr title="2011-02-04T09:58:54+00:00">09:58:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the memory configuration on the crane is all wrong</q></li>
+<li class="message">[<a href="#T09:59:00" id="T09:59:00"><abbr title="2011-02-04T09:59:00+00:00">09:59:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T09:59:02" id="T09:59:02"><abbr title="2011-02-04T09:59:02+00:00">09:59:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T09:59:08" id="T09:59:08"><abbr title="2011-02-04T09:59:08+00:00">09:59:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the sdram one?</q></li>
+<li class="message">[<a href="#T09:59:16" id="T09:59:16"><abbr title="2011-02-04T09:59:16+00:00">09:59:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>clock is way too low and cas latency set too high</q></li>
+<li class="message">[<a href="#T09:59:28" id="T09:59:28"><abbr title="2011-02-04T09:59:28+00:00">09:59:28</abbr></a>] &lt;<cite>kunguz</cite>&gt; <q>I am trying to use angstrom with my beagleboard, the thing is I can not use USB port. There is no power in USB, any ideas?</q></li>
+<li class="message">[<a href="#T09:59:29" id="T09:59:29"><abbr title="2011-02-04T09:59:29+00:00">09:59:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's using more or less beagle timings</q></li>
+<li class="message">[<a href="#T09:59:42" id="T09:59:42"><abbr title="2011-02-04T09:59:42+00:00">09:59:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>even though it has ddr2-800 memory</q></li>
+<li class="message">[<a href="#T09:59:44" id="T09:59:44"><abbr title="2011-02-04T09:59:44+00:00">09:59:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>cl5</q></li>
