@@ -769,3 +769,101 @@
 <li class="message">[<a href="#T14:58:46" id="T14:58:46"><abbr title="2011-02-17T14:58:46+00:00">14:58:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but I won't do that</q></li>
 <li class="message">[<a href="#T14:59:08" id="T14:59:08"><abbr title="2011-02-17T14:59:08+00:00">14:59:08</abbr></a>] &lt;<cite>_koen_</cite>&gt; <q>I would use fastest_memcopy</q></li>
 <li class="message">[<a href="#T14:59:34" id="T14:59:34"><abbr title="2011-02-17T14:59:34+00:00">14:59:34</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>so, have you scoped what it would take to add an appropriate allocator to FFmpeg that could work?</q></li>
+<li class="message">[<a href="#T15:00:23" id="T15:00:23"><abbr title="2011-02-17T15:00:23+00:00">15:00:23</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I'd rather it be done right than done well-enough, because it will languish and the criticism will come late.</q></li>
+<li class="message">[<a href="#T15:00:45" id="T15:00:45"><abbr title="2011-02-17T15:00:45+00:00">15:00:45</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>it sucks not to get to the real capabilities of the platform.</q></li>
+<li class="message">[<a href="#T15:00:51" id="T15:00:51"><abbr title="2011-02-17T15:00:51+00:00">15:00:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:01:20" id="T15:01:20"><abbr title="2011-02-17T15:01:20+00:00">15:01:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the problem is that ffmpeg uses callbacks for buffer allocation</q></li>
+<li class="message">[<a href="#T15:01:42" id="T15:01:42"><abbr title="2011-02-17T15:01:42+00:00">15:01:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so the app using ffmpeg libs would need to be aware and able to provide the tiler buffers</q></li>
+<li class="join">[<a href="#T15:02:01" id="T15:02:01"><abbr title="2011-02-17T15:02:01+00:00">15:02:01</abbr></a>] <span>* Zoxc (Zoxc@ti0128a380-dhcp0824.bb.online.no) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:02:35" id="T15:02:35"><abbr title="2011-02-17T15:02:35+00:00">15:02:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the callbacks as such are of course good</q></li>
+<li class="message">[<a href="#T15:03:15" id="T15:03:15"><abbr title="2011-02-17T15:03:15+00:00">15:03:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but there's no way currently to request physically contiguous memory</q></li>
+<li class="message">[<a href="#T15:03:22" id="T15:03:22"><abbr title="2011-02-17T15:03:22+00:00">15:03:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and adding that would still require updating all apps</q></li>
+<li class="message">[<a href="#T15:03:32" id="T15:03:32"><abbr title="2011-02-17T15:03:32+00:00">15:03:32</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>mru: perhaps you should get a chat going with kevinsc.  he and i both thought this effort was further along.  he might be interested in getting it finished.</q></li>
+<li class="quit">[<a href="#T15:04:35" id="T15:04:35"><abbr title="2011-02-17T15:04:35+00:00">15:04:35</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-fycusdeyejvvwmlb) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T15:08:18" id="T15:08:18"><abbr title="2011-02-17T15:08:18+00:00">15:08:18</abbr></a>] &lt;<cite>jannau</cite>&gt; <q>ffmpeg could provide a buffer allocator for tiler buffers, applications still must be aware to use it though</q></li>
+<li class="message">[<a href="#T15:08:28" id="T15:08:28"><abbr title="2011-02-17T15:08:28+00:00">15:08:28</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>mru: is what was done enough to generate a PandaWall?</q></li>
+<li class="message">[<a href="#T15:09:11" id="T15:09:11"><abbr title="2011-02-17T15:09:11+00:00">15:09:11</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>jannau: that sounds painful.  could there not be a preferences of some kind to indicate a platform-level preference?</q></li>
+<li class="message">[<a href="#T15:09:13" id="T15:09:13"><abbr title="2011-02-17T15:09:13+00:00">15:09:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for playback the buffers should be allocated from v4l2</q></li>
+<li class="message">[<a href="#T15:09:31" id="T15:09:31"><abbr title="2011-02-17T15:09:31+00:00">15:09:31</abbr></a>] &lt;<cite>jannau</cite>&gt; <q>and adding flags to avcodeccontext and ff_common_frame for physically contiguous memory</q></li>
+<li class="join">[<a href="#T15:09:41" id="T15:09:41"><abbr title="2011-02-17T15:09:41+00:00">15:09:41</abbr></a>] <span>* bioster (~bioster@leite1meg.1meg.golden.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:09:43" id="T15:09:43"><abbr title="2011-02-17T15:09:43+00:00">15:09:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jannau: that's not enough</q></li>
+<li class="message">[<a href="#T15:10:04" id="T15:10:04"><abbr title="2011-02-17T15:10:04+00:00">15:10:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>apllications are: vlc, gst, mplayer</q></li>
+<li class="message">[<a href="#T15:10:12" id="T15:10:12"><abbr title="2011-02-17T15:10:12+00:00">15:10:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>that would cover like 99%</q></li>
+<li class="message">[<a href="#T15:10:27" id="T15:10:27"><abbr title="2011-02-17T15:10:27+00:00">15:10:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and the remaining ones would mysteriously crash</q></li>
+<li class="message">[<a href="#T15:10:28" id="T15:10:28"><abbr title="2011-02-17T15:10:28+00:00">15:10:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no?</q></li>
+<li class="message">[<a href="#T15:10:39" id="T15:10:39"><abbr title="2011-02-17T15:10:39+00:00">15:10:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: or it would fallback to memcpy for them</q></li>
+<li class="message">[<a href="#T15:10:52" id="T15:10:52"><abbr title="2011-02-17T15:10:52+00:00">15:10:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if they dont set a I_KNOW_IVAHD flag</q></li>
+<li class="message">[<a href="#T15:10:55" id="T15:10:55"><abbr title="2011-02-17T15:10:55+00:00">15:10:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>memcpy will totally kill any hope of playing 1080p</q></li>
+<li class="message">[<a href="#T15:11:14" id="T15:11:14"><abbr title="2011-02-17T15:11:14+00:00">15:11:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>still, 1% of apps will not play</q></li>
+<li class="message">[<a href="#T15:11:19" id="T15:11:19"><abbr title="2011-02-17T15:11:19+00:00">15:11:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and 99% will</q></li>
+<li class="message">[<a href="#T15:11:29" id="T15:11:29"><abbr title="2011-02-17T15:11:29+00:00">15:11:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>vlc will need a lot more work than that I'm afraid</q></li>
+<li class="message">[<abbr title="2011-02-17T15:11:29+00:00">15:11:29</abbr>] &lt;<cite>av500</cite>&gt; <q>99% of use cases, not apps</q></li>
+<li class="message">[<a href="#T15:11:39" id="T15:11:39"><abbr title="2011-02-17T15:11:39+00:00">15:11:39</abbr></a>] &lt;<cite>jannau</cite>&gt; <q>and those 1% use cases are fixable</q></li>
+<li class="message">[<a href="#T15:11:43" id="T15:11:43"><abbr title="2011-02-17T15:11:43+00:00">15:11:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: yes, but we can shove that down j-b throat</q></li>
+<li class="message">[<a href="#T15:11:48" id="T15:11:48"><abbr title="2011-02-17T15:11:48+00:00">15:11:48</abbr></a>] &lt;<cite>jannau</cite>&gt; <q>with special case code</q></li>
+<li class="message">[<a href="#T15:11:58" id="T15:11:58"><abbr title="2011-02-17T15:11:58+00:00">15:11:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>their video display pipe needs to be redesigned</q></li>
+<li class="message">[<a href="#T15:12:29" id="T15:12:29"><abbr title="2011-02-17T15:12:29+00:00">15:12:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: in fact their CE thingy for the davinic uses a memcpy :)</q></li>
+<li class="message">[<a href="#T15:12:34" id="T15:12:34"><abbr title="2011-02-17T15:12:34+00:00">15:12:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>afaik</q></li>
+<li class="message">[<a href="#T15:12:37" id="T15:12:37"><abbr title="2011-02-17T15:12:37+00:00">15:12:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>exactly</q></li>
+<li class="message">[<a href="#T15:12:39" id="T15:12:39"><abbr title="2011-02-17T15:12:39+00:00">15:12:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jpsaman: care to comment?</q></li>
+<li class="message">[<a href="#T15:13:15" id="T15:13:15"><abbr title="2011-02-17T15:13:15+00:00">15:13:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>they can't provide buffers suitable for ivahd</q></li>
+<li class="message">[<a href="#T15:13:53" id="T15:13:53"><abbr title="2011-02-17T15:13:53+00:00">15:13:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: so, we need to write our own player? :)</q></li>
+<li class="message">[<a href="#T15:14:04" id="T15:14:04"><abbr title="2011-02-17T15:14:04+00:00">15:14:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's called omapfbplay</q></li>
+<li class="message">[<a href="#T15:14:06" id="T15:14:06"><abbr title="2011-02-17T15:14:06+00:00">15:14:06</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>mru: they==vlc</q></li>
+<li class="message">[<a href="#T15:14:10" id="T15:14:10"><abbr title="2011-02-17T15:14:10+00:00">15:14:10</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T15:14:12" id="T15:14:12"><abbr title="2011-02-17T15:14:12+00:00">15:14:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:14:13" id="T15:14:13"><abbr title="2011-02-17T15:14:13+00:00">15:14:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:14:33" id="T15:14:33"><abbr title="2011-02-17T15:14:33+00:00">15:14:33</abbr></a>] &lt;<cite>jpsaman</cite>&gt; <q>av500: what is the issue?</q></li>
+<li class="message">[<a href="#T15:14:50" id="T15:14:50"><abbr title="2011-02-17T15:14:50+00:00">15:14:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jpsaman: get rid of that memcpy in CE</q></li>
+<li class="message">[<a href="#T15:14:59" id="T15:14:59"><abbr title="2011-02-17T15:14:59+00:00">15:14:59</abbr></a>] &lt;<cite>jpsaman</cite>&gt; <q>please ;)</q></li>
+<li class="message">[<a href="#T15:15:00" id="T15:15:00"><abbr title="2011-02-17T15:15:00+00:00">15:15:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it would probably be easier to have vlc call dce directly</q></li>
+<li class="join">[<abbr title="2011-02-17T15:15:00+00:00">15:15:00</abbr>] <span>* mranostay (~mranostay@108-64-218-123.lightspeed.moblal.sbcglobal.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:15:11" id="T15:15:11"><abbr title="2011-02-17T15:15:11+00:00">15:15:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: yes, as another codec</q></li>
+<li class="action">[<a href="#T15:15:12" id="T15:15:12"><abbr title="2011-02-17T15:15:12+00:00">15:15:12</abbr></a>] <span>* mranostay waves</span></li>
+<li class="message">[<a href="#T15:15:32" id="T15:15:32"><abbr title="2011-02-17T15:15:32+00:00">15:15:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: the old question whether lavc should wrap codecs</q></li>
+<li class="nick-change">[<a href="#T15:15:37" id="T15:15:37"><abbr title="2011-02-17T15:15:37+00:00">15:15:37</abbr></a>] <span>* jconnolly|away is now known as jconnolly</span></li>
+<li class="message">[<a href="#T15:15:39" id="T15:15:39"><abbr title="2011-02-17T15:15:39+00:00">15:15:39</abbr></a>] &lt;<cite>jpsaman</cite>&gt; <q>it should be possible to feed any buffer to CE</q></li>
+<li class="message">[<a href="#T15:15:49" id="T15:15:49"><abbr title="2011-02-17T15:15:49+00:00">15:15:49</abbr></a>] &lt;<cite>jpsaman</cite>&gt; <q>not necessary their own allocated</q></li>
+<li class="message">[<a href="#T15:15:51" id="T15:15:51"><abbr title="2011-02-17T15:15:51+00:00">15:15:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jpsaman: and cmem?</q></li>
+<li class="message">[<a href="#T15:16:02" id="T15:16:02"><abbr title="2011-02-17T15:16:02+00:00">15:16:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it has to be contiguous</q></li>
+<li class="message">[<a href="#T15:16:17" id="T15:16:17"><abbr title="2011-02-17T15:16:17+00:00">15:16:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>on omap4 tiler can remap any buffer</q></li>
+<li class="message">[<a href="#T15:16:22" id="T15:16:22"><abbr title="2011-02-17T15:16:22+00:00">15:16:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but it still needs to be aligned</q></li>
+<li class="message">[<a href="#T15:16:43" id="T15:16:43"><abbr title="2011-02-17T15:16:43+00:00">15:16:43</abbr></a>] &lt;<cite>jpsaman</cite>&gt; <q>doesn't the system has a MMU then? or DMA that can take MMU mapped memory (if this makes sense)</q></li>
+<li class="message">[<a href="#T15:17:08" id="T15:17:08"><abbr title="2011-02-17T15:17:08+00:00">15:17:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: but shoving some aling inside vlc sounds doable, no?</q></li>
+<li class="message">[<abbr title="2011-02-17T15:17:08+00:00">15:17:08</abbr>] &lt;<cite>mru</cite>&gt; <q>that's the omap4 tiler</q></li>
+<li class="message">[<a href="#T15:17:14" id="T15:17:14"><abbr title="2011-02-17T15:17:14+00:00">15:17:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: apparently not</q></li>
+<li class="message">[<a href="#T15:17:22" id="T15:17:22"><abbr title="2011-02-17T15:17:22+00:00">15:17:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: you checked?</q></li>
+<li class="message">[<a href="#T15:17:23" id="T15:17:23"><abbr title="2011-02-17T15:17:23+00:00">15:17:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>they can't even pad their frames</q></li>
+<li class="message">[<a href="#T15:17:28" id="T15:17:28"><abbr title="2011-02-17T15:17:28+00:00">15:17:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ah right</q></li>
+<li class="message">[<a href="#T15:17:32" id="T15:17:32"><abbr title="2011-02-17T15:17:32+00:00">15:17:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hence all the emu_edge bs</q></li>
+<li class="message">[<a href="#T15:17:37" id="T15:17:37"><abbr title="2011-02-17T15:17:37+00:00">15:17:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but thats for DRI on x86, no?</q></li>
+<li class="message">[<a href="#T15:17:44" id="T15:17:44"><abbr title="2011-02-17T15:17:44+00:00">15:17:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's a vlc limitation</q></li>
+<li class="message">[<a href="#T15:18:32" id="T15:18:32"><abbr title="2011-02-17T15:18:32+00:00">15:18:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's not hard to allocate a slightly larger texture and map only part of it to the displayed surface</q></li>
+<li class="join">[<a href="#T15:18:38" id="T15:18:38"><abbr title="2011-02-17T15:18:38+00:00">15:18:38</abbr></a>] <span>* rcn-ee_at_work (~voodoo@thief-statics-245.mncable.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:18:57" id="T15:18:57"><abbr title="2011-02-17T15:18:57+00:00">15:18:57</abbr></a>] <span>* panto (~panto@vfppp062038104093.dsl.hol.gr) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:19:04" id="T15:19:04"><abbr title="2011-02-17T15:19:04+00:00">15:19:04</abbr></a>] &lt;<cite>jpsaman</cite>&gt; <q>vlc treis to align its buffers, see src/misc/block.c</q></li>
+<li class="message">[<a href="#T15:19:34" id="T15:19:34"><abbr title="2011-02-17T15:19:34+00:00">15:19:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>why do they keep saying they can't provide a 16-pixel border?</q></li>
+<li class="action">[<a href="#T15:19:41" id="T15:19:41"><abbr title="2011-02-17T15:19:41+00:00">15:19:41</abbr></a>] <span>* mru hasn't actually read the code</span></li>
+<li class="message">[<a href="#T15:27:34" id="T15:27:34"><abbr title="2011-02-17T15:27:34+00:00">15:27:34</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>What would you use the LCD connectors on the beagleboard for?</q></li>
+<li class="message">[<a href="#T15:28:00" id="T15:28:00"><abbr title="2011-02-17T15:28:00+00:00">15:28:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>connect an lcd?</q></li>
+<li class="message">[<a href="#T15:28:32" id="T15:28:32"><abbr title="2011-02-17T15:28:32+00:00">15:28:32</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>like, a 3rd party board or something?</q></li>
+<li class="message">[<a href="#T15:29:30" id="T15:29:30"><abbr title="2011-02-17T15:29:30+00:00">15:29:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>unless you make you own lcds...</q></li>
+<li class="join">[<a href="#T15:30:49" id="T15:30:49"><abbr title="2011-02-17T15:30:49+00:00">15:30:49</abbr></a>] <span>* prpplague (~danders@nat/ti/x-iuqeckmhizjnekaf) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:33:57" id="T15:33:57"><abbr title="2011-02-17T15:33:57+00:00">15:33:57</abbr></a>] <span>* b7500af1 (~vt@2001:468:c80:4240:21c:bfff:fe8b:9c32) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:34:39" id="T15:34:39"><abbr title="2011-02-17T15:34:39+00:00">15:34:39</abbr></a>] <span>* anr78 (~Mich@147.84-49-231.nextgentel.com) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T15:35:33" id="T15:35:33"><abbr title="2011-02-17T15:35:33+00:00">15:35:33</abbr></a>] <span>* emeb (~ericb@ip70-190-178-182.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:45:41" id="T15:45:41"><abbr title="2011-02-17T15:45:41+00:00">15:45:41</abbr></a>] <span>* courville (~courville@archos.rain.fr) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="join">[<a href="#T15:47:57" id="T15:47:57"><abbr title="2011-02-17T15:47:57+00:00">15:47:57</abbr></a>] <span>* BThompson1 (~a0193480@nat/ti/x-pkaceghvhidtxfwm) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:48:05" id="T15:48:05"><abbr title="2011-02-17T15:48:05+00:00">15:48:05</abbr></a>] <span>* BThompson (~a0193480@nat/ti/x-puzimqdliqhmncfd) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T15:48:38" id="T15:48:38"><abbr title="2011-02-17T15:48:38+00:00">15:48:38</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:49:31" id="T15:49:31"><abbr title="2011-02-17T15:49:31+00:00">15:49:31</abbr></a>] <span>* tlab (~tlab@c-69-243-187-136.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:51:04" id="T15:51:04"><abbr title="2011-02-17T15:51:04+00:00">15:51:04</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-krwuspqandhroabr) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:52:07" id="T15:52:07"><abbr title="2011-02-17T15:52:07+00:00">15:52:07</abbr></a>] <span>* courville (~courville@archos.rain.fr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:52:56" id="T15:52:56"><abbr title="2011-02-17T15:52:56+00:00">15:52:56</abbr></a>] <span>* BThompson1 (~a0193480@nat/ti/x-pkaceghvhidtxfwm) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T15:53:58" id="T15:53:58"><abbr title="2011-02-17T15:53:58+00:00">15:53:58</abbr></a>] <span>* BThompson (~a0193480@nat/ti/x-rimvxpqqwsootxrz) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:54:30" id="T15:54:30"><abbr title="2011-02-17T15:54:30+00:00">15:54:30</abbr></a>] <span>* jrmuizel (~jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:55:02" id="T15:55:02"><abbr title="2011-02-17T15:55:02+00:00">15:55:02</abbr></a>] <span>* Hardin (~Seldon@117.192.117.12) Quit (Read error: Operation timed out)</span></li>
+<li class="quit">[<a href="#T15:55:45" id="T15:55:45"><abbr title="2011-02-17T15:55:45+00:00">15:55:45</abbr></a>] <span>* GatorBoz (0c08e006@gateway/web/freenode/ip.12.8.224.6) Quit (Quit: Page closed)</span></li>
+<li class="quit">[<a href="#T15:56:30" id="T15:56:30"><abbr title="2011-02-17T15:56:30+00:00">15:56:30</abbr></a>] <span>* courville (~courville@archos.rain.fr) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T15:56:39" id="T15:56:39"><abbr title="2011-02-17T15:56:39+00:00">15:56:39</abbr></a>] <span>* zodttd (~me@user-0c90n0l.cable.mindspring.com) Quit (Quit: Linkinus is updating...)</span></li>
+<li class="join">[<a href="#T15:56:49" id="T15:56:49"><abbr title="2011-02-17T15:56:49+00:00">15:56:49</abbr></a>] <span>* zodttd (~me@user-0c90n0l.cable.mindspring.com) has joined #beagle</span></li>
