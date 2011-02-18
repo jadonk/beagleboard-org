@@ -1,0 +1,54 @@
+<li class="message">[<a href="#T00:00:35" id="T00:00:35"><abbr title="2011-02-18T00:00:35+00:00">00:00:35</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>something my 7a old amd_x64 does before without any problems</q></li>
+<li class="quit">[<a href="#T00:01:41" id="T00:01:41"><abbr title="2011-02-18T00:01:41+00:00">00:01:41</abbr></a>] <span>* Philippe (Philippe@80-186-117-183.elisa-mobile.fi) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T00:04:46" id="T00:04:46"><abbr title="2011-02-18T00:04:46+00:00">00:04:46</abbr></a>] <span>* DarrenE (~darreneth@nat/ti/x-rgsptffsvcijxvbb) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T00:06:16" id="T00:06:16"><abbr title="2011-02-18T00:06:16+00:00">00:06:16</abbr></a>] &lt;<cite>pupnik_</cite>&gt; <q>can the omap3 dsp send audio to the DAC without interrupting the CPU (GPP)?  <a href="http://www.slideshare.net/vjaquez/the-dspbios-bridge-omap3-3110733">http://www.slideshare.net/vjaquez/the-dspbios-bridge-omap3-3110733</a></q></li>
+<li class="message">[<a href="#T00:06:33" id="T00:06:33"><abbr title="2011-02-18T00:06:33+00:00">00:06:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you let it</q></li>
+<li class="message">[<a href="#T00:06:41" id="T00:06:41"><abbr title="2011-02-18T00:06:41+00:00">00:06:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it has full access to L3</q></li>
+<li class="message">[<a href="#T00:06:49" id="T00:06:49"><abbr title="2011-02-18T00:06:49+00:00">00:06:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>unless you block it with the mmu</q></li>
+<li class="nick-change">[<a href="#T00:07:37" id="T00:07:37"><abbr title="2011-02-18T00:07:37+00:00">00:07:37</abbr></a>] <span>* pupnik_ is now known as pupnik</span></li>
+<li class="message">[<a href="#T00:12:55" id="T00:12:55"><abbr title="2011-02-18T00:12:55+00:00">00:12:55</abbr></a>] &lt;<cite>pupnik</cite>&gt; <q>ty mru </q></li>
+<li class="message">[<a href="#T00:13:55" id="T00:13:55"><abbr title="2011-02-18T00:13:55+00:00">00:13:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you'd also need an mcspi driver on the dsp of course</q></li>
+<li class="message">[<a href="#T00:14:12" id="T00:14:12"><abbr title="2011-02-18T00:14:12+00:00">00:14:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and convince the linux driver to hand over control of some channels to the dsp</q></li>
+<li class="message">[<a href="#T00:14:25" id="T00:14:25"><abbr title="2011-02-18T00:14:25+00:00">00:14:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but those are software details</q></li>
+<li class="join">[<a href="#T00:15:08" id="T00:15:08"><abbr title="2011-02-18T00:15:08+00:00">00:15:08</abbr></a>] <span>* mrcan (~mr.mcan@78.171.72.84) has joined #beagle</span></li>
+<li class="message">[<abbr title="2011-02-18T00:15:08+00:00">00:15:08</abbr>] &lt;<cite>mru</cite>&gt; <q>any L3 initiator can in principle do anything with the system</q></li>
+<li class="message">[<a href="#T00:15:30" id="T00:15:30"><abbr title="2011-02-18T00:15:30+00:00">00:15:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hmm, I wonder if the sdma could be fashioned in to a turing machine of sorts</q></li>
+<li class="message">[<a href="#T00:15:39" id="T00:15:39"><abbr title="2011-02-18T00:15:39+00:00">00:15:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>*into</q></li>
+<li class="message">[<a href="#T00:15:46" id="T00:15:46"><abbr title="2011-02-18T00:15:46+00:00">00:15:46</abbr></a>] &lt;<cite>pupnik</cite>&gt; <q>hahah</q></li>
+<li class="message">[<a href="#T00:16:14" id="T00:16:14"><abbr title="2011-02-18T00:16:14+00:00">00:16:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it could possibly be done</q></li>
+<li class="message">[<a href="#T00:16:28" id="T00:16:28"><abbr title="2011-02-18T00:16:28+00:00">00:16:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>by dma-ing onto the command registers</q></li>
+<li class="message">[<a href="#T00:16:49" id="T00:16:49"><abbr title="2011-02-18T00:16:49+00:00">00:16:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the omap4 sdma should be even easier</q></li>
+<li class="message">[<a href="#T00:16:56" id="T00:16:56"><abbr title="2011-02-18T00:16:56+00:00">00:16:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>since it supports linked lists of commands</q></li>
+<li class="message">[<a href="#T00:17:12" id="T00:17:12"><abbr title="2011-02-18T00:17:12+00:00">00:17:12</abbr></a>] &lt;<cite>pupnik</cite>&gt; <q>do you know of any demo code that plays audio without using linux/alsa to output?</q></li>
+<li class="message">[<a href="#T00:17:21" id="T00:17:21"><abbr title="2011-02-18T00:17:21+00:00">00:17:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T00:17:59" id="T00:17:59"><abbr title="2011-02-18T00:17:59+00:00">00:17:59</abbr></a>] &lt;<cite>pupnik</cite>&gt; <q>rats</q></li>
+<li class="quit">[<a href="#T00:19:28" id="T00:19:28"><abbr title="2011-02-18T00:19:28+00:00">00:19:28</abbr></a>] <span>* djlewis_ (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T00:19:46" id="T00:19:46"><abbr title="2011-02-18T00:19:46+00:00">00:19:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mcbsp you mean?</q></li>
+<li class="message">[<a href="#T00:20:17" id="T00:20:17"><abbr title="2011-02-18T00:20:17+00:00">00:20:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>usually there are DMA stuff you also need to take care of</q></li>
+<li class="message">[<a href="#T00:22:58" id="T00:22:58"><abbr title="2011-02-18T00:22:58+00:00">00:22:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>bsp, right</q></li>
+<li class="message">[<a href="#T00:23:04" id="T00:23:04"><abbr title="2011-02-18T00:23:04+00:00">00:23:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>though it's pretty much the same thing</q></li>
+<li class="message">[<a href="#T00:23:27" id="T00:23:27"><abbr title="2011-02-18T00:23:27+00:00">00:23:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>dsp has own dma</q></li>
+<li class="message">[<a href="#T00:23:32" id="T00:23:32"><abbr title="2011-02-18T00:23:32+00:00">00:23:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if needed</q></li>
+<li class="message">[<a href="#T00:24:11" id="T00:24:11"><abbr title="2011-02-18T00:24:11+00:00">00:24:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it shouldn't be too hard to hand over control of a McBSP channel as long as the DSP limits itself to sending on it</q></li>
+<li class="message">[<a href="#T00:24:36" id="T00:24:36"><abbr title="2011-02-18T00:24:36+00:00">00:24:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>as I said, nothing in the hw prevents it</q></li>
+<li class="message">[<a href="#T00:24:59" id="T00:24:59"><abbr title="2011-02-18T00:24:59+00:00">00:24:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>add a flag to to the mcbsp code in the ALSA SoC driver. if it is set, make all the calls to the mcbsp lib a dummy. if it is not, do it normally</q></li>
+<li class="message">[<a href="#T00:25:01" id="T00:25:01"><abbr title="2011-02-18T00:25:01+00:00">00:25:01</abbr></a>] &lt;<cite>pupnik</cite>&gt; <q>nice project</q></li>
+<li class="message">[<a href="#T00:25:07" id="T00:25:07"><abbr title="2011-02-18T00:25:07+00:00">00:25:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>set flag and let the dsp churn away</q></li>
+<li class="message">[<a href="#T00:25:16" id="T00:25:16"><abbr title="2011-02-18T00:25:16+00:00">00:25:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>of course, you loose recording when done this way</q></li>
+<li class="message">[<a href="#T00:25:24" id="T00:25:24"><abbr title="2011-02-18T00:25:24+00:00">00:25:24</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>(unless you want to record to dsp)</q></li>
+<li class="message">[<a href="#T00:25:45" id="T00:25:45"><abbr title="2011-02-18T00:25:45+00:00">00:25:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>who cares about recording?</q></li>
+<li class="message">[<a href="#T00:25:48" id="T00:25:48"><abbr title="2011-02-18T00:25:48+00:00">00:25:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>might have to dummy up the underflow interrupts</q></li>
+<li class="message">[<a href="#T00:26:00" id="T00:26:00"><abbr title="2011-02-18T00:26:00+00:00">00:26:00</abbr></a>] &lt;<cite>pupnik</cite>&gt; <q>well, cpu could send chunks of audio (ogg/mp3) to dsp and spend most of it's time sleeping - using device as a player</q></li>
+<li class="message">[<a href="#T00:26:20" id="T00:26:20"><abbr title="2011-02-18T00:26:20+00:00">00:26:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it could load up an entire file at a time in memory</q></li>
+<li class="message">[<a href="#T00:27:58" id="T00:27:58"><abbr title="2011-02-18T00:27:58+00:00">00:27:58</abbr></a>] &lt;<cite>pupnik</cite>&gt; <q>sad when such features are under-utilized</q></li>
+<li class="message">[<a href="#T00:28:18" id="T00:28:18"><abbr title="2011-02-18T00:28:18+00:00">00:28:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it'll only get worse</q></li>
+<li class="message">[<a href="#T00:28:33" id="T00:28:33"><abbr title="2011-02-18T00:28:33+00:00">00:28:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>with a brand-new soc each year, nobody will spend the time tuning code</q></li>
+<li class="quit">[<a href="#T00:31:59" id="T00:31:59"><abbr title="2011-02-18T00:31:59+00:00">00:31:59</abbr></a>] <span>* mctouch (~mctouch@cpc5-sgyl27-2-0-cust167.sgyl.cable.virginmedia.com) Quit (Quit: Leaving...)</span></li>
+<li class="join">[<a href="#T00:33:17" id="T00:33:17"><abbr title="2011-02-18T00:33:17+00:00">00:33:17</abbr></a>] <span>* mctouch (~mctouch@cpc5-sgyl27-2-0-cust167.sgyl.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:35:49" id="T00:35:49"><abbr title="2011-02-18T00:35:49+00:00">00:35:49</abbr></a>] <span>* mctouch (~mctouch@cpc5-sgyl27-2-0-cust167.sgyl.cable.virginmedia.com) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T00:40:45" id="T00:40:45"><abbr title="2011-02-18T00:40:45+00:00">00:40:45</abbr></a>] <span>* stone1 (~stone@123.147.251.126) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:41:23" id="T00:41:23"><abbr title="2011-02-18T00:41:23+00:00">00:41:23</abbr></a>] <span>* stone1 (~stone@123.147.251.126) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T00:48:50" id="T00:48:50"><abbr title="2011-02-18T00:48:50+00:00">00:48:50</abbr></a>] <span>* mrj10 (~mrj10@mjlap.crhc.uiuc.edu) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="nick-change">[<a href="#T00:53:46" id="T00:53:46"><abbr title="2011-02-18T00:53:46+00:00">00:53:46</abbr></a>] <span>* XorA|gone is now known as XorA</span></li>
+<li class="join">[<a href="#T00:55:46" id="T00:55:46"><abbr title="2011-02-18T00:55:46+00:00">00:55:46</abbr></a>] <span>* mrj10 (~mrj10@63.252.64.254) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:56:19" id="T00:56:19"><abbr title="2011-02-18T00:56:19+00:00">00:56:19</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-btixzfmughaqtydw) has joined #beagle</span></li>
