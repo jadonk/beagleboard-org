@@ -338,3 +338,140 @@
 <li class="quit">[<a href="#T13:57:53" id="T13:57:53"><abbr title="2011-02-24T13:57:53+00:00">13:57:53</abbr></a>] <span>* W1N9Zr0 (~W1N9Zr0@69-165-245-171.cable.teksavvy.com) Quit (Ping timeout: 260 seconds)</span></li>
 <li class="join">[<a href="#T13:58:48" id="T13:58:48"><abbr title="2011-02-24T13:58:48+00:00">13:58:48</abbr></a>] <span>* mpoirier (~quassel@S0106002369de4dac.cg.shawcable.net) has joined #beagle</span></li>
 <li class="message">[<a href="#T13:59:02" id="T13:59:02"><abbr title="2011-02-24T13:59:02+00:00">13:59:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|work: why did you think the cache was there?</q></li>
+<li class="message">[<a href="#T14:01:54" id="T14:01:54"><abbr title="2011-02-24T14:01:54+00:00">14:01:54</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I need to do a little more math, but it seems like telling is to sync with ram is much slower than the l3 xfer rate</q></li>
+<li class="message">[<a href="#T14:02:21" id="T14:02:21"><abbr title="2011-02-24T14:02:21+00:00">14:02:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>math is hard</q></li>
+<li class="join">[<a href="#T14:02:33" id="T14:02:33"><abbr title="2011-02-24T14:02:33+00:00">14:02:33</abbr></a>] <span>* W1N9Zr0 (~W1N9Zr0@69-165-245-171.cable.teksavvy.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:04:00" id="T14:04:00"><abbr title="2011-02-24T14:04:00+00:00">14:04:00</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T14:04:07" id="T14:04:07"><abbr title="2011-02-24T14:04:07+00:00">14:04:07</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>you need to study more</q></li>
+<li class="message">[<a href="#T14:04:58" id="T14:04:58"><abbr title="2011-02-24T14:04:58+00:00">14:04:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|work: how are you cleaning the cache?</q></li>
+<li class="join">[<a href="#T14:05:18" id="T14:05:18"><abbr title="2011-02-24T14:05:18+00:00">14:05:18</abbr></a>] <span>* mrc3 (~ddiaz@189.157.115.50) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:06:38" id="T14:06:38"><abbr title="2011-02-24T14:06:38+00:00">14:06:38</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: your craneboard patch is being looked at now</q></li>
+<li class="message">[<a href="#T14:08:30" id="T14:08:30"><abbr title="2011-02-24T14:08:30+00:00">14:08:30</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>dma_sync_single_for_device ...</q></li>
+<li class="message">[<a href="#T14:12:18" id="T14:12:18"><abbr title="2011-02-24T14:12:18+00:00">14:12:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|work: and what method does that use, mva or set/way?</q></li>
+<li class="message">[<a href="#T14:12:45" id="T14:12:45"><abbr title="2011-02-24T14:12:45+00:00">14:12:45</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T14:12:50" id="T14:12:50"><abbr title="2011-02-24T14:12:50+00:00">14:12:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and how much memory are you cleaning?</q></li>
+<li class="message">[<a href="#T14:15:51" id="T14:15:51"><abbr title="2011-02-24T14:15:51+00:00">14:15:51</abbr></a>] &lt;<cite>cbrake</cite>&gt; <q>koen: I think we have our wl17xx BT serial port wiried up backwards. It is a little confusing and I think we assumed DCE instead of DTE device.</q></li>
+<li class="action">[<a href="#T14:16:03" id="T14:16:03"><abbr title="2011-02-24T14:16:03+00:00">14:16:03</abbr></a>] <span>* cbrake needs to find panda schematics or something ...</span></li>
+<li class="join">[<a href="#T14:17:01" id="T14:17:01"><abbr title="2011-02-24T14:17:01+00:00">14:17:01</abbr></a>] <span>* BThompson (~a0193480@nat/ti/x-yvfzlhpzzhflqnpr) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:17:11" id="T14:17:11"><abbr title="2011-02-24T14:17:11+00:00">14:17:11</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>outer_inv_range(paddr, paddr + size)</q></li>
+<li class="message">[<a href="#T14:17:20" id="T14:17:20"><abbr title="2011-02-24T14:17:20+00:00">14:17:20</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>2K bytes</q></li>
+<li class="message">[<a href="#T14:18:11" id="T14:18:11"><abbr title="2011-02-24T14:18:11+00:00">14:18:11</abbr></a>] &lt;<cite>cbrake</cite>&gt; <q>does anyone know if pandaboard schematics are available, or something that uses the LSR WL17xx module?</q></li>
+<li class="quit">[<a href="#T14:18:29" id="T14:18:29"><abbr title="2011-02-24T14:18:29+00:00">14:18:29</abbr></a>] <span>* andrea71 (~andrea@vau75-12-88-181-5-102.fbx.proxad.net) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T14:18:43" id="T14:18:43"><abbr title="2011-02-24T14:18:43+00:00">14:18:43</abbr></a>] &lt;<cite>cbrake</cite>&gt; <q>ahh, found them</q></li>
+<li class="message">[<a href="#T14:18:48" id="T14:18:48"><abbr title="2011-02-24T14:18:48+00:00">14:18:48</abbr></a>] &lt;<cite>cbrake</cite>&gt; <q>did not scroll down far enough</q></li>
+<li class="quit">[<a href="#T14:20:26" id="T14:20:26"><abbr title="2011-02-24T14:20:26+00:00">14:20:26</abbr></a>] <span>* gustavoz (~gustavoz@host231.186-109-10.telecom.net.ar) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T14:20:40" id="T14:20:40"><abbr title="2011-02-24T14:20:40+00:00">14:20:40</abbr></a>] &lt;<cite>cbrake</cite>&gt; <q>yup, we have it backwards, re-work time ....</q></li>
+<li class="message">[<a href="#T14:21:15" id="T14:21:15"><abbr title="2011-02-24T14:21:15+00:00">14:21:15</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>v7_dma_inv_range:</q></li>
+<li class="message">[<a href="#T14:21:16" id="T14:21:16"><abbr title="2011-02-24T14:21:16+00:00">14:21:16</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q> is where we end up</q></li>
+<li class="message">[<a href="#T14:21:46" id="T14:21:46"><abbr title="2011-02-24T14:21:46+00:00">14:21:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>cache-v7.S?</q></li>
+<li class="quit">[<a href="#T14:22:09" id="T14:22:09"><abbr title="2011-02-24T14:22:09+00:00">14:22:09</abbr></a>] <span>* jevin_ (~jevin@c-24-13-122-77.hsd1.in.comcast.net) Quit (Quit: jevin_)</span></li>
+<li class="message">[<a href="#T14:22:45" id="T14:22:45"><abbr title="2011-02-24T14:22:45+00:00">14:22:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's just invalidate</q></li>
+<li class="message">[<a href="#T14:22:52" id="T14:22:52"><abbr title="2011-02-24T14:22:52+00:00">14:22:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>should be reasonably quick</q></li>
+<li class="message">[<a href="#T14:23:03" id="T14:23:03"><abbr title="2011-02-24T14:23:03+00:00">14:23:03</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>weird</q></li>
+<li class="message">[<a href="#T14:23:45" id="T14:23:45"><abbr title="2011-02-24T14:23:45+00:00">14:23:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's using the mva ops btw</q></li>
+<li class="join">[<a href="#T14:24:10" id="T14:24:10"><abbr title="2011-02-24T14:24:10+00:00">14:24:10</abbr></a>] <span>* gustavoz (~gustavoz@host127.190-229-71.telecom.net.ar) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:24:37" id="T14:24:37"><abbr title="2011-02-24T14:24:37+00:00">14:24:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>stepping through the requested range one line at a time</q></li>
+<li class="quit">[<a href="#T14:26:27" id="T14:26:27"><abbr title="2011-02-24T14:26:27+00:00">14:26:27</abbr></a>] <span>* thaytan (~jan@ppp59-167-167-201.static.internode.on.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T14:26:40" id="T14:26:40"><abbr title="2011-02-24T14:26:40+00:00">14:26:40</abbr></a>] <span>* adri80386 (c83fa4f8@gateway/web/freenode/ip.200.63.164.248) Quit (Quit: Page closed)</span></li>
+<li class="quit">[<a href="#T14:27:25" id="T14:27:25"><abbr title="2011-02-24T14:27:25+00:00">14:27:25</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) Quit (Quit: Up and at 'em, Atom Ant!)</span></li>
+<li class="message">[<a href="#T14:27:42" id="T14:27:42"><abbr title="2011-02-24T14:27:42+00:00">14:27:42</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>seems like it takes around 5 micro seconds</q></li>
+<li class="join">[<a href="#T14:27:47" id="T14:27:47"><abbr title="2011-02-24T14:27:47+00:00">14:27:47</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-sgaztydlvhexjtfk) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:28:04" id="T14:28:04"><abbr title="2011-02-24T14:28:04+00:00">14:28:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>from where to where?</q></li>
+<li class="message">[<a href="#T14:28:22" id="T14:28:22"><abbr title="2011-02-24T14:28:22+00:00">14:28:22</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>throughthe dma_sync function</q></li>
+<li class="message">[<a href="#T14:28:43" id="T14:28:43"><abbr title="2011-02-24T14:28:43+00:00">14:28:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which chip is this btw?</q></li>
+<li class="join">[<a href="#T14:29:15" id="T14:29:15"><abbr title="2011-02-24T14:29:15+00:00">14:29:15</abbr></a>] <span>* bioster (~bioster@leite1meg.1meg.golden.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:29:19" id="T14:29:19"><abbr title="2011-02-24T14:29:19+00:00">14:29:19</abbr></a>] <span>* lot (4dd3d4a0@gateway/web/freenode/ip.77.211.212.160) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T14:29:54" id="T14:29:54"><abbr title="2011-02-24T14:29:54+00:00">14:29:54</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>2530</q></li>
+<li class="message">[<a href="#T14:29:57" id="T14:29:57"><abbr title="2011-02-24T14:29:57+00:00">14:29:57</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>overo tide</q></li>
+<li class="message">[<a href="#T14:30:07" id="T14:30:07"><abbr title="2011-02-24T14:30:07+00:00">14:30:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>3530?</q></li>
+<li class="message">[<a href="#T14:30:20" id="T14:30:20"><abbr title="2011-02-24T14:30:20+00:00">14:30:20</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T14:30:27" id="T14:30:27"><abbr title="2011-02-24T14:30:27+00:00">14:30:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>do you have a 37xx around?</q></li>
+<li class="message">[<a href="#T14:30:32" id="T14:30:32"><abbr title="2011-02-24T14:30:32+00:00">14:30:32</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>no :(</q></li>
+<li class="message">[<a href="#T14:30:49" id="T14:30:49"><abbr title="2011-02-24T14:30:49+00:00">14:30:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it has c-a8 r3p2</q></li>
+<li class="message">[<a href="#T14:31:06" id="T14:31:06"><abbr title="2011-02-24T14:31:06+00:00">14:31:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the changes in r3 include "Improved performance for Cache Maintenance operations"</q></li>
+<li class="message">[<a href="#T14:32:10" id="T14:32:10"><abbr title="2011-02-24T14:32:10+00:00">14:32:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's able to pipeline clean/invalidate operations</q></li>
+<li class="action">[<a href="#T14:32:37" id="T14:32:37"><abbr title="2011-02-24T14:32:37+00:00">14:32:37</abbr></a>] <span>* Crofton|work fumbles around the gumstix site</span></li>
+<li class="message">[<a href="#T14:33:09" id="T14:33:09"><abbr title="2011-02-24T14:33:09+00:00">14:33:09</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>Crofton|work: what are you looking for?</q></li>
+<li class="message">[<a href="#T14:33:20" id="T14:33:20"><abbr title="2011-02-24T14:33:20+00:00">14:33:20</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>3730 based overo :)</q></li>
+<li class="message">[<a href="#T14:33:32" id="T14:33:32"><abbr title="2011-02-24T14:33:32+00:00">14:33:32</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>you won't find it yet</q></li>
+<li class="message">[<a href="#T14:33:38" id="T14:33:38"><abbr title="2011-02-24T14:33:38+00:00">14:33:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>don't you have a beagle-xm?</q></li>
+<li class="message">[<a href="#T14:33:42" id="T14:33:42"><abbr title="2011-02-24T14:33:42+00:00">14:33:42</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I forget where the future product page is :)</q></li>
+<li class="message">[<a href="#T14:33:53" id="T14:33:53"><abbr title="2011-02-24T14:33:53+00:00">14:33:53</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>no xm, </q></li>
+<li class="message">[<a href="#T14:34:02" id="T14:34:02"><abbr title="2011-02-24T14:34:02+00:00">14:34:02</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I couldn't do this measurement on the xm</q></li>
+<li class="message">[<a href="#T14:34:09" id="T14:34:09"><abbr title="2011-02-24T14:34:09+00:00">14:34:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>why?</q></li>
+<li class="message">[<a href="#T14:34:26" id="T14:34:26"><abbr title="2011-02-24T14:34:26+00:00">14:34:26</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>Crofton|work: IIRC, there are supply issues with 37XX that is delaying shipments</q></li>
+<li class="message">[<a href="#T14:34:27" id="T14:34:27"><abbr title="2011-02-24T14:34:27+00:00">14:34:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>invalidating some cache can be done on any system</q></li>
+<li class="message">[<a href="#T14:34:48" id="T14:34:48"><abbr title="2011-02-24T14:34:48+00:00">14:34:48</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>Crofton|work: is there a simple test I could do on my 37XX Overo protos?</q></li>
+<li class="message">[<a href="#T14:34:49" id="T14:34:49"><abbr title="2011-02-24T14:34:49+00:00">14:34:49</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://pastebin.com/xCdbcMJh">http://pastebin.com/xCdbcMJh</a></q></li>
+<li class="message">[<a href="#T14:35:27" id="T14:35:27"><abbr title="2011-02-24T14:35:27+00:00">14:35:27</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>basically, I look at gpmc on the logic analyzer and so how long betrween the "dummy" writes</q></li>
+<li class="message">[<a href="#T14:35:42" id="T14:35:42"><abbr title="2011-02-24T14:35:42+00:00">14:35:42</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>ah, that isn't simple :-)</q></li>
+<li class="join">[<a href="#T14:35:56" id="T14:35:56"><abbr title="2011-02-24T14:35:56+00:00">14:35:56</abbr></a>] <span>* brolin (~brolin@nat80.udea.edu.co) has joined #beagle</span></li>
+<li class="message">[<abbr title="2011-02-24T14:35:56+00:00">14:35:56</abbr>] &lt;<cite>Crofton|work</cite>&gt; <q>it is fairtly simple on an e100</q></li>
+<li class="message">[<a href="#T14:36:08" id="T14:36:08"><abbr title="2011-02-24T14:36:08+00:00">14:36:08</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>since we have gpmc signals on the mictor conntector :)</q></li>
+<li class="message">[<a href="#T14:37:20" id="T14:37:20"><abbr title="2011-02-24T14:37:20+00:00">14:37:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|work: you can measure the time spent in that function easily enough without connecting anything to gpmc</q></li>
+<li class="message">[<a href="#T14:37:51" id="T14:37:51"><abbr title="2011-02-24T14:37:51+00:00">14:37:51</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>sure, but I am old fashioned</q></li>
+<li class="message">[<a href="#T14:38:23" id="T14:38:23"><abbr title="2011-02-24T14:38:23+00:00">14:38:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>is there a syscall for that operation?</q></li>
+<li class="message">[<a href="#T14:38:27" id="T14:38:27"><abbr title="2011-02-24T14:38:27+00:00">14:38:27</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>if the cache is already been sent to ram, does this happen faster?</q></li>
+<li class="message">[<a href="#T14:38:37" id="T14:38:37"><abbr title="2011-02-24T14:38:37+00:00">14:38:37</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I do not think so</q></li>
+<li class="message">[<a href="#T14:38:48" id="T14:38:48"><abbr title="2011-02-24T14:38:48+00:00">14:38:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>invalidate doesn't do a writeback</q></li>
+<li class="message">[<a href="#T14:39:29" id="T14:39:29"><abbr title="2011-02-24T14:39:29+00:00">14:39:29</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T14:39:34" id="T14:39:34"><abbr title="2011-02-24T14:39:34+00:00">14:39:34</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>maybe I traced the wrong path</q></li>
+<li class="message">[<a href="#T14:39:45" id="T14:39:45"><abbr title="2011-02-24T14:39:45+00:00">14:39:45</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>this should force the cache to be written to ram</q></li>
+<li class="message">[<a href="#T14:39:52" id="T14:39:52"><abbr title="2011-02-24T14:39:52+00:00">14:39:52</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>since I am about to dma from ram to gpmc</q></li>
+<li class="message">[<a href="#T14:39:53" id="T14:39:53"><abbr title="2011-02-24T14:39:53+00:00">14:39:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that would be v7_dma_clean_range</q></li>
+<li class="message">[<a href="#T14:40:07" id="T14:40:07"><abbr title="2011-02-24T14:40:07+00:00">14:40:07</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>let me double check</q></li>
+<li class="message">[<a href="#T14:40:13" id="T14:40:13"><abbr title="2011-02-24T14:40:13+00:00">14:40:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and that can be a bit slow</q></li>
+<li class="message">[<a href="#T14:40:31" id="T14:40:31"><abbr title="2011-02-24T14:40:31+00:00">14:40:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>on r1 it is fully serialised</q></li>
+<li class="message">[<a href="#T14:40:41" id="T14:40:41"><abbr title="2011-02-24T14:40:41+00:00">14:40:41</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>Anyone know who I can talk to about issues with the mailing list?</q></li>
+<li class="message">[<a href="#T14:40:56" id="T14:40:56"><abbr title="2011-02-24T14:40:56+00:00">14:40:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ask on the mailing list :)</q></li>
+<li class="message">[<a href="#T14:41:06" id="T14:41:06"><abbr title="2011-02-24T14:41:06+00:00">14:41:06</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>can't</q></li>
+<li class="message">[<a href="#T14:42:13" id="T14:42:13"><abbr title="2011-02-24T14:42:13+00:00">14:42:13</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>invalidate jsut says ignore what is in cache</q></li>
+<li class="message">[<a href="#T14:42:19" id="T14:42:19"><abbr title="2011-02-24T14:42:19+00:00">14:42:19</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>and writeback sends cache to ram</q></li>
+<li class="message">[<a href="#T14:42:21" id="T14:42:21"><abbr title="2011-02-24T14:42:21+00:00">14:42:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T14:42:27" id="T14:42:27"><abbr title="2011-02-24T14:42:27+00:00">14:42:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>clean == writeback</q></li>
+<li class="message">[<a href="#T14:42:36" id="T14:42:36"><abbr title="2011-02-24T14:42:36+00:00">14:42:36</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>weird</q></li>
+<li class="message">[<a href="#T14:42:47" id="T14:42:47"><abbr title="2011-02-24T14:42:47+00:00">14:42:47</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T14:42:49" id="T14:42:49"><abbr title="2011-02-24T14:42:49+00:00">14:42:49</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>it is ok</q></li>
+<li class="message">[<a href="#T14:42:54" id="T14:42:54"><abbr title="2011-02-24T14:42:54+00:00">14:42:54</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>it cleans</q></li>
+<li class="message">[<a href="#T14:43:00" id="T14:43:00"><abbr title="2011-02-24T14:43:00+00:00">14:43:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what does?</q></li>
+<li class="message">[<a href="#T14:43:14" id="T14:43:14"><abbr title="2011-02-24T14:43:14+00:00">14:43:14</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>__dma_page_spu_to_dev</q></li>
+<li class="message">[<a href="#T14:43:22" id="T14:43:22"><abbr title="2011-02-24T14:43:22+00:00">14:43:22</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I was misreading an if briefly</q></li>
+<li class="message">[<a href="#T14:43:31" id="T14:43:31"><abbr title="2011-02-24T14:43:31+00:00">14:43:31</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>and getting really confused :)</q></li>
+<li class="join">[<a href="#T14:43:32" id="T14:43:32"><abbr title="2011-02-24T14:43:32+00:00">14:43:32</abbr></a>] <span>* RobotGuy (~n7pkt@c-24-21-60-36.hsd1.or.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:43:55" id="T14:43:55"><abbr title="2011-02-24T14:43:55+00:00">14:43:55</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>if dir is DMA FROMDEVICE</q></li>
+<li class="message">[<a href="#T14:44:08" id="T14:44:08"><abbr title="2011-02-24T14:44:08+00:00">14:44:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>using dma_map_area?</q></li>
+<li class="message">[<a href="#T14:44:09" id="T14:44:09"><abbr title="2011-02-24T14:44:09+00:00">14:44:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>invalidate otehrwise clean</q></li>
+<li class="join">[<a href="#T14:44:31" id="T14:44:31"><abbr title="2011-02-24T14:44:31+00:00">14:44:31</abbr></a>] <span>* torez (~torez@32.97.110.65) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-02-24T14:44:31+00:00">14:44:31</abbr>] <span>* torez (~torez@32.97.110.65) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-02-24T14:44:31+00:00">14:44:31</abbr>] <span>* torez (~torez@linaro/torez) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:44:35" id="T14:44:35"><abbr title="2011-02-24T14:44:35+00:00">14:44:35</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>dma_map_single</q></li>
+<li class="message">[<a href="#T14:44:44" id="T14:44:44"><abbr title="2011-02-24T14:44:44+00:00">14:44:44</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>grabbing memory by the page</q></li>
+<li class="message">[<a href="#T14:44:56" id="T14:44:56"><abbr title="2011-02-24T14:44:56+00:00">14:44:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>by the throat!</q></li>
+<li class="message">[<a href="#T14:45:01" id="T14:45:01"><abbr title="2011-02-24T14:45:01+00:00">14:45:01</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>pages end up mmap'ed so the user access them directly</q></li>
+<li class="join">[<a href="#T14:45:53" id="T14:45:53"><abbr title="2011-02-24T14:45:53+00:00">14:45:53</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-jdathjbfcxqliukc) has joined #beagle</span></li>
+<li class="part">[<a href="#T14:48:46" id="T14:48:46"><abbr title="2011-02-24T14:48:46+00:00">14:48:46</abbr></a>] <span>* Norritt42 (~Norritt42@nl119-198-189.student.uu.se) has left #beagle</span></li>
+<li class="quit">[<a href="#T14:51:52" id="T14:51:52"><abbr title="2011-02-24T14:51:52+00:00">14:51:52</abbr></a>] <span>* mrc3 (~ddiaz@189.157.115.50) Quit (Read error: Operation timed out)</span></li>
+<li class="join">[<a href="#T14:52:30" id="T14:52:30"><abbr title="2011-02-24T14:52:30+00:00">14:52:30</abbr></a>] <span>* kevinsc1 (~a0214685@nat/ti/x-wmgmjqogiajbbtsg) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:52:38" id="T14:52:38"><abbr title="2011-02-24T14:52:38+00:00">14:52:38</abbr></a>] <span>* novogrammer (~novogramm@w0109-114-22-175-10.uqwimax.jp) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:52:44" id="T14:52:44"><abbr title="2011-02-24T14:52:44+00:00">14:52:44</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>thanks mru, you've helped solidify my "understanding" of wtf is happening more</q></li>
+<li class="quit">[<a href="#T14:52:46" id="T14:52:46"><abbr title="2011-02-24T14:52:46+00:00">14:52:46</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-cjciopctgueyxtwc) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T14:53:18" id="T14:53:18"><abbr title="2011-02-24T14:53:18+00:00">14:53:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Crofton|work: you said 5us to clean 2kB?</q></li>
+<li class="message">[<a href="#T14:53:28" id="T14:53:28"><abbr title="2011-02-24T14:53:28+00:00">14:53:28</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T14:53:41" id="T14:53:41"><abbr title="2011-02-24T14:53:41+00:00">14:53:41</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>this is throught the dma_sync interface</q></li>
+<li class="message">[<a href="#T14:53:58" id="T14:53:58"><abbr title="2011-02-24T14:53:58+00:00">14:53:58</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://pastebin.com/xCdbcMJh">http://pastebin.com/xCdbcMJh</a></q></li>
+<li class="message">[<a href="#T14:54:09" id="T14:54:09"><abbr title="2011-02-24T14:54:09+00:00">14:54:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>to get from line 11 to line 14</q></li>
+<li class="quit">[<a href="#T14:56:36" id="T14:56:36"><abbr title="2011-02-24T14:56:36+00:00">14:56:36</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-jdathjbfcxqliukc) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T14:57:08" id="T14:57:08"><abbr title="2011-02-24T14:57:08+00:00">14:57:08</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>is L3 faster on the 3730?</q></li>
+<li class="message">[<a href="#T14:57:18" id="T14:57:18"><abbr title="2011-02-24T14:57:18+00:00">14:57:18</abbr></a>] &lt;<cite>arc_mat</cite>&gt; <q>Crofton|work: just wondering, if you mmap the buffer to userspace anyway, can't you create a non-cached mapping to eliminate the clean in the first place?</q></li>
+<li class="message">[<a href="#T14:57:47" id="T14:57:47"><abbr title="2011-02-24T14:57:47+00:00">14:57:47</abbr></a>] &lt;<cite>arc_mat</cite>&gt; <q>Crofton|work: or is userspace doing a lot of manipulations on the buffer that benefit from the cache?</q></li>
+<li class="message">[<a href="#T14:58:08" id="T14:58:08"><abbr title="2011-02-24T14:58:08+00:00">14:58:08</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>basically, we just fill the buffer</q></li>
+<li class="message">[<a href="#T14:58:29" id="T14:58:29"><abbr title="2011-02-24T14:58:29+00:00">14:58:29</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I do not think we "use" the cache much</q></li>
+<li class="message">[<a href="#T14:58:39" id="T14:58:39"><abbr title="2011-02-24T14:58:39+00:00">14:58:39</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>as in lots of read then write stuff</q></li>
+<li class="message">[<a href="#T14:58:44" id="T14:58:44"><abbr title="2011-02-24T14:58:44+00:00">14:58:44</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>mostly copy into it</q></li>
+<li class="join">[<a href="#T14:58:46" id="T14:58:46"><abbr title="2011-02-24T14:58:46+00:00">14:58:46</abbr></a>] <span>* jevin_ (~jevin@ece-156-18.dhcp.ecn.purdue.edu) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:59:10" id="T14:59:10"><abbr title="2011-02-24T14:59:10+00:00">14:59:10</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>in the back of my mind, I have been thinking about seeing if I can work out how to do what you say</q></li>
+<li class="message">[<a href="#T14:59:18" id="T14:59:18"><abbr title="2011-02-24T14:59:18+00:00">14:59:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>then you want an uncached buffered mapping</q></li>
+<li class="message">[<a href="#T14:59:24" id="T14:59:24"><abbr title="2011-02-24T14:59:24+00:00">14:59:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and a dsb before the dma</q></li>
+<li class="message">[<abbr title="2011-02-24T14:59:24+00:00">14:59:24</abbr>] &lt;<cite>Crofton|work</cite>&gt; <q>I had to do the pagesso I could mmap them</q></li>
+<li class="message">[<a href="#T14:59:37" id="T14:59:37"><abbr title="2011-02-24T14:59:37+00:00">14:59:37</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>dsb?</q></li>
+<li class="message">[<a href="#T15:00:00" id="T15:00:00"><abbr title="2011-02-24T15:00:00+00:00">15:00:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>a memory barrier</q></li>
