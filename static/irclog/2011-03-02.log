@@ -545,3 +545,124 @@
 <li class="message">[<a href="#T14:59:26" id="T14:59:26"><abbr title="2011-03-02T14:59:26+00:00">14:59:26</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I can't see why that operation would change anything in physical ram</q></li>
 <li class="message">[<a href="#T14:59:41" id="T14:59:41"><abbr title="2011-03-02T14:59:41+00:00">14:59:41</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>that operation should invaildate the cache</q></li>
 <li class="message">[<a href="#T14:59:59" id="T14:59:59"><abbr title="2011-03-02T14:59:59+00:00">14:59:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it does</q></li>
+<li class="message">[<a href="#T15:00:06" id="T15:00:06"><abbr title="2011-03-02T15:00:06+00:00">15:00:06</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>since we are chaning ram and do not want any cached data to be used for anything</q></li>
+<li class="message">[<abbr title="2011-03-02T15:00:06+00:00">15:00:06</abbr>] &lt;<cite>mru</cite>&gt; <q>but make sure it's 64-byte aligned</q></li>
+<li class="message">[<a href="#T15:00:19" id="T15:00:19"><abbr title="2011-03-02T15:00:19+00:00">15:00:19</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>they are all page aligned</q></li>
+<li class="message">[<a href="#T15:00:23" id="T15:00:23"><abbr title="2011-03-02T15:00:23+00:00">15:00:23</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>well 2K aligned</q></li>
+<li class="message">[<a href="#T15:00:25" id="T15:00:25"><abbr title="2011-03-02T15:00:25+00:00">15:00:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>then you're fine</q></li>
+<li class="message">[<a href="#T15:00:40" id="T15:00:40"><abbr title="2011-03-02T15:00:40+00:00">15:00:40</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I'm going to give this a try</q></li>
+<li class="message">[<a href="#T15:00:53" id="T15:00:53"><abbr title="2011-03-02T15:00:53+00:00">15:00:53</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>and then try to measure the gpio interrupt stuff</q></li>
+<li class="message">[<a href="#T15:00:54" id="T15:00:54"><abbr title="2011-03-02T15:00:54+00:00">15:00:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>just swap those lines</q></li>
+<li class="message">[<a href="#T15:01:09" id="T15:01:09"><abbr title="2011-03-02T15:01:09+00:00">15:01:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>but you guys are correct, need to start the transfer externally</q></li>
+<li class="message">[<a href="#T15:01:37" id="T15:01:37"><abbr title="2011-03-02T15:01:37+00:00">15:01:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>start the transfer, then raise an irq to indicate it's underway</q></li>
+<li class="message">[<a href="#T15:01:48" id="T15:01:48"><abbr title="2011-03-02T15:01:48+00:00">15:01:48</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>av500, if passing data structure by inBuf, how to deal with inside pointers?  memcpy them one by one? how about the time consuming? is it possible to pass data structure by DMA channel? </q></li>
+<li class="message">[<a href="#T15:02:25" id="T15:02:25"><abbr title="2011-03-02T15:02:25+00:00">15:02:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you should also set the sdma to interrupt when complete</q></li>
+<li class="message">[<a href="#T15:02:50" id="T15:02:50"><abbr title="2011-03-02T15:02:50+00:00">15:02:50</abbr></a>] &lt;<cite>mru</cite>&gt; <q>when you receive the irq from the fpga, you invalidate the cache and wait for the interrupt from sdma</q></li>
+<li class="message">[<a href="#T15:03:01" id="T15:03:01"><abbr title="2011-03-02T15:03:01+00:00">15:03:01</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah</q></li>
+<li class="join">[<a href="#T15:03:04" id="T15:03:04"><abbr title="2011-03-02T15:03:04+00:00">15:03:04</abbr></a>] <span>* slchen (~slchen@host-58-115-113-196.dynamic.kbtelecom.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:03:07" id="T15:03:07"><abbr title="2011-03-02T15:03:07+00:00">15:03:07</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>that is in place already :)</q></li>
+<li class="message">[<a href="#T15:03:12" id="T15:03:12"><abbr title="2011-03-02T15:03:12+00:00">15:03:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>with all the usual precautions against races</q></li>
+<li class="message">[<a href="#T15:03:16" id="T15:03:16"><abbr title="2011-03-02T15:03:16+00:00">15:03:16</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T15:03:23" id="T15:03:23"><abbr title="2011-03-02T15:03:23+00:00">15:03:23</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>the code is alrady racey :)</q></li>
+<li class="join">[<a href="#T15:03:39" id="T15:03:39"><abbr title="2011-03-02T15:03:39+00:00">15:03:39</abbr></a>] <span>* slchen_ (~slchen@host-58-115-113-196.dynamic.kbtelecom.net) has joined #beagle</span></li>
+<li class="message">[<abbr title="2011-03-02T15:03:39+00:00">15:03:39</abbr>] &lt;<cite>mru</cite>&gt; <q>you don't want to start waiting for an irq moments after it arrived</q></li>
+<li class="quit">[<abbr title="2011-03-02T15:03:39+00:00">15:03:39</abbr>] <span>* slchen (~slchen@host-58-115-113-196.dynamic.kbtelecom.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="nick-change">[<a href="#T15:03:40" id="T15:03:40"><abbr title="2011-03-02T15:03:40+00:00">15:03:40</abbr></a>] <span>* slchen_ is now known as slchen</span></li>
+<li class="message">[<a href="#T15:04:45" id="T15:04:45"><abbr title="2011-03-02T15:04:45+00:00">15:04:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ddd: you are trying to take an existing H264 decoder and cutting it in half to do part of it on the DSP</q></li>
+<li class="message">[<a href="#T15:04:54" id="T15:04:54"><abbr title="2011-03-02T15:04:54+00:00">15:04:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>thats *hard* workj</q></li>
+<li class="join">[<a href="#T15:04:56" id="T15:04:56"><abbr title="2011-03-02T15:04:56+00:00">15:04:56</abbr></a>] <span>* jkridner_ (~jason@adsl-99-150-135-112.dsl.sfldmi.sbcglobal.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-03-02T15:04:56+00:00">15:04:56</abbr>] <span>* jkridner_ (~jason@adsl-99-150-135-112.dsl.sfldmi.sbcglobal.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-03-02T15:04:56+00:00">15:04:56</abbr>] <span>* jkridner_ (~jason@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:05:11" id="T15:05:11"><abbr title="2011-03-02T15:05:11+00:00">15:05:11</abbr></a>] <span>* ozk (~ozk@nat/ti/x-pnumufydppjgxstd) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:05:18" id="T15:05:18"><abbr title="2011-03-02T15:05:18+00:00">15:05:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>specially if you are trying to leave all data structures untouched</q></li>
+<li class="message">[<a href="#T15:05:30" id="T15:05:30"><abbr title="2011-03-02T15:05:30+00:00">15:05:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you have to pass the data to that the dsp needs to the dsp</q></li>
+<li class="message">[<a href="#T15:05:42" id="T15:05:42"><abbr title="2011-03-02T15:05:42+00:00">15:05:42</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>yeah, i know, but any other way to speed up</q></li>
+<li class="message">[<a href="#T15:06:29" id="T15:06:29"><abbr title="2011-03-02T15:06:29+00:00">15:06:29</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>do not want to re-write code from scratch , which is also heavy workload</q></li>
+<li class="message">[<a href="#T15:06:35" id="T15:06:35"><abbr title="2011-03-02T15:06:35+00:00">15:06:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ddd: running a h264 decoder on 2 cpus instead of one does not speed it up be default</q></li>
+<li class="message">[<a href="#T15:06:42" id="T15:06:42"><abbr title="2011-03-02T15:06:42+00:00">15:06:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>by default</q></li>
+<li class="quit">[<a href="#T15:06:55" id="T15:06:55"><abbr title="2011-03-02T15:06:55+00:00">15:06:55</abbr></a>] <span>* jkridner (~jason@pdpc/supporter/active/jkridner) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="nick-change">[<abbr title="2011-03-02T15:06:55+00:00">15:06:55</abbr>] <span>* jkridner_ is now known as jkridner</span></li>
+<li class="message">[<a href="#T15:07:55" id="T15:07:55"><abbr title="2011-03-02T15:07:55+00:00">15:07:55</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>any other way to speed up?</q></li>
+<li class="message">[<a href="#T15:09:41" id="T15:09:41"><abbr title="2011-03-02T15:09:41+00:00">15:09:41</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>i found TI release H.264 decoder running 1080i in real-time by davinci/omap optimization</q></li>
+<li class="message">[<a href="#T15:10:00" id="T15:10:00"><abbr title="2011-03-02T15:10:00+00:00">15:10:00</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>av500: 3730 _only_ supports LPDDR1 correct?</q></li>
+<li class="quit">[<a href="#T15:10:08" id="T15:10:08"><abbr title="2011-03-02T15:10:08+00:00">15:10:08</abbr></a>] <span>* katie_ (~katierh@nat/ti/x-spgyywxrxoldrbwh) Quit ()</span></li>
+<li class="message">[<a href="#T15:10:11" id="T15:10:11"><abbr title="2011-03-02T15:10:11+00:00">15:10:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>lpddr2</q></li>
+<li class="message">[<a href="#T15:10:43" id="T15:10:43"><abbr title="2011-03-02T15:10:43+00:00">15:10:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ddd: 1080i, no</q></li>
+<li class="message">[<a href="#T15:11:00" id="T15:11:00"><abbr title="2011-03-02T15:11:00+00:00">15:11:00</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>thanks</q></li>
+<li class="message">[<abbr title="2011-03-02T15:11:00+00:00">15:11:00</abbr>] &lt;<cite>ddd</cite>&gt; <q>what is that?</q></li>
+<li class="message">[<a href="#T15:11:09" id="T15:11:09"><abbr title="2011-03-02T15:11:09+00:00">15:11:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>thansk mru, that works</q></li>
+<li class="message">[<a href="#T15:11:22" id="T15:11:22"><abbr title="2011-03-02T15:11:22+00:00">15:11:22</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>need to let it run the test program some</q></li>
+<li class="action">[<a href="#T15:11:27" id="T15:11:27"><abbr title="2011-03-02T15:11:27+00:00">15:11:27</abbr></a>] <span>* xxiao wishes 3730 has the one-page summary for key features</span></li>
+<li class="quit">[<a href="#T15:12:04" id="T15:12:04"><abbr title="2011-03-02T15:12:04+00:00">15:12:04</abbr></a>] <span>* jconnolly (~jconnolly@ool-18b82cf6.dyn.optonline.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T15:12:24" id="T15:12:24"><abbr title="2011-03-02T15:12:24+00:00">15:12:24</abbr></a>] <span>* jconnolly (~jconnolly@66.43.64.66) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:12:52" id="T15:12:52"><abbr title="2011-03-02T15:12:52+00:00">15:12:52</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>anyone here used audio codec wm8988</q></li>
+<li class="message">[<a href="#T15:13:28" id="T15:13:28"><abbr title="2011-03-02T15:13:28+00:00">15:13:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i thin kwe did</q></li>
+<li class="message">[<a href="#T15:13:39" id="T15:13:39"><abbr title="2011-03-02T15:13:39+00:00">15:13:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>some wm at least</q></li>
+<li class="join">[<a href="#T15:13:40" id="T15:13:40"><abbr title="2011-03-02T15:13:40+00:00">15:13:40</abbr></a>] <span>* Zoxc (Zoxc@ti0128a380-dhcp0824.bb.online.no) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:14:07" id="T15:14:07"><abbr title="2011-03-02T15:14:07+00:00">15:14:07</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>dm6467_h2641080p60vdec_1_20_00_14_production?</q></li>
+<li class="message">[<a href="#T15:14:18" id="T15:14:18"><abbr title="2011-03-02T15:14:18+00:00">15:14:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ddd: thats the davinci HD</q></li>
+<li class="message">[<a href="#T15:14:33" id="T15:14:33"><abbr title="2011-03-02T15:14:33+00:00">15:14:33</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>yeah, davinci,</q></li>
+<li class="message">[<a href="#T15:14:42" id="T15:14:42"><abbr title="2011-03-02T15:14:42+00:00">15:14:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it has a much more dedicated hw video decoder than davinci/omap3</q></li>
+<li class="message">[<a href="#T15:15:00" id="T15:15:00"><abbr title="2011-03-02T15:15:00+00:00">15:15:00</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>yeah, </q></li>
+<li class="message">[<a href="#T15:15:08" id="T15:15:08"><abbr title="2011-03-02T15:15:08+00:00">15:15:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so?</q></li>
+<li class="message">[<a href="#T15:15:37" id="T15:15:37"><abbr title="2011-03-02T15:15:37+00:00">15:15:37</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>any method to speed it up with omap</q></li>
+<li class="message">[<a href="#T15:15:38" id="T15:15:38"><abbr title="2011-03-02T15:15:38+00:00">15:15:38</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T15:15:53" id="T15:15:53"><abbr title="2011-03-02T15:15:53+00:00">15:15:53</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>i have a 3G module, hooked its audio-out(analog) to linein on WM,got no output from WM yet, maybe I should bypass WM fully to hook 3G's audio out to the speaker?</q></li>
+<li class="message">[<a href="#T15:16:32" id="T15:16:32"><abbr title="2011-03-02T15:16:32+00:00">15:16:32</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>linein-&gt;ADC-&gt;DAC-&gt;lineout-&gt;speaker, the only purpose of WM here probably is amplifier</q></li>
+<li class="message">[<a href="#T15:16:46" id="T15:16:46"><abbr title="2011-03-02T15:16:46+00:00">15:16:46</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>means dsp can not provide any help anymore?</q></li>
+<li class="message">[<a href="#T15:17:39" id="T15:17:39"><abbr title="2011-03-02T15:17:39+00:00">15:17:39</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>ddd: with mali/neon from ARM, hardengine from Imgtec, i guess TI's DSP will only be useful for the very high end usage, e.g. ti8168</q></li>
+<li class="message">[<a href="#T15:18:10" id="T15:18:10"><abbr title="2011-03-02T15:18:10+00:00">15:18:10</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>ddd: the marriage between ti's dsp and ARM is looking odd these days</q></li>
+<li class="message">[<a href="#T15:18:11" id="T15:18:11"><abbr title="2011-03-02T15:18:11+00:00">15:18:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>8168 gets its power from ivahd mostly</q></li>
+<li class="message">[<a href="#T15:18:33" id="T15:18:33"><abbr title="2011-03-02T15:18:33+00:00">15:18:33</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>mru: exactly, if TI is bold enough, probably it should remove its DSP fully from the cpu</q></li>
+<li class="message">[<a href="#T15:18:35" id="T15:18:35"><abbr title="2011-03-02T15:18:35+00:00">15:18:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>xxiao: none of the things you mention can completely replace the dsp</q></li>
+<li class="message">[<a href="#T15:19:02" id="T15:19:02"><abbr title="2011-03-02T15:19:02+00:00">15:19:02</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>mru: for certain usage you're right, </q></li>
+<li class="message">[<a href="#T15:19:10" id="T15:19:10"><abbr title="2011-03-02T15:19:10+00:00">15:19:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for generic signal processing</q></li>
+<li class="message">[<a href="#T15:19:20" id="T15:19:20"><abbr title="2011-03-02T15:19:20+00:00">15:19:20</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>oh, </q></li>
+<li class="message">[<a href="#T15:19:25" id="T15:19:25"><abbr title="2011-03-02T15:19:25+00:00">15:19:25</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>cellish processors</q></li>
+<li class="message">[<a href="#T15:19:26" id="T15:19:26"><abbr title="2011-03-02T15:19:26+00:00">15:19:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for video specifically, iva is more powerful</q></li>
+<li class="message">[<a href="#T15:19:32" id="T15:19:32"><abbr title="2011-03-02T15:19:32+00:00">15:19:32</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>mru: dsp could add more flexibility, for majority of apps, i think without TI's DSP it can do fine these days</q></li>
+<li class="message">[<a href="#T15:19:38" id="T15:19:38"><abbr title="2011-03-02T15:19:38+00:00">15:19:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and for 3d graphics mali or sgx is better</q></li>
+<li class="message">[<a href="#T15:20:23" id="T15:20:23"><abbr title="2011-03-02T15:20:23+00:00">15:20:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the dsp also has an adantage over arm for hard realtime</q></li>
+<li class="message">[<a href="#T15:20:28" id="T15:20:28"><abbr title="2011-03-02T15:20:28+00:00">15:20:28</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>av500, in your side, can you decode 1080i in real-time with omap? thanks</q></li>
+<li class="message">[<a href="#T15:20:30" id="T15:20:30"><abbr title="2011-03-02T15:20:30+00:00">15:20:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's much more predictable</q></li>
+<li class="message">[<a href="#T15:21:51" id="T15:21:51"><abbr title="2011-03-02T15:21:51+00:00">15:21:51</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>what happened</q></li>
+<li class="message">[<a href="#T15:22:43" id="T15:22:43"><abbr title="2011-03-02T15:22:43+00:00">15:22:43</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>i can't send out stuff here</q></li>
+<li class="message">[<a href="#T15:22:55" id="T15:22:55"><abbr title="2011-03-02T15:22:55+00:00">15:22:55</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>strange, one and off</q></li>
+<li class="message">[<a href="#T15:22:57" id="T15:22:57"><abbr title="2011-03-02T15:22:57+00:00">15:22:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ddd: the davinc/omap dsp is not a pure dsp, it has HW accelerators for e.g H264</q></li>
+<li class="message">[<a href="#T15:23:19" id="T15:23:19"><abbr title="2011-03-02T15:23:19+00:00">15:23:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you can decode SD H264 on the omap3 DSP</q></li>
+<li class="message">[<a href="#T15:23:29" id="T15:23:29"><abbr title="2011-03-02T15:23:29+00:00">15:23:29</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>as i read, it states dsp is there to assist HW accel</q></li>
+<li class="message">[<a href="#T15:23:34" id="T15:23:34"><abbr title="2011-03-02T15:23:34+00:00">15:23:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you can decode 720p H264 on the omap3 GPP+DSP</q></li>
+<li class="message">[<a href="#T15:23:50" id="T15:23:50"><abbr title="2011-03-02T15:23:50+00:00">15:23:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but that is not by doing a naive "cut the codec in 2 parts" approach</q></li>
+<li class="message">[<a href="#T15:24:08" id="T15:24:08"><abbr title="2011-03-02T15:24:08+00:00">15:24:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and not using JM as a start for sure</q></li>
+<li class="message">[<a href="#T15:25:00" id="T15:25:00"><abbr title="2011-03-02T15:25:00+00:00">15:25:00</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>ok, naive, so, you mean DSP can help GPP in some way</q></li>
+<li class="message">[<a href="#T15:25:53" id="T15:25:53"><abbr title="2011-03-02T15:25:53+00:00">15:25:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure it can help</q></li>
+<li class="message">[<a href="#T15:26:04" id="T15:26:04"><abbr title="2011-03-02T15:26:04+00:00">15:26:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but not the way you are trying</q></li>
+<li class="message">[<a href="#T15:26:15" id="T15:26:15"><abbr title="2011-03-02T15:26:15+00:00">15:26:15</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>in any simple way?</q></li>
+<li class="message">[<a href="#T15:26:16" id="T15:26:16"><abbr title="2011-03-02T15:26:16+00:00">15:26:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>key is to have the DSP do something at the same time as the GPP</q></li>
+<li class="message">[<a href="#T15:27:05" id="T15:27:05"><abbr title="2011-03-02T15:27:05+00:00">15:27:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>e.g let the gpp do bitstream parsing and VLD, let the DSP do IFFT and MC and </q></li>
+<li class="message">[<a href="#T15:27:28" id="T15:27:28"><abbr title="2011-03-02T15:27:28+00:00">15:27:28</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>IDCT?</q></li>
+<li class="message">[<a href="#T15:27:32" id="T15:27:32"><abbr title="2011-03-02T15:27:32+00:00">15:27:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T15:28:54" id="T15:28:54"><abbr title="2011-03-02T15:28:54+00:00">15:28:54</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>thanks, if only using GPP, what is the maximum speed ?</q></li>
+<li class="message">[<a href="#T15:29:07" id="T15:29:07"><abbr title="2011-03-02T15:29:07+00:00">15:29:07</abbr></a>] &lt;<cite>arc_mat</cite>&gt; <q>Crofton|work: you've got nice photos from your trip to the Dolomites last year ;)</q></li>
+<li class="message">[<a href="#T15:29:16" id="T15:29:16"><abbr title="2011-03-02T15:29:16+00:00">15:29:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ffmpeg plays about SD H264 on the omap3</q></li>
+<li class="message">[<a href="#T15:30:42" id="T15:30:42"><abbr title="2011-03-02T15:30:42+00:00">15:30:42</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>yeah, i read ffmpeg b4, is that includes MVC? </q></li>
+<li class="quit">[<a href="#T15:31:01" id="T15:31:01"><abbr title="2011-03-02T15:31:01+00:00">15:31:01</abbr></a>] <span>* alancam (~alancam@nat/ti/x-vjvrzzfumeaytkxp) Quit ()</span></li>
+<li class="quit">[<a href="#T15:31:04" id="T15:31:04"><abbr title="2011-03-02T15:31:04+00:00">15:31:04</abbr></a>] <span>* peabody124 (~peabody12@adsl-99-163-124-148.dsl.hstntx.sbcglobal.net) Quit (Quit: peabody124)</span></li>
+<li class="message">[<a href="#T15:33:10" id="T15:33:10"><abbr title="2011-03-02T15:33:10+00:00">15:33:10</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>thanks :)</q></li>
+<li class="message">[<a href="#T15:34:09" id="T15:34:09"><abbr title="2011-03-02T15:34:09+00:00">15:34:09</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>av500, if using GPP only, any methods can help to speed up?</q></li>
+<li class="message">[<a href="#T15:35:10" id="T15:35:10"><abbr title="2011-03-02T15:35:10+00:00">15:35:10</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>NEON and so on?</q></li>
+<li class="message">[<a href="#T15:35:30" id="T15:35:30"><abbr title="2011-03-02T15:35:30+00:00">15:35:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T15:35:40" id="T15:35:40"><abbr title="2011-03-02T15:35:40+00:00">15:35:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>all in ffmpeg</q></li>
+<li class="quit">[<a href="#T15:37:15" id="T15:37:15"><abbr title="2011-03-02T15:37:15+00:00">15:37:15</abbr></a>] <span>* jrmuizel (~jrmuizel@CPE001f5be79d0f-CM0017ee62f8b0.cpe.net.cable.rogers.com) Quit (Quit: jrmuizel)</span></li>
+<li class="message">[<a href="#T15:42:02" id="T15:42:02"><abbr title="2011-03-02T15:42:02+00:00">15:42:02</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>dma req lines are not obvious in the gumstix docs</q></li>
+<li class="message">[<a href="#T15:42:08" id="T15:42:08"><abbr title="2011-03-02T15:42:08+00:00">15:42:08</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>need to study harer</q></li>
+<li class="message">[<a href="#T15:42:17" id="T15:42:17"><abbr title="2011-03-02T15:42:17+00:00">15:42:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>much harer!</q></li>
+<li class="quit">[<a href="#T15:45:54" id="T15:45:54"><abbr title="2011-03-02T15:45:54+00:00">15:45:54</abbr></a>] <span>* b7500af1 (~vt@2001:468:c80:4240:21c:bfff:fe8b:9c32) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T15:49:50" id="T15:49:50"><abbr title="2011-03-02T15:49:50+00:00">15:49:50</abbr></a>] <span>* prpplague (~danders@nat/ti/x-neuqbkbfryynsven) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:53:25" id="T15:53:25"><abbr title="2011-03-02T15:53:25+00:00">15:53:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>more hare, less rabbit</q></li>
+<li class="join">[<a href="#T15:55:43" id="T15:55:43"><abbr title="2011-03-02T15:55:43+00:00">15:55:43</abbr></a>] <span>* emeb (~ericb@ip72-223-89-126.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="part">[<a href="#T15:57:32" id="T15:57:32"><abbr title="2011-03-02T15:57:32+00:00">15:57:32</abbr></a>] <span>* stone1 (~stone@123.147.251.124) has left #beagle</span></li>
+<li class="message">[<a href="#T15:57:58" id="T15:57:58"><abbr title="2011-03-02T15:57:58+00:00">15:57:58</abbr></a>] &lt;<cite>ddd</cite>&gt; <q>av500, what do you think about the communication overhead between GPP and DSP? </q></li>
+<li class="message">[<a href="#T15:58:22" id="T15:58:22"><abbr title="2011-03-02T15:58:22+00:00">15:58:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>done right, its irrelevant</q></li>
+<li class="message">[<a href="#T15:58:35" id="T15:58:35"><abbr title="2011-03-02T15:58:35+00:00">15:58:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>as said, you need to get the GPP and DSP to do things in parallel</q></li>
+<li class="quit">[<a href="#T15:59:45" id="T15:59:45"><abbr title="2011-03-02T15:59:45+00:00">15:59:45</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-stdkrhkyjmxyrfcx) Quit (Remote host closed the connection)</span></li>
