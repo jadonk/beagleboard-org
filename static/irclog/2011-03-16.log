@@ -1151,3 +1151,191 @@
 <li class="message">[<a href="#T13:57:25" id="T13:57:25"><abbr title="2011-03-16T13:57:25+00:00">13:57:25</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>koen: which kernel is my best bet if I want to make sleep/wake work on a C3-like board with a power button added?</q></li>
 <li class="quit">[<a href="#T13:58:11" id="T13:58:11"><abbr title="2011-03-16T13:58:11+00:00">13:58:11</abbr></a>] <span>* Guest28300 (~qwerty@125.19.39.117) Quit (Ping timeout: 276 seconds)</span></li>
 <li class="message">[<a href="#T13:58:56" id="T13:58:56"><abbr title="2011-03-16T13:58:56+00:00">13:58:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>prolly the .32</q></li>
+<li class="message">[<a href="#T14:00:15" id="T14:00:15"><abbr title="2011-03-16T14:00:15+00:00">14:00:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>tasslehoff: running on battery?</q></li>
+<li class="message">[<a href="#T14:01:19" id="T14:01:19"><abbr title="2011-03-16T14:01:19+00:00">14:01:19</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>av500: it will in the end. using a powersupply now.</q></li>
+<li class="message">[<a href="#T14:02:19" id="T14:02:19"><abbr title="2011-03-16T14:02:19+00:00">14:02:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 what I have to add as mem line for 128 mb ram?</q></li>
+<li class="message">[<a href="#T14:02:23" id="T14:02:23"><abbr title="2011-03-16T14:02:23+00:00">14:02:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>for the kernel</q></li>
+<li class="message">[<a href="#T14:02:41" id="T14:02:41"><abbr title="2011-03-16T14:02:41+00:00">14:02:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>same as for the C4 or the XM, mem=99 or so</q></li>
+<li class="message">[<a href="#T14:02:47" id="T14:02:47"><abbr title="2011-03-16T14:02:47+00:00">14:02:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>just leave out the 2nd mem=</q></li>
+<li class="message">[<a href="#T14:02:57" id="T14:02:57"><abbr title="2011-03-16T14:02:57+00:00">14:02:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the cmem/dsp stuff is at the end of the 128MB</q></li>
+<li class="message">[<a href="#T14:03:08" id="T14:03:08"><abbr title="2011-03-16T14:03:08+00:00">14:03:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so it can be used on 128,256, and 512</q></li>
+<li class="message">[<a href="#T14:03:13" id="T14:03:13"><abbr title="2011-03-16T14:03:13+00:00">14:03:13</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>koen: so compiling 2008.1 or 2010.x from OE gives me a kernel it should work with, so I can most likely blame myself if it doesn't? </q></li>
+<li class="message">[<a href="#T14:04:59" id="T14:04:59"><abbr title="2011-03-16T14:04:59+00:00">14:04:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay</q></li>
+<li class="message">[<a href="#T14:05:47" id="T14:05:47"><abbr title="2011-03-16T14:05:47+00:00">14:05:47</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>in the loadmodules for codec-engine I changed phys_start=0x87000000 phys_end=0x88000000</q></li>
+<li class="message">[<a href="#T14:06:03" id="T14:06:03"><abbr title="2011-03-16T14:06:03+00:00">14:06:03</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>was 0x85 0x86 before</q></li>
+<li class="message">[<a href="#T14:06:06" id="T14:06:06"><abbr title="2011-03-16T14:06:06+00:00">14:06:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>for cmemk</q></li>
+<li class="message">[<a href="#T14:06:37" id="T14:06:37"><abbr title="2011-03-16T14:06:37+00:00">14:06:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: you cant just change that</q></li>
+<li class="message">[<a href="#T14:06:50" id="T14:06:50"><abbr title="2011-03-16T14:06:50+00:00">14:06:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you have to take the full dsp mem map into account</q></li>
+<li class="message">[<a href="#T14:07:21" id="T14:07:21"><abbr title="2011-03-16T14:07:21+00:00">14:07:21</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T14:07:22" id="T14:07:22"><abbr title="2011-03-16T14:07:22+00:00">14:07:22</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay</q></li>
+<li class="message">[<a href="#T14:08:06" id="T14:08:06"><abbr title="2011-03-16T14:08:06+00:00">14:08:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>than please fix</q></li>
+<li class="message">[<a href="#T14:08:08" id="T14:08:08"><abbr title="2011-03-16T14:08:08+00:00">14:08:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q> CMEMK Error: CMEM phys_start (0x85000000) overlaps kernel (0x80000000 -&gt; 0x86300000)</q></li>
+<li class="join">[<a href="#T14:08:33" id="T14:08:33"><abbr title="2011-03-16T14:08:33+00:00">14:08:33</abbr></a>] <span>* mazzanet (~mazzanet@fe1-1.mel-ii.bdr1.mazzanet.id.au) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-03-16T14:08:33+00:00">14:08:33</abbr>] <span>* mazzanet (~mazzanet@fe1-1.mel-ii.bdr1.mazzanet.id.au) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-03-16T14:08:33+00:00">14:08:33</abbr>] <span>* mazzanet (~mazzanet@hpavc/mazzanet) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:08:35" id="T14:08:35"><abbr title="2011-03-16T14:08:35+00:00">14:08:35</abbr></a>] &lt;<cite>b7500af1</cite>&gt; <q>woglinde, you can add "allowOverlap=1"?</q></li>
+<li class="message">[<a href="#T14:08:40" id="T14:08:40"><abbr title="2011-03-16T14:08:40+00:00">14:08:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T14:08:45" id="T14:08:45"><abbr title="2011-03-16T14:08:45+00:00">14:08:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no overlap here</q></li>
+<li class="message">[<a href="#T14:08:48" id="T14:08:48"><abbr title="2011-03-16T14:08:48+00:00">14:08:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its 128MB only</q></li>
+<li class="join">[<a href="#T14:09:00" id="T14:09:00"><abbr title="2011-03-16T14:09:00+00:00">14:09:00</abbr></a>] <span>* mrc3 (~ddiaz@189.157.116.139) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:09:13" id="T14:09:13"><abbr title="2011-03-16T14:09:13+00:00">14:09:13</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>cmdline -&gt; console=ttyS2,115200n8 root=/dev/mmcblk0p2 rw rootdelay=1 mem=99M@0x80000000</q></li>
+<li class="join">[<a href="#T14:09:18" id="T14:09:18"><abbr title="2011-03-16T14:09:18+00:00">14:09:18</abbr></a>] <span>* bscshane (ad0df6f1@gateway/web/freenode/ip.173.13.246.241) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:09:32" id="T14:09:32"><abbr title="2011-03-16T14:09:32+00:00">14:09:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: there are 2 maps floating around, the 80M and the 99M one</q></li>
+<li class="message">[<a href="#T14:09:42" id="T14:09:42"><abbr title="2011-03-16T14:09:42+00:00">14:09:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the 80M one is the stock ti</q></li>
+<li class="message">[<a href="#T14:09:50" id="T14:09:50"><abbr title="2011-03-16T14:09:50+00:00">14:09:50</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay</q></li>
+<li class="message">[<a href="#T14:09:52" id="T14:09:52"><abbr title="2011-03-16T14:09:52+00:00">14:09:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the 99M is the one used for dmai afaik</q></li>
+<li class="message">[<a href="#T14:09:57" id="T14:09:57"><abbr title="2011-03-16T14:09:57+00:00">14:09:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen would know</q></li>
+<li class="message">[<a href="#T14:10:15" id="T14:10:15"><abbr title="2011-03-16T14:10:15+00:00">14:10:15</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>so codec-engine-examples only works with 80m</q></li>
+<li class="message">[<a href="#T14:10:31" id="T14:10:31"><abbr title="2011-03-16T14:10:31+00:00">14:10:31</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>will try</q></li>
+<li class="message">[<abbr title="2011-03-16T14:10:31+00:00">14:10:31</abbr>] &lt;<cite>av500</cite>&gt; <q>that can be</q></li>
+<li class="message">[<a href="#T14:10:40" id="T14:10:40"><abbr title="2011-03-16T14:10:40+00:00">14:10:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but that can be easily changed</q></li>
+<li class="message">[<a href="#T14:10:48" id="T14:10:48"><abbr title="2011-03-16T14:10:48+00:00">14:10:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ah well</q></li>
+<li class="message">[<a href="#T14:10:53" id="T14:10:53"><abbr title="2011-03-16T14:10:53+00:00">14:10:53</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>so should I try the dami examples?</q></li>
+<li class="message">[<a href="#T14:10:57" id="T14:10:57"><abbr title="2011-03-16T14:10:57+00:00">14:10:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>args dmai</q></li>
+<li class="message">[<a href="#T14:11:01" id="T14:11:01"><abbr title="2011-03-16T14:11:01+00:00">14:11:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I never used dmai</q></li>
+<li class="message">[<a href="#T14:11:25" id="T14:11:25"><abbr title="2011-03-16T14:11:25+00:00">14:11:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*sigh*</q></li>
+<li class="message">[<a href="#T14:11:41" id="T14:11:41"><abbr title="2011-03-16T14:11:41+00:00">14:11:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: dmai is a wrapper that was added after "my time" :)</q></li>
+<li class="message">[<a href="#T14:12:18" id="T14:12:18"><abbr title="2011-03-16T14:12:18+00:00">14:12:18</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>so its one layer more?</q></li>
+<li class="quit">[<a href="#T14:12:19" id="T14:12:19"><abbr title="2011-03-16T14:12:19+00:00">14:12:19</abbr></a>] <span>* Viktator (~victor@zahunow.lha.sgsnet.se) Quit (Quit: WeeChat 0.3.2)</span></li>
+<li class="message">[<a href="#T14:12:29" id="T14:12:29"><abbr title="2011-03-16T14:12:29+00:00">14:12:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hiding dsp</q></li>
+<li class="message">[<a href="#T14:13:19" id="T14:13:19"><abbr title="2011-03-16T14:13:19+00:00">14:13:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T14:14:44" id="T14:14:44"><abbr title="2011-03-16T14:14:44+00:00">14:14:44</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and why should I use dmai?</q></li>
+<li class="message">[<a href="#T14:14:49" id="T14:14:49"><abbr title="2011-03-16T14:14:49+00:00">14:14:49</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>shouldnt</q></li>
+<li class="quit">[<a href="#T14:15:53" id="T14:15:53"><abbr title="2011-03-16T14:15:53+00:00">14:15:53</abbr></a>] <span>* 13WAAC59X (~jrmuizel@corp.tor1.mozilla.com) Quit (Quit: 13WAAC59X)</span></li>
+<li class="message">[<a href="#T14:15:54" id="T14:15:54"><abbr title="2011-03-16T14:15:54+00:00">14:15:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>woglinde: yeah, codec and link examples need mem=80M</q></li>
+<li class="join">[<a href="#T14:15:59" id="T14:15:59"><abbr title="2011-03-16T14:15:59+00:00">14:15:59</abbr></a>] <span>* jrmuizel (~jrmuizel@corp.tor1.mozilla.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:16:02" id="T14:16:02"><abbr title="2011-03-16T14:16:02+00:00">14:16:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*sigh*</q></li>
+<li class="message">[<a href="#T14:16:13" id="T14:16:13"><abbr title="2011-03-16T14:16:13+00:00">14:16:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I know, I don't like it either</q></li>
+<li class="message">[<a href="#T14:16:34" id="T14:16:34"><abbr title="2011-03-16T14:16:34+00:00">14:16:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>maybee I didnt was to dumb to find a docu</q></li>
+<li class="message">[<a href="#T14:16:37" id="T14:16:37"><abbr title="2011-03-16T14:16:37+00:00">14:16:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>args</q></li>
+<li class="message">[<abbr title="2011-03-16T14:16:37+00:00">14:16:37</abbr>] &lt;<cite>koen</cite>&gt; <q>c6run needs *another* change to the memhole</q></li>
+<li class="message">[<a href="#T14:16:49" id="T14:16:49"><abbr title="2011-03-16T14:16:49+00:00">14:16:49</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>oh my god</q></li>
+<li class="message">[<a href="#T14:16:56" id="T14:16:56"><abbr title="2011-03-16T14:16:56+00:00">14:16:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>is there a site explaining this?</q></li>
+<li class="message">[<a href="#T14:17:29" id="T14:17:29"><abbr title="2011-03-16T14:17:29+00:00">14:17:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>so 80M@0x80000000?</q></li>
+<li class="message">[<a href="#T14:17:36" id="T14:17:36"><abbr title="2011-03-16T14:17:36+00:00">14:17:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yup</q></li>
+<li class="message">[<a href="#T14:17:39" id="T14:17:39"><abbr title="2011-03-16T14:17:39+00:00">14:17:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay</q></li>
+<li class="message">[<a href="#T14:17:49" id="T14:17:49"><abbr title="2011-03-16T14:17:49+00:00">14:17:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and you need to check the cmem size for the examples</q></li>
+<li class="message">[<a href="#T14:18:04" id="T14:18:04"><abbr title="2011-03-16T14:18:04+00:00">14:18:04</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T14:18:07" id="T14:18:07"><abbr title="2011-03-16T14:18:07+00:00">14:18:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>16m or 24m</q></li>
+<li class="message">[<a href="#T14:18:17" id="T14:18:17"><abbr title="2011-03-16T14:18:17+00:00">14:18:17</abbr></a>] &lt;<cite>koen</cite>&gt; <q>there should be a load-modules script in each example dir</q></li>
+<li class="message">[<a href="#T14:19:08" id="T14:19:08"><abbr title="2011-03-16T14:19:08+00:00">14:19:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay I should have looked more carefully at the map</q></li>
+<li class="message">[<a href="#T14:19:12" id="T14:19:12"><abbr title="2011-03-16T14:19:12+00:00">14:19:12</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q> 0x80000000    80 MB   Linux</q></li>
+<li class="nick-change">[<a href="#T14:21:28" id="T14:21:28"><abbr title="2011-03-16T14:21:28+00:00">14:21:28</abbr></a>] <span>* muriani_ is now known as muriani</span></li>
+<li class="quit">[<a href="#T14:22:23" id="T14:22:23"><abbr title="2011-03-16T14:22:23+00:00">14:22:23</abbr></a>] <span>* mrc3 (~ddiaz@189.157.116.139) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="quit">[<a href="#T14:24:41" id="T14:24:41"><abbr title="2011-03-16T14:24:41+00:00">14:24:41</abbr></a>] <span>* bharathwaaj (~bharathwa@117.192.18.184) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T14:24:44" id="T14:24:44"><abbr title="2011-03-16T14:24:44+00:00">14:24:44</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>koen: so, CAM_EN isn't used on any released boards?</q></li>
+<li class="join">[<a href="#T14:25:08" id="T14:25:08"><abbr title="2011-03-16T14:25:08+00:00">14:25:08</abbr></a>] <span>* bharathwaaj (~bharathwa@117.192.18.184) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:25:13" id="T14:25:13"><abbr title="2011-03-16T14:25:13+00:00">14:25:13</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>er, I should say gpio + 2 is *not* CAM_EN on any released boards?</q></li>
+<li class="message">[<a href="#T14:26:10" id="T14:26:10"><abbr title="2011-03-16T14:26:10+00:00">14:26:10</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm</q></li>
+<li class="message">[<a href="#T14:26:16" id="T14:26:16"><abbr title="2011-03-16T14:26:16+00:00">14:26:16</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>cmdline console=ttyS2,115200n8 root=/dev/mmcblk0p2 rw rootdelay=1 80M@0x80000000</q></li>
+<li class="message">[<a href="#T14:26:28" id="T14:26:28"><abbr title="2011-03-16T14:26:28+00:00">14:26:28</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>gives CMEMK Error: CMEM phys_start (0x85000000) overlaps kernel (0x80000000 -&gt; 0x88000000)</q></li>
+<li class="quit">[<a href="#T14:27:53" id="T14:27:53"><abbr title="2011-03-16T14:27:53+00:00">14:27:53</abbr></a>] <span>* katie (~katierh@nat/ti/x-gqzipiyjaltqvfec) Quit ()</span></li>
+<li class="message">[<a href="#T14:28:03" id="T14:28:03"><abbr title="2011-03-16T14:28:03+00:00">14:28:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: mem=</q></li>
+<li class="message">[<a href="#T14:28:46" id="T14:28:46"><abbr title="2011-03-16T14:28:46+00:00">14:28:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mem=80M@0x80000000</q></li>
+<li class="action">[<a href="#T14:29:06" id="T14:29:06"><abbr title="2011-03-16T14:29:06+00:00">14:29:06</abbr></a>] <span>* av500 used to forget the M and wondered why a kernel wont boot with 80bytes only....</span></li>
+<li class="message">[<a href="#T14:29:23" id="T14:29:23"><abbr title="2011-03-16T14:29:23+00:00">14:29:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>args</q></li>
+<li class="message">[<a href="#T14:29:27" id="T14:29:27"><abbr title="2011-03-16T14:29:27+00:00">14:29:27</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*sigh*</q></li>
+<li class="join">[<a href="#T14:29:29" id="T14:29:29"><abbr title="2011-03-16T14:29:29+00:00">14:29:29</abbr></a>] <span>* jeremychang (~jeremy@61.57.131.211) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:29:33" id="T14:29:33"><abbr title="2011-03-16T14:29:33+00:00">14:29:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 lol</q></li>
+<li class="message">[<a href="#T14:31:06" id="T14:31:06"><abbr title="2011-03-16T14:31:06+00:00">14:31:06</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: CAM_EN powers on DVI on xM A/B</q></li>
+<li class="message">[<a href="#T14:31:26" id="T14:31:26"><abbr title="2011-03-16T14:31:26+00:00">14:31:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: and it turns on the camera on the gazillion P7/P8 boards at canonical</q></li>
+<li class="message">[<a href="#T14:32:28" id="T14:32:28"><abbr title="2011-03-16T14:32:28+00:00">14:32:28</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>eek.  so, do we not have a way to detect P7/P8?</q></li>
+<li class="message">[<a href="#T14:32:46" id="T14:32:46"><abbr title="2011-03-16T14:32:46+00:00">14:32:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>point a camera at the label</q></li>
+<li class="message">[<a href="#T14:33:08" id="T14:33:08"><abbr title="2011-03-16T14:33:08+00:00">14:33:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>set CAM_EN high and try to read an image</q></li>
+<li class="message">[<a href="#T14:33:23" id="T14:33:23"><abbr title="2011-03-16T14:33:23+00:00">14:33:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: do we actually care about P7/P8 boards?</q></li>
+<li class="message">[<a href="#T14:33:27" id="T14:33:27"><abbr title="2011-03-16T14:33:27+00:00">14:33:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you read an A or a B something strange has happened</q></li>
+<li class="message">[<a href="#T14:33:35" id="T14:33:35"><abbr title="2011-03-16T14:33:35+00:00">14:33:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>we got zero contribution from canonical out of them</q></li>
+<li class="message">[<a href="#T14:33:44" id="T14:33:44"><abbr title="2011-03-16T14:33:44+00:00">14:33:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what did you expect?</q></li>
+<li class="message">[<a href="#T14:33:59" id="T14:33:59"><abbr title="2011-03-16T14:33:59+00:00">14:33:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>canonical is all about taking, not about giving</q></li>
+<li class="message">[<a href="#T14:34:02" id="T14:34:02"><abbr title="2011-03-16T14:34:02+00:00">14:34:02</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the question is: "what did jkridner expect"</q></li>
+<li class="message">[<a href="#T14:34:14" id="T14:34:14"><abbr title="2011-03-16T14:34:14+00:00">14:34:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>$$</q></li>
+<li class="message">[<a href="#T14:34:46" id="T14:34:46"><abbr title="2011-03-16T14:34:46+00:00">14:34:46</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>well, a lot of people like using Ubuntu....  OE seems to depend on it these days.</q></li>
+<li class="message">[<a href="#T14:34:51" id="T14:34:51"><abbr title="2011-03-16T14:34:51+00:00">14:34:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: the net result was that we didn't have any boards to debug the memory problem since they were all gathering dust at spaceboys office</q></li>
+<li class="message">[<a href="#T14:35:00" id="T14:35:00"><abbr title="2011-03-16T14:35:00+00:00">14:35:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: ???</q></li>
+<li class="message">[<a href="#T14:35:09" id="T14:35:09"><abbr title="2011-03-16T14:35:09+00:00">14:35:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: so net loss</q></li>
+<li class="quit">[<a href="#T14:35:13" id="T14:35:13"><abbr title="2011-03-16T14:35:13+00:00">14:35:13</abbr></a>] <span>* Openfree (~Openfreer@61.170.193.35) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T14:35:14" id="T14:35:14"><abbr title="2011-03-16T14:35:14+00:00">14:35:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I don't run ubuntu and I use OE</q></li>
+<li class="message">[<a href="#T14:35:20" id="T14:35:20"><abbr title="2011-03-16T14:35:20+00:00">14:35:20</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: exactly</q></li>
+<li class="message">[<a href="#T14:35:22" id="T14:35:22"><abbr title="2011-03-16T14:35:22+00:00">14:35:22</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I can never manage to get OE building on my Mac or on Gentoo.</q></li>
+<li class="message">[<a href="#T14:35:35" id="T14:35:35"><abbr title="2011-03-16T14:35:35+00:00">14:35:35</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>koen: what do you use?</q></li>
+<li class="message">[<a href="#T14:35:39" id="T14:35:39"><abbr title="2011-03-16T14:35:39+00:00">14:35:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>debian</q></li>
+<li class="message">[<a href="#T14:35:44" id="T14:35:44"><abbr title="2011-03-16T14:35:44+00:00">14:35:44</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>k.</q></li>
+<li class="message">[<a href="#T14:35:48" id="T14:35:48"><abbr title="2011-03-16T14:35:48+00:00">14:35:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: has the xm xloader been fixed yet btw?</q></li>
+<li class="message">[<abbr title="2011-03-16T14:35:48+00:00">14:35:48</abbr>] &lt;<cite>woglinde</cite>&gt; <q>they build a compile farm</q></li>
+<li class="message">[<a href="#T14:35:53" id="T14:35:53"><abbr title="2011-03-16T14:35:53+00:00">14:35:53</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>for armhf</q></li>
+<li class="message">[<abbr title="2011-03-16T14:35:53+00:00">14:35:53</abbr>] &lt;<cite>woglinde</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T14:36:00" id="T14:36:00"><abbr title="2011-03-16T14:36:00+00:00">14:36:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: with the correct clock</q></li>
+<li class="message">[<a href="#T14:36:08" id="T14:36:08"><abbr title="2011-03-16T14:36:08+00:00">14:36:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: not sure</q></li>
+<li class="message">[<a href="#T14:36:34" id="T14:36:34"><abbr title="2011-03-16T14:36:34+00:00">14:36:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you got my quick hack patch, right?</q></li>
+<li class="message">[<a href="#T14:36:47" id="T14:36:47"><abbr title="2011-03-16T14:36:47+00:00">14:36:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>that was crane, no?</q></li>
+<li class="message">[<a href="#T14:36:52" id="T14:36:52"><abbr title="2011-03-16T14:36:52+00:00">14:36:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I did both</q></li>
+<li class="message">[<a href="#T14:36:54" id="T14:36:54"><abbr title="2011-03-16T14:36:54+00:00">14:36:54</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>koen: is there a particular Debian release?</q></li>
+<li class="message">[<a href="#T14:36:56" id="T14:36:56"><abbr title="2011-03-16T14:36:56+00:00">14:36:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T14:37:16" id="T14:37:16"><abbr title="2011-03-16T14:37:16+00:00">14:37:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: dunno, I installed it years ago and apt-get upgrade/dist upgrade it</q></li>
+<li class="message">[<a href="#T14:37:29" id="T14:37:29"><abbr title="2011-03-16T14:37:29+00:00">14:37:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: here you go, <a href="http://pastie.org/1678784">http://pastie.org/1678784</a></q></li>
+<li class="message">[<a href="#T14:37:34" id="T14:37:34"><abbr title="2011-03-16T14:37:34+00:00">14:37:34</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>k.</q></li>
+<li class="message">[<abbr title="2011-03-16T14:37:34+00:00">14:37:34</abbr>] &lt;<cite>mru</cite>&gt; <q>that's what I'm running on my xm</q></li>
+<li class="message">[<a href="#T14:37:41" id="T14:37:41"><abbr title="2011-03-16T14:37:41+00:00">14:37:41</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>jkridner I am using unstable since over 10 years</q></li>
+<li class="message">[<a href="#T14:37:42" id="T14:37:42"><abbr title="2011-03-16T14:37:42+00:00">14:37:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>200MHz is better than 166...</q></li>
+<li class="message">[<a href="#T14:37:59" id="T14:37:59"><abbr title="2011-03-16T14:37:59+00:00">14:37:59</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>woglinde: debian as well?</q></li>
+<li class="message">[<a href="#T14:38:20" id="T14:38:20"><abbr title="2011-03-16T14:38:20+00:00">14:38:20</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: <a href="http://pastie.org/1678784">http://pastie.org/1678784</a></q></li>
+<li class="message">[<a href="#T14:38:37" id="T14:38:37"><abbr title="2011-03-16T14:38:37+00:00">14:38:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>jkridner yes</q></li>
+<li class="quit">[<abbr title="2011-03-16T14:38:37+00:00">14:38:37</abbr>] <span>* bharathwaaj (~bharathwa@117.192.18.184) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T14:38:39" id="T14:38:39"><abbr title="2011-03-16T14:38:39+00:00">14:38:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jkridner: "unstable" implies debian :)</q></li>
+<li class="message">[<a href="#T14:38:48" id="T14:38:48"><abbr title="2011-03-16T14:38:48+00:00">14:38:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: why do I always have to fix the memory timings myself?</q></li>
+<li class="message">[<a href="#T14:38:52" id="T14:38:52"><abbr title="2011-03-16T14:38:52+00:00">14:38:52</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm woot</q></li>
+<li class="message">[<a href="#T14:38:55" id="T14:38:55"><abbr title="2011-03-16T14:38:55+00:00">14:38:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>now scale works</q></li>
+<li class="message">[<a href="#T14:39:03" id="T14:39:03"><abbr title="2011-03-16T14:39:03+00:00">14:39:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>good</q></li>
+<li class="message">[<a href="#T14:39:04" id="T14:39:04"><abbr title="2011-03-16T14:39:04+00:00">14:39:04</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>from the examples</q></li>
+<li class="join">[<a href="#T14:39:08" id="T14:39:08"><abbr title="2011-03-16T14:39:08+00:00">14:39:08</abbr></a>] <span>* bharathwaaj (~bharathwa@117.192.18.184) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:39:14" id="T14:39:14"><abbr title="2011-03-16T14:39:14+00:00">14:39:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you managed to multiply on the dsp</q></li>
+<li class="message">[<a href="#T14:39:16" id="T14:39:16"><abbr title="2011-03-16T14:39:16+00:00">14:39:16</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and thats under UCLIBC-GIT</q></li>
+<li class="message">[<a href="#T14:39:20" id="T14:39:20"><abbr title="2011-03-16T14:39:20+00:00">14:39:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>that means</q></li>
+<li class="message">[<a href="#T14:39:37" id="T14:39:37"><abbr title="2011-03-16T14:39:37+00:00">14:39:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hoarray my rebuild codec-engine stuff works</q></li>
+<li class="message">[<a href="#T14:39:54" id="T14:39:54"><abbr title="2011-03-16T14:39:54+00:00">14:39:54</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I will send koen my patch to it this evening</q></li>
+<li class="join">[<a href="#T14:40:11" id="T14:40:11"><abbr title="2011-03-16T14:40:11+00:00">14:40:11</abbr></a>] <span>* katie (~katierh@nat/ti/x-ilsfcvtxtpwvvgxq) has joined #beagle</span></li>
+<li class="action">[<a href="#T14:40:16" id="T14:40:16"><abbr title="2011-03-16T14:40:16+00:00">14:40:16</abbr></a>] <span>* jkridner still wishes he was using Gentoo cross rather than OE. :-o</span></li>
+<li class="message">[<a href="#T14:40:32" id="T14:40:32"><abbr title="2011-03-16T14:40:32+00:00">14:40:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T14:40:45" id="T14:40:45"><abbr title="2011-03-16T14:40:45+00:00">14:40:45</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>buildroot?</q></li>
+<li class="message">[<a href="#T14:40:51" id="T14:40:51"><abbr title="2011-03-16T14:40:51+00:00">14:40:51</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>no.</q></li>
+<li class="message">[<a href="#T14:41:01" id="T14:41:01"><abbr title="2011-03-16T14:41:01+00:00">14:41:01</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>the cross-lfs?</q></li>
+<li class="message">[<a href="#T14:41:04" id="T14:41:04"><abbr title="2011-03-16T14:41:04+00:00">14:41:04</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>You just build Gentoo packages using ebuilds.</q></li>
+<li class="message">[<a href="#T14:41:10" id="T14:41:10"><abbr title="2011-03-16T14:41:10+00:00">14:41:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>jkridner: why don't you?</q></li>
+<li class="message">[<a href="#T14:41:30" id="T14:41:30"><abbr title="2011-03-16T14:41:30+00:00">14:41:30</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>koen is much better at managing a distro than I am.</q></li>
+<li class="message">[<a href="#T14:41:35" id="T14:41:35"><abbr title="2011-03-16T14:41:35+00:00">14:41:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I should probably put my gentoo patches online somewhere</q></li>
+<li class="message">[<a href="#T14:41:48" id="T14:41:48"><abbr title="2011-03-16T14:41:48+00:00">14:41:48</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>*much*</q></li>
+<li class="message">[<a href="#T14:42:21" id="T14:42:21"><abbr title="2011-03-16T14:42:21+00:00">14:42:21</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>koen: I'll apply that patch when my kernel build finishes.</q></li>
+<li class="action">[<a href="#T14:42:41" id="T14:42:41"><abbr title="2011-03-16T14:42:41+00:00">14:42:41</abbr></a>] <span>* jkridner kicks self for not doing the right thing and building between every patch applied.</span></li>
+<li class="message">[<a href="#T14:45:53" id="T14:45:53"><abbr title="2011-03-16T14:45:53+00:00">14:45:53</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>koen: Am I done mirroring for a while?  I'm going to shut down the EC2 machine I started up to do the copy.</q></li>
+<li class="message">[<a href="#T14:47:12" id="T14:47:12"><abbr title="2011-03-16T14:47:12+00:00">14:47:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: I'm waiting on you for patches</q></li>
+<li class="message">[<a href="#T14:47:19" id="T14:47:19"><abbr title="2011-03-16T14:47:19+00:00">14:47:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so it's in your hands</q></li>
+<li class="message">[<a href="#T14:47:46" id="T14:47:46"><abbr title="2011-03-16T14:47:46+00:00">14:47:46</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>k.  I'm waiting on the kernel build to test.</q></li>
+<li class="action">[<a href="#T14:48:05" id="T14:48:05"><abbr title="2011-03-16T14:48:05+00:00">14:48:05</abbr></a>] <span>* woglinde watches the gstreamer-to presentation</span></li>
+<li class="message">[<a href="#T14:48:13" id="T14:48:13"><abbr title="2011-03-16T14:48:13+00:00">14:48:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>to what?</q></li>
+<li class="message">[<a href="#T14:48:15" id="T14:48:15"><abbr title="2011-03-16T14:48:15+00:00">14:48:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T14:48:36" id="T14:48:36"><abbr title="2011-03-16T14:48:36+00:00">14:48:36</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>koen: in case you didn't guess the URL: <a href="http://beagleboard-validation.s3.amazonaws.com/sd/validation-GNOME-2.6.32-try1-image-beagleboard-sd-4GiB.img.gz">http://beagleboard-validation.s3.amazonaws.com/sd/validation-GNOME-2.6.32-try1-image-beagleboard-sd-4GiB.img.gz</a></q></li>
+<li class="message">[<a href="#T14:49:38" id="T14:49:38"><abbr title="2011-03-16T14:49:38+00:00">14:49:38</abbr></a>] &lt;<cite>mIKEjONES</cite>&gt; <q>tell me what you want what you really really want</q></li>
+<li class="quit">[<abbr title="2011-03-16T14:49:38+00:00">14:49:38</abbr>] <span>* bharathwaaj (~bharathwa@117.192.18.184) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T14:50:09" id="T14:50:09"><abbr title="2011-03-16T14:50:09+00:00">14:50:09</abbr></a>] <span>* bharathwaaj (~bharathwa@117.192.18.184) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:50:58" id="T14:50:58"><abbr title="2011-03-16T14:50:58+00:00">14:50:58</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 understanding the process</q></li>
+<li class="message">[<a href="#T14:51:25" id="T14:51:25"><abbr title="2011-03-16T14:51:25+00:00">14:51:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay dmai sits on top of codec-engine</q></li>
+<li class="quit">[<a href="#T14:52:23" id="T14:52:23"><abbr title="2011-03-16T14:52:23+00:00">14:52:23</abbr></a>] <span>* torez (~torez@linaro/torez) Quit (Read error: Operation timed out)</span></li>
+<li class="join">[<a href="#T14:52:25" id="T14:52:25"><abbr title="2011-03-16T14:52:25+00:00">14:52:25</abbr></a>] <span>* peabody124 (~peabody12@c-98-196-22-185.hsd1.tx.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:52:41" id="T14:52:41"><abbr title="2011-03-16T14:52:41+00:00">14:52:41</abbr></a>] <span>* Stefan___ (d53d6c14@gateway/web/freenode/ip.213.61.108.20) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:53:23" id="T14:53:23"><abbr title="2011-03-16T14:53:23+00:00">14:53:23</abbr></a>] <span>* emeb (~ericb@ip72-223-94-110.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:53:46" id="T14:53:46"><abbr title="2011-03-16T14:53:46+00:00">14:53:46</abbr></a>] <span>* siji (~siji@122.179.131.53) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T14:54:00" id="T14:54:00"><abbr title="2011-03-16T14:54:00+00:00">14:54:00</abbr></a>] &lt;<cite>Stefan___</cite>&gt; <q>hi guys</q></li>
+<li class="message">[<a href="#T14:54:05" id="T14:54:05"><abbr title="2011-03-16T14:54:05+00:00">14:54:05</abbr></a>] &lt;<cite>Stefan___</cite>&gt; <q>and gals</q></li>
+<li class="message">[<a href="#T14:54:17" id="T14:54:17"><abbr title="2011-03-16T14:54:17+00:00">14:54:17</abbr></a>] &lt;<cite>ynezz</cite>&gt; <q>&lt;- bot</q></li>
+<li class="message">[<a href="#T14:55:15" id="T14:55:15"><abbr title="2011-03-16T14:55:15+00:00">14:55:15</abbr></a>] &lt;<cite>Stefan___</cite>&gt; <q>does somebody know where i can find a working kernel for my beagleboard xm? i tried both the Meego kernel and the Beagleboard-launchpad kernel and both stop after "Uncompressing Linux... done, booting the kernel."</q></li>
+<li class="message">[<a href="#T14:55:32" id="T14:55:32"><abbr title="2011-03-16T14:55:32+00:00">14:55:32</abbr></a>] &lt;<cite>Stefan___</cite>&gt; <q>or does anybody know whats the problem there?</q></li>
+<li class="message">[<a href="#T14:55:55" id="T14:55:55"><abbr title="2011-03-16T14:55:55+00:00">14:55:55</abbr></a>] &lt;<cite>ynezz</cite>&gt; <q>maybe that famous ttyS -&gt; ttyO change?</q></li>
+<li class="message">[<a href="#T14:56:50" id="T14:56:50"><abbr title="2011-03-16T14:56:50+00:00">14:56:50</abbr></a>] &lt;<cite>Stefan___</cite>&gt; <q>console is at =ttyS2</q></li>
+<li class="message">[<a href="#T14:57:01" id="T14:57:01"><abbr title="2011-03-16T14:57:01+00:00">14:57:01</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>try O2</q></li>
+<li class="message">[<a href="#T14:57:05" id="T14:57:05"><abbr title="2011-03-16T14:57:05+00:00">14:57:05</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ttyO2</q></li>
+<li class="quit">[<a href="#T14:57:13" id="T14:57:13"><abbr title="2011-03-16T14:57:13+00:00">14:57:13</abbr></a>] <span>* l4 (~marius@88.119.128.50) Quit (Quit: leaving)</span></li>
+<li class="message">[<a href="#T14:58:17" id="T14:58:17"><abbr title="2011-03-16T14:58:17+00:00">14:58:17</abbr></a>] &lt;<cite>koen</cite>&gt; <q>heh, trying meego and ubuntu</q></li>
+<li class="message">[<a href="#T14:58:25" id="T14:58:25"><abbr title="2011-03-16T14:58:25+00:00">14:58:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>recipe for failure</q></li>
+<li class="message">[<a href="#T14:58:41" id="T14:58:41"><abbr title="2011-03-16T14:58:41+00:00">14:58:41</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>they didnt understand xloader and u-boot</q></li>
+<li class="quit">[<a href="#T14:59:06" id="T14:59:06"><abbr title="2011-03-16T14:59:06+00:00">14:59:06</abbr></a>] <span>* dl9pf_ (~quassel@p5B214313.dip.t-dialin.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T14:59:08" id="T14:59:08"><abbr title="2011-03-16T14:59:08+00:00">14:59:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ot stefan didnt read the meego site</q></li>
