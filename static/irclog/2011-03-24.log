@@ -225,3 +225,139 @@
 <li class="message">[<a href="#T09:58:07" id="T09:58:07"><abbr title="2011-03-24T09:58:07+00:00">09:58:07</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>aaah. the poweroff command seems to be better than shutdown for me.</q></li>
 <li class="join">[<a href="#T09:59:19" id="T09:59:19"><abbr title="2011-03-24T09:59:19+00:00">09:59:19</abbr></a>] <span>* chrisw957 (~chris@mail.tacticalelectronics.com) has joined #beagle</span></li>
 <li class="join">[<a href="#T09:59:25" id="T09:59:25"><abbr title="2011-03-24T09:59:25+00:00">09:59:25</abbr></a>] <span>* bradfa (~andrew@cpe-69-207-136-79.rochester.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:06:38" id="T10:06:38"><abbr title="2011-03-24T10:06:38+00:00">10:06:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm whats ti-ipc doing</q></li>
+<li class="join">[<a href="#T10:07:28" id="T10:07:28"><abbr title="2011-03-24T10:07:28+00:00">10:07:28</abbr></a>] <span>* mrc3 (~ddiaz@189.157.106.199) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:07:51" id="T10:07:51"><abbr title="2011-03-24T10:07:51+00:00">10:07:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>woglinde: abstract IPC between cores</q></li>
+<li class="message">[<a href="#T10:08:03" id="T10:08:03"><abbr title="2011-03-24T10:08:03+00:00">10:08:03</abbr></a>] &lt;<cite>koen</cite>&gt; <q>woglinde: e.g. a9, m3 and c67x</q></li>
+<li class="message">[<a href="#T10:08:51" id="T10:08:51"><abbr title="2011-03-24T10:08:51+00:00">10:08:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>syslink is a bit more "modular" than dsplink</q></li>
+<li class="message">[<a href="#T10:09:02" id="T10:09:02"><abbr title="2011-03-24T10:09:02+00:00">10:09:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T10:09:09" id="T10:09:09"><abbr title="2011-03-24T10:09:09+00:00">10:09:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>although I haven't understood why various things were split out</q></li>
+<li class="message">[<abbr title="2011-03-24T10:09:09+00:00">10:09:09</abbr>] &lt;<cite>woglinde</cite>&gt; <q>yeah I see the benefit</q></li>
+<li class="message">[<a href="#T10:09:48" id="T10:09:48"><abbr title="2011-03-24T10:09:48+00:00">10:09:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm for dsplink it was cmem?</q></li>
+<li class="message">[<a href="#T10:10:05" id="T10:10:05"><abbr title="2011-03-24T10:10:05+00:00">10:10:05</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>btw. a8 and c67</q></li>
+<li class="message">[<a href="#T10:10:08" id="T10:10:08"><abbr title="2011-03-24T10:10:08+00:00">10:10:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T10:10:11" id="T10:10:11"><abbr title="2011-03-24T10:10:11+00:00">10:10:11</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm</q></li>
+<li class="message">[<a href="#T10:10:19" id="T10:10:19"><abbr title="2011-03-24T10:10:19+00:00">10:10:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>for dsplink it was IPC*</q></li>
+<li class="message">[<a href="#T10:10:38" id="T10:10:38"><abbr title="2011-03-24T10:10:38+00:00">10:10:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cmem is CE, not dsplink</q></li>
+<li class="message">[<a href="#T10:10:48" id="T10:10:48"><abbr title="2011-03-24T10:10:48+00:00">10:10:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>take dsplink, slice it up and you get syslink + bits</q></li>
+<li class="message">[<a href="#T10:10:52" id="T10:10:52"><abbr title="2011-03-24T10:10:52+00:00">10:10:52</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ipc is one of those bits</q></li>
+<li class="message">[<a href="#T10:10:57" id="T10:10:57"><abbr title="2011-03-24T10:10:57+00:00">10:10:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you dont need cmem to use dsplink</q></li>
+<li class="message">[<a href="#T10:11:00" id="T10:11:00"><abbr title="2011-03-24T10:11:00+00:00">10:11:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but you need it for CE</q></li>
+<li class="message">[<a href="#T10:11:17" id="T10:11:17"><abbr title="2011-03-24T10:11:17+00:00">10:11:17</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm so cmem sits on top of ipc?</q></li>
+<li class="message">[<a href="#T10:11:25" id="T10:11:25"><abbr title="2011-03-24T10:11:25+00:00">10:11:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T10:11:28" id="T10:11:28"><abbr title="2011-03-24T10:11:28+00:00">10:11:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well</q></li>
+<li class="message">[<a href="#T10:11:29" id="T10:11:29"><abbr title="2011-03-24T10:11:29+00:00">10:11:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>args</q></li>
+<li class="message">[<a href="#T10:11:44" id="T10:11:44"><abbr title="2011-03-24T10:11:44+00:00">10:11:44</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>dman</q></li>
+<li class="message">[<a href="#T10:11:47" id="T10:11:47"><abbr title="2011-03-24T10:11:47+00:00">10:11:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>cmem is just a hack to get linux to allocate a contiguous region</q></li>
+<li class="message">[<a href="#T10:11:48" id="T10:11:48"><abbr title="2011-03-24T10:11:48+00:00">10:11:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I am not awake</q></li>
+<li class="message">[<a href="#T10:12:08" id="T10:12:08"><abbr title="2011-03-24T10:12:08+00:00">10:12:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay understand it now</q></li>
+<li class="quit">[<a href="#T10:13:47" id="T10:13:47"><abbr title="2011-03-24T10:13:47+00:00">10:13:47</abbr></a>] <span>* mrc3 (~ddiaz@189.157.106.199) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="quit">[<a href="#T10:14:03" id="T10:14:03"><abbr title="2011-03-24T10:14:03+00:00">10:14:03</abbr></a>] <span>* courville (~courville@archos.rain.fr) Quit (Quit: leaving)</span></li>
+<li class="join">[<a href="#T10:14:10" id="T10:14:10"><abbr title="2011-03-24T10:14:10+00:00">10:14:10</abbr></a>] <span>* courville (~courville@archos.rain.fr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:18:08" id="T10:18:08"><abbr title="2011-03-24T10:18:08+00:00">10:18:08</abbr></a>] <span>* courville (~courville@archos.rain.fr) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T10:20:12" id="T10:20:12"><abbr title="2011-03-24T10:20:12+00:00">10:20:12</abbr></a>] <span>* NotTooDumb3 (~vayavya@122.166.13.141) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:20:37" id="T10:20:37"><abbr title="2011-03-24T10:20:37+00:00">10:20:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>there he is again</q></li>
+<li class="message">[<a href="#T10:22:24" id="T10:22:24"><abbr title="2011-03-24T10:22:24+00:00">10:22:24</abbr></a>] &lt;<cite>corza</cite>&gt; <q>is there a reason that there is low stock for the xm board, is there a refresh imminent?</q></li>
+<li class="message">[<a href="#T10:22:34" id="T10:22:34"><abbr title="2011-03-24T10:22:34+00:00">10:22:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T10:22:47" id="T10:22:47"><abbr title="2011-03-24T10:22:47+00:00">10:22:47</abbr></a>] &lt;<cite>corza</cite>&gt; <q>just low stocks, just cause they can i guess :P</q></li>
+<li class="message">[<a href="#T10:23:03" id="T10:23:03"><abbr title="2011-03-24T10:23:03+00:00">10:23:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>why do you need more than 1 in stock?</q></li>
+<li class="message">[<a href="#T10:23:28" id="T10:23:28"><abbr title="2011-03-24T10:23:28+00:00">10:23:28</abbr></a>] &lt;<cite>corza</cite>&gt; <q>well it'd be nice if there was &gt;0 stock</q></li>
+<li class="message">[<a href="#T10:23:57" id="T10:23:57"><abbr title="2011-03-24T10:23:57+00:00">10:23:57</abbr></a>] &lt;<cite>corza</cite>&gt; <q>i know that the figures are not always accurate, just was wondering.</q></li>
+<li class="message">[<a href="#T10:25:16" id="T10:25:16"><abbr title="2011-03-24T10:25:16+00:00">10:25:16</abbr></a>] &lt;<cite>corza</cite>&gt; <q>any suggestions on which supplier i should go for to get it asap?</q></li>
+<li class="join">[<a href="#T10:25:59" id="T10:25:59"><abbr title="2011-03-24T10:25:59+00:00">10:25:59</abbr></a>] <span>* mrc3 (~ddiaz@189.157.112.32) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:27:19" id="T10:27:19"><abbr title="2011-03-24T10:27:19+00:00">10:27:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>digikey is a good choice</q></li>
+<li class="message">[<a href="#T10:28:12" id="T10:28:12"><abbr title="2011-03-24T10:28:12+00:00">10:28:12</abbr></a>] &lt;<cite>corza</cite>&gt; <q>yeah... i was going to get it from there... they have an est ship date of 28/04/11...</q></li>
+<li class="message">[<a href="#T10:28:34" id="T10:28:34"><abbr title="2011-03-24T10:28:34+00:00">10:28:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>afaik they get shipments every weel</q></li>
+<li class="message">[<a href="#T10:28:37" id="T10:28:37"><abbr title="2011-03-24T10:28:37+00:00">10:28:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>week</q></li>
+<li class="quit">[<a href="#T10:29:27" id="T10:29:27"><abbr title="2011-03-24T10:29:27+00:00">10:29:27</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) Quit (Quit: Up and at 'em, Atom Ant!)</span></li>
+<li class="message">[<a href="#T10:29:35" id="T10:29:35"><abbr title="2011-03-24T10:29:35+00:00">10:29:35</abbr></a>] &lt;<cite>corza</cite>&gt; <q>hmm. i might have to give them a call.</q></li>
+<li class="quit">[<a href="#T10:30:36" id="T10:30:36"><abbr title="2011-03-24T10:30:36+00:00">10:30:36</abbr></a>] <span>* Viktator (~victor@dhcp-197-172.nomad.chalmers.se) Quit (Read error: No route to host)</span></li>
+<li class="quit">[<a href="#T10:30:37" id="T10:30:37"><abbr title="2011-03-24T10:30:37+00:00">10:30:37</abbr></a>] <span>* Daniel (~daniel@dhcp-197-172.nomad.chalmers.se) Quit (Read error: No route to host)</span></li>
+<li class="join">[<a href="#T10:34:17" id="T10:34:17"><abbr title="2011-03-24T10:34:17+00:00">10:34:17</abbr></a>] <span>* pbansal (~PBansal@nat/ti/x-frbcbmxrnuchwgpd) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:35:17" id="T10:35:17"><abbr title="2011-03-24T10:35:17+00:00">10:35:17</abbr></a>] &lt;<cite>corza</cite>&gt; <q>what are your thoughts on pandaboard? is it blasphemy? slash seems fairly new/unsupported.</q></li>
+<li class="message">[<a href="#T10:35:25" id="T10:35:25"><abbr title="2011-03-24T10:35:25+00:00">10:35:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T10:35:27" id="T10:35:27"><abbr title="2011-03-24T10:35:27+00:00">10:35:27</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T10:35:31" id="T10:35:31"><abbr title="2011-03-24T10:35:31+00:00">10:35:31</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>same vendor</q></li>
+<li class="message">[<a href="#T10:36:06" id="T10:36:06"><abbr title="2011-03-24T10:36:06+00:00">10:36:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>where do you get the clue its unsupported?</q></li>
+<li class="message">[<a href="#T10:36:27" id="T10:36:27"><abbr title="2011-03-24T10:36:27+00:00">10:36:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: maybe because it's a TI chip on it :)</q></li>
+<li class="message">[<a href="#T10:36:45" id="T10:36:45"><abbr title="2011-03-24T10:36:45+00:00">10:36:45</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 so the beagle must be unsupported too</q></li>
+<li class="message">[<a href="#T10:37:24" id="T10:37:24"><abbr title="2011-03-24T10:37:24+00:00">10:37:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>we managed to somewhat de-unsupport it</q></li>
+<li class="message">[<a href="#T10:38:02" id="T10:38:02"><abbr title="2011-03-24T10:38:02+00:00">10:38:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>the panda?</q></li>
+<li class="message">[<a href="#T10:38:10" id="T10:38:10"><abbr title="2011-03-24T10:38:10+00:00">10:38:10</abbr></a>] &lt;<cite>corza</cite>&gt; <q>oh...</q></li>
+<li class="message">[<a href="#T10:38:17" id="T10:38:17"><abbr title="2011-03-24T10:38:17+00:00">10:38:17</abbr></a>] &lt;<cite>corza</cite>&gt; <q>well not unsupported...</q></li>
+<li class="message">[<a href="#T10:38:20" id="T10:38:20"><abbr title="2011-03-24T10:38:20+00:00">10:38:20</abbr></a>] &lt;<cite>corza</cite>&gt; <q>but just not a lot of support.</q></li>
+<li class="quit">[<a href="#T10:38:47" id="T10:38:47"><abbr title="2011-03-24T10:38:47+00:00">10:38:47</abbr></a>] <span>* Openfree` (~Openfreer@116.228.88.131) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T10:38:49" id="T10:38:49"><abbr title="2011-03-24T10:38:49+00:00">10:38:49</abbr></a>] &lt;<cite>corza</cite>&gt; <q>guess by the factor of less users = less support</q></li>
+<li class="message">[<a href="#T10:38:51" id="T10:38:51"><abbr title="2011-03-24T10:38:51+00:00">10:38:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but there is ubuntu support for it</q></li>
+<li class="message">[<a href="#T10:38:57" id="T10:38:57"><abbr title="2011-03-24T10:38:57+00:00">10:38:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and one day, linux will be supported too</q></li>
+<li class="quit">[<a href="#T10:39:01" id="T10:39:01"><abbr title="2011-03-24T10:39:01+00:00">10:39:01</abbr></a>] <span>* pbansal (~PBansal@nat/ti/x-frbcbmxrnuchwgpd) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T10:39:07" id="T10:39:07"><abbr title="2011-03-24T10:39:07+00:00">10:39:07</abbr></a>] &lt;<cite>corza</cite>&gt; <q>lulz</q></li>
+<li class="join">[<a href="#T10:39:25" id="T10:39:25"><abbr title="2011-03-24T10:39:25+00:00">10:39:25</abbr></a>] <span>* Openfree` (~Openfreer@116.228.88.131) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:39:38" id="T10:39:38"><abbr title="2011-03-24T10:39:38+00:00">10:39:38</abbr></a>] &lt;<cite>corza</cite>&gt; <q>well, for what i'm going to be using the beagleboard for</q></li>
+<li class="message">[<a href="#T10:39:44" id="T10:39:44"><abbr title="2011-03-24T10:39:44+00:00">10:39:44</abbr></a>] &lt;<cite>corza</cite>&gt; <q>i want to take advantage of the C64x</q></li>
+<li class="message">[<a href="#T10:40:02" id="T10:40:02"><abbr title="2011-03-24T10:40:02+00:00">10:40:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you can programm the c64x?</q></li>
+<li class="message">[<a href="#T10:40:29" id="T10:40:29"><abbr title="2011-03-24T10:40:29+00:00">10:40:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>corza: there is a C32x on the panda too :)</q></li>
+<li class="message">[<a href="#T10:42:11" id="T10:42:11"><abbr title="2011-03-24T10:42:11+00:00">10:42:11</abbr></a>] &lt;<cite>corza</cite>&gt; <q>does it have an equivalent of IMGLIB on the OMAP4 platform, i've been searching for it, couldn't find one.</q></li>
+<li class="message">[<a href="#T10:42:43" id="T10:42:43"><abbr title="2011-03-24T10:42:43+00:00">10:42:43</abbr></a>] &lt;<cite>corza</cite>&gt; <q>i read somewhere that it has about half of the algorithms on the OMAP4</q></li>
+<li class="message">[<a href="#T10:42:53" id="T10:42:53"><abbr title="2011-03-24T10:42:53+00:00">10:42:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it has half the arithmetic units</q></li>
+<li class="message">[<a href="#T10:42:59" id="T10:42:59"><abbr title="2011-03-24T10:42:59+00:00">10:42:59</abbr></a>] &lt;<cite>corza</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T10:43:03" id="T10:43:03"><abbr title="2011-03-24T10:43:03+00:00">10:43:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so it does half the math ops/cacly</q></li>
+<li class="message">[<a href="#T10:43:05" id="T10:43:05"><abbr title="2011-03-24T10:43:05+00:00">10:43:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cylce</q></li>
+<li class="message">[<a href="#T10:44:08" id="T10:44:08"><abbr title="2011-03-24T10:44:08+00:00">10:44:08</abbr></a>] &lt;<cite>corza</cite>&gt; <q>right. so the library would run on it then?</q></li>
+<li class="message">[<a href="#T10:44:33" id="T10:44:33"><abbr title="2011-03-24T10:44:33+00:00">10:44:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i dont think so</q></li>
+<li class="message">[<a href="#T10:44:42" id="T10:44:42"><abbr title="2011-03-24T10:44:42+00:00">10:44:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>they are not binary compatible</q></li>
+<li class="message">[<a href="#T10:44:47" id="T10:44:47"><abbr title="2011-03-24T10:44:47+00:00">10:44:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it would need to be recompiled</q></li>
+<li class="message">[<a href="#T10:45:13" id="T10:45:13"><abbr title="2011-03-24T10:45:13+00:00">10:45:13</abbr></a>] &lt;<cite>corza</cite>&gt; <q>yeah i thought as much.</q></li>
+<li class="message">[<a href="#T10:45:19" id="T10:45:19"><abbr title="2011-03-24T10:45:19+00:00">10:45:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>they are src code compatible but of course hand optimized code needs to be redone</q></li>
+<li class="message">[<a href="#T10:46:20" id="T10:46:20"><abbr title="2011-03-24T10:46:20+00:00">10:46:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm whats the imglib doing?</q></li>
+<li class="message">[<a href="#T10:46:21" id="T10:46:21"><abbr title="2011-03-24T10:46:21+00:00">10:46:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>av500: more like c16</q></li>
+<li class="message">[<a href="#T10:46:33" id="T10:46:33"><abbr title="2011-03-24T10:46:33+00:00">10:46:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>half the execution engines and half the MHz</q></li>
+<li class="message">[<a href="#T10:46:55" id="T10:46:55"><abbr title="2011-03-24T10:46:55+00:00">10:46:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: image stuff</q></li>
+<li class="message">[<a href="#T10:47:01" id="T10:47:01"><abbr title="2011-03-24T10:47:01+00:00">10:47:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen:ah right</q></li>
+<li class="message">[<a href="#T10:47:07" id="T10:47:07"><abbr title="2011-03-24T10:47:07+00:00">10:47:07</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 same as opencv-dsp?</q></li>
+<li class="message">[<a href="#T10:47:16" id="T10:47:16"><abbr title="2011-03-24T10:47:16+00:00">10:47:16</abbr></a>] &lt;<cite>corza</cite>&gt; <q>imglib is a C/C++ library for the C64x </q></li>
+<li class="message">[<a href="#T10:47:20" id="T10:47:20"><abbr title="2011-03-24T10:47:20+00:00">10:47:20</abbr></a>] &lt;<cite>corza</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T10:47:23" id="T10:47:23"><abbr title="2011-03-24T10:47:23+00:00">10:47:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or is it using imlib un the end</q></li>
+<li class="join">[<a href="#T10:47:27" id="T10:47:27"><abbr title="2011-03-24T10:47:27+00:00">10:47:27</abbr></a>] <span>* whatnick (76d0d62c@gateway/web/freenode/ip.118.208.214.44) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:47:32" id="T10:47:32"><abbr title="2011-03-24T10:47:32+00:00">10:47:32</abbr></a>] &lt;<cite>corza</cite>&gt; <q>imglib is provided by TI</q></li>
+<li class="message">[<a href="#T10:47:47" id="T10:47:47"><abbr title="2011-03-24T10:47:47+00:00">10:47:47</abbr></a>] &lt;<cite>whatnick</cite>&gt; <q>hi guys i recently got a tincantools trainer XM</q></li>
+<li class="message">[<a href="#T10:47:51" id="T10:47:51"><abbr title="2011-03-24T10:47:51+00:00">10:47:51</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>corza there is a lot stuff provided from ti</q></li>
+<li class="quit">[<a href="#T10:47:55" id="T10:47:55"><abbr title="2011-03-24T10:47:55+00:00">10:47:55</abbr></a>] <span>* vadmium (~vadmium@168.65.233.220.static.exetel.com.au) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="message">[<a href="#T10:48:03" id="T10:48:03"><abbr title="2011-03-24T10:48:03+00:00">10:48:03</abbr></a>] &lt;<cite>whatnick</cite>&gt; <q>just checking if it comes with arduino bootloader preburnt</q></li>
+<li class="message">[<a href="#T10:48:09" id="T10:48:09"><abbr title="2011-03-24T10:48:09+00:00">10:48:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>whatnick: it should</q></li>
+<li class="message">[<abbr title="2011-03-24T10:48:09+00:00">10:48:09</abbr>] &lt;<cite>woglinde</cite>&gt; <q>koen btw. any news about my codec patches?</q></li>
+<li class="message">[<a href="#T10:48:11" id="T10:48:11"><abbr title="2011-03-24T10:48:11+00:00">10:48:11</abbr></a>] &lt;<cite>whatnick</cite>&gt; <q>if not i will get the ISP</q></li>
+<li class="message">[<a href="#T10:48:16" id="T10:48:16"><abbr title="2011-03-24T10:48:16+00:00">10:48:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>woglinde: no, sorry :(</q></li>
+<li class="message">[<a href="#T10:48:36" id="T10:48:36"><abbr title="2011-03-24T10:48:36+00:00">10:48:36</abbr></a>] &lt;<cite>corza</cite>&gt; <q>opencv-dsp isn't, which is what i was referring to</q></li>
+<li class="message">[<a href="#T10:48:54" id="T10:48:54"><abbr title="2011-03-24T10:48:54+00:00">10:48:54</abbr></a>] &lt;<cite>whatnick</cite>&gt; <q>hmm where can i traxk down the basic blink.hex precompiled</q></li>
+<li class="message">[<a href="#T10:48:55" id="T10:48:55"><abbr title="2011-03-24T10:48:55+00:00">10:48:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you want to use c6accel if you go the opencv route</q></li>
+<li class="join">[<a href="#T10:49:04" id="T10:49:04"><abbr title="2011-03-24T10:49:04+00:00">10:49:04</abbr></a>] <span>* dl9pf__ (~quassel@p5B2146A7.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:49:11" id="T10:49:11"><abbr title="2011-03-24T10:49:11+00:00">10:49:11</abbr></a>] &lt;<cite>whatnick</cite>&gt; <q>my arduino ide on the main pc refuses to spit out a .hec</q></li>
+<li class="message">[<a href="#T10:49:13" id="T10:49:13"><abbr title="2011-03-24T10:49:13+00:00">10:49:13</abbr></a>] &lt;<cite>whatnick</cite>&gt; <q>*.hex</q></li>
+<li class="message">[<a href="#T10:49:20" id="T10:49:20"><abbr title="2011-03-24T10:49:20+00:00">10:49:20</abbr></a>] &lt;<cite>whatnick</cite>&gt; <q>i would really love if it did</q></li>
+<li class="quit">[<a href="#T10:49:50" id="T10:49:50"><abbr title="2011-03-24T10:49:50+00:00">10:49:50</abbr></a>] <span>* dl9pf (~quassel@opensuse/member/dl9pf) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="quit">[<a href="#T10:50:17" id="T10:50:17"><abbr title="2011-03-24T10:50:17+00:00">10:50:17</abbr></a>] <span>* Openfree^ (~Openfree`@116.228.88.131) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T10:50:29" id="T10:50:29"><abbr title="2011-03-24T10:50:29+00:00">10:50:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm .38 in debian now</q></li>
+<li class="message">[<a href="#T10:50:36" id="T10:50:36"><abbr title="2011-03-24T10:50:36+00:00">10:50:36</abbr></a>] &lt;<cite>corza</cite>&gt; <q>i was planning to use a combination of opencv stuff with imglib</q></li>
+<li class="message">[<a href="#T10:50:40" id="T10:50:40"><abbr title="2011-03-24T10:50:40+00:00">10:50:40</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>thats a bit faster than the 32 -&gt; 37</q></li>
+<li class="message">[<a href="#T10:50:59" id="T10:50:59"><abbr title="2011-03-24T10:50:59+00:00">10:50:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>corza why not use opencv-dsp?</q></li>
+<li class="message">[<a href="#T10:51:32" id="T10:51:32"><abbr title="2011-03-24T10:51:32+00:00">10:51:32</abbr></a>] &lt;<cite>corza</cite>&gt; <q>woglinde: from what i've read the performance increases aren't so great from that project, and it seemed to have died a few years ago.</q></li>
+<li class="message">[<a href="#T10:51:45" id="T10:51:45"><abbr title="2011-03-24T10:51:45+00:00">10:51:45</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>who the hell wants meego in settopboxes and tv's</q></li>
+<li class="message">[<a href="#T10:51:47" id="T10:51:47"><abbr title="2011-03-24T10:51:47+00:00">10:51:47</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I am not</q></li>
+<li class="message">[<a href="#T10:52:19" id="T10:52:19"><abbr title="2011-03-24T10:52:19+00:00">10:52:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>died?</q></li>
+<li class="message">[<a href="#T10:52:26" id="T10:52:26"><abbr title="2011-03-24T10:52:26+00:00">10:52:26</abbr></a>] &lt;<cite>corza</cite>&gt; <q>last updated in 2007?</q></li>
+<li class="message">[<a href="#T10:52:29" id="T10:52:29"><abbr title="2011-03-24T10:52:29+00:00">10:52:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>the gsoc for it was last year</q></li>
+<li class="message">[<a href="#T10:52:49" id="T10:52:49"><abbr title="2011-03-24T10:52:49+00:00">10:52:49</abbr></a>] &lt;<cite>corza</cite>&gt; <q>maybe i'm not looking at the same one</q></li>
+<li class="message">[<a href="#T10:53:00" id="T10:53:00"><abbr title="2011-03-24T10:53:00+00:00">10:53:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you are looking at some old stuff</q></li>
+<li class="message">[<a href="#T10:53:10" id="T10:53:10"><abbr title="2011-03-24T10:53:10+00:00">10:53:10</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>opkg update</q></li>
+<li class="message">[<a href="#T10:53:17" id="T10:53:17"><abbr title="2011-03-24T10:53:17+00:00">10:53:17</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>opkg list | grep opencv</q></li>
+<li class="message">[<a href="#T10:54:11" id="T10:54:11"><abbr title="2011-03-24T10:54:11+00:00">10:54:11</abbr></a>] &lt;<cite>corza</cite>&gt; <q>ok i'm relooking at this now; i don't know why i thought it was 2007, must've been confusing it with something else.</q></li>
+<li class="message">[<a href="#T10:56:55" id="T10:56:55"><abbr title="2011-03-24T10:56:55+00:00">10:56:55</abbr></a>] &lt;<cite>corza</cite>&gt; <q>also rereading the benchmarks... i only skimmed it last time... but it doesn't specify what units the performance increases are in, is it seconds?</q></li>
+<li class="message">[<a href="#T10:57:11" id="T10:57:11"><abbr title="2011-03-24T10:57:11+00:00">10:57:11</abbr></a>] &lt;<cite>corza</cite>&gt; <q>no it's useconds</q></li>
+<li class="message">[<a href="#T10:57:22" id="T10:57:22"><abbr title="2011-03-24T10:57:22+00:00">10:57:22</abbr></a>] &lt;<cite>corza</cite>&gt; <q>my bad. should look at the formula lol</q></li>
+<li class="message">[<a href="#T10:58:03" id="T10:58:03"><abbr title="2011-03-24T10:58:03+00:00">10:58:03</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>just try it</q></li>
+<li class="message">[<a href="#T10:58:23" id="T10:58:23"><abbr title="2011-03-24T10:58:23+00:00">10:58:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>dont know what you need it for</q></li>
+<li class="message">[<a href="#T10:59:23" id="T10:59:23"><abbr title="2011-03-24T10:59:23+00:00">10:59:23</abbr></a>] &lt;<cite>corza</cite>&gt; <q>well. from what i can tell from the benchmarks is that, the processing time is actually greater using DSP in some cases with opencv-dsp</q></li>
+<li class="message">[<a href="#T10:59:48" id="T10:59:48"><abbr title="2011-03-24T10:59:48+00:00">10:59:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>which is not a surprise</q></li>
+<li class="message">[<a href="#T11:00:01" id="T11:00:01"><abbr title="2011-03-24T11:00:01+00:00">11:00:01</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>yeah captain obvoius</q></li>
+<li class="message">[<abbr title="2011-03-24T11:00:01+00:00">11:00:01</abbr>] &lt;<cite>corza</cite>&gt; <q>av500: go on.</q></li>
