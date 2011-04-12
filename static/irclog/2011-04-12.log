@@ -154,3 +154,47 @@
 <li class="join">[<a href="#T09:58:18" id="T09:58:18"><abbr title="2011-04-12T09:58:18+00:00">09:58:18</abbr></a>] <span>* CMoH-notebook (~cipi@95.76.68.223) has joined #beagle</span></li>
 <li class="quit">[<abbr title="2011-04-12T09:58:18+00:00">09:58:18</abbr>] <span>* CMoH-notebook (~cipi@95.76.68.223) Quit (Changing host)</span></li>
 <li class="join">[<abbr title="2011-04-12T09:58:18+00:00">09:58:18</abbr>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:05:20" id="T10:05:20"><abbr title="2011-04-12T10:05:20+00:00">10:05:20</abbr></a>] <span>* raster (raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
+<li class="join">[<a href="#T10:07:57" id="T10:07:57"><abbr title="2011-04-12T10:07:57+00:00">10:07:57</abbr></a>] <span>* Ragnar (~quassel@157.159.45.79) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:07:58" id="T10:07:58"><abbr title="2011-04-12T10:07:58+00:00">10:07:58</abbr></a>] <span>* C-o-r-E (~nash@modemcable142.30-178-173.mc.videotron.ca) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T10:08:40" id="T10:08:40"><abbr title="2011-04-12T10:08:40+00:00">10:08:40</abbr></a>] <span>* C-o-r-E (~nash@modemcable142.30-178-173.mc.videotron.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:10:22" id="T10:10:22"><abbr title="2011-04-12T10:10:22+00:00">10:10:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>kapu: why dont you work on finding out what kind of abort happens?</q></li>
+<li class="message">[<a href="#T10:13:05" id="T10:13:05"><abbr title="2011-04-12T10:13:05+00:00">10:13:05</abbr></a>] &lt;<cite>kapu</cite>&gt; <q>maybe I should</q></li>
+<li class="message">[<a href="#T10:13:54" id="T10:13:54"><abbr title="2011-04-12T10:13:54+00:00">10:13:54</abbr></a>] &lt;<cite>kapu</cite>&gt; <q>all I know, data abort vector is called and boot process "hangs" there</q></li>
+<li class="message">[<a href="#T10:14:40" id="T10:14:40"><abbr title="2011-04-12T10:14:40+00:00">10:14:40</abbr></a>] &lt;<cite>kapu</cite>&gt; <q>If I write better exception handler, which prints all related information about registers and where this exception came from, why it happened</q></li>
+<li class="message">[<a href="#T10:15:26" id="T10:15:26"><abbr title="2011-04-12T10:15:26+00:00">10:15:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or you enable more printfs</q></li>
+<li class="message">[<a href="#T10:15:43" id="T10:15:43"><abbr title="2011-04-12T10:15:43+00:00">10:15:43</abbr></a>] &lt;<cite>kapu</cite>&gt; <q>but I'm being lazy and thinkin about disabling this kind of exceptions to see, if boot process works normal without exceptions</q></li>
+<li class="message">[<a href="#T10:16:45" id="T10:16:45"><abbr title="2011-04-12T10:16:45+00:00">10:16:45</abbr></a>] &lt;<cite>kapu</cite>&gt; <q>printf's may fiddle arounf with registers on exception handler.... I don't know enough ARM (assembly) to work out this properly</q></li>
+<li class="message">[<a href="#T10:17:05" id="T10:17:05"><abbr title="2011-04-12T10:17:05+00:00">10:17:05</abbr></a>] &lt;<cite>kapu</cite>&gt; <q>I wish I had some emulator to play with arm assembly first, to learn basics </q></li>
+<li class="quit">[<a href="#T10:19:05" id="T10:19:05"><abbr title="2011-04-12T10:19:05+00:00">10:19:05</abbr></a>] <span>* jurek_jarzyna (~jurek@dqh126.neoplus.adsl.tpnet.pl) Quit (Quit: leaving)</span></li>
+<li class="quit">[<a href="#T10:20:15" id="T10:20:15"><abbr title="2011-04-12T10:20:15+00:00">10:20:15</abbr></a>] <span>* kapu (petri@zomg.asd.fi) Quit (Quit: Lost terminal)</span></li>
+<li class="message">[<a href="#T10:21:56" id="T10:21:56"><abbr title="2011-04-12T10:21:56+00:00">10:21:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>qemu</q></li>
+<li class="message">[<a href="#T10:21:59" id="T10:21:59"><abbr title="2011-04-12T10:21:59+00:00">10:21:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but you left</q></li>
+<li class="message">[<a href="#T10:23:25" id="T10:23:25"><abbr title="2011-04-12T10:23:25+00:00">10:23:25</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>u can try rvds too</q></li>
+<li class="message">[<a href="#T10:24:19" id="T10:24:19"><abbr title="2011-04-12T10:24:19+00:00">10:24:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or just use linux</q></li>
+<li class="message">[<a href="#T10:25:26" id="T10:25:26"><abbr title="2011-04-12T10:25:26+00:00">10:25:26</abbr></a>] &lt;<cite>hitlin37</cite>&gt; <q>there's one more ide...yogarto...</q></li>
+<li class="join">[<a href="#T10:26:38" id="T10:26:38"><abbr title="2011-04-12T10:26:38+00:00">10:26:38</abbr></a>] <span>* kapu (petri@zomg.asd.fi) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:31:44" id="T10:31:44"><abbr title="2011-04-12T10:31:44+00:00">10:31:44</abbr></a>] <span>* risca (~risca@130.236.250.82) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T10:32:21" id="T10:32:21"><abbr title="2011-04-12T10:32:21+00:00">10:32:21</abbr></a>] &lt;<cite>kapu</cite>&gt; <q>av500: did you add anything to previous conversation. my irc session died :/</q></li>
+<li class="message">[<a href="#T10:37:00" id="T10:37:00"><abbr title="2011-04-12T10:37:00+00:00">10:37:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>qemu</q></li>
+<li class="message">[<a href="#T10:46:25" id="T10:46:25"><abbr title="2011-04-12T10:46:25+00:00">10:46:25</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>can anyone tell me why kernel started hanging for me here? <a href="http://pastebin.com/6RHR1qWk">http://pastebin.com/6RHR1qWk</a></q></li>
+<li class="message">[<a href="#T10:46:43" id="T10:46:43"><abbr title="2011-04-12T10:46:43+00:00">10:46:43</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 he is back</q></li>
+<li class="message">[<a href="#T10:47:31" id="T10:47:31"><abbr title="2011-04-12T10:47:31+00:00">10:47:31</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>NotTooDumb3 okay I hit this too</q></li>
+<li class="message">[<a href="#T10:47:49" id="T10:47:49"><abbr title="2011-04-12T10:47:49+00:00">10:47:49</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>what?</q></li>
+<li class="message">[<a href="#T10:48:00" id="T10:48:00"><abbr title="2011-04-12T10:48:00+00:00">10:48:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>the kernel mem= parameter and the mem options for cmem moduls arent in sync</q></li>
+<li class="message">[<a href="#T10:48:39" id="T10:48:39"><abbr title="2011-04-12T10:48:39+00:00">10:48:39</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>oh..</q></li>
+<li class="message">[<a href="#T10:48:46" id="T10:48:46"><abbr title="2011-04-12T10:48:46+00:00">10:48:46</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>for gst you need the kernel mem parameter mentioned here</q></li>
+<li class="message">[<a href="#T10:48:58" id="T10:48:58"><abbr title="2011-04-12T10:48:58+00:00">10:48:58</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q><a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a></q></li>
+<li class="message">[<a href="#T10:50:21" id="T10:50:21"><abbr title="2011-04-12T10:50:21+00:00">10:50:21</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>woglinde, i am using the same mem parameter:  mem=99M@0x80000000 mem=128M@0x88000000 for setenv, i do not know how to check cmem's mem range</q></li>
+<li class="message">[<a href="#T10:51:49" id="T10:51:49"><abbr title="2011-04-12T10:51:49+00:00">10:51:49</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>whats your beagle again?</q></li>
+<li class="message">[<a href="#T10:51:59" id="T10:51:59"><abbr title="2011-04-12T10:51:59+00:00">10:51:59</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>C3</q></li>
+<li class="message">[<a href="#T10:52:19" id="T10:52:19"><abbr title="2011-04-12T10:52:19+00:00">10:52:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ram?</q></li>
+<li class="message">[<a href="#T10:52:45" id="T10:52:45"><abbr title="2011-04-12T10:52:45+00:00">10:52:45</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>i dont know</q></li>
+<li class="join">[<a href="#T10:53:35" id="T10:53:35"><abbr title="2011-04-12T10:53:35+00:00">10:53:35</abbr></a>] <span>* basti (~quassel@213.158.96.50) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:54:29" id="T10:54:29"><abbr title="2011-04-12T10:54:29+00:00">10:54:29</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>256MB DDR (rev C)</q></li>
+<li class="message">[<a href="#T10:54:53" id="T10:54:53"><abbr title="2011-04-12T10:54:53+00:00">10:54:53</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm</q></li>
+<li class="part">[<a href="#T10:55:37" id="T10:55:37"><abbr title="2011-04-12T10:55:37+00:00">10:55:37</abbr></a>] <span>* jimmy_mike (~mike@183.62.141.147) has left #beagle</span></li>
+<li class="message">[<a href="#T10:55:50" id="T10:55:50"><abbr title="2011-04-12T10:55:50+00:00">10:55:50</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm maybee your version differs</q></li>
+<li class="message">[<a href="#T10:56:33" id="T10:56:33"><abbr title="2011-04-12T10:56:33+00:00">10:56:33</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>version meaning version of board or version of kernel i am using?</q></li>
+<li class="message">[<a href="#T10:57:16" id="T10:57:16"><abbr title="2011-04-12T10:57:16+00:00">10:57:16</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>try with mem=80M@0x80000000</q></li>
+<li class="message">[<a href="#T10:57:57" id="T10:57:57"><abbr title="2011-04-12T10:57:57+00:00">10:57:57</abbr></a>] &lt;<cite>NotTooDumb3</cite>&gt; <q>ok</q></li>
