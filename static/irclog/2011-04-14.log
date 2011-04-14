@@ -404,3 +404,266 @@
 <li class="message">[<a href="#T16:59:16" id="T16:59:16"><abbr title="2011-04-14T16:59:16+00:00">16:59:16</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>Ceriand: thanks. Makes sense, and i found that folder but didn't know exactly what i was looking at</q></li>
 <li class="message">[<a href="#T16:59:23" id="T16:59:23"><abbr title="2011-04-14T16:59:23+00:00">16:59:23</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i guess i'll go poke around there some more...</q></li>
 <li class="message">[<a href="#T16:59:35" id="T16:59:35"><abbr title="2011-04-14T16:59:35+00:00">16:59:35</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>gpio_request?</q></li>
+<li class="message">[<a href="#T17:00:22" id="T17:00:22"><abbr title="2011-04-14T17:00:22+00:00">17:00:22</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>how do i do that woglinde?</q></li>
+<li class="message">[<a href="#T17:00:45" id="T17:00:45"><abbr title="2011-04-14T17:00:45+00:00">17:00:45</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>beagle2_: /sys/class/input/event*/device/name should give you the name for each event file</q></li>
+<li class="message">[<a href="#T17:00:46" id="T17:00:46"><abbr title="2011-04-14T17:00:46+00:00">17:00:46</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>Ceriand: I have a event0, event1, event2, and event3 sub folder, any thoughts which?</q></li>
+<li class="quit">[<a href="#T17:01:07" id="T17:01:07"><abbr title="2011-04-14T17:01:07+00:00">17:01:07</abbr></a>] <span>* topfs2_ (~topfs2@xbmc/staff/topfs2) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T17:01:08" id="T17:01:08"><abbr title="2011-04-14T17:01:08+00:00">17:01:08</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>ah, kk, i was looing at event*/dev</q></li>
+<li class="message">[<a href="#T17:01:15" id="T17:01:15"><abbr title="2011-04-14T17:01:15+00:00">17:01:15</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>'so many things to learn...</q></li>
+<li class="quit">[<a href="#T17:02:01" id="T17:02:01"><abbr title="2011-04-14T17:02:01+00:00">17:02:01</abbr></a>] <span>* lag (~lag@ubuntu/member/lag) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="message">[<a href="#T17:02:22" id="T17:02:22"><abbr title="2011-04-14T17:02:22+00:00">17:02:22</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>beagle2_ read the about the gpio api in linux-src/Documentation</q></li>
+<li class="message">[<a href="#T17:02:37" id="T17:02:37"><abbr title="2011-04-14T17:02:37+00:00">17:02:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>but fine if its mapped to an event</q></li>
+<li class="message">[<a href="#T17:03:06" id="T17:03:06"><abbr title="2011-04-14T17:03:06+00:00">17:03:06</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: ya, event0 is gpio-keys</q></li>
+<li class="message">[<a href="#T17:03:27" id="T17:03:27"><abbr title="2011-04-14T17:03:27+00:00">17:03:27</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>and sorry i am an imapatient newb, that doesn't learn things exactly on my own, persay :)</q></li>
+<li class="message">[<a href="#T17:03:36" id="T17:03:36"><abbr title="2011-04-14T17:03:36+00:00">17:03:36</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>beagle2_: if you use evtest on that event file, you should see an event go by when you press the button</q></li>
+<li class="quit">[<a href="#T17:04:49" id="T17:04:49"><abbr title="2011-04-14T17:04:49+00:00">17:04:49</abbr></a>] <span>* BlInK311 (~Ward@ool-44c42324.dyn.optonline.net) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T17:08:14" id="T17:08:14"><abbr title="2011-04-14T17:08:14+00:00">17:08:14</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>so, 'echo event0 &gt; /sys/sbin/evtest'?</q></li>
+<li class="quit">[<a href="#T17:12:45" id="T17:12:45"><abbr title="2011-04-14T17:12:45+00:00">17:12:45</abbr></a>] <span>* mcgeagh (~mcgeagh@xbmc/staff/mcgeagh) Quit (Quit: Ex-Chat)</span></li>
+<li class="message">[<a href="#T17:13:36" id="T17:13:36"><abbr title="2011-04-14T17:13:36+00:00">17:13:36</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>wait...i think i am on to something</q></li>
+<li class="message">[<a href="#T17:13:46" id="T17:13:46"><abbr title="2011-04-14T17:13:46+00:00">17:13:46</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>bb in a few, attempting to learn on my own.... :)</q></li>
+<li class="join">[<a href="#T17:14:00" id="T17:14:00"><abbr title="2011-04-14T17:14:00+00:00">17:14:00</abbr></a>] <span>* alancam (~alancam@nat/ti/x-nsfatcqahgemkggn) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:17:09" id="T17:17:09"><abbr title="2011-04-14T17:17:09+00:00">17:17:09</abbr></a>] <span>* GrueMaster (~Grue@076-076-148-180.pdx.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:18:01" id="T17:18:01"><abbr title="2011-04-14T17:18:01+00:00">17:18:01</abbr></a>] <span>* [IDC]Dragon (~hohensohn@a89-182-69-6.net-htp.de) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T17:19:17" id="T17:19:17"><abbr title="2011-04-14T17:19:17+00:00">17:19:17</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T17:20:54" id="T17:20:54"><abbr title="2011-04-14T17:20:54+00:00">17:20:54</abbr></a>] <span>* djlewis_ (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:22:09" id="T17:22:09"><abbr title="2011-04-14T17:22:09+00:00">17:22:09</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>Ceriand: got it, thanks a bunch for the tip</q></li>
+<li class="message">[<a href="#T17:22:18" id="T17:22:18"><abbr title="2011-04-14T17:22:18+00:00">17:22:18</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>now to get it into my C++ code...</q></li>
+<li class="message">[<a href="#T17:22:24" id="T17:22:24"><abbr title="2011-04-14T17:22:24+00:00">17:22:24</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>it ain't pretty, but it should work...</q></li>
+<li class="message">[<a href="#T17:24:36" id="T17:24:36"><abbr title="2011-04-14T17:24:36+00:00">17:24:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you can use code inside c++</q></li>
+<li class="message">[<a href="#T17:25:00" id="T17:25:00"><abbr title="2011-04-14T17:25:00+00:00">17:25:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ups c-code</q></li>
+<li class="message">[<a href="#T17:25:14" id="T17:25:14"><abbr title="2011-04-14T17:25:14+00:00">17:25:14</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>'ups c-code'?</q></li>
+<li class="message">[<a href="#T17:25:29" id="T17:25:29"><abbr title="2011-04-14T17:25:29+00:00">17:25:29</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i'm just not sure how to get out of the evtest once i engage it...?</q></li>
+<li class="message">[<a href="#T17:26:05" id="T17:26:05"><abbr title="2011-04-14T17:26:05+00:00">17:26:05</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>look at the code for evtest</q></li>
+<li class="message">[<a href="#T17:26:15" id="T17:26:15"><abbr title="2011-04-14T17:26:15+00:00">17:26:15</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and try to copy this into your app</q></li>
+<li class="message">[<a href="#T17:27:22" id="T17:27:22"><abbr title="2011-04-14T17:27:22+00:00">17:27:22</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm better adapt it</q></li>
+<li class="message">[<a href="#T17:27:28" id="T17:27:28"><abbr title="2011-04-14T17:27:28+00:00">17:27:28</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>than copy</q></li>
+<li class="message">[<a href="#T17:27:56" id="T17:27:56"><abbr title="2011-04-14T17:27:56+00:00">17:27:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>everything is a file</q></li>
+<li class="join">[<a href="#T17:28:17" id="T17:28:17"><abbr title="2011-04-14T17:28:17+00:00">17:28:17</abbr></a>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:28:19" id="T17:28:19"><abbr title="2011-04-14T17:28:19+00:00">17:28:19</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>hmmm, will try...</q></li>
+<li class="message">[<a href="#T17:28:35" id="T17:28:35"><abbr title="2011-04-14T17:28:35+00:00">17:28:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>open, poll/select, read</q></li>
+<li class="quit">[<a href="#T17:28:58" id="T17:28:58"><abbr title="2011-04-14T17:28:58+00:00">17:28:58</abbr></a>] <span>* plasmab (~stephen@client-82-26-120-230.midd.adsl.virginmedia.com) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T17:29:02" id="T17:29:02"><abbr title="2011-04-14T17:29:02+00:00">17:29:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 no highlevel abstraction lib?</q></li>
+<li class="message">[<a href="#T17:29:21" id="T17:29:21"><abbr title="2011-04-14T17:29:21+00:00">17:29:21</abbr></a>] &lt;<cite>av500</cite>&gt; <q>libuserbutton.so.42</q></li>
+<li class="message">[<a href="#T17:29:23" id="T17:29:23"><abbr title="2011-04-14T17:29:23+00:00">17:29:23</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>danger! danger! beagle2 is attempting to learn on his own ;)</q></li>
+<li class="message">[<a href="#T17:29:32" id="T17:29:32"><abbr title="2011-04-14T17:29:32+00:00">17:29:32</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: that is how i am doing it for gpio's,</q></li>
+<li class="message">[<a href="#T17:29:36" id="T17:29:36"><abbr title="2011-04-14T17:29:36+00:00">17:29:36</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>but evtest is...different...</q></li>
+<li class="message">[<a href="#T17:29:41" id="T17:29:41"><abbr title="2011-04-14T17:29:41+00:00">17:29:41</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>djlewis: meh.</q></li>
+<li class="message">[<a href="#T17:29:47" id="T17:29:47"><abbr title="2011-04-14T17:29:47+00:00">17:29:47</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T17:30:09" id="T17:30:09"><abbr title="2011-04-14T17:30:09+00:00">17:30:09</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>!seen nottoodumb3</q></li>
+<li class="message">[<abbr title="2011-04-14T17:30:09+00:00">17:30:09</abbr>] &lt;<cite>thurbad</cite>&gt; <q>woglinde, nottoodumb3 quitted with the message Quit: Leaving 1day 6hrs 2mins 42secs ago.</q></li>
+<li class="message">[<a href="#T17:30:32" id="T17:30:32"><abbr title="2011-04-14T17:30:32+00:00">17:30:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>disable your crappy bot</q></li>
+<li class="message">[<a href="#T17:31:27" id="T17:31:27"><abbr title="2011-04-14T17:31:27+00:00">17:31:27</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>...</q></li>
+<li class="quit">[<a href="#T17:32:52" id="T17:32:52"><abbr title="2011-04-14T17:32:52+00:00">17:32:52</abbr></a>] <span>* alancam (~alancam@nat/ti/x-nsfatcqahgemkggn) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="message">[<a href="#T17:33:19" id="T17:33:19"><abbr title="2011-04-14T17:33:19+00:00">17:33:19</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: what do i copy/adapt exactly?</q></li>
+<li class="message">[<a href="#T17:33:33" id="T17:33:33"><abbr title="2011-04-14T17:33:33+00:00">17:33:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*sigh*</q></li>
+<li class="message">[<a href="#T17:33:49" id="T17:33:49"><abbr title="2011-04-14T17:33:49+00:00">17:33:49</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i try doing 'vi /usr/sbin/evtest', but it gives me crazy caracters...</q></li>
+<li class="message">[<a href="#T17:33:55" id="T17:33:55"><abbr title="2011-04-14T17:33:55+00:00">17:33:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>give me the number of your supervisor I will call him to strap you</q></li>
+<li class="message">[<a href="#T17:34:00" id="T17:34:00"><abbr title="2011-04-14T17:34:00+00:00">17:34:00</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T17:34:09" id="T17:34:09"><abbr title="2011-04-14T17:34:09+00:00">17:34:09</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: love to but it is a school project...</q></li>
+<li class="message">[<a href="#T17:34:19" id="T17:34:19"><abbr title="2011-04-14T17:34:19+00:00">17:34:19</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>and our 'advisor' don't do much at all...</q></li>
+<li class="message">[<a href="#T17:34:32" id="T17:34:32"><abbr title="2011-04-14T17:34:32+00:00">17:34:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>loool</q></li>
+<li class="message">[<a href="#T17:34:36" id="T17:34:36"><abbr title="2011-04-14T17:34:36+00:00">17:34:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>school or univeristy?</q></li>
+<li class="message">[<a href="#T17:34:48" id="T17:34:48"><abbr title="2011-04-14T17:34:48+00:00">17:34:48</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>um, state university...</q></li>
+<li class="message">[<a href="#T17:35:03" id="T17:35:03"><abbr title="2011-04-14T17:35:03+00:00">17:35:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>we can strap the advisor too</q></li>
+<li class="message">[<a href="#T17:35:09" id="T17:35:09"><abbr title="2011-04-14T17:35:09+00:00">17:35:09</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and you are freshman?</q></li>
+<li class="message">[<a href="#T17:35:10" id="T17:35:10"><abbr title="2011-04-14T17:35:10+00:00">17:35:10</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>they must hve low standards for students</q></li>
+<li class="message">[<a href="#T17:35:22" id="T17:35:22"><abbr title="2011-04-14T17:35:22+00:00">17:35:22</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: senior</q></li>
+<li class="message">[<a href="#T17:35:33" id="T17:35:33"><abbr title="2011-04-14T17:35:33+00:00">17:35:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>beagle please go strap yourself</q></li>
+<li class="message">[<a href="#T17:35:40" id="T17:35:40"><abbr title="2011-04-14T17:35:40+00:00">17:35:40</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>is it really that astounding that we learn no practicle knowledge at school...?</q></li>
+<li class="message">[<abbr title="2011-04-14T17:35:40+00:00">17:35:40</abbr>] &lt;<cite>av500</cite>&gt; <q>beagle2_: you are aware of the difference between source code and an executable?</q></li>
+<li class="message">[<a href="#T17:35:46" id="T17:35:46"><abbr title="2011-04-14T17:35:46+00:00">17:35:46</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>add a couple good lashes for me :)</q></li>
+<li class="message">[<a href="#T17:36:00" id="T17:36:00"><abbr title="2011-04-14T17:36:00+00:00">17:36:00</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: source code usually has an extension, like .c or .cpp :)</q></li>
+<li class="action">[<a href="#T17:36:01" id="T17:36:01"><abbr title="2011-04-14T17:36:01+00:00">17:36:01</abbr></a>] <span>* av500 lashes djlewis_ a few times</span></li>
+<li class="message">[<a href="#T17:36:13" id="T17:36:13"><abbr title="2011-04-14T17:36:13+00:00">17:36:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: and does /usr/sbin/evtest have that?</q></li>
+<li class="message">[<a href="#T17:36:18" id="T17:36:18"><abbr title="2011-04-14T17:36:18+00:00">17:36:18</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>umm, feels good baby :)</q></li>
+<li class="message">[<abbr title="2011-04-14T17:36:18+00:00">17:36:18</abbr>] &lt;<cite>beagle2_</cite>&gt; <q>executables you can just type into the command prompt and off they go :)</q></li>
+<li class="message">[<a href="#T17:36:35" id="T17:36:35"><abbr title="2011-04-14T17:36:35+00:00">17:36:35</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>no...but i couldn't find an evtest.c, or anything...</q></li>
+<li class="message">[<a href="#T17:36:37" id="T17:36:37"><abbr title="2011-04-14T17:36:37+00:00">17:36:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>beagle you know what a file is how it can be opened by programming languages?</q></li>
+<li class="message">[<a href="#T17:36:39" id="T17:36:39"><abbr title="2011-04-14T17:36:39+00:00">17:36:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so, which one is /usr/sbin/evtes? animal, mineral or vegetarian?</q></li>
+<li class="message">[<a href="#T17:36:55" id="T17:36:55"><abbr title="2011-04-14T17:36:55+00:00">17:36:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>which courses you took? visualbasic 1.0?</q></li>
+<li class="message">[<a href="#T17:36:56" id="T17:36:56"><abbr title="2011-04-14T17:36:56+00:00">17:36:56</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>am i going to have to go download the sourcecode for the kernel again and peruse through it?</q></li>
+<li class="message">[<a href="#T17:37:12" id="T17:37:12"><abbr title="2011-04-14T17:37:12+00:00">17:37:12</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>cause i don't think this sakoman image comes with the source...</q></li>
+<li class="message">[<a href="#T17:37:13" id="T17:37:13"><abbr title="2011-04-14T17:37:13+00:00">17:37:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q> /usr/sbin/evtest is not the kernel</q></li>
+<li class="message">[<a href="#T17:37:29" id="T17:37:29"><abbr title="2011-04-14T17:37:29+00:00">17:37:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>please</q></li>
+<li class="message">[<a href="#T17:37:36" id="T17:37:36"><abbr title="2011-04-14T17:37:36+00:00">17:37:36</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: good to know. so it's source would be in...?</q></li>
+<li class="message">[<a href="#T17:37:54" id="T17:37:54"><abbr title="2011-04-14T17:37:54+00:00">17:37:54</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>apt-get source evtest</q></li>
+<li class="message">[<abbr title="2011-04-14T17:37:54+00:00">17:37:54</abbr>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: courses: like a bunch of math and some electronics...</q></li>
+<li class="message">[<a href="#T17:37:57" id="T17:37:57"><abbr title="2011-04-14T17:37:57+00:00">17:37:57</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>beagle2_: <a href="http://lmgtfy.com/?q=evtest+source+code">http://lmgtfy.com/?q=evtest+source+code</a></q></li>
+<li class="message">[<a href="#T17:38:19" id="T17:38:19"><abbr title="2011-04-14T17:38:19+00:00">17:38:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>beagle whats your major?</q></li>
+<li class="message">[<a href="#T17:38:20" id="T17:38:20"><abbr title="2011-04-14T17:38:20+00:00">17:38:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://www.google.com/search?q=evtest.c">http://www.google.com/search?q=evtest.c</a></q></li>
+<li class="message">[<a href="#T17:38:24" id="T17:38:24"><abbr title="2011-04-14T17:38:24+00:00">17:38:24</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>Ceriand: haha, point taken...</q></li>
+<li class="message">[<a href="#T17:38:25" id="T17:38:25"><abbr title="2011-04-14T17:38:25+00:00">17:38:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: art</q></li>
+<li class="action">[<a href="#T17:38:43" id="T17:38:43"><abbr title="2011-04-14T17:38:43+00:00">17:38:43</abbr></a>] <span>* djlewis_ votes for music</span></li>
+<li class="message">[<a href="#T17:38:53" id="T17:38:53"><abbr title="2011-04-14T17:38:53+00:00">17:38:53</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>you guys are lucky you're helpful eventually, or else i'd just leave... :'(</q></li>
+<li class="message">[<a href="#T17:38:57" id="T17:38:57"><abbr title="2011-04-14T17:38:57+00:00">17:38:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 I could understood if he were in basketballteam</q></li>
+<li class="action">[<a href="#T17:38:59" id="T17:38:59"><abbr title="2011-04-14T17:38:59+00:00">17:38:59</abbr></a>] <span>* Russ IT BURNS!</span></li>
+<li class="message">[<a href="#T17:39:13" id="T17:39:13"><abbr title="2011-04-14T17:39:13+00:00">17:39:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: we get to help you and we get to ridicule you</q></li>
+<li class="message">[<a href="#T17:39:19" id="T17:39:19"><abbr title="2011-04-14T17:39:19+00:00">17:39:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>that is the deal</q></li>
+<li class="message">[<a href="#T17:39:21" id="T17:39:21"><abbr title="2011-04-14T17:39:21+00:00">17:39:21</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T17:39:23" id="T17:39:23"><abbr title="2011-04-14T17:39:23+00:00">17:39:23</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>nothing is free</q></li>
+<li class="message">[<a href="#T17:39:36" id="T17:39:36"><abbr title="2011-04-14T17:39:36+00:00">17:39:36</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>mmm</q></li>
+<li class="message">[<a href="#T17:39:41" id="T17:39:41"><abbr title="2011-04-14T17:39:41+00:00">17:39:41</abbr></a>] &lt;<cite>GrueMaster</cite>&gt; <q>Does anyone have alsa ucm working on beagle/beaglexm?</q></li>
+<li class="message">[<a href="#T17:39:44" id="T17:39:44"><abbr title="2011-04-14T17:39:44+00:00">17:39:44</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>beagle2 better do through it here, than get fired and fired again</q></li>
+<li class="message">[<a href="#T17:39:48" id="T17:39:48"><abbr title="2011-04-14T17:39:48+00:00">17:39:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ups</q></li>
+<li class="message">[<a href="#T17:39:50" id="T17:39:50"><abbr title="2011-04-14T17:39:50+00:00">17:39:50</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>args</q></li>
+<li class="message">[<a href="#T17:39:52" id="T17:39:52"><abbr title="2011-04-14T17:39:52+00:00">17:39:52</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i think linux is the scary part, more than the beagleboard side of things...</q></li>
+<li class="message">[<a href="#T17:39:59" id="T17:39:59"><abbr title="2011-04-14T17:39:59+00:00">17:39:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T17:40:01" id="T17:40:01"><abbr title="2011-04-14T17:40:01+00:00">17:40:01</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>beagle it isnt</q></li>
+<li class="message">[<a href="#T17:40:03" id="T17:40:03"><abbr title="2011-04-14T17:40:03+00:00">17:40:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>totally scary</q></li>
+<li class="message">[<a href="#T17:40:13" id="T17:40:13"><abbr title="2011-04-14T17:40:13+00:00">17:40:13</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>it still blows my mind that like all these apps have sourcecode....</q></li>
+<li class="join">[<a href="#T17:40:14" id="T17:40:14"><abbr title="2011-04-14T17:40:14+00:00">17:40:14</abbr></a>] <span>* fredlaf (~fredlaf@ottawa-hs-64-26-155-133.s-ip.magma.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:40:15" id="T17:40:15"><abbr title="2011-04-14T17:40:15+00:00">17:40:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mine ate a kitten again today</q></li>
+<li class="message">[<a href="#T17:40:23" id="T17:40:23"><abbr title="2011-04-14T17:40:23+00:00">17:40:23</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>or rather--that i am expected to go modifying it...</q></li>
+<li class="message">[<a href="#T17:40:30" id="T17:40:30"><abbr title="2011-04-14T17:40:30+00:00">17:40:30</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>av500, the whole thing?</q></li>
+<li class="message">[<a href="#T17:40:31" id="T17:40:31"><abbr title="2011-04-14T17:40:31+00:00">17:40:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: even non linux apps have source code</q></li>
+<li class="message">[<a href="#T17:40:35" id="T17:40:35"><abbr title="2011-04-14T17:40:35+00:00">17:40:35</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i mean, i CAN do it, given enough time,</q></li>
+<li class="message">[<a href="#T17:40:52" id="T17:40:52"><abbr title="2011-04-14T17:40:52+00:00">17:40:52</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: do you really expect me to go poking inside of Microsoft's sourcecode? -.-</q></li>
+<li class="message">[<a href="#T17:40:56" id="T17:40:56"><abbr title="2011-04-14T17:40:56+00:00">17:40:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>beagle2 what programming languages you learned?</q></li>
+<li class="message">[<a href="#T17:41:03" id="T17:41:03"><abbr title="2011-04-14T17:41:03+00:00">17:41:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>some source is just so embarassing that they lock it up in Redmond</q></li>
+<li class="message">[<a href="#T17:41:13" id="T17:41:13"><abbr title="2011-04-14T17:41:13+00:00">17:41:13</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: ouch.</q></li>
+<li class="message">[<a href="#T17:41:27" id="T17:41:27"><abbr title="2011-04-14T17:41:27+00:00">17:41:27</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: i 'learned' C++ and java,</q></li>
+<li class="message">[<a href="#T17:41:37" id="T17:41:37"><abbr title="2011-04-14T17:41:37+00:00">17:41:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>only oo</q></li>
+<li class="message">[<abbr title="2011-04-14T17:41:37+00:00">17:41:37</abbr>] &lt;<cite>beagle2_</cite>&gt; <q>but never had to actually apply it to anything...</q></li>
+<li class="message">[<a href="#T17:41:49" id="T17:41:49"><abbr title="2011-04-14T17:41:49+00:00">17:41:49</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>thats not good</q></li>
+<li class="message">[<a href="#T17:41:56" id="T17:41:56"><abbr title="2011-04-14T17:41:56+00:00">17:41:56</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i thought it was one of those theoretical exercises our teachers like so much...</q></li>
+<li class="message">[<a href="#T17:42:05" id="T17:42:05"><abbr title="2011-04-14T17:42:05+00:00">17:42:05</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you never opened a file in java or c++?</q></li>
+<li class="message">[<a href="#T17:42:06" id="T17:42:06"><abbr title="2011-04-14T17:42:06+00:00">17:42:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>GrueMaster: ucm? is that another try to make alsa behave?</q></li>
+<li class="message">[<a href="#T17:42:08" id="T17:42:08"><abbr title="2011-04-14T17:42:08+00:00">17:42:08</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>&lt;--- state university :(</q></li>
+<li class="message">[<abbr title="2011-04-14T17:42:08+00:00">17:42:08</abbr>] &lt;<cite>woglinde</cite>&gt; <q>oh my good</q></li>
+<li class="message">[<a href="#T17:42:19" id="T17:42:19"><abbr title="2011-04-14T17:42:19+00:00">17:42:19</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i'm not CompSci, btw...</q></li>
+<li class="message">[<a href="#T17:42:21" id="T17:42:21"><abbr title="2011-04-14T17:42:21+00:00">17:42:21</abbr></a>] &lt;<cite>GrueMaster</cite>&gt; <q>use case manager.</q></li>
+<li class="message">[<a href="#T17:42:26" id="T17:42:26"><abbr title="2011-04-14T17:42:26+00:00">17:42:26</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>they learn like 8 or so, i think&gt;</q></li>
+<li class="message">[<a href="#T17:42:28" id="T17:42:28"><abbr title="2011-04-14T17:42:28+00:00">17:42:28</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T17:42:30" id="T17:42:30"><abbr title="2011-04-14T17:42:30+00:00">17:42:30</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>av500: the NT kernel isn't so bad, the APIs are horrendous though</q></li>
+<li class="message">[<a href="#T17:42:32" id="T17:42:32"><abbr title="2011-04-14T17:42:32+00:00">17:42:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: what to you study?</q></li>
+<li class="message">[<a href="#T17:42:41" id="T17:42:41"><abbr title="2011-04-14T17:42:41+00:00">17:42:41</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>EE</q></li>
+<li class="message">[<a href="#T17:42:56" id="T17:42:56"><abbr title="2011-04-14T17:42:56+00:00">17:42:56</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>though might as well be CSE, the way the last year has been so</q></li>
+<li class="message">[<a href="#T17:42:59" id="T17:42:59"><abbr title="2011-04-14T17:42:59+00:00">17:42:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Ceriand|work: I like the bit where you call it with a struct and then get back what other struct to call it with, rince repeat a few times</q></li>
+<li class="message">[<a href="#T17:43:09" id="T17:43:09"><abbr title="2011-04-14T17:43:09+00:00">17:43:09</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>which just makes my programming newbness more embarrassing...</q></li>
+<li class="join">[<a href="#T17:43:30" id="T17:43:30"><abbr title="2011-04-14T17:43:30+00:00">17:43:30</abbr></a>] <span>* BlInK311 (~Ward@ool-44c42324.dyn.optonline.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:43:39" id="T17:43:39"><abbr title="2011-04-14T17:43:39+00:00">17:43:39</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i would be able to do this project piece o cake, if it was the only thing i had to worry about...</q></li>
+<li class="join">[<a href="#T17:43:40" id="T17:43:40"><abbr title="2011-04-14T17:43:40+00:00">17:43:40</abbr></a>] <span>* gadiyar (~chatzilla@70.36.246.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:43:43" id="T17:43:43"><abbr title="2011-04-14T17:43:43+00:00">17:43:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: indeed, because EE are expected to know how to program, compared to CS students...</q></li>
+<li class="message">[<a href="#T17:43:45" id="T17:43:45"><abbr title="2011-04-14T17:43:45+00:00">17:43:45</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>'just so you guys know, *sniff*</q></li>
+<li class="message">[<a href="#T17:44:02" id="T17:44:02"><abbr title="2011-04-14T17:44:02+00:00">17:44:02</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: sarcasm?</q></li>
+<li class="message">[<a href="#T17:44:08" id="T17:44:08"><abbr title="2011-04-14T17:44:08+00:00">17:44:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>EE and you learned only c++</q></li>
+<li class="message">[<a href="#T17:44:14" id="T17:44:14"><abbr title="2011-04-14T17:44:14+00:00">17:44:14</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>and java...</q></li>
+<li class="message">[<a href="#T17:44:15" id="T17:44:15"><abbr title="2011-04-14T17:44:15+00:00">17:44:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: no</q></li>
+<li class="message">[<a href="#T17:44:23" id="T17:44:23"><abbr title="2011-04-14T17:44:23+00:00">17:44:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>thats totally failure</q></li>
+<li class="message">[<a href="#T17:44:43" id="T17:44:43"><abbr title="2011-04-14T17:44:43+00:00">17:44:43</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you should have choosen a course programming atmels or so</q></li>
+<li class="message">[<a href="#T17:44:52" id="T17:44:52"><abbr title="2011-04-14T17:44:52+00:00">17:44:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: he, I had only pascal and c or so...</q></li>
+<li class="message">[<a href="#T17:44:59" id="T17:44:59"><abbr title="2011-04-14T17:44:59+00:00">17:44:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or maybe only C, I forgot</q></li>
+<li class="message">[<abbr title="2011-04-14T17:44:59+00:00">17:44:59</abbr>] &lt;<cite>Ceriand|work</cite>&gt; <q>in my EE program we learned x86 asm, MIPS asm, C, C++, and we designed and implemented our own instruction set in an FPGA</q></li>
+<li class="message">[<a href="#T17:45:10" id="T17:45:10"><abbr title="2011-04-14T17:45:10+00:00">17:45:10</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>well...i wasn't encouraged by the university to tack on another few credit hours to my 20+ of BS to learn more languages, so i would think some of the blame is on them... -.-</q></li>
+<li class="message">[<a href="#T17:45:18" id="T17:45:18"><abbr title="2011-04-14T17:45:18+00:00">17:45:18</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ceriand yeah thats clever</q></li>
+<li class="message">[<a href="#T17:45:22" id="T17:45:22"><abbr title="2011-04-14T17:45:22+00:00">17:45:22</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>my EE had me go through asm, C, fortran, and more</q></li>
+<li class="message">[<a href="#T17:45:24" id="T17:45:24"><abbr title="2011-04-14T17:45:24+00:00">17:45:24</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>Ceriand: that all in undergrad?</q></li>
+<li class="message">[<a href="#T17:45:29" id="T17:45:29"><abbr title="2011-04-14T17:45:29+00:00">17:45:29</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>yea</q></li>
+<li class="message">[<a href="#T17:45:33" id="T17:45:33"><abbr title="2011-04-14T17:45:33+00:00">17:45:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: as an EE, programming is just a tool to get the job done</q></li>
+<li class="message">[<abbr title="2011-04-14T17:45:33+00:00">17:45:33</abbr>] &lt;<cite>beagle2_</cite>&gt; <q>damn...</q></li>
+<li class="message">[<a href="#T17:45:39" id="T17:45:39"><abbr title="2011-04-14T17:45:39+00:00">17:45:39</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>aye</q></li>
+<li class="message">[<a href="#T17:45:49" id="T17:45:49"><abbr title="2011-04-14T17:45:49+00:00">17:45:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its not a life project like for a CS</q></li>
+<li class="message">[<a href="#T17:45:58" id="T17:45:58"><abbr title="2011-04-14T17:45:58+00:00">17:45:58</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i mean, i have seen avr before, and i can understand it,</q></li>
+<li class="message">[<a href="#T17:45:59" id="T17:45:59"><abbr title="2011-04-14T17:45:59+00:00">17:45:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T17:46:24" id="T17:46:24"><abbr title="2011-04-14T17:46:24+00:00">17:46:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: it strikes us as odd that you cant imagine that evtest has source code, that is all</q></li>
+<li class="message">[<abbr title="2011-04-14T17:46:24+00:00">17:46:24</abbr>] &lt;<cite>beagle2_</cite>&gt; <q>but that about it, i just get frustrated with getting the dam things compiling on a Windows machine, is the largest hurdle</q></li>
+<li class="message">[<a href="#T17:46:56" id="T17:46:56"><abbr title="2011-04-14T17:46:56+00:00">17:46:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm and you now dont get frsutrated?</q></li>
+<li class="message">[<a href="#T17:47:17" id="T17:47:17"><abbr title="2011-04-14T17:47:17+00:00">17:47:17</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>the languages themselves aren't hard, it's the learning curve to get them working, lol</q></li>
+<li class="message">[<a href="#T17:47:30" id="T17:47:30"><abbr title="2011-04-14T17:47:30+00:00">17:47:30</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: Linux is helping with that :)</q></li>
+<li class="message">[<a href="#T17:47:35" id="T17:47:35"><abbr title="2011-04-14T17:47:35+00:00">17:47:35</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm languages is only for examples</q></li>
+<li class="message">[<a href="#T17:47:44" id="T17:47:44"><abbr title="2011-04-14T17:47:44+00:00">17:47:44</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>the concepts you have to understood</q></li>
+<li class="message">[<a href="#T17:47:45" id="T17:47:45"><abbr title="2011-04-14T17:47:45+00:00">17:47:45</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i dare say i will be utilizing it more often from now on...</q></li>
+<li class="message">[<a href="#T17:48:00" id="T17:48:00"><abbr title="2011-04-14T17:48:00+00:00">17:48:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>opening/closing files</q></li>
+<li class="message">[<a href="#T17:48:04" id="T17:48:04"><abbr title="2011-04-14T17:48:04+00:00">17:48:04</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>what gpios are fore</q></li>
+<li class="message">[<a href="#T17:48:09" id="T17:48:09"><abbr title="2011-04-14T17:48:09+00:00">17:48:09</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and so on</q></li>
+<li class="message">[<a href="#T17:48:10" id="T17:48:10"><abbr title="2011-04-14T17:48:10+00:00">17:48:10</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: i get that a compiler 'translates' source to machine language, that about it.</q></li>
+<li class="message">[<a href="#T17:48:20" id="T17:48:20"><abbr title="2011-04-14T17:48:20+00:00">17:48:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>wow</q></li>
+<li class="message">[<a href="#T17:48:41" id="T17:48:41"><abbr title="2011-04-14T17:48:41+00:00">17:48:41</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: in my defense, i checked in the nearby directories for an evtest.c first, but couldn't find one</q></li>
+<li class="message">[<a href="#T17:48:50" id="T17:48:50"><abbr title="2011-04-14T17:48:50+00:00">17:48:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>nearby?</q></li>
+<li class="message">[<a href="#T17:48:55" id="T17:48:55"><abbr title="2011-04-14T17:48:55+00:00">17:48:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>oh no</q></li>
+<li class="message">[<a href="#T17:48:58" id="T17:48:58"><abbr title="2011-04-14T17:48:58+00:00">17:48:58</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>like i said, it jsut didn't occur to me that i'd have to go looking for it on the big scary internet...</q></li>
+<li class="message">[<a href="#T17:49:11" id="T17:49:11"><abbr title="2011-04-14T17:49:11+00:00">17:49:11</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i'm using to having everything i need at my fingertips,</q></li>
+<li class="message">[<a href="#T17:49:14" id="T17:49:14"><abbr title="2011-04-14T17:49:14+00:00">17:49:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>is there something not scary for you?</q></li>
+<li class="message">[<a href="#T17:49:17" id="T17:49:17"><abbr title="2011-04-14T17:49:17+00:00">17:49:17</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>like 'lovely' MS...</q></li>
+<li class="message">[<a href="#T17:49:22" id="T17:49:22"><abbr title="2011-04-14T17:49:22+00:00">17:49:22</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>um, dogs!</q></li>
+<li class="message">[<abbr title="2011-04-14T17:49:22+00:00">17:49:22</abbr>] &lt;<cite>woglinde</cite>&gt; <q>beagle2 didnt you have a linux in a vm?</q></li>
+<li class="message">[<a href="#T17:49:32" id="T17:49:32"><abbr title="2011-04-14T17:49:32+00:00">17:49:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>linux, the internet, the republicans</q></li>
+<li class="quit">[<a href="#T17:49:36" id="T17:49:36"><abbr title="2011-04-14T17:49:36+00:00">17:49:36</abbr></a>] <span>* mazzanet (~mazzanet@hpavc/mazzanet) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T17:49:47" id="T17:49:47"><abbr title="2011-04-14T17:49:47+00:00">17:49:47</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: i have it installed on the lab comp next to me,</q></li>
+<li class="message">[<a href="#T17:49:52" id="T17:49:52"><abbr title="2011-04-14T17:49:52+00:00">17:49:52</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>and this lap DID have it,</q></li>
+<li class="join">[<a href="#T17:49:56" id="T17:49:56"><abbr title="2011-04-14T17:49:56+00:00">17:49:56</abbr></a>] <span>* mazzanet (~mazzanet@fe1-1.mel-ii.bdr1.mazzanet.id.au) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-04-14T17:49:56+00:00">17:49:56</abbr>] <span>* mazzanet (~mazzanet@fe1-1.mel-ii.bdr1.mazzanet.id.au) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-04-14T17:49:56+00:00">17:49:56</abbr>] <span>* mazzanet (~mazzanet@hpavc/mazzanet) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:50:03" id="T17:50:03"><abbr title="2011-04-14T17:50:03+00:00">17:50:03</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>then i tried playing around with startup scripts and broke it...</q></li>
+<li class="message">[<a href="#T17:50:16" id="T17:50:16"><abbr title="2011-04-14T17:50:16+00:00">17:50:16</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>should i just wipe that whole partition and start over?</q></li>
+<li class="message">[<a href="#T17:50:24" id="T17:50:24"><abbr title="2011-04-14T17:50:24+00:00">17:50:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: will you got to LT?</q></li>
+<li class="message">[<a href="#T17:50:33" id="T17:50:33"><abbr title="2011-04-14T17:50:33+00:00">17:50:33</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>the liveCD just hangs on bootup, when i was told in #ubuntu that that'd work...</q></li>
+<li class="message">[<a href="#T17:50:39" id="T17:50:39"><abbr title="2011-04-14T17:50:39+00:00">17:50:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 yes</q></li>
+<li class="message">[<a href="#T17:50:42" id="T17:50:42"><abbr title="2011-04-14T17:50:42+00:00">17:50:42</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>whole days</q></li>
+<li class="message">[<a href="#T17:50:44" id="T17:50:44"><abbr title="2011-04-14T17:50:44+00:00">17:50:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>what days?</q></li>
+<li class="message">[<a href="#T17:50:47" id="T17:50:47"><abbr title="2011-04-14T17:50:47+00:00">17:50:47</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>all</q></li>
+<li class="message">[<a href="#T17:50:53" id="T17:50:53"><abbr title="2011-04-14T17:50:53+00:00">17:50:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>okie</q></li>
+<li class="message">[<a href="#T17:51:05" id="T17:51:05"><abbr title="2011-04-14T17:51:05+00:00">17:51:05</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>but maybee I will be at the navit booth</q></li>
+<li class="message">[<abbr title="2011-04-14T17:51:05+00:00">17:51:05</abbr>] &lt;<cite>beagle2_</cite>&gt; <q>av500: the republicans, i will never understand...</q></li>
+<li class="join">[<a href="#T17:51:13" id="T17:51:13"><abbr title="2011-04-14T17:51:13+00:00">17:51:13</abbr></a>] <span>* badcloud (~badcloud@DSL217-132-172-152.bb.netvision.net.il) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:51:17" id="T17:51:17"><abbr title="2011-04-14T17:51:17+00:00">17:51:17</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm reminds my to ask cp15 if we got one</q></li>
+<li class="message">[<a href="#T17:52:12" id="T17:52:12"><abbr title="2011-04-14T17:52:12+00:00">17:52:12</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i still say the beagleboard is falsely advertised, as an 'easy' platform for a hobbyist roboticist...</q></li>
+<li class="message">[<a href="#T17:52:22" id="T17:52:22"><abbr title="2011-04-14T17:52:22+00:00">17:52:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>advertised where?</q></li>
+<li class="message">[<a href="#T17:52:27" id="T17:52:27"><abbr title="2011-04-14T17:52:27+00:00">17:52:27</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>'not that i'm complaining about my $160 purchase or anything...</q></li>
+<li class="message">[<a href="#T17:52:35" id="T17:52:35"><abbr title="2011-04-14T17:52:35+00:00">17:52:35</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>just the talk i've heard about it</q></li>
+<li class="message">[<a href="#T17:52:42" id="T17:52:42"><abbr title="2011-04-14T17:52:42+00:00">17:52:42</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm easy</q></li>
+<li class="message">[<a href="#T17:52:48" id="T17:52:48"><abbr title="2011-04-14T17:52:48+00:00">17:52:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>talk is cheap</q></li>
+<li class="message">[<a href="#T17:52:49" id="T17:52:49"><abbr title="2011-04-14T17:52:49+00:00">17:52:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T17:52:54" id="T17:52:54"><abbr title="2011-04-14T17:52:54+00:00">17:52:54</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>would YOU guys not consider it doable within a few days, at least?</q></li>
+<li class="message">[<a href="#T17:53:03" id="T17:53:03"><abbr title="2011-04-14T17:53:03+00:00">17:53:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>do what?</q></li>
+<li class="message">[<a href="#T17:53:04" id="T17:53:04"><abbr title="2011-04-14T17:53:04+00:00">17:53:04</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>a week tops?</q></li>
+<li class="message">[<a href="#T17:53:08" id="T17:53:08"><abbr title="2011-04-14T17:53:08+00:00">17:53:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>do what?</q></li>
+<li class="message">[<a href="#T17:53:11" id="T17:53:11"><abbr title="2011-04-14T17:53:11+00:00">17:53:11</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>um, like a basic application on the Beagle...</q></li>
+<li class="message">[<a href="#T17:53:13" id="T17:53:13"><abbr title="2011-04-14T17:53:13+00:00">17:53:13</abbr></a>] &lt;<cite>badcloud</cite>&gt; <q>I'm thinking of attempting to put together something similar to -&gt; <a href="http://openpandora.org/">http://openpandora.org/</a> from an xM + psp lcd + mini kbd + joystick/d-pad/game-buttons</q></li>
+<li class="message">[<a href="#T17:53:19" id="T17:53:19"><abbr title="2011-04-14T17:53:19+00:00">17:53:19</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>like blinking an LED...</q></li>
+<li class="message">[<a href="#T17:53:27" id="T17:53:27"><abbr title="2011-04-14T17:53:27+00:00">17:53:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it does that out of the box :)</q></li>
+<li class="message">[<a href="#T17:53:28" id="T17:53:28"><abbr title="2011-04-14T17:53:28+00:00">17:53:28</abbr></a>] &lt;<cite>badcloud</cite>&gt; <q>anyone know if the psp screen would work with it?</q></li>
+<li class="message">[<a href="#T17:53:44" id="T17:53:44"><abbr title="2011-04-14T17:53:44+00:00">17:53:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: and I have no idea, all I do is hang out on irc :)</q></li>
+<li class="message">[<a href="#T17:53:49" id="T17:53:49"><abbr title="2011-04-14T17:53:49+00:00">17:53:49</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: a big awesome LED then,</q></li>
+<li class="message">[<a href="#T17:53:53" id="T17:53:53"><abbr title="2011-04-14T17:53:53+00:00">17:53:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>badcloud: yes, with level shifters</q></li>
+<li class="message">[<a href="#T17:53:56" id="T17:53:56"><abbr title="2011-04-14T17:53:56+00:00">17:53:56</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>then u pop into the expansion hub</q></li>
+<li class="message">[<a href="#T17:54:01" id="T17:54:01"><abbr title="2011-04-14T17:54:01+00:00">17:54:01</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>would that 'just work'?</q></li>
+<li class="message">[<a href="#T17:54:12" id="T17:54:12"><abbr title="2011-04-14T17:54:12+00:00">17:54:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>blinking user led, no?</q></li>
+<li class="message">[<a href="#T17:54:25" id="T17:54:25"><abbr title="2011-04-14T17:54:25+00:00">17:54:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beagle2_: it was a joke</q></li>
+<li class="message">[<a href="#T17:54:33" id="T17:54:33"><abbr title="2011-04-14T17:54:33+00:00">17:54:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i do that occasionally</q></li>
+<li class="message">[<a href="#T17:54:39" id="T17:54:39"><abbr title="2011-04-14T17:54:39+00:00">17:54:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>joke, not blink</q></li>
+<li class="message">[<a href="#T17:54:45" id="T17:54:45"><abbr title="2011-04-14T17:54:45+00:00">17:54:45</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>i know, i felt like being anally specific all the same -.-</q></li>
+<li class="message">[<a href="#T17:55:07" id="T17:55:07"><abbr title="2011-04-14T17:55:07+00:00">17:55:07</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>he doesn't blink, but if you smile really pretty, he might wink at you</q></li>
+<li class="message">[<a href="#T17:55:16" id="T17:55:16"><abbr title="2011-04-14T17:55:16+00:00">17:55:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>;)</q></li>
+<li class="message">[<a href="#T17:55:19" id="T17:55:19"><abbr title="2011-04-14T17:55:19+00:00">17:55:19</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>but seriously, can you think of ANYthing even remotely interesting it can do, more-or-less out-of-box?</q></li>
+<li class="message">[<a href="#T17:55:46" id="T17:55:46"><abbr title="2011-04-14T17:55:46+00:00">17:55:46</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>you need opperating system, configure things in the kernel, load and compile your own code...</q></li>
+<li class="message">[<a href="#T17:55:57" id="T17:55:57"><abbr title="2011-04-14T17:55:57+00:00">17:55:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, and?</q></li>
+<li class="message">[<a href="#T17:56:06" id="T17:56:06"><abbr title="2011-04-14T17:56:06+00:00">17:56:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its a linux system</q></li>
+<li class="message">[<a href="#T17:56:09" id="T17:56:09"><abbr title="2011-04-14T17:56:09+00:00">17:56:09</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>there's just no SUPER front-end user support, if only to get a hapless fool going on the beagle</q></li>
+<li class="message">[<a href="#T17:56:15" id="T17:56:15"><abbr title="2011-04-14T17:56:15+00:00">17:56:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>write a few lines of code and off yo go</q></li>
+<li class="message">[<a href="#T17:56:25" id="T17:56:25"><abbr title="2011-04-14T17:56:25+00:00">17:56:25</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>well...i found a liveCD pretty easy to work with, compared to this stuff.</q></li>
+<li class="message">[<a href="#T17:56:30" id="T17:56:30"><abbr title="2011-04-14T17:56:30+00:00">17:56:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>what can you do out of the box and a window install?</q></li>
+<li class="message">[<a href="#T17:56:37" id="T17:56:37"><abbr title="2011-04-14T17:56:37+00:00">17:56:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>on a</q></li>
+<li class="message">[<a href="#T17:56:42" id="T17:56:42"><abbr title="2011-04-14T17:56:42+00:00">17:56:42</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>which robotic system has super front-end user support besides lego mindstorm?</q></li>
+<li class="message">[<a href="#T17:56:45" id="T17:56:45"><abbr title="2011-04-14T17:56:45+00:00">17:56:45</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>um...</q></li>
+<li class="message">[<a href="#T17:56:48" id="T17:56:48"><abbr title="2011-04-14T17:56:48+00:00">17:56:48</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>fun media stuff!</q></li>
+<li class="message">[<a href="#T17:56:50" id="T17:56:50"><abbr title="2011-04-14T17:56:50+00:00">17:56:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>tried to make your pc blink an LED?</q></li>
+<li class="message">[<a href="#T17:56:59" id="T17:56:59"><abbr title="2011-04-14T17:56:59+00:00">17:56:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 *g*</q></li>
+<li class="message">[<a href="#T17:57:11" id="T17:57:11"><abbr title="2011-04-14T17:57:11+00:00">17:57:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or make a usb webcam count green pixels?</q></li>
+<li class="message">[<a href="#T17:57:15" id="T17:57:15"><abbr title="2011-04-14T17:57:15+00:00">17:57:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>is that easy on a pc?</q></li>
+<li class="message">[<a href="#T17:57:18" id="T17:57:18"><abbr title="2011-04-14T17:57:18+00:00">17:57:18</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>av500: hardware that comes with windows isn't designed for that tho</q></li>
+<li class="message">[<a href="#T17:57:19" id="T17:57:19"><abbr title="2011-04-14T17:57:19+00:00">17:57:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>out of the box?</q></li>
+<li class="message">[<a href="#T17:57:23" id="T17:57:23"><abbr title="2011-04-14T17:57:23+00:00">17:57:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 opencv</q></li>
+<li class="message">[<a href="#T17:57:25" id="T17:57:25"><abbr title="2011-04-14T17:57:25+00:00">17:57:25</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>nor advertised</q></li>
+<li class="action">[<a href="#T17:57:26" id="T17:57:26"><abbr title="2011-04-14T17:57:26+00:00">17:57:26</abbr></a>] <span>* woglinde runs</span></li>
+<li class="message">[<a href="#T17:57:32" id="T17:57:32"><abbr title="2011-04-14T17:57:32+00:00">17:57:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T17:57:45" id="T17:57:45"><abbr title="2011-04-14T17:57:45+00:00">17:57:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>anyway, /me runs home too</q></li>
+<li class="message">[<a href="#T17:57:50" id="T17:57:50"><abbr title="2011-04-14T17:57:50+00:00">17:57:50</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>woglinde: hey, that was actually easy, compared to all this kernel mumbo-jumbo...</q></li>
+<li class="message">[<a href="#T17:58:05" id="T17:58:05"><abbr title="2011-04-14T17:58:05+00:00">17:58:05</abbr></a>] &lt;<cite>badcloud</cite>&gt; <q>av500: thanks</q></li>
+<li class="message">[<a href="#T17:58:24" id="T17:58:24"><abbr title="2011-04-14T17:58:24+00:00">17:58:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>badcloud: google beagleboard and lcd</q></li>
+<li class="message">[<abbr title="2011-04-14T17:58:24+00:00">17:58:24</abbr>] &lt;<cite>beagle2_</cite>&gt; <q>meh, i going back to looking at this (semi-scary) source code here,</q></li>
+<li class="message">[<a href="#T17:58:30" id="T17:58:30"><abbr title="2011-04-14T17:58:30+00:00">17:58:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>there are some psp lcd addons</q></li>
+<li class="message">[<a href="#T17:58:34" id="T17:58:34"><abbr title="2011-04-14T17:58:34+00:00">17:58:34</abbr></a>] &lt;<cite>beagle2_</cite>&gt; <q>and see if i can figure out what i am suppose to do with it....</q></li>
+<li class="message">[<a href="#T17:58:35" id="T17:58:35"><abbr title="2011-04-14T17:58:35+00:00">17:58:35</abbr></a>] &lt;<cite>badcloud</cite>&gt; <q>av500: nice</q></li>
+<li class="message">[<a href="#T17:58:46" id="T17:58:46"><abbr title="2011-04-14T17:58:46+00:00">17:58:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but psp is only 480x272</q></li>
+<li class="message">[<a href="#T17:59:16" id="T17:59:16"><abbr title="2011-04-14T17:59:16+00:00">17:59:16</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>beagle I still wonder what you needed to do in kernel</q></li>
