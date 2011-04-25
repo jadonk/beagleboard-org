@@ -182,3 +182,76 @@
 <li class="message">[<a href="#T11:55:40" id="T11:55:40"><abbr title="2011-04-25T11:55:40+00:00">11:55:40</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I need to figure out the memory hole trick</q></li>
 <li class="join">[<a href="#T11:56:16" id="T11:56:16"><abbr title="2011-04-25T11:56:16+00:00">11:56:16</abbr></a>] <span>* risca (~risca@h241n2-n-a31.ias.bredband.telia.com) has joined #beagle</span></li>
 <li class="quit">[<a href="#T11:59:09" id="T11:59:09"><abbr title="2011-04-25T11:59:09+00:00">11:59:09</abbr></a>] <span>* mrc3 (~ddiaz@189.157.117.155) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T12:00:09" id="T12:00:09"><abbr title="2011-04-25T12:00:09+00:00">12:00:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: <a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a></q></li>
+<li class="message">[<a href="#T12:01:04" id="T12:01:04"><abbr title="2011-04-25T12:01:04+00:00">12:01:04</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>what do the number mean?</q></li>
+<li class="message">[<a href="#T12:01:25" id="T12:01:25"><abbr title="2011-04-25T12:01:25+00:00">12:01:25</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>also, my loadmodules suggest 126M for low arm</q></li>
+<li class="message">[<a href="#T12:01:30" id="T12:01:30"><abbr title="2011-04-25T12:01:30+00:00">12:01:30</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>and 2M dsp</q></li>
+<li class="message">[<a href="#T12:01:58" id="T12:01:58"><abbr title="2011-04-25T12:01:58+00:00">12:01:58</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>I'm trying not to copy random strings from wikis :)</q></li>
+<li class="join">[<a href="#T12:02:11" id="T12:02:11"><abbr title="2011-04-25T12:02:11+00:00">12:02:11</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-xygwsqkdehghnsdy) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:05:37" id="T12:05:37"><abbr title="2011-04-25T12:05:37+00:00">12:05:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: the numbers mean size and address</q></li>
+<li class="message">[<a href="#T12:06:03" id="T12:06:03"><abbr title="2011-04-25T12:06:03+00:00">12:06:03</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so it says "there's 99 megs at 0xsomething and another 384 megs at 0xother"</q></li>
+<li class="message">[<a href="#T12:06:38" id="T12:06:38"><abbr title="2011-04-25T12:06:38+00:00">12:06:38</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: it's (ab)using discontigmem</q></li>
+<li class="message">[<a href="#T12:07:16" id="T12:07:16"><abbr title="2011-04-25T12:07:16+00:00">12:07:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>some socs used to have 2 banks of ram with an address hole in between, we're abusing that support</q></li>
+<li class="message">[<a href="#T12:08:26" id="T12:08:26"><abbr title="2011-04-25T12:08:26+00:00">12:08:26</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>so I want to say 126M@0x80000000 and 384@0x88000000</q></li>
+<li class="message">[<a href="#T12:09:42" id="T12:09:42"><abbr title="2011-04-25T12:09:42+00:00">12:09:42</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T12:09:52" id="T12:09:52"><abbr title="2011-04-25T12:09:52+00:00">12:09:52</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>thanks</q></li>
+<li class="message">[<a href="#T12:10:04" id="T12:10:04"><abbr title="2011-04-25T12:10:04+00:00">12:10:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>a bigger hole doesn't hurt</q></li>
+<li class="message">[<a href="#T12:10:15" id="T12:10:15"><abbr title="2011-04-25T12:10:15+00:00">12:10:15</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>it hurts the arm side :)</q></li>
+<li class="message">[<a href="#T12:10:18" id="T12:10:18"><abbr title="2011-04-25T12:10:18+00:00">12:10:18</abbr></a>] &lt;<cite>koen</cite>&gt; <q>right</q></li>
+<li class="quit">[<a href="#T12:10:37" id="T12:10:37"><abbr title="2011-04-25T12:10:37+00:00">12:10:37</abbr></a>] <span>* jeremychang (~jeremy@61-30-10-70.static.tfn.net.tw) Quit (Quit: ??????)</span></li>
+<li class="message">[<a href="#T12:10:40" id="T12:10:40"><abbr title="2011-04-25T12:10:40+00:00">12:10:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but if you put it at 80M you can run link example, CE examples, etc without rebooting</q></li>
+<li class="message">[<a href="#T12:10:51" id="T12:10:51"><abbr title="2011-04-25T12:10:51+00:00">12:10:51</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>heh</q></li>
+<li class="join">[<a href="#T12:11:00" id="T12:11:00"><abbr title="2011-04-25T12:11:00+00:00">12:11:00</abbr></a>] <span>* BlInK311 (~Ward@ool-44c42324.dyn.optonline.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:11:13" id="T12:11:13"><abbr title="2011-04-25T12:11:13+00:00">12:11:13</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>my audience does not care about codec engine</q></li>
+<li class="message">[<a href="#T12:11:29" id="T12:11:29"><abbr title="2011-04-25T12:11:29+00:00">12:11:29</abbr></a>] &lt;<cite>koen</cite>&gt; <q>they should care about c6accel</q></li>
+<li class="join">[<a href="#T12:11:30" id="T12:11:30"><abbr title="2011-04-25T12:11:30+00:00">12:11:30</abbr></a>] <span>* mrc3 (~ddiaz@189.157.115.203) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:11:36" id="T12:11:36"><abbr title="2011-04-25T12:11:36+00:00">12:11:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>which is built on top of CE</q></li>
+<li class="message">[<a href="#T12:11:49" id="T12:11:49"><abbr title="2011-04-25T12:11:49+00:00">12:11:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>not sure what the default map for c6accel is</q></li>
+<li class="message">[<a href="#T12:12:50" id="T12:12:50"><abbr title="2011-04-25T12:12:50+00:00">12:12:50</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: people working on dsp stuff for SDR should bother Gagan</q></li>
+<li class="message">[<a href="#T12:13:18" id="T12:13:18"><abbr title="2011-04-25T12:13:18+00:00">12:13:18</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: Gagans team seems to be operating in a vacuum, so actual real life input is needed</q></li>
+<li class="message">[<a href="#T12:14:05" id="T12:14:05"><abbr title="2011-04-25T12:14:05+00:00">12:14:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and CC kridner :)</q></li>
+<li class="message">[<a href="#T12:14:20" id="T12:14:20"><abbr title="2011-04-25T12:14:20+00:00">12:14:20</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>koen, definitely loving the gmail required conversation :)</q></li>
+<li class="message">[<a href="#T12:15:11" id="T12:15:11"><abbr title="2011-04-25T12:15:11+00:00">12:15:11</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>hopefully the guys I am working with get to the point they ask questions I can not answer</q></li>
+<li class="message">[<a href="#T12:16:32" id="T12:16:32"><abbr title="2011-04-25T12:16:32+00:00">12:16:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mdp: I didn't know you hung out here :)</q></li>
+<li class="message">[<a href="#T12:16:47" id="T12:16:47"><abbr title="2011-04-25T12:16:47+00:00">12:16:47</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>always lurking :)</q></li>
+<li class="join">[<a href="#T12:18:59" id="T12:18:59"><abbr title="2011-04-25T12:18:59+00:00">12:18:59</abbr></a>] <span>* b7500af1 (~vt@2001:468:c80:4240:21c:bfff:fe8b:9c32) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:19:08" id="T12:19:08"><abbr title="2011-04-25T12:19:08+00:00">12:19:08</abbr></a>] <span>* nevdull (~bjames@unix-arm.org) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:19:11" id="T12:19:11"><abbr title="2011-04-25T12:19:11+00:00">12:19:11</abbr></a>] <span>* mrc3 (~ddiaz@189.157.115.203) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="join">[<a href="#T12:20:22" id="T12:20:22"><abbr title="2011-04-25T12:20:22+00:00">12:20:22</abbr></a>] <span>* Openfree^ (~Openfree`@61.170.193.125) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:30:48" id="T12:30:48"><abbr title="2011-04-25T12:30:48+00:00">12:30:48</abbr></a>] <span>* raster (raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
+<li class="join">[<a href="#T12:31:18" id="T12:31:18"><abbr title="2011-04-25T12:31:18+00:00">12:31:18</abbr></a>] <span>* mrc3 (~ddiaz@189.157.106.244) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:31:34" id="T12:31:34"><abbr title="2011-04-25T12:31:34+00:00">12:31:34</abbr></a>] <span>* amjad (~amjad@120.56.129.160) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T12:38:57" id="T12:38:57"><abbr title="2011-04-25T12:38:57+00:00">12:38:57</abbr></a>] <span>* mrc3 (~ddiaz@189.157.106.244) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="join">[<a href="#T12:44:02" id="T12:44:02"><abbr title="2011-04-25T12:44:02+00:00">12:44:02</abbr></a>] <span>* amjad (~amjad@120.56.130.139) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:44:27" id="T12:44:27"><abbr title="2011-04-25T12:44:27+00:00">12:44:27</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>koen, any idea what kernel version the hole trick started to work at</q></li>
+<li class="message">[<a href="#T12:45:03" id="T12:45:03"><abbr title="2011-04-25T12:45:03+00:00">12:45:03</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: 2.6.1x or something</q></li>
+<li class="message">[<a href="#T12:45:22" id="T12:45:22"><abbr title="2011-04-25T12:45:22+00:00">12:45:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: but for .32 we have a patch by khasim and rmk to fix some cornercases</q></li>
+<li class="message">[<a href="#T12:45:33" id="T12:45:33"><abbr title="2011-04-25T12:45:33+00:00">12:45:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: that patch should be upstream since .33</q></li>
+<li class="message">[<a href="#T12:45:36" id="T12:45:36"><abbr title="2011-04-25T12:45:36+00:00">12:45:36</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>oops</q></li>
+<li class="message">[<a href="#T12:45:43" id="T12:45:43"><abbr title="2011-04-25T12:45:43+00:00">12:45:43</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>spellling matters :)</q></li>
+<li class="message">[<a href="#T12:45:51" id="T12:45:51"><abbr title="2011-04-25T12:45:51+00:00">12:45:51</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>mem=126M@0x80000000 mem=384@0x88000000</q></li>
+<li class="quit">[<a href="#T12:46:27" id="T12:46:27"><abbr title="2011-04-25T12:46:27+00:00">12:46:27</abbr></a>] <span>* iry (~irytwo@99-25-90-177.lightspeed.hstntx.sbcglobal.net) Quit (Quit: -poof-)</span></li>
+<li class="message">[<a href="#T12:46:30" id="T12:46:30"><abbr title="2011-04-25T12:46:30+00:00">12:46:30</abbr></a>] &lt;<cite>aarti</cite>&gt; <q>hi all , I have beagle board xm it suddenly stops to detect SD/mmc card</q></li>
+<li class="message">[<a href="#T12:46:42" id="T12:46:42"><abbr title="2011-04-25T12:46:42+00:00">12:46:42</abbr></a>] &lt;<cite>aarti</cite>&gt; <q>how can i solve this problem?</q></li>
+<li class="join">[<a href="#T12:48:14" id="T12:48:14"><abbr title="2011-04-25T12:48:14+00:00">12:48:14</abbr></a>] <span>* whatnick (76d0fb37@gateway/web/freenode/ip.118.208.251.55) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:49:03" id="T12:49:03"><abbr title="2011-04-25T12:49:03+00:00">12:49:03</abbr></a>] <span>* GPSFan (~kenm@64.92.145.112) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:49:33" id="T12:49:33"><abbr title="2011-04-25T12:49:33+00:00">12:49:33</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>hmm running message sample app hangs system</q></li>
+<li class="join">[<a href="#T12:50:47" id="T12:50:47"><abbr title="2011-04-25T12:50:47+00:00">12:50:47</abbr></a>] <span>* phantoxe (~destroy@a95-92-94-213.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:51:06" id="T12:51:06"><abbr title="2011-04-25T12:51:06+00:00">12:51:06</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>mem=126M@0x80000000 mem=384M@0x88000000</q></li>
+<li class="quit">[<a href="#T12:51:14" id="T12:51:14"><abbr title="2011-04-25T12:51:14+00:00">12:51:14</abbr></a>] <span>* amjad (~amjad@120.56.130.139) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T12:52:16" id="T12:52:16"><abbr title="2011-04-25T12:52:16+00:00">12:52:16</abbr></a>] <span>* mrc3 (~ddiaz@189.157.108.144) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:53:07" id="T12:53:07"><abbr title="2011-04-25T12:53:07+00:00">12:53:07</abbr></a>] <span>* tegila (~tegila@189-041-118-233.xd-dynamic.ctbcnetsuper.com.br) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:53:40" id="T12:53:40"><abbr title="2011-04-25T12:53:40+00:00">12:53:40</abbr></a>] <span>* btraynor (~btraynor@gromit.mixdown.ca) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:54:45" id="T12:54:45"><abbr title="2011-04-25T12:54:45+00:00">12:54:45</abbr></a>] <span>* aarti (~aarti@122.166.11.13) Quit (Quit: Leaving)</span></li>
+<li class="nick-change">[<a href="#T12:56:44" id="T12:56:44"><abbr title="2011-04-25T12:56:44+00:00">12:56:44</abbr></a>] <span>* btraynor is now known as wmat</span></li>
+<li class="message">[<a href="#T12:57:05" id="T12:57:05"><abbr title="2011-04-25T12:57:05+00:00">12:57:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: remember that dsplink hijacks ctrl-c</q></li>
+<li class="message">[<a href="#T12:57:34" id="T12:57:34"><abbr title="2011-04-25T12:57:34+00:00">12:57:34</abbr></a>] &lt;<cite>b7500af1</cite>&gt; <q>koen, really? shoot.. I've wondered that. Is there a workaround?</q></li>
+<li class="message">[<a href="#T12:58:05" id="T12:58:05"><abbr title="2011-04-25T12:58:05+00:00">12:58:05</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>koen: mdp: he, i claim copyright on that remark!</q></li>
+<li class="message">[<a href="#T12:58:34" id="T12:58:34"><abbr title="2011-04-25T12:58:34+00:00">12:58:34</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>b7500af1: sure</q></li>
+<li class="message">[<a href="#T12:58:47" id="T12:58:47"><abbr title="2011-04-25T12:58:47+00:00">12:58:47</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you has the source code</q></li>
+<li class="message">[<a href="#T12:58:54" id="T12:58:54"><abbr title="2011-04-25T12:58:54+00:00">12:58:54</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>hmmm</q></li>
+<li class="message">[<a href="#T12:59:24" id="T12:59:24"><abbr title="2011-04-25T12:59:24+00:00">12:59:24</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>Entered RING_IO_Create ()</q></li>
+<li class="message">[<a href="#T12:59:25" id="T12:59:25"><abbr title="2011-04-25T12:59:25+00:00">12:59:25</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>DSP-side configuration mismatch/failure</q></li>
+<li class="message">[<abbr title="2011-04-25T12:59:25+00:00">12:59:25</abbr>] &lt;<cite>Crofton</cite>&gt; <q>0              -&gt; success</q></li>
+<li class="message">[<a href="#T12:59:48" id="T12:59:48"><abbr title="2011-04-25T12:59:48+00:00">12:59:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: everything built with OE?</q></li>
+<li class="message">[<a href="#T12:59:53" id="T12:59:53"><abbr title="2011-04-25T12:59:53+00:00">12:59:53</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>yeah</q></li>
