@@ -459,3 +459,127 @@
 <li class="message">[<a href="#T16:58:51" id="T16:58:51"><abbr title="2011-05-08T16:58:51+00:00">16:58:51</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>_av500_: cool.</q></li>
 <li class="message">[<a href="#T16:59:26" id="T16:59:26"><abbr title="2011-05-08T16:59:26+00:00">16:59:26</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>Alternative is to slap down a cheap MCU and have it do the encoders, report results when polled via SPI</q></li>
 <li class="message">[<a href="#T16:59:52" id="T16:59:52"><abbr title="2011-05-08T16:59:52+00:00">16:59:52</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>But simple GPIO would be simpler/cheaper/more maintainable</q></li>
+<li class="quit">[<a href="#T17:00:15" id="T17:00:15"><abbr title="2011-05-08T17:00:15+00:00">17:00:15</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T17:00:51" id="T17:00:51"><abbr title="2011-05-08T17:00:51+00:00">17:00:51</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>Probably should prototype a testcase on my BB...</q></li>
+<li class="message">[<a href="#T17:02:36" id="T17:02:36"><abbr title="2011-05-08T17:02:36+00:00">17:02:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>emeb|mac: i think it would work</q></li>
+<li class="message">[<a href="#T17:03:04" id="T17:03:04"><abbr title="2011-05-08T17:03:04+00:00">17:03:04</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>there was that talk about "slow" gpio on BB, but even at the 250khz mentioned it would be fine</q></li>
+<li class="message">[<a href="#T17:04:23" id="T17:04:23"><abbr title="2011-05-08T17:04:23+00:00">17:04:23</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>emeb|mac: use the old FIQ trick</q></li>
+<li class="message">[<a href="#T17:04:55" id="T17:04:55"><abbr title="2011-05-08T17:04:55+00:00">17:04:55</abbr></a>] &lt;<cite>DMorsing</cite>&gt; <q>there's a driver for using gpios for a rotary encoder</q></li>
+<li class="message">[<a href="#T17:05:38" id="T17:05:38"><abbr title="2011-05-08T17:05:38+00:00">17:05:38</abbr></a>] &lt;<cite>DMorsing</cite>&gt; <q>drivers/input/misc/rotary_encoder.c</q></li>
+<li class="message">[<a href="#T17:05:56" id="T17:05:56"><abbr title="2011-05-08T17:05:56+00:00">17:05:56</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>DMorsing: thanks!</q></li>
+<li class="action">[<a href="#T17:07:12" id="T17:07:12"><abbr title="2011-05-08T17:07:12+00:00">17:07:12</abbr></a>] <span>* emeb|mac has to remember that he is rarely breaking new ground.</span></li>
+<li class="message">[<a href="#T17:07:54" id="T17:07:54"><abbr title="2011-05-08T17:07:54+00:00">17:07:54</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and it has almost as few lines as one would expect</q></li>
+<li class="message">[<a href="#T17:09:23" id="T17:09:23"><abbr title="2011-05-08T17:09:23+00:00">17:09:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>whats an rotary encoder doing?</q></li>
+<li class="message">[<a href="#T17:09:39" id="T17:09:39"><abbr title="2011-05-08T17:09:39+00:00">17:09:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and why you need gpio's for it?</q></li>
+<li class="message">[<a href="#T17:10:22" id="T17:10:22"><abbr title="2011-05-08T17:10:22+00:00">17:10:22</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>woglinde: 2 switches with 90?? phase shift</q></li>
+<li class="message">[<a href="#T17:10:36" id="T17:10:36"><abbr title="2011-05-08T17:10:36+00:00">17:10:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>on an axis</q></li>
+<li class="message">[<a href="#T17:10:45" id="T17:10:45"><abbr title="2011-05-08T17:10:45+00:00">17:10:45</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>axis?</q></li>
+<li class="message">[<a href="#T17:10:56" id="T17:10:56"><abbr title="2011-05-08T17:10:56+00:00">17:10:56</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>yes, the rotary bit</q></li>
+<li class="message">[<a href="#T17:11:04" id="T17:11:04"><abbr title="2011-05-08T17:11:04+00:00">17:11:04</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>drehencoder</q></li>
+<li class="message">[<a href="#T17:11:08" id="T17:11:08"><abbr title="2011-05-08T17:11:08+00:00">17:11:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm I will google</q></li>
+<li class="message">[<a href="#T17:11:59" id="T17:11:59"><abbr title="2011-05-08T17:11:59+00:00">17:11:59</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>my 18" telescope uses two at 2500 cpr in quadrature for 10k cpr</q></li>
+<li class="message">[<a href="#T17:13:15" id="T17:13:15"><abbr title="2011-05-08T17:13:15+00:00">17:13:15</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm so the gpios are need for the analysis?</q></li>
+<li class="message">[<a href="#T17:13:24" id="T17:13:24"><abbr title="2011-05-08T17:13:24+00:00">17:13:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T17:13:34" id="T17:13:34"><abbr title="2011-05-08T17:13:34+00:00">17:13:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay</q></li>
+<li class="message">[<a href="#T17:13:40" id="T17:13:40"><abbr title="2011-05-08T17:13:40+00:00">17:13:40</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>the wiring is: GND, A and B</q></li>
+<li class="message">[<a href="#T17:13:59" id="T17:13:59"><abbr title="2011-05-08T17:13:59+00:00">17:13:59</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>and a positive voltage</q></li>
+<li class="message">[<a href="#T17:14:11" id="T17:14:11"><abbr title="2011-05-08T17:14:11+00:00">17:14:11</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>12V</q></li>
+<li class="message">[<a href="#T17:14:17" id="T17:14:17"><abbr title="2011-05-08T17:14:17+00:00">17:14:17</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T17:15:11" id="T17:15:11"><abbr title="2011-05-08T17:15:11+00:00">17:15:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>2N2222 in open collector config.</q></li>
+<li class="message">[<a href="#T17:15:14" id="T17:15:14"><abbr title="2011-05-08T17:15:14+00:00">17:15:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>next problem</q></li>
+<li class="message">[<a href="#T17:15:20" id="T17:15:20"><abbr title="2011-05-08T17:15:20+00:00">17:15:20</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>woglinde: look inside a non-optical mouse for a couple of encoder wheels</q></li>
+<li class="message">[<a href="#T17:15:54" id="T17:15:54"><abbr title="2011-05-08T17:15:54+00:00">17:15:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why bother with rodents?</q></li>
+<li class="message">[<a href="#T17:16:13" id="T17:16:13"><abbr title="2011-05-08T17:16:13+00:00">17:16:13</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>djlewis yeah I just read it</q></li>
+<li class="message">[<a href="#T17:16:14" id="T17:16:14"><abbr title="2011-05-08T17:16:14+00:00">17:16:14</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>they are commonly available :)</q></li>
+<li class="message">[<a href="#T17:16:42" id="T17:16:42"><abbr title="2011-05-08T17:16:42+00:00">17:16:42</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>driver looks fairly reasonable.</q></li>
+<li class="action">[<a href="#T17:16:53" id="T17:16:53"><abbr title="2011-05-08T17:16:53+00:00">17:16:53</abbr></a>] <span>* djlewis goes rodent hunting most every night.</span></li>
+<li class="message">[<a href="#T17:16:55" id="T17:16:55"><abbr title="2011-05-08T17:16:55+00:00">17:16:55</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>IRQ driven, simple GPIO</q></li>
+<li class="message">[<a href="#T17:16:56" id="T17:16:56"><abbr title="2011-05-08T17:16:56+00:00">17:16:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>LED/phototransistor pairs are easy enough to find</q></li>
+<li class="join">[<a href="#T17:17:05" id="T17:17:05"><abbr title="2011-05-08T17:17:05+00:00">17:17:05</abbr></a>] <span>* agnel (~joel@cpe-76-184-244-226.tx.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:17:08" id="T17:17:08"><abbr title="2011-05-08T17:17:08+00:00">17:17:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>print a quad. encoder disc and move on</q></li>
+<li class="message">[<a href="#T17:17:18" id="T17:17:18"><abbr title="2011-05-08T17:17:18+00:00">17:17:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>djlewis: with a 50cal? </q></li>
+<li class="message">[<a href="#T17:17:28" id="T17:17:28"><abbr title="2011-05-08T17:17:28+00:00">17:17:28</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>ds2: what's your rush today?</q></li>
+<li class="message">[<a href="#T17:17:29" id="T17:17:29"><abbr title="2011-05-08T17:17:29+00:00">17:17:29</abbr></a>] &lt;<cite>emeb|mac</cite>&gt; <q>looks like you'd just set it up in the board config file</q></li>
+<li class="message">[<a href="#T17:17:39" id="T17:17:39"><abbr title="2011-05-08T17:17:39+00:00">17:17:39</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>22cal rat buckshot</q></li>
+<li class="message">[<a href="#T17:18:25" id="T17:18:25"><abbr title="2011-05-08T17:18:25+00:00">17:18:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what's that say.. you can have 2 - fast/better/????</q></li>
+<li class="message">[<a href="#T17:18:43" id="T17:18:43"><abbr title="2011-05-08T17:18:43+00:00">17:18:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>clearly, we gave up on better so faster it must be ;)</q></li>
+<li class="message">[<a href="#T17:19:16" id="T17:19:16"><abbr title="2011-05-08T17:19:16+00:00">17:19:16</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>thus the cheaper 2n2222's</q></li>
+<li class="message">[<a href="#T17:19:23" id="T17:19:23"><abbr title="2011-05-08T17:19:23+00:00">17:19:23</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T17:19:52" id="T17:19:52"><abbr title="2011-05-08T17:19:52+00:00">17:19:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>exactly!</q></li>
+<li class="join">[<a href="#T17:20:18" id="T17:20:18"><abbr title="2011-05-08T17:20:18+00:00">17:20:18</abbr></a>] <span>* torusle (~nils@c134114.adsl.hansenet.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:20:23" id="T17:20:23"><abbr title="2011-05-08T17:20:23+00:00">17:20:23</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>hi folks.</q></li>
+<li class="message">[<a href="#T17:22:02" id="T17:22:02"><abbr title="2011-05-08T17:22:02+00:00">17:22:02</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>low torusle:</q></li>
+<li class="message">[<a href="#T17:22:12" id="T17:22:12"><abbr title="2011-05-08T17:22:12+00:00">17:22:12</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>wazzup?</q></li>
+<li class="message">[<a href="#T17:22:44" id="T17:22:44"><abbr title="2011-05-08T17:22:44+00:00">17:22:44</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>I wonder if anyone could send me ti_cgt_c6000_6.1.17_setup_linux_x86.bin.. I tried downloading, but it seems like europeans now have to wait several days until someone at TI clicks a agree button or so (US export restrictions)...</q></li>
+<li class="message">[<a href="#T17:22:59" id="T17:22:59"><abbr title="2011-05-08T17:22:59+00:00">17:22:59</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>djlewis, oh.. fighting with an upgrade.</q></li>
+<li class="message">[<a href="#T17:23:11" id="T17:23:11"><abbr title="2011-05-08T17:23:11+00:00">17:23:11</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>finally decided to move from 2.6.27 to a newer kernel.. </q></li>
+<li class="message">[<a href="#T17:23:18" id="T17:23:18"><abbr title="2011-05-08T17:23:18+00:00">17:23:18</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>getting dsplink running again is hell!</q></li>
+<li class="message">[<a href="#T17:23:22" id="T17:23:22"><abbr title="2011-05-08T17:23:22+00:00">17:23:22</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hi torusle </q></li>
+<li class="message">[<a href="#T17:23:28" id="T17:23:28"><abbr title="2011-05-08T17:23:28+00:00">17:23:28</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>hi av500!</q></li>
+<li class="message">[<a href="#T17:23:29" id="T17:23:29"><abbr title="2011-05-08T17:23:29+00:00">17:23:29</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you back on the dsp?</q></li>
+<li class="message">[<a href="#T17:23:48" id="T17:23:48"><abbr title="2011-05-08T17:23:48+00:00">17:23:48</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>cgt now needs approval?</q></li>
+<li class="message">[<a href="#T17:23:52" id="T17:23:52"><abbr title="2011-05-08T17:23:52+00:00">17:23:52</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>_av500_, never stopped working with it, I just stopped chatting.</q></li>
+<li class="message">[<a href="#T17:24:09" id="T17:24:09"><abbr title="2011-05-08T17:24:09+00:00">17:24:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ah, you went undercover</q></li>
+<li class="message">[<a href="#T17:24:27" id="T17:24:27"><abbr title="2011-05-08T17:24:27+00:00">17:24:27</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>torusle hm it was fairly fast for me</q></li>
+<li class="message">[<a href="#T17:24:33" id="T17:24:33"><abbr title="2011-05-08T17:24:33+00:00">17:24:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>but maybee its sunday</q></li>
+<li class="message">[<a href="#T17:24:42" id="T17:24:42"><abbr title="2011-05-08T17:24:42+00:00">17:24:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>always works instantly for me</q></li>
+<li class="message">[<a href="#T17:24:51" id="T17:24:51"><abbr title="2011-05-08T17:24:51+00:00">17:24:51</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hit refresh</q></li>
+<li class="message">[<a href="#T17:24:53" id="T17:24:53"><abbr title="2011-05-08T17:24:53+00:00">17:24:53</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>hi mru.</q></li>
+<li class="message">[<a href="#T17:25:03" id="T17:25:03"><abbr title="2011-05-08T17:25:03+00:00">17:25:03</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>okay guys.. will try again.. :-) be right back.</q></li>
+<li class="message">[<a href="#T17:25:08" id="T17:25:08"><abbr title="2011-05-08T17:25:08+00:00">17:25:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>.27 wow</q></li>
+<li class="message">[<a href="#T17:25:11" id="T17:25:11"><abbr title="2011-05-08T17:25:11+00:00">17:25:11</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>thats old</q></li>
+<li class="message">[<a href="#T17:25:14" id="T17:25:14"><abbr title="2011-05-08T17:25:14+00:00">17:25:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>5 years?</q></li>
+<li class="message">[<a href="#T17:25:27" id="T17:25:27"><abbr title="2011-05-08T17:25:27+00:00">17:25:27</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>woglinde: no</q></li>
+<li class="message">[<a href="#T17:25:34" id="T17:25:34"><abbr title="2011-05-08T17:25:34+00:00">17:25:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>cannt remember running .27 kernel on beagle</q></li>
+<li class="action">[<a href="#T17:25:39" id="T17:25:39"><abbr title="2011-05-08T17:25:39+00:00">17:25:39</abbr></a>] <span>* mru can</span></li>
+<li class="action">[<a href="#T17:26:32" id="T17:26:32"><abbr title="2011-05-08T17:26:32+00:00">17:26:32</abbr></a>] <span>* _av500_ too but no on beagle, but still on omap3</span></li>
+<li class="action">[<a href="#T17:26:55" id="T17:26:55"><abbr title="2011-05-08T17:26:55+00:00">17:26:55</abbr></a>] <span>* mru remembers .26 too</span></li>
+<li class="message">[<a href="#T17:27:09" id="T17:27:09"><abbr title="2011-05-08T17:27:09+00:00">17:27:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and cursed wtfbu releases based on .22</q></li>
+<li class="message">[<a href="#T17:27:11" id="T17:27:11"><abbr title="2011-05-08T17:27:11+00:00">17:27:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>.27 is a new kernel ;)</q></li>
+<li class="message">[<a href="#T17:27:27" id="T17:27:27"><abbr title="2011-05-08T17:27:27+00:00">17:27:27</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>company URL must be provided.. yes sure... </q></li>
+<li class="message">[<abbr title="2011-05-08T17:27:27+00:00">17:27:27</abbr>] &lt;<cite>woglinde</cite>&gt; <q>hm .27 is lts</q></li>
+<li class="message">[<a href="#T17:27:28" id="T17:27:28"><abbr title="2011-05-08T17:27:28+00:00">17:27:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>.24 - full featured</q></li>
+<li class="message">[<a href="#T17:27:54" id="T17:27:54"><abbr title="2011-05-08T17:27:54+00:00">17:27:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>torusle: ti.com</q></li>
+<li class="message">[<a href="#T17:28:37" id="T17:28:37"><abbr title="2011-05-08T17:28:37+00:00">17:28:37</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>hm. worked.. now waiting for an email.</q></li>
+<li class="quit">[<a href="#T17:28:47" id="T17:28:47"><abbr title="2011-05-08T17:28:47+00:00">17:28:47</abbr></a>] <span>* emeb|mac (~ericb@ip70-190-178-49.ph.ph.cox.net) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T17:28:55" id="T17:28:55"><abbr title="2011-05-08T17:28:55+00:00">17:28:55</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>I wonder why the heck a compiler is export restricted...</q></li>
+<li class="message">[<a href="#T17:29:41" id="T17:29:41"><abbr title="2011-05-08T17:29:41+00:00">17:29:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so those pesky iranian smugglers won't be able to get any code on their omap contraband</q></li>
+<li class="message">[<a href="#T17:29:51" id="T17:29:51"><abbr title="2011-05-08T17:29:51+00:00">17:29:51</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>torusle iran could build missle control with it</q></li>
+<li class="message">[<a href="#T17:30:03" id="T17:30:03"><abbr title="2011-05-08T17:30:03+00:00">17:30:03</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>mru *g*</q></li>
+<li class="message">[<a href="#T17:30:20" id="T17:30:20"><abbr title="2011-05-08T17:30:20+00:00">17:30:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>those .22 kernels were fine...they had working PM and other stuff</q></li>
+<li class="message">[<a href="#T17:30:38" id="T17:30:38"><abbr title="2011-05-08T17:30:38+00:00">17:30:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, but I wanted stuff, not other stuff</q></li>
+<li class="message">[<a href="#T17:30:43" id="T17:30:43"><abbr title="2011-05-08T17:30:43+00:00">17:30:43</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>all I want to compile is my allah-hu-akbar.bin binary for the DSP.. </q></li>
+<li class="message">[<a href="#T17:31:09" id="T17:31:09"><abbr title="2011-05-08T17:31:09+00:00">17:31:09</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>download in progress btw.. thanks guys.</q></li>
+<li class="message">[<a href="#T17:32:06" id="T17:32:06"><abbr title="2011-05-08T17:32:06+00:00">17:32:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>torusle now fbi and cia is watching you</q></li>
+<li class="message">[<a href="#T17:33:29" id="T17:33:29"><abbr title="2011-05-08T17:33:29+00:00">17:33:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not to mention nsa, tsa, dhs, fcc, tla, ...</q></li>
+<li class="message">[<a href="#T17:34:30" id="T17:34:30"><abbr title="2011-05-08T17:34:30+00:00">17:34:30</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>does not matter anymore... I'll not visit the states in the near future anyway.</q></li>
+<li class="message">[<a href="#T17:34:46" id="T17:34:46"><abbr title="2011-05-08T17:34:46+00:00">17:34:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what if states visit you?</q></li>
+<li class="message">[<a href="#T17:35:24" id="T17:35:24"><abbr title="2011-05-08T17:35:24+00:00">17:35:24</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>bin laden tried that option, I hear he was not satisfied with the service</q></li>
+<li class="message">[<a href="#T17:35:35" id="T17:35:35"><abbr title="2011-05-08T17:35:35+00:00">17:35:35</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>if so I have to go underground... Hm.. underground dsp coding.. that's something impressive for my vita :-)</q></li>
+<li class="message">[<a href="#T17:35:51" id="T17:35:51"><abbr title="2011-05-08T17:35:51+00:00">17:35:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>dm8tbr: and someone mentioned a .bin file...</q></li>
+<li class="message">[<a href="#T17:36:19" id="T17:36:19"><abbr title="2011-05-08T17:36:19+00:00">17:36:19</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>okay, I have the compiler installer. Any idea where to put the file, so openembedded stops complaining?</q></li>
+<li class="message">[<a href="#T17:36:22" id="T17:36:22"><abbr title="2011-05-08T17:36:22+00:00">17:36:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>torusle: better than the pie-in-the-sky coding some people do</q></li>
+<li class="join">[<a href="#T17:37:47" id="T17:37:47"><abbr title="2011-05-08T17:37:47+00:00">17:37:47</abbr></a>] <span>* mrc3 (~ddiaz@189.157.116.46) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:43:49" id="T17:43:49"><abbr title="2011-05-08T17:43:49+00:00">17:43:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>from what I've understood it's also about tracking usage for royalties</q></li>
+<li class="message">[<a href="#T17:46:10" id="T17:46:10"><abbr title="2011-05-08T17:46:10+00:00">17:46:10</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>koen, makes sense..</q></li>
+<li class="message">[<a href="#T17:46:26" id="T17:46:26"><abbr title="2011-05-08T17:46:26+00:00">17:46:26</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>koen, btw.. you did the work on narcissus, haven't you?</q></li>
+<li class="message">[<a href="#T17:46:54" id="T17:46:54"><abbr title="2011-05-08T17:46:54+00:00">17:46:54</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>koen, I think it would be very cool if you could add an option to download the kernel-sources used to compile the image.. somewhat in the same way as the native sdk..</q></li>
+<li class="message">[<a href="#T17:47:28" id="T17:47:28"><abbr title="2011-05-08T17:47:28+00:00">17:47:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>torusle: heresy!</q></li>
+<li class="quit">[<a href="#T17:47:29" id="T17:47:29"><abbr title="2011-05-08T17:47:29+00:00">17:47:29</abbr></a>] <span>* negril (~negril@2002:1f10:75c6:0:21f:d0ff:fed4:7584) Quit (Quit: Shutting down.)</span></li>
+<li class="join">[<a href="#T17:47:30" id="T17:47:30"><abbr title="2011-05-08T17:47:30+00:00">17:47:30</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:47:59" id="T17:47:59"><abbr title="2011-05-08T17:47:59+00:00">17:47:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>torusle: at the point people need kernel sources, they should use OE to build it</q></li>
+<li class="message">[<a href="#T17:48:15" id="T17:48:15"><abbr title="2011-05-08T17:48:15+00:00">17:48:15</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>see</q></li>
+<li class="message">[<a href="#T17:48:16" id="T17:48:16"><abbr title="2011-05-08T17:48:16+00:00">17:48:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I'm not in the business of reimplementing buildsystems</q></li>
+<li class="message">[<a href="#T17:48:37" id="T17:48:37"><abbr title="2011-05-08T17:48:37+00:00">17:48:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>well, _koen_ is during office hours</q></li>
+<li class="message">[<a href="#T17:49:21" id="T17:49:21"><abbr title="2011-05-08T17:49:21+00:00">17:49:21</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>_koen_1: ^^^^</q></li>
+<li class="message">[<a href="#T17:49:29" id="T17:49:29"><abbr title="2011-05-08T17:49:29+00:00">17:49:29</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>koen yes, I see the point in it, but honestly: if you're not working with OE on a day by day basis it is a *lot* of pain to get it working..</q></li>
+<li class="join">[<a href="#T17:51:06" id="T17:51:06"><abbr title="2011-05-08T17:51:06+00:00">17:51:06</abbr></a>] <span>* negril (~negril@2002:1f10:75c6:0:21f:d0ff:fed4:7584) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:51:44" id="T17:51:44"><abbr title="2011-05-08T17:51:44+00:00">17:51:44</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the angstrom scripts make it really easy</q></li>
+<li class="message">[<a href="#T17:52:13" id="T17:52:13"><abbr title="2011-05-08T17:52:13+00:00">17:52:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>apart from Fedora N+1 the leading cause of problems is people failing to follow instructions</q></li>
+<li class="message">[<a href="#T17:53:03" id="T17:53:03"><abbr title="2011-05-08T17:53:03+00:00">17:53:03</abbr></a>] &lt;<cite>torusle</cite>&gt; <q>it is not that easy. currently I try to get OE to find that dsp cross compiler install binary.. Such things are nowhere documented.</q></li>
+<li class="quit">[<a href="#T17:56:52" id="T17:56:52"><abbr title="2011-05-08T17:56:52+00:00">17:56:52</abbr></a>] <span>* agnel (~joel@cpe-76-184-244-226.tx.res.rr.com) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T17:57:34" id="T17:57:34"><abbr title="2011-05-08T17:57:34+00:00">17:57:34</abbr></a>] <span>* woglinde_ (~heinold@f052225198.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:58:13" id="T17:58:13"><abbr title="2011-05-08T17:58:13+00:00">17:58:13</abbr></a>] <span>* peabody124 (~peabody12@128.249.96.21) Quit (Quit: peabody124)</span></li>
+<li class="message">[<a href="#T17:58:26" id="T17:58:26"><abbr title="2011-05-08T17:58:26+00:00">17:58:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>apart from the 'README' in recipes/ti ?</q></li>
+<li class="quit">[<a href="#T17:59:33" id="T17:59:33"><abbr title="2011-05-08T17:59:33+00:00">17:59:33</abbr></a>] <span>* negril (~negril@2002:1f10:75c6:0:21f:d0ff:fed4:7584) Quit (Quit: Shutting down.)</span></li>
+<li class="quit">[<a href="#T17:59:49" id="T17:59:49"><abbr title="2011-05-08T17:59:49+00:00">17:59:49</abbr></a>] <span>* AxMountain (~daniel@78-73-18-175-no168.tbcn.telia.com) Quit (Ping timeout: 260 seconds)</span></li>
