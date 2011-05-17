@@ -301,3 +301,69 @@
 <li class="message">[<a href="#T15:53:55" id="T15:53:55"><abbr title="2011-05-17T15:53:55+00:00">15:53:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>can the ones in 1) do 0x57?</q></li>
 <li class="message">[<a href="#T15:54:26" id="T15:54:26"><abbr title="2011-05-17T15:54:26+00:00">15:54:26</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: yea, pretty much all of the configurable ones support from 0x50 thru 0x57</q></li>
 <li class="message">[<a href="#T15:54:47" id="T15:54:47"><abbr title="2011-05-17T15:54:47+00:00">15:54:47</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: an example is the AT24C01B that we use on the trainer and zippy</q></li>
+<li class="quit">[<a href="#T16:00:08" id="T16:00:08"><abbr title="2011-05-17T16:00:08+00:00">16:00:08</abbr></a>] <span>* koen (~koen@ip545070eb.adsl-surfen.hetnet.nl) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T16:00:54" id="T16:00:54"><abbr title="2011-05-17T16:00:54+00:00">16:00:54</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>doh</q></li>
+<li class="join">[<a href="#T16:03:51" id="T16:03:51"><abbr title="2011-05-17T16:03:51+00:00">16:03:51</abbr></a>] <span>* koen (~koen@84.80.112.235) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:04:01" id="T16:04:01"><abbr title="2011-05-17T16:04:01+00:00">16:04:01</abbr></a>] <span>* AxMountain (~daniel@dhcp-192-69.nomad.chalmers.se) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:04:04" id="T16:04:04"><abbr title="2011-05-17T16:04:04+00:00">16:04:04</abbr></a>] <span>* katier (~katierh@nat/ti/x-guhwfpdlpprehujp) Quit ()</span></li>
+<li class="message">[<a href="#T16:06:44" id="T16:06:44"><abbr title="2011-05-17T16:06:44+00:00">16:06:44</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: re</q></li>
+<li class="message">[<a href="#T16:06:48" id="T16:06:48"><abbr title="2011-05-17T16:06:48+00:00">16:06:48</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: yea, pretty much all of the configurable ones support from 0x50 thru 0x57</q></li>
+<li class="message">[<a href="#T16:06:50" id="T16:06:50"><abbr title="2011-05-17T16:06:50+00:00">16:06:50</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: an example is the AT24C01B that we use on the trainer and zippy</q></li>
+<li class="message">[<a href="#T16:07:23" id="T16:07:23"><abbr title="2011-05-17T16:07:23+00:00">16:07:23</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: so.....</q></li>
+<li class="join">[<a href="#T16:07:43" id="T16:07:43"><abbr title="2011-05-17T16:07:43+00:00">16:07:43</abbr></a>] <span>* khasim (~a0393720@203.101.61.7) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:08:21" id="T16:08:21"><abbr title="2011-05-17T16:08:21+00:00">16:08:21</abbr></a>] <span>* Badiss (~Badiss@LSt-Amand-152-31-12-194.w193-253.abo.wanadoo.fr) Quit (Quit: Lost terminal)</span></li>
+<li class="message">[<a href="#T16:08:26" id="T16:08:26"><abbr title="2011-05-17T16:08:26+00:00">16:08:26</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: my suggestion is to add a check for 0x57 first, failing to find a eeprom with valid info, fall over to checking 0x50</q></li>
+<li class="message">[<a href="#T16:08:51" id="T16:08:51"><abbr title="2011-05-17T16:08:51+00:00">16:08:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>sounds good to me</q></li>
+<li class="message">[<a href="#T16:09:09" id="T16:09:09"><abbr title="2011-05-17T16:09:09+00:00">16:09:09</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: the reason i suggest checking 0x57 first, is if you have an eeprom you've put at 0x57 due to conflict with EDID, you want it to check the x57 first</q></li>
+<li class="message">[<a href="#T16:09:39" id="T16:09:39"><abbr title="2011-05-17T16:09:39+00:00">16:09:39</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: this scheme will still work with the 0x50 boards, just has a small time delay for the check of 0x57</q></li>
+<li class="quit">[<a href="#T16:10:25" id="T16:10:25"><abbr title="2011-05-17T16:10:25+00:00">16:10:25</abbr></a>] <span>* _zxdx (~zEX0dEx@178.121.223.129) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="join">[<a href="#T16:10:42" id="T16:10:42"><abbr title="2011-05-17T16:10:42+00:00">16:10:42</abbr></a>] <span>* holmes123 (~holmes123@74.11.100.93) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:10:47" id="T16:10:47"><abbr title="2011-05-17T16:10:47+00:00">16:10:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: did you get ROS to run on opencv?</q></li>
+<li class="message">[<a href="#T16:14:53" id="T16:14:53"><abbr title="2011-05-17T16:14:53+00:00">16:14:53</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>av500, do you randomly string phrases together?</q></li>
+<li class="message">[<a href="#T16:15:00" id="T16:15:00"><abbr title="2011-05-17T16:15:00+00:00">16:15:00</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>sometimes I think you are a bot</q></li>
+<li class="join">[<a href="#T16:15:47" id="T16:15:47"><abbr title="2011-05-17T16:15:47+00:00">16:15:47</abbr></a>] <span>* Ceriand|work (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:16:27" id="T16:16:27"><abbr title="2011-05-17T16:16:27+00:00">16:16:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Crofton|work: I buzz words</q></li>
+<li class="join">[<a href="#T16:16:36" id="T16:16:36"><abbr title="2011-05-17T16:16:36+00:00">16:16:36</abbr></a>] <span>* _zxdx (~zEX0dEx@178.120.206.50) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:17:01" id="T16:17:01"><abbr title="2011-05-17T16:17:01+00:00">16:17:01</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>av500 eliza?</q></li>
+<li class="message">[<a href="#T16:17:12" id="T16:17:12"><abbr title="2011-05-17T16:17:12+00:00">16:17:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>emeb: that's his wife</q></li>
+<li class="nick-change">[<a href="#T16:17:13" id="T16:17:13"><abbr title="2011-05-17T16:17:13+00:00">16:17:13</abbr></a>] <span>* av500 is now known as eliza500</span></li>
+<li class="message">[<a href="#T16:17:22" id="T16:17:22"><abbr title="2011-05-17T16:17:22+00:00">16:17:22</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>he accidentally at word</q></li>
+<li class="nick-change">[<a href="#T16:17:31" id="T16:17:31"><abbr title="2011-05-17T16:17:31+00:00">16:17:31</abbr></a>] <span>* kimitake is now known as kimitake_idle</span></li>
+<li class="message">[<a href="#T16:17:38" id="T16:17:38"><abbr title="2011-05-17T16:17:38+00:00">16:17:38</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>s/at/a</q></li>
+<li class="message">[<a href="#T16:17:49" id="T16:17:49"><abbr title="2011-05-17T16:17:49+00:00">16:17:49</abbr></a>] &lt;<cite>eliza500</cite>&gt; <q>sata?</q></li>
+<li class="message">[<a href="#T16:24:32" id="T16:24:32"><abbr title="2011-05-17T16:24:32+00:00">16:24:32</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>how can i get aliases in angstrom command shell?</q></li>
+<li class="join">[<a href="#T16:25:07" id="T16:25:07"><abbr title="2011-05-17T16:25:07+00:00">16:25:07</abbr></a>] <span>* lifeeth (~praneeth@202.3.77.205) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-05-17T16:25:07+00:00">16:25:07</abbr>] <span>* lifeeth (~praneeth@202.3.77.205) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-05-17T16:25:07+00:00">16:25:07</abbr>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:25:46" id="T16:25:46"><abbr title="2011-05-17T16:25:46+00:00">16:25:46</abbr></a>] &lt;<cite>mnemoc</cite>&gt; <q>siegen: add wrappers into $HOME/bin/</q></li>
+<li class="message">[<a href="#T16:26:26" id="T16:26:26"><abbr title="2011-05-17T16:26:26+00:00">16:26:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or put alias directives in the startup file for the shell</q></li>
+<li class="action">[<a href="#T16:27:00" id="T16:27:00"><abbr title="2011-05-17T16:27:00+00:00">16:27:00</abbr></a>] <span>* mnemoc didn't know it supported alias directives</span></li>
+<li class="message">[<a href="#T16:27:12" id="T16:27:12"><abbr title="2011-05-17T16:27:12+00:00">16:27:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what exactly is "it"?</q></li>
+<li class="message">[<a href="#T16:27:37" id="T16:27:37"><abbr title="2011-05-17T16:27:37+00:00">16:27:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I would assume the interactive shell is bash or similar</q></li>
+<li class="message">[<a href="#T16:28:10" id="T16:28:10"><abbr title="2011-05-17T16:28:10+00:00">16:28:10</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>angstrom i think use dash</q></li>
+<li class="message">[<a href="#T16:28:23" id="T16:28:23"><abbr title="2011-05-17T16:28:23+00:00">16:28:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>as interactive shell?</q></li>
+<li class="join">[<a href="#T16:28:33" id="T16:28:33"><abbr title="2011-05-17T16:28:33+00:00">16:28:33</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-ddbybrwgaprhypxa) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:28:43" id="T16:28:43"><abbr title="2011-05-17T16:28:43+00:00">16:28:43</abbr></a>] &lt;<cite>mnemoc</cite>&gt; <q>i had the idea is was ash...</q></li>
+<li class="message">[<a href="#T16:28:59" id="T16:28:59"><abbr title="2011-05-17T16:28:59+00:00">16:28:59</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>ahh sorry </q></li>
+<li class="message">[<a href="#T16:29:01" id="T16:29:01"><abbr title="2011-05-17T16:29:01+00:00">16:29:01</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>ash</q></li>
+<li class="message">[<a href="#T16:29:02" id="T16:29:02"><abbr title="2011-05-17T16:29:02+00:00">16:29:02</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>heheh</q></li>
+<li class="message">[<a href="#T16:29:07" id="T16:29:07"><abbr title="2011-05-17T16:29:07+00:00">16:29:07</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>you are right</q></li>
+<li class="message">[<a href="#T16:29:32" id="T16:29:32"><abbr title="2011-05-17T16:29:32+00:00">16:29:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's a rather poor interactive shell</q></li>
+<li class="message">[<a href="#T16:29:45" id="T16:29:45"><abbr title="2011-05-17T16:29:45+00:00">16:29:45</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: ok, well i am going to post a patch for the changes in the next week or so</q></li>
+<li class="join">[<a href="#T16:33:30" id="T16:33:30"><abbr title="2011-05-17T16:33:30+00:00">16:33:30</abbr></a>] <span>* jpirko (~jirka@ip-89-102-7-223.net.upcbroadband.cz) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:40:10" id="T16:40:10"><abbr title="2011-05-17T16:40:10+00:00">16:40:10</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>angstrom defualt is the busybox shell</q></li>
+<li class="message">[<a href="#T16:41:02" id="T16:41:02"><abbr title="2011-05-17T16:41:02+00:00">16:41:02</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>you can install bash and use chsh to fix it though</q></li>
+<li class="action">[<a href="#T16:45:30" id="T16:45:30"><abbr title="2011-05-17T16:45:30+00:00">16:45:30</abbr></a>] <span>* mnemoc only misses ${foo//f/t} from ash</span></li>
+<li class="join">[<a href="#T16:46:11" id="T16:46:11"><abbr title="2011-05-17T16:46:11+00:00">16:46:11</abbr></a>] <span>* mctouch (~mctouch@cpc17-sgyl28-2-0-cust34.sgyl.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:46:14" id="T16:46:14"><abbr title="2011-05-17T16:46:14+00:00">16:46:14</abbr></a>] <span>* woglinde (~heinold@f052064149.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:48:22" id="T16:48:22"><abbr title="2011-05-17T16:48:22+00:00">16:48:22</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>koen: i'd like to change the board detection to use a struct as well</q></li>
+<li class="message">[<a href="#T16:51:43" id="T16:51:43"><abbr title="2011-05-17T16:51:43+00:00">16:51:43</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>question, is there a better version of vi available for angstrom? it seems to use vim tiny</q></li>
+<li class="message">[<a href="#T16:52:36" id="T16:52:36"><abbr title="2011-05-17T16:52:36+00:00">16:52:36</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>thurbad: better is not very quantitative  when describing versions of vi , everyone has their own preferences</q></li>
+<li class="message">[<a href="#T16:53:33" id="T16:53:33"><abbr title="2011-05-17T16:53:33+00:00">16:53:33</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>well, one that I can use arrow keys without it inserting stry characters and dropping me out of edit mode would be nice.. syntax highlighting would be nice as well</q></li>
+<li class="quit">[<a href="#T16:57:30" id="T16:57:30"><abbr title="2011-05-17T16:57:30+00:00">16:57:30</abbr></a>] <span>* khasim (~a0393720@203.101.61.7) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="message">[<a href="#T16:58:03" id="T16:58:03"><abbr title="2011-05-17T16:58:03+00:00">16:58:03</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>right! just opkg install bash</q></li>
+<li class="message">[<a href="#T16:58:12" id="T16:58:12"><abbr title="2011-05-17T16:58:12+00:00">16:58:12</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>and i have alias command working</q></li>
+<li class="message">[<a href="#T16:58:19" id="T16:58:19"><abbr title="2011-05-17T16:58:19+00:00">16:58:19</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>thanks :)</q></li>
+<li class="message">[<a href="#T16:58:32" id="T16:58:32"><abbr title="2011-05-17T16:58:32+00:00">16:58:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>bash uses to much ram</q></li>
+<li class="nick-change">[<a href="#T16:59:16" id="T16:59:16"><abbr title="2011-05-17T16:59:16+00:00">16:59:16</abbr></a>] <span>* eliza500 is now known as av500</span></li>
+<li class="message">[<a href="#T16:59:44" id="T16:59:44"><abbr title="2011-05-17T16:59:44+00:00">16:59:44</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>re av500</q></li>
