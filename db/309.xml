@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="309" name="faq" prototype="Page" created="1218456920368" lastModified="1305746848305">
+  <hopobject id="309" name="faq" prototype="Page" created="1218456920368" lastModified="1305748216040">
   <hop:parent idref="121" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,7 +9,7 @@
     <http_language>en-us,en;q=0.5</http_language>
     <uri>faq</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0.1) Gecko/20100101 Firefox/4.0.1</http_browser>
-    <time type="date">18.05.2011 14:27:28 CDT</time>
+    <time type="date">18.05.2011 14:50:16 CDT</time>
     <hopsession>127.0.0.99.35.30.12othaynmehim</hopsession>
     <body>
  &lt;h1&gt;Frequently Asked Questions&lt;/h1&gt;
@@ -33,24 +33,40 @@
   &lt;li&gt;
    &lt;b&gt;What do I need to do to get my software running on a BeagleBoard-xM rev C?&lt;/b&gt;
    &lt;ul&gt;
+    &lt;li&gt;The revision ID on the board and the control signal for powering the USB hub on the board changed between xM rev B and xM rev C.  Older versions of x-loader/MLO, u-boot and the Linux kernel did not properly utilize the revision ID settings on the board, so xM rev B boards didn&apos;t actually include settings different than xM rev A to work-around the issue.  On xM rev C, with the USB hub changes on the board, it became necessary to no longer use this work-around and to actually change the board revision ID.  This causes older software to break.&lt;/li&gt;
     &lt;li&gt;
      If you utilize the latest mainline x-loader (
      &lt;a href=&quot;http://gitorious.org/x-loader&quot;&gt;gitorious.org/x-loader&lt;/a&gt;
-     ), u-boot (
+     ) and u-boot (
      &lt;a href=&quot;http://git.denx.de/?p=u-boot.git&quot;&gt;git.denx.de/?p=u-boot.git&lt;/a&gt;
-     ),
+     ), including the variations shipped on the microSD card on the board (available at
+     &lt;a href=&quot;http://circuitco.com/support&quot;&gt;circuitco.com/support&lt;/a&gt;
+     ), the revision will be properly detected.
+    &lt;/li&gt;
+    &lt;li&gt;
+     The mainline kernel does not yet include the patch required to utilize the proper polarity for the USB hub power enable.  You can take a look at this
+     &lt;a href=&quot;http://gitorious.org/beagleboard-validation/linux/commit/bfca58987039791522d1821e0506f8a113a0c239&quot;&gt;candidate patch&lt;/a&gt;
+     for an idea of what to fix and potentially apply this patch to your kernel.  If you assemble an image of Angstrom using Narcissus, you&apos;ll get a working kernel using the sources in Open Embedded.
     &lt;/li&gt;
    &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
-   &lt;b&gt;What is the best way to get my question(s) answered?&lt;/b&gt;
+   &lt;b&gt;Why&lt;/b&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;b&gt;
+    &lt;b&gt;What is the best way to get my question(s) answered?&lt;/b&gt;
+   &lt;/b&gt;
    &lt;ul&gt;
+    &lt;b/&gt;
     &lt;li&gt;
-     Search the
-     &lt;a href=&quot;/search&quot;&gt;related websites&lt;/a&gt;
-     and
-     &lt;a href=&quot;/discuss&quot;&gt;mailing list&lt;/a&gt;
-     to see if anyone has already asked your question and gotten an answer.
+     &lt;b&gt;
+      Search the
+      &lt;a href=&quot;/search&quot;&gt;related websites&lt;/a&gt;
+      and
+      &lt;a href=&quot;/discuss&quot;&gt;mailing list&lt;/a&gt;
+      to see if anyone has already asked your question and gotten an answer.
+     &lt;/b&gt;
     &lt;/li&gt;
     &lt;li&gt;
      Visit the
