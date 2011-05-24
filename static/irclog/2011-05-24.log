@@ -435,3 +435,49 @@
 <li class="join">[<a href="#T16:45:27" id="T16:45:27"><abbr title="2011-05-24T16:45:27+00:00">16:45:27</abbr></a>] <span>* inx (~inx@h140n2c2o1019.bredband.skanova.com) has joined #beagle</span></li>
 <li class="quit">[<a href="#T16:55:37" id="T16:55:37"><abbr title="2011-05-24T16:55:37+00:00">16:55:37</abbr></a>] <span>* inx (~inx@h140n2c2o1019.bredband.skanova.com) Quit (Ping timeout: 244 seconds)</span></li>
 <li class="quit">[<a href="#T16:58:11" id="T16:58:11"><abbr title="2011-05-24T16:58:11+00:00">16:58:11</abbr></a>] <span>* phdeswer (~philippe@80-186-238-180.elisa-mobile.fi) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T17:00:39" id="T17:00:39"><abbr title="2011-05-24T17:00:39+00:00">17:00:39</abbr></a>] <span>* Xerion (~xerion@5419A766.cm-5-2c.dynamic.ziggo.nl) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T17:02:00" id="T17:02:00"><abbr title="2011-05-24T17:02:00+00:00">17:02:00</abbr></a>] <span>* killring (~killring@76.226.126.5) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:04:39" id="T17:04:39"><abbr title="2011-05-24T17:04:39+00:00">17:04:39</abbr></a>] <span>* DJWillis (~djwillis@cpc3-bath5-2-0-cust220.aztw.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:12:28" id="T17:12:28"><abbr title="2011-05-24T17:12:28+00:00">17:12:28</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>using Usb-serial gadget do i need to touch the inittab config in filesystem and bootargs in u-boot???</q></li>
+<li class="message">[<a href="#T17:12:46" id="T17:12:46"><abbr title="2011-05-24T17:12:46+00:00">17:12:46</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>i guess yes, but anyone has any idea of the settings for this</q></li>
+<li class="message">[<a href="#T17:12:47" id="T17:12:47"><abbr title="2011-05-24T17:12:47+00:00">17:12:47</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T17:13:55" id="T17:13:55"><abbr title="2011-05-24T17:13:55+00:00">17:13:55</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>cuz i am using linux-omap-2.6.37 in inittab i have ..../sbin/getty 115200 ttyO2</q></li>
+<li class="message">[<a href="#T17:13:59" id="T17:13:59"><abbr title="2011-05-24T17:13:59+00:00">17:13:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: ping</q></li>
+<li class="message">[<a href="#T17:15:21" id="T17:15:21"><abbr title="2011-05-24T17:15:21+00:00">17:15:21</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>in u-boot env i have console=ttyO2, 115200n8</q></li>
+<li class="message">[<a href="#T17:15:44" id="T17:15:44"><abbr title="2011-05-24T17:15:44+00:00">17:15:44</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>do i need something like ttyUSB...?</q></li>
+<li class="message">[<a href="#T17:19:09" id="T17:19:09"><abbr title="2011-05-24T17:19:09+00:00">17:19:09</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>siegen: what kernel version are you using?</q></li>
+<li class="join">[<a href="#T17:20:05" id="T17:20:05"><abbr title="2011-05-24T17:20:05+00:00">17:20:05</abbr></a>] <span>* inx (~inx@h140n2c2o1019.bredband.skanova.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:20:31" id="T17:20:31"><abbr title="2011-05-24T17:20:31+00:00">17:20:31</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>I'm not entirely sure you can use the serial gadget as the console</q></li>
+<li class="message">[<a href="#T17:20:43" id="T17:20:43"><abbr title="2011-05-24T17:20:43+00:00">17:20:43</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>you can spawn a getty on it though</q></li>
+<li class="message">[<a href="#T17:22:16" id="T17:22:16"><abbr title="2011-05-24T17:22:16+00:00">17:22:16</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>no, console would be tricky</q></li>
+<li class="message">[<abbr title="2011-05-24T17:22:16+00:00">17:22:16</abbr>] &lt;<cite>siegen</cite>&gt; <q>linux-omap-2.6.37</q></li>
+<li class="message">[<a href="#T17:22:33" id="T17:22:33"><abbr title="2011-05-24T17:22:33+00:00">17:22:33</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>I've seen experimental patches but nothing usable</q></li>
+<li class="message">[<a href="#T17:22:56" id="T17:22:56"><abbr title="2011-05-24T17:22:56+00:00">17:22:56</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>getty works great though</q></li>
+<li class="message">[<a href="#T17:23:34" id="T17:23:34"><abbr title="2011-05-24T17:23:34+00:00">17:23:34</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>you can have a fake console: run cat /proc/kmsg &gt;/dev/ttyG?</q></li>
+<li class="quit">[<a href="#T17:24:11" id="T17:24:11"><abbr title="2011-05-24T17:24:11+00:00">17:24:11</abbr></a>] <span>* drakkan1000 (~drakkan@62.123.237.207) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T17:24:15" id="T17:24:15"><abbr title="2011-05-24T17:24:15+00:00">17:24:15</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>btdt</q></li>
+<li class="message">[<a href="#T17:26:48" id="T17:26:48"><abbr title="2011-05-24T17:26:48+00:00">17:26:48</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>dm8tbr: that sounds good </q></li>
+<li class="message">[<a href="#T17:27:05" id="T17:27:05"><abbr title="2011-05-24T17:27:05+00:00">17:27:05</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>so i could read serial data from the bb in a fake console</q></li>
+<li class="message">[<a href="#T17:27:08" id="T17:27:08"><abbr title="2011-05-24T17:27:08+00:00">17:27:08</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T17:27:19" id="T17:27:19"><abbr title="2011-05-24T17:27:19+00:00">17:27:19</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>siegen: pro tip make g_serial spawn several devices</q></li>
+<li class="quit">[<a href="#T17:27:36" id="T17:27:36"><abbr title="2011-05-24T17:27:36+00:00">17:27:36</abbr></a>] <span>* inx (~inx@h140n2c2o1019.bredband.skanova.com) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T17:28:04" id="T17:28:04"><abbr title="2011-05-24T17:28:04+00:00">17:28:04</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>siegen: if you don't need to see kernel msgs, they you can just throw up a getty on the serial gadget device file</q></li>
+<li class="message">[<a href="#T17:28:09" id="T17:28:09"><abbr title="2011-05-24T17:28:09+00:00">17:28:09</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>*then</q></li>
+<li class="message">[<a href="#T17:28:22" id="T17:28:22"><abbr title="2011-05-24T17:28:22+00:00">17:28:22</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>or bind own software to it</q></li>
+<li class="message">[<a href="#T17:28:30" id="T17:28:30"><abbr title="2011-05-24T17:28:30+00:00">17:28:30</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>taht will then talk to the other side</q></li>
+<li class="message">[<a href="#T17:29:30" id="T17:29:30"><abbr title="2011-05-24T17:29:30+00:00">17:29:30</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>Ceriand: just i need to read some sensors (input/event files)</q></li>
+<li class="message">[<a href="#T17:39:12" id="T17:39:12"><abbr title="2011-05-24T17:39:12+00:00">17:39:12</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>i insert g_serial succesfully and i see in my host:   cdc_acm 2-1.3:2.0: ttyACM0: USB ACM device</q></li>
+<li class="join">[<a href="#T17:39:37" id="T17:39:37"><abbr title="2011-05-24T17:39:37+00:00">17:39:37</abbr></a>] <span>* drakkan1000 (~drakkan@dynamic-adsl-78-13-199-191.clienti.tiscali.it) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:40:40" id="T17:40:40"><abbr title="2011-05-24T17:40:40+00:00">17:40:40</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T17:42:21" id="T17:42:21"><abbr title="2011-05-24T17:42:21+00:00">17:42:21</abbr></a>] <span>* djlewis (~bubba@adsl-65-64-30-12.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:45:39" id="T17:45:39"><abbr title="2011-05-24T17:45:39+00:00">17:45:39</abbr></a>] <span>* lyakh (~lyakh@dslb-094-221-030-047.pools.arcor-ip.net) Quit (Quit: thanks, bye)</span></li>
+<li class="message">[<a href="#T17:54:31" id="T17:54:31"><abbr title="2011-05-24T17:54:31+00:00">17:54:31</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>mmMmm, pizza :)</q></li>
+<li class="message">[<a href="#T17:54:42" id="T17:54:42"><abbr title="2011-05-24T17:54:42+00:00">17:54:42</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>mmMmm</q></li>
+<li class="message">[<a href="#T17:54:46" id="T17:54:46"><abbr title="2011-05-24T17:54:46+00:00">17:54:46</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>i want</q></li>
+<li class="message">[<a href="#T17:55:09" id="T17:55:09"><abbr title="2011-05-24T17:55:09+00:00">17:55:09</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>i got it guys insmod g_serial</q></li>
+<li class="message">[<a href="#T17:55:12" id="T17:55:12"><abbr title="2011-05-24T17:55:12+00:00">17:55:12</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>in bb</q></li>
+<li class="message">[<a href="#T17:55:35" id="T17:55:35"><abbr title="2011-05-24T17:55:35+00:00">17:55:35</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>in host modprobe usbserial vendor=.... product=....</q></li>
+<li class="message">[<a href="#T17:55:49" id="T17:55:49"><abbr title="2011-05-24T17:55:49+00:00">17:55:49</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>and then in bb getty  /dev/ttyGS0</q></li>
+<li class="message">[<a href="#T17:56:11" id="T17:56:11"><abbr title="2011-05-24T17:56:11+00:00">17:56:11</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>in host putty 115200 1 8n</q></li>
+<li class="message">[<a href="#T17:56:20" id="T17:56:20"><abbr title="2011-05-24T17:56:20+00:00">17:56:20</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>but it works pretty slow</q></li>
+<li class="message">[<a href="#T17:56:36" id="T17:56:36"><abbr title="2011-05-24T17:56:36+00:00">17:56:36</abbr></a>] &lt;<cite>siegen</cite>&gt; <q>and sometimes when pressing a key doesn't responde</q></li>
