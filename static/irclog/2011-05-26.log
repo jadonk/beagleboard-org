@@ -457,3 +457,89 @@
 <li class="message">[<a href="#T16:59:14" id="T16:59:14"><abbr title="2011-05-26T16:59:14+00:00">16:59:14</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>then poked gpio 168 manually in /sys/class/gpio</q></li>
 <li class="message">[<a href="#T16:59:32" id="T16:59:32"><abbr title="2011-05-26T16:59:32+00:00">16:59:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>"short end"? please say cathode or anode</q></li>
 <li class="message">[<a href="#T16:59:47" id="T16:59:47"><abbr title="2011-05-26T16:59:47+00:00">16:59:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I have seen LEDs come with either one short and some are preclipped</q></li>
+<li class="message">[<a href="#T17:00:10" id="T17:00:10"><abbr title="2011-05-26T17:00:10+00:00">17:00:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>also, doing what you are doing is likely to wear out your board in short order...hope you have a backup on order.</q></li>
+<li class="message">[<a href="#T17:00:37" id="T17:00:37"><abbr title="2011-05-26T17:00:37+00:00">17:00:37</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>ok, well when I run it on the bench power supply, it powers up with positive on the long end</q></li>
+<li class="message">[<a href="#T17:00:52" id="T17:00:52"><abbr title="2011-05-26T17:00:52+00:00">17:00:52</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>the LED that is</q></li>
+<li class="message">[<a href="#T17:01:44" id="T17:01:44"><abbr title="2011-05-26T17:01:44+00:00">17:01:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what color?</q></li>
+<li class="join">[<a href="#T17:01:53" id="T17:01:53"><abbr title="2011-05-26T17:01:53+00:00">17:01:53</abbr></a>] <span>* NotTooDumb3 (vayavya@124.125.46.254) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:02:09" id="T17:02:09"><abbr title="2011-05-26T17:02:09+00:00">17:02:09</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>orange-ish</q></li>
+<li class="message">[<a href="#T17:02:23" id="T17:02:23"><abbr title="2011-05-26T17:02:23+00:00">17:02:23</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>it's apparently supposed to be a yellow LED</q></li>
+<li class="message">[<a href="#T17:02:27" id="T17:02:27"><abbr title="2011-05-26T17:02:27+00:00">17:02:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>look up the Vf</q></li>
+<li class="message">[<a href="#T17:02:29" id="T17:02:29"><abbr title="2011-05-26T17:02:29+00:00">17:02:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: its a red led, but the overcurrent makes it a nice orange glow</q></li>
+<li class="message">[<a href="#T17:02:36" id="T17:02:36"><abbr title="2011-05-26T17:02:36+00:00">17:02:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is likely to be greater then 1.8V</q></li>
+<li class="message">[<a href="#T17:02:43" id="T17:02:43"><abbr title="2011-05-26T17:02:43+00:00">17:02:43</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>yeah, it's 2.1v</q></li>
+<li class="message">[<a href="#T17:02:58" id="T17:02:58"><abbr title="2011-05-26T17:02:58+00:00">17:02:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>undercurrent then :)</q></li>
+<li class="message">[<a href="#T17:03:08" id="T17:03:08"><abbr title="2011-05-26T17:03:08+00:00">17:03:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>av500: nah... the totem pole driver fuse will trigger before that happens ;)</q></li>
+<li class="message">[<a href="#T17:03:17" id="T17:03:17"><abbr title="2011-05-26T17:03:17+00:00">17:03:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>well... then</q></li>
+<li class="quit">[<a href="#T17:03:30" id="T17:03:30"><abbr title="2011-05-26T17:03:30+00:00">17:03:30</abbr></a>] <span>* brijesh (~brijesh@nat/ti/x-pakiimkqywbqcaoc) Quit ()</span></li>
+<li class="message">[<a href="#T17:03:34" id="T17:03:34"><abbr title="2011-05-26T17:03:34+00:00">17:03:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>drop in a 2N3904 or 2N2222 or whatever you favorite transistor is</q></li>
+<li class="message">[<a href="#T17:03:58" id="T17:03:58"><abbr title="2011-05-26T17:03:58+00:00">17:03:58</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>now, you said to 'hook it up to the LED class', that sounds like a good idea</q></li>
+<li class="message">[<a href="#T17:04:03" id="T17:04:03"><abbr title="2011-05-26T17:04:03+00:00">17:04:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>source it off a suitable supply, account for Vsat and Vf when selecting the supply</q></li>
+<li class="message">[<a href="#T17:04:06" id="T17:04:06"><abbr title="2011-05-26T17:04:06+00:00">17:04:06</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>how would I do that? (do you have a link?)</q></li>
+<li class="message">[<a href="#T17:04:18" id="T17:04:18"><abbr title="2011-05-26T17:04:18+00:00">17:04:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>RTFDD</q></li>
+<li class="message">[<a href="#T17:04:21" id="T17:04:21"><abbr title="2011-05-26T17:04:21+00:00">17:04:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T17:04:55" id="T17:04:55"><abbr title="2011-05-26T17:04:55+00:00">17:04:55</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>heh, ok :D</q></li>
+<li class="message">[<a href="#T17:04:58" id="T17:04:58"><abbr title="2011-05-26T17:04:58+00:00">17:04:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and do make sure the transistor has sufficient Ibase to put it into saturation</q></li>
+<li class="action">[<a href="#T17:05:37" id="T17:05:37"><abbr title="2011-05-26T17:05:37+00:00">17:05:37</abbr></a>] <span>* bioster isn't a hardware guy, so this is all new to him.</span></li>
+<li class="message">[<a href="#T17:05:40" id="T17:05:40"><abbr title="2011-05-26T17:05:40+00:00">17:05:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or use something with a low enough grid voltage threshold</q></li>
+<li class="message">[<a href="#T17:05:49" id="T17:05:49"><abbr title="2011-05-26T17:05:49+00:00">17:05:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oops, s/grid/gate/ ;)</q></li>
+<li class="message">[<a href="#T17:06:56" id="T17:06:56"><abbr title="2011-05-26T17:06:56+00:00">17:06:56</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and don't forget to tighten the compensation crank</q></li>
+<li class="message">[<a href="#T17:07:26" id="T17:07:26"><abbr title="2011-05-26T17:07:26+00:00">17:07:26</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>Can I route it through the main deflector dish first?</q></li>
+<li class="message">[<a href="#T17:07:41" id="T17:07:41"><abbr title="2011-05-26T17:07:41+00:00">17:07:41</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>bioster: the easiest way would probably be to get a n-channel FET, hook the LED anode to V+, hook a resistor from the cathode of the LED to the drain of the FET, the source of the FET to ground, and the base of the FET to your GPIO pin</q></li>
+<li class="message">[<a href="#T17:08:55" id="T17:08:55"><abbr title="2011-05-26T17:08:55+00:00">17:08:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>linux/drivers/misc/fet ?</q></li>
+<li class="message">[<a href="#T17:09:05" id="T17:09:05"><abbr title="2011-05-26T17:09:05+00:00">17:09:05</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>if you're going to be switching it fast, I'd also put a series resistor on the base as well</q></li>
+<li class="message">[<a href="#T17:09:06" id="T17:09:06"><abbr title="2011-05-26T17:09:06+00:00">17:09:06</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>Ceriand|work: I think I understood that... :D</q></li>
+<li class="message">[<a href="#T17:10:39" id="T17:10:39"><abbr title="2011-05-26T17:10:39+00:00">17:10:39</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>you'll have to get a FET that has a Vth of &lt;1.8V</q></li>
+<li class="message">[<a href="#T17:14:32" id="T17:14:32"><abbr title="2011-05-26T17:14:32+00:00">17:14:32</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>does the linux-omap mailing list have a digest option? haven't found it, so I always end up unsubscribing</q></li>
+<li class="join">[<a href="#T17:22:21" id="T17:22:21"><abbr title="2011-05-26T17:22:21+00:00">17:22:21</abbr></a>] <span>* NotTooDumb2 (vayavya@124.125.46.254) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:22:56" id="T17:22:56"><abbr title="2011-05-26T17:22:56+00:00">17:22:56</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>tasslehoff: don't believe so</q></li>
+<li class="message">[<a href="#T17:23:51" id="T17:23:51"><abbr title="2011-05-26T17:23:51+00:00">17:23:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>tasslehoff: setup a mail filter</q></li>
+<li class="quit">[<a href="#T17:24:14" id="T17:24:14"><abbr title="2011-05-26T17:24:14+00:00">17:24:14</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-05-26T17:24:14+00:00">17:24:14</abbr>] <span>* dl9pf_ (~quassel@p5B2150A0.dip.t-dialin.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T17:24:15" id="T17:24:15"><abbr title="2011-05-26T17:24:15+00:00">17:24:15</abbr></a>] <span>* cbrake (~cbrake@oh-69-34-21-229.sta.embarqhsd.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-05-26T17:24:15+00:00">17:24:15</abbr>] <span>* cwillu (~cwillu@cwillu.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-05-26T17:24:15+00:00">17:24:15</abbr>] <span>* openfree (~dennis@116.228.88.131) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-05-26T17:24:15+00:00">17:24:15</abbr>] <span>* Crofton|road (~balister@pool-96-240-165-110.ronkva.east.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-05-26T17:24:15+00:00">17:24:15</abbr>] <span>* kblin (~kai@samba/team/kai) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2011-05-26T17:24:15+00:00">17:24:15</abbr>] <span>* HokieTux (~bhilburn@wireless-5192.wireless.ece.vt.edu) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T17:24:16" id="T17:24:16"><abbr title="2011-05-26T17:24:16+00:00">17:24:16</abbr></a>] <span>* ShadowJK (jk@terminus.enivax.net) Quit (*.net *.split)</span></li>
+<li class="join">[<a href="#T17:26:00" id="T17:26:00"><abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr>] <span>* dl9pf_ (~quassel@p5B2150A0.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr>] <span>* cbrake (~cbrake@oh-69-34-21-229.sta.embarqhsd.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr>] <span>* cwillu (~cwillu@cwillu.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr>] <span>* openfree (~dennis@116.228.88.131) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr>] <span>* Crofton|road (~balister@pool-96-240-165-110.ronkva.east.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr>] <span>* kblin (~kai@samba/team/kai) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr>] <span>* HokieTux (~bhilburn@wireless-5192.wireless.ece.vt.edu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-05-26T17:26:00+00:00">17:26:00</abbr>] <span>* ShadowJK (jk@terminus.enivax.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:26:34" id="T17:26:34"><abbr title="2011-05-26T17:26:34+00:00">17:26:34</abbr></a>] <span>* NotTooDumb3 (vayavya@124.125.46.254) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T17:28:27" id="T17:28:27"><abbr title="2011-05-26T17:28:27+00:00">17:28:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I would like to see a fet with a base!</q></li>
+<li class="message">[<a href="#T17:28:45" id="T17:28:45"><abbr title="2011-05-26T17:28:45+00:00">17:28:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>got a P/N?</q></li>
+<li class="message">[<a href="#T17:29:21" id="T17:29:21"><abbr title="2011-05-26T17:29:21+00:00">17:29:21</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I missed that because of the split</q></li>
+<li class="message">[<a href="#T17:29:36" id="T17:29:36"><abbr title="2011-05-26T17:29:36+00:00">17:29:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>&lt;Ceriand|work&gt; if you're going to be switching it fast, I'd also put a series</q></li>
+<li class="message">[<abbr title="2011-05-26T17:29:36+00:00">17:29:36</abbr>] &lt;<cite>ds2</cite>&gt; <q>+resistor on the base as well</q></li>
+<li class="message">[<a href="#T17:29:46" id="T17:29:46"><abbr title="2011-05-26T17:29:46+00:00">17:29:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>but if it didn't have a base, it'd fall right off the die</q></li>
+<li class="message">[<a href="#T17:30:44" id="T17:30:44"><abbr title="2011-05-26T17:30:44+00:00">17:30:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wonder how well would a paper on using triodes as LED drivers for a softer, more pleasing, visual look would go </q></li>
+<li class="quit">[<a href="#T17:32:18" id="T17:32:18"><abbr title="2011-05-26T17:32:18+00:00">17:32:18</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T17:33:22" id="T17:33:22"><abbr title="2011-05-26T17:33:22+00:00">17:33:22</abbr></a>] <span>* NotTooDumb2 (vayavya@124.125.46.254) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T17:36:43" id="T17:36:43"><abbr title="2011-05-26T17:36:43+00:00">17:36:43</abbr></a>] <span>* emeb (~ericb@ip70-190-178-49.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:37:18" id="T17:37:18"><abbr title="2011-05-26T17:37:18+00:00">17:37:18</abbr></a>] <span>* katier (~katierh@nat/ti/x-svlqbmjvkczrfenn) Quit ()</span></li>
+<li class="quit">[<a href="#T17:37:19" id="T17:37:19"><abbr title="2011-05-26T17:37:19+00:00">17:37:19</abbr></a>] <span>* CMoH-notebook (~cipi@unaffiliated/c-moh) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T17:38:14" id="T17:38:14"><abbr title="2011-05-26T17:38:14+00:00">17:38:14</abbr></a>] <span>* lifeeth (~praneeth@202.3.77.204) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:38:15" id="T17:38:15"><abbr title="2011-05-26T17:38:15+00:00">17:38:15</abbr></a>] <span>* lifeeth (~praneeth@202.3.77.204) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-05-26T17:38:15+00:00">17:38:15</abbr>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:40:34" id="T17:40:34"><abbr title="2011-05-26T17:40:34+00:00">17:40:34</abbr></a>] <span>* Daniel_ (~daniel@dhcp-203-123.nomad.chalmers.se) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T17:41:24" id="T17:41:24"><abbr title="2011-05-26T17:41:24+00:00">17:41:24</abbr></a>] <span>* BThompson (~a0193480@nat/ti/x-pffxabrbviubbdtm) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T17:43:15" id="T17:43:15"><abbr title="2011-05-26T17:43:15+00:00">17:43:15</abbr></a>] <span>* tegila (~tegila@186-210-229-204.xd-dynamic.ctbcnetsuper.com.br) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T17:43:53" id="T17:43:53"><abbr title="2011-05-26T17:43:53+00:00">17:43:53</abbr></a>] <span>* orbarron (~orb@nat/ti/x-voesnfniezlezppk) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:43:57" id="T17:43:57"><abbr title="2011-05-26T17:43:57+00:00">17:43:57</abbr></a>] <span>* agnel (c05b42ba@gateway/web/freenode/ip.192.91.66.186) has joined #beagle</span></li>
+<li class="part">[<a href="#T17:44:04" id="T17:44:04"><abbr title="2011-05-26T17:44:04+00:00">17:44:04</abbr></a>] <span>* orbarron (~orb@nat/ti/x-voesnfniezlezppk) has left #beagle</span></li>
+<li class="quit">[<a href="#T17:47:52" id="T17:47:52"><abbr title="2011-05-26T17:47:52+00:00">17:47:52</abbr></a>] <span>* mhembrow (~mctouch@cpc17-sgyl28-2-0-cust34.sgyl.cable.virginmedia.com) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T17:49:43" id="T17:49:43"><abbr title="2011-05-26T17:49:43+00:00">17:49:43</abbr></a>] <span>* ucasano (~ucasano@host153-182-static.227-95-b.business.telecomitalia.it) Quit (Quit: ucasano)</span></li>
+<li class="join">[<a href="#T17:50:21" id="T17:50:21"><abbr title="2011-05-26T17:50:21+00:00">17:50:21</abbr></a>] <span>* muriani (~james@internal.directron.us) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:52:11" id="T17:52:11"><abbr title="2011-05-26T17:52:11+00:00">17:52:11</abbr></a>] <span>* agnel (c05b42ba@gateway/web/freenode/ip.192.91.66.186) Quit (Quit: Page closed)</span></li>
+<li class="quit">[<a href="#T17:55:43" id="T17:55:43"><abbr title="2011-05-26T17:55:43+00:00">17:55:43</abbr></a>] <span>* jkridner|work (~a0321898@nat/ti/x-fimnudthssxanqts) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T17:55:58" id="T17:55:58"><abbr title="2011-05-26T17:55:58+00:00">17:55:58</abbr></a>] <span>* mctouch_ (~mctouch@cpc17-sgyl28-2-0-cust34.sgyl.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:58:33" id="T17:58:33"><abbr title="2011-05-26T17:58:33+00:00">17:58:33</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="message">[<a href="#T17:59:06" id="T17:59:06"><abbr title="2011-05-26T17:59:06+00:00">17:59:06</abbr></a>] &lt;<cite>bioster</cite>&gt; <q>Thanks for the help, guys.  I'll probably have a chance to try the LED out tomorrow.  Take care!</q></li>
+<li class="quit">[<a href="#T17:59:21" id="T17:59:21"><abbr title="2011-05-26T17:59:21+00:00">17:59:21</abbr></a>] <span>* bioster (~bioster@216-75-171-102.ded.execulink.com) Quit (Quit: Leaving)</span></li>
