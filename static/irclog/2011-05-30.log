@@ -154,3 +154,54 @@
 <li class="message">[<a href="#T08:57:38" id="T08:57:38"><abbr title="2011-05-30T08:57:38+00:00">08:57:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>JLaurin: retry with console=ttyS2...</q></li>
 <li class="message">[<a href="#T08:58:04" id="T08:58:04"><abbr title="2011-05-30T08:58:04+00:00">08:58:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and do a printenv before you boot</q></li>
 <li class="message">[<a href="#T08:58:30" id="T08:58:30"><abbr title="2011-05-30T08:58:30+00:00">08:58:30</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>allright</q></li>
+<li class="quit">[<a href="#T09:02:08" id="T09:02:08"><abbr title="2011-05-30T09:02:08+00:00">09:02:08</abbr></a>] <span>* mrc3 (~ddiaz@189.157.120.95) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T09:02:45" id="T09:02:45"><abbr title="2011-05-30T09:02:45+00:00">09:02:45</abbr></a>] <span>* ant_work (~andrea@host6-80-static.42-85-b.business.telecomitalia.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:09:53" id="T09:09:53"><abbr title="2011-05-30T09:09:53+00:00">09:09:53</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and beware the kernel mem definitons for cmem modul are only for gstremaer codec-engine use</q></li>
+<li class="message">[<a href="#T09:14:01" id="T09:14:01"><abbr title="2011-05-30T09:14:01+00:00">09:14:01</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>okey, saw something about that :)</q></li>
+<li class="message">[<a href="#T09:14:02" id="T09:14:02"><abbr title="2011-05-30T09:14:02+00:00">09:14:02</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q><a href="http://pastebin.com/7bAi6RAW">http://pastebin.com/7bAi6RAW</a></q></li>
+<li class="message">[<a href="#T09:14:31" id="T09:14:31"><abbr title="2011-05-30T09:14:31+00:00">09:14:31</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>that's the new bootlog, the DSP is found.. though when i try to use it, it says: "Device or resource busy"</q></li>
+<li class="message">[<a href="#T09:15:05" id="T09:15:05"><abbr title="2011-05-30T09:15:05+00:00">09:15:05</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>is it because of the gstreamer?</q></li>
+<li class="message">[<a href="#T09:15:13" id="T09:15:13"><abbr title="2011-05-30T09:15:13+00:00">09:15:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>next step, replace 99M with 80M</q></li>
+<li class="join">[<a href="#T09:15:16" id="T09:15:16"><abbr title="2011-05-30T09:15:16+00:00">09:15:16</abbr></a>] <span>* mrc3 (~ddiaz@189.157.116.11) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:15:47" id="T09:15:47"><abbr title="2011-05-30T09:15:47+00:00">09:15:47</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>okey :)</q></li>
+<li class="message">[<a href="#T09:15:50" id="T09:15:50"><abbr title="2011-05-30T09:15:50+00:00">09:15:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it says it clearly here: [   97.942840] CMEM phys_start (0x86300000) overlaps kernel (0x80000000 -&gt; 0x8e300000)</q></li>
+<li class="message">[<a href="#T09:16:32" id="T09:16:32"><abbr title="2011-05-30T09:16:32+00:00">09:16:32</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>oh... not good, i'll try with 80M</q></li>
+<li class="message">[<a href="#T09:17:09" id="T09:17:09"><abbr title="2011-05-30T09:17:09+00:00">09:17:09</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>really appreciating the help, I've tried to getting this work for a couple of days.. only rubbish on google</q></li>
+<li class="message">[<a href="#T09:18:10" id="T09:18:10"><abbr title="2011-05-30T09:18:10+00:00">09:18:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>er, sec</q></li>
+<li class="message">[<a href="#T09:18:35" id="T09:18:35"><abbr title="2011-05-30T09:18:35+00:00">09:18:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>99M is ok</q></li>
+<li class="message">[<a href="#T09:18:53" id="T09:18:53"><abbr title="2011-05-30T09:18:53+00:00">09:18:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>0x6300000 is 99M</q></li>
+<li class="message">[<a href="#T09:19:07" id="T09:19:07"><abbr title="2011-05-30T09:19:07+00:00">09:19:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and cmem loaded</q></li>
+<li class="message">[<a href="#T09:19:09" id="T09:19:09"><abbr title="2011-05-30T09:19:09+00:00">09:19:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sorry for the noise</q></li>
+<li class="message">[<a href="#T09:19:29" id="T09:19:29"><abbr title="2011-05-30T09:19:29+00:00">09:19:29</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>allright, np</q></li>
+<li class="message">[<a href="#T09:20:34" id="T09:20:34"><abbr title="2011-05-30T09:20:34+00:00">09:20:34</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>"Device or resource busy" for the DSP... why oh why!</q></li>
+<li class="message">[<a href="#T09:20:43" id="T09:20:43"><abbr title="2011-05-30T09:20:43+00:00">09:20:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>doing what?</q></li>
+<li class="quit">[<a href="#T09:20:45" id="T09:20:45"><abbr title="2011-05-30T09:20:45+00:00">09:20:45</abbr></a>] <span>* mrc3 (~ddiaz@189.157.116.11) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="quit">[<a href="#T09:20:49" id="T09:20:49"><abbr title="2011-05-30T09:20:49+00:00">09:20:49</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Excess Flood)</span></li>
+<li class="message">[<a href="#T09:21:39" id="T09:21:39"><abbr title="2011-05-30T09:21:39+00:00">09:21:39</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>cat /dev/urandom -&gt; /dev/dsp</q></li>
+<li class="message">[<a href="#T09:21:45" id="T09:21:45"><abbr title="2011-05-30T09:21:45+00:00">09:21:45</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>just a random test for the dsp</q></li>
+<li class="message">[<a href="#T09:21:46" id="T09:21:46"><abbr title="2011-05-30T09:21:46+00:00">09:21:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>WTF?</q></li>
+<li class="message">[<a href="#T09:21:50" id="T09:21:50"><abbr title="2011-05-30T09:21:50+00:00">09:21:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>WTF?</q></li>
+<li class="join">[<a href="#T09:21:55" id="T09:21:55"><abbr title="2011-05-30T09:21:55+00:00">09:21:55</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:22:09" id="T09:22:09"><abbr title="2011-05-30T09:22:09+00:00">09:22:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>thanks for wasting our time</q></li>
+<li class="message">[<a href="#T09:22:51" id="T09:22:51"><abbr title="2011-05-30T09:22:51+00:00">09:22:51</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>what's wrong with that? </q></li>
+<li class="message">[<a href="#T09:23:16" id="T09:23:16"><abbr title="2011-05-30T09:23:16+00:00">09:23:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>that's the soundcard, not the dsp</q></li>
+<li class="message">[<a href="#T09:24:05" id="T09:24:05"><abbr title="2011-05-30T09:24:05+00:00">09:24:05</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>hmm ok, how is the DSP tested?</q></li>
+<li class="message">[<a href="#T09:24:13" id="T09:24:13"><abbr title="2011-05-30T09:24:13+00:00">09:24:13</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>a simple one</q></li>
+<li class="quit">[<a href="#T09:24:41" id="T09:24:41"><abbr title="2011-05-30T09:24:41+00:00">09:24:41</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T09:25:22" id="T09:25:22"><abbr title="2011-05-30T09:25:22+00:00">09:25:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>with the dsplink or CE examples</q></li>
+<li class="message">[<a href="#T09:27:07" id="T09:27:07"><abbr title="2011-05-30T09:27:07+00:00">09:27:07</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>ok thanks</q></li>
+<li class="join">[<a href="#T09:27:22" id="T09:27:22"><abbr title="2011-05-30T09:27:22+00:00">09:27:22</abbr></a>] <span>* Gaston|Home (Gaston@ua-83-227-239-139.cust.bredbandsbolaget.se) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:28:49" id="T09:28:49"><abbr title="2011-05-30T09:28:49+00:00">09:28:49</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>av500: still; trying the DSP was only a thing i did at the end, the main problem seemed to be the tty02</q></li>
+<li class="message">[<a href="#T09:30:21" id="T09:30:21"><abbr title="2011-05-30T09:30:21+00:00">09:30:21</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>Anyway, thanks for the help</q></li>
+<li class="message">[<a href="#T09:31:23" id="T09:31:23"><abbr title="2011-05-30T09:31:23+00:00">09:31:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm /dev/dsp nice</q></li>
+<li class="message">[<a href="#T09:31:53" id="T09:31:53"><abbr title="2011-05-30T09:31:53+00:00">09:31:53</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ce examples and dsplink only works with mem=80</q></li>
+<li class="join">[<a href="#T09:32:23" id="T09:32:23"><abbr title="2011-05-30T09:32:23+00:00">09:32:23</abbr></a>] <span>* mrc3 (~ddiaz@189.157.119.238) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:33:40" id="T09:33:40"><abbr title="2011-05-30T09:33:40+00:00">09:33:40</abbr></a>] <span>* raster (raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
+<li class="quit">[<a href="#T09:37:11" id="T09:37:11"><abbr title="2011-05-30T09:37:11+00:00">09:37:11</abbr></a>] <span>* mrc3 (~ddiaz@189.157.119.238) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T09:39:41" id="T09:39:41"><abbr title="2011-05-30T09:39:41+00:00">09:39:41</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-nbvitdvokzwjeigu) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:43:42" id="T09:43:42"><abbr title="2011-05-30T09:43:42+00:00">09:43:42</abbr></a>] <span>* calculus (~calculus@gentoo/user/calculus) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="join">[<a href="#T09:50:12" id="T09:50:12"><abbr title="2011-05-30T09:50:12+00:00">09:50:12</abbr></a>] <span>* mrc3 (~ddiaz@189.157.116.125) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:50:25" id="T09:50:25"><abbr title="2011-05-30T09:50:25+00:00">09:50:25</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-nbvitdvokzwjeigu) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T09:51:33" id="T09:51:33"><abbr title="2011-05-30T09:51:33+00:00">09:51:33</abbr></a>] <span>* aarti (~aarti@122.166.11.13) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T09:53:24" id="T09:53:24"><abbr title="2011-05-30T09:53:24+00:00">09:53:24</abbr></a>] <span>* calculus (~calculus@gentoo/user/calculus) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:56:18" id="T09:56:18"><abbr title="2011-05-30T09:56:18+00:00">09:56:18</abbr></a>] <span>* mrc3 (~ddiaz@189.157.116.125) Quit (Ping timeout: 255 seconds)</span></li>
