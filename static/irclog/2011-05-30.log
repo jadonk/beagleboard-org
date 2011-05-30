@@ -73,3 +73,84 @@
 <li class="join">[<a href="#T07:55:16" id="T07:55:16"><abbr title="2011-05-30T07:55:16+00:00">07:55:16</abbr></a>] <span>* JLaurin (88a32c66@gateway/web/freenode/ip.136.163.44.102) has joined #beagle</span></li>
 <li class="message">[<a href="#T07:57:42" id="T07:57:42"><abbr title="2011-05-30T07:57:42+00:00">07:57:42</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>Hi, trying to get the DSP working on Angstroem, and it seems like i need to set some bootargs for this purpose. Where can these be set? Cause it seems like the Kernel overrides the bootargs set before booting up the board</q></li>
 <li class="message">[<a href="#T07:59:15" id="T07:59:15"><abbr title="2011-05-30T07:59:15+00:00">07:59:15</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>Previously I've modified the boot.scr file for e.g android, but cannot find anything similiar for Angstroem</q></li>
+<li class="quit">[<a href="#T08:03:12" id="T08:03:12"><abbr title="2011-05-30T08:03:12+00:00">08:03:12</abbr></a>] <span>* heathkid (~heathkid@68-31-39-103.pools.spcsdns.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T08:06:37" id="T08:06:37"><abbr title="2011-05-30T08:06:37+00:00">08:06:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>see <a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a></q></li>
+<li class="join">[<a href="#T08:07:48" id="T08:07:48"><abbr title="2011-05-30T08:07:48+00:00">08:07:48</abbr></a>] <span>* heathkid (~heathkid@68.31.39.103) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:11:09" id="T08:11:09"><abbr title="2011-05-30T08:11:09+00:00">08:11:09</abbr></a>] <span>* drakkan1000 (~drakkan@dynamic-adsl-78-13-206-138.clienti.tiscali.it) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:12:56" id="T08:12:56"><abbr title="2011-05-30T08:12:56+00:00">08:12:56</abbr></a>] <span>* woglinde (~henning@fb-n15-11.unbelievable-machine.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:23:30" id="T08:23:30"><abbr title="2011-05-30T08:23:30+00:00">08:23:30</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>koen: I've got my Angstroem distribution from that page, though I've got no clue where to put the bootargs for DSP mentioned on the page</q></li>
+<li class="quit">[<a href="#T08:23:57" id="T08:23:57"><abbr title="2011-05-30T08:23:57+00:00">08:23:57</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Excess Flood)</span></li>
+<li class="message">[<a href="#T08:24:54" id="T08:24:54"><abbr title="2011-05-30T08:24:54+00:00">08:24:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but where you are use to put them</q></li>
+<li class="message">[<a href="#T08:24:59" id="T08:24:59"><abbr title="2011-05-30T08:24:59+00:00">08:24:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>it's still linux + uboot</q></li>
+<li class="join">[<a href="#T08:25:04" id="T08:25:04"><abbr title="2011-05-30T08:25:04+00:00">08:25:04</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:26:14" id="T08:26:14"><abbr title="2011-05-30T08:26:14+00:00">08:26:14</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>I'm not sure about that, all the references that I find on google says to change the bootargs in the OMAP Beagleboard#: prompt</q></li>
+<li class="message">[<a href="#T08:26:29" id="T08:26:29"><abbr title="2011-05-30T08:26:29+00:00">08:26:29</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>but those are overiden when the kernel boots</q></li>
+<li class="message">[<a href="#T08:27:44" id="T08:27:44"><abbr title="2011-05-30T08:27:44+00:00">08:27:44</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>OMAP Beagleboard#: Setenv .....</q></li>
+<li class="message">[<a href="#T08:27:55" id="T08:27:55"><abbr title="2011-05-30T08:27:55+00:00">08:27:55</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>OMAP Beagleboard#: Savenv</q></li>
+<li class="message">[<a href="#T08:27:58" id="T08:27:58"><abbr title="2011-05-30T08:27:58+00:00">08:27:58</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>doesnt work</q></li>
+<li class="message">[<a href="#T08:28:11" id="T08:28:11"><abbr title="2011-05-30T08:28:11+00:00">08:28:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>XM has no nand</q></li>
+<li class="message">[<a href="#T08:28:14" id="T08:28:14"><abbr title="2011-05-30T08:28:14+00:00">08:28:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>thus no saveenv</q></li>
+<li class="message">[<a href="#T08:28:19" id="T08:28:19"><abbr title="2011-05-30T08:28:19+00:00">08:28:19</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>Im using C4</q></li>
+<li class="message">[<a href="#T08:28:27" id="T08:28:27"><abbr title="2011-05-30T08:28:27+00:00">08:28:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then saveenv works</q></li>
+<li class="message">[<a href="#T08:29:02" id="T08:29:02"><abbr title="2011-05-30T08:29:02+00:00">08:29:02</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>But still, the kernel overrides the setenv done before boot</q></li>
+<li class="message">[<a href="#T08:29:37" id="T08:29:37"><abbr title="2011-05-30T08:29:37+00:00">08:29:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>naughty kernel</q></li>
+<li class="message">[<a href="#T08:29:59" id="T08:29:59"><abbr title="2011-05-30T08:29:59+00:00">08:29:59</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>I got the same problem when changing for example resolution when booting android, but i solved it through modifing the boot.scr file</q></li>
+<li class="message">[<a href="#T08:30:13" id="T08:30:13"><abbr title="2011-05-30T08:30:13+00:00">08:30:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and that does not give you a hint?</q></li>
+<li class="message">[<a href="#T08:31:05" id="T08:31:05"><abbr title="2011-05-30T08:31:05+00:00">08:31:05</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>that's my question, what is needed to be modified in Anstroem, there is no boot.scr file, what's similiar to this in Angstroem?</q></li>
+<li class="message">[<a href="#T08:31:36" id="T08:31:36"><abbr title="2011-05-30T08:31:36+00:00">08:31:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 hm there is some partly imple to save the env on sd-card</q></li>
+<li class="message">[<a href="#T08:32:06" id="T08:32:06"><abbr title="2011-05-30T08:32:06+00:00">08:32:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: no, thats impossible!</q></li>
+<li class="message">[<a href="#T08:32:09" id="T08:32:09"><abbr title="2011-05-30T08:32:09+00:00">08:32:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it CANNOT be done</q></li>
+<li class="message">[<a href="#T08:32:12" id="T08:32:12"><abbr title="2011-05-30T08:32:12+00:00">08:32:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>NEVER</q></li>
+<li class="message">[<a href="#T08:32:42" id="T08:32:42"><abbr title="2011-05-30T08:32:42+00:00">08:32:42</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>uhm why?</q></li>
+<li class="message">[<a href="#T08:32:50" id="T08:32:50"><abbr title="2011-05-30T08:32:50+00:00">08:32:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it just CANT</q></li>
+<li class="message">[<abbr title="2011-05-30T08:32:50+00:00">08:32:50</abbr>] &lt;<cite>woglinde</cite>&gt; <q>no write support in u-boot?</q></li>
+<li class="message">[<a href="#T08:33:16" id="T08:33:16"><abbr title="2011-05-30T08:33:16+00:00">08:33:16</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>There still needs to be somekind of file that sets the bootargs for Angstroem, but cannot find that one</q></li>
+<li class="message">[<a href="#T08:33:24" id="T08:33:24"><abbr title="2011-05-30T08:33:24+00:00">08:33:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>tried boot.scr?</q></li>
+<li class="message">[<a href="#T08:33:49" id="T08:33:49"><abbr title="2011-05-30T08:33:49+00:00">08:33:49</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>av500: me?</q></li>
+<li class="message">[<a href="#T08:34:02" id="T08:34:02"><abbr title="2011-05-30T08:34:02+00:00">08:34:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:34:25" id="T08:34:25"><abbr title="2011-05-30T08:34:25+00:00">08:34:25</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>I mentioned it before, there is no boot.scr in Angstroem</q></li>
+<li class="message">[<a href="#T08:34:42" id="T08:34:42"><abbr title="2011-05-30T08:34:42+00:00">08:34:42</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>That's the problem :P</q></li>
+<li class="message">[<a href="#T08:34:52" id="T08:34:52"><abbr title="2011-05-30T08:34:52+00:00">08:34:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and files cannot be created?</q></li>
+<li class="message">[<a href="#T08:35:50" id="T08:35:50"><abbr title="2011-05-30T08:35:50+00:00">08:35:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but, if there is no boot.scr, then uboot wont load it and use whatever is stored in NAND</q></li>
+<li class="message">[<a href="#T08:36:41" id="T08:36:41"><abbr title="2011-05-30T08:36:41+00:00">08:36:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>JLaurin: in the meantine, pastebin your bootlog</q></li>
+<li class="message">[<a href="#T08:37:44" id="T08:37:44"><abbr title="2011-05-30T08:37:44+00:00">08:37:44</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>true, then i think that the angstroem demo on the HP koen linked is quite missleading</q></li>
+<li class="message">[<a href="#T08:37:57" id="T08:37:57"><abbr title="2011-05-30T08:37:57+00:00">08:37:57</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>I'll plug in my beagle, just got to work =)</q></li>
+<li class="message">[<a href="#T08:38:30" id="T08:38:30"><abbr title="2011-05-30T08:38:30+00:00">08:38:30</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>use narcissus</q></li>
+<li class="message">[<a href="#T08:38:34" id="T08:38:34"><abbr title="2011-05-30T08:38:34+00:00">08:38:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>there is boot.scr</q></li>
+<li class="message">[<a href="#T08:39:09" id="T08:39:09"><abbr title="2011-05-30T08:39:09+00:00">08:39:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>there are many ways to skin a cat</q></li>
+<li class="quit">[<a href="#T08:41:40" id="T08:41:40"><abbr title="2011-05-30T08:41:40+00:00">08:41:40</abbr></a>] <span>* thaytan (~jan@203.202.52.112) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T08:41:49" id="T08:41:49"><abbr title="2011-05-30T08:41:49+00:00">08:41:49</abbr></a>] <span>* mrc3 (~ddiaz@189.157.118.166) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T08:45:14" id="T08:45:14"><abbr title="2011-05-30T08:45:14+00:00">08:45:14</abbr></a>] <span>* heathkid` (~heathkid@68.31.39.103) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:45:56" id="T08:45:56"><abbr title="2011-05-30T08:45:56+00:00">08:45:56</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q><a href="http://pastebin.com/2BJBUnCQ">http://pastebin.com/2BJBUnCQ</a></q></li>
+<li class="message">[<a href="#T08:45:59" id="T08:45:59"><abbr title="2011-05-30T08:45:59+00:00">08:45:59</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>here we go</q></li>
+<li class="message">[<a href="#T08:47:05" id="T08:47:05"><abbr title="2011-05-30T08:47:05+00:00">08:47:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ttyO2 and .32?</q></li>
+<li class="message">[<a href="#T08:47:39" id="T08:47:39"><abbr title="2011-05-30T08:47:39+00:00">08:47:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*g*</q></li>
+<li class="message">[<a href="#T08:48:25" id="T08:48:25"><abbr title="2011-05-30T08:48:25+00:00">08:48:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>looks like the demoimage anyway</q></li>
+<li class="quit">[<a href="#T08:48:59" id="T08:48:59"><abbr title="2011-05-30T08:48:59+00:00">08:48:59</abbr></a>] <span>* heathkid (~heathkid@68.31.39.103) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T08:50:06" id="T08:50:06"><abbr title="2011-05-30T08:50:06+00:00">08:50:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>but older one</q></li>
+<li class="quit">[<a href="#T08:50:11" id="T08:50:11"><abbr title="2011-05-30T08:50:11+00:00">08:50:11</abbr></a>] <span>* risca (~risca@130.236.250.110) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T08:50:16" id="T08:50:16"><abbr title="2011-05-30T08:50:16+00:00">08:50:16</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>koen updated in mid may</q></li>
+<li class="message">[<a href="#T08:51:06" id="T08:51:06"><abbr title="2011-05-30T08:51:06+00:00">08:51:06</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>allright, seems like i got the one before the update</q></li>
+<li class="message">[<a href="#T08:51:18" id="T08:51:18"><abbr title="2011-05-30T08:51:18+00:00">08:51:18</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>but should it influence the DSP?</q></li>
+<li class="message">[<a href="#T08:51:34" id="T08:51:34"><abbr title="2011-05-30T08:51:34+00:00">08:51:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or the files were just touched</q></li>
+<li class="message">[<a href="#T08:51:39" id="T08:51:39"><abbr title="2011-05-30T08:51:39+00:00">08:51:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>no?</q></li>
+<li class="quit">[<a href="#T08:53:41" id="T08:53:41"><abbr title="2011-05-30T08:53:41+00:00">08:53:41</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Excess Flood)</span></li>
+<li class="message">[<a href="#T08:53:51" id="T08:53:51"><abbr title="2011-05-30T08:53:51+00:00">08:53:51</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>Still, it doesn't find the DSP while setting those bootargs in the OMAP Beagleboard prompt, propably beacause of kernel override</q></li>
+<li class="join">[<a href="#T08:54:30" id="T08:54:30"><abbr title="2011-05-30T08:54:30+00:00">08:54:30</abbr></a>] <span>* risca (~risca@130.236.250.110) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:54:48" id="T08:54:48"><abbr title="2011-05-30T08:54:48+00:00">08:54:48</abbr></a>] <span>* mrc3 (~ddiaz@189.157.120.95) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:55:04" id="T08:55:04"><abbr title="2011-05-30T08:55:04+00:00">08:55:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>"find the DSP"?</q></li>
+<li class="message">[<a href="#T08:55:10" id="T08:55:10"><abbr title="2011-05-30T08:55:10+00:00">08:55:10</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm?</q></li>
+<li class="message">[<a href="#T08:55:24" id="T08:55:24"><abbr title="2011-05-30T08:55:24+00:00">08:55:24</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>dev/DSP</q></li>
+<li class="join">[<abbr title="2011-05-30T08:55:24+00:00">08:55:24</abbr>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:55:34" id="T08:55:34"><abbr title="2011-05-30T08:55:34+00:00">08:55:34</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>cannot see it</q></li>
+<li class="message">[<a href="#T08:56:00" id="T08:56:00"><abbr title="2011-05-30T08:56:00+00:00">08:56:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>why does your paste miss the kernel logs?</q></li>
+<li class="message">[<a href="#T08:56:14" id="T08:56:14"><abbr title="2011-05-30T08:56:14+00:00">08:56:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>sure mmcboot is overriding it</q></li>
+<li class="message">[<a href="#T08:56:26" id="T08:56:26"><abbr title="2011-05-30T08:56:26+00:00">08:56:26</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you should have typed printenv</q></li>
+<li class="message">[<a href="#T08:56:33" id="T08:56:33"><abbr title="2011-05-30T08:56:33+00:00">08:56:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>to see whats going on</q></li>
+<li class="message">[<abbr title="2011-05-30T08:56:33+00:00">08:56:33</abbr>] &lt;<cite>JLaurin</cite>&gt; <q>that is the whole bootlog</q></li>
+<li class="message">[<a href="#T08:56:57" id="T08:56:57"><abbr title="2011-05-30T08:56:57+00:00">08:56:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>instead of randomly try savenev</q></li>
+<li class="message">[<a href="#T08:57:09" id="T08:57:09"><abbr title="2011-05-30T08:57:09+00:00">08:57:09</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm there is something like /proc/cmdline</q></li>
+<li class="message">[<a href="#T08:57:19" id="T08:57:19"><abbr title="2011-05-30T08:57:19+00:00">08:57:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>but psst this a secret</q></li>
+<li class="message">[<a href="#T08:57:38" id="T08:57:38"><abbr title="2011-05-30T08:57:38+00:00">08:57:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>JLaurin: retry with console=ttyS2...</q></li>
+<li class="message">[<a href="#T08:58:04" id="T08:58:04"><abbr title="2011-05-30T08:58:04+00:00">08:58:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and do a printenv before you boot</q></li>
+<li class="message">[<a href="#T08:58:30" id="T08:58:30"><abbr title="2011-05-30T08:58:30+00:00">08:58:30</abbr></a>] &lt;<cite>JLaurin</cite>&gt; <q>allright</q></li>
