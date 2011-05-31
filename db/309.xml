@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="309" name="faq" prototype="Page" created="1218456920368" lastModified="1305748407926">
+  <hopobject id="309" name="faq" prototype="Page" created="1218456920368" lastModified="1306867004774">
   <hop:parent idref="121" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,8 +9,8 @@
     <http_language>en-us,en;q=0.5</http_language>
     <uri>faq</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0.1) Gecko/20100101 Firefox/4.0.1</http_browser>
-    <time type="date">18.05.2011 14:53:27 CDT</time>
-    <hopsession>127.0.0.99.35.30.12othaynmehim</hopsession>
+    <time type="date">31.05.2011 13:36:44 CDT</time>
+    <hopsession>127.0.0.99.150.135.1co3awmasoiad</hopsession>
     <body>
  &lt;h1&gt;Frequently Asked Questions&lt;/h1&gt;
  &lt;p&gt;
@@ -19,6 +19,13 @@
   Below are some answers to the top questions out of that FAQ.
  &lt;/p&gt;
  &lt;ol&gt;
+  &lt;li&gt;
+   &lt;b&gt;Why doesn&apos;t my BeagleBoard or BeagleBoard-xM work when I power it over USB?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;The first and primary reason is that the validation image shipped with the board today is based on a 2.6.32 kernel with a bug in the USB interrupt management.  This bug has been fixed on newer kernels, but those kernels have not yet been added to the BeagleBoard&apos;s validation image.  A patched version of the 2.6.39 kernel is currently being implemented to support BeagleBoard validation and this bug is expected to go away.&lt;/li&gt;
+    &lt;li&gt;A secondary reason is that the default boot condition of the kernel is to power up peripheral interfaces like the EHCI-based USB host on the xM and DVI-D on both pre-xM and xM boards.  The USB specification requires devices to power up under 100mA (~500mW) and the USB hub circuit on the BeagleBoard-xM may consume around 100mA itself.  Modification is required to the kernel to avoid powering up this section of the board until sufficient current is confirmed by the software.  In practice, most host machines will provide sufficient power, despite this violation of the specification.  You should consider your power requirements before attempting to utilize USB to power your BeagleBoard or BeagleBoard-xM.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;
    &lt;b&gt;What is the BeagleBoard-xM?&lt;/b&gt;
    &lt;ul&gt;
