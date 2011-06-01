@@ -78,3 +78,26 @@
 <li class="join">[<a href="#T03:48:32" id="T03:48:32"><abbr title="2011-06-01T03:48:32+00:00">03:48:32</abbr></a>] <span>* pcacjr (~pcacjr@187.78.184.158) has joined #beagle</span></li>
 <li class="quit">[<abbr title="2011-06-01T03:48:32+00:00">03:48:32</abbr>] <span>* pcacjr (~pcacjr@187.78.184.158) Quit (Changing host)</span></li>
 <li class="join">[<abbr title="2011-06-01T03:48:32+00:00">03:48:32</abbr>] <span>* pcacjr (~pcacjr@unaffiliated/pcacjr) has joined #beagle</span></li>
+<li class="join">[<a href="#T04:17:00" id="T04:17:00"><abbr title="2011-06-01T04:17:00+00:00">04:17:00</abbr></a>] <span>* ZeZu (~null@c-98-227-57-1.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T04:20:26" id="T04:20:26"><abbr title="2011-06-01T04:20:26+00:00">04:20:26</abbr></a>] <span>* pcacjr (~pcacjr@unaffiliated/pcacjr) Quit (Quit: Lost terminal)</span></li>
+<li class="join">[<a href="#T04:26:55" id="T04:26:55"><abbr title="2011-06-01T04:26:55+00:00">04:26:55</abbr></a>] <span>* hitlin37 (6eea0302@gateway/web/freenode/ip.110.234.3.2) has joined #beagle</span></li>
+<li class="quit">[<a href="#T04:31:07" id="T04:31:07"><abbr title="2011-06-01T04:31:07+00:00">04:31:07</abbr></a>] <span>* mrc3_ (~ddiaz@189.157.115.67) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T04:42:45" id="T04:42:45"><abbr title="2011-06-01T04:42:45+00:00">04:42:45</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>anyone here use the angstrom gcc toolchain? it is somewhat strange that when i build my source file, gcc decides to export all of the functions</q></li>
+<li class="message">[<a href="#T04:43:17" id="T04:43:17"><abbr title="2011-06-01T04:43:17+00:00">04:43:17</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>even though i never marked it to be exported</q></li>
+<li class="join">[<a href="#T04:44:40" id="T04:44:40"><abbr title="2011-06-01T04:44:40+00:00">04:44:40</abbr></a>] <span>* mrc3_ (~ddiaz@189.157.121.242) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:46:19" id="T04:46:19"><abbr title="2011-06-01T04:46:19+00:00">04:46:19</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>???</q></li>
+<li class="message">[<a href="#T04:47:09" id="T04:47:09"><abbr title="2011-06-01T04:47:09+00:00">04:47:09</abbr></a>] &lt;<cite>AlTheKiller</cite>&gt; <q>I'm pretty sure symbols are always visible by default with GCC</q></li>
+<li class="message">[<a href="#T04:48:38" id="T04:48:38"><abbr title="2011-06-01T04:48:38+00:00">04:48:38</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>_av500_: just build a simple program with int add(int a,int b) {return a+b;} and then have main call it. you will see the the function "add" is exported in teh final ELF binary</q></li>
+<li class="message">[<a href="#T04:48:55" id="T04:48:55"><abbr title="2011-06-01T04:48:55+00:00">04:48:55</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>i did a -S and saw that in the asm, it marks all of the functions .global</q></li>
+<li class="quit">[<a href="#T04:49:46" id="T04:49:46"><abbr title="2011-06-01T04:49:46+00:00">04:49:46</abbr></a>] <span>* mrc3_ (~ddiaz@189.157.121.242) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="message">[<a href="#T04:49:49" id="T04:49:49"><abbr title="2011-06-01T04:49:49+00:00">04:49:49</abbr></a>] &lt;<cite>AlTheKiller</cite>&gt; <q>__attribute__((__visibility__("hidden"))) or something</q></li>
+<li class="message">[<a href="#T04:49:57" id="T04:49:57"><abbr title="2011-06-01T04:49:57+00:00">04:49:57</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>yes</q></li>
+<li class="quit">[<a href="#T04:53:30" id="T04:53:30"><abbr title="2011-06-01T04:53:30+00:00">04:53:30</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T04:54:08" id="T04:54:08"><abbr title="2011-06-01T04:54:08+00:00">04:54:08</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>ahhh, interesting. i did not know that. thanks AlTheKiller</q></li>
+<li class="message">[<a href="#T04:54:15" id="T04:54:15"><abbr title="2011-06-01T04:54:15+00:00">04:54:15</abbr></a>] &lt;<cite>AlTheKiller</cite>&gt; <q>np</q></li>
+<li class="message">[<a href="#T04:54:21" id="T04:54:21"><abbr title="2011-06-01T04:54:21+00:00">04:54:21</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>came from a windows build environment so this is strange to me</q></li>
+<li class="message">[<a href="#T04:54:32" id="T04:54:32"><abbr title="2011-06-01T04:54:32+00:00">04:54:32</abbr></a>] &lt;<cite>AlTheKiller</cite>&gt; <q>I figured as much ;)</q></li>
+<li class="message">[<a href="#T04:54:36" id="T04:54:36"><abbr title="2011-06-01T04:54:36+00:00">04:54:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>but nothing angstrom specific</q></li>
+<li class="join">[<a href="#T04:56:17" id="T04:56:17"><abbr title="2011-06-01T04:56:17+00:00">04:56:17</abbr></a>] <span>* l4 (~l4@88.119.128.50) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:56:23" id="T04:56:23"><abbr title="2011-06-01T04:56:23+00:00">04:56:23</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>right. i was simply too noobish to realize it.</q></li>
+<li class="join">[<a href="#T04:59:20" id="T04:59:20"><abbr title="2011-06-01T04:59:20+00:00">04:59:20</abbr></a>] <span>* lifeeth (~praneeth@unaffiliated/lifeeth) has joined #beagle</span></li>
