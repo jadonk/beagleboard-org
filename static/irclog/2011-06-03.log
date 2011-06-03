@@ -714,3 +714,62 @@
 <li class="message">[<a href="#T20:59:06" id="T20:59:06"><abbr title="2011-06-03T20:59:06+00:00">20:59:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>koen uclibc isnt the fault it doesnt boots</q></li>
 <li class="message">[<a href="#T20:59:35" id="T20:59:35"><abbr title="2011-06-03T20:59:35+00:00">20:59:35</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and because I havent a real console when the shit happens I cannt say what it is</q></li>
 <li class="message">[<a href="#T20:59:39" id="T20:59:39"><abbr title="2011-06-03T20:59:39+00:00">20:59:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>maybee musb again</q></li>
+<li class="quit">[<a href="#T21:00:49" id="T21:00:49"><abbr title="2011-06-03T21:00:49+00:00">21:00:49</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T21:02:05" id="T21:02:05"><abbr title="2011-06-03T21:02:05+00:00">21:02:05</abbr></a>] <span>* risca (~risca@195.42.110.245) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="join">[<a href="#T21:03:25" id="T21:03:25"><abbr title="2011-06-03T21:03:25+00:00">21:03:25</abbr></a>] <span>* risca (~risca@195.42.110.245) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:04:45" id="T21:04:45"><abbr title="2011-06-03T21:04:45+00:00">21:04:45</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mdp: is there an easy way I can reproduce those sdio hangups?</q></li>
+<li class="message">[<a href="#T21:07:39" id="T21:07:39"><abbr title="2011-06-03T21:07:39+00:00">21:07:39</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>my simplest case is insert GPS sdio card???then run "gpsd -N -n -D 2 /dev/ttySDIO0"</q></li>
+<li class="message">[<a href="#T21:07:55" id="T21:07:55"><abbr title="2011-06-03T21:07:55+00:00">21:07:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ah</q></li>
+<li class="action">[<a href="#T21:08:03" id="T21:08:03"><abbr title="2011-06-03T21:08:03+00:00">21:08:03</abbr></a>] <span>* koen lacks such a card</span></li>
+<li class="quit">[<a href="#T21:08:08" id="T21:08:08"><abbr title="2011-06-03T21:08:08+00:00">21:08:08</abbr></a>] <span>* risca (~risca@195.42.110.245) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T21:08:24" id="T21:08:24"><abbr title="2011-06-03T21:08:24+00:00">21:08:24</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>it will run happily for a while and then presumably lockup the sdio bus because the chip hangs</q></li>
+<li class="message">[<a href="#T21:09:27" id="T21:09:27"><abbr title="2011-06-03T21:09:27+00:00">21:09:27</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I first saw this with an atheros card on am37x-evm</q></li>
+<li class="message">[<a href="#T21:09:42" id="T21:09:42"><abbr title="2011-06-03T21:09:42+00:00">21:09:42</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*sigh* only 2 files left for scanf rewrite in systemd</q></li>
+<li class="message">[<a href="#T21:09:44" id="T21:09:44"><abbr title="2011-06-03T21:09:44+00:00">21:09:44</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>going to try on my c2 bb so I'm ok talking about it here :)</q></li>
+<li class="message">[<a href="#T21:10:22" id="T21:10:22"><abbr title="2011-06-03T21:10:22+00:00">21:10:22</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>koen, I'm just happy I can reproduce on a simple sdio device</q></li>
+<li class="message">[<a href="#T21:10:47" id="T21:10:47"><abbr title="2011-06-03T21:10:47+00:00">21:10:47</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>koen, the important thing is I can run wl1271 on mmc1 on the same board all day long</q></li>
+<li class="quit">[<a href="#T21:10:49" id="T21:10:49"><abbr title="2011-06-03T21:10:49+00:00">21:10:49</abbr></a>] <span>* Animule (~Animal@71-208-144-209.hlrn.qwest.net) Quit (Quit: Not all men are created equal.  Only the finest become Cowboys.)</span></li>
+<li class="message">[<a href="#T21:11:01" id="T21:11:01"><abbr title="2011-06-03T21:11:01+00:00">21:11:01</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>so omap_hsmmc seems happy</q></li>
+<li class="message">[<a href="#T21:12:04" id="T21:12:04"><abbr title="2011-06-03T21:12:04+00:00">21:12:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mdp: I can run wl12xx reliably as well</q></li>
+<li class="message">[<a href="#T21:12:12" id="T21:12:12"><abbr title="2011-06-03T21:12:12+00:00">21:12:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I need to figure out the powersave mode on it</q></li>
+<li class="message">[<a href="#T21:12:23" id="T21:12:23"><abbr title="2011-06-03T21:12:23+00:00">21:12:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ssh over wilink is stuttering</q></li>
+<li class="message">[<a href="#T21:13:09" id="T21:13:09"><abbr title="2011-06-03T21:13:09+00:00">21:13:09</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>one difference is the configuration of the regulator in fixed mode for these fixed SDIO devices versus the variable mode for the slot that needs to support the range</q></li>
+<li class="message">[<a href="#T21:13:37" id="T21:13:37"><abbr title="2011-06-03T21:13:37+00:00">21:13:37</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ahh</q></li>
+<li class="message">[<a href="#T21:14:06" id="T21:14:06"><abbr title="2011-06-03T21:14:06+00:00">21:14:06</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>wilinks also don't do inband interrupts, like other devices</q></li>
+<li class="action">[<a href="#T21:14:21" id="T21:14:21"><abbr title="2011-06-03T21:14:21+00:00">21:14:21</abbr></a>] <span>* koen has no idea what that means</span></li>
+<li class="message">[<a href="#T21:14:32" id="T21:14:32"><abbr title="2011-06-03T21:14:32+00:00">21:14:32</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>they have a gpio line for irq</q></li>
+<li class="message">[<a href="#T21:14:52" id="T21:14:52"><abbr title="2011-06-03T21:14:52+00:00">21:14:52</abbr></a>] &lt;<cite>koen</cite>&gt; <q>right, I needed to add that to the kernel patch :)</q></li>
+<li class="message">[<a href="#T21:14:55" id="T21:14:55"><abbr title="2011-06-03T21:14:55+00:00">21:14:55</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>whereas a plugin sdio card has to do interrupts over a data line</q></li>
+<li class="message">[<a href="#T21:15:31" id="T21:15:31"><abbr title="2011-06-03T21:15:31+00:00">21:15:31</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I wish I could get a 1283 card for beagle</q></li>
+<li class="message">[<a href="#T21:15:49" id="T21:15:49"><abbr title="2011-06-03T21:15:49+00:00">21:15:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>not that I need the gps, but I'd like the 5GHz support</q></li>
+<li class="message">[<a href="#T21:15:58" id="T21:15:58"><abbr title="2011-06-03T21:15:58+00:00">21:15:58</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>iirc, 1283 is single stream n capable?</q></li>
+<li class="message">[<a href="#T21:16:13" id="T21:16:13"><abbr title="2011-06-03T21:16:13+00:00">21:16:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>1271 is n capable as well</q></li>
+<li class="message">[<a href="#T21:16:24" id="T21:16:24"><abbr title="2011-06-03T21:16:24+00:00">21:16:24</abbr></a>] &lt;<cite>koen</cite>&gt; <q>12x3 adds 5GHz support</q></li>
+<li class="message">[<a href="#T21:16:26" id="T21:16:26"><abbr title="2011-06-03T21:16:26+00:00">21:16:26</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>oh yes, that's right.</q></li>
+<li class="message">[<a href="#T21:16:34" id="T21:16:34"><abbr title="2011-06-03T21:16:34+00:00">21:16:34</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>i've been told that several times and keep forgetting :)</q></li>
+<li class="message">[<a href="#T21:16:42" id="T21:16:42"><abbr title="2011-06-03T21:16:42+00:00">21:16:42</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ahh, yeah</q></li>
+<li class="message">[<a href="#T21:17:00" id="T21:17:00"><abbr title="2011-06-03T21:17:00+00:00">21:17:00</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>that's actually one reason I'm *ahem* supporting an AR part</q></li>
+<li class="message">[<a href="#T21:17:12" id="T21:17:12"><abbr title="2011-06-03T21:17:12+00:00">21:17:12</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>6003 does 40Mhz 5Ghz</q></li>
+<li class="message">[<a href="#T21:17:21" id="T21:17:21"><abbr title="2011-06-03T21:17:21+00:00">21:17:21</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>and it's 5x5mm</q></li>
+<li class="message">[<a href="#T21:18:11" id="T21:18:11"><abbr title="2011-06-03T21:18:11+00:00">21:18:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>that's what you get for making the wilink devices in texas</q></li>
+<li class="message">[<a href="#T21:18:16" id="T21:18:16"><abbr title="2011-06-03T21:18:16+00:00">21:18:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>everything is bigger there</q></li>
+<li class="message">[<a href="#T21:18:46" id="T21:18:46"><abbr title="2011-06-03T21:18:46+00:00">21:18:46</abbr></a>] &lt;<cite>koen</cite>&gt; <q>(although as a dutch person, the people seem awfully short in texas)</q></li>
+<li class="join">[<a href="#T21:21:16" id="T21:21:16"><abbr title="2011-06-03T21:21:16+00:00">21:21:16</abbr></a>] <span>* gdm (~gdm@186.18.175.127) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:21:36" id="T21:21:36"><abbr title="2011-06-03T21:21:36+00:00">21:21:36</abbr></a>] <span>* mpoirier (~quassel@S0106002369de4dac.cg.shawcable.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T21:23:10" id="T21:23:10"><abbr title="2011-06-03T21:23:10+00:00">21:23:10</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>koen, lol</q></li>
+<li class="message">[<a href="#T21:23:30" id="T21:23:30"><abbr title="2011-06-03T21:23:30+00:00">21:23:30</abbr></a>] &lt;<cite>cbrake</cite>&gt; <q>koen: so do you spend most of your time in TX, or EU?</q></li>
+<li class="message">[<a href="#T21:27:12" id="T21:27:12"><abbr title="2011-06-03T21:27:12+00:00">21:27:12</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I distinctly remember feeling shorter while traveling in .nl</q></li>
+<li class="message">[<a href="#T21:30:35" id="T21:30:35"><abbr title="2011-06-03T21:30:35+00:00">21:30:35</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>23:18:46 &lt; koen&gt; (although as a dutch person, the people seem awfully short in  texas)</q></li>
+<li class="message">[<a href="#T21:30:38" id="T21:30:38"><abbr title="2011-06-03T21:30:38+00:00">21:30:38</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T21:30:46" id="T21:30:46"><abbr title="2011-06-03T21:30:46+00:00">21:30:46</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>-being short- is a dutch expression ;)</q></li>
+<li class="message">[<a href="#T21:31:03" id="T21:31:03"><abbr title="2011-06-03T21:31:03+00:00">21:31:03</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>as in drunk/mental/less capable etc</q></li>
+<li class="message">[<a href="#T21:31:17" id="T21:31:17"><abbr title="2011-06-03T21:31:17+00:00">21:31:17</abbr></a>] &lt;<cite>buZz</cite>&gt; <q>like running short in english but more personal</q></li>
+<li class="message">[<a href="#T21:32:09" id="T21:32:09"><abbr title="2011-06-03T21:32:09+00:00">21:32:09</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>koen needs a weapon now</q></li>
+<li class="message">[<a href="#T21:32:11" id="T21:32:11"><abbr title="2011-06-03T21:32:11+00:00">21:32:11</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="quit">[<a href="#T21:36:08" id="T21:36:08"><abbr title="2011-06-03T21:36:08+00:00">21:36:08</abbr></a>] <span>* lyakh (~lyakh@dslb-178-001-136-239.pools.arcor-ip.net) Quit (Quit: thanks, bye)</span></li>
+<li class="message">[<a href="#T21:36:24" id="T21:36:24"><abbr title="2011-06-03T21:36:24+00:00">21:36:24</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>buZz, I can resemble that :)</q></li>
+<li class="quit">[<a href="#T21:38:01" id="T21:38:01"><abbr title="2011-06-03T21:38:01+00:00">21:38:01</abbr></a>] <span>* Ceriand|work (~Ceriand@unaffiliated/ceriand) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<a href="#T21:43:26" id="T21:43:26"><abbr title="2011-06-03T21:43:26+00:00">21:43:26</abbr></a>] <span>* DarrenE (~darreneth@nat/ti/x-jezkgyjuycynmerf) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T21:52:59" id="T21:52:59"><abbr title="2011-06-03T21:52:59+00:00">21:52:59</abbr></a>] <span>* l4 (~l4@78-62-153-222.static.zebra.lt) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T21:56:23" id="T21:56:23"><abbr title="2011-06-03T21:56:23+00:00">21:56:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>boahaaa</q></li>
+<li class="message">[<a href="#T21:56:30" id="T21:56:30"><abbr title="2011-06-03T21:56:30+00:00">21:56:30</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>finally it runs</q></li>
