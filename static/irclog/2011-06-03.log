@@ -262,3 +262,39 @@
 <li class="message">[<a href="#T10:59:22" id="T10:59:22"><abbr title="2011-06-03T10:59:22+00:00">10:59:22</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>yes and normaly compiling makes it right</q></li>
 <li class="message">[<a href="#T10:59:37" id="T10:59:37"><abbr title="2011-06-03T10:59:37+00:00">10:59:37</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>with rpath linker option</q></li>
 <li class="quit">[<a href="#T10:59:59" id="T10:59:59"><abbr title="2011-06-03T10:59:59+00:00">10:59:59</abbr></a>] <span>* kukyakya (~kukyakya@icpc14.kaist.ac.kr) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T11:00:18" id="T11:00:18"><abbr title="2011-06-03T11:00:18+00:00">11:00:18</abbr></a>] &lt;<cite>Garagoth</cite>&gt; <q>and why does /etc/ld.so.conf does not work?</q></li>
+<li class="message">[<a href="#T11:00:35" id="T11:00:35"><abbr title="2011-06-03T11:00:35+00:00">11:00:35</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>because you forgot ldconfif call?</q></li>
+<li class="message">[<a href="#T11:00:38" id="T11:00:38"><abbr title="2011-06-03T11:00:38+00:00">11:00:38</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>ups ldconfig</q></li>
+<li class="message">[<a href="#T11:00:42" id="T11:00:42"><abbr title="2011-06-03T11:00:42+00:00">11:00:42</abbr></a>] &lt;<cite>Garagoth</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T11:00:54" id="T11:00:54"><abbr title="2011-06-03T11:00:54+00:00">11:00:54</abbr></a>] &lt;<cite>Garagoth</cite>&gt; <q>even ldconfig -p prints those libs</q></li>
+<li class="message">[<a href="#T11:01:12" id="T11:01:12"><abbr title="2011-06-03T11:01:12+00:00">11:01:12</abbr></a>] &lt;<cite>Garagoth</cite>&gt; <q>but ld does not</q></li>
+<li class="message">[<a href="#T11:01:28" id="T11:01:28"><abbr title="2011-06-03T11:01:28+00:00">11:01:28</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>ld is only the linker</q></li>
+<li class="message">[<a href="#T11:01:55" id="T11:01:55"><abbr title="2011-06-03T11:01:55+00:00">11:01:55</abbr></a>] &lt;<cite>Garagoth</cite>&gt; <q>gcc -lhokuyo_aist: ld error; gcc -L/usr/local/lib/gearbox -lhokuyo_aist: success</q></li>
+<li class="message">[<a href="#T11:04:07" id="T11:04:07"><abbr title="2011-06-03T11:04:07+00:00">11:04:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>woglinde_: pong</q></li>
+<li class="quit">[<a href="#T11:05:20" id="T11:05:20"><abbr title="2011-06-03T11:05:20+00:00">11:05:20</abbr></a>] <span>* risca (~risca@195.42.110.245) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T11:05:44" id="T11:05:44"><abbr title="2011-06-03T11:05:44+00:00">11:05:44</abbr></a>] <span>* risca (~risca@195.42.110.245) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:05:54" id="T11:05:54"><abbr title="2011-06-03T11:05:54+00:00">11:05:54</abbr></a>] &lt;<cite>Garagoth</cite>&gt; <q>woglinde_: So, any hints about ldconfig/ld ?</q></li>
+<li class="message">[<a href="#T11:06:19" id="T11:06:19"><abbr title="2011-06-03T11:06:19+00:00">11:06:19</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>Garagoth learn about linker option -rpath</q></li>
+<li class="message">[<a href="#T11:06:28" id="T11:06:28"><abbr title="2011-06-03T11:06:28+00:00">11:06:28</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>and how to parse linker options via gcc</q></li>
+<li class="join">[<a href="#T11:06:56" id="T11:06:56"><abbr title="2011-06-03T11:06:56+00:00">11:06:56</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:07:21" id="T11:07:21"><abbr title="2011-06-03T11:07:21+00:00">11:07:21</abbr></a>] &lt;<cite>Garagoth</cite>&gt; <q>woglinde, I'm trying to compile player (from player/stage project) and it is CMake that does not see those libs...</q></li>
+<li class="message">[<a href="#T11:08:12" id="T11:08:12"><abbr title="2011-06-03T11:08:12+00:00">11:08:12</abbr></a>] &lt;<cite>Garagoth</cite>&gt; <q>out of the box it works on ubuntu et al, but on Angstrom when I followed same steps it failed.</q></li>
+<li class="join">[<a href="#T11:08:36" id="T11:08:36"><abbr title="2011-06-03T11:08:36+00:00">11:08:36</abbr></a>] <span>* kukyakya (~kukyakya@icpc14.kaist.ac.kr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:10:24" id="T11:10:24"><abbr title="2011-06-03T11:10:24+00:00">11:10:24</abbr></a>] <span>* bradfa (~andrew@cpe-69-207-148-166.rochester.res.rr.com) Quit (Quit: Ex-Chat)</span></li>
+<li class="quit">[<a href="#T11:10:35" id="T11:10:35"><abbr title="2011-06-03T11:10:35+00:00">11:10:35</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T11:11:14" id="T11:11:14"><abbr title="2011-06-03T11:11:14+00:00">11:11:14</abbr></a>] <span>* virals (~viral@122.178.208.59) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:22:37" id="T11:22:37"><abbr title="2011-06-03T11:22:37+00:00">11:22:37</abbr></a>] <span>* aarti (~aarti@122.166.11.13) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:24:14" id="T11:24:14"><abbr title="2011-06-03T11:24:14+00:00">11:24:14</abbr></a>] <span>* eFfeM (~frans@j200125.upc-j.chello.nl) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<a href="#T11:26:22" id="T11:26:22"><abbr title="2011-06-03T11:26:22+00:00">11:26:22</abbr></a>] <span>* NotTooDumb3 (~vayavya@122.166.13.141) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T11:29:40" id="T11:29:40"><abbr title="2011-06-03T11:29:40+00:00">11:29:40</abbr></a>] <span>* drakkan1000 (~drakkan@dynamic-adsl-78-13-206-138.clienti.tiscali.it) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:30:40" id="T11:30:40"><abbr title="2011-06-03T11:30:40+00:00">11:30:40</abbr></a>] <span>* aarti (~aarti@122.166.11.13) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T11:36:56" id="T11:36:56"><abbr title="2011-06-03T11:36:56+00:00">11:36:56</abbr></a>] <span>* aarti (~aarti@122.166.11.13) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:42:20" id="T11:42:20"><abbr title="2011-06-03T11:42:20+00:00">11:42:20</abbr></a>] <span>* leming (~leming@c-67-164-174-68.hsd1.co.comcast.net) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T11:42:21" id="T11:42:21"><abbr title="2011-06-03T11:42:21+00:00">11:42:21</abbr></a>] <span>* aarti (~aarti@122.166.11.13) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T11:42:37" id="T11:42:37"><abbr title="2011-06-03T11:42:37+00:00">11:42:37</abbr></a>] <span>* leming (~leming@c-67-164-174-68.hsd1.co.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:42:42" id="T11:42:42"><abbr title="2011-06-03T11:42:42+00:00">11:42:42</abbr></a>] <span>* aarti (~aarti@122.166.11.13) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:46:06" id="T11:46:06"><abbr title="2011-06-03T11:46:06+00:00">11:46:06</abbr></a>] <span>* kaio_ (~kaio@fedora/kaio) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:48:11" id="T11:48:11"><abbr title="2011-06-03T11:48:11+00:00">11:48:11</abbr></a>] <span>* kaio (~kaio@fedora/kaio) Quit (Disconnected by services)</span></li>
+<li class="nick-change">[<a href="#T11:48:16" id="T11:48:16"><abbr title="2011-06-03T11:48:16+00:00">11:48:16</abbr></a>] <span>* kaio_ is now known as kaio</span></li>
+<li class="join">[<a href="#T11:48:42" id="T11:48:42"><abbr title="2011-06-03T11:48:42+00:00">11:48:42</abbr></a>] <span>* kaio_ (~kaio@fedora/kaio) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:52:53" id="T11:52:53"><abbr title="2011-06-03T11:52:53+00:00">11:52:53</abbr></a>] <span>* kaio_ (~kaio@fedora/kaio) Quit (Disconnected by services)</span></li>
