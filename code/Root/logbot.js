@@ -9,16 +9,20 @@ function startLogbot()
   if (logdir.isDirectory()) 
    {
     var server = "irc.freenode.net";
-    var channel = "#beagle";
+    var channels = ["#beagle", "#beagleboard"];
     var nick = "BeagleBot";
     var passwd = 'BeNice';  // change password
     var joinMessage = "This channel is logged: http://www.beagleboard.org/irclogs";
 
     global.logbot = new Packages.org.jibble.logbot.LogBot(nick, logdir, joinMessage);
     global.logbot.connect(server);
-    global.logbot.joinChannel(channel);
+    for (var channel in channels) {
+     global.logbot.joinChannel(channels[channel]);
+    }
     global.logbot.sendMessage('NickServ','IDENTIFY '+ passwd);
-    global.logbot.sendMessage('ChanServ','OP #beagle');
+    for (var channel in channels) {
+     global.logbot.sendMessage('ChanServ','OP '+ channels[channel]);
+    }
     //global.logbot.setTopic(channel,'Welcome to #Beagle | Discussion about the OMAP3 Beagle Board - http://beagleboard.org | Beagle search tools are on #dashboard at irc.gimp.org, NOT here ;) | Log is at http://beagleboard.org/chat');
    }
   else
