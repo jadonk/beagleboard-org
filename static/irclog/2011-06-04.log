@@ -382,3 +382,43 @@
 <li class="message">[<a href="#T20:55:41" id="T20:55:41"><abbr title="2011-06-04T20:55:41+00:00">20:55:41</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>someone really ought to fix that loading of a g_ module to get stuff going hack</q></li>
 <li class="message">[<a href="#T20:56:58" id="T20:56:58"><abbr title="2011-06-04T20:56:58+00:00">20:56:58</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>interesting, the codegen between minor gcc builds is not very consistent. i upgraded and now the branchless output i got for one function is no longer there :&gt;</q></li>
 <li class="message">[<a href="#T20:57:17" id="T20:57:17"><abbr title="2011-06-04T20:57:17+00:00">20:57:17</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q><a href="http://pastebin.com/DeJRLAnL">http://pastebin.com/DeJRLAnL</a></q></li>
+<li class="quit">[<a href="#T21:05:34" id="T21:05:34"><abbr title="2011-06-04T21:05:34+00:00">21:05:34</abbr></a>] <span>* lyakh (~lyakh@dslb-094-221-104-225.pools.arcor-ip.net) Quit (Quit: thanks, bye)</span></li>
+<li class="message">[<a href="#T21:13:45" id="T21:13:45"><abbr title="2011-06-04T21:13:45+00:00">21:13:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what was the c code and which compilers and flags?</q></li>
+<li class="message">[<a href="#T21:16:14" id="T21:16:14"><abbr title="2011-06-04T21:16:14+00:00">21:16:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ds2: maybe can poke ajay or balbi for that</q></li>
+<li class="message">[<a href="#T21:19:35" id="T21:19:35"><abbr title="2011-06-04T21:19:35+00:00">21:19:35</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>c code is pretty simple: int foo( bar *ptr) { return ptr==NULL || p-&gt;field;}</q></li>
+<li class="join">[<a href="#T21:19:47" id="T21:19:47"><abbr title="2011-06-04T21:19:47+00:00">21:19:47</abbr></a>] <span>* Ceriand (~ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-06-04T21:19:47+00:00">21:19:47</abbr>] <span>* Ceriand (~ceriand@unaffiliated/ceriand) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T21:20:10" id="T21:20:10"><abbr title="2011-06-04T21:20:10+00:00">21:20:10</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>i just used -O{0,1,2,3}</q></li>
+<li class="message">[<a href="#T21:20:34" id="T21:20:34"><abbr title="2011-06-04T21:20:34+00:00">21:20:34</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>it's not particulary important at this point, i just thought it was interesting that one upgrade could change so much ;]</q></li>
+<li class="message">[<a href="#T21:20:39" id="T21:20:39"><abbr title="2011-06-04T21:20:39+00:00">21:20:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>two of them are thumb, two are arm</q></li>
+<li class="message">[<a href="#T21:20:44" id="T21:20:44"><abbr title="2011-06-04T21:20:44+00:00">21:20:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the last looks like -O0</q></li>
+<li class="message">[<a href="#T21:20:47" id="T21:20:47"><abbr title="2011-06-04T21:20:47+00:00">21:20:47</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T21:21:45" id="T21:21:45"><abbr title="2011-06-04T21:21:45+00:00">21:21:45</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>the top versoin targeted arm with -O2 on gcc 4.3; the next two are the same but generated with 4.5; the last was -O2 on 4.5 as well</q></li>
+<li class="message">[<a href="#T21:22:14" id="T21:22:14"><abbr title="2011-06-04T21:22:14+00:00">21:22:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no way the last one is -O2</q></li>
+<li class="message">[<a href="#T21:22:18" id="T21:22:18"><abbr title="2011-06-04T21:22:18+00:00">21:22:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's -O0</q></li>
+<li class="message">[<a href="#T21:22:19" id="T21:22:19"><abbr title="2011-06-04T21:22:19+00:00">21:22:19</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>i meant, -O0</q></li>
+<li class="message">[<a href="#T21:22:24" id="T21:22:24"><abbr title="2011-06-04T21:22:24+00:00">21:22:24</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>sorry.. bad typing ;]</q></li>
+<li class="message">[<a href="#T21:22:46" id="T21:22:46"><abbr title="2011-06-04T21:22:46+00:00">21:22:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the middle two are -O2 or -O3, one arm and one thumb</q></li>
+<li class="message">[<a href="#T21:23:03" id="T21:23:03"><abbr title="2011-06-04T21:23:03+00:00">21:23:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the code sequences are exact equivalents</q></li>
+<li class="message">[<a href="#T21:24:09" id="T21:24:09"><abbr title="2011-06-04T21:24:09+00:00">21:24:09</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>do you work on gcc or something mru?</q></li>
+<li class="message">[<a href="#T21:24:24" id="T21:24:24"><abbr title="2011-06-04T21:24:24+00:00">21:24:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>more like work against it</q></li>
+<li class="message">[<a href="#T21:24:38" id="T21:24:38"><abbr title="2011-06-04T21:24:38+00:00">21:24:38</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T21:24:49" id="T21:24:49"><abbr title="2011-06-04T21:24:49+00:00">21:24:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I've spent a fair amount of time looking at compiler output</q></li>
+<li class="message">[<a href="#T21:24:59" id="T21:24:59"><abbr title="2011-06-04T21:24:59+00:00">21:24:59</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>*g*</q></li>
+<li class="message">[<a href="#T21:26:00" id="T21:26:00"><abbr title="2011-06-04T21:26:00+00:00">21:26:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>speedwise the first two variants are probably very close</q></li>
+<li class="quit">[<a href="#T21:26:05" id="T21:26:05"><abbr title="2011-06-04T21:26:05+00:00">21:26:05</abbr></a>] <span>* almost_anna (~aad@89.23.194.117) Quit (Quit: almost_anna)</span></li>
+<li class="message">[<a href="#T21:26:14" id="T21:26:14"><abbr title="2011-06-04T21:26:14+00:00">21:26:14</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>i've done the same, but x86 only. jsut started looking at arm in the last few months more closely</q></li>
+<li class="message">[<a href="#T21:26:23" id="T21:26:23"><abbr title="2011-06-04T21:26:23+00:00">21:26:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the second one might actually be nicer on the branch predictors</q></li>
+<li class="message">[<a href="#T21:26:49" id="T21:26:49"><abbr title="2011-06-04T21:26:49+00:00">21:26:49</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>oha moths</q></li>
+<li class="message">[<a href="#T21:28:59" id="T21:28:59"><abbr title="2011-06-04T21:28:59+00:00">21:28:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>my version: <a href="http://pastie.org/2019896">http://pastie.org/2019896</a></q></li>
+<li class="message">[<a href="#T21:29:25" id="T21:29:25"><abbr title="2011-06-04T21:29:25+00:00">21:29:25</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>handcrafted asm?</q></li>
+<li class="message">[<a href="#T21:29:32" id="T21:29:32"><abbr title="2011-06-04T21:29:32+00:00">21:29:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T21:29:39" id="T21:29:39"><abbr title="2011-06-04T21:29:39+00:00">21:29:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>aka mrucc</q></li>
+<li class="message">[<a href="#T21:29:57" id="T21:29:57"><abbr title="2011-06-04T21:29:57+00:00">21:29:57</abbr></a>] &lt;<cite>woglinde_</cite>&gt; <q>you should patented your brain</q></li>
+<li class="message">[<a href="#T21:30:04" id="T21:30:04"><abbr title="2011-06-04T21:30:04+00:00">21:30:04</abbr></a>] &lt;<cite>_bruce</cite>&gt; <q>hehe, mru the human arm optimizer</q></li>
+<li class="message">[<a href="#T21:42:23" id="T21:42:23"><abbr title="2011-06-04T21:42:23+00:00">21:42:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>beer time</q></li>
+<li class="message">[<a href="#T21:44:25" id="T21:44:25"><abbr title="2011-06-04T21:44:25+00:00">21:44:25</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>cool... beer :)</q></li>
+<li class="quit">[<a href="#T21:44:42" id="T21:44:42"><abbr title="2011-06-04T21:44:42+00:00">21:44:42</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T21:46:40" id="T21:46:40"><abbr title="2011-06-04T21:46:40+00:00">21:46:40</abbr></a>] <span>* divineant (~divineant@82.192.143.135) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="join">[<a href="#T21:48:16" id="T21:48:16"><abbr title="2011-06-04T21:48:16+00:00">21:48:16</abbr></a>] <span>* divineant (~divineant@82.192.143.135) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:57:45" id="T21:57:45"><abbr title="2011-06-04T21:57:45+00:00">21:57:45</abbr></a>] <span>* mrsteveman1 (~mstm1@69.164.212.35) has joined #beagle</span></li>
