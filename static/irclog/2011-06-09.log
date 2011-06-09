@@ -723,3 +723,93 @@
 <li class="message">[<a href="#T21:59:17" id="T21:59:17"><abbr title="2011-06-09T21:59:17+00:00">21:59:17</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>again stty can bring back sanity</q></li>
 <li class="message">[<a href="#T21:59:33" id="T21:59:33"><abbr title="2011-06-09T21:59:33+00:00">21:59:33</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>by modifying the rate to 115200 that is</q></li>
 <li class="message">[<a href="#T21:59:35" id="T21:59:35"><abbr title="2011-06-09T21:59:35+00:00">21:59:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that calls an ioctl which programs registers... I'd chase the init path</q></li>
+<li class="message">[<a href="#T22:00:03" id="T22:00:03"><abbr title="2011-06-09T22:00:03+00:00">22:00:03</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>so you're saying that default baudrate is messed up</q></li>
+<li class="message">[<a href="#T22:00:15" id="T22:00:15"><abbr title="2011-06-09T22:00:15+00:00">22:00:15</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but you can control it and it changes correctly?</q></li>
+<li class="message">[<a href="#T22:00:19" id="T22:00:19"><abbr title="2011-06-09T22:00:19+00:00">22:00:19</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>for ttyO1 only</q></li>
+<li class="message">[<a href="#T22:00:22" id="T22:00:22"><abbr title="2011-06-09T22:00:22+00:00">22:00:22</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>jacekowski: yes</q></li>
+<li class="message">[<a href="#T22:00:40" id="T22:00:40"><abbr title="2011-06-09T22:00:40+00:00">22:00:40</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>then it's not a problem</q></li>
+<li class="message">[<a href="#T22:00:43" id="T22:00:43"><abbr title="2011-06-09T22:00:43+00:00">22:00:43</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>the first finding was a hardware wrong-wiring, it was fixed though</q></li>
+<li class="message">[<a href="#T22:00:44" id="T22:00:44"><abbr title="2011-06-09T22:00:44+00:00">22:00:44</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>just minor inconvenience</q></li>
+<li class="message">[<a href="#T22:00:47" id="T22:00:47"><abbr title="2011-06-09T22:00:47+00:00">22:00:47</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>115200 is so 1980s</q></li>
+<li class="message">[<a href="#T22:01:54" id="T22:01:54"><abbr title="2011-06-09T22:01:54+00:00">22:01:54</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>naw, 9600 was soo 1980's</q></li>
+<li class="message">[<a href="#T22:02:06" id="T22:02:06"><abbr title="2011-06-09T22:02:06+00:00">22:02:06</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok, so 1990 then</q></li>
+<li class="message">[<a href="#T22:02:37" id="T22:02:37"><abbr title="2011-06-09T22:02:37+00:00">22:02:37</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>while chasing the ttyO thing, saw lots wdt_disable() in the patches, why do you need that?</q></li>
+<li class="message">[<a href="#T22:02:44" id="T22:02:44"><abbr title="2011-06-09T22:02:44+00:00">22:02:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>go find me a 1488/1489 pair that will work reliably at higher speeds :D</q></li>
+<li class="message">[<a href="#T22:02:53" id="T22:02:53"><abbr title="2011-06-09T22:02:53+00:00">22:02:53</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>there were a lot of serial terminals on campus in early 90's running 9600</q></li>
+<li class="message">[<a href="#T22:03:15" id="T22:03:15"><abbr title="2011-06-09T22:03:15+00:00">22:03:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>9600 8n1 was the crisco default rate</q></li>
+<li class="message">[<a href="#T22:03:27" id="T22:03:27"><abbr title="2011-06-09T22:03:27+00:00">22:03:27</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>still is afaik</q></li>
+<li class="message">[<a href="#T22:04:00" id="T22:04:00"><abbr title="2011-06-09T22:04:00+00:00">22:04:00</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>djlewis: you deal with criscos?</q></li>
+<li class="quit">[<a href="#T22:04:04" id="T22:04:04"><abbr title="2011-06-09T22:04:04+00:00">22:04:04</abbr></a>] <span>* ozk (~ozk@nat/ti/x-xclsuhngpanvcenz) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T22:04:09" id="T22:04:09"><abbr title="2011-06-09T22:04:09+00:00">22:04:09</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>sometimes</q></li>
+<li class="message">[<a href="#T22:04:51" id="T22:04:51"><abbr title="2011-06-09T22:04:51+00:00">22:04:51</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>anyone familiar with this hwmod, i got one gpio interrupt used in hwmod, then i could no longer request_irq(that-gpio) in my driver</q></li>
+<li class="action">[<a href="#T22:05:01" id="T22:05:01"><abbr title="2011-06-09T22:05:01+00:00">22:05:01</abbr></a>] <span>* _av500_ remembers the guy that proposed BB should have a criso rj45 for serial and not db9...</span></li>
+<li class="message">[<a href="#T22:05:06" id="T22:05:06"><abbr title="2011-06-09T22:05:06+00:00">22:05:06</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>took me half-day to trace it down</q></li>
+<li class="message">[<a href="#T22:05:10" id="T22:05:10"><abbr title="2011-06-09T22:05:10+00:00">22:05:10</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>ugh</q></li>
+<li class="message">[<a href="#T22:05:23" id="T22:05:23"><abbr title="2011-06-09T22:05:23+00:00">22:05:23</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>one engineer can never got her old driver request_irq(96) to pass</q></li>
+<li class="message">[<a href="#T22:05:36" id="T22:05:36"><abbr title="2011-06-09T22:05:36+00:00">22:05:36</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>i found it in hwmod*.c and disabled that line, that it's ok</q></li>
+<li class="message">[<a href="#T22:05:47" id="T22:05:47"><abbr title="2011-06-09T22:05:47+00:00">22:05:47</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>sent email to texas-india guys and never heard back</q></li>
+<li class="message">[<a href="#T22:05:53" id="T22:05:53"><abbr title="2011-06-09T22:05:53+00:00">22:05:53</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: it wouldn't be that bad idea</q></li>
+<li class="message">[<a href="#T22:05:55" id="T22:05:55"><abbr title="2011-06-09T22:05:55+00:00">22:05:55</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>xxiao: its the new times</q></li>
+<li class="join">[<abbr title="2011-06-09T22:05:55+00:00">22:05:55</abbr>] <span>* thaytan (~jan@ppp59-167-167-201.static.internode.on.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T22:06:00" id="T22:06:00"><abbr title="2011-06-09T22:06:00+00:00">22:06:00</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: to save some space </q></li>
+<li class="message">[<a href="#T22:06:06" id="T22:06:06"><abbr title="2011-06-09T22:06:06+00:00">22:06:06</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jacekowski: yes, maybe it was you :)</q></li>
+<li class="message">[<a href="#T22:06:13" id="T22:06:13"><abbr title="2011-06-09T22:06:13+00:00">22:06:13</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T22:06:39" id="T22:06:39"><abbr title="2011-06-09T22:06:39+00:00">22:06:39</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and tons of newbies pluggin etherner into it....</q></li>
+<li class="message">[<a href="#T22:06:45" id="T22:06:45"><abbr title="2011-06-09T22:06:45+00:00">22:06:45</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>by the way ttyO driver is in mach-omap2/serial.c i think</q></li>
+<li class="message">[<a href="#T22:06:57" id="T22:06:57"><abbr title="2011-06-09T22:06:57+00:00">22:06:57</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: all network stuff has rs232 on rj45</q></li>
+<li class="message">[<a href="#T22:07:08" id="T22:07:08"><abbr title="2011-06-09T22:07:08+00:00">22:07:08</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: and newbies don't use bb</q></li>
+<li class="message">[<a href="#T22:07:09" id="T22:07:09"><abbr title="2011-06-09T22:07:09+00:00">22:07:09</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>UART never die</q></li>
+<li class="message">[<a href="#T22:07:11" id="T22:07:11"><abbr title="2011-06-09T22:07:11+00:00">22:07:11</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>or shouldn't</q></li>
+<li class="message">[<a href="#T22:07:24" id="T22:07:24"><abbr title="2011-06-09T22:07:24+00:00">22:07:24</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>well, it's simple</q></li>
+<li class="message">[<a href="#T22:07:26" id="T22:07:26"><abbr title="2011-06-09T22:07:26+00:00">22:07:26</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>reliable</q></li>
+<li class="message">[<a href="#T22:07:40" id="T22:07:40"><abbr title="2011-06-09T22:07:40+00:00">22:07:40</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and well, most serial protocols are not that dissimilar</q></li>
+<li class="message">[<a href="#T22:09:44" id="T22:09:44"><abbr title="2011-06-09T22:09:44+00:00">22:09:44</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>in omap_hwmod_irq_info when .irq is assigned you can no longer request_irq that irq in your driver ?@#$@#?</q></li>
+<li class="message">[<a href="#T22:10:52" id="T22:10:52"><abbr title="2011-06-09T22:10:52+00:00">22:10:52</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>by the way Rob finally got his PC after four days ofreading</q></li>
+<li class="message">[<a href="#T22:12:00" id="T22:12:00"><abbr title="2011-06-09T22:12:00+00:00">22:12:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>xxiao now he is quite?</q></li>
+<li class="message">[<a href="#T22:12:22" id="T22:12:22"><abbr title="2011-06-09T22:12:22+00:00">22:12:22</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>i dare not make any sound while he is nearby</q></li>
+<li class="message">[<a href="#T22:12:49" id="T22:12:49"><abbr title="2011-06-09T22:12:49+00:00">22:12:49</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>we talk about 4 hours a day in the last 3 days, today i managed to do 2 hours instead</q></li>
+<li class="quit">[<a href="#T22:12:54" id="T22:12:54"><abbr title="2011-06-09T22:12:54+00:00">22:12:54</abbr></a>] <span>* thurbad (~nate@64.132.24.248) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T22:14:16" id="T22:14:16"><abbr title="2011-06-09T22:14:16+00:00">22:14:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>so it will be 6 hours tomorrow</q></li>
+<li class="message">[<a href="#T22:14:29" id="T22:14:29"><abbr title="2011-06-09T22:14:29+00:00">22:14:29</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>i should work from home then</q></li>
+<li class="message">[<a href="#T22:14:43" id="T22:14:43"><abbr title="2011-06-09T22:14:43+00:00">22:14:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>he will come to your house</q></li>
+<li class="message">[<a href="#T22:14:51" id="T22:14:51"><abbr title="2011-06-09T22:14:51+00:00">22:14:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>like a jehovah's witness</q></li>
+<li class="message">[<a href="#T22:15:01" id="T22:15:01"><abbr title="2011-06-09T22:15:01+00:00">22:15:01</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>i asked him to get a PhD so he can teach in univ</q></li>
+<li class="message">[<a href="#T22:15:03" id="T22:15:03"><abbr title="2011-06-09T22:15:03+00:00">22:15:03</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>seriously</q></li>
+<li class="quit">[<a href="#T22:15:13" id="T22:15:13"><abbr title="2011-06-09T22:15:13+00:00">22:15:13</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-hatmjprrwisdvlci) Quit (Quit: bye)</span></li>
+<li class="message">[<a href="#T22:15:20" id="T22:15:20"><abbr title="2011-06-09T22:15:20+00:00">22:15:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>u can teach w/o phd</q></li>
+<li class="message">[<a href="#T22:15:25" id="T22:15:25"><abbr title="2011-06-09T22:15:25+00:00">22:15:25</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>he complained the courses are so boring that he could not do it</q></li>
+<li class="message">[<a href="#T22:15:36" id="T22:15:36"><abbr title="2011-06-09T22:15:36+00:00">22:15:36</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>no you need degrees to teach actually</q></li>
+<li class="message">[<a href="#T22:16:01" id="T22:16:01"><abbr title="2011-06-09T22:16:01+00:00">22:16:01</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>rule of thumb: master to teach bachelor , phd teach master, and so on</q></li>
+<li class="message">[<a href="#T22:16:19" id="T22:16:19"><abbr title="2011-06-09T22:16:19+00:00">22:16:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>_av500_: that is still a good idea.... DB9 blows chunks</q></li>
+<li class="action">[<a href="#T22:16:22" id="T22:16:22"><abbr title="2011-06-09T22:16:22+00:00">22:16:22</abbr></a>] <span>* mru has taught master's students w/o having any degree</span></li>
+<li class="message">[<a href="#T22:16:27" id="T22:16:27"><abbr title="2011-06-09T22:16:27+00:00">22:16:27</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>good nite</q></li>
+<li class="message">[<a href="#T22:16:39" id="T22:16:39"><abbr title="2011-06-09T22:16:39+00:00">22:16:39</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>woglinde: what's your time there?</q></li>
+<li class="message">[<abbr title="2011-06-09T22:16:39+00:00">22:16:39</abbr>] &lt;<cite>_av500_</cite>&gt; <q>ds2: i am for a ftdi solution</q></li>
+<li class="quit">[<a href="#T22:16:46" id="T22:16:46"><abbr title="2011-06-09T22:16:46+00:00">22:16:46</abbr></a>] <span>* woglinde (~heinold@f052226017.adsl.alicedsl.de) Quit (Quit: zapp)</span></li>
+<li class="message">[<a href="#T22:16:49" id="T22:16:49"><abbr title="2011-06-09T22:16:49+00:00">22:16:49</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>xxiao: midnight</q></li>
+<li class="message">[<a href="#T22:16:52" id="T22:16:52"><abbr title="2011-06-09T22:16:52+00:00">22:16:52</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>15 past</q></li>
+<li class="message">[<a href="#T22:17:05" id="T22:17:05"><abbr title="2011-06-09T22:17:05+00:00">22:17:05</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>that's late, though 12am is normal for me</q></li>
+<li class="join">[<a href="#T22:24:24" id="T22:24:24"><abbr title="2011-06-09T22:24:24+00:00">22:24:24</abbr></a>] <span>* ZeZu (null@c-98-227-57-1.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T22:25:22" id="T22:25:22"><abbr title="2011-06-09T22:25:22+00:00">22:25:22</abbr></a>] <span>* BThompson (~a0193480@nat/ti/x-ubmyvglbapxefwuv) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T22:26:56" id="T22:26:56"><abbr title="2011-06-09T22:26:56+00:00">22:26:56</abbr></a>] <span>* cipher (~cipher@unaffiliated/cipher) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T22:28:05" id="T22:28:05"><abbr title="2011-06-09T22:28:05+00:00">22:28:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I'll compromise.... FTDI with TP's and zero ohms to disconnect it and get to 1.8V UART signals</q></li>
+<li class="quit">[<a href="#T22:30:54" id="T22:30:54"><abbr title="2011-06-09T22:30:54+00:00">22:30:54</abbr></a>] <span>* xpg (~pf@0x55531c03.adsl.cybercity.dk) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T22:33:02" id="T22:33:02"><abbr title="2011-06-09T22:33:02+00:00">22:33:02</abbr></a>] <span>* risca (~risca@81-233-40-137-no18.tbcn.telia.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T22:33:53" id="T22:33:53"><abbr title="2011-06-09T22:33:53+00:00">22:33:53</abbr></a>] <span>* almost_anna (~aad@nat-lmt.mentorg.com) Quit (Quit: almost_anna)</span></li>
+<li class="message">[<a href="#T22:35:47" id="T22:35:47"><abbr title="2011-06-09T22:35:47+00:00">22:35:47</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T22:35:48" id="T22:35:48"><abbr title="2011-06-09T22:35:48+00:00">22:35:48</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>deal</q></li>
+<li class="message">[<a href="#T22:35:53" id="T22:35:53"><abbr title="2011-06-09T22:35:53+00:00">22:35:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jkridner_: ^^^^^^^^^^^^^^^^^^</q></li>
+<li class="message">[<a href="#T22:36:11" id="T22:36:11"><abbr title="2011-06-09T22:36:11+00:00">22:36:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>please not one of those ftdis that resets when the board is power cycled</q></li>
+<li class="action">[<abbr title="2011-06-09T22:36:11+00:00">22:36:11</abbr>] <span>* jkridner_ looks</span></li>
+<li class="message">[<a href="#T22:36:24" id="T22:36:24"><abbr title="2011-06-09T22:36:24+00:00">22:36:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mru: bus powered</q></li>
+<li class="message">[<a href="#T22:36:46" id="T22:36:46"><abbr title="2011-06-09T22:36:46+00:00">22:36:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>tell that to marvell</q></li>
+<li class="quit">[<abbr title="2011-06-09T22:36:46+00:00">22:36:46</abbr>] <span>* panto (~panto@vfppp062038104093.dsl.hol.gr) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T22:36:55" id="T22:36:55"><abbr title="2011-06-09T22:36:55+00:00">22:36:55</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>only rx, tx and gnd connected to the rest</q></li>
+<li class="quit">[<a href="#T22:37:13" id="T22:37:13"><abbr title="2011-06-09T22:37:13+00:00">22:37:13</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Verlassend)</span></li>
+<li class="message">[<a href="#T22:37:26" id="T22:37:26"><abbr title="2011-06-09T22:37:26+00:00">22:37:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yep. and as long as TP's along with a 0 ohm is available on the UART end, it'd do a lot for me </q></li>
+<li class="message">[<a href="#T22:38:35" id="T22:38:35"><abbr title="2011-06-09T22:38:35+00:00">22:38:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>even better would be to make those TP pads setup for those connectorless connectors (spring pin jig with locking holes)</q></li>
+<li class="message">[<a href="#T22:38:49" id="T22:38:49"><abbr title="2011-06-09T22:38:49+00:00">22:38:49</abbr></a>] &lt;<cite>jkridner_</cite>&gt; <q>Gerald has some kind of FTDI circuit.  I'll see if I can get him to get it reviewed with some of you.</q></li>
+<li class="message">[<a href="#T22:39:33" id="T22:39:33"><abbr title="2011-06-09T22:39:33+00:00">22:39:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>feel free to delete the hub ;)</q></li>
+<li class="join">[<a href="#T22:40:02" id="T22:40:02"><abbr title="2011-06-09T22:40:02+00:00">22:40:02</abbr></a>] <span>* Vivek (ab46ef59@gateway/web/freenode/ip.171.70.239.89) has joined #beagle</span></li>
+<li class="quit">[<a href="#T22:40:16" id="T22:40:16"><abbr title="2011-06-09T22:40:16+00:00">22:40:16</abbr></a>] <span>* Vivek (ab46ef59@gateway/web/freenode/ip.171.70.239.89) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T22:41:59" id="T22:41:59"><abbr title="2011-06-09T22:41:59+00:00">22:41:59</abbr></a>] <span>* djlewis (~bubba@adsl-65-64-30-12.dsl.ltrkar.swbell.net) Quit (Quit: Leaving.)</span></li>
