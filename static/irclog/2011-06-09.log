@@ -235,3 +235,81 @@
 <li class="message">[<a href="#T10:58:14" id="T10:58:14"><abbr title="2011-06-09T10:58:14+00:00">10:58:14</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>:)</q></li>
 <li class="message">[<a href="#T10:58:16" id="T10:58:16"><abbr title="2011-06-09T10:58:16+00:00">10:58:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: yes, but the kernel knows on what hw it runs, no?</q></li>
 <li class="message">[<a href="#T10:58:55" id="T10:58:55"><abbr title="2011-06-09T10:58:55+00:00">10:58:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: we have one kernel for 10 different products</q></li>
+<li class="message">[<a href="#T11:02:37" id="T11:02:37"><abbr title="2011-06-09T11:02:37+00:00">11:02:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>av500: how would the kernel distinguish between the nand and non-nand xms?</q></li>
+<li class="message">[<a href="#T11:03:27" id="T11:03:27"><abbr title="2011-06-09T11:03:27+00:00">11:03:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: not at all, just ignore the nand</q></li>
+<li class="message">[<a href="#T11:03:36" id="T11:03:36"><abbr title="2011-06-09T11:03:36+00:00">11:03:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and enable it per cmdline for ds2</q></li>
+<li class="message">[<a href="#T11:03:50" id="T11:03:50"><abbr title="2011-06-09T11:03:50+00:00">11:03:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>works like a charm on panda</q></li>
+<li class="message">[<a href="#T11:03:59" id="T11:03:59"><abbr title="2011-06-09T11:03:59+00:00">11:03:59</abbr></a>] &lt;<cite>Topi</cite>&gt; <q>sorry, i mean the xm board of course :)</q></li>
+<li class="message">[<a href="#T11:04:01" id="T11:04:01"><abbr title="2011-06-09T11:04:01+00:00">11:04:01</abbr></a>] &lt;<cite>koen</cite>&gt; <q>what's the exact problem with enabling nand on xm?</q></li>
+<li class="message">[<a href="#T11:04:23" id="T11:04:23"><abbr title="2011-06-09T11:04:23+00:00">11:04:23</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>probes</q></li>
+<li class="message">[<a href="#T11:04:29" id="T11:04:29"><abbr title="2011-06-09T11:04:29+00:00">11:04:29</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>it trie </q></li>
+<li class="message">[<a href="#T11:04:37" id="T11:04:37"><abbr title="2011-06-09T11:04:37+00:00">11:04:37</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>s to iterate over mtd devices</q></li>
+<li class="message">[<a href="#T11:04:51" id="T11:04:51"><abbr title="2011-06-09T11:04:51+00:00">11:04:51</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>no matter if there is something attached or not</q></li>
+<li class="join">[<a href="#T11:04:58" id="T11:04:58"><abbr title="2011-06-09T11:04:58+00:00">11:04:58</abbr></a>] <span>* aarti (~aarti@122.166.11.13) has joined #beagle</span></li>
+<li class="message">[<abbr title="2011-06-09T11:04:58+00:00">11:04:58</abbr>] &lt;<cite>koen</cite>&gt; <q>yes, and?</q></li>
+<li class="message">[<a href="#T11:05:09" id="T11:05:09"><abbr title="2011-06-09T11:05:09+00:00">11:05:09</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>produces ugly errors in demsg</q></li>
+<li class="message">[<a href="#T11:05:17" id="T11:05:17"><abbr title="2011-06-09T11:05:17+00:00">11:05:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://pastebin.pandaboard.org/index.php/view/86511393">http://pastebin.pandaboard.org/index.php/view/86511393</a></q></li>
+<li class="quit">[<a href="#T11:05:38" id="T11:05:38"><abbr title="2011-06-09T11:05:38+00:00">11:05:38</abbr></a>] <span>* dl9pf (~quassel@opensuse/member/dl9pf) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T11:06:22" id="T11:06:22"><abbr title="2011-06-09T11:06:22+00:00">11:06:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T11:06:37" id="T11:06:37"><abbr title="2011-06-09T11:06:37+00:00">11:06:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>kanru actually has nand on his xm</q></li>
+<li class="message">[<a href="#T11:06:55" id="T11:06:55"><abbr title="2011-06-09T11:06:55+00:00">11:06:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and that "error" is because mainline linux doesn't understand hwecc</q></li>
+<li class="message">[<a href="#T11:07:01" id="T11:07:01"><abbr title="2011-06-09T11:07:01+00:00">11:07:01</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T11:07:22" id="T11:07:22"><abbr title="2011-06-09T11:07:22+00:00">11:07:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>on an xm without nand:</q></li>
+<li class="message">[<a href="#T11:07:23" id="T11:07:23"><abbr title="2011-06-09T11:07:23+00:00">11:07:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>[    1.402557] omap2-nand driver initializing</q></li>
+<li class="message">[<abbr title="2011-06-09T11:07:23+00:00">11:07:23</abbr>] &lt;<cite>koen</cite>&gt; <q>[    1.407257] No NAND device found.</q></li>
+<li class="message">[<abbr title="2011-06-09T11:07:23+00:00">11:07:23</abbr>] &lt;<cite>koen</cite>&gt; <q>[    1.410980] No NAND device found.</q></li>
+<li class="nick-change">[<a href="#T11:07:36" id="T11:07:36"><abbr title="2011-06-09T11:07:36+00:00">11:07:36</abbr></a>] <span>* plm_out is now known as plm</span></li>
+<li class="message">[<a href="#T11:07:43" id="T11:07:43"><abbr title="2011-06-09T11:07:43+00:00">11:07:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>root@beagleboardxMC:~# cat /proc/mtd </q></li>
+<li class="message">[<abbr title="2011-06-09T11:07:43+00:00">11:07:43</abbr>] &lt;<cite>koen</cite>&gt; <q>dev:    size   erasesize  name</q></li>
+<li class="message">[<abbr title="2011-06-09T11:07:43+00:00">11:07:43</abbr>] &lt;<cite>koen</cite>&gt; <q>root@beagleboardxMC:~# </q></li>
+<li class="message">[<a href="#T11:07:56" id="T11:07:56"><abbr title="2011-06-09T11:07:56+00:00">11:07:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so you only get mtdblock devices if you actually have nand</q></li>
+<li class="message">[<a href="#T11:08:08" id="T11:08:08"><abbr title="2011-06-09T11:08:08+00:00">11:08:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>(or NOR)</q></li>
+<li class="quit">[<a href="#T11:08:11" id="T11:08:11"><abbr title="2011-06-09T11:08:11+00:00">11:08:11</abbr></a>] <span>* risca (~risca@62-20-182-102-no18.tbcn.telia.com) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T11:08:34" id="T11:08:34"><abbr title="2011-06-09T11:08:34+00:00">11:08:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you guys never noticed the "errors" when running on a non xM beagle?</q></li>
+<li class="action">[<a href="#T11:09:21" id="T11:09:21"><abbr title="2011-06-09T11:09:21+00:00">11:09:21</abbr></a>] <span>* av500 never runs beagles :)</span></li>
+<li class="action">[<a href="#T11:09:36" id="T11:09:36"><abbr title="2011-06-09T11:09:36+00:00">11:09:36</abbr></a>] <span>* koen sends ogra_ a patch containing 'rm $(which blkid)' to fix the nand errors</span></li>
+<li class="action">[<a href="#T11:09:52" id="T11:09:52"><abbr title="2011-06-09T11:09:52+00:00">11:09:52</abbr></a>] <span>* av500 just likes to troll koen</span></li>
+<li class="message">[<a href="#T11:10:47" id="T11:10:47"><abbr title="2011-06-09T11:10:47+00:00">11:10:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the wonderfull thing is that I'll get a summary of all this tomorrow on my TI mail</q></li>
+<li class="message">[<a href="#T11:11:00" id="T11:11:00"><abbr title="2011-06-09T11:11:00+00:00">11:11:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner has joel writing reports on #beagle :)</q></li>
+<li class="message">[<a href="#T11:11:32" id="T11:11:32"><abbr title="2011-06-09T11:11:32+00:00">11:11:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>joel is the new intern?</q></li>
+<li class="message">[<a href="#T11:11:36" id="T11:11:36"><abbr title="2011-06-09T11:11:36+00:00">11:11:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T11:11:41" id="T11:11:41"><abbr title="2011-06-09T11:11:41+00:00">11:11:41</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>poor guy</q></li>
+<li class="message">[<a href="#T11:12:03" id="T11:12:03"><abbr title="2011-06-09T11:12:03+00:00">11:12:03</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>does he have to summarize the day manually ?</q></li>
+<li class="message">[<a href="#T11:12:09" id="T11:12:09"><abbr title="2011-06-09T11:12:09+00:00">11:12:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: and fridays?</q></li>
+<li class="message">[<a href="#T11:12:22" id="T11:12:22"><abbr title="2011-06-09T11:12:22+00:00">11:12:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>he has to summarize fridays by hand as well</q></li>
+<li class="message">[<a href="#T11:12:29" id="T11:12:29"><abbr title="2011-06-09T11:12:29+00:00">11:12:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>poor guys</q></li>
+<li class="message">[<a href="#T11:12:31" id="T11:12:31"><abbr title="2011-06-09T11:12:31+00:00">11:12:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>-s</q></li>
+<li class="message">[<a href="#T11:13:05" id="T11:13:05"><abbr title="2011-06-09T11:13:05+00:00">11:13:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>"vladimir has problems with basic math, 26 * 2 isn't 52""</q></li>
+<li class="message">[<a href="#T11:13:09" id="T11:13:09"><abbr title="2011-06-09T11:13:09+00:00">11:13:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>gah</q></li>
+<li class="join">[<abbr title="2011-06-09T11:13:09+00:00">11:13:09</abbr>] <span>* risca (~risca@62-20-182-102-no18.tbcn.telia.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:13:10" id="T11:13:10"><abbr title="2011-06-09T11:13:10+00:00">11:13:10</abbr></a>] &lt;<cite>koen</cite>&gt; <q>54</q></li>
+<li class="action">[<a href="#T11:13:13" id="T11:13:13"><abbr title="2011-06-09T11:13:13+00:00">11:13:13</abbr></a>] <span>* koen headdesks</span></li>
+<li class="message">[<a href="#T11:13:53" id="T11:13:53"><abbr title="2011-06-09T11:13:53+00:00">11:13:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>:)</q></li>
+<li class="join">[<a href="#T11:14:05" id="T11:14:05"><abbr title="2011-06-09T11:14:05+00:00">11:14:05</abbr></a>] <span>* dl9pf (~quassel@opensuse/member/dl9pf) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:14:23" id="T11:14:23"><abbr title="2011-06-09T11:14:23+00:00">11:14:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: so there will be a printed book on NTD3?</q></li>
+<li class="quit">[<a href="#T11:14:38" id="T11:14:38"><abbr title="2011-06-09T11:14:38+00:00">11:14:38</abbr></a>] <span>* aarti (~aarti@122.166.11.13) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T11:14:43" id="T11:14:43"><abbr title="2011-06-09T11:14:43+00:00">11:14:43</abbr></a>] <span>* sudheer (73fc40ba@gateway/web/freenode/ip.115.252.64.186) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T11:15:08" id="T11:15:08"><abbr title="2011-06-09T11:15:08+00:00">11:15:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ntd3?</q></li>
+<li class="message">[<a href="#T11:15:22" id="T11:15:22"><abbr title="2011-06-09T11:15:22+00:00">11:15:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I shortened the nick to protest the innocents</q></li>
+<li class="message">[<a href="#T11:15:27" id="T11:15:27"><abbr title="2011-06-09T11:15:27+00:00">11:15:27</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T11:15:40" id="T11:15:40"><abbr title="2011-06-09T11:15:40+00:00">11:15:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>if he shows up, there will be</q></li>
+<li class="message">[<a href="#T11:15:50" id="T11:15:50"><abbr title="2011-06-09T11:15:50+00:00">11:15:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>maybe ddd can read it and learn something</q></li>
+<li class="message">[<a href="#T11:15:56" id="T11:15:56"><abbr title="2011-06-09T11:15:56+00:00">11:15:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>where is he btw?</q></li>
+<li class="join">[<a href="#T11:16:42" id="T11:16:42"><abbr title="2011-06-09T11:16:42+00:00">11:16:42</abbr></a>] <span>* vbeagle (73fc40ba@gateway/web/freenode/ip.115.252.64.186) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:16:54" id="T11:16:54"><abbr title="2011-06-09T11:16:54+00:00">11:16:54</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>didnt he send you a letter of apology for missing the class today ?</q></li>
+<li class="message">[<abbr title="2011-06-09T11:16:54+00:00">11:16:54</abbr>] &lt;<cite>vbeagle</cite>&gt; <q>repo sync is taking time and at final coming out with connection time out after downloading 65% of the files</q></li>
+<li class="action">[<a href="#T11:16:59" id="T11:16:59"><abbr title="2011-06-09T11:16:59+00:00">11:16:59</abbr></a>] <span>* koen doesn't know</span></li>
+<li class="message">[<a href="#T11:17:31" id="T11:17:31"><abbr title="2011-06-09T11:17:31+00:00">11:17:31</abbr></a>] &lt;<cite>vbeagle</cite>&gt; <q>repo sync is taking time and at final coming out with connection time out after downloading 65% of the files</q></li>
+<li class="message">[<a href="#T11:18:23" id="T11:18:23"><abbr title="2011-06-09T11:18:23+00:00">11:18:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>vbeagle: you said that already 30 seconds ago</q></li>
+<li class="message">[<a href="#T11:18:58" id="T11:18:58"><abbr title="2011-06-09T11:18:58+00:00">11:18:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: it was at 65,3% the 2nd time but got interger truncated</q></li>
+<li class="join">[<a href="#T11:19:48" id="T11:19:48"><abbr title="2011-06-09T11:19:48+00:00">11:19:48</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:24:43" id="T11:24:43"><abbr title="2011-06-09T11:24:43+00:00">11:24:43</abbr></a>] <span>* Azad (~Azad@122.166.11.13) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T11:25:27" id="T11:25:27"><abbr title="2011-06-09T11:25:27+00:00">11:25:27</abbr></a>] <span>* risca (~risca@62-20-182-102-no18.tbcn.telia.com) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T11:26:08" id="T11:26:08"><abbr title="2011-06-09T11:26:08+00:00">11:26:08</abbr></a>] <span>* risca (~risca@62-20-182-102-no18.tbcn.telia.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:28:03" id="T11:28:03"><abbr title="2011-06-09T11:28:03+00:00">11:28:03</abbr></a>] <span>* Azad (~Azad@122.166.11.13) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:29:16" id="T11:29:16"><abbr title="2011-06-09T11:29:16+00:00">11:29:16</abbr></a>] <span>* risca (~risca@62-20-182-102-no18.tbcn.telia.com) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T11:31:23" id="T11:31:23"><abbr title="2011-06-09T11:31:23+00:00">11:31:23</abbr></a>] <span>* Topi (5dd577d6@gateway/web/freenode/ip.93.213.119.214) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T11:35:50" id="T11:35:50"><abbr title="2011-06-09T11:35:50+00:00">11:35:50</abbr></a>] <span>* aarti (~aarti@122.166.11.13) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:53:38" id="T11:53:38"><abbr title="2011-06-09T11:53:38+00:00">11:53:38</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-aijciapfasiuziuw) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:55:01" id="T11:55:01"><abbr title="2011-06-09T11:55:01+00:00">11:55:01</abbr></a>] <span>* DarrenE (~darreneth@nat/ti/x-dgknizuitcfsmbrd) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:59:46" id="T11:59:46"><abbr title="2011-06-09T11:59:46+00:00">11:59:46</abbr></a>] <span>* vbeagle (73fc40ba@gateway/web/freenode/ip.115.252.64.186) Quit (Ping timeout: 252 seconds)</span></li>
