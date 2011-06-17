@@ -362,3 +362,83 @@
 <li class="message">[<a href="#T13:57:30" id="T13:57:30"><abbr title="2011-06-17T13:57:30+00:00">13:57:30</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>or both?</q></li>
 <li class="message">[<a href="#T13:58:26" id="T13:58:26"><abbr title="2011-06-17T13:58:26+00:00">13:58:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: the c5 + ASIX based ethernet worked better than my xM</q></li>
 <li class="quit">[<a href="#T13:59:54" id="T13:59:54"><abbr title="2011-06-17T13:59:54+00:00">13:59:54</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T14:01:10" id="T14:01:10"><abbr title="2011-06-17T14:01:10+00:00">14:01:10</abbr></a>] <span>* _koen_ (~x0115699@nat/ti/x-hmnatjgimnykwtux) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T14:01:25" id="T14:01:25"><abbr title="2011-06-17T14:01:25+00:00">14:01:25</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T14:01:44" id="T14:01:44"><abbr title="2011-06-17T14:01:44+00:00">14:01:44</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:02:11" id="T14:02:11"><abbr title="2011-06-17T14:02:11+00:00">14:02:11</abbr></a>] <span>* pcacjr_ (~pcacjr@unaffiliated/pcacjr) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T14:02:28" id="T14:02:28"><abbr title="2011-06-17T14:02:28+00:00">14:02:28</abbr></a>] <span>* pcacjr (~pcacjr@186.215.206.130) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-06-17T14:02:28+00:00">14:02:28</abbr>] <span>* pcacjr (~pcacjr@186.215.206.130) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-06-17T14:02:28+00:00">14:02:28</abbr>] <span>* pcacjr (~pcacjr@unaffiliated/pcacjr) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:03:19" id="T14:03:19"><abbr title="2011-06-17T14:03:19+00:00">14:03:19</abbr></a>] &lt;<cite>IulianU</cite>&gt; <q>do i need to change anything in the pin mux to be able to use the SD slot with SDIO devices? i don't understand...</q></li>
+<li class="message">[<a href="#T14:03:54" id="T14:03:54"><abbr title="2011-06-17T14:03:54+00:00">14:03:54</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>not sure, but the patch you sent for the wl1271 driver did adjust the mux.</q></li>
+<li class="quit">[<a href="#T14:05:42" id="T14:05:42"><abbr title="2011-06-17T14:05:42+00:00">14:05:42</abbr></a>] <span>* emeb_mac (~ericb@ip70-190-178-49.ph.ph.cox.net) Quit (Quit: emeb_mac)</span></li>
+<li class="message">[<a href="#T14:05:56" id="T14:05:56"><abbr title="2011-06-17T14:05:56+00:00">14:05:56</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I'd just suggest checking it: does the sdio driver adjust the pin mux? what is the default pin mux?  what i/o pin states does your driver require?</q></li>
+<li class="message">[<a href="#T14:06:46" id="T14:06:46"><abbr title="2011-06-17T14:06:46+00:00">14:06:46</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>Essentially what I'm trying to say is I think the SDIO testing on BeagleBoard has been pretty limited--which is part of why it was removed on the xM to only provide microSD.</q></li>
+<li class="message">[<a href="#T14:06:54" id="T14:06:54"><abbr title="2011-06-17T14:06:54+00:00">14:06:54</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>anyone knows if having MLO/x-loader on MMC will still run u-boot from nand?</q></li>
+<li class="join">[<a href="#T14:07:07" id="T14:07:07"><abbr title="2011-06-17T14:07:07+00:00">14:07:07</abbr></a>] <span>* katier (~katierh@nat/ti/x-ojaldhkmbshcbiyt) has joined #beagle</span></li>
+<li class="message">[<abbr title="2011-06-17T14:07:07+00:00">14:07:07</abbr>] &lt;<cite>speakman</cite>&gt; <q>Only thing on MMC is MLO atm</q></li>
+<li class="join">[<a href="#T14:07:22" id="T14:07:22"><abbr title="2011-06-17T14:07:22+00:00">14:07:22</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-hybplcduubftlted) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:07:51" id="T14:07:51"><abbr title="2011-06-17T14:07:51+00:00">14:07:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>speakman: depends on how you configured MLO</q></li>
+<li class="message">[<a href="#T14:08:01" id="T14:08:01"><abbr title="2011-06-17T14:08:01+00:00">14:08:01</abbr></a>] &lt;<cite>IulianU</cite>&gt; <q>jkridner: the driver definitely does not adjust the pin mux; it's agnostic when it comes to OMAP</q></li>
+<li class="join">[<a href="#T14:11:30" id="T14:11:30"><abbr title="2011-06-17T14:11:30+00:00">14:11:30</abbr></a>] <span>* joelagnel (~joel@nat/ti/x-lzythxxuoitvzjvt) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:12:50" id="T14:12:50"><abbr title="2011-06-17T14:12:50+00:00">14:12:50</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>koen: how should it be configured? disable CFG_CMD_MMC?</q></li>
+<li class="join">[<a href="#T14:14:03" id="T14:14:03"><abbr title="2011-06-17T14:14:03+00:00">14:14:03</abbr></a>] <span>* CMoH (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:15:58" id="T14:15:58"><abbr title="2011-06-17T14:15:58+00:00">14:15:58</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>can I just overwrite MLO on MMC? or do I have to mkfs.msdos again?</q></li>
+<li class="message">[<a href="#T14:16:06" id="T14:16:06"><abbr title="2011-06-17T14:16:06+00:00">14:16:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T14:16:13" id="T14:16:13"><abbr title="2011-06-17T14:16:13+00:00">14:16:13</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>speakman: yes it is just a file</q></li>
+<li class="message">[<a href="#T14:16:56" id="T14:16:56"><abbr title="2011-06-17T14:16:56+00:00">14:16:56</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>but doesn't it have to be located at an particular position?</q></li>
+<li class="message">[<a href="#T14:17:10" id="T14:17:10"><abbr title="2011-06-17T14:17:10+00:00">14:17:10</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>or will x-load look in the FAT?</q></li>
+<li class="message">[<a href="#T14:17:51" id="T14:17:51"><abbr title="2011-06-17T14:17:51+00:00">14:17:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it will indeed</q></li>
+<li class="join">[<a href="#T14:17:54" id="T14:17:54"><abbr title="2011-06-17T14:17:54+00:00">14:17:54</abbr></a>] <span>* dl9pf (~quassel@p5B214A54.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-06-17T14:17:54+00:00">14:17:54</abbr>] <span>* dl9pf (~quassel@p5B214A54.dip.t-dialin.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-06-17T14:17:54+00:00">14:17:54</abbr>] <span>* dl9pf (~quassel@opensuse/member/dl9pf) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:17:59" id="T14:17:59"><abbr title="2011-06-17T14:17:59+00:00">14:17:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>clever little thing</q></li>
+<li class="quit">[<a href="#T14:18:37" id="T14:18:37"><abbr title="2011-06-17T14:18:37+00:00">14:18:37</abbr></a>] <span>* dl9pf_ (~quassel@p5B213316.dip.t-dialin.net) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T14:19:26" id="T14:19:26"><abbr title="2011-06-17T14:19:26+00:00">14:19:26</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>speakman: MLO is x-loader</q></li>
+<li class="message">[<a href="#T14:20:40" id="T14:20:40"><abbr title="2011-06-17T14:20:40+00:00">14:20:40</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>mranostay: yep</q></li>
+<li class="message">[<a href="#T14:20:49" id="T14:20:49"><abbr title="2011-06-17T14:20:49+00:00">14:20:49</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>but it has to be called MLO right?</q></li>
+<li class="message">[<a href="#T14:21:03" id="T14:21:03"><abbr title="2011-06-17T14:21:03+00:00">14:21:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T14:23:19" id="T14:23:19"><abbr title="2011-06-17T14:23:19+00:00">14:23:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: what is "belastingdienst"? they are sending letters to someone who used to live in my new flat</q></li>
+<li class="message">[<a href="#T14:23:59" id="T14:23:59"><abbr title="2011-06-17T14:23:59+00:00">14:23:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: what the yanks call IRS</q></li>
+<li class="message">[<a href="#T14:24:04" id="T14:24:04"><abbr title="2011-06-17T14:24:04+00:00">14:24:04</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>in German that word sounds awful</q></li>
+<li class="message">[<a href="#T14:24:07" id="T14:24:07"><abbr title="2011-06-17T14:24:07+00:00">14:24:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>taxes</q></li>
+<li class="message">[<a href="#T14:24:21" id="T14:24:21"><abbr title="2011-06-17T14:24:21+00:00">14:24:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ant_work: words always sounds awful in german</q></li>
+<li class="message">[<a href="#T14:24:45" id="T14:24:45"><abbr title="2011-06-17T14:24:45+00:00">14:24:45</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ant_work: just look at the word for butterfly: schmetterling</q></li>
+<li class="message">[<a href="#T14:24:58" id="T14:24:58"><abbr title="2011-06-17T14:24:58+00:00">14:24:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: I bet the envelope was blue</q></li>
+<li class="message">[<a href="#T14:25:09" id="T14:25:09"><abbr title="2011-06-17T14:25:09+00:00">14:25:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yeo</q></li>
+<li class="message">[<a href="#T14:25:10" id="T14:25:10"><abbr title="2011-06-17T14:25:10+00:00">14:25:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>p</q></li>
+<li class="message">[<a href="#T14:25:35" id="T14:25:35"><abbr title="2011-06-17T14:25:35+00:00">14:25:35</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>lol @ koen's post</q></li>
+<li class="message">[<a href="#T14:25:46" id="T14:25:46"><abbr title="2011-06-17T14:25:46+00:00">14:25:46</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>"sir"</q></li>
+<li class="message">[<a href="#T14:25:49" id="T14:25:49"><abbr title="2011-06-17T14:25:49+00:00">14:25:49</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>koen: yeah that ruins butterfly for me</q></li>
+<li class="join">[<a href="#T14:25:55" id="T14:25:55"><abbr title="2011-06-17T14:25:55+00:00">14:25:55</abbr></a>] <span>* GPSFan (~kenm@64.92.145.112) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:26:05" id="T14:26:05"><abbr title="2011-06-17T14:26:05+00:00">14:26:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>schmetterling sounds like a smattering</q></li>
+<li class="message">[<a href="#T14:26:12" id="T14:26:12"><abbr title="2011-06-17T14:26:12+00:00">14:26:12</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>jkridner, seems tftpd went down again</q></li>
+<li class="message">[<a href="#T14:26:18" id="T14:26:18"><abbr title="2011-06-17T14:26:18+00:00">14:26:18</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>small greasy spot</q></li>
+<li class="message">[<a href="#T14:26:40" id="T14:26:40"><abbr title="2011-06-17T14:26:40+00:00">14:26:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: there's a hard 'g' between the s and m</q></li>
+<li class="message">[<a href="#T14:26:55" id="T14:26:55"><abbr title="2011-06-17T14:26:55+00:00">14:26:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: actually the word origin is the same</q></li>
+<li class="message">[<a href="#T14:27:02" id="T14:27:02"><abbr title="2011-06-17T14:27:02+00:00">14:27:02</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and lots of foot stomping</q></li>
+<li class="quit">[<a href="#T14:27:08" id="T14:27:08"><abbr title="2011-06-17T14:27:08+00:00">14:27:08</abbr></a>] <span>* ozk (~ozk@pool-71-170-15-185.dllstx.fios.verizon.net) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T14:27:45" id="T14:27:45"><abbr title="2011-06-17T14:27:45+00:00">14:27:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: I know how it's pronounced</q></li>
+<li class="join">[<a href="#T14:27:49" id="T14:27:49"><abbr title="2011-06-17T14:27:49+00:00">14:27:49</abbr></a>] <span>* mgrundy (~grund@173.85.83.1) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:28:02" id="T14:28:02"><abbr title="2011-06-17T14:28:02+00:00">14:28:02</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>jkridner, s/tftpd/thttpd/</q></li>
+<li class="message">[<a href="#T14:28:05" id="T14:28:05"><abbr title="2011-06-17T14:28:05+00:00">14:28:05</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>koen: counting in German makes you think imho :)</q></li>
+<li class="message">[<a href="#T14:28:16" id="T14:28:16"><abbr title="2011-06-17T14:28:16+00:00">14:28:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its crazy</q></li>
+<li class="message">[<a href="#T14:28:25" id="T14:28:25"><abbr title="2011-06-17T14:28:25+00:00">14:28:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not as bad as danish</q></li>
+<li class="message">[<a href="#T14:28:34" id="T14:28:34"><abbr title="2011-06-17T14:28:34+00:00">14:28:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or french</q></li>
+<li class="message">[<a href="#T14:28:47" id="T14:28:47"><abbr title="2011-06-17T14:28:47+00:00">14:28:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>4x20and19</q></li>
+<li class="message">[<a href="#T14:28:53" id="T14:28:53"><abbr title="2011-06-17T14:28:53+00:00">14:28:53</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>or french people speaking german</q></li>
+<li class="message">[<a href="#T14:29:11" id="T14:29:11"><abbr title="2011-06-17T14:29:11+00:00">14:29:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>4 and 20 blackbirds...</q></li>
+<li class="message">[<a href="#T14:29:46" id="T14:29:46"><abbr title="2011-06-17T14:29:46+00:00">14:29:46</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>av500: one byte buffer</q></li>
+<li class="message">[<a href="#T14:29:59" id="T14:29:59"><abbr title="2011-06-17T14:29:59+00:00">14:29:59</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>joelagnel: it is odd, because I think it was still running.  i restarted it.</q></li>
+<li class="message">[<a href="#T14:30:08" id="T14:30:08"><abbr title="2011-06-17T14:30:08+00:00">14:30:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ant_work: er?</q></li>
+<li class="message">[<a href="#T14:30:11" id="T14:30:11"><abbr title="2011-06-17T14:30:11+00:00">14:30:11</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>"Unsupported Chip!" "X-Loader hangs"</q></li>
+<li class="message">[<a href="#T14:30:18" id="T14:30:18"><abbr title="2011-06-17T14:30:18+00:00">14:30:18</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>vier und zwanzig</q></li>
+<li class="message">[<a href="#T14:30:24" id="T14:30:24"><abbr title="2011-06-17T14:30:24+00:00">14:30:24</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>i don't really know a lot about administrating thttpd, but I didn't think i really needed apache</q></li>
+<li class="message">[<a href="#T14:30:25" id="T14:30:25"><abbr title="2011-06-17T14:30:25+00:00">14:30:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>were the 4 included in the 20?</q></li>
+<li class="message">[<a href="#T14:30:33" id="T14:30:33"><abbr title="2011-06-17T14:30:33+00:00">14:30:33</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>first operand must be one byte</q></li>
+<li class="message">[<abbr title="2011-06-17T14:30:33+00:00">14:30:33</abbr>] &lt;<cite>mranostay</cite>&gt; <q>speakman: then you have a wrong X-load build</q></li>
+<li class="message">[<a href="#T14:31:26" id="T14:31:26"><abbr title="2011-06-17T14:31:26+00:00">14:31:26</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>latest x-load is at <a href="http://gitorious.org/x-loader">http://gitorious.org/x-loader</a></q></li>
+<li class="message">[<a href="#T14:32:15" id="T14:32:15"><abbr title="2011-06-17T14:32:15+00:00">14:32:15</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>jkridner, thanks</q></li>
+<li class="message">[<a href="#T14:32:45" id="T14:32:45"><abbr title="2011-06-17T14:32:45+00:00">14:32:45</abbr></a>] &lt;<cite>speakman</cite>&gt; <q>mranostay: it seems to work when written to nand... strange</q></li>
+<li class="message">[<a href="#T14:32:55" id="T14:32:55"><abbr title="2011-06-17T14:32:55+00:00">14:32:55</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>It crashed for some reason, I guess</q></li>
+<li class="join">[<a href="#T14:37:51" id="T14:37:51"><abbr title="2011-06-17T14:37:51+00:00">14:37:51</abbr></a>] <span>* emeb (~ericb@ip70-190-178-49.ph.ph.cox.net) has joined #beagle</span></li>
