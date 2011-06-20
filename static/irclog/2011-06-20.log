@@ -181,3 +181,79 @@
 <li class="message">[<a href="#T16:58:34" id="T16:58:34"><abbr title="2011-06-20T16:58:34+00:00">16:58:34</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>anyone has any experience with them?</q></li>
 <li class="message">[<a href="#T16:59:09" id="T16:59:09"><abbr title="2011-06-20T16:59:09+00:00">16:59:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ask</q></li>
 <li class="message">[<a href="#T16:59:55" id="T16:59:55"><abbr title="2011-06-20T16:59:55+00:00">16:59:55</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>are there measurements for the MPEG-2 dec, MPEG-4 enc / dec, H.265 enc /dec??</q></li>
+<li class="message">[<a href="#T17:00:40" id="T17:00:40"><abbr title="2011-06-20T17:00:40+00:00">17:00:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>???</q></li>
+<li class="message">[<a href="#T17:00:46" id="T17:00:46"><abbr title="2011-06-20T17:00:46+00:00">17:00:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>what measurements?</q></li>
+<li class="message">[<a href="#T17:00:51" id="T17:00:51"><abbr title="2011-06-20T17:00:51+00:00">17:00:51</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>latency</q></li>
+<li class="message">[<a href="#T17:00:56" id="T17:00:56"><abbr title="2011-06-20T17:00:56+00:00">17:00:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>define latence</q></li>
+<li class="message">[<a href="#T17:00:57" id="T17:00:57"><abbr title="2011-06-20T17:00:57+00:00">17:00:57</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>in encoding or decoding</q></li>
+<li class="message">[<a href="#T17:00:58" id="T17:00:58"><abbr title="2011-06-20T17:00:58+00:00">17:00:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>define latency</q></li>
+<li class="quit">[<a href="#T17:01:22" id="T17:01:22"><abbr title="2011-06-20T17:01:22+00:00">17:01:22</abbr></a>] <span>* daniel_ohh_ (c05b4b1d@gateway/web/freenode/ip.192.91.75.29) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T17:02:32" id="T17:02:32"><abbr title="2011-06-20T17:02:32+00:00">17:02:32</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>how many frames have to be passed to the enc/decoder before you have the data of the initial frame (encoded or decoded)</q></li>
+<li class="message">[<a href="#T17:03:05" id="T17:03:05"><abbr title="2011-06-20T17:03:05+00:00">17:03:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>depends</q></li>
+<li class="message">[<a href="#T17:03:26" id="T17:03:26"><abbr title="2011-06-20T17:03:26+00:00">17:03:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>for mpeg4 and low delay you get back one immediately</q></li>
+<li class="message">[<a href="#T17:03:35" id="T17:03:35"><abbr title="2011-06-20T17:03:35+00:00">17:03:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>for mpeg2 usually you are 1 frame late</q></li>
+<li class="message">[<a href="#T17:03:52" id="T17:03:52"><abbr title="2011-06-20T17:03:52+00:00">17:03:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>for h264 it depends on profile, resolution and other stuff</q></li>
+<li class="message">[<a href="#T17:04:06" id="T17:04:06"><abbr title="2011-06-20T17:04:06+00:00">17:04:06</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>this is for decoding?</q></li>
+<li class="message">[<a href="#T17:04:07" id="T17:04:07"><abbr title="2011-06-20T17:04:07+00:00">17:04:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if you encode i+p only, you get back frames immediately</q></li>
+<li class="message">[<a href="#T17:04:12" id="T17:04:12"><abbr title="2011-06-20T17:04:12+00:00">17:04:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, decode</q></li>
+<li class="message">[<a href="#T17:04:26" id="T17:04:26"><abbr title="2011-06-20T17:04:26+00:00">17:04:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but, that is not dsp codec specific</q></li>
+<li class="message">[<a href="#T17:04:32" id="T17:04:32"><abbr title="2011-06-20T17:04:32+00:00">17:04:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>almost every codec behaves the same</q></li>
+<li class="quit">[<a href="#T17:04:47" id="T17:04:47"><abbr title="2011-06-20T17:04:47+00:00">17:04:47</abbr></a>] <span>* DesertZ (~quassel@201.132.66.109) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T17:05:05" id="T17:05:05"><abbr title="2011-06-20T17:05:05+00:00">17:05:05</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T17:05:36" id="T17:05:36"><abbr title="2011-06-20T17:05:36+00:00">17:05:36</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>do you have an idea for encoding also?</q></li>
+<li class="message">[<a href="#T17:05:43" id="T17:05:43"><abbr title="2011-06-20T17:05:43+00:00">17:05:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>[19:04:07] &lt;av500&gt; if you encode i+p only, you get back frames immediately</q></li>
+<li class="message">[<a href="#T17:06:06" id="T17:06:06"><abbr title="2011-06-20T17:06:06+00:00">17:06:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>keen in mind this is for the "raw" codecs, adding wrappers like gst or dmai or OMG might change that</q></li>
+<li class="message">[<a href="#T17:06:21" id="T17:06:21"><abbr title="2011-06-20T17:06:21+00:00">17:06:21</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>yes, i suppose :)</q></li>
+<li class="quit">[<a href="#T17:11:04" id="T17:11:04"><abbr title="2011-06-20T17:11:04+00:00">17:11:04</abbr></a>] <span>* mru (~mru@hotblack.mansr.com) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="join">[<a href="#T17:11:08" id="T17:11:08"><abbr title="2011-06-20T17:11:08+00:00">17:11:08</abbr></a>] <span>* mru (~mru@batanen.kinali.ch) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:13:08" id="T17:13:08"><abbr title="2011-06-20T17:13:08+00:00">17:13:08</abbr></a>] <span>* ant_work (~andrea@host6-80-static.42-85-b.business.telecomitalia.it) Quit (Quit: ChatZilla 0.9.87 [Firefox 4.0.1/20110413222027])</span></li>
+<li class="message">[<a href="#T17:13:47" id="T17:13:47"><abbr title="2011-06-20T17:13:47+00:00">17:13:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>av500: wrap CE in OMX</q></li>
+<li class="message">[<a href="#T17:13:53" id="T17:13:53"><abbr title="2011-06-20T17:13:53+00:00">17:13:53</abbr></a>] &lt;<cite>koen</cite>&gt; <q>av500: and wrap OMX in gst</q></li>
+<li class="message">[<a href="#T17:14:04" id="T17:14:04"><abbr title="2011-06-20T17:14:04+00:00">17:14:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>av500: then wrap gst in phonon</q></li>
+<li class="message">[<a href="#T17:14:14" id="T17:14:14"><abbr title="2011-06-20T17:14:14+00:00">17:14:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: well, for good measure add a bit of DMAI and LMCL</q></li>
+<li class="message">[<a href="#T17:14:20" id="T17:14:20"><abbr title="2011-06-20T17:14:20+00:00">17:14:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>er. LCML</q></li>
+<li class="action">[<abbr title="2011-06-20T17:14:20+00:00">17:14:20</abbr>] <span>* koen wonders how many KDE people work at TI</span></li>
+<li class="message">[<a href="#T17:14:35" id="T17:14:35"><abbr title="2011-06-20T17:14:35+00:00">17:14:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so much useless abstraction</q></li>
+<li class="message">[<a href="#T17:14:54" id="T17:14:54"><abbr title="2011-06-20T17:14:54+00:00">17:14:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>also wrap XDM/XDAIS into something totally nonstandard for each codec like bridge socketnodes</q></li>
+<li class="join">[<a href="#T17:16:16" id="T17:16:16"><abbr title="2011-06-20T17:16:16+00:00">17:16:16</abbr></a>] <span>* mike_ (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:16:35" id="T17:16:35"><abbr title="2011-06-20T17:16:35+00:00">17:16:35</abbr></a>] <span>* mikey_w (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) Quit (Read error: No route to host)</span></li>
+<li class="nick-change">[<a href="#T17:16:42" id="T17:16:42"><abbr title="2011-06-20T17:16:42+00:00">17:16:42</abbr></a>] <span>* mike_ is now known as Guest74435</span></li>
+<li class="quit">[<a href="#T17:16:47" id="T17:16:47"><abbr title="2011-06-20T17:16:47+00:00">17:16:47</abbr></a>] <span>* Guest74435 (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T17:17:05" id="T17:17:05"><abbr title="2011-06-20T17:17:05+00:00">17:17:05</abbr></a>] <span>* mikey_w (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:18:05" id="T17:18:05"><abbr title="2011-06-20T17:18:05+00:00">17:18:05</abbr></a>] <span>* peabody124 (~peabody12@128.249.96.123) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:23:04" id="T17:23:04"><abbr title="2011-06-20T17:23:04+00:00">17:23:04</abbr></a>] <span>* Ceriand|work (~Ceriand@unaffiliated/ceriand) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T17:23:26" id="T17:23:26"><abbr title="2011-06-20T17:23:26+00:00">17:23:26</abbr></a>] <span>* Ceriand|work (~Ceriand@unaffiliated/ceriand) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2011-06-20T17:23:26+00:00">17:23:26</abbr>] <span>* Ceriand|work (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:25:53" id="T17:25:53"><abbr title="2011-06-20T17:25:53+00:00">17:25:53</abbr></a>] <span>* benmcnelly (~ben@adsl-99-38-78-150.dsl.spfdmo.sbcglobal.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:30:47" id="T17:30:47"><abbr title="2011-06-20T17:30:47+00:00">17:30:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but abstraction is good.. it promotes code reuse and hides all the nasty details from the users of that code!</q></li>
+<li class="message">[<a href="#T17:30:53" id="T17:30:53"><abbr title="2011-06-20T17:30:53+00:00">17:30:53</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>&lt;/sarcasm&gt;</q></li>
+<li class="message">[<a href="#T17:31:27" id="T17:31:27"><abbr title="2011-06-20T17:31:27+00:00">17:31:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: right, thats why all these codecs are abstracted into ipods and blurray players</q></li>
+<li class="message">[<a href="#T17:31:41" id="T17:31:41"><abbr title="2011-06-20T17:31:41+00:00">17:31:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or ciname tickets</q></li>
+<li class="message">[<a href="#T17:31:43" id="T17:31:43"><abbr title="2011-06-20T17:31:43+00:00">17:31:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cinema</q></li>
+<li class="message">[<a href="#T17:32:31" id="T17:32:31"><abbr title="2011-06-20T17:32:31+00:00">17:32:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>see how much easier those things are to use</q></li>
+<li class="message">[<a href="#T17:32:39" id="T17:32:39"><abbr title="2011-06-20T17:32:39+00:00">17:32:39</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>sometimes the learning curve is too expensive</q></li>
+<li class="message">[<a href="#T17:32:49" id="T17:32:49"><abbr title="2011-06-20T17:32:49+00:00">17:32:49</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>with all these layers</q></li>
+<li class="message">[<a href="#T17:32:59" id="T17:32:59"><abbr title="2011-06-20T17:32:59+00:00">17:32:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yes, that's why they sell learning ramps in china</q></li>
+<li class="message">[<abbr title="2011-06-20T17:32:59+00:00">17:32:59</abbr>] &lt;<cite>av500</cite>&gt; <q>like expensive clothing</q></li>
+<li class="message">[<a href="#T17:33:12" id="T17:33:12"><abbr title="2011-06-20T17:33:12+00:00">17:33:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>all these layers of silk and fur</q></li>
+<li class="quit">[<a href="#T17:34:02" id="T17:34:02"><abbr title="2011-06-20T17:34:02+00:00">17:34:02</abbr></a>] <span>* mikey_w (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T17:34:57" id="T17:34:57"><abbr title="2011-06-20T17:34:57+00:00">17:34:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>to make them really easy to use, they should have a DIP chip with 2 I2S buses.</q></li>
+<li class="message">[<a href="#T17:35:15" id="T17:35:15"><abbr title="2011-06-20T17:35:15+00:00">17:35:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>one codec per chip</q></li>
+<li class="message">[<a href="#T17:35:22" id="T17:35:22"><abbr title="2011-06-20T17:35:22+00:00">17:35:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and at least 16 dipswitches</q></li>
+<li class="message">[<a href="#T17:35:46" id="T17:35:46"><abbr title="2011-06-20T17:35:46+00:00">17:35:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>swipditches!</q></li>
+<li class="message">[<a href="#T17:35:57" id="T17:35:57"><abbr title="2011-06-20T17:35:57+00:00">17:35:57</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>usually when I build something, I try to pick the h/w and s/w to match what I'm building</q></li>
+<li class="join">[<a href="#T17:36:06" id="T17:36:06"><abbr title="2011-06-20T17:36:06+00:00">17:36:06</abbr></a>] <span>* mikey_w (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:36:18" id="T17:36:18"><abbr title="2011-06-20T17:36:18+00:00">17:36:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I usually pick h/w and s/w that works ;)</q></li>
+<li class="message">[<a href="#T17:36:34" id="T17:36:34"><abbr title="2011-06-20T17:36:34+00:00">17:36:34</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>that's always helps :)</q></li>
+<li class="action">[<a href="#T17:37:11" id="T17:37:11"><abbr title="2011-06-20T17:37:11+00:00">17:37:11</abbr></a>] <span>* mdp is thinking about people picking their board then trying to shoehorn it into their application</span></li>
+<li class="message">[<a href="#T17:38:00" id="T17:38:00"><abbr title="2011-06-20T17:38:00+00:00">17:38:00</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that works just fine unless you have a crappy shoehorn</q></li>
+<li class="action">[<a href="#T17:38:14" id="T17:38:14"><abbr title="2011-06-20T17:38:14+00:00">17:38:14</abbr></a>] <span>* koen thinks it's funny that a shoehorn is called a shoespoon in dutch</span></li>
+<li class="message">[<a href="#T17:38:31" id="T17:38:31"><abbr title="2011-06-20T17:38:31+00:00">17:38:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>maybe it works better with wooden shoes? </q></li>
+<li class="message">[<a href="#T17:38:35" id="T17:38:35"><abbr title="2011-06-20T17:38:35+00:00">17:38:35</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>koen, I've seen that term used locally too</q></li>
+<li class="message">[<a href="#T17:39:20" id="T17:39:20"><abbr title="2011-06-20T17:39:20+00:00">17:39:20</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>koen, maybe it's because of my proximity to the amish folks :)</q></li>
+<li class="join">[<a href="#T17:39:54" id="T17:39:54"><abbr title="2011-06-20T17:39:54+00:00">17:39:54</abbr></a>] <span>* bgamari (~ben@pool-96-233-189-59.spfdma.east.verizon.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:41:14" id="T17:41:14"><abbr title="2011-06-20T17:41:14+00:00">17:41:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>:)</q></li>
+<li class="join">[<a href="#T17:42:36" id="T17:42:36"><abbr title="2011-06-20T17:42:36+00:00">17:42:36</abbr></a>] <span>* rcn-ee_at_work (~voodoo@thief-statics-245.mncable.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:47:45" id="T17:47:45"><abbr title="2011-06-20T17:47:45+00:00">17:47:45</abbr></a>] <span>* l4 (~l4@78-62-153-222.static.zebra.lt) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:49:24" id="T17:49:24"><abbr title="2011-06-20T17:49:24+00:00">17:49:24</abbr></a>] <span>* rcf (~rcf@109.179-243-81.adsl-dyn.isp.belgacom.be) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:57:29" id="T17:57:29"><abbr title="2011-06-20T17:57:29+00:00">17:57:29</abbr></a>] <span>* AxMountain (~AxMountai@spaceman.csbnet.se) Quit (Quit: Leaving.)</span></li>
