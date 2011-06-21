@@ -547,3 +547,100 @@
 <li class="message">[<a href="#T12:47:28" id="T12:47:28"><abbr title="2011-06-21T12:47:28+00:00">12:47:28</abbr></a>] &lt;<cite>rOxx</cite>&gt; <q>koen, i can crosscompile in my vm, can you tell me what is must do to get the *.bin file?</q></li>
 <li class="message">[<a href="#T12:48:26" id="T12:48:26"><abbr title="2011-06-21T12:48:26+00:00">12:48:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>bitbake my-u-boot-rename</q></li>
 <li class="join">[<a href="#T12:53:46" id="T12:53:46"><abbr title="2011-06-21T12:53:46+00:00">12:53:46</abbr></a>] <span>* woglinde (~henning@fb-n15-11.unbelievable-machine.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:00:55" id="T13:00:55"><abbr title="2011-06-21T13:00:55+00:00">13:00:55</abbr></a>] <span>* kaylyn (82cbc082@gateway/web/freenode/ip.130.203.192.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:06:34" id="T13:06:34"><abbr title="2011-06-21T13:06:34+00:00">13:06:34</abbr></a>] &lt;<cite>rOxx</cite>&gt; <q>koen, in my vm i have the gcc (Ubuntu/Linaro 4.4.4-14ubuntu5) 4.4.5 compiler installed. what is must do now to compile the sources to a bin file ?</q></li>
+<li class="join">[<a href="#T13:06:53" id="T13:06:53"><abbr title="2011-06-21T13:06:53+00:00">13:06:53</abbr></a>] <span>* Openfree^ (~Openfree`@58.37.74.22) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:06:58" id="T13:06:58"><abbr title="2011-06-21T13:06:58+00:00">13:06:58</abbr></a>] &lt;<cite>rOxx</cite>&gt; <q>or have you got some links for me ?</q></li>
+<li class="message">[<a href="#T13:07:26" id="T13:07:26"><abbr title="2011-06-21T13:07:26+00:00">13:07:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>4.4.4-14ubuntu5...</q></li>
+<li class="message">[<a href="#T13:07:39" id="T13:07:39"><abbr title="2011-06-21T13:07:39+00:00">13:07:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ZZ9 Plural Z Alpha ftw!</q></li>
+<li class="message">[<a href="#T13:09:33" id="T13:09:33"><abbr title="2011-06-21T13:09:33+00:00">13:09:33</abbr></a>] &lt;<cite>rOxx</cite>&gt; <q>hehe, i just copied the gcc --info :-)</q></li>
+<li class="quit">[<a href="#T13:09:35" id="T13:09:35"><abbr title="2011-06-21T13:09:35+00:00">13:09:35</abbr></a>] <span>* digitalconverge (~converged@c-76-125-16-248.hsd1.ga.comcast.net) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T13:10:10" id="T13:10:10"><abbr title="2011-06-21T13:10:10+00:00">13:10:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>given how 4 is an unlucky number, I would totally not trust that compile</q></li>
+<li class="message">[<a href="#T13:10:12" id="T13:10:12"><abbr title="2011-06-21T13:10:12+00:00">13:10:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>+r</q></li>
+<li class="message">[<a href="#T13:14:34" id="T13:14:34"><abbr title="2011-06-21T13:14:34+00:00">13:14:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>roxxx did you ever compile something?</q></li>
+<li class="message">[<a href="#T13:14:36" id="T13:14:36"><abbr title="2011-06-21T13:14:36+00:00">13:14:36</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>where is the omap3beagle.c located on the board? searched for quite a while now, if it's even there?</q></li>
+<li class="message">[<a href="#T13:14:53" id="T13:14:53"><abbr title="2011-06-21T13:14:53+00:00">13:14:53</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T13:14:56" id="T13:14:56"><abbr title="2011-06-21T13:14:56+00:00">13:14:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>u-boot?</q></li>
+<li class="message">[<a href="#T13:16:05" id="T13:16:05"><abbr title="2011-06-21T13:16:05+00:00">13:16:05</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>linux/sound/soc/omap/omap3beagle.c</q></li>
+<li class="message">[<a href="#T13:16:10" id="T13:16:10"><abbr title="2011-06-21T13:16:10+00:00">13:16:10</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>so this is in u-boot?</q></li>
+<li class="message">[<a href="#T13:16:18" id="T13:16:18"><abbr title="2011-06-21T13:16:18+00:00">13:16:18</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>not sound</q></li>
+<li class="message">[<a href="#T13:16:20" id="T13:16:20"><abbr title="2011-06-21T13:16:20+00:00">13:16:20</abbr></a>] &lt;<cite>rOxx</cite>&gt; <q>yes i have compiled, but u-boot the first time.</q></li>
+<li class="message">[<a href="#T13:16:30" id="T13:16:30"><abbr title="2011-06-21T13:16:30+00:00">13:16:30</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>argh.. wrong link... but yes anyway, need to find the linux root</q></li>
+<li class="message">[<a href="#T13:17:10" id="T13:17:10"><abbr title="2011-06-21T13:17:10+00:00">13:17:10</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>Linux/arch/arm/mach-omap2/board-omap3beagle.c</q></li>
+<li class="message">[<a href="#T13:17:25" id="T13:17:25"><abbr title="2011-06-21T13:17:25+00:00">13:17:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T13:17:32" id="T13:17:32"><abbr title="2011-06-21T13:17:32+00:00">13:17:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>juhka: yes</q></li>
+<li class="join">[<a href="#T13:18:09" id="T13:18:09"><abbr title="2011-06-21T13:18:09+00:00">13:18:09</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-wssiwjabzzqehgkp) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:19:51" id="T13:19:51"><abbr title="2011-06-21T13:19:51+00:00">13:19:51</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>so i should find a c-file in the u-boot? Sounds very strange to me</q></li>
+<li class="message">[<a href="#T13:20:26" id="T13:20:26"><abbr title="2011-06-21T13:20:26+00:00">13:20:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>uboot?</q></li>
+<li class="message">[<a href="#T13:21:21" id="T13:21:21"><abbr title="2011-06-21T13:21:21+00:00">13:21:21</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>or where is these files i need to glue located</q></li>
+<li class="message">[<a href="#T13:21:33" id="T13:21:33"><abbr title="2011-06-21T13:21:33+00:00">13:21:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>arch/arm/mach-omap2/board-omap3beagle.c no?</q></li>
+<li class="message">[<a href="#T13:21:45" id="T13:21:45"><abbr title="2011-06-21T13:21:45+00:00">13:21:45</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>o.O</q></li>
+<li class="message">[<a href="#T13:21:50" id="T13:21:50"><abbr title="2011-06-21T13:21:50+00:00">13:21:50</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>cannot find the arch =/</q></li>
+<li class="join">[<a href="#T13:21:53" id="T13:21:53"><abbr title="2011-06-21T13:21:53+00:00">13:21:53</abbr></a>] <span>* ozk (~ozk@nat/ti/x-esfihcrfdkqlicrw) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:22:02" id="T13:22:02"><abbr title="2011-06-21T13:22:02+00:00">13:22:02</abbr></a>] <span>* digitalconverge (~converged@mail.thomsonplastics.com) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T13:23:42" id="T13:23:42"><abbr title="2011-06-21T13:23:42+00:00">13:23:42</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>ok found it under lib</q></li>
+<li class="message">[<a href="#T13:23:55" id="T13:23:55"><abbr title="2011-06-21T13:23:55+00:00">13:23:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>lib?</q></li>
+<li class="message">[<a href="#T13:23:58" id="T13:23:58"><abbr title="2011-06-21T13:23:58+00:00">13:23:58</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>wtf?</q></li>
+<li class="message">[<a href="#T13:24:46" id="T13:24:46"><abbr title="2011-06-21T13:24:46+00:00">13:24:46</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>or not... i found an /lib/kernel/modules/2.6../arch/arm </q></li>
+<li class="message">[<a href="#T13:24:51" id="T13:24:51"><abbr title="2011-06-21T13:24:51+00:00">13:24:51</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>but it was nothing there</q></li>
+<li class="message">[<a href="#T13:25:30" id="T13:25:30"><abbr title="2011-06-21T13:25:30+00:00">13:25:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>juhka: kernel source code</q></li>
+<li class="message">[<a href="#T13:28:10" id="T13:28:10"><abbr title="2011-06-21T13:28:10+00:00">13:28:10</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>juhka, you don't see sound/soc/omap/omap3beagle.c?</q></li>
+<li class="message">[<a href="#T13:28:29" id="T13:28:29"><abbr title="2011-06-21T13:28:29+00:00">13:28:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm I dont think he wants sound</q></li>
+<li class="message">[<a href="#T13:29:20" id="T13:29:20"><abbr title="2011-06-21T13:29:20+00:00">13:29:20</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>drivers/glue/ :)</q></li>
+<li class="message">[<abbr title="2011-06-21T13:29:20+00:00">13:29:20</abbr>] &lt;<cite>av500</cite>&gt; <q>woglinde: he does</q></li>
+<li class="message">[<a href="#T13:29:29" id="T13:29:29"><abbr title="2011-06-21T13:29:29+00:00">13:29:29</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>woglinde i need them both :)</q></li>
+<li class="message">[<a href="#T13:29:34" id="T13:29:34"><abbr title="2011-06-21T13:29:34+00:00">13:29:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>there is also "man find"</q></li>
+<li class="message">[<a href="#T13:29:36" id="T13:29:36"><abbr title="2011-06-21T13:29:36+00:00">13:29:36</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>mdp no cannot see it</q></li>
+<li class="message">[<a href="#T13:30:12" id="T13:30:12"><abbr title="2011-06-21T13:30:12+00:00">13:30:12</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>hrm, must be an old kernel tree???I'm looking at it in linus git</q></li>
+<li class="message">[<a href="#T13:30:39" id="T13:30:39"><abbr title="2011-06-21T13:30:39+00:00">13:30:39</abbr></a>] &lt;<cite>mla</cite>&gt; <q>Linux/sound/soc... then, since your kernel source seemed to be located under "Linux".. ? (sorry if I confuse more than I help)</q></li>
+<li class="message">[<a href="#T13:31:51" id="T13:31:51"><abbr title="2011-06-21T13:31:51+00:00">13:31:51</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>Where are these to be found, shouldn't they be located on my beagle somewhere (stupid question yes?), I've also searched in the ??ngstr??m source</q></li>
+<li class="message">[<a href="#T13:32:11" id="T13:32:11"><abbr title="2011-06-21T13:32:11+00:00">13:32:11</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>Maybe i get slapped now :) but i'm tired</q></li>
+<li class="message">[<a href="#T13:32:20" id="T13:32:20"><abbr title="2011-06-21T13:32:20+00:00">13:32:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you need to find out which kernel source you want to use</q></li>
+<li class="message">[<a href="#T13:33:12" id="T13:33:12"><abbr title="2011-06-21T13:33:12+00:00">13:33:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>juhka: why would you have source code on your beagle?</q></li>
+<li class="message">[<a href="#T13:33:31" id="T13:33:31"><abbr title="2011-06-21T13:33:31+00:00">13:33:31</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>it's running ubuntu? :)</q></li>
+<li class="join">[<a href="#T13:33:46" id="T13:33:46"><abbr title="2011-06-21T13:33:46+00:00">13:33:46</abbr></a>] <span>* panto (~panto@vfppp062038104093.dsl.hol.gr) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:34:15" id="T13:34:15"><abbr title="2011-06-21T13:34:15+00:00">13:34:15</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>av500, no idea actually :)</q></li>
+<li class="message">[<a href="#T13:34:28" id="T13:34:28"><abbr title="2011-06-21T13:34:28+00:00">13:34:28</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>mdp, nope angstrom :)</q></li>
+<li class="message">[<a href="#T13:34:41" id="T13:34:41"><abbr title="2011-06-21T13:34:41+00:00">13:34:41</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>But yes, of course i need to build my own kernel i guess</q></li>
+<li class="message">[<a href="#T13:35:07" id="T13:35:07"><abbr title="2011-06-21T13:35:07+00:00">13:35:07</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>when modified and glued</q></li>
+<li class="message">[<a href="#T13:35:12" id="T13:35:12"><abbr title="2011-06-21T13:35:12+00:00">13:35:12</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>juhka why should the kernel source be on your beagle?</q></li>
+<li class="message">[<a href="#T13:35:19" id="T13:35:19"><abbr title="2011-06-21T13:35:19+00:00">13:35:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>did you install a source ipk?</q></li>
+<li class="message">[<a href="#T13:36:21" id="T13:36:21"><abbr title="2011-06-21T13:36:21+00:00">13:36:21</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>woglinde, no i didn't</q></li>
+<li class="message">[<a href="#T13:36:32" id="T13:36:32"><abbr title="2011-06-21T13:36:32+00:00">13:36:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>fine</q></li>
+<li class="message">[<a href="#T13:36:56" id="T13:36:56"><abbr title="2011-06-21T13:36:56+00:00">13:36:56</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>juhka, the angstrom site has documentation that will help you to get the build environment setup and grab the source on your host system</q></li>
+<li class="message">[<a href="#T13:37:15" id="T13:37:15"><abbr title="2011-06-21T13:37:15+00:00">13:37:15</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>juhka, you can then get the kernel source and set of patches used from there as the basis for your work</q></li>
+<li class="message">[<a href="#T13:37:33" id="T13:37:33"><abbr title="2011-06-21T13:37:33+00:00">13:37:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>so Captain Obvious tells you dont have omap3beagle.c on your board</q></li>
+<li class="nick-change">[<a href="#T13:37:47" id="T13:37:47"><abbr title="2011-06-21T13:37:47+00:00">13:37:47</abbr></a>] <span>* kimitake_idle is now known as kimitake</span></li>
+<li class="message">[<a href="#T13:38:01" id="T13:38:01"><abbr title="2011-06-21T13:38:01+00:00">13:38:01</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>mdp allright, thanks :)</q></li>
+<li class="message">[<a href="#T13:38:12" id="T13:38:12"><abbr title="2011-06-21T13:38:12+00:00">13:38:12</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>woglinde, I ain't no sherlock ;)</q></li>
+<li class="message">[<a href="#T13:39:01" id="T13:39:01"><abbr title="2011-06-21T13:39:01+00:00">13:39:01</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>Actually never digged into Linux before, just done work on the surface before</q></li>
+<li class="quit">[<a href="#T13:39:09" id="T13:39:09"><abbr title="2011-06-21T13:39:09+00:00">13:39:09</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) Quit (Quit: Gettin' stinky!)</span></li>
+<li class="message">[<a href="#T13:39:36" id="T13:39:36"><abbr title="2011-06-21T13:39:36+00:00">13:39:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>aye than good lucj</q></li>
+<li class="message">[<a href="#T13:39:38" id="T13:39:38"><abbr title="2011-06-21T13:39:38+00:00">13:39:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ups luck</q></li>
+<li class="message">[<a href="#T13:40:04" id="T13:40:04"><abbr title="2011-06-21T13:40:04+00:00">13:40:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, ups needs luck</q></li>
+<li class="message">[<a href="#T13:40:56" id="T13:40:56"><abbr title="2011-06-21T13:40:56+00:00">13:40:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ooops</q></li>
+<li class="message">[<a href="#T13:41:39" id="T13:41:39"><abbr title="2011-06-21T13:41:39+00:00">13:41:39</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>well, thanks for all the help guys, really appreciated :)</q></li>
+<li class="message">[<a href="#T13:42:16" id="T13:42:16"><abbr title="2011-06-21T13:42:16+00:00">13:42:16</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>your invoice is in snail mail</q></li>
+<li class="message">[<a href="#T13:43:47" id="T13:43:47"><abbr title="2011-06-21T13:43:47+00:00">13:43:47</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>koen: link to discussion on tftp ehci timeout?</q></li>
+<li class="action">[<a href="#T13:44:09" id="T13:44:09"><abbr title="2011-06-21T13:44:09+00:00">13:44:09</abbr></a>] <span>* juhka is waiting for it eagerly</span></li>
+<li class="message">[<a href="#T13:44:22" id="T13:44:22"><abbr title="2011-06-21T13:44:22+00:00">13:44:22</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>wait for what?</q></li>
+<li class="message">[<a href="#T13:44:24" id="T13:44:24"><abbr title="2011-06-21T13:44:24+00:00">13:44:24</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>santa?</q></li>
+<li class="join">[<a href="#T13:44:37" id="T13:44:37"><abbr title="2011-06-21T13:44:37+00:00">13:44:37</abbr></a>] <span>* joelagnel (~joelagnel@cpe-76-184-244-226.tx.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:44:41" id="T13:44:41"><abbr title="2011-06-21T13:44:41+00:00">13:44:41</abbr></a>] <span>* tegila (~tegila@189-015-89-045.xd-dynamic.ctbcnetsuper.com.br) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:45:24" id="T13:45:24"><abbr title="2011-06-21T13:45:24+00:00">13:45:24</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>no, the late easterbunny that never came</q></li>
+<li class="message">[<a href="#T13:45:41" id="T13:45:41"><abbr title="2011-06-21T13:45:41+00:00">13:45:41</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>;)</q></li>
+<li class="message">[<a href="#T13:46:00" id="T13:46:00"><abbr title="2011-06-21T13:46:00+00:00">13:46:00</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ask for shoespoons, they make a great gift</q></li>
+<li class="message">[<a href="#T13:48:34" id="T13:48:34"><abbr title="2011-06-21T13:48:34+00:00">13:48:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>joelagnel: dmai works now?</q></li>
+<li class="quit">[<a href="#T13:49:01" id="T13:49:01"><abbr title="2011-06-21T13:49:01+00:00">13:49:01</abbr></a>] <span>* joelagnel (~joelagnel@cpe-76-184-244-226.tx.res.rr.com) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:49:42" id="T13:49:42"><abbr title="2011-06-21T13:49:42+00:00">13:49:42</abbr></a>] <span>* CMoH (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:51:58" id="T13:51:58"><abbr title="2011-06-21T13:51:58+00:00">13:51:58</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>mdp, found this <a href="http://www.kernel.org/pub//scm/linux/kernel/git/jejb/storage-tree/sound/soc/omap/omap3beagle.c">http://www.kernel.org/pub//scm/linux/kernel/git/jejb/storage-tree/sound/soc/omap/omap3beagle.c</a></q></li>
+<li class="message">[<a href="#T13:52:05" id="T13:52:05"><abbr title="2011-06-21T13:52:05+00:00">13:52:05</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>guess it's the correct one</q></li>
+<li class="message">[<a href="#T13:52:39" id="T13:52:39"><abbr title="2011-06-21T13:52:39+00:00">13:52:39</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>not the right tree</q></li>
+<li class="message">[<a href="#T13:52:52" id="T13:52:52"><abbr title="2011-06-21T13:52:52+00:00">13:52:52</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>that's bottomly's storage tree</q></li>
+<li class="message">[<a href="#T13:53:42" id="T13:53:42"><abbr title="2011-06-21T13:53:42+00:00">13:53:42</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>allright</q></li>
+<li class="message">[<a href="#T13:53:56" id="T13:53:56"><abbr title="2011-06-21T13:53:56+00:00">13:53:56</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I really recommend you go read and understand how your angstrom binaries are built???set up the build environment, maybe do a build see where the kernel recipe pulls the kernel blob and patches that are applied</q></li>
+<li class="message">[<a href="#T13:54:23" id="T13:54:23"><abbr title="2011-06-21T13:54:23+00:00">13:54:23</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>there's good docs there for getting started</q></li>
+<li class="message">[<a href="#T13:55:20" id="T13:55:20"><abbr title="2011-06-21T13:55:20+00:00">13:55:20</abbr></a>] &lt;<cite>juhka</cite>&gt; <q>I'll check it out :)</q></li>
+<li class="quit">[<a href="#T13:55:59" id="T13:55:59"><abbr title="2011-06-21T13:55:59+00:00">13:55:59</abbr></a>] <span>* l4 (~l4@88.119.128.50) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<a href="#T13:57:24" id="T13:57:24"><abbr title="2011-06-21T13:57:24+00:00">13:57:24</abbr></a>] <span>* parts (~parts@is010037.intra.cea.fr) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T13:58:55" id="T13:58:55"><abbr title="2011-06-21T13:58:55+00:00">13:58:55</abbr></a>] <span>* novogrammer (~novogramm@w0109-114-22-184-191.uqwimax.jp) has joined #beagle</span></li>
