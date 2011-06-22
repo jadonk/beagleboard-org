@@ -180,3 +180,110 @@
 <li class="message">[<a href="#T05:58:28" id="T05:58:28"><abbr title="2011-06-22T05:58:28+00:00">05:58:28</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ds2, calculating "maximum" power on an FPGA for many FPGAs is like asking what happens if I put it in neutral and hold down the gas pedal</q></li>
 <li class="quit">[<a href="#T05:59:55" id="T05:59:55"><abbr title="2011-06-22T05:59:55+00:00">05:59:55</abbr></a>] <span>* aarti (~aarti@122.166.11.13) Quit (Read error: Connection reset by peer)</span></li>
 <li class="quit">[<abbr title="2011-06-22T05:59:55+00:00">05:59:55</abbr>] <span>* Azad (~Azad@122.166.11.13) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T06:00:18" id="T06:00:18"><abbr title="2011-06-22T06:00:18+00:00">06:00:18</abbr></a>] <span>* aarti (~aarti@122.166.11.13) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:00:25" id="T06:00:25"><abbr title="2011-06-22T06:00:25+00:00">06:00:25</abbr></a>] <span>* Azad (~Azad@122.166.11.13) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:02:16" id="T06:02:16"><abbr title="2011-06-22T06:02:16+00:00">06:02:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Russ: yes, what happens if you do that? ;) I am curious about how well rev limiters work ;)</q></li>
+<li class="message">[<a href="#T06:02:55" id="T06:02:55"><abbr title="2011-06-22T06:02:55+00:00">06:02:55</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I think FPGAs have temperature cut off circuits</q></li>
+<li class="message">[<a href="#T06:03:04" id="T06:03:04"><abbr title="2011-06-22T06:03:04+00:00">06:03:04</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>or at least the expensive ones do</q></li>
+<li class="message">[<a href="#T06:04:02" id="T06:04:02"><abbr title="2011-06-22T06:04:02+00:00">06:04:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I am more interested in getting an order of magnitude figure like... unconfigured, configured as a simple buffer, and a worse case figure... maybe a ring osc or similar</q></li>
+<li class="message">[<a href="#T06:05:05" id="T06:05:05"><abbr title="2011-06-22T06:05:05+00:00">06:05:05</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>ds2: best I can do is current draw delta w/ &amp; w/o FPGA board plugged into exp header.</q></li>
+<li class="message">[<a href="#T06:05:07" id="T06:05:07"><abbr title="2011-06-22T06:05:07+00:00">06:05:07</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>xilinx has a cool spreadsheet you can use for estimation</q></li>
+<li class="message">[<a href="#T06:05:31" id="T06:05:31"><abbr title="2011-06-22T06:05:31+00:00">06:05:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>emeb: that'd be interesting in itself</q></li>
+<li class="message">[<a href="#T06:06:23" id="T06:06:23"><abbr title="2011-06-22T06:06:23+00:00">06:06:23</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>ds2: A good thing to know - I'll put it on the todo list...</q></li>
+<li class="message">[<a href="#T06:06:49" id="T06:06:49"><abbr title="2011-06-22T06:06:49+00:00">06:06:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>emeb: it would be interseting to know if you suddenly require Pandaboard level power supply to boot properly ;)</q></li>
+<li class="message">[<a href="#T06:07:18" id="T06:07:18"><abbr title="2011-06-22T06:07:18+00:00">06:07:18</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>ds2: heh. </q></li>
+<li class="message">[<a href="#T06:07:35" id="T06:07:35"><abbr title="2011-06-22T06:07:35+00:00">06:07:35</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>hmmm... J2 on BB is a current shunt testpoint, right?</q></li>
+<li class="message">[<a href="#T06:08:50" id="T06:08:50"><abbr title="2011-06-22T06:08:50+00:00">06:08:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T06:08:56" id="T06:08:56"><abbr title="2011-06-22T06:08:56+00:00">06:08:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is a resistor there</q></li>
+<li class="message">[<a href="#T06:09:56" id="T06:09:56"><abbr title="2011-06-22T06:09:56+00:00">06:09:56</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>0.1 ohm</q></li>
+<li class="message">[<a href="#T06:10:09" id="T06:10:09"><abbr title="2011-06-22T06:10:09+00:00">06:10:09</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>x10 = amps</q></li>
+<li class="join">[<a href="#T06:10:26" id="T06:10:26"><abbr title="2011-06-22T06:10:26+00:00">06:10:26</abbr></a>] <span>* lyakh (~lyakh@dslb-188-109-037-238.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:10:47" id="T06:10:47"><abbr title="2011-06-22T06:10:47+00:00">06:10:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>and it turns out you need a really sensitive meter to measure consumption in mA</q></li>
+<li class="message">[<a href="#T06:11:25" id="T06:11:25"><abbr title="2011-06-22T06:11:25+00:00">06:11:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or toss in an op-amp</q></li>
+<li class="message">[<a href="#T06:11:39" id="T06:11:39"><abbr title="2011-06-22T06:11:39+00:00">06:11:39</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>O</q></li>
+<li class="message">[<a href="#T06:11:51" id="T06:11:51"><abbr title="2011-06-22T06:11:51+00:00">06:11:51</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>I've got a 4-1/2 digit B&amp;K</q></li>
+<li class="message">[<a href="#T06:12:30" id="T06:12:30"><abbr title="2011-06-22T06:12:30+00:00">06:12:30</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>measures 42mv w/ FPGA board in LED blinky mode. Can see the 100uV digit changing as LEDs cycle...</q></li>
+<li class="message">[<a href="#T06:13:54" id="T06:13:54"><abbr title="2011-06-22T06:13:54+00:00">06:13:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>420mA</q></li>
+<li class="message">[<a href="#T06:14:11" id="T06:14:11"><abbr title="2011-06-22T06:14:11+00:00">06:14:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what's it w/o the board?</q></li>
+<li class="message">[<a href="#T06:14:12" id="T06:14:12"><abbr title="2011-06-22T06:14:12+00:00">06:14:12</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yup</q></li>
+<li class="message">[<a href="#T06:14:17" id="T06:14:17"><abbr title="2011-06-22T06:14:17+00:00">06:14:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>using your kernel</q></li>
+<li class="message">[<a href="#T06:14:56" id="T06:14:56"><abbr title="2011-06-22T06:14:56+00:00">06:14:56</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yep - just booted up with exact same sw config</q></li>
+<li class="message">[<a href="#T06:15:03" id="T06:15:03"><abbr title="2011-06-22T06:15:03+00:00">06:15:03</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>42mV</q></li>
+<li class="message">[<a href="#T06:15:19" id="T06:15:19"><abbr title="2011-06-22T06:15:19+00:00">06:15:19</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>so this FPGA board isn't drawing much more current...</q></li>
+<li class="message">[<a href="#T06:15:45" id="T06:15:45"><abbr title="2011-06-22T06:15:45+00:00">06:15:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>this is an xM?</q></li>
+<li class="message">[<a href="#T06:15:51" id="T06:15:51"><abbr title="2011-06-22T06:15:51+00:00">06:15:51</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>nope - C2</q></li>
+<li class="message">[<a href="#T06:16:01" id="T06:16:01"><abbr title="2011-06-22T06:16:01+00:00">06:16:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>420mA seems a bit high</q></li>
+<li class="message">[<a href="#T06:16:18" id="T06:16:18"><abbr title="2011-06-22T06:16:18+00:00">06:16:18</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Yeah - there's a USB wifi dongle on it too</q></li>
+<li class="message">[<a href="#T06:16:28" id="T06:16:28"><abbr title="2011-06-22T06:16:28+00:00">06:16:28</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>that seems normal to me for a board running full bore</q></li>
+<li class="join">[<a href="#T06:16:51" id="T06:16:51"><abbr title="2011-06-22T06:16:51+00:00">06:16:51</abbr></a>] <span>* kimitake (~kimitake@netblock-68-183-233-7.dslextreme.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:16:56" id="T06:16:56"><abbr title="2011-06-22T06:16:56+00:00">06:16:56</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>iirc, with no changes suspend is somewhere around 60mA</q></li>
+<li class="message">[<a href="#T06:17:38" id="T06:17:38"><abbr title="2011-06-22T06:17:38+00:00">06:17:38</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>pulling the wifi dongle drops shunt voltage to 40mV</q></li>
+<li class="quit">[<a href="#T06:18:57" id="T06:18:57"><abbr title="2011-06-22T06:18:57+00:00">06:18:57</abbr></a>] <span>* l4 (~l4@88.119.128.50) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T06:19:33" id="T06:19:33"><abbr title="2011-06-22T06:19:33+00:00">06:19:33</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ah, Idle@5V is 1100mW</q></li>
+<li class="message">[<a href="#T06:19:46" id="T06:19:46"><abbr title="2011-06-22T06:19:46+00:00">06:19:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>busy is 1440mW</q></li>
+<li class="message">[<a href="#T06:19:52" id="T06:19:52"><abbr title="2011-06-22T06:19:52+00:00">06:19:52</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>(c$)</q></li>
+<li class="join">[<a href="#T06:19:55" id="T06:19:55"><abbr title="2011-06-22T06:19:55+00:00">06:19:55</abbr></a>] <span>* l4 (~l4@88.119.128.50) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:19:56" id="T06:19:56"><abbr title="2011-06-22T06:19:56+00:00">06:19:56</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>er (c4)</q></li>
+<li class="message">[<a href="#T06:20:00" id="T06:20:00"><abbr title="2011-06-22T06:20:00+00:00">06:20:00</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>so your numbers do seem a bit high</q></li>
+<li class="message">[<a href="#T06:20:40" id="T06:20:40"><abbr title="2011-06-22T06:20:40+00:00">06:20:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T06:21:00" id="T06:21:00"><abbr title="2011-06-22T06:21:00+00:00">06:21:00</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>hmm. Put FPGA board back on &amp; now reads 57mV</q></li>
+<li class="message">[<a href="#T06:21:17" id="T06:21:17"><abbr title="2011-06-22T06:21:17+00:00">06:21:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>loaded ring osc bitstream? ;)</q></li>
+<li class="message">[<a href="#T06:21:25" id="T06:21:25"><abbr title="2011-06-22T06:21:25+00:00">06:21:25</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>wifi is working now - wasn't previously. Need to take that out of the picture</q></li>
+<li class="quit">[<a href="#T06:24:16" id="T06:24:16"><abbr title="2011-06-22T06:24:16+00:00">06:24:16</abbr></a>] <span>* Azad (~Azad@122.166.11.13) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T06:24:41" id="T06:24:41"><abbr title="2011-06-22T06:24:41+00:00">06:24:41</abbr></a>] <span>* Azad (~Azad@122.166.11.13) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:24:56" id="T06:24:56"><abbr title="2011-06-22T06:24:56+00:00">06:24:56</abbr></a>] <span>* aarti (~aarti@122.166.11.13) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T06:25:18" id="T06:25:18"><abbr title="2011-06-22T06:25:18+00:00">06:25:18</abbr></a>] <span>* aarti (~aarti@122.166.11.13) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:26:32" id="T06:26:32"><abbr title="2011-06-22T06:26:32+00:00">06:26:32</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>OK - wifi removed: BB+FPGA = 42mV, BB only = 38mV</q></li>
+<li class="join">[<a href="#T06:26:34" id="T06:26:34"><abbr title="2011-06-22T06:26:34+00:00">06:26:34</abbr></a>] <span>* almost_anna (~aad@89.23.194.117) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:27:11" id="T06:27:11"><abbr title="2011-06-22T06:27:11+00:00">06:27:11</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>so FPGA board is drawing ~40mA with minimal complexity (10% utilization) design</q></li>
+<li class="quit">[<a href="#T06:27:41" id="T06:27:41"><abbr title="2011-06-22T06:27:41+00:00">06:27:41</abbr></a>] <span>* marcompile (~marco@20158106090.user.veloxzone.com.br) Quit (Quit: Ex-Chat)</span></li>
+<li class="message">[<a href="#T06:27:42" id="T06:27:42"><abbr title="2011-06-22T06:27:42+00:00">06:27:42</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>(and that's with 3 additional LEDs lit up)</q></li>
+<li class="message">[<a href="#T06:27:45" id="T06:27:45"><abbr title="2011-06-22T06:27:45+00:00">06:27:45</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>its not the utilization that usually kills you, its the switching rates of the parts utilized</q></li>
+<li class="message">[<a href="#T06:28:23" id="T06:28:23"><abbr title="2011-06-22T06:28:23+00:00">06:28:23</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Russ: understood. This design has 50MHz clock running on that 10%</q></li>
+<li class="message">[<a href="#T06:28:46" id="T06:28:46"><abbr title="2011-06-22T06:28:46+00:00">06:28:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>emeb: implement HCF on the fpga :)</q></li>
+<li class="message">[<a href="#T06:28:48" id="T06:28:48"><abbr title="2011-06-22T06:28:48+00:00">06:28:48</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>but no real data transitions during the measurement period</q></li>
+<li class="message">[<a href="#T06:29:07" id="T06:29:07"><abbr title="2011-06-22T06:29:07+00:00">06:29:07</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>av500: HCF?</q></li>
+<li class="message">[<a href="#T06:29:18" id="T06:29:18"><abbr title="2011-06-22T06:29:18+00:00">06:29:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Halt and Catch Fire</q></li>
+<li class="message">[<a href="#T06:29:27" id="T06:29:27"><abbr title="2011-06-22T06:29:27+00:00">06:29:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>basically toggle every gate at max freq</q></li>
+<li class="action">[<a href="#T06:29:29" id="T06:29:29"><abbr title="2011-06-22T06:29:29+00:00">06:29:29</abbr></a>] <span>* emeb slaps forehead</span></li>
+<li class="message">[<a href="#T06:29:39" id="T06:29:39"><abbr title="2011-06-22T06:29:39+00:00">06:29:39</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>should have known that one</q></li>
+<li class="message">[<a href="#T06:29:42" id="T06:29:42"><abbr title="2011-06-22T06:29:42+00:00">06:29:42</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I like the dry wikipedia humor</q></li>
+<li class="message">[<a href="#T06:29:49" id="T06:29:49"><abbr title="2011-06-22T06:29:49+00:00">06:29:49</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>'The expression "catch fire" is intended as a joke; the CPU does not usually catch fire.'</q></li>
+<li class="message">[<abbr title="2011-06-22T06:29:49+00:00">06:29:49</abbr>] &lt;<cite>ds2</cite>&gt; <q>just alias it to RingOSC_EN</q></li>
+<li class="message">[<a href="#T06:29:58" id="T06:29:58"><abbr title="2011-06-22T06:29:58+00:00">06:29:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Russ: :)</q></li>
+<li class="message">[<a href="#T06:30:04" id="T06:30:04"><abbr title="2011-06-22T06:30:04+00:00">06:30:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Russ: have you seen early athlon boards? ;)</q></li>
+<li class="message">[<a href="#T06:30:14" id="T06:30:14"><abbr title="2011-06-22T06:30:14+00:00">06:30:14</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I love that tom's hardware video</q></li>
+<li class="message">[<a href="#T06:30:16" id="T06:30:16"><abbr title="2011-06-22T06:30:16+00:00">06:30:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Russ: there was early pentiums that desoldered themselves...</q></li>
+<li class="message">[<a href="#T06:30:18" id="T06:30:18"><abbr title="2011-06-22T06:30:18+00:00">06:30:18</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>its a classic</q></li>
+<li class="quit">[<a href="#T06:30:39" id="T06:30:39"><abbr title="2011-06-22T06:30:39+00:00">06:30:39</abbr></a>] <span>* peabody124 (~peabody12@c-98-196-22-185.hsd1.tx.comcast.net) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T06:31:06" id="T06:31:06"><abbr title="2011-06-22T06:31:06+00:00">06:31:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wtf is with all the toolchain questions of late</q></li>
+<li class="message">[<a href="#T06:31:21" id="T06:31:21"><abbr title="2011-06-22T06:31:21+00:00">06:31:21</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: maybe ppl use a late toolchain</q></li>
+<li class="message">[<a href="#T06:31:25" id="T06:31:25"><abbr title="2011-06-22T06:31:25+00:00">06:31:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and want a leet one now</q></li>
+<li class="message">[<a href="#T06:31:51" id="T06:31:51"><abbr title="2011-06-22T06:31:51+00:00">06:31:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I still use a 2008 toolchain and it works</q></li>
+<li class="message">[<a href="#T06:32:02" id="T06:32:02"><abbr title="2011-06-22T06:32:02+00:00">06:32:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>which reminds me to call google and tell them to remove embinux from their index :)</q></li>
+<li class="message">[<a href="#T06:32:14" id="T06:32:14"><abbr title="2011-06-22T06:32:14+00:00">06:32:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ds2: toolchains are like racing stripes</q></li>
+<li class="message">[<a href="#T06:32:51" id="T06:32:51"><abbr title="2011-06-22T06:32:51+00:00">06:32:51</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>ds2: DNI resistor added to nRESET into FPGA...</q></li>
+<li class="message">[<a href="#T06:33:05" id="T06:33:05"><abbr title="2011-06-22T06:33:05+00:00">06:33:05</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>does that make compiler optimization options like airbrushed flames then?</q></li>
+<li class="join">[<a href="#T06:33:24" id="T06:33:24"><abbr title="2011-06-22T06:33:24+00:00">06:33:24</abbr></a>] <span>* cheesejaguar (47ca7382@gateway/web/freenode/ip.71.202.115.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:33:50" id="T06:33:50"><abbr title="2011-06-22T06:33:50+00:00">06:33:50</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>g'nite.</q></li>
+<li class="message">[<a href="#T06:33:52" id="T06:33:52"><abbr title="2011-06-22T06:33:52+00:00">06:33:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is all done with neon </q></li>
+<li class="quit">[<a href="#T06:34:05" id="T06:34:05"><abbr title="2011-06-22T06:34:05+00:00">06:34:05</abbr></a>] <span>* emeb (~ericb@ip70-190-178-49.ph.ph.cox.net) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T06:34:26" id="T06:34:26"><abbr title="2011-06-22T06:34:26+00:00">06:34:26</abbr></a>] &lt;<cite>cheesejaguar</cite>&gt; <q>Anyone know when a future version of the Beagleboard might come out? Not just a new revision but faster or whatever</q></li>
+<li class="message">[<a href="#T06:34:44" id="T06:34:44"><abbr title="2011-06-22T06:34:44+00:00">06:34:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, there will be whatever versions eventually</q></li>
+<li class="message">[<a href="#T06:34:45" id="T06:34:45"><abbr title="2011-06-22T06:34:45+00:00">06:34:45</abbr></a>] &lt;<cite>cheesejaguar</cite>&gt; <q>I'm gonna put an order for 3 xM's to upgrade the 3 C4's my company is using, but didn't want to do so if it's soon</q></li>
+<li class="message">[<a href="#T06:34:56" id="T06:34:56"><abbr title="2011-06-22T06:34:56+00:00">06:34:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cheesejaguar: dont count on soon</q></li>
+<li class="message">[<a href="#T06:35:01" id="T06:35:01"><abbr title="2011-06-22T06:35:01+00:00">06:35:01</abbr></a>] &lt;<cite>cheesejaguar</cite>&gt; <q>gotcha, thanks</q></li>
+<li class="message">[<a href="#T06:35:46" id="T06:35:46"><abbr title="2011-06-22T06:35:46+00:00">06:35:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>next BB will be released aapl style, 1mio produced and stockpiled and jkridner will say on irc "one more thing..."</q></li>
+<li class="message">[<a href="#T06:36:33" id="T06:36:33"><abbr title="2011-06-22T06:36:33+00:00">06:36:33</abbr></a>] &lt;<cite>cheesejaguar</cite>&gt; <q>one more thing = OMAP 4? :D</q></li>
+<li class="message">[<a href="#T06:36:45" id="T06:36:45"><abbr title="2011-06-22T06:36:45+00:00">06:36:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>omap4 is so last year</q></li>
+<li class="quit">[<a href="#T06:36:51" id="T06:36:51"><abbr title="2011-06-22T06:36:51+00:00">06:36:51</abbr></a>] <span>* Azad (~Azad@122.166.11.13) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T06:37:34" id="T06:37:34"><abbr title="2011-06-22T06:37:34+00:00">06:37:34</abbr></a>] &lt;<cite>cheesejaguar</cite>&gt; <q>I know omap5 is out, but the beagle is still using 3</q></li>
+<li class="quit">[<a href="#T06:37:55" id="T06:37:55"><abbr title="2011-06-22T06:37:55+00:00">06:37:55</abbr></a>] <span>* eFfeM1 (~frans@a2038.upc-a.chello.nl) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T06:38:17" id="T06:38:17"><abbr title="2011-06-22T06:38:17+00:00">06:38:17</abbr></a>] <span>* eFfeM (~frans@a2038.upc-a.chello.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:38:22" id="T06:38:22"><abbr title="2011-06-22T06:38:22+00:00">06:38:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>james!</q></li>
+<li class="quit">[<a href="#T06:42:57" id="T06:42:57"><abbr title="2011-06-22T06:42:57+00:00">06:42:57</abbr></a>] <span>* almost_anna (~aad@89.23.194.117) Quit (Quit: almost_anna)</span></li>
+<li class="quit">[<a href="#T06:44:47" id="T06:44:47"><abbr title="2011-06-22T06:44:47+00:00">06:44:47</abbr></a>] <span>* cheesejaguar (47ca7382@gateway/web/freenode/ip.71.202.115.130) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T06:50:54" id="T06:50:54"><abbr title="2011-06-22T06:50:54+00:00">06:50:54</abbr></a>] <span>* balestrino (~balestrin@illegal-use-181-112.dimnp.unipi.it) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-06-22T06:50:54+00:00">06:50:54</abbr>] <span>* aarti (~aarti@122.166.11.13) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T06:51:27" id="T06:51:27"><abbr title="2011-06-22T06:51:27+00:00">06:51:27</abbr></a>] <span>* aarti (~aarti@122.166.11.13) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:57:04" id="T06:57:04"><abbr title="2011-06-22T06:57:04+00:00">06:57:04</abbr></a>] <span>* almost_anna (~aad@89.23.194.117) has joined #beagle</span></li>
