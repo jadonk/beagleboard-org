@@ -859,3 +859,38 @@
 <li class="message">[<a href="#T18:59:18" id="T18:59:18"><abbr title="2011-06-28T18:59:18+00:00">18:59:18</abbr></a>] &lt;<cite>aayush</cite>&gt; <q>is there any way to redirect the kernel to run a certain program in beagleboard</q></li>
 <li class="quit">[<a href="#T18:59:32" id="T18:59:32"><abbr title="2011-06-28T18:59:32+00:00">18:59:32</abbr></a>] <span>* porcupine (5318b0db@gateway/web/freenode/ip.83.24.176.219) Quit (Ping timeout: 252 seconds)</span></li>
 <li class="message">[<a href="#T18:59:38" id="T18:59:38"><abbr title="2011-06-28T18:59:38+00:00">18:59:38</abbr></a>] &lt;<cite>koen</cite>&gt; <q>init=l33t4pp</q></li>
+<li class="message">[<a href="#T19:00:04" id="T19:00:04"><abbr title="2011-06-28T19:00:04+00:00">19:00:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>doh: -bash: l33t4pp: command not found</q></li>
+<li class="quit">[<a href="#T19:08:18" id="T19:08:18"><abbr title="2011-06-28T19:08:18+00:00">19:08:18</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-btheqpblyykrmayb) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T19:08:51" id="T19:08:51"><abbr title="2011-06-28T19:08:51+00:00">19:08:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is always ways.</q></li>
+<li class="join">[<a href="#T19:09:15" id="T19:09:15"><abbr title="2011-06-28T19:09:15+00:00">19:09:15</abbr></a>] <span>* Johnson (~lj@180.151.40.131) has joined #beagleboard</span></li>
+<li class="nick-change">[<a href="#T19:09:37" id="T19:09:37"><abbr title="2011-06-28T19:09:37+00:00">19:09:37</abbr></a>] <span>* Johnson is now known as Guest54519</span></li>
+<li class="message">[<a href="#T19:23:53" id="T19:23:53"><abbr title="2011-06-28T19:23:53+00:00">19:23:53</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>if you have the means</q></li>
+<li class="quit">[<a href="#T19:25:05" id="T19:25:05"><abbr title="2011-06-28T19:25:05+00:00">19:25:05</abbr></a>] <span>* Guest54519 (~lj@180.151.40.131) Quit (Quit: Ex-Chat)</span></li>
+<li class="quit">[<a href="#T19:26:29" id="T19:26:29"><abbr title="2011-06-28T19:26:29+00:00">19:26:29</abbr></a>] <span>* jayabharath_ (~jayabhara@nat/ti/x-aqgyfdlewstisgyd) Quit (Quit: bye)</span></li>
+<li class="join">[<a href="#T19:26:49" id="T19:26:49"><abbr title="2011-06-28T19:26:49+00:00">19:26:49</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-iooqslxulpslnspw) has joined #beagle</span></li>
+<li class="join">[<a href="#T19:29:08" id="T19:29:08"><abbr title="2011-06-28T19:29:08+00:00">19:29:08</abbr></a>] <span>* holoturoide (~eder@189.85.129.37) has joined #beagle</span></li>
+<li class="quit">[<a href="#T19:32:20" id="T19:32:20"><abbr title="2011-06-28T19:32:20+00:00">19:32:20</abbr></a>] <span>* DarrenE (~darreneth@nat/ti/x-ctdrmibkjepxywck) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T19:35:50" id="T19:35:50"><abbr title="2011-06-28T19:35:50+00:00">19:35:50</abbr></a>] <span>* brolin (~brolin@nat216.udea.edu.co) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T19:40:09" id="T19:40:09"><abbr title="2011-06-28T19:40:09+00:00">19:40:09</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>If I were to compile my kernel with an initramfs , how would "init" know which rootfs to mount, does the kernel pass it root= ?</q></li>
+<li class="message">[<a href="#T19:44:06" id="T19:44:06"><abbr title="2011-06-28T19:44:06+00:00">19:44:06</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>it can check /proc/cmdline?</q></li>
+<li class="message">[<a href="#T19:44:07" id="T19:44:07"><abbr title="2011-06-28T19:44:07+00:00">19:44:07</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>ah I see, kernel passes ROOT_DEVICE to init</q></li>
+<li class="message">[<a href="#T19:44:35" id="T19:44:35"><abbr title="2011-06-28T19:44:35+00:00">19:44:35</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>dm8tbr, yeah true. Actually that's how it sets ROOT_DEVICE</q></li>
+<li class="message">[<a href="#T19:44:39" id="T19:44:39"><abbr title="2011-06-28T19:44:39+00:00">19:44:39</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>ty</q></li>
+<li class="action">[<a href="#T19:46:18" id="T19:46:18"><abbr title="2011-06-28T19:46:18+00:00">19:46:18</abbr></a>] <span>* dm8tbr is scared to realize that he knows that because he rewrote an initramfs conceptually :-/</span></li>
+<li class="message">[<a href="#T19:47:20" id="T19:47:20"><abbr title="2011-06-28T19:47:20+00:00">19:47:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you need an initramfs, you're doing it wrong</q></li>
+<li class="message">[<a href="#T19:48:20" id="T19:48:20"><abbr title="2011-06-28T19:48:20+00:00">19:48:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*g*</q></li>
+<li class="action">[<a href="#T19:48:37" id="T19:48:37"><abbr title="2011-06-28T19:48:37+00:00">19:48:37</abbr></a>] <span>* dm8tbr would agree with that if kexec would be working</span></li>
+<li class="message">[<a href="#T19:49:14" id="T19:49:14"><abbr title="2011-06-28T19:49:14+00:00">19:49:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you mean "if kexec would work on these crappy old vendor kernels"</q></li>
+<li class="message">[<a href="#T19:49:25" id="T19:49:25"><abbr title="2011-06-28T19:49:25+00:00">19:49:25</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>unfortunately I'm working on someone elses image and they seem to have stuffed all their modules into /lib/modules in a initramfs, nothing in the rootfs. I have no clue why</q></li>
+<li class="message">[<a href="#T19:49:35" id="T19:49:35"><abbr title="2011-06-28T19:49:35+00:00">19:49:35</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>koen: we tried on 3.0rc too, no dice</q></li>
+<li class="message">[<a href="#T19:49:43" id="T19:49:43"><abbr title="2011-06-28T19:49:43+00:00">19:49:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ah, the mumbojumbo initramfs</q></li>
+<li class="message">[<a href="#T19:49:55" id="T19:49:55"><abbr title="2011-06-28T19:49:55+00:00">19:49:55</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>koen, oh ok, so is that what is called :P</q></li>
+<li class="message">[<a href="#T19:50:08" id="T19:50:08"><abbr title="2011-06-28T19:50:08+00:00">19:50:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>dm8tbr: did you report the problem to l-o? TOny is keen on having kexec work</q></li>
+<li class="message">[<a href="#T19:50:33" id="T19:50:33"><abbr title="2011-06-28T19:50:33+00:00">19:50:33</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>koen: I'll talk to they guy who's doing the actual kernel work</q></li>
+<li class="message">[<a href="#T19:50:40" id="T19:50:40"><abbr title="2011-06-28T19:50:40+00:00">19:50:40</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>koen, do you the point in them doing it that way?</q></li>
+<li class="message">[<a href="#T19:50:51" id="T19:50:51"><abbr title="2011-06-28T19:50:51+00:00">19:50:51</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>*do you know</q></li>
+<li class="message">[<a href="#T19:51:00" id="T19:51:00"><abbr title="2011-06-28T19:51:00+00:00">19:51:00</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>cargo cult?</q></li>
+<li class="message">[<a href="#T19:51:18" id="T19:51:18"><abbr title="2011-06-28T19:51:18+00:00">19:51:18</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>'debian does it too'?</q></li>
+<li class="message">[<a href="#T19:51:32" id="T19:51:32"><abbr title="2011-06-28T19:51:32+00:00">19:51:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>initramfs is just fine</q></li>
+<li class="message">[<a href="#T19:51:42" id="T19:51:42"><abbr title="2011-06-28T19:51:42+00:00">19:51:42</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>:P</q></li>
+<li class="join">[<a href="#T19:55:26" id="T19:55:26"><abbr title="2011-06-28T19:55:26+00:00">19:55:26</abbr></a>] <span>* phantoxe (~destroy@a95-92-86-197.cpe.netcabo.pt) has joined #beagle</span></li>
