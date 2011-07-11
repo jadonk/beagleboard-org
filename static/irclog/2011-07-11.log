@@ -578,3 +578,106 @@
 <li class="message">[<a href="#T19:54:59" id="T19:54:59"><abbr title="2011-07-11T19:54:59+00:00">19:54:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>sakoman_: the preferred one is the on tglx is working on :)</q></li>
 <li class="message">[<a href="#T19:55:14" id="T19:55:14"><abbr title="2011-07-11T19:55:14+00:00">19:55:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>sakoman_: but usually a customer picks one at random and then insists you must support it</q></li>
 <li class="message">[<a href="#T19:56:50" id="T19:56:50"><abbr title="2011-07-11T19:56:50+00:00">19:56:50</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>koen: I need one that supports EMC</q></li>
+<li class="message">[<a href="#T20:05:14" id="T20:05:14"><abbr title="2011-07-11T20:05:14+00:00">20:05:14</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>I'd like to order some foo with a bit of bar and it has to work 100% 24/7</q></li>
+<li class="message">[<a href="#T20:08:22" id="T20:08:22"><abbr title="2011-07-11T20:08:22+00:00">20:08:22</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>did gpio 4 change in the revisiion from xM rev B to rev C</q></li>
+<li class="message">[<a href="#T20:08:30" id="T20:08:30"><abbr title="2011-07-11T20:08:30+00:00">20:08:30</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>I can no longer seem to export it</q></li>
+<li class="message">[<a href="#T20:08:37" id="T20:08:37"><abbr title="2011-07-11T20:08:37+00:00">20:08:37</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>running 2.6.39</q></li>
+<li class="message">[<a href="#T20:08:48" id="T20:08:48"><abbr title="2011-07-11T20:08:48+00:00">20:08:48</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>(trying to make use of the usr btn)</q></li>
+<li class="message">[<a href="#T20:09:14" id="T20:09:14"><abbr title="2011-07-11T20:09:14+00:00">20:09:14</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>I have a rev B with 2.6.35 that exports fine when I echo 4 &gt; /sys/class/gpio/export </q></li>
+<li class="message">[<a href="#T20:11:27" id="T20:11:27"><abbr title="2011-07-11T20:11:27+00:00">20:11:27</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>since they're different kernels it could very well be a kernel issue</q></li>
+<li class="message">[<a href="#T20:12:15" id="T20:12:15"><abbr title="2011-07-11T20:12:15+00:00">20:12:15</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>cipher: the board file for 2.6.39 configures gpiobuttons for gpio4 on xm</q></li>
+<li class="message">[<a href="#T20:14:09" id="T20:14:09"><abbr title="2011-07-11T20:14:09+00:00">20:14:09</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>sakoman_: can you expand on that, I'm not sure what that means exactly</q></li>
+<li class="quit">[<a href="#T20:14:36" id="T20:14:36"><abbr title="2011-07-11T20:14:36+00:00">20:14:36</abbr></a>] <span>* AxMountain (~AxMountai@spaceman.csbnet.se) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T20:15:06" id="T20:15:06"><abbr title="2011-07-11T20:15:06+00:00">20:15:06</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>cipher: it means that the kernel is using that gpio</q></li>
+<li class="message">[<a href="#T20:15:16" id="T20:15:16"><abbr title="2011-07-11T20:15:16+00:00">20:15:16</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>so I can't use it?</q></li>
+<li class="message">[<a href="#T20:15:20" id="T20:15:20"><abbr title="2011-07-11T20:15:20+00:00">20:15:20</abbr></a>] &lt;<cite>koen</cite>&gt; <q>sakoman_: ah, for you taig?</q></li>
+<li class="message">[<a href="#T20:15:22" id="T20:15:22"><abbr title="2011-07-11T20:15:22+00:00">20:15:22</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>or is it on a different gpio #</q></li>
+<li class="join">[<abbr title="2011-07-11T20:15:22+00:00">20:15:22</abbr>] <span>* woglinde (~heinold@g229047017.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:16:50" id="T20:16:50"><abbr title="2011-07-11T20:16:50+00:00">20:16:50</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>cipher: <a href="http://groups.google.com/group/beagleboard/browse_thread/thread/4ec424c4db0cce6f">http://groups.google.com/group/beagleboard/browse_thread/thread/4ec424c4db0cce6f</a></q></li>
+<li class="message">[<a href="#T20:18:17" id="T20:18:17"><abbr title="2011-07-11T20:18:17+00:00">20:18:17</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>that seemed like a patch for an older kernel ver, since 2.6.35 was working fine and now 2.6.39 isn't, for me anyway</q></li>
+<li class="message">[<a href="#T20:18:24" id="T20:18:24"><abbr title="2011-07-11T20:18:24+00:00">20:18:24</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>and it sounded like they got the fix from 2.6.39</q></li>
+<li class="message">[<a href="#T20:19:11" id="T20:19:11"><abbr title="2011-07-11T20:19:11+00:00">20:19:11</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>I did find a briefing that says: won???t work if kernel has allocated the GPIO already as an event, so you???d need an</q></li>
+<li class="message">[<a href="#T20:19:14" id="T20:19:14"><abbr title="2011-07-11T20:19:14+00:00">20:19:14</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>older kernel to do this (or just point to an expansion header pin)</q></li>
+<li class="message">[<a href="#T20:19:24" id="T20:19:24"><abbr title="2011-07-11T20:19:24+00:00">20:19:24</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>so now I understand</q></li>
+<li class="message">[<a href="#T20:20:22" id="T20:20:22"><abbr title="2011-07-11T20:20:22+00:00">20:20:22</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>cipher: good, i'll be asking you for advice when I ever get a XM ;)</q></li>
+<li class="message">[<a href="#T20:20:50" id="T20:20:50"><abbr title="2011-07-11T20:20:50+00:00">20:20:50</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>I have lots of XMs, rev A, B C</q></li>
+<li class="message">[<a href="#T20:21:32" id="T20:21:32"><abbr title="2011-07-11T20:21:32+00:00">20:21:32</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>what I've gathered now is that I'm kind of in a crappy situation. I liked 2.6.39 because it fixed an issue with rev C vs rev B powering the USB hub correctly</q></li>
+<li class="message">[<a href="#T20:21:39" id="T20:21:39"><abbr title="2011-07-11T20:21:39+00:00">20:21:39</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>but I don't like that my user button is now gone</q></li>
+<li class="message">[<a href="#T20:21:54" id="T20:21:54"><abbr title="2011-07-11T20:21:54+00:00">20:21:54</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>for the user button I therefore liked 2.6.35 :(</q></li>
+<li class="action">[<a href="#T20:22:34" id="T20:22:34"><abbr title="2011-07-11T20:22:34+00:00">20:22:34</abbr></a>] <span>* djlewis_ wonders what device took over gpio4</span></li>
+<li class="message">[<a href="#T20:23:25" id="T20:23:25"><abbr title="2011-07-11T20:23:25+00:00">20:23:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>why you dont fix it?</q></li>
+<li class="message">[<a href="#T20:24:19" id="T20:24:19"><abbr title="2011-07-11T20:24:19+00:00">20:24:19</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>cipher: the user button should be available as a gpio_button event</q></li>
+<li class="message">[<a href="#T20:25:48" id="T20:25:48"><abbr title="2011-07-11T20:25:48+00:00">20:25:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>stock evdev</q></li>
+<li class="message">[<a href="#T20:26:08" id="T20:26:08"><abbr title="2011-07-11T20:26:08+00:00">20:26:08</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>sakoman_: you mean they're somehow trying to make this easier for me to do?</q></li>
+<li class="quit">[<a href="#T20:26:20" id="T20:26:20"><abbr title="2011-07-11T20:26:20+00:00">20:26:20</abbr></a>] <span>* Darren_E (~darreneth@nat/ti/x-pihzbkensrxlkdvw) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T20:26:30" id="T20:26:30"><abbr title="2011-07-11T20:26:30+00:00">20:26:30</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>cipher: I suspect that was the idea :-)</q></li>
+<li class="message">[<a href="#T20:27:08" id="T20:27:08"><abbr title="2011-07-11T20:27:08+00:00">20:27:08</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>well that sounds a little better then :-)</q></li>
+<li class="message">[<a href="#T20:29:14" id="T20:29:14"><abbr title="2011-07-11T20:29:14+00:00">20:29:14</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T20:29:23" id="T20:29:23"><abbr title="2011-07-11T20:29:23+00:00">20:29:23</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>I found something nice in /dev/input/by-path</q></li>
+<li class="message">[<a href="#T20:29:34" id="T20:29:34"><abbr title="2011-07-11T20:29:34+00:00">20:29:34</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>platform-gpio-keys-event</q></li>
+<li class="message">[<a href="#T20:30:53" id="T20:30:53"><abbr title="2011-07-11T20:30:53+00:00">20:30:53</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>well that's a lot better than the way I used to have to get user button presses</q></li>
+<li class="message">[<a href="#T20:31:01" id="T20:31:01"><abbr title="2011-07-11T20:31:01+00:00">20:31:01</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>don't have to poll now, wonderful :-)</q></li>
+<li class="message">[<a href="#T20:31:19" id="T20:31:19"><abbr title="2011-07-11T20:31:19+00:00">20:31:19</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>sakoman_: thanks :-)</q></li>
+<li class="message">[<a href="#T20:31:48" id="T20:31:48"><abbr title="2011-07-11T20:31:48+00:00">20:31:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*g*</q></li>
+<li class="message">[<a href="#T20:31:58" id="T20:31:58"><abbr title="2011-07-11T20:31:58+00:00">20:31:58</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>cipher: <a href="http://www.sakoman.com/OMAP/how-to-use-the-buttons-on-omap-development-boards.html">http://www.sakoman.com/OMAP/how-to-use-the-buttons-on-omap-development-boards.html</a></q></li>
+<li class="message">[<a href="#T20:32:51" id="T20:32:51"><abbr title="2011-07-11T20:32:51+00:00">20:32:51</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>sakoman_: it's like... you've seen the future</q></li>
+<li class="message">[<a href="#T20:32:59" id="T20:32:59"><abbr title="2011-07-11T20:32:59+00:00">20:32:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T20:33:00" id="T20:33:00"><abbr title="2011-07-11T20:33:00+00:00">20:33:00</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>so what's it like living in the future of 2.6.39 :-)</q></li>
+<li class="message">[<a href="#T20:33:09" id="T20:33:09"><abbr title="2011-07-11T20:33:09+00:00">20:33:09</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>I used to have to export the gpio manually</q></li>
+<li class="message">[<a href="#T20:33:37" id="T20:33:37"><abbr title="2011-07-11T20:33:37+00:00">20:33:37</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>sakoman_: lives on the bleeding edge :)</q></li>
+<li class="message">[<a href="#T20:33:42" id="T20:33:42"><abbr title="2011-07-11T20:33:42+00:00">20:33:42</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>cipher: heh, 2.6.39 is the past for me now -- working on 3.0 :-)</q></li>
+<li class="message">[<a href="#T20:33:47" id="T20:33:47"><abbr title="2011-07-11T20:33:47+00:00">20:33:47</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>oh man</q></li>
+<li class="message">[<a href="#T20:33:52" id="T20:33:52"><abbr title="2011-07-11T20:33:52+00:00">20:33:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>2.6.39-00098-g9531d6b here</q></li>
+<li class="message">[<a href="#T20:34:04" id="T20:34:04"><abbr title="2011-07-11T20:34:04+00:00">20:34:04</abbr></a>] &lt;<cite>wmat</cite>&gt; <q>wouldn't it be great if everyone worked on the bleeding edge</q></li>
+<li class="action">[<a href="#T20:34:27" id="T20:34:27"><abbr title="2011-07-11T20:34:27+00:00">20:34:27</abbr></a>] <span>* sakoman_ works on whatever a client is willing to pay for :-)</span></li>
+<li class="action">[<a href="#T20:34:33" id="T20:34:33"><abbr title="2011-07-11T20:34:33+00:00">20:34:33</abbr></a>] <span>* wmat too</span></li>
+<li class="action">[<a href="#T20:34:44" id="T20:34:44"><abbr title="2011-07-11T20:34:44+00:00">20:34:44</abbr></a>] <span>* cipher works for beers</span></li>
+<li class="message">[<a href="#T20:34:58" id="T20:34:58"><abbr title="2011-07-11T20:34:58+00:00">20:34:58</abbr></a>] &lt;<cite>sakoman_</cite>&gt; <q>though I may draw the line at 2.6.20!</q></li>
+<li class="message">[<a href="#T20:35:12" id="T20:35:12"><abbr title="2011-07-11T20:35:12+00:00">20:35:12</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>sakoman *g*</q></li>
+<li class="join">[<a href="#T20:35:29" id="T20:35:29"><abbr title="2011-07-11T20:35:29+00:00">20:35:29</abbr></a>] <span>* scrp3l (~scrp3l@201.250.183.28) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:35:31" id="T20:35:31"><abbr title="2011-07-11T20:35:31+00:00">20:35:31</abbr></a>] &lt;<cite>wmat</cite>&gt; <q>that would depend on the pile of money</q></li>
+<li class="message">[<a href="#T20:35:41" id="T20:35:41"><abbr title="2011-07-11T20:35:41+00:00">20:35:41</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>cipher: beer is part of a balanced diet :)</q></li>
+<li class="message">[<a href="#T20:35:49" id="T20:35:49"><abbr title="2011-07-11T20:35:49+00:00">20:35:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>beer is food</q></li>
+<li class="message">[<a href="#T20:36:56" id="T20:36:56"><abbr title="2011-07-11T20:36:56+00:00">20:36:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the new TI AMSDK is using 2.6.39 for beagleboard</q></li>
+<li class="message">[<a href="#T20:37:13" id="T20:37:13"><abbr title="2011-07-11T20:37:13+00:00">20:37:13</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>amsdk?</q></li>
+<li class="message">[<a href="#T20:37:20" id="T20:37:20"><abbr title="2011-07-11T20:37:20+00:00">20:37:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>what the hell</q></li>
+<li class="message">[<a href="#T20:37:23" id="T20:37:23"><abbr title="2011-07-11T20:37:23+00:00">20:37:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ARM MPU SDK</q></li>
+<li class="message">[<a href="#T20:37:28" id="T20:37:28"><abbr title="2011-07-11T20:37:28+00:00">20:37:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not a dvsdk</q></li>
+<li class="message">[<a href="#T20:37:33" id="T20:37:33"><abbr title="2011-07-11T20:37:33+00:00">20:37:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ne marketing name</q></li>
+<li class="message">[<a href="#T20:37:39" id="T20:37:39"><abbr title="2011-07-11T20:37:39+00:00">20:37:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ups new</q></li>
+<li class="message">[<a href="#T20:37:41" id="T20:37:41"><abbr title="2011-07-11T20:37:41+00:00">20:37:41</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T20:38:06" id="T20:38:06"><abbr title="2011-07-11T20:38:06+00:00">20:38:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I wonder what the divison got payed for this invention</q></li>
+<li class="message">[<a href="#T20:38:47" id="T20:38:47"><abbr title="2011-07-11T20:38:47+00:00">20:38:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the ARM MPU Business Unit</q></li>
+<li class="action">[<a href="#T20:38:50" id="T20:38:50"><abbr title="2011-07-11T20:38:50+00:00">20:38:50</abbr></a>] <span>* wmat posted a MVL SDK using 2.6.39 for the xm</span></li>
+<li class="message">[<a href="#T20:39:05" id="T20:39:05"><abbr title="2011-07-11T20:39:05+00:00">20:39:05</abbr></a>] &lt;<cite>wmat</cite>&gt; <q>it probably only works for me though ;)</q></li>
+<li class="message">[<a href="#T20:40:30" id="T20:40:30"><abbr title="2011-07-11T20:40:30+00:00">20:40:30</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>MPU is a test in germany, you need to do if you got caught drunken in the car</q></li>
+<li class="message">[<a href="#T20:41:10" id="T20:41:10"><abbr title="2011-07-11T20:41:10+00:00">20:41:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>miles per unit (alcohol)</q></li>
+<li class="message">[<a href="#T20:41:50" id="T20:41:50"><abbr title="2011-07-11T20:41:50+00:00">20:41:50</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm when not if</q></li>
+<li class="message">[<a href="#T20:41:57" id="T20:41:57"><abbr title="2011-07-11T20:41:57+00:00">20:41:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>poor english again</q></li>
+<li class="quit">[<a href="#T20:42:12" id="T20:42:12"><abbr title="2011-07-11T20:42:12+00:00">20:42:12</abbr></a>] <span>* risca (~risca@h241n2-n-a31.ias.bredband.telia.com) Quit (Quit: L??mnar)</span></li>
+<li class="message">[<a href="#T20:42:25" id="T20:42:25"><abbr title="2011-07-11T20:42:25+00:00">20:42:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>is drunk driving that common in germany?</q></li>
+<li class="message">[<a href="#T20:42:31" id="T20:42:31"><abbr title="2011-07-11T20:42:31+00:00">20:42:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that everybody gets caught doing it?</q></li>
+<li class="message">[<a href="#T20:42:42" id="T20:42:42"><abbr title="2011-07-11T20:42:42+00:00">20:42:42</abbr></a>] &lt;<cite>koen</cite>&gt; <q>is .de a 0% country?</q></li>
+<li class="message">[<a href="#T20:42:48" id="T20:42:48"><abbr title="2011-07-11T20:42:48+00:00">20:42:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T20:42:57" id="T20:42:57"><abbr title="2011-07-11T20:42:57+00:00">20:42:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>one beer or so</q></li>
+<li class="message">[<a href="#T20:46:39" id="T20:46:39"><abbr title="2011-07-11T20:46:39+00:00">20:46:39</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>how do germans manage under such tyranny</q></li>
+<li class="message">[<a href="#T20:47:00" id="T20:47:00"><abbr title="2011-07-11T20:47:00+00:00">20:47:00</abbr></a>] &lt;<cite>grund</cite>&gt; <q>taxi</q></li>
+<li class="message">[<a href="#T20:47:05" id="T20:47:05"><abbr title="2011-07-11T20:47:05+00:00">20:47:05</abbr></a>] &lt;<cite>djlewis_</cite>&gt; <q>hehe</q></li>
+<li class="quit">[<a href="#T20:47:54" id="T20:47:54"><abbr title="2011-07-11T20:47:54+00:00">20:47:54</abbr></a>] <span>* drakkan1000 (~drakkan@93-36-200-161.ip61.fastwebnet.it) Quit (Quit: Ex-Chat)</span></li>
+<li class="message">[<a href="#T20:48:45" id="T20:48:45"><abbr title="2011-07-11T20:48:45+00:00">20:48:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://www.gbe-bund.de/gbe10/owards.prc_show?p_id=/1375.gif">http://www.gbe-bund.de/gbe10/owards.prc_show?p_id=/1375.gif</a></q></li>
+<li class="message">[<a href="#T20:48:54" id="T20:48:54"><abbr title="2011-07-11T20:48:54+00:00">20:48:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>france tops germany</q></li>
+<li class="action">[<a href="#T20:49:46" id="T20:49:46"><abbr title="2011-07-11T20:49:46+00:00">20:49:46</abbr></a>] <span>* mru lives next to a dozen pubs/bars, works pretty well</span></li>
+<li class="message">[<a href="#T20:51:00" id="T20:51:00"><abbr title="2011-07-11T20:51:00+00:00">20:51:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>also, taxis are cheap and plentiful here</q></li>
+<li class="message">[<a href="#T20:51:03" id="T20:51:03"><abbr title="2011-07-11T20:51:03+00:00">20:51:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>unlike paris</q></li>
+<li class="message">[<a href="#T20:51:15" id="T20:51:15"><abbr title="2011-07-11T20:51:15+00:00">20:51:15</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>woglinde: iirc germany is pretty tough on DUIs, right?</q></li>
+<li class="message">[<a href="#T20:51:59" id="T20:51:59"><abbr title="2011-07-11T20:51:59+00:00">20:51:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>dui's?</q></li>
+<li class="message">[<a href="#T20:52:09" id="T20:52:09"><abbr title="2011-07-11T20:52:09+00:00">20:52:09</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>sorry american term there</q></li>
+<li class="message">[<a href="#T20:52:14" id="T20:52:14"><abbr title="2011-07-11T20:52:14+00:00">20:52:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>mru taxi taxi?</q></li>
+<li class="message">[<a href="#T20:52:21" id="T20:52:21"><abbr title="2011-07-11T20:52:21+00:00">20:52:21</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>drunk drivers</q></li>
+<li class="message">[<a href="#T20:52:38" id="T20:52:38"><abbr title="2011-07-11T20:52:38+00:00">20:52:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>DUI sounds so civilised</q></li>
+<li class="message">[<a href="#T20:52:42" id="T20:52:42"><abbr title="2011-07-11T20:52:42+00:00">20:52:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>drunk driving is what it is</q></li>
+<li class="message">[<a href="#T20:52:58" id="T20:52:58"><abbr title="2011-07-11T20:52:58+00:00">20:52:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>driving under influence</q></li>
+<li class="message">[<a href="#T20:53:09" id="T20:53:09"><abbr title="2011-07-11T20:53:09+00:00">20:53:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>iKnow</q></li>
+<li class="message">[<a href="#T20:53:15" id="T20:53:15"><abbr title="2011-07-11T20:53:15+00:00">20:53:15</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>djlewis_: i always find other countries limits kinda strange. like 0.03 or 0.05, i think every american driver would be a drunk driver in .eu :)...</q></li>
+<li class="message">[<a href="#T20:53:48" id="T20:53:48"><abbr title="2011-07-11T20:53:48+00:00">20:53:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's quite simply really</q></li>
+<li class="message">[<a href="#T20:53:57" id="T20:53:57"><abbr title="2011-07-11T20:53:57+00:00">20:53:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you intend to drink, don't drive *to* the bar</q></li>
