@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="309" name="faq" prototype="Page" created="1218456920368" lastModified="1306867004774">
+  <hopobject id="309" name="faq" prototype="Page" created="1218456920368" lastModified="1310591761089">
   <hop:parent idref="121" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <beagleirclog>000000</beagleirclog>
-    <http_language>en-us,en;q=0.5</http_language>
+    <http_language>en-us,en;q=0.8,en-gb;q=0.5,ja;q=0.3</http_language>
     <uri>faq</uri>
-    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0.1) Gecko/20100101 Firefox/4.0.1</http_browser>
-    <time type="date">31.05.2011 13:36:44 CDT</time>
-    <hopsession>127.0.0.99.150.135.1co3awmasoiad</hopsession>
+    <http_browser>Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0</http_browser>
+    <time type="date">13.07.2011 16:16:01 CDT</time>
+    <hopsession>127.0.0.198.47.16.wl8xjaifo26q</hopsession>
     <body>
  &lt;h1&gt;Frequently Asked Questions&lt;/h1&gt;
  &lt;p&gt;
@@ -18,14 +18,8 @@
   &lt;a href=&quot;http://elinux.org/BeagleBoardFAQ&quot;&gt;http://elinux.org/BeagleBoardFAQ.&lt;/a&gt;
   Below are some answers to the top questions out of that FAQ.
  &lt;/p&gt;
+ &lt;h2&gt;General Questions&lt;/h2&gt;
  &lt;ol&gt;
-  &lt;li&gt;
-   &lt;b&gt;Why doesn&apos;t my BeagleBoard or BeagleBoard-xM work when I power it over USB?&lt;/b&gt;
-   &lt;ul&gt;
-    &lt;li&gt;The first and primary reason is that the validation image shipped with the board today is based on a 2.6.32 kernel with a bug in the USB interrupt management.  This bug has been fixed on newer kernels, but those kernels have not yet been added to the BeagleBoard&apos;s validation image.  A patched version of the 2.6.39 kernel is currently being implemented to support BeagleBoard validation and this bug is expected to go away.&lt;/li&gt;
-    &lt;li&gt;A secondary reason is that the default boot condition of the kernel is to power up peripheral interfaces like the EHCI-based USB host on the xM and DVI-D on both pre-xM and xM boards.  The USB specification requires devices to power up under 100mA (~500mW) and the USB hub circuit on the BeagleBoard-xM may consume around 100mA itself.  Modification is required to the kernel to avoid powering up this section of the board until sufficient current is confirmed by the software.  In practice, most host machines will provide sufficient power, despite this violation of the specification.  You should consider your power requirements before attempting to utilize USB to power your BeagleBoard or BeagleBoard-xM.&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/li&gt;
   &lt;li&gt;
    &lt;b&gt;What is the BeagleBoard-xM?&lt;/b&gt;
    &lt;ul&gt;
@@ -35,6 +29,127 @@
      &lt;a href=&quot;/hardware-xM&quot;&gt;xM product details page&lt;/a&gt;
      for more details on the BeagleBoard-xM
     &lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+ &lt;/ol&gt;
+ &lt;h2&gt;USB related&lt;/h2&gt;
+ &lt;ol&gt;
+  &lt;li&gt;
+   &lt;b&gt;Why doesn&apos;t my BeagleBoard or BeagleBoard-xM work when I power it over USB?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;The first and primary reason is that the validation image shipped with the board today is based on a 2.6.32 kernel with a bug in the USB interrupt management.  This bug has been fixed on newer kernels, but those kernels have not yet been added to the BeagleBoard&apos;s validation image.  A patched version of the 2.6.39 kernel is currently being implemented to support BeagleBoard validation and this bug is expected to go away.&lt;/li&gt;
+    &lt;li&gt;A secondary reason is that the default boot condition of the kernel is to power up peripheral interfaces like the EHCI-based USB host on the xM and DVI-D on both pre-xM and xM boards.  The USB specification requires devices to power up under 100mA (~500mW) and the USB hub circuit on the BeagleBoard-xM may consume around 100mA itself.  Modification is required to the kernel to avoid powering up this section of the board until sufficient current is confirmed by the software.  In practice, most host machines will provide sufficient power, despite this violation of the specification.  You should consider your power requirements before attempting to utilize USB to power your BeagleBoard or BeagleBoard-xM.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;b&gt;How can I get the OTG port working in host mode?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     There is a jumper on the back of the board that you can blob some solder on or you can use a cable that has the pins shorted. You can read more about this in the System Reference Manual at
+     &lt;a href=&quot;http://beagleboard.org/hardware/design&quot;&gt;http://beagleboard.org/hardware/design&lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+ &lt;/ol&gt;
+ &lt;h2&gt;Serial port related&lt;/h2&gt;
+ &lt;ol&gt;
+  &lt;li&gt;
+   &lt;b&gt;Why am I not getting output or not able to type into the serial port?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     For a non-xM board, buy the
+     &lt;a href=&quot;http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail?lang=en&amp;amp;site=US&amp;amp;name=BBC01-ND&quot;&gt;recommended serial adapter.&lt;/a&gt;
+     Unlike earlier versions, the xM boards utilize a straight-through DB9 male-to-female serial cable.
+    &lt;/li&gt;
+    &lt;li&gt;
+     Ensure that you are connecting:
+     &lt;br/&gt;
+     RX to pin 2
+     &lt;br/&gt;
+     TX to pin 3, and
+     &lt;br/&gt;
+     GND to pin 5.
+    &lt;/li&gt;
+    &lt;li&gt;
+     Follow the steps outlined by the
+     &lt;a href=&quot;http://elinux.org/BeagleBoardFAQ#Serial_connection_.231&quot;&gt;community FAQ&lt;/a&gt;
+     and the
+     &lt;a href=&quot;http://www.beagleboard.org/uploads/BBSRM_6.pdf&quot;&gt;system reference manual.&lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;b&gt;I built my own custom kernel but I don&apos;t see any boot messages?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;You may be passing the wrong bootargs to the kernel. Linux kernels &gt;= 2.6.36 are using ttyOn instead ttySn for the serials on OMAP, so set console=ttyO2,115200n8 in U-boot.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+ &lt;/ol&gt;
+ &lt;h2&gt;Software&lt;/h2&gt;
+ &lt;ol&gt;
+  &lt;li&gt;
+   &lt;b&gt;Is BeagleBoard.org Linux only?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Beagle Board as such is not associated to Linux only.&lt;/li&gt;
+    &lt;li&gt;BeagleBoard.org gives links and pointers (including source) for data related to Beagle. If someone has done good work on Beagle with a propriety OS, we will give links to their site from BeagleBoard.org, it’s left to them if they want to open their source or not.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;b&gt;What software can be downloaded directly from BeagleBoard.org?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     Software is not generally hosted directly on BeagleBoard.org.  Instead, a diagnostic image is hosted on
+     &lt;a href=&quot;http://code.google.com/p/beagleboard&quot;&gt;http://code.google.com/p/beagleboard&lt;/a&gt;
+     and pointers are given to projects that provide additional Beagle software via the
+     &lt;a href=&quot;/project&quot;&gt;projects page.&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     The kernel at
+     &lt;a href=&quot;http://code.google.com/p/beagleboard&quot;&gt;http://code.google.com/p/beagleboard&lt;/a&gt;
+     is called &quot;diagnostic&quot; because this kernel is just used as reference to check out the board.  New development should be done against the
+     &lt;a href=&quot;http://muru.com/linux/omap/&quot;&gt;linux-omap git tree kernel.&lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;b&gt;I built my own kernel from mainline, but a particular function doesn&apos;t seem to work, what do I do?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     There are certain patches required to make the kernel aware of different types of boards and configure the chips properly. Some of these patches are not merged into mainline for various reasons. These patches are automatically applied when you build a kernel for beagleboard with OpenEmbedded. You can use quilt to
+     &lt;a href=&quot;http://elinux.org/BeagleBoardLinuxKernel&quot;&gt;apply these patches to your kernel&lt;/a&gt;
+     .
+    &lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;b&gt;Can I do feature X with my beagleboard on Linux?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Yes, you could possibly do anything you would normally to with a regular Linux system. The BeagleBoard is just like a any other machine.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+ &lt;/ol&gt;
+ &lt;h2&gt;Miscellaneous&lt;/h2&gt;
+ &lt;ol&gt;
+  &lt;li&gt;
+   &lt;b&gt;Why is there no Ethernet port?&lt;/b&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Because it can be easily added via USB, but that has now been done on the xM boards for a small additional increase in cost.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;b&gt;How do I connect a keyboard and mouse?&lt;/b&gt;
+   &lt;br/&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     If you are attempting to do so via the OTG port, be certain that you are using a mini-
+     &lt;b&gt;
+      &lt;i&gt;A&lt;/i&gt;
+     &lt;/b&gt;
+     to standard-A USB adapter.  Mini-B adapters will not work without additional hardware modifications.  Recommended peripherals can be found on
+     &lt;a href=&quot;/hardware&quot;&gt;the product details page.&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;It is also necessary to build support for USB OTG host mode into your kernel.&lt;/li&gt;
+    &lt;li&gt;The port can only supply 100mA, so you might need a powered hub for power-hungry keyboards and mice&lt;/li&gt;
    &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -60,6 +175,9 @@
     &lt;/li&gt;
    &lt;/ul&gt;
   &lt;/li&gt;
+ &lt;/ol&gt;
+ &lt;h2&gt;IRC and Mailing list&lt;/h2&gt;
+ &lt;ol&gt;
   &lt;li&gt;
    &lt;b&gt;What is the best way to get my question(s) answered?&lt;/b&gt;
    &lt;ul&gt;
@@ -98,77 +216,6 @@
      and they may recommend that you purchase at
      &lt;a href=&quot;http://www.ti.com/omap35x&quot;&gt;TI EVM&lt;/a&gt;
      to be able to answer your queries.
-    &lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;b&gt;Why am I not getting output or not able to type into the serial port?&lt;/b&gt;
-   &lt;ul&gt;
-    &lt;li&gt;
-     For a non-xM board, buy the
-     &lt;a href=&quot;http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail?lang=en&amp;amp;site=US&amp;amp;name=BBC01-ND&quot;&gt;recommended serial adapter.&lt;/a&gt;
-     Unlike earlier versions, the xM boards utilize a straight-through DB9 male-to-female serial cable.
-    &lt;/li&gt;
-    &lt;li&gt;
-     Ensure that you are connecting:
-     &lt;br/&gt;
-     RX to pin 2
-     &lt;br/&gt;
-     TX to pin 3, and
-     &lt;br/&gt;
-     GND to pin 5.
-    &lt;/li&gt;
-    &lt;li&gt;
-     Follow the steps outlined by the
-     &lt;a href=&quot;http://elinux.org/BeagleBoardFAQ#Serial_connection_.231&quot;&gt;community FAQ&lt;/a&gt;
-     and the
-     &lt;a href=&quot;http://www.beagleboard.org/uploads/BBSRM_6.pdf&quot;&gt;system reference manual.&lt;/a&gt;
-    &lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;b&gt;Why is there no Ethernet port?&lt;/b&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Because it can be easily added via USB, but that has now been done on the xM boards for a small additional increase in cost.&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;b&gt;How do I connect a keyboard and mouse?&lt;/b&gt;
-   &lt;br/&gt;
-   &lt;ul&gt;
-    &lt;li&gt;
-     If you are attempting to do so via the OTG port, be certain that you are using a mini-
-     &lt;b&gt;
-      &lt;i&gt;A&lt;/i&gt;
-     &lt;/b&gt;
-     to standard-A USB adapter.  Mini-B adapters will not work without additional hardware modifications.  Recommended peripherals can be found on
-     &lt;a href=&quot;/hardware&quot;&gt;the product details page.&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;It is also necessary to build support for USB OTG host mode into your kernel.&lt;/li&gt;
-    &lt;li&gt;The port can only supply 100mA, so you might need a powered hub for power-hungry keyboards and mice&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;b&gt;Is BeagleBoard.org Linux only?&lt;/b&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Beagle Board as such is not associated to Linux only.&lt;/li&gt;
-    &lt;li&gt;BeagleBoard.org gives links and pointers (including source) for data related to Beagle. If someone has done good work on Beagle with a propriety OS, we will give links to their site from BeagleBoard.org, it’s left to them if they want to open their source or not.&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;b&gt;What software can be downloaded directly from BeagleBoard.org?&lt;/b&gt;
-   &lt;ul&gt;
-    &lt;li&gt;
-     Software is not generally hosted directly on BeagleBoard.org.  Instead, a diagnostic image is hosted on
-     &lt;a href=&quot;http://code.google.com/p/beagleboard&quot;&gt;http://code.google.com/p/beagleboard&lt;/a&gt;
-     and pointers are given to projects that provide additional Beagle software via the
-     &lt;a href=&quot;/project&quot;&gt;projects page.&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-     The kernel at
-     &lt;a href=&quot;http://code.google.com/p/beagleboard&quot;&gt;http://code.google.com/p/beagleboard&lt;/a&gt;
-     is called &quot;diagnostic&quot; because this kernel is just used as reference to check out the board.  New development should be done against the
-     &lt;a href=&quot;http://muru.com/linux/omap/&quot;&gt;linux-omap git tree kernel.&lt;/a&gt;
     &lt;/li&gt;
    &lt;/ul&gt;
   &lt;/li&gt;
