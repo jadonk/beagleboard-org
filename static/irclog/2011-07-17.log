@@ -94,3 +94,48 @@
 <li class="join">[<a href="#T14:46:26" id="T14:46:26"><abbr title="2011-07-17T14:46:26+00:00">14:46:26</abbr></a>] <span>* tlab (~tlab@c-98-223-20-100.hsd1.in.comcast.net) has joined #beagle</span></li>
 <li class="quit">[<a href="#T14:48:23" id="T14:48:23"><abbr title="2011-07-17T14:48:23+00:00">14:48:23</abbr></a>] <span>* tlab (~tlab@c-98-223-20-100.hsd1.in.comcast.net) Quit (Client Quit)</span></li>
 <li class="join">[<a href="#T14:48:53" id="T14:48:53"><abbr title="2011-07-17T14:48:53+00:00">14:48:53</abbr></a>] <span>* tlab (~tlab@c-98-223-20-100.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:09:21" id="T15:09:21"><abbr title="2011-07-17T15:09:21+00:00">15:09:21</abbr></a>] <span>* RobotGuy (~n7pkt@c-24-21-60-205.hsd1.or.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:25:40" id="T15:25:40"><abbr title="2011-07-17T15:25:40+00:00">15:25:40</abbr></a>] <span>* MikeLester (~mike@75-104-106-13.cust.wildblue.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T15:36:27" id="T15:36:27"><abbr title="2011-07-17T15:36:27+00:00">15:36:27</abbr></a>] <span>* cfriedt (4a3b2d05@gateway/web/freenode/ip.74.59.45.5) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T15:41:34" id="T15:41:34"><abbr title="2011-07-17T15:41:34+00:00">15:41:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: glibc or eglibc?</q></li>
+<li class="message">[<a href="#T15:42:04" id="T15:42:04"><abbr title="2011-07-17T15:42:04+00:00">15:42:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>glibc, didn't check eglibc</q></li>
+<li class="message">[<a href="#T15:42:10" id="T15:42:10"><abbr title="2011-07-17T15:42:10+00:00">15:42:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I doubt they've fixed all that nonsense</q></li>
+<li class="message">[<a href="#T15:42:12" id="T15:42:12"><abbr title="2011-07-17T15:42:12+00:00">15:42:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton: am35xx usually means shiva, which has a different dma block for musb</q></li>
+<li class="message">[<a href="#T15:42:37" id="T15:42:37"><abbr title="2011-07-17T15:42:37+00:00">15:42:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: still tons of nonsense, but their release branch gets a lot of backports</q></li>
+<li class="action">[<a href="#T15:42:49" id="T15:42:49"><abbr title="2011-07-17T15:42:49+00:00">15:42:49</abbr></a>] <span>* koen is still at eglibc 2.12</span></li>
+<li class="message">[<a href="#T15:43:14" id="T15:43:14"><abbr title="2011-07-17T15:43:14+00:00">15:43:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm talking about "typedef int int64_t __attribute__ ((__mode__ (__DI__)));"</q></li>
+<li class="message">[<a href="#T15:43:23" id="T15:43:23"><abbr title="2011-07-17T15:43:23+00:00">15:43:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's pure nonsense</q></li>
+<li class="message">[<a href="#T15:43:49" id="T15:43:49"><abbr title="2011-07-17T15:43:49+00:00">15:43:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's no advantage whatsoever over using long long as supported by every compiler ever made</q></li>
+<li class="message">[<a href="#T15:43:55" id="T15:43:55"><abbr title="2011-07-17T15:43:55+00:00">15:43:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>including gcc</q></li>
+<li class="message">[<a href="#T15:44:13" id="T15:44:13"><abbr title="2011-07-17T15:44:13+00:00">15:44:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and the sane version is in another half of an ifdef</q></li>
+<li class="message">[<a href="#T15:44:42" id="T15:44:42"><abbr title="2011-07-17T15:44:42+00:00">15:44:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>tms470 defines __GNUC__ but doesn't support that attribute</q></li>
+<li class="message">[<a href="#T15:44:57" id="T15:44:57"><abbr title="2011-07-17T15:44:57+00:00">15:44:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>guess what happens if you define all the intN_t types as int</q></li>
+<li class="message">[<a href="#T15:45:29" id="T15:45:29"><abbr title="2011-07-17T15:45:29+00:00">15:45:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm wasn the arm port on glibc chassed anyway?</q></li>
+<li class="message">[<a href="#T15:45:40" id="T15:45:40"><abbr title="2011-07-17T15:45:40+00:00">15:45:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>chassed?</q></li>
+<li class="message">[<a href="#T15:45:57" id="T15:45:57"><abbr title="2011-07-17T15:45:57+00:00">15:45:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm let me find a better translation</q></li>
+<li class="message">[<a href="#T15:47:55" id="T15:47:55"><abbr title="2011-07-17T15:47:55+00:00">15:47:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>sacked</q></li>
+<li class="message">[<a href="#T15:48:01" id="T15:48:01"><abbr title="2011-07-17T15:48:01+00:00">15:48:01</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>in some terms</q></li>
+<li class="message">[<a href="#T15:48:07" id="T15:48:07"><abbr title="2011-07-17T15:48:07+00:00">15:48:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm at glibc 2.11 btw</q></li>
+<li class="message">[<a href="#T15:48:14" id="T15:48:14"><abbr title="2011-07-17T15:48:14+00:00">15:48:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the later ones either don't build or don't work</q></li>
+<li class="message">[<a href="#T15:48:28" id="T15:48:28"><abbr title="2011-07-17T15:48:28+00:00">15:48:28</abbr></a>] &lt;<cite>mru</cite>&gt; <q>on any system</q></li>
+<li class="message">[<a href="#T15:49:09" id="T15:49:09"><abbr title="2011-07-17T15:49:09+00:00">15:49:09</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>so better use eglibc?</q></li>
+<li class="message">[<a href="#T15:50:25" id="T15:50:25"><abbr title="2011-07-17T15:50:25+00:00">15:50:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>same codebase, same crap</q></li>
+<li class="message">[<a href="#T15:50:42" id="T15:50:42"><abbr title="2011-07-17T15:50:42+00:00">15:50:42</abbr></a>] &lt;<cite>koen</cite>&gt; <q>woglinde: historically drepper has tried to get rid of everything !x86</q></li>
+<li class="message">[<a href="#T15:51:10" id="T15:51:10"><abbr title="2011-07-17T15:51:10+00:00">15:51:10</abbr></a>] &lt;<cite>koen</cite>&gt; <q>woglinde: hence the 'ports' tarballs</q></li>
+<li class="message">[<a href="#T15:54:36" id="T15:54:36"><abbr title="2011-07-17T15:54:36+00:00">15:54:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>mru write your own</q></li>
+<li class="message">[<a href="#T15:55:04" id="T15:55:04"><abbr title="2011-07-17T15:55:04+00:00">15:55:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I deleted the offending lines</q></li>
+<li class="quit">[<a href="#T15:55:16" id="T15:55:16"><abbr title="2011-07-17T15:55:16+00:00">15:55:16</abbr></a>] <span>* RobotGuy (~n7pkt@c-24-21-60-205.hsd1.or.comcast.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T15:56:08" id="T15:56:08"><abbr title="2011-07-17T15:56:08+00:00">15:56:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>this guy tries it or so</q></li>
+<li class="message">[<a href="#T15:56:10" id="T15:56:10"><abbr title="2011-07-17T15:56:10+00:00">15:56:10</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q><a href="http://davidz25.blogspot.com/2011/07/writing-c-library-intro-conclusion-and.html">http://davidz25.blogspot.com/2011/07/writing-c-library-intro-conclusion-and.html</a></q></li>
+<li class="message">[<a href="#T15:57:03" id="T15:57:03"><abbr title="2011-07-17T15:57:03+00:00">15:57:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's about writing a library in C</q></li>
+<li class="message">[<a href="#T15:57:08" id="T15:57:08"><abbr title="2011-07-17T15:57:08+00:00">15:57:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not about writing THE C library</q></li>
+<li class="message">[<a href="#T15:57:15" id="T15:57:15"><abbr title="2011-07-17T15:57:15+00:00">15:57:15</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>uhm</q></li>
+<li class="message">[<a href="#T15:57:17" id="T15:57:17"><abbr title="2011-07-17T15:57:17+00:00">15:57:17</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay</q></li>
+<li class="action">[<a href="#T15:57:21" id="T15:57:21"><abbr title="2011-07-17T15:57:21+00:00">15:57:21</abbr></a>] <span>* woglinde goes hiding</span></li>
+<li class="message">[<a href="#T15:57:48" id="T15:57:48"><abbr title="2011-07-17T15:57:48+00:00">15:57:48</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>been there, done that, hiding...</q></li>
+<li class="message">[<a href="#T15:58:19" id="T15:58:19"><abbr title="2011-07-17T15:58:19+00:00">15:58:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>woglinde: david got fed up with crappy libs, so he wrote that series of blog posts</q></li>
+<li class="message">[<a href="#T15:58:53" id="T15:58:53"><abbr title="2011-07-17T15:58:53+00:00">15:58:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I doubt it will help</q></li>
+<li class="message">[<a href="#T15:59:09" id="T15:59:09"><abbr title="2011-07-17T15:59:09+00:00">15:59:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>it is mostly about the fact that lots of basic stuff is already out there (hash function, RPC, IPC, networking) and you should reuse that</q></li>
+<li class="message">[<a href="#T15:59:43" id="T15:59:43"><abbr title="2011-07-17T15:59:43+00:00">15:59:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>except most of those libs suck</q></li>
+<li class="message">[<a href="#T15:59:51" id="T15:59:51"><abbr title="2011-07-17T15:59:51+00:00">15:59:51</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>koen a smart programmar would that</q></li>
+<li class="message">[<a href="#T15:59:55" id="T15:59:55"><abbr title="2011-07-17T15:59:55+00:00">15:59:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>+do</q></li>
