@@ -64,3 +64,27 @@
 <li class="message">[<a href="#T01:59:19" id="T01:59:19"><abbr title="2011-07-19T01:59:19+00:00">01:59:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no, 1 EEPROM can eat all 8 addresses</q></li>
 <li class="message">[<a href="#T01:59:28" id="T01:59:28"><abbr title="2011-07-19T01:59:28+00:00">01:59:28</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>with a CPLD to randomly remap the addresses.</q></li>
 <li class="message">[<a href="#T01:59:36" id="T01:59:36"><abbr title="2011-07-19T01:59:36+00:00">01:59:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the extra addresses are used to access the extra memory</q></li>
+<li class="message">[<a href="#T02:02:08" id="T02:02:08"><abbr title="2011-07-19T02:02:08+00:00">02:02:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>emeb: which CPLDs would work for that?</q></li>
+<li class="message">[<a href="#T02:03:52" id="T02:03:52"><abbr title="2011-07-19T02:03:52+00:00">02:03:52</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>ds2: dunno - probably any would work. </q></li>
+<li class="message">[<a href="#T02:04:10" id="T02:04:10"><abbr title="2011-07-19T02:04:10+00:00">02:04:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>all of them offer Open drain drivers?</q></li>
+<li class="message">[<a href="#T02:04:19" id="T02:04:19"><abbr title="2011-07-19T02:04:19+00:00">02:04:19</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>I've used xc95 series parts - they're cheap &amp; easy to use.</q></li>
+<li class="message">[<a href="#T02:06:40" id="T02:06:40"><abbr title="2011-07-19T02:06:40+00:00">02:06:40</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>don't see OC outputs on that family tho</q></li>
+<li class="message">[<a href="#T02:06:59" id="T02:06:59"><abbr title="2011-07-19T02:06:59+00:00">02:06:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that'd make it hard to do I2C stuff</q></li>
+<li class="message">[<a href="#T02:07:30" id="T02:07:30"><abbr title="2011-07-19T02:07:30+00:00">02:07:30</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>can simulate by driving Hi-Z/low, but the tristate enable isn't as flexible as the data line.</q></li>
+<li class="message">[<a href="#T02:08:01" id="T02:08:01"><abbr title="2011-07-19T02:08:01+00:00">02:08:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>can that be done w/o glitching?</q></li>
+<li class="message">[<a href="#T02:08:55" id="T02:08:55"><abbr title="2011-07-19T02:08:55+00:00">02:08:55</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>why would it glitch? set data input to tri-state buffer to 0, use enable line to select state. No glitches.</q></li>
+<li class="message">[<a href="#T02:09:22" id="T02:09:22"><abbr title="2011-07-19T02:09:22+00:00">02:09:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah, yes</q></li>
+<li class="message">[<a href="#T02:10:44" id="T02:10:44"><abbr title="2011-07-19T02:10:44+00:00">02:10:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wonder if setup and hold time for the high-z enable is any worse then the data lines</q></li>
+<li class="message">[<a href="#T02:10:56" id="T02:10:56"><abbr title="2011-07-19T02:10:56+00:00">02:10:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>probally don't matter at 400KHz though</q></li>
+<li class="message">[<a href="#T02:11:01" id="T02:11:01"><abbr title="2011-07-19T02:11:01+00:00">02:11:01</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>usually different, but not radically so.</q></li>
+<li class="message">[<a href="#T02:12:09" id="T02:12:09"><abbr title="2011-07-19T02:12:09+00:00">02:12:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>try it, you have HW </q></li>
+<li class="message">[<a href="#T02:12:21" id="T02:12:21"><abbr title="2011-07-19T02:12:21+00:00">02:12:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>a EEPROM slave IP</q></li>
+<li class="quit">[<a href="#T02:13:44" id="T02:13:44"><abbr title="2011-07-19T02:13:44+00:00">02:13:44</abbr></a>] <span>* emeb (~ericb@ip72-223-93-59.ph.ph.cox.net) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T02:19:03" id="T02:19:03"><abbr title="2011-07-19T02:19:03+00:00">02:19:03</abbr></a>] <span>* djerome (~djerome@ip24-251-138-141.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T02:22:11" id="T02:22:11"><abbr title="2011-07-19T02:22:11+00:00">02:22:11</abbr></a>] <span>* raster (raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="quit">[<a href="#T02:35:30" id="T02:35:30"><abbr title="2011-07-19T02:35:30+00:00">02:35:30</abbr></a>] <span>* Ceeo (82409ca8@gateway/web/freenode/ip.130.64.156.168) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T02:40:47" id="T02:40:47"><abbr title="2011-07-19T02:40:47+00:00">02:40:47</abbr></a>] <span>* chr9 (~chr@77.209.172.75) has joined #beagle</span></li>
+<li class="join">[<a href="#T02:43:10" id="T02:43:10"><abbr title="2011-07-19T02:43:10+00:00">02:43:10</abbr></a>] <span>* MikeLester (~mike@75-104-106-13.cust.wildblue.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T02:44:09" id="T02:44:09"><abbr title="2011-07-19T02:44:09+00:00">02:44:09</abbr></a>] <span>* jorge__ (~chr@77.209.209.65) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T02:45:20" id="T02:45:20"><abbr title="2011-07-19T02:45:20+00:00">02:45:20</abbr></a>] <span>* MikeLester (~mike@75-104-106-13.cust.wildblue.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T02:55:50" id="T02:55:50"><abbr title="2011-07-19T02:55:50+00:00">02:55:50</abbr></a>] <span>* tegila (~tegila@189-015-142-067.xd-dynamic.ctbcnetsuper.com.br) Quit (Quit: Leaving.)</span></li>
