@@ -114,3 +114,24 @@
 <li class="quit">[<a href="#T07:55:41" id="T07:55:41"><abbr title="2011-07-20T07:55:41+00:00">07:55:41</abbr></a>] <span>* bgamari (~ben@gamari.physics.umass.edu) Quit (Ping timeout: 240 seconds)</span></li>
 <li class="message">[<a href="#T07:57:41" id="T07:57:41"><abbr title="2011-07-20T07:57:41+00:00">07:57:41</abbr></a>] &lt;<cite>l4</cite>&gt; <q>hi, is it "legal" to pass cmem allocated memory to v4l2 as user-ptr buffer?</q></li>
 <li class="message">[<a href="#T07:57:56" id="T07:57:56"><abbr title="2011-07-20T07:57:56+00:00">07:57:56</abbr></a>] &lt;<cite>l4</cite>&gt; <q>giving that it's outside kernel address space...</q></li>
+<li class="message">[<a href="#T08:18:30" id="T08:18:30"><abbr title="2011-07-20T08:18:30+00:00">08:18:30</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:21:03" id="T08:21:03"><abbr title="2011-07-20T08:21:03+00:00">08:21:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>i did that in the past</q></li>
+<li class="message">[<a href="#T08:22:47" id="T08:22:47"><abbr title="2011-07-20T08:22:47+00:00">08:22:47</abbr></a>] &lt;<cite>koen</cite>&gt; <q>_av500_: you win!</q></li>
+<li class="message">[<a href="#T08:22:51" id="T08:22:51"><abbr title="2011-07-20T08:22:51+00:00">08:22:51</abbr></a>] &lt;<cite>l4</cite>&gt; <q>i get a crash in v7_dma_inv_range with "Unable to handle kernel paging request" when i try to do that</q></li>
+<li class="message">[<a href="#T08:23:16" id="T08:23:16"><abbr title="2011-07-20T08:23:16+00:00">08:23:16</abbr></a>] &lt;<cite>l4</cite>&gt; <q>it's on overo with .34 though, are they that different?</q></li>
+<li class="message">[<a href="#T08:23:45" id="T08:23:45"><abbr title="2011-07-20T08:23:45+00:00">08:23:45</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>l4: i did that last time 2ys ago, so it could have changed</q></li>
+<li class="message">[<a href="#T08:24:06" id="T08:24:06"><abbr title="2011-07-20T08:24:06+00:00">08:24:06</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>on some .20ish kernels back then</q></li>
+<li class="message">[<a href="#T08:24:16" id="T08:24:16"><abbr title="2011-07-20T08:24:16+00:00">08:24:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and maybe I needed to patch them slightly :)</q></li>
+<li class="message">[<a href="#T08:24:18" id="T08:24:18"><abbr title="2011-07-20T08:24:18+00:00">08:24:18</abbr></a>] &lt;<cite>l4</cite>&gt; <q>i think it worked on .32 with beagle for me too...</q></li>
+<li class="message">[<a href="#T08:24:24" id="T08:24:24"><abbr title="2011-07-20T08:24:24+00:00">08:24:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T08:24:30" id="T08:24:30"><abbr title="2011-07-20T08:24:30+00:00">08:24:30</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>then you have a base to compare against</q></li>
+<li class="join">[<a href="#T08:27:13" id="T08:27:13"><abbr title="2011-07-20T08:27:13+00:00">08:27:13</abbr></a>] <span>* ant_work (~andrea@host6-80-static.42-85-b.business.telecomitalia.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:28:10" id="T08:28:10"><abbr title="2011-07-20T08:28:10+00:00">08:28:10</abbr></a>] &lt;<cite>l4</cite>&gt; <q>i suspect "fix for speculative prefetching", not sure if i could just remove that...</q></li>
+<li class="message">[<a href="#T08:30:05" id="T08:30:05"><abbr title="2011-07-20T08:30:05+00:00">08:30:05</abbr></a>] &lt;<cite>l4</cite>&gt; <q>at least i know it should work, thanks :)</q></li>
+<li class="join">[<a href="#T08:37:26" id="T08:37:26"><abbr title="2011-07-20T08:37:26+00:00">08:37:26</abbr></a>] <span>* jeybop (~jerome@wmh38-4-88-179-49-159.fbx.proxad.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:37:28" id="T08:37:28"><abbr title="2011-07-20T08:37:28+00:00">08:37:28</abbr></a>] &lt;<cite>jeybop</cite>&gt; <q>hi</q></li>
+<li class="message">[<a href="#T08:43:15" id="T08:43:15"><abbr title="2011-07-20T08:43:15+00:00">08:43:15</abbr></a>] &lt;<cite>jeybop</cite>&gt; <q>is there a recommended distribution for XBMC on the beagleboard? is there a distribution more uptodate with graphical accelerator?</q></li>
+<li class="quit">[<a href="#T08:43:59" id="T08:43:59"><abbr title="2011-07-20T08:43:59+00:00">08:43:59</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T08:44:41" id="T08:44:41"><abbr title="2011-07-20T08:44:41+00:00">08:44:41</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jeybop: only angstrom has the accelerated xbmc</q></li>
+<li class="message">[<a href="#T08:57:19" id="T08:57:19"><abbr title="2011-07-20T08:57:19+00:00">08:57:19</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>koen: used the IVA dsp acceleration?</q></li>
+<li class="message">[<a href="#T08:57:23" id="T08:57:23"><abbr title="2011-07-20T08:57:23+00:00">08:57:23</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>using</q></li>
