@@ -250,3 +250,128 @@
 <li class="message">[<a href="#T09:58:14" id="T09:58:14"><abbr title="2011-07-27T09:58:14+00:00">09:58:14</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>where can i add them</q></li>
 <li class="message">[<a href="#T09:58:27" id="T09:58:27"><abbr title="2011-07-27T09:58:27+00:00">09:58:27</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i installed as told as <a href="http://elinux.org/BeagleBoardBeginners">http://elinux.org/BeagleBoardBeginners</a></q></li>
 <li class="message">[<a href="#T09:59:27" id="T09:59:27"><abbr title="2011-07-27T09:59:27+00:00">09:59:27</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>if it booted as far as your pastebin indicates it's partitioned and formatted fine</q></li>
+<li class="message">[<a href="#T10:00:02" id="T10:00:02"><abbr title="2011-07-27T10:00:02+00:00">10:00:02</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>I think koen is referring to the rootfs files, not the format of the partitions</q></li>
+<li class="join">[<a href="#T10:00:41" id="T10:00:41"><abbr title="2011-07-27T10:00:41+00:00">10:00:41</abbr></a>] <span>* zz (90bb941b@gateway/web/freenode/ip.144.187.148.27) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:00:49" id="T10:00:49"><abbr title="2011-07-27T10:00:49+00:00">10:00:49</abbr></a>] &lt;<cite>zz</cite>&gt; <q>hi all</q></li>
+<li class="message">[<a href="#T10:00:54" id="T10:00:54"><abbr title="2011-07-27T10:00:54+00:00">10:00:54</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>cp MLO /mnt/sda1 $ cp u-boot.bin /mnt/sda1 $ cp uImage /mnt/sda1</q></li>
+<li class="message">[<a href="#T10:01:07" id="T10:01:07"><abbr title="2011-07-27T10:01:07+00:00">10:01:07</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>this three to first part</q></li>
+<li class="join">[<a href="#T10:01:17" id="T10:01:17"><abbr title="2011-07-27T10:01:17+00:00">10:01:17</abbr></a>] <span>* ericb2 (~X@unaffiliated/ericb2) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:01:22" id="T10:01:22"><abbr title="2011-07-27T10:01:22+00:00">10:01:22</abbr></a>] &lt;<cite>zz</cite>&gt; <q>who is right person to talk about /proc/meminfo on beagle ?</q></li>
+<li class="message">[<a href="#T10:01:35" id="T10:01:35"><abbr title="2011-07-27T10:01:35+00:00">10:01:35</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>that's the boot partition, not the rootfs</q></li>
+<li class="message">[<a href="#T10:01:44" id="T10:01:44"><abbr title="2011-07-27T10:01:44+00:00">10:01:44</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>Angstrom-beagle... to /media/boot</q></li>
+<li class="message">[<a href="#T10:01:49" id="T10:01:49"><abbr title="2011-07-27T10:01:49+00:00">10:01:49</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>modules... to /media/boot</q></li>
+<li class="message">[<a href="#T10:01:55" id="T10:01:55"><abbr title="2011-07-27T10:01:55+00:00">10:01:55</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>auh sorry</q></li>
+<li class="message">[<a href="#T10:02:08" id="T10:02:08"><abbr title="2011-07-27T10:02:08+00:00">10:02:08</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>both of them /media/Angstrom</q></li>
+<li class="join">[<a href="#T10:02:46" id="T10:02:46"><abbr title="2011-07-27T10:02:46+00:00">10:02:46</abbr></a>] <span>* panto (~panto@vfppp062038104093.dsl.hol.gr) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:03:02" id="T10:03:02"><abbr title="2011-07-27T10:03:02+00:00">10:03:02</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>should i untar modules to anywhere else?</q></li>
+<li class="message">[<a href="#T10:03:46" id="T10:03:46"><abbr title="2011-07-27T10:03:46+00:00">10:03:46</abbr></a>] &lt;<cite>zz</cite>&gt; <q>What is significance of Buffers field in /proc/meminfo ?</q></li>
+<li class="message">[<a href="#T10:04:02" id="T10:04:02"><abbr title="2011-07-27T10:04:02+00:00">10:04:02</abbr></a>] &lt;<cite>zz</cite>&gt; <q>and anybody let me know pls ?</q></li>
+<li class="message">[<a href="#T10:04:32" id="T10:04:32"><abbr title="2011-07-27T10:04:32+00:00">10:04:32</abbr></a>] &lt;<cite>zz</cite>&gt; <q>I gone thr. code and documentation but I am unable to get exact significance </q></li>
+<li class="message">[<a href="#T10:05:15" id="T10:05:15"><abbr title="2011-07-27T10:05:15+00:00">10:05:15</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>juhsis did they  put themselves into /lib/modules/2.6.32/kernel </q></li>
+<li class="message">[<a href="#T10:05:36" id="T10:05:36"><abbr title="2011-07-27T10:05:36+00:00">10:05:36</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T10:06:12" id="T10:06:12"><abbr title="2011-07-27T10:06:12+00:00">10:06:12</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>arch crypto drivers fs lib net sound</q></li>
+<li class="message">[<a href="#T10:06:22" id="T10:06:22"><abbr title="2011-07-27T10:06:22+00:00">10:06:22</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>files inside of kernel</q></li>
+<li class="message">[<a href="#T10:06:39" id="T10:06:39"><abbr title="2011-07-27T10:06:39+00:00">10:06:39</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>assuming that's the kernel version you're currently using</q></li>
+<li class="message">[<a href="#T10:06:59" id="T10:06:59"><abbr title="2011-07-27T10:06:59+00:00">10:06:59</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i dont know </q></li>
+<li class="message">[<a href="#T10:07:04" id="T10:07:04"><abbr title="2011-07-27T10:07:04+00:00">10:07:04</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i just downloaded </q></li>
+<li class="message">[<a href="#T10:07:46" id="T10:07:46"><abbr title="2011-07-27T10:07:46+00:00">10:07:46</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>but they are in /lib/modules/2.6.32/kernel</q></li>
+<li class="message">[<a href="#T10:08:04" id="T10:08:04"><abbr title="2011-07-27T10:08:04+00:00">10:08:04</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>in /lib/modules there is one more file</q></li>
+<li class="message">[<a href="#T10:08:11" id="T10:08:11"><abbr title="2011-07-27T10:08:11+00:00">10:08:11</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>2.6.36</q></li>
+<li class="message">[<a href="#T10:08:21" id="T10:08:21"><abbr title="2011-07-27T10:08:21+00:00">10:08:21</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>type uname -r it'll give your current version</q></li>
+<li class="message">[<a href="#T10:08:23" id="T10:08:23"><abbr title="2011-07-27T10:08:23+00:00">10:08:23</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>but there are no kernel inside</q></li>
+<li class="message">[<a href="#T10:09:46" id="T10:09:46"><abbr title="2011-07-27T10:09:46+00:00">10:09:46</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>2.6.36  </q></li>
+<li class="message">[<a href="#T10:10:02" id="T10:10:02"><abbr title="2011-07-27T10:10:02+00:00">10:10:02</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>wouw thats the problem i think :)</q></li>
+<li class="message">[<a href="#T10:10:16" id="T10:10:16"><abbr title="2011-07-27T10:10:16+00:00">10:10:16</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>because inside of 2.6.36 there are no kernel file</q></li>
+<li class="quit">[<a href="#T10:10:20" id="T10:10:20"><abbr title="2011-07-27T10:10:20+00:00">10:10:20</abbr></a>] <span>* ant_work (~andrea@host6-80-static.42-85-b.business.telecomitalia.it) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T10:11:22" id="T10:11:22"><abbr title="2011-07-27T10:11:22+00:00">10:11:22</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>will it fix the problem if i just copy kernel and paste to 2.6.36 ?</q></li>
+<li class="message">[<a href="#T10:11:25" id="T10:11:25"><abbr title="2011-07-27T10:11:25+00:00">10:11:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>juhsis: <a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a></q></li>
+<li class="message">[<a href="#T10:11:37" id="T10:11:37"><abbr title="2011-07-27T10:11:37+00:00">10:11:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>find there: MLO, uboot, uimage etcc</q></li>
+<li class="message">[<a href="#T10:11:39" id="T10:11:39"><abbr title="2011-07-27T10:11:39+00:00">10:11:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and rootfs</q></li>
+<li class="message">[<a href="#T10:12:33" id="T10:12:33"><abbr title="2011-07-27T10:12:33+00:00">10:12:33</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i cant see rootfs?</q></li>
+<li class="message">[<a href="#T10:13:00" id="T10:13:00"><abbr title="2011-07-27T10:13:00+00:00">10:13:00</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>the modules need to match exactly the kernel... as av500 pointed out, grab a consistent set from the demo files section</q></li>
+<li class="join">[<a href="#T10:13:03" id="T10:13:03"><abbr title="2011-07-27T10:13:03+00:00">10:13:03</abbr></a>] <span>* ant_work (~andrea@host6-80-static.42-85-b.business.telecomitalia.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:13:07" id="T10:13:07"><abbr title="2011-07-27T10:13:07+00:00">10:13:07</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>ahh ok it is Angstrom..rootfs</q></li>
+<li class="message">[<a href="#T10:13:10" id="T10:13:10"><abbr title="2011-07-27T10:13:10+00:00">10:13:10</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>it's the 169MB file at the top</q></li>
+<li class="message">[<a href="#T10:13:48" id="T10:13:48"><abbr title="2011-07-27T10:13:48+00:00">10:13:48</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>that one probably has the modules included</q></li>
+<li class="message">[<a href="#T10:14:17" id="T10:14:17"><abbr title="2011-07-27T10:14:17+00:00">10:14:17</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>yes but it is using 2.6.36</q></li>
+<li class="message">[<a href="#T10:14:23" id="T10:14:23"><abbr title="2011-07-27T10:14:23+00:00">10:14:23</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>the kernel version</q></li>
+<li class="message">[<a href="#T10:14:53" id="T10:14:53"><abbr title="2011-07-27T10:14:53+00:00">10:14:53</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>is it?</q></li>
+<li class="message">[<a href="#T10:14:55" id="T10:14:55"><abbr title="2011-07-27T10:14:55+00:00">10:14:55</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q> :/</q></li>
+<li class="message">[<a href="#T10:14:56" id="T10:14:56"><abbr title="2011-07-27T10:14:56+00:00">10:14:56</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>and this modules are: modules-2.6.32-r100c+gitr5fc29e7b2a76a64a739f857858ef0b98294aa155-beagleboard.tgz </q></li>
+<li class="message">[<a href="#T10:15:03" id="T10:15:03"><abbr title="2011-07-27T10:15:03+00:00">10:15:03</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>2.6.32</q></li>
+<li class="message">[<a href="#T10:15:59" id="T10:15:59"><abbr title="2011-07-27T10:15:59+00:00">10:15:59</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i need modules for 2.6.36 kernel</q></li>
+<li class="action">[<a href="#T10:16:16" id="T10:16:16"><abbr title="2011-07-27T10:16:16+00:00">10:16:16</abbr></a>] <span>* koen can't remember angstrom using a 2.6.36 kernel</span></li>
+<li class="message">[<a href="#T10:16:26" id="T10:16:26"><abbr title="2011-07-27T10:16:26+00:00">10:16:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>.32, .37, .39 and 3.0</q></li>
+<li class="message">[<a href="#T10:16:47" id="T10:16:47"><abbr title="2011-07-27T10:16:47+00:00">10:16:47</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>you can grab the matching uimage 2.6.32 at the bottom, but don't  forget to place uImage in /boot/ with the way the new uboot loads uImage</q></li>
+<li class="message">[<a href="#T10:17:12" id="T10:17:12"><abbr title="2011-07-27T10:17:12+00:00">10:17:12</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>auch </q></li>
+<li class="message">[<a href="#T10:17:19" id="T10:17:19"><abbr title="2011-07-27T10:17:19+00:00">10:17:19</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i didnt get the point thurbad</q></li>
+<li class="message">[<a href="#T10:17:26" id="T10:17:26"><abbr title="2011-07-27T10:17:26+00:00">10:17:26</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i didnt do it before </q></li>
+<li class="message">[<a href="#T10:17:32" id="T10:17:32"><abbr title="2011-07-27T10:17:32+00:00">10:17:32</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>can you explain bit more</q></li>
+<li class="message">[<a href="#T10:17:50" id="T10:17:50"><abbr title="2011-07-27T10:17:50+00:00">10:17:50</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>no, it doesn't use boot.scr anymore either</q></li>
+<li class="message">[<a href="#T10:18:42" id="T10:18:42"><abbr title="2011-07-27T10:18:42+00:00">10:18:42</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>uboot's default configuration expects uImage to be in /boot/uImage now</q></li>
+<li class="message">[<a href="#T10:19:15" id="T10:19:15"><abbr title="2011-07-27T10:19:15+00:00">10:19:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>juhsis: why 2.6.36?</q></li>
+<li class="message">[<a href="#T10:19:25" id="T10:19:25"><abbr title="2011-07-27T10:19:25+00:00">10:19:25</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>that one got me earlier tonight, first time I'd used this version of u-boot.bin</q></li>
+<li class="message">[<a href="#T10:19:44" id="T10:19:44"><abbr title="2011-07-27T10:19:44+00:00">10:19:44</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>because my kernel now 2.6.365</q></li>
+<li class="message">[<a href="#T10:19:46" id="T10:19:46"><abbr title="2011-07-27T10:19:46+00:00">10:19:46</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>.36</q></li>
+<li class="message">[<a href="#T10:21:04" id="T10:21:04"><abbr title="2011-07-27T10:21:04+00:00">10:21:04</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i downloaded this three files:</q></li>
+<li class="message">[<a href="#T10:21:07" id="T10:21:07"><abbr title="2011-07-27T10:21:07+00:00">10:21:07</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>uImage-2.6.32-r100c+gitr5fc29e7b2a76a64a739f857858ef0b98294aa155-beagleboard.multi-config-cpuidle-gether.bin</q></li>
+<li class="message">[<a href="#T10:21:14" id="T10:21:14"><abbr title="2011-07-27T10:21:14+00:00">10:21:14</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>u-boot.bin</q></li>
+<li class="message">[<a href="#T10:21:19" id="T10:21:19"><abbr title="2011-07-27T10:21:19+00:00">10:21:19</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>MLO</q></li>
+<li class="message">[<a href="#T10:21:30" id="T10:21:30"><abbr title="2011-07-27T10:21:30+00:00">10:21:30</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>any problem with them?</q></li>
+<li class="message">[<a href="#T10:21:53" id="T10:21:53"><abbr title="2011-07-27T10:21:53+00:00">10:21:53</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>those should be fine</q></li>
+<li class="message">[<a href="#T10:22:02" id="T10:22:02"><abbr title="2011-07-27T10:22:02+00:00">10:22:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>filename look ok to me</q></li>
+<li class="message">[<a href="#T10:22:07" id="T10:22:07"><abbr title="2011-07-27T10:22:07+00:00">10:22:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>+s</q></li>
+<li class="message">[<a href="#T10:22:27" id="T10:22:27"><abbr title="2011-07-27T10:22:27+00:00">10:22:27</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>will i change  "uImage-2.6.32-r100c+gitr5fc29e7b2a76a64a739f857858ef0b98294aa155-beagleboard.multi-config-cpuidle-gether.bin" this filename as "uImage" only?</q></li>
+<li class="message">[<a href="#T10:22:36" id="T10:22:36"><abbr title="2011-07-27T10:22:36+00:00">10:22:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T10:22:39" id="T10:22:39"><abbr title="2011-07-27T10:22:39+00:00">10:22:39</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T10:22:53" id="T10:22:53"><abbr title="2011-07-27T10:22:53+00:00">10:22:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or you tell uboot to load that filename :)</q></li>
+<li class="message">[<a href="#T10:23:07" id="T10:23:07"><abbr title="2011-07-27T10:23:07+00:00">10:23:07</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>better to change :)</q></li>
+<li class="action">[<a href="#T10:23:12" id="T10:23:12"><abbr title="2011-07-27T10:23:12+00:00">10:23:12</abbr></a>] <span>* koen remarks that there are clear instructions at the bottom of <a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a></span></li>
+<li class="message">[<a href="#T10:24:04" id="T10:24:04"><abbr title="2011-07-27T10:24:04+00:00">10:24:04</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>koen not sure if those remarks still all apply to the new u-boot.bin</q></li>
+<li class="message">[<a href="#T10:24:12" id="T10:24:12"><abbr title="2011-07-27T10:24:12+00:00">10:24:12</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>Angstrom-Beagleboard-demo-image-glibc-ipk-2011.1-beagleboard.rootfs</q></li>
+<li class="message">[<a href="#T10:24:16" id="T10:24:16"><abbr title="2011-07-27T10:24:16+00:00">10:24:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>thurbad: they do</q></li>
+<li class="message">[<a href="#T10:24:19" id="T10:24:19"><abbr title="2011-07-27T10:24:19+00:00">10:24:19</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>modules.tgz</q></li>
+<li class="message">[<a href="#T10:24:27" id="T10:24:27"><abbr title="2011-07-27T10:24:27+00:00">10:24:27</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>this to files also i downloaded</q></li>
+<li class="message">[<a href="#T10:24:35" id="T10:24:35"><abbr title="2011-07-27T10:24:35+00:00">10:24:35</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>to** = two</q></li>
+<li class="message">[<a href="#T10:24:48" id="T10:24:48"><abbr title="2011-07-27T10:24:48+00:00">10:24:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>juhsis: follow the instructions</q></li>
+<li class="message">[<a href="#T10:24:57" id="T10:24:57"><abbr title="2011-07-27T10:24:57+00:00">10:24:57</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i followed before :)</q></li>
+<li class="message">[<a href="#T10:25:10" id="T10:25:10"><abbr title="2011-07-27T10:25:10+00:00">10:25:10</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>I don't think they specifically conflict but moving the uImage from/boot into the boot partition may not be needed anymore</q></li>
+<li class="message">[<a href="#T10:25:55" id="T10:25:55"><abbr title="2011-07-27T10:25:55+00:00">10:25:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>thurbad: and it doesn't say to do that :)</q></li>
+<li class="message">[<a href="#T10:26:14" id="T10:26:14"><abbr title="2011-07-27T10:26:14+00:00">10:26:14</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>it does,step 4</q></li>
+<li class="message">[<a href="#T10:26:28" id="T10:26:28"><abbr title="2011-07-27T10:26:28+00:00">10:26:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Ensure all SD card filesystem operations have completed (ie. filesystem cache has flushed to SD card) and eject the SD card from your development machine. Most operating systems have a "Safely Remove" action to perform this from the Desktop. </q></li>
+<li class="message">[<a href="#T10:26:37" id="T10:26:37"><abbr title="2011-07-27T10:26:37+00:00">10:26:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>4. ^^^^</q></li>
+<li class="message">[<a href="#T10:27:11" id="T10:27:11"><abbr title="2011-07-27T10:27:11+00:00">10:27:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>thurbad: take the green pill to leave the alternate reality</q></li>
+<li class="message">[<a href="#T10:27:29" id="T10:27:29"><abbr title="2011-07-27T10:27:29+00:00">10:27:29</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>hmm, maybe I'm looking atacachedversion</q></li>
+<li class="message">[<a href="#T10:27:49" id="T10:27:49"><abbr title="2011-07-27T10:27:49+00:00">10:27:49</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>it says only copy MLO and u-boot to first part</q></li>
+<li class="message">[<a href="#T10:27:54" id="T10:27:54"><abbr title="2011-07-27T10:27:54+00:00">10:27:54</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>is it correct?</q></li>
+<li class="message">[<abbr title="2011-07-27T10:27:54+00:00">10:27:54</abbr>] &lt;<cite>thurbad</cite>&gt; <q>not sure why it would be cached</q></li>
+<li class="message">[<a href="#T10:28:01" id="T10:28:01"><abbr title="2011-07-27T10:28:01+00:00">10:28:01</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i did uImage also before</q></li>
+<li class="message">[<a href="#T10:28:53" id="T10:28:53"><abbr title="2011-07-27T10:28:53+00:00">10:28:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>juhsis:</q></li>
+<li class="message">[<a href="#T10:28:54" id="T10:28:54"><abbr title="2011-07-27T10:28:54+00:00">10:28:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>just</q></li>
+<li class="message">[<a href="#T10:28:55" id="T10:28:55"><abbr title="2011-07-27T10:28:55+00:00">10:28:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>follow</q></li>
+<li class="message">[<a href="#T10:28:57" id="T10:28:57"><abbr title="2011-07-27T10:28:57+00:00">10:28:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the</q></li>
+<li class="message">[<a href="#T10:28:59" id="T10:28:59"><abbr title="2011-07-27T10:28:59+00:00">10:28:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>instructions</q></li>
+<li class="join">[<a href="#T10:30:28" id="T10:30:28"><abbr title="2011-07-27T10:30:28+00:00">10:30:28</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:31:01" id="T10:31:01"><abbr title="2011-07-27T10:31:01+00:00">10:31:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>100fps!!</q></li>
+<li class="message">[<a href="#T10:31:04" id="T10:31:04"><abbr title="2011-07-27T10:31:04+00:00">10:31:04</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>got it :)</q></li>
+<li class="quit">[<a href="#T10:41:47" id="T10:41:47"><abbr title="2011-07-27T10:41:47+00:00">10:41:47</abbr></a>] <span>* ericb2 (~X@unaffiliated/ericb2) Quit (Quit: Success !!)</span></li>
+<li class="quit">[<a href="#T10:44:58" id="T10:44:58"><abbr title="2011-07-27T10:44:58+00:00">10:44:58</abbr></a>] <span>* siji (~siji@triband-mum-120.60.151.246.mtnl.net.in) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T10:50:54" id="T10:50:54"><abbr title="2011-07-27T10:50:54+00:00">10:50:54</abbr></a>] <span>* phdeswer (~philippe@a83-245-252-47.elisa-laajakaista.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:54:27" id="T10:54:27"><abbr title="2011-07-27T10:54:27+00:00">10:54:27</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>should i copy also uImage to first partition because it says wrong imgae cant read</q></li>
+<li class="quit">[<a href="#T10:55:58" id="T10:55:58"><abbr title="2011-07-27T10:55:58+00:00">10:55:58</abbr></a>] <span>* matthsu (~matt@61-220-35-169.HINET-IP.hinet.net) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T10:56:28" id="T10:56:28"><abbr title="2011-07-27T10:56:28+00:00">10:56:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>juhsis: could you please do a "nand erase" in uboot</q></li>
+<li class="message">[<a href="#T10:56:42" id="T10:56:42"><abbr title="2011-07-27T10:56:42+00:00">10:56:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>since you have a B7, you most likely have some ancient uboot in nand</q></li>
+<li class="message">[<a href="#T10:56:52" id="T10:56:52"><abbr title="2011-07-27T10:56:52+00:00">10:56:52</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>i did "nand erase 260000 20000"</q></li>
+<li class="message">[<a href="#T10:56:57" id="T10:56:57"><abbr title="2011-07-27T10:56:57+00:00">10:56:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>erase all</q></li>
+<li class="message">[<a href="#T10:57:21" id="T10:57:21"><abbr title="2011-07-27T10:57:21+00:00">10:57:21</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>worked until "wait for linux to do smt............................."</q></li>
+<li class="message">[<a href="#T10:57:29" id="T10:57:29"><abbr title="2011-07-27T10:57:29+00:00">10:57:29</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>then machine stopped</q></li>
+<li class="join">[<a href="#T10:57:32" id="T10:57:32"><abbr title="2011-07-27T10:57:32+00:00">10:57:32</abbr></a>] <span>* hell (~hell@spb.hellamps.ru) has joined #beagle</span></li>
+<li class="message">[<abbr title="2011-07-27T10:57:32+00:00">10:57:32</abbr>] &lt;<cite>av500</cite>&gt; <q>??</q></li>
+<li class="message">[<a href="#T10:57:44" id="T10:57:44"><abbr title="2011-07-27T10:57:44+00:00">10:57:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>reboot holding the user button</q></li>
+<li class="message">[<a href="#T10:57:49" id="T10:57:49"><abbr title="2011-07-27T10:57:49+00:00">10:57:49</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>yes i did</q></li>
+<li class="message">[<a href="#T10:57:53" id="T10:57:53"><abbr title="2011-07-27T10:57:53+00:00">10:57:53</abbr></a>] &lt;<cite>juhsis</cite>&gt; <q>3 time</q></li>
+<li class="message">[<a href="#T10:57:56" id="T10:57:56"><abbr title="2011-07-27T10:57:56+00:00">10:57:56</abbr></a>] &lt;<cite>hell</cite>&gt; <q>how can i quikly test beagle, is it working or no?</q></li>
+<li class="message">[<a href="#T10:58:02" id="T10:58:02"><abbr title="2011-07-27T10:58:02+00:00">10:58:02</abbr></a>] &lt;<cite>hell</cite>&gt; <q>only with rs-232?</q></li>
+<li class="join">[<a href="#T10:58:09" id="T10:58:09"><abbr title="2011-07-27T10:58:09+00:00">10:58:09</abbr></a>] <span>* siji (~siji@triband-mum-120.60.159.6.mtnl.net.in) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:58:15" id="T10:58:15"><abbr title="2011-07-27T10:58:15+00:00">10:58:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hell: <a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a></q></li>
+<li class="message">[<a href="#T10:58:58" id="T10:58:58"><abbr title="2011-07-27T10:58:58+00:00">10:58:58</abbr></a>] &lt;<cite>hell</cite>&gt; <q>av500: at this moment u-boot is enough, i reflow some chips)</q></li>
