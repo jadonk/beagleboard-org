@@ -229,3 +229,57 @@
 <li class="quit">[<a href="#T20:56:32" id="T20:56:32"><abbr title="2011-08-13T20:56:32+00:00">20:56:32</abbr></a>] <span>* rened (~rened@2002:5b42:2357:0:40e7:49bd:8751:b17c) Quit (Remote host closed the connection)</span></li>
 <li class="join">[<a href="#T20:58:56" id="T20:58:56"><abbr title="2011-08-13T20:58:56+00:00">20:58:56</abbr></a>] <span>* rick__ (~rick@118-161-41-150.dynamic.hinet.net) has joined #beagle</span></li>
 <li class="quit">[<a href="#T20:59:32" id="T20:59:32"><abbr title="2011-08-13T20:59:32+00:00">20:59:32</abbr></a>] <span>* rick_ (~rick@111-251-84-92.dynamic.hinet.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T21:14:58" id="T21:14:58"><abbr title="2011-08-13T21:14:58+00:00">21:14:58</abbr></a>] <span>* florian (~fuchs@node-tyu.camp.ccc.de) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-08-13T21:14:58+00:00">21:14:58</abbr>] <span>* florian (~fuchs@node-tyu.camp.ccc.de) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-08-13T21:14:58+00:00">21:14:58</abbr>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:20:37" id="T21:20:37"><abbr title="2011-08-13T21:20:37+00:00">21:20:37</abbr></a>] <span>* Gerard_ (45ffa544@gateway/web/freenode/ip.69.255.165.68) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:26:57" id="T21:26:57"><abbr title="2011-08-13T21:26:57+00:00">21:26:57</abbr></a>] <span>* josh_ (50c3ad25@gateway/web/freenode/ip.80.195.173.37) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:28:48" id="T21:28:48"><abbr title="2011-08-13T21:28:48+00:00">21:28:48</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>my beagle board reboots everytime i connect the ethernet cable to my PC. I have compliled angstrom's console version using openembedded </q></li>
+<li class="message">[<a href="#T21:29:17" id="T21:29:17"><abbr title="2011-08-13T21:29:17+00:00">21:29:17</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>I then set the usb mode to host using the following command 'echo host&gt; /sys/devices/platform/musb_hdrc/mode' </q></li>
+<li class="quit">[<a href="#T21:29:19" id="T21:29:19"><abbr title="2011-08-13T21:29:19+00:00">21:29:19</abbr></a>] <span>* Gerard_ (45ffa544@gateway/web/freenode/ip.69.255.165.68) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T21:29:28" id="T21:29:28"><abbr title="2011-08-13T21:29:28+00:00">21:29:28</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>insert the g_ether module</q></li>
+<li class="message">[<a href="#T21:29:36" id="T21:29:36"><abbr title="2011-08-13T21:29:36+00:00">21:29:36</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>and it shows the usb0 device</q></li>
+<li class="message">[<a href="#T21:29:54" id="T21:29:54"><abbr title="2011-08-13T21:29:54+00:00">21:29:54</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>but as soon as i connect it to my PC the board restarts</q></li>
+<li class="message">[<a href="#T21:30:16" id="T21:30:16"><abbr title="2011-08-13T21:30:16+00:00">21:30:16</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>it even restarts if it connect it while the kernel loads</q></li>
+<li class="message">[<a href="#T21:30:51" id="T21:30:51"><abbr title="2011-08-13T21:30:51+00:00">21:30:51</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>sounds more like a hardware issue</q></li>
+<li class="message">[<a href="#T21:31:19" id="T21:31:19"><abbr title="2011-08-13T21:31:19+00:00">21:31:19</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>how can i debug it </q></li>
+<li class="message">[<a href="#T21:32:08" id="T21:32:08"><abbr title="2011-08-13T21:32:08+00:00">21:32:08</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>i am using a cheap usb to ethernet convertor.</q></li>
+<li class="message">[<a href="#T21:33:26" id="T21:33:26"><abbr title="2011-08-13T21:33:26+00:00">21:33:26</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>It works fine on my laptop. Is it possible to redirect usbmon logs to mmc and read it later</q></li>
+<li class="message">[<a href="#T21:33:58" id="T21:33:58"><abbr title="2011-08-13T21:33:58+00:00">21:33:58</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>please tell me if  anybody has attempted anything close to this</q></li>
+<li class="message">[<a href="#T21:36:16" id="T21:36:16"><abbr title="2011-08-13T21:36:16+00:00">21:36:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>musb can't power an eth adaptor</q></li>
+<li class="message">[<a href="#T21:37:47" id="T21:37:47"><abbr title="2011-08-13T21:37:47+00:00">21:37:47</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>ooh could that be the issue. Do i need to connect the adapter to PC beforehand. Can it be power by the ethernet cable from my PC</q></li>
+<li class="message">[<a href="#T21:38:57" id="T21:38:57"><abbr title="2011-08-13T21:38:57+00:00">21:38:57</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>???</q></li>
+<li class="message">[<a href="#T21:39:09" id="T21:39:09"><abbr title="2011-08-13T21:39:09+00:00">21:39:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>for g_ether you dont need usb2ethernet</q></li>
+<li class="message">[<a href="#T21:39:18" id="T21:39:18"><abbr title="2011-08-13T21:39:18+00:00">21:39:18</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>g_ether IS usb ethernet</q></li>
+<li class="message">[<a href="#T21:39:44" id="T21:39:44"><abbr title="2011-08-13T21:39:44+00:00">21:39:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>all u need is a mini usb cable</q></li>
+<li class="message">[<a href="#T21:41:36" id="T21:41:36"><abbr title="2011-08-13T21:41:36+00:00">21:41:36</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>yeah i have a mini usb to USB adapter that connects to a USB ethernet adapter. I connect then connect it to my PC using an eternet cable.</q></li>
+<li class="message">[<a href="#T21:41:48" id="T21:41:48"><abbr title="2011-08-13T21:41:48+00:00">21:41:48</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>i am sorry if i was not clear about this</q></li>
+<li class="message">[<a href="#T21:42:10" id="T21:42:10"><abbr title="2011-08-13T21:42:10+00:00">21:42:10</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>???</q></li>
+<li class="message">[<a href="#T21:42:33" id="T21:42:33"><abbr title="2011-08-13T21:42:33+00:00">21:42:33</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>if you want to use musb as host you cannot load g_ether</q></li>
+<li class="message">[<a href="#T21:42:39" id="T21:42:39"><abbr title="2011-08-13T21:42:39+00:00">21:42:39</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>g_ether is a device driver</q></li>
+<li class="message">[<a href="#T21:42:42" id="T21:42:42"><abbr title="2011-08-13T21:42:42+00:00">21:42:42</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>not a host</q></li>
+<li class="message">[<a href="#T21:44:45" id="T21:44:45"><abbr title="2011-08-13T21:44:45+00:00">21:44:45</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>okay i get it now thank you. </q></li>
+<li class="message">[<a href="#T21:45:09" id="T21:45:09"><abbr title="2011-08-13T21:45:09+00:00">21:45:09</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>I'll try to load g_ether without musb set as host. </q></li>
+<li class="message">[<a href="#T21:45:14" id="T21:45:14"><abbr title="2011-08-13T21:45:14+00:00">21:45:14</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T21:45:20" id="T21:45:20"><abbr title="2011-08-13T21:45:20+00:00">21:45:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>er, yes</q></li>
+<li class="message">[<abbr title="2011-08-13T21:45:20+00:00">21:45:20</abbr>] &lt;<cite>josh_</cite>&gt; <q>Can you please tell me the mode it should be in</q></li>
+<li class="message">[<a href="#T21:45:34" id="T21:45:34"><abbr title="2011-08-13T21:45:34+00:00">21:45:34</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>for g_ether you connect directly to the P</q></li>
+<li class="message">[<abbr title="2011-08-13T21:45:34+00:00">21:45:34</abbr>] &lt;<cite>josh_</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T21:45:37" id="T21:45:37"><abbr title="2011-08-13T21:45:37+00:00">21:45:37</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>for g_ether you connect directly to the PC</q></li>
+<li class="quit">[<abbr title="2011-08-13T21:45:37+00:00">21:45:37</abbr>] <span>* eFfeM (~frans@a2038.upc-a.chello.nl) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T21:45:48" id="T21:45:48"><abbr title="2011-08-13T21:45:48+00:00">21:45:48</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>no separate usb2ether needed</q></li>
+<li class="message">[<a href="#T21:46:09" id="T21:46:09"><abbr title="2011-08-13T21:46:09+00:00">21:46:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>BB - musb device - g_ether - cable - PC</q></li>
+<li class="message">[<a href="#T21:46:13" id="T21:46:13"><abbr title="2011-08-13T21:46:13+00:00">21:46:13</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>or</q></li>
+<li class="message">[<a href="#T21:46:39" id="T21:46:39"><abbr title="2011-08-13T21:46:39+00:00">21:46:39</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>BB - musb host - host cable - usb2ether - cable - pc</q></li>
+<li class="quit">[<a href="#T21:47:18" id="T21:47:18"><abbr title="2011-08-13T21:47:18+00:00">21:47:18</abbr></a>] <span>* Russ (user@ip68-231-66-246.ph.ph.cox.net) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T21:48:28" id="T21:48:28"><abbr title="2011-08-13T21:48:28+00:00">21:48:28</abbr></a>] &lt;<cite>josh_</cite>&gt; <q>i am sorry, I am confused. I was assuming that the usb2ether adapter was a musb device. I will readup on musb to understand this better.</q></li>
+<li class="message">[<a href="#T21:49:06" id="T21:49:06"><abbr title="2011-08-13T21:49:06+00:00">21:49:06</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>go so</q></li>
+<li class="message">[<a href="#T21:49:12" id="T21:49:12"><abbr title="2011-08-13T21:49:12+00:00">21:49:12</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>er</q></li>
+<li class="message">[<a href="#T21:49:13" id="T21:49:13"><abbr title="2011-08-13T21:49:13+00:00">21:49:13</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>do so</q></li>
+<li class="quit">[<a href="#T21:54:44" id="T21:54:44"><abbr title="2011-08-13T21:54:44+00:00">21:54:44</abbr></a>] <span>* tegila (~tegila@189-015-93-146.xd-dynamic.ctbcnetsuper.com.br) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T21:55:04" id="T21:55:04"><abbr title="2011-08-13T21:55:04+00:00">21:55:04</abbr></a>] <span>* David (45ffa544@gateway/web/freenode/ip.69.255.165.68) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T21:55:30" id="T21:55:30"><abbr title="2011-08-13T21:55:30+00:00">21:55:30</abbr></a>] <span>* David is now known as Guest69607</span></li>
+<li class="message">[<a href="#T21:55:55" id="T21:55:55"><abbr title="2011-08-13T21:55:55+00:00">21:55:55</abbr></a>] &lt;<cite>Guest69607</cite>&gt; <q>Hi, is there anyone here who has ever successfully set up s-video on the BB-xM? </q></li>
+<li class="message">[<a href="#T21:56:01" id="T21:56:01"><abbr title="2011-08-13T21:56:01+00:00">21:56:01</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>g_ether and cdc_ether</q></li>
+<li class="quit">[<a href="#T21:56:53" id="T21:56:53"><abbr title="2011-08-13T21:56:53+00:00">21:56:53</abbr></a>] <span>* Guest69607 (45ffa544@gateway/web/freenode/ip.69.255.165.68) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T21:57:24" id="T21:57:24"><abbr title="2011-08-13T21:57:24+00:00">21:57:24</abbr></a>] <span>* David_Gerard (45ffa544@gateway/web/freenode/ip.69.255.165.68) has joined #beagle</span></li>
