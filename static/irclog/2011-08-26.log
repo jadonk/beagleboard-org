@@ -1,0 +1,36 @@
+<li class="message">[<a href="#T00:01:05" id="T00:01:05"><abbr title="2011-08-26T00:01:05+00:00">00:01:05</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>i'm trying to get wlan0 working on an angstrom narcissus build, usually "opkg install rt73-firmware" works on the angstrom demo image, but not on this narcissus build</q></li>
+<li class="message">[<a href="#T00:05:18" id="T00:05:18"><abbr title="2011-08-26T00:05:18+00:00">00:05:18</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>when i type iwconfig, wlan0 does not show up</q></li>
+<li class="quit">[<a href="#T00:07:48" id="T00:07:48"><abbr title="2011-08-26T00:07:48+00:00">00:07:48</abbr></a>] <span>* pcacjr_ (~pcacjr@unaffiliated/pcacjr) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T00:09:33" id="T00:09:33"><abbr title="2011-08-26T00:09:33+00:00">00:09:33</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>did you include kernel modules in the build?</q></li>
+<li class="join">[<a href="#T00:10:04" id="T00:10:04"><abbr title="2011-08-26T00:10:04+00:00">00:10:04</abbr></a>] <span>* pcacjr_ (~pcacjr@unaffiliated/pcacjr) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:10:29" id="T00:10:29"><abbr title="2011-08-26T00:10:29+00:00">00:10:29</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>i included wireless-tools</q></li>
+<li class="quit">[<a href="#T00:10:52" id="T00:10:52"><abbr title="2011-08-26T00:10:52+00:00">00:10:52</abbr></a>] <span>* tegila (~tegila@189-015-140-147.xd-dynamic.ctbcnetsuper.com.br) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T00:11:08" id="T00:11:08"><abbr title="2011-08-26T00:11:08+00:00">00:11:08</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>what other kernel modules would i need?</q></li>
+<li class="message">[<a href="#T00:21:15" id="T00:21:15"><abbr title="2011-08-26T00:21:15+00:00">00:21:15</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>the one for that the rt73</q></li>
+<li class="message">[<a href="#T00:21:51" id="T00:21:51"><abbr title="2011-08-26T00:21:51+00:00">00:21:51</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>narcissus doesn't have rt73 modules available</q></li>
+<li class="message">[<a href="#T00:22:06" id="T00:22:06"><abbr title="2011-08-26T00:22:06+00:00">00:22:06</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>i dont think</q></li>
+<li class="message">[<a href="#T00:22:16" id="T00:22:16"><abbr title="2011-08-26T00:22:16+00:00">00:22:16</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>I think it has an all moduls option</q></li>
+<li class="message">[<a href="#T00:22:50" id="T00:22:50"><abbr title="2011-08-26T00:22:50+00:00">00:22:50</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>either way.. you can install it with opkg</q></li>
+<li class="message">[<a href="#T00:23:05" id="T00:23:05"><abbr title="2011-08-26T00:23:05+00:00">00:23:05</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>oh i see "All kernal modules"</q></li>
+<li class="message">[<a href="#T00:23:49" id="T00:23:49"><abbr title="2011-08-26T00:23:49+00:00">00:23:49</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>whats the package name for "all kernel modules"?</q></li>
+<li class="message">[<a href="#T00:24:58" id="T00:24:58"><abbr title="2011-08-26T00:24:58+00:00">00:24:58</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>there isn't one that I know of, but the kernel-module-rt73usb is what you're lookingfor</q></li>
+<li class="message">[<a href="#T00:25:41" id="T00:25:41"><abbr title="2011-08-26T00:25:41+00:00">00:25:41</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>you can also download all the modules from the demo page</q></li>
+<li class="message">[<a href="#T00:26:03" id="T00:26:03"><abbr title="2011-08-26T00:26:03+00:00">00:26:03</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>thanks how did you find that?</q></li>
+<li class="message">[<a href="#T00:26:20" id="T00:26:20"><abbr title="2011-08-26T00:26:20+00:00">00:26:20</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>opkg list |grep rt73</q></li>
+<li class="message">[<a href="#T00:26:41" id="T00:26:41"><abbr title="2011-08-26T00:26:41+00:00">00:26:41</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>neat</q></li>
+<li class="message">[<a href="#T00:26:54" id="T00:26:54"><abbr title="2011-08-26T00:26:54+00:00">00:26:54</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>plus I installed a belkin 54g previously</q></li>
+<li class="message">[<a href="#T00:27:05" id="T00:27:05"><abbr title="2011-08-26T00:27:05+00:00">00:27:05</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>does that use rt74?</q></li>
+<li class="message">[<a href="#T00:27:09" id="T00:27:09"><abbr title="2011-08-26T00:27:09+00:00">00:27:09</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>*73</q></li>
+<li class="message">[<a href="#T00:27:11" id="T00:27:11"><abbr title="2011-08-26T00:27:11+00:00">00:27:11</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T00:29:09" id="T00:29:09"><abbr title="2011-08-26T00:29:09+00:00">00:29:09</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>kinda big and clunky though</q></li>
+<li class="message">[<a href="#T00:30:37" id="T00:30:37"><abbr title="2011-08-26T00:30:37+00:00">00:30:37</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>had to recompile wpa-supplicant to get it to connect to my router properly though</q></li>
+<li class="message">[<a href="#T00:33:13" id="T00:33:13"><abbr title="2011-08-26T00:33:13+00:00">00:33:13</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>thanks, that did the trick</q></li>
+<li class="message">[<a href="#T00:34:22" id="T00:34:22"><abbr title="2011-08-26T00:34:22+00:00">00:34:22</abbr></a>] &lt;<cite>nerxgas</cite>&gt; <q>how did you recompile wpa-supplicant?</q></li>
+<li class="quit">[<a href="#T00:37:58" id="T00:37:58"><abbr title="2011-08-26T00:37:58+00:00">00:37:58</abbr></a>] <span>* Ceriand|work (~Ceriand@unaffiliated/ceriand) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T00:46:57" id="T00:46:57"><abbr title="2011-08-26T00:46:57+00:00">00:46:57</abbr></a>] <span>* bgamari_ (~ben@gamari.physics.umass.edu) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:49:02" id="T00:49:02"><abbr title="2011-08-26T00:49:02+00:00">00:49:02</abbr></a>] <span>* bgamari (~ben@physicsnat56.physics.umass.edu) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="quit">[<a href="#T00:49:51" id="T00:49:51"><abbr title="2011-08-26T00:49:51+00:00">00:49:51</abbr></a>] <span>* bgamari_ (~ben@gamari.physics.umass.edu) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T00:49:56" id="T00:49:56"><abbr title="2011-08-26T00:49:56+00:00">00:49:56</abbr></a>] <span>* bgamari (~ben@gamari.physics.umass.edu) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:52:20" id="T00:52:20"><abbr title="2011-08-26T00:52:20+00:00">00:52:20</abbr></a>] <span>* rcn-ee (~voodoo@thief-pool2-123-49.mncable.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:58:37" id="T00:58:37"><abbr title="2011-08-26T00:58:37+00:00">00:58:37</abbr></a>] <span>* kaio (~kaio@fedora/kaio) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T00:59:22" id="T00:59:22"><abbr title="2011-08-26T00:59:22+00:00">00:59:22</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
