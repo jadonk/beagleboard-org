@@ -418,3 +418,39 @@
 <li class="message">[<a href="#T14:56:20" id="T14:56:20"><abbr title="2011-08-31T14:56:20+00:00">14:56:20</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>does this make sense?</q></li>
 <li class="quit">[<a href="#T14:56:49" id="T14:56:49"><abbr title="2011-08-31T14:56:49+00:00">14:56:49</abbr></a>] <span>* muriani (~james@internal.directron.us) Quit (Remote host closed the connection)</span></li>
 <li class="message">[<a href="#T14:57:23" id="T14:57:23"><abbr title="2011-08-31T14:57:23+00:00">14:57:23</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Obviously the thread depicts a different issue, but the symptoms are similar</q></li>
+<li class="quit">[<a href="#T15:05:47" id="T15:05:47"><abbr title="2011-08-31T15:05:47+00:00">15:05:47</abbr></a>] <span>* jconnolly (~jconnolly@66.43.64.66) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T15:06:20" id="T15:06:20"><abbr title="2011-08-31T15:06:20+00:00">15:06:20</abbr></a>] <span>* ZeZu (~null@c-98-227-57-88.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:09:17" id="T15:09:17"><abbr title="2011-08-31T15:09:17+00:00">15:09:17</abbr></a>] <span>* jconnolly (~jconnolly@66.43.64.66) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:10:00" id="T15:10:00"><abbr title="2011-08-31T15:10:00+00:00">15:10:00</abbr></a>] <span>* _jkridner_ (~jkridner@solution1.hsia.citycenter.com) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T15:16:37" id="T15:16:37"><abbr title="2011-08-31T15:16:37+00:00">15:16:37</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-wazkltsbwzelgwbr) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T15:18:46" id="T15:18:46"><abbr title="2011-08-31T15:18:46+00:00">15:18:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>GGuyZ: please dump all the sizes</q></li>
+<li class="message">[<a href="#T15:18:51" id="T15:18:51"><abbr title="2011-08-31T15:18:51+00:00">15:18:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>your video w/h</q></li>
+<li class="message">[<a href="#T15:18:55" id="T15:18:55"><abbr title="2011-08-31T15:18:55+00:00">15:18:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>what you cmem alloc</q></li>
+<li class="message">[<a href="#T15:19:02" id="T15:19:02"><abbr title="2011-08-31T15:19:02+00:00">15:19:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and what the control call returns</q></li>
+<li class="message">[<a href="#T15:19:15" id="T15:19:15"><abbr title="2011-08-31T15:19:15+00:00">15:19:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>since we have issues, lets try to make everything match</q></li>
+<li class="message">[<a href="#T15:19:40" id="T15:19:40"><abbr title="2011-08-31T15:19:40+00:00">15:19:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i understand now how you got the non-contig error, as you explained</q></li>
+<li class="message">[<a href="#T15:19:49" id="T15:19:49"><abbr title="2011-08-31T15:19:49+00:00">15:19:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>maybe that codec wants the minimum sizes</q></li>
+<li class="message">[<a href="#T15:19:54" id="T15:19:54"><abbr title="2011-08-31T15:19:54+00:00">15:19:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>for the out buffers</q></li>
+<li class="message">[<a href="#T15:20:16" id="T15:20:16"><abbr title="2011-08-31T15:20:16+00:00">15:20:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>also, please dont prints pointers as %d :)</q></li>
+<li class="message">[<a href="#T15:20:33" id="T15:20:33"><abbr title="2011-08-31T15:20:33+00:00">15:20:33</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>I changed it :P</q></li>
+<li class="message">[<a href="#T15:21:34" id="T15:21:34"><abbr title="2011-08-31T15:21:34+00:00">15:21:34</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Anyway, I'll put traces and pastebin it</q></li>
+<li class="join">[<a href="#T15:22:02" id="T15:22:02"><abbr title="2011-08-31T15:22:02+00:00">15:22:02</abbr></a>] <span>* joelagnel (~joel@nat/ti/x-unwfqrapbeepdyzi) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:24:18" id="T15:24:18"><abbr title="2011-08-31T15:24:18+00:00">15:24:18</abbr></a>] <span>* johnmatt (54e86b33@gateway/web/freenode/ip.84.232.107.51) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:25:01" id="T15:25:01"><abbr title="2011-08-31T15:25:01+00:00">15:25:01</abbr></a>] &lt;<cite>johnmatt</cite>&gt; <q>hello, anyone could help me to compile compat-wireless drivers under angstrom linux? it seems like it is missing the headers </q></li>
+<li class="message">[<a href="#T15:25:09" id="T15:25:09"><abbr title="2011-08-31T15:25:09+00:00">15:25:09</abbr></a>] &lt;<cite>johnmatt</cite>&gt; <q>kernel headers*</q></li>
+<li class="message">[<a href="#T15:25:24" id="T15:25:24"><abbr title="2011-08-31T15:25:24+00:00">15:25:24</abbr></a>] &lt;<cite>johnmatt</cite>&gt; <q>but opkg says they are installed</q></li>
+<li class="quit">[<a href="#T15:28:42" id="T15:28:42"><abbr title="2011-08-31T15:28:42+00:00">15:28:42</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T15:40:51" id="T15:40:51"><abbr title="2011-08-31T15:40:51+00:00">15:40:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>GGuyZ: the e2e you found looks unrelated</q></li>
+<li class="message">[<a href="#T15:41:45" id="T15:41:45"><abbr title="2011-08-31T15:41:45+00:00">15:41:45</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Could be, but I didn't understand until I saw there, and then from some further googling that the DSP side probably crashes</q></li>
+<li class="message">[<a href="#T15:42:16" id="T15:42:16"><abbr title="2011-08-31T15:42:16+00:00">15:42:16</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>But it doesn't get me any closer to a solution, since the problem is what I'm feeding it :)</q></li>
+<li class="message">[<a href="#T15:52:23" id="T15:52:23"><abbr title="2011-08-31T15:52:23+00:00">15:52:23</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>av500: <a href="http://pastebin.com/87gZ9cU0">http://pastebin.com/87gZ9cU0</a></q></li>
+<li class="message">[<a href="#T15:52:38" id="T15:52:38"><abbr title="2011-08-31T15:52:38+00:00">15:52:38</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>I personally see 3 possible problem</q></li>
+<li class="message">[<a href="#T15:52:47" id="T15:52:47"><abbr title="2011-08-31T15:52:47+00:00">15:52:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>CMEM buffer 0: size=161280, virt=0x4119d000, phys=(nil)</q></li>
+<li class="message">[<a href="#T15:52:50" id="T15:52:50"><abbr title="2011-08-31T15:52:50+00:00">15:52:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>???</q></li>
+<li class="join">[<a href="#T15:52:57" id="T15:52:57"><abbr title="2011-08-31T15:52:57+00:00">15:52:57</abbr></a>] <span>* thurbad (~natesewel@64.132.24.248) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:53:17" id="T15:53:17"><abbr title="2011-08-31T15:53:17+00:00">15:53:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>please make your buffers 691200</q></li>
+<li class="message">[<a href="#T15:53:18" id="T15:53:18"><abbr title="2011-08-31T15:53:18+00:00">15:53:18</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>And that is one of them</q></li>
+<li class="message">[<a href="#T15:53:43" id="T15:53:43"><abbr title="2011-08-31T15:53:43+00:00">15:53:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the Min Input Buffer Size = 1500000 is ridiculous</q></li>
+<li class="message">[<a href="#T15:53:50" id="T15:53:50"><abbr title="2011-08-31T15:53:50+00:00">15:53:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but again, please do that</q></li>
+<li class="message">[<a href="#T15:54:36" id="T15:54:36"><abbr title="2011-08-31T15:54:36+00:00">15:54:36</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>ok</q></li>
+<li class="quit">[<a href="#T15:56:54" id="T15:56:54"><abbr title="2011-08-31T15:56:54+00:00">15:56:54</abbr></a>] <span>* b7500af1 (~vt@2001:468:c80:4240:21c:bfff:fe8b:9c32) Quit (Quit: Leaving)</span></li>
