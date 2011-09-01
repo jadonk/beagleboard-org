@@ -152,3 +152,46 @@
 <li class="message">[<a href="#T07:59:56" id="T07:59:56"><abbr title="2011-09-01T07:59:56+00:00">07:59:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it</q></li>
 <li class="join">[<a href="#T07:59:57" id="T07:59:57"><abbr title="2011-09-01T07:59:57+00:00">07:59:57</abbr></a>] <span>* DJWillis (~djwillis@cpc3-bath5-2-0-cust220.aztw.cable.virginmedia.com) has joined #beagle</span></li>
 <li class="message">[<a href="#T08:00:00" id="T08:00:00"><abbr title="2011-09-01T08:00:00+00:00">08:00:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so talking to the dsp works</q></li>
+<li class="message">[<a href="#T08:00:06" id="T08:00:06"><abbr title="2011-09-01T08:00:06+00:00">08:00:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>DJWillis: \o/</q></li>
+<li class="message">[<a href="#T08:00:51" id="T08:00:51"><abbr title="2011-09-01T08:00:51+00:00">08:00:51</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>thurbad: You're right. the problem is with it referencing a bunch of other headers. Server.h, Comm.h etc.. I'll pastebin</q></li>
+<li class="join">[<a href="#T08:00:57" id="T08:00:57"><abbr title="2011-09-01T08:00:57+00:00">08:00:57</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:01:18" id="T08:01:18"><abbr title="2011-09-01T08:01:18+00:00">08:01:18</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>av500: Which is why I didn't pay attention to it until now. But there's a wider problem I think, since both codecs don't work.</q></li>
+<li class="message">[<a href="#T08:01:20" id="T08:01:20"><abbr title="2011-09-01T08:01:20+00:00">08:01:20</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T08:01:52" id="T08:01:52"><abbr title="2011-09-01T08:01:52+00:00">08:01:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>GGuyZ: yes</q></li>
+<li class="message">[<a href="#T08:03:48" id="T08:03:48"><abbr title="2011-09-01T08:03:48+00:00">08:03:48</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q><a href="http://pastebin.com/8mqMvyCD">http://pastebin.com/8mqMvyCD</a></q></li>
+<li class="message">[<a href="#T08:03:56" id="T08:03:56"><abbr title="2011-09-01T08:03:56+00:00">08:03:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>GGuyZ: hmm, I include #include &lt;ti/sdo/ce/CERuntime.h&gt;</q></li>
+<li class="message">[<a href="#T08:04:18" id="T08:04:18"><abbr title="2011-09-01T08:04:18+00:00">08:04:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>GGuyZ: add #include &lt;xdc/std.h&gt;</q></li>
+<li class="message">[<a href="#T08:04:34" id="T08:04:34"><abbr title="2011-09-01T08:04:34+00:00">08:04:34</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>It's there..</q></li>
+<li class="join">[<a href="#T08:04:56" id="T08:04:56"><abbr title="2011-09-01T08:04:56+00:00">08:04:56</abbr></a>] <span>* kukyakya (~kukyakya@icpc14.kaist.ac.kr) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:05:13" id="T08:05:13"><abbr title="2011-09-01T08:05:13+00:00">08:05:13</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>lookslike they're using some typedef'd types</q></li>
+<li class="message">[<a href="#T08:05:22" id="T08:05:22"><abbr title="2011-09-01T08:05:22+00:00">08:05:22</abbr></a>] &lt;<cite>DJWillis</cite>&gt; <q>Howdi av500 </q></li>
+<li class="message">[<a href="#T08:05:24" id="T08:05:24"><abbr title="2011-09-01T08:05:24+00:00">08:05:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>thurbad: yes</q></li>
+<li class="message">[<a href="#T08:05:28" id="T08:05:28"><abbr title="2011-09-01T08:05:28+00:00">08:05:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>CE is doing that</q></li>
+<li class="message">[<a href="#T08:05:29" id="T08:05:29"><abbr title="2011-09-01T08:05:29+00:00">08:05:29</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Lol</q></li>
+<li class="message">[<a href="#T08:05:43" id="T08:05:43"><abbr title="2011-09-01T08:05:43+00:00">08:05:43</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>xdc/std.h was there</q></li>
+<li class="message">[<a href="#T08:05:48" id="T08:05:48"><abbr title="2011-09-01T08:05:48+00:00">08:05:48</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>but below CERuntime</q></li>
+<li class="message">[<a href="#T08:05:51" id="T08:05:51"><abbr title="2011-09-01T08:05:51+00:00">08:05:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>above</q></li>
+<li class="message">[<a href="#T08:05:58" id="T08:05:58"><abbr title="2011-09-01T08:05:58+00:00">08:05:58</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Yes, and now it works</q></li>
+<li class="message">[<a href="#T08:06:04" id="T08:06:04"><abbr title="2011-09-01T08:06:04+00:00">08:06:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>c compiler reads files from top to bottom</q></li>
+<li class="message">[<a href="#T08:06:14" id="T08:06:14"><abbr title="2011-09-01T08:06:14+00:00">08:06:14</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T08:06:41" id="T08:06:41"><abbr title="2011-09-01T08:06:41+00:00">08:06:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>of course the include files should include that themselves</q></li>
+<li class="message">[<a href="#T08:06:43" id="T08:06:43"><abbr title="2011-09-01T08:06:43+00:00">08:06:43</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>av500: that's why I switched. But I didn't know there was a dependency until you mentioned it</q></li>
+<li class="message">[<a href="#T08:07:10" id="T08:07:10"><abbr title="2011-09-01T08:07:10+00:00">08:07:10</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>It will be real funny if it would have any kind of effect, but I doubt it</q></li>
+<li class="nick-change">[<a href="#T08:09:01" id="T08:09:01"><abbr title="2011-09-01T08:09:01+00:00">08:09:01</abbr></a>] <span>* kimitake is now known as kimitake_idle</span></li>
+<li class="quit">[<a href="#T08:10:29" id="T08:10:29"><abbr title="2011-09-01T08:10:29+00:00">08:10:29</abbr></a>] <span>* Russ (foobar@ip70-176-251-1.ph.ph.cox.net) Quit (Quit: Ex-Chat)</span></li>
+<li class="quit">[<a href="#T08:18:23" id="T08:18:23"><abbr title="2011-09-01T08:18:23+00:00">08:18:23</abbr></a>] <span>* jkridner (~jason@pdpc/supporter/active/jkridner) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T08:19:12" id="T08:19:12"><abbr title="2011-09-01T08:19:12+00:00">08:19:12</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T08:20:25" id="T08:20:25"><abbr title="2011-09-01T08:20:25+00:00">08:20:25</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>av500: Now I can't open the engine at all. I get DSP_EMEMORY error. I think that all this time I was trying to force the codec server to load when it had a bad configuration. Does this make sense to you?</q></li>
+<li class="quit">[<a href="#T08:20:50" id="T08:20:50"><abbr title="2011-09-01T08:20:50+00:00">08:20:50</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T08:21:41" id="T08:21:41"><abbr title="2011-09-01T08:21:41+00:00">08:21:41</abbr></a>] <span>* derirremitderwaf (~derirremi@HSI-KBW-46-223-13-196.hsi.kabel-badenwuerttemberg.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:22:23" id="T08:22:23"><abbr title="2011-09-01T08:22:23+00:00">08:22:23</abbr></a>] <span>* Russ (foobar@ip70-176-251-1.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:23:19" id="T08:23:19"><abbr title="2011-09-01T08:23:19+00:00">08:23:19</abbr></a>] <span>* jkridner (~jason@adsl-99-150-132-70.dsl.sfldmi.sbcglobal.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-09-01T08:23:19+00:00">08:23:19</abbr>] <span>* jkridner (~jason@adsl-99-150-132-70.dsl.sfldmi.sbcglobal.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-09-01T08:23:19+00:00">08:23:19</abbr>] <span>* jkridner (~jason@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:23:28" id="T08:23:28"><abbr title="2011-09-01T08:23:28+00:00">08:23:28</abbr></a>] <span>* jkridner (~jason@pdpc/supporter/active/jkridner) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T08:24:39" id="T08:24:39"><abbr title="2011-09-01T08:24:39+00:00">08:24:39</abbr></a>] <span>* olsen (~sesselast@fwe.zhdk.ch) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:30:13" id="T08:30:13"><abbr title="2011-09-01T08:30:13+00:00">08:30:13</abbr></a>] <span>* pfoetchen (~pfoetchen@winc043.informatik.uni-wuerzburg.de) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="join">[<a href="#T08:30:49" id="T08:30:49"><abbr title="2011-09-01T08:30:49+00:00">08:30:49</abbr></a>] <span>* pfoetchen (~pfoetchen@winc043.informatik.uni-wuerzburg.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:31:54" id="T08:31:54"><abbr title="2011-09-01T08:31:54+00:00">08:31:54</abbr></a>] <span>* max_galemin (ca5c7292@gateway/web/freenode/ip.202.92.114.146) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T08:32:03" id="T08:32:03"><abbr title="2011-09-01T08:32:03+00:00">08:32:03</abbr></a>] <span>* jpirko (~jirka@nat/redhat/x-zxgwxetyorduczqs) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:39:57" id="T08:39:57"><abbr title="2011-09-01T08:39:57+00:00">08:39:57</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
