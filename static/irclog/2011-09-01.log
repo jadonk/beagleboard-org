@@ -572,3 +572,48 @@
 <li class="message">[<a href="#T17:58:36" id="T17:58:36"><abbr title="2011-09-01T17:58:36+00:00">17:58:36</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>av500: Ok, looks like it keeps sending the packets correctly, but I don't see anything on the screen</q></li>
 <li class="message">[<a href="#T17:59:01" id="T17:59:01"><abbr title="2011-09-01T17:59:01+00:00">17:59:01</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>I'll pastebin some of it, because the entire file is way too big and just repeats</q></li>
 <li class="quit">[<a href="#T17:59:24" id="T17:59:24"><abbr title="2011-09-01T17:59:24+00:00">17:59:24</abbr></a>] <span>* denix (~denys@nat/ti/x-gdgrkvhsjlwhiseh) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T18:00:30" id="T18:00:30"><abbr title="2011-09-01T18:00:30+00:00">18:00:30</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>av500: But btw, there is stuff in freeBufId. So that's good I guess :)</q></li>
+<li class="quit">[<a href="#T18:01:11" id="T18:01:11"><abbr title="2011-09-01T18:01:11+00:00">18:01:11</abbr></a>] <span>* mnt_real_ (~sinan@bas9-montrealak-1177755064.dsl.bell.ca) Quit (Quit: Ex-Chat)</span></li>
+<li class="quit">[<a href="#T18:01:37" id="T18:01:37"><abbr title="2011-09-01T18:01:37+00:00">18:01:37</abbr></a>] <span>* poda (405cdaca@gateway/web/freenode/ip.64.92.218.202) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T18:02:46" id="T18:02:46"><abbr title="2011-09-01T18:02:46+00:00">18:02:46</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>do you post buffers to the renderer?</q></li>
+<li class="message">[<a href="#T18:02:47" id="T18:02:47"><abbr title="2011-09-01T18:02:47+00:00">18:02:47</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q><a href="http://pastebin.com/ARHX0cmT">http://pastebin.com/ARHX0cmT</a></q></li>
+<li class="message">[<a href="#T18:02:58" id="T18:02:58"><abbr title="2011-09-01T18:02:58+00:00">18:02:58</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>cant pastebin atm</q></li>
+<li class="message">[<a href="#T18:04:02" id="T18:04:02"><abbr title="2011-09-01T18:04:02+00:00">18:04:02</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>yes, I post them</q></li>
+<li class="message">[<a href="#T18:04:23" id="T18:04:23"><abbr title="2011-09-01T18:04:23+00:00">18:04:23</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Not sure if I'm doing it right, I copied that part from dce.c. But it looks right</q></li>
+<li class="message">[<a href="#T18:06:16" id="T18:06:16"><abbr title="2011-09-01T18:06:16+00:00">18:06:16</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>set the in_args.inputID to the pointer address of the frame, then decode, then post (in a loop, but should only have 1 since it's 422ILE) out_args.freeBufID[i].</q></li>
+<li class="message">[<a href="#T18:06:25" id="T18:06:25"><abbr title="2011-09-01T18:06:25+00:00">18:06:25</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Like this: ofbp_put_frame((struct frame *)out_args-&gt;freeBufID[i]);</q></li>
+<li class="message">[<a href="#T18:06:53" id="T18:06:53"><abbr title="2011-09-01T18:06:53+00:00">18:06:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T18:07:12" id="T18:07:12"><abbr title="2011-09-01T18:07:12+00:00">18:07:12</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>that is put</q></li>
+<li class="message">[<a href="#T18:07:17" id="T18:07:17"><abbr title="2011-09-01T18:07:17+00:00">18:07:17</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you need to post</q></li>
+<li class="message">[<a href="#T18:11:55" id="T18:11:55"><abbr title="2011-09-01T18:11:55+00:00">18:11:55</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T18:12:11" id="T18:12:11"><abbr title="2011-09-01T18:12:11+00:00">18:12:11</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>The display thread takes care of it</q></li>
+<li class="message">[<a href="#T18:12:26" id="T18:12:26"><abbr title="2011-09-01T18:12:26+00:00">18:12:26</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>by invoking display-&gt;prepare/show</q></li>
+<li class="message">[<a href="#T18:14:50" id="T18:14:50"><abbr title="2011-09-01T18:14:50+00:00">18:14:50</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:15:01" id="T18:15:01"><abbr title="2011-09-01T18:15:01+00:00">18:15:01</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and do you see something?</q></li>
+<li class="message">[<a href="#T18:15:18" id="T18:15:18"><abbr title="2011-09-01T18:15:18+00:00">18:15:18</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>if not, memset each frame to a random value for a test</q></li>
+<li class="message">[<a href="#T18:15:27" id="T18:15:27"><abbr title="2011-09-01T18:15:27+00:00">18:15:27</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>to see if that display pipeline is OK</q></li>
+<li class="message">[<a href="#T18:15:52" id="T18:15:52"><abbr title="2011-09-01T18:15:52+00:00">18:15:52</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Good idea, I'll try that</q></li>
+<li class="message">[<a href="#T18:16:18" id="T18:16:18"><abbr title="2011-09-01T18:16:18+00:00">18:16:18</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>I have to go for some time, so I'll try you later if you're here or tomorrow</q></li>
+<li class="message">[<a href="#T18:16:32" id="T18:16:32"><abbr title="2011-09-01T18:16:32+00:00">18:16:32</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>But thanks again :) finally some progress..</q></li>
+<li class="message">[<a href="#T18:17:01" id="T18:17:01"><abbr title="2011-09-01T18:17:01+00:00">18:17:01</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>np</q></li>
+<li class="message">[<a href="#T18:17:09" id="T18:17:09"><abbr title="2011-09-01T18:17:09+00:00">18:17:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>tomorrow i will be travelling</q></li>
+<li class="message">[<a href="#T18:17:15" id="T18:17:15"><abbr title="2011-09-01T18:17:15+00:00">18:17:15</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>but irc should nbe ok</q></li>
+<li class="message">[<a href="#T18:17:36" id="T18:17:36"><abbr title="2011-09-01T18:17:36+00:00">18:17:36</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Have fun :)</q></li>
+<li class="join">[<a href="#T18:18:08" id="T18:18:08"><abbr title="2011-09-01T18:18:08+00:00">18:18:08</abbr></a>] <span>* rcf (~rcf@190.52-243-81.adsl-dyn.isp.belgacom.be) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:24:56" id="T18:24:56"><abbr title="2011-09-01T18:24:56+00:00">18:24:56</abbr></a>] &lt;<cite>chase</cite>&gt; <q>koen: pong</q></li>
+<li class="message">[<a href="#T18:26:11" id="T18:26:11"><abbr title="2011-09-01T18:26:11+00:00">18:26:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>chase: there's a chance I'll be in dallas after the 25th</q></li>
+<li class="message">[<a href="#T18:29:39" id="T18:29:39"><abbr title="2011-09-01T18:29:39+00:00">18:29:39</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>I think I got a corrupt rootfs off of narcissus yesterday :/</q></li>
+<li class="message">[<a href="#T18:32:27" id="T18:32:27"><abbr title="2011-09-01T18:32:27+00:00">18:32:27</abbr></a>] &lt;<cite>chase</cite>&gt; <q>koen: sounds like fun</q></li>
+<li class="message">[<a href="#T18:32:30" id="T18:32:30"><abbr title="2011-09-01T18:32:30+00:00">18:32:30</abbr></a>] &lt;<cite>chase</cite>&gt; <q>I'll be here</q></li>
+<li class="action">[<a href="#T18:33:52" id="T18:33:52"><abbr title="2011-09-01T18:33:52+00:00">18:33:52</abbr></a>] <span>* _av500_ hear chase buying ammo</span></li>
+<li class="message">[<a href="#T18:33:55" id="T18:33:55"><abbr title="2011-09-01T18:33:55+00:00">18:33:55</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hears</q></li>
+<li class="message">[<a href="#T18:34:15" id="T18:34:15"><abbr title="2011-09-01T18:34:15+00:00">18:34:15</abbr></a>] &lt;<cite>chase</cite>&gt; <q>_av500_: already stocked :)</q></li>
+<li class="message">[<a href="#T18:34:53" id="T18:34:53"><abbr title="2011-09-01T18:34:53+00:00">18:34:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>chase: yeah right, always prepared for the secession</q></li>
+<li class="quit">[<a href="#T18:35:49" id="T18:35:49"><abbr title="2011-09-01T18:35:49+00:00">18:35:49</abbr></a>] <span>* Hoolxi (~Openfree@124.78.96.197) Quit (Read error: Connection timed out)</span></li>
+<li class="message">[<abbr title="2011-09-01T18:35:49+00:00">18:35:49</abbr>] &lt;<cite>chase</cite>&gt; <q>Zombie Apocalypse.  Didn't you watch that documentary "Zombieland"?</q></li>
+<li class="message">[<a href="#T18:36:10" id="T18:36:10"><abbr title="2011-09-01T18:36:10+00:00">18:36:10</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>in the queue</q></li>
+<li class="join">[<a href="#T18:40:47" id="T18:40:47"><abbr title="2011-09-01T18:40:47+00:00">18:40:47</abbr></a>] <span>* topfs2 (~topfs2@xbmc/staff/topfs2) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:42:00" id="T18:42:00"><abbr title="2011-09-01T18:42:00+00:00">18:42:00</abbr></a>] <span>* denix (~denys@nat/ti/x-ofybllfybwsnneif) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:47:33" id="T18:47:33"><abbr title="2011-09-01T18:47:33+00:00">18:47:33</abbr></a>] <span>* BlInK311 (~Ward@ool-435317d6.dyn.optonline.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:50:13" id="T18:50:13"><abbr title="2011-09-01T18:50:13+00:00">18:50:13</abbr></a>] <span>* tegila (~tegila@186-210-137-175.xd-dynamic.ctbcnetsuper.com.br) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T18:54:03" id="T18:54:03"><abbr title="2011-09-01T18:54:03+00:00">18:54:03</abbr></a>] <span>* Hoolxi (~Openfree@124.78.96.197) has joined #beagle</span></li>
