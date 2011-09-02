@@ -117,3 +117,43 @@
 <li class="message">[<a href="#T06:59:35" id="T06:59:35"><abbr title="2011-09-02T06:59:35+00:00">06:59:35</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>sorry to have missed that</q></li>
 <li class="message">[<a href="#T06:59:40" id="T06:59:40"><abbr title="2011-09-02T06:59:40+00:00">06:59:40</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Yup, lesson well learned</q></li>
 <li class="message">[<a href="#T07:00:03" id="T07:00:03"><abbr title="2011-09-02T07:00:03+00:00">07:00:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you read all the docs, right :)</q></li>
+<li class="message">[<a href="#T07:00:11" id="T07:00:11"><abbr title="2011-09-02T07:00:11+00:00">07:00:11</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Nah. I'm learning a lot from this</q></li>
+<li class="message">[<a href="#T07:00:37" id="T07:00:37"><abbr title="2011-09-02T07:00:37+00:00">07:00:37</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Heh, sure.</q></li>
+<li class="message">[<a href="#T07:01:09" id="T07:01:09"><abbr title="2011-09-02T07:01:09+00:00">07:01:09</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>By the way, you were right about posting the frames. I now see that using lavc mru calls post_frame directly from the decoder</q></li>
+<li class="message">[<a href="#T07:01:24" id="T07:01:24"><abbr title="2011-09-02T07:01:24+00:00">07:01:24</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>However, in dce.c he only calls 'put_frame'. So where is it posted?</q></li>
+<li class="message">[<a href="#T07:01:31" id="T07:01:31"><abbr title="2011-09-02T07:01:31+00:00">07:01:31</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T07:01:53" id="T07:01:53"><abbr title="2011-09-02T07:01:53+00:00">07:01:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>might have to do with needed conversion vs not</q></li>
+<li class="message">[<a href="#T07:02:04" id="T07:02:04"><abbr title="2011-09-02T07:02:04+00:00">07:02:04</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>for lavc there is the color conversion step</q></li>
+<li class="message">[<a href="#T07:02:10" id="T07:02:10"><abbr title="2011-09-02T07:02:10+00:00">07:02:10</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>with dce and v4l2 its not needed</q></li>
+<li class="message">[<a href="#T07:02:21" id="T07:02:21"><abbr title="2011-09-02T07:02:21+00:00">07:02:21</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mru: ^^^</q></li>
+<li class="message">[<a href="#T07:02:32" id="T07:02:32"><abbr title="2011-09-02T07:02:32+00:00">07:02:32</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>but he might be in the plane already</q></li>
+<li class="message">[<a href="#T07:02:43" id="T07:02:43"><abbr title="2011-09-02T07:02:43+00:00">07:02:43</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>well, thats no excuse!</q></li>
+<li class="message">[<a href="#T07:04:57" id="T07:04:57"><abbr title="2011-09-02T07:04:57+00:00">07:04:57</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Hmm, but calling ofbp_post_frame increments the display semaphore, which lets the display thread know it can show frames</q></li>
+<li class="quit">[<a href="#T07:05:05" id="T07:05:05"><abbr title="2011-09-02T07:05:05+00:00">07:05:05</abbr></a>] <span>* jevin (~jevin@napalm.jevinskie.com) Quit (Excess Flood)</span></li>
+<li class="message">[<a href="#T07:05:13" id="T07:05:13"><abbr title="2011-09-02T07:05:13+00:00">07:05:13</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>So even if we're using v4l2 and dce, I think that call has to be made somewhere</q></li>
+<li class="join">[<a href="#T07:08:02" id="T07:08:02"><abbr title="2011-09-02T07:08:02+00:00">07:08:02</abbr></a>] <span>* jevin (~jevin@napalm.jevinskie.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:08:26" id="T07:08:26"><abbr title="2011-09-02T07:08:26+00:00">07:08:26</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>shouldn't you be looking for ofb_put_frame, not post?</q></li>
+<li class="message">[<a href="#T07:10:44" id="T07:10:44"><abbr title="2011-09-02T07:10:44+00:00">07:10:44</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>put_frame = mark the buffer as free, as far as I understand mru's code</q></li>
+<li class="message">[<a href="#T07:11:29" id="T07:11:29"><abbr title="2011-09-02T07:11:29+00:00">07:11:29</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>could always run it in a debugger and see if that code is ever reached... then check the call stack :P</q></li>
+<li class="message">[<a href="#T07:11:33" id="T07:11:33"><abbr title="2011-09-02T07:11:33+00:00">07:11:33</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>so actually I think what I'm doing now is decode the frames and directly throw them away :)</q></li>
+<li class="join">[<a href="#T07:12:26" id="T07:12:26"><abbr title="2011-09-02T07:12:26+00:00">07:12:26</abbr></a>] <span>* CMoH|office (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="message">[<abbr title="2011-09-02T07:12:26+00:00">07:12:26</abbr>] &lt;<cite>GGuyZ</cite>&gt; <q>It doesn't run, need to see where to put it so it will :)</q></li>
+<li class="message">[<a href="#T07:13:15" id="T07:13:15"><abbr title="2011-09-02T07:13:15+00:00">07:13:15</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>GGuyZ: yes, that is what i assume too</q></li>
+<li class="message">[<a href="#T07:13:46" id="T07:13:46"><abbr title="2011-09-02T07:13:46+00:00">07:13:46</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>looks like it's inteh lavc_decode in the avcodec file in the default implementation</q></li>
+<li class="message">[<a href="#T07:14:01" id="T07:14:01"><abbr title="2011-09-02T07:14:01+00:00">07:14:01</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>*in the</q></li>
+<li class="action">[<a href="#T07:17:09" id="T07:17:09"><abbr title="2011-09-02T07:17:09+00:00">07:17:09</abbr></a>] <span>* _av500_ glares at 3g at 300kmh</span></li>
+<li class="message">[<a href="#T07:17:47" id="T07:17:47"><abbr title="2011-09-02T07:17:47+00:00">07:17:47</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Exactly. I need to post the frame in ce.c, that's not the problem. I want to make sure that releasing it(putting it) right after won't cause thread contention issue with the display thread</q></li>
+<li class="message">[<a href="#T07:18:14" id="T07:18:14"><abbr title="2011-09-02T07:18:14+00:00">07:18:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why are you still accelerating 3G when you are already at 300kph?</q></li>
+<li class="message">[<a href="#T07:18:16" id="T07:18:16"><abbr title="2011-09-02T07:18:16+00:00">07:18:16</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>I'll just check it. See if my board explodes</q></li>
+<li class="message">[<a href="#T07:18:24" id="T07:18:24"><abbr title="2011-09-02T07:18:24+00:00">07:18:24</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>lol</q></li>
+<li class="quit">[<a href="#T07:18:43" id="T07:18:43"><abbr title="2011-09-02T07:18:43+00:00">07:18:43</abbr></a>] <span>* peabody124 (~peabody12@c-98-196-22-185.hsd1.tx.comcast.net) Quit (Quit: peabody124)</span></li>
+<li class="message">[<a href="#T07:19:23" id="T07:19:23"><abbr title="2011-09-02T07:19:23+00:00">07:19:23</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>g'luck :P</q></li>
+<li class="message">[<a href="#T07:31:04" id="T07:31:04"><abbr title="2011-09-02T07:31:04+00:00">07:31:04</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Bleh</q></li>
+<li class="message">[<a href="#T07:31:10" id="T07:31:10"><abbr title="2011-09-02T07:31:10+00:00">07:31:10</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>it posts the frame, but still doesn't show anything</q></li>
+<li class="quit">[<a href="#T07:36:37" id="T07:36:37"><abbr title="2011-09-02T07:36:37+00:00">07:36:37</abbr></a>] <span>* scrp3l (~scrp3l@201.250.142.39) Quit (Quit: Ex-Chat)</span></li>
+<li class="nick-change">[<a href="#T07:46:29" id="T07:46:29"><abbr title="2011-09-02T07:46:29+00:00">07:46:29</abbr></a>] <span>* kimitake is now known as kimitake_idle</span></li>
+<li class="message">[<a href="#T07:50:54" id="T07:50:54"><abbr title="2011-09-02T07:50:54+00:00">07:50:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>'morning all</q></li>
+<li class="message">[<a href="#T07:50:58" id="T07:50:58"><abbr title="2011-09-02T07:50:58+00:00">07:50:58</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>morning</q></li>
+<li class="join">[<a href="#T07:56:48" id="T07:56:48"><abbr title="2011-09-02T07:56:48+00:00">07:56:48</abbr></a>] <span>* ant_work (~andrea@host6-80-static.42-85-b.business.telecomitalia.it) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:57:10" id="T07:57:10"><abbr title="2011-09-02T07:57:10+00:00">07:57:10</abbr></a>] <span>* joel_ (~joel@cpe-76-184-244-226.tx.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:58:42" id="T07:58:42"><abbr title="2011-09-02T07:58:42+00:00">07:58:42</abbr></a>] &lt;<cite>GGuyZ</cite>&gt; <q>Hi</q></li>
