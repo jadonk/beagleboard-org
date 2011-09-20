@@ -556,3 +556,76 @@
 <li class="join">[<a href="#T16:39:34" id="T16:39:34"><abbr title="2011-09-20T16:39:34+00:00">16:39:34</abbr></a>] <span>* tobi (~tobi@e180186216.adsl.alicedsl.de) has joined #beagleboard</span></li>
 <li class="quit">[<a href="#T16:41:43" id="T16:41:43"><abbr title="2011-09-20T16:41:43+00:00">16:41:43</abbr></a>] <span>* peabody124 (~peabody12@c-98-201-161-152.hsd1.tx.comcast.net) Quit (Quit: peabody124)</span></li>
 <li class="quit">[<a href="#T16:44:43" id="T16:44:43"><abbr title="2011-09-20T16:44:43+00:00">16:44:43</abbr></a>] <span>* brolin (~brolin@190.250.28.228) Quit (Quit: leaving)</span></li>
+<li class="join">[<a href="#T17:00:25" id="T17:00:25"><abbr title="2011-09-20T17:00:25+00:00">17:00:25</abbr></a>] <span>* peabody124 (~peabody12@128.249.96.21) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:03:13" id="T17:03:13"><abbr title="2011-09-20T17:03:13+00:00">17:03:13</abbr></a>] <span>* Dhruv_ (439b6803@gateway/web/freenode/ip.67.155.104.3) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:04:13" id="T17:04:13"><abbr title="2011-09-20T17:04:13+00:00">17:04:13</abbr></a>] <span>* Crofton (~balister@pool-74-107-170-211.ronkva.east.verizon.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T17:04:43" id="T17:04:43"><abbr title="2011-09-20T17:04:43+00:00">17:04:43</abbr></a>] <span>* gustavoz (~gustavoz@host128.190-226-26.telecom.net.ar) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:04:45" id="T17:04:45"><abbr title="2011-09-20T17:04:45+00:00">17:04:45</abbr></a>] <span>* mctouch (~mctouch@cpc17-sgyl28-2-0-cust34.sgyl.cable.virginmedia.com) Quit (Quit: Bye!)</span></li>
+<li class="nick-change">[<a href="#T17:06:26" id="T17:06:26"><abbr title="2011-09-20T17:06:26+00:00">17:06:26</abbr></a>] <span>* joelagnel is now known as joel-afk</span></li>
+<li class="quit">[<a href="#T17:07:44" id="T17:07:44"><abbr title="2011-09-20T17:07:44+00:00">17:07:44</abbr></a>] <span>* Dhruv_ (439b6803@gateway/web/freenode/ip.67.155.104.3) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T17:08:20" id="T17:08:20"><abbr title="2011-09-20T17:08:20+00:00">17:08:20</abbr></a>] <span>* cipher (~cipher@unaffiliated/cipher) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:08:52" id="T17:08:52"><abbr title="2011-09-20T17:08:52+00:00">17:08:52</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>can anyone point me at a good document that would help setup a beagle with a read-only filesystem so that if power is pulled it won't corrupt filesystem?</q></li>
+<li class="message">[<a href="#T17:09:12" id="T17:09:12"><abbr title="2011-09-20T17:09:12+00:00">17:09:12</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>is it as easy and messing around with /etc/fstab?</q></li>
+<li class="message">[<a href="#T17:09:15" id="T17:09:15"><abbr title="2011-09-20T17:09:15+00:00">17:09:15</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>easy as*</q></li>
+<li class="message">[<a href="#T17:09:26" id="T17:09:26"><abbr title="2011-09-20T17:09:26+00:00">17:09:26</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>or as hard as creating custom ramdisk for the bootloader and such</q></li>
+<li class="message">[<a href="#T17:09:44" id="T17:09:44"><abbr title="2011-09-20T17:09:44+00:00">17:09:44</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>depends what you want</q></li>
+<li class="message">[<a href="#T17:09:58" id="T17:09:58"><abbr title="2011-09-20T17:09:58+00:00">17:09:58</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you could even run from ramdisk</q></li>
+<li class="message">[<a href="#T17:10:20" id="T17:10:20"><abbr title="2011-09-20T17:10:20+00:00">17:10:20</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>I don't really need to persist any changes unless it's a firmware update</q></li>
+<li class="message">[<a href="#T17:10:24" id="T17:10:24"><abbr title="2011-09-20T17:10:24+00:00">17:10:24</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>or well, a kernel update</q></li>
+<li class="message">[<a href="#T17:10:34" id="T17:10:34"><abbr title="2011-09-20T17:10:34+00:00">17:10:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm</q></li>
+<li class="message">[<a href="#T17:10:41" id="T17:10:41"><abbr title="2011-09-20T17:10:41+00:00">17:10:41</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>what are you going to run?</q></li>
+<li class="message">[<a href="#T17:10:53" id="T17:10:53"><abbr title="2011-09-20T17:10:53+00:00">17:10:53</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>if it is a low mem app</q></li>
+<li class="message">[<a href="#T17:10:59" id="T17:10:59"><abbr title="2011-09-20T17:10:59+00:00">17:10:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I would use initrd ramdisk</q></li>
+<li class="message">[<a href="#T17:11:08" id="T17:11:08"><abbr title="2011-09-20T17:11:08+00:00">17:11:08</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>pretty low requirements, but it is written in python</q></li>
+<li class="message">[<a href="#T17:11:17" id="T17:11:17"><abbr title="2011-09-20T17:11:17+00:00">17:11:17</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>some people might call that high</q></li>
+<li class="message">[<a href="#T17:11:21" id="T17:11:21"><abbr title="2011-09-20T17:11:21+00:00">17:11:21</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>but for a beagle, pretty low</q></li>
+<li class="message">[<a href="#T17:11:58" id="T17:11:58"><abbr title="2011-09-20T17:11:58+00:00">17:11:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>run your rootfs from ramdisk</q></li>
+<li class="message">[<a href="#T17:12:06" id="T17:12:06"><abbr title="2011-09-20T17:12:06+00:00">17:12:06</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>you have any pointers I could read on taking the ramdisk option? I've always just black boxed that process with mkinitramdisk</q></li>
+<li class="message">[<a href="#T17:12:25" id="T17:12:25"><abbr title="2011-09-20T17:12:25+00:00">17:12:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no pointers</q></li>
+<li class="message">[<a href="#T17:12:48" id="T17:12:48"><abbr title="2011-09-20T17:12:48+00:00">17:12:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>basically you use initrd to mount your rootfs and switch to it</q></li>
+<li class="message">[<a href="#T17:13:11" id="T17:13:11"><abbr title="2011-09-20T17:13:11+00:00">17:13:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sw update is as easy as replacing the rootfs on the nand/sd</q></li>
+<li class="message">[<a href="#T17:13:22" id="T17:13:22"><abbr title="2011-09-20T17:13:22+00:00">17:13:22</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>that's what I'd like</q></li>
+<li class="message">[<a href="#T17:13:30" id="T17:13:30"><abbr title="2011-09-20T17:13:30+00:00">17:13:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>rootfs mounted r/o as cramfs/squashfs</q></li>
+<li class="message">[<a href="#T17:13:39" id="T17:13:39"><abbr title="2011-09-20T17:13:39+00:00">17:13:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>1) setup ramdisk</q></li>
+<li class="message">[<a href="#T17:13:46" id="T17:13:46"><abbr title="2011-09-20T17:13:46+00:00">17:13:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>1) copy rootfs.cramfs to it</q></li>
+<li class="message">[<a href="#T17:13:48" id="T17:13:48"><abbr title="2011-09-20T17:13:48+00:00">17:13:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>2)</q></li>
+<li class="message">[<a href="#T17:13:50" id="T17:13:50"><abbr title="2011-09-20T17:13:50+00:00">17:13:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>3) mount it</q></li>
+<li class="message">[<a href="#T17:13:54" id="T17:13:54"><abbr title="2011-09-20T17:13:54+00:00">17:13:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>4) use it</q></li>
+<li class="message">[<a href="#T17:14:13" id="T17:14:13"><abbr title="2011-09-20T17:14:13+00:00">17:14:13</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>I like it. Anyone have anything else to add to that?</q></li>
+<li class="message">[<a href="#T17:14:17" id="T17:14:17"><abbr title="2011-09-20T17:14:17+00:00">17:14:17</abbr></a>] &lt;<cite>cipher</cite>&gt; <q>:-P</q></li>
+<li class="action">[<a href="#T17:14:48" id="T17:14:48"><abbr title="2011-09-20T17:14:48+00:00">17:14:48</abbr></a>] <span>* av500 should have patented that</span></li>
+<li class="message">[<a href="#T17:16:46" id="T17:16:46"><abbr title="2011-09-20T17:16:46+00:00">17:16:46</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 why?</q></li>
+<li class="message">[<a href="#T17:16:53" id="T17:16:53"><abbr title="2011-09-20T17:16:53+00:00">17:16:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>richness</q></li>
+<li class="message">[<a href="#T17:16:58" id="T17:16:58"><abbr title="2011-09-20T17:16:58+00:00">17:16:58</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I would try an initrd wioth python</q></li>
+<li class="message">[<a href="#T17:17:30" id="T17:17:30"><abbr title="2011-09-20T17:17:30+00:00">17:17:30</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm okay</q></li>
+<li class="message">[<a href="#T17:17:37" id="T17:17:37"><abbr title="2011-09-20T17:17:37+00:00">17:17:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>squahsfs is easier with oe</q></li>
+<li class="message">[<a href="#T17:17:46" id="T17:17:46"><abbr title="2011-09-20T17:17:46+00:00">17:17:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>woglinde: you like snakes?</q></li>
+<li class="join">[<a href="#T17:17:52" id="T17:17:52"><abbr title="2011-09-20T17:17:52+00:00">17:17:52</abbr></a>] <span>* rtb (~rtb@122.178.229.45) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:17:55" id="T17:17:55"><abbr title="2011-09-20T17:17:55+00:00">17:17:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T17:18:09" id="T17:18:09"><abbr title="2011-09-20T17:18:09+00:00">17:18:09</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>snakes on a plane</q></li>
+<li class="message">[<a href="#T17:18:10" id="T17:18:10"><abbr title="2011-09-20T17:18:10+00:00">17:18:10</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T17:18:15" id="T17:18:15"><abbr title="2011-09-20T17:18:15+00:00">17:18:15</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>stupid movie</q></li>
+<li class="quit">[<a href="#T17:19:02" id="T17:19:02"><abbr title="2011-09-20T17:19:02+00:00">17:19:02</abbr></a>] <span>* panto (~panto@ppp-94-65-59-209.home.otenet.gr) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="join">[<a href="#T17:23:25" id="T17:23:25"><abbr title="2011-09-20T17:23:25+00:00">17:23:25</abbr></a>] <span>* panto (~panto@ppp-94-67-102-74.home.otenet.gr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:23:37" id="T17:23:37"><abbr title="2011-09-20T17:23:37+00:00">17:23:37</abbr></a>] <span>* olsen (~sesselast@fwe.zhdk.ch) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="quit">[<a href="#T17:23:45" id="T17:23:45"><abbr title="2011-09-20T17:23:45+00:00">17:23:45</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T17:26:13" id="T17:26:13"><abbr title="2011-09-20T17:26:13+00:00">17:26:13</abbr></a>] <span>* djlewis1 (~djlewis@216-61-218-132.dsl.tcworks.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:27:48" id="T17:27:48"><abbr title="2011-09-20T17:27:48+00:00">17:27:48</abbr></a>] <span>* djlewis (~djlewis@65-70-11-120.dsl.tcworks.net) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T17:31:11" id="T17:31:11"><abbr title="2011-09-20T17:31:11+00:00">17:31:11</abbr></a>] <span>* drakkan1000 (~drakkan@dynamic-adsl-94-36-219-253.clienti.tiscali.it) Quit (Quit: Ex-Chat)</span></li>
+<li class="quit">[<a href="#T17:34:09" id="T17:34:09"><abbr title="2011-09-20T17:34:09+00:00">17:34:09</abbr></a>] <span>* cipher (~cipher@unaffiliated/cipher) Quit (Quit: leaving)</span></li>
+<li class="join">[<a href="#T17:39:01" id="T17:39:01"><abbr title="2011-09-20T17:39:01+00:00">17:39:01</abbr></a>] <span>* Darren (~darreneth@nat/ti/x-wbpjykteqrqpjauq) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:40:55" id="T17:40:55"><abbr title="2011-09-20T17:40:55+00:00">17:40:55</abbr></a>] <span>* Ikarus (~ikarus@46-129-66-189.dynamic.upc.nl) Quit (Read error: Operation timed out)</span></li>
+<li class="join">[<a href="#T17:41:33" id="T17:41:33"><abbr title="2011-09-20T17:41:33+00:00">17:41:33</abbr></a>] <span>* W1N9Zr0 (~W1N9Zr0@69.165.245.171) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:46:48" id="T17:46:48"><abbr title="2011-09-20T17:46:48+00:00">17:46:48</abbr></a>] <span>* mike_ (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T17:47:14" id="T17:47:14"><abbr title="2011-09-20T17:47:14+00:00">17:47:14</abbr></a>] <span>* mike_ is now known as Guest35920</span></li>
+<li class="quit">[<a href="#T17:48:22" id="T17:48:22"><abbr title="2011-09-20T17:48:22+00:00">17:48:22</abbr></a>] <span>* W1N9Zr0 (~W1N9Zr0@69.165.245.171) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T17:50:06" id="T17:50:06"><abbr title="2011-09-20T17:50:06+00:00">17:50:06</abbr></a>] <span>* saliak (4409e4b8@gateway/web/freenode/ip.68.9.228.184) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:51:20" id="T17:51:20"><abbr title="2011-09-20T17:51:20+00:00">17:51:20</abbr></a>] &lt;<cite>saliak</cite>&gt; <q>Hi, I'm trying to get the natty headless pre-installed image working on my beagle board xm.  it seems to have installed ok, except for network support.  usb0 isn't showing up as a network device, and isn't in the udev rules.  anyone know what might be going on, or hwat the udev line is?</q></li>
+<li class="join">[<a href="#T17:51:52" id="T17:51:52"><abbr title="2011-09-20T17:51:52+00:00">17:51:52</abbr></a>] <span>* pack3754 (~daniel@71.216.93.203) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:52:12" id="T17:52:12"><abbr title="2011-09-20T17:52:12+00:00">17:52:12</abbr></a>] &lt;<cite>pack3754</cite>&gt; <q>Hi all, anyone having issues with openembedded due to the shutdown of kernel.org?</q></li>
+<li class="message">[<a href="#T17:59:15" id="T17:59:15"><abbr title="2011-09-20T17:59:15+00:00">17:59:15</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>pack3754 sue</q></li>
+<li class="message">[<a href="#T17:59:17" id="T17:59:17"><abbr title="2011-09-20T17:59:17+00:00">17:59:17</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T17:59:25" id="T17:59:25"><abbr title="2011-09-20T17:59:25+00:00">17:59:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>replace it with github mirror</q></li>
+<li class="message">[<a href="#T17:59:30" id="T17:59:30"><abbr title="2011-09-20T17:59:30+00:00">17:59:30</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or other mirrors</q></li>
+<li class="quit">[<a href="#T17:59:38" id="T17:59:38"><abbr title="2011-09-20T17:59:38+00:00">17:59:38</abbr></a>] <span>* woglinde (~henning@fb-n15-11.unbelievable-machine.net) Quit (Quit: zapp home)</span></li>
+<li class="join">[<a href="#T17:59:48" id="T17:59:48"><abbr title="2011-09-20T17:59:48+00:00">17:59:48</abbr></a>] <span>* Crofton (~balister@pool-74-107-170-211.ronkva.east.verizon.net) has joined #beagle</span></li>
