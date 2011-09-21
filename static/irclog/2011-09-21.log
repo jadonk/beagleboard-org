@@ -190,3 +190,131 @@
 <li class="message">[<a href="#T06:54:02" id="T06:54:02"><abbr title="2011-09-21T06:54:02+00:00">06:54:02</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>this video plays mplayer -vo omapfb Lucy\ divx\ 1000kbps\ 320x240.mp4 with Angstrom demo image but Short FootballSoccer Video.mp4 is not played as it is a HD one</q></li>
 <li class="message">[<a href="#T06:54:17" id="T06:54:17"><abbr title="2011-09-21T06:54:17+00:00">06:54:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>define "not played"</q></li>
 <li class="message">[<a href="#T06:55:17" id="T06:55:17"><abbr title="2011-09-21T06:55:17+00:00">06:55:17</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>1 sec</q></li>
+<li class="message">[<a href="#T07:00:11" id="T07:00:11"><abbr title="2011-09-21T07:00:11+00:00">07:00:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>1 sec is over</q></li>
+<li class="message">[<a href="#T07:02:21" id="T07:02:21"><abbr title="2011-09-21T07:02:21+00:00">07:02:21</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>actually board is not booting up now, i gave this boot args: setenv bootargs console=ttyS2,115200n8 root=/dev/mmcblk0p2 noinitrd rw rootdelay=2 rootfstype=ext3 mpurate=600 buddy=unknown vram=12M omapfb.mode=dvi:1024x768MR-16@60  omapdss.def_disp=dvi, but rootfs error i am getting</q></li>
+<li class="message">[<a href="#T07:02:34" id="T07:02:34"><abbr title="2011-09-21T07:02:34+00:00">07:02:34</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(179,2)</q></li>
+<li class="message">[<a href="#T07:02:44" id="T07:02:44"><abbr title="2011-09-21T07:02:44+00:00">07:02:44</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>Please append a correct "root=" boot option; here are the available partitions:</q></li>
+<li class="message">[<a href="#T07:03:05" id="T07:03:05"><abbr title="2011-09-21T07:03:05+00:00">07:03:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>with these boot command cmem would not work anyway, since you do not reserve memory for it</q></li>
+<li class="message">[<a href="#T07:03:58" id="T07:03:58"><abbr title="2011-09-21T07:03:58+00:00">07:03:58</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>i was giving cmem memory once i log in as root</q></li>
+<li class="message">[<a href="#T07:04:34" id="T07:04:34"><abbr title="2011-09-21T07:04:34+00:00">07:04:34</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>i gave these two as root, after loggin in, depmod -a cmemk  modprobe cmemk phys_start=0x95800000 phys_end=0x96800000 pools=20x4096,8x131072,4x829440,1x5250000,1x1429440,1x256000</q></li>
+<li class="message">[<a href="#T07:04:50" id="T07:04:50"><abbr title="2011-09-21T07:04:50+00:00">07:04:50</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>depmod -a cmemk;  modprobe cmemk phys_start=0x95800000 phys_end=0x96800000 pools=20x4096,8x131072,4x829440,1x5250000,1x1429440,1x256000</q></li>
+<li class="message">[<a href="#T07:07:55" id="T07:07:55"><abbr title="2011-09-21T07:07:55+00:00">07:07:55</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>can anyone help me with booting up board now..all of a sudden i started getting this error now. log: <a href="http://pastebin.com/eHdNvhvp">http://pastebin.com/eHdNvhvp</a></q></li>
+<li class="message">[<a href="#T07:08:49" id="T07:08:49"><abbr title="2011-09-21T07:08:49+00:00">07:08:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>looks like your card is busted</q></li>
+<li class="message">[<a href="#T07:08:56" id="T07:08:56"><abbr title="2011-09-21T07:08:56+00:00">07:08:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>see all the MMC errors</q></li>
+<li class="message">[<a href="#T07:09:06" id="T07:09:06"><abbr title="2011-09-21T07:09:06+00:00">07:09:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>try another one</q></li>
+<li class="message">[<a href="#T07:09:27" id="T07:09:27"><abbr title="2011-09-21T07:09:27+00:00">07:09:27</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>sad..!</q></li>
+<li class="message">[<a href="#T07:10:06" id="T07:10:06"><abbr title="2011-09-21T07:10:06+00:00">07:10:06</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>it's getting detected fine no host pc</q></li>
+<li class="message">[<a href="#T07:10:34" id="T07:10:34"><abbr title="2011-09-21T07:10:34+00:00">07:10:34</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>i will try formatting card once, if that help..</q></li>
+<li class="message">[<a href="#T07:12:10" id="T07:12:10"><abbr title="2011-09-21T07:12:10+00:00">07:12:10</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q><a href="http://pastebin.com/NMz3qzZ0">http://pastebin.com/NMz3qzZ0</a> this is the log saved before for a HD video file playing</q></li>
+<li class="message">[<a href="#T07:13:35" id="T07:13:35"><abbr title="2011-09-21T07:13:35+00:00">07:13:35</abbr></a>] &lt;<cite>NotTooDumb3_</cite>&gt; <q>going out..will be back.</q></li>
+<li class="message">[<a href="#T07:15:02" id="T07:15:02"><abbr title="2011-09-21T07:15:02+00:00">07:15:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q> **** Your system is too SLOW to play this!  ****</q></li>
+<li class="message">[<a href="#T07:15:18" id="T07:15:18"><abbr title="2011-09-21T07:15:18+00:00">07:15:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>as expected</q></li>
+<li class="join">[<a href="#T07:18:34" id="T07:18:34"><abbr title="2011-09-21T07:18:34+00:00">07:18:34</abbr></a>] <span>* rsv (7aa62e54@gateway/web/freenode/ip.122.166.46.84) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:21:34" id="T07:21:34"><abbr title="2011-09-21T07:21:34+00:00">07:21:34</abbr></a>] <span>* baegleguy (d4ae0fa8@gateway/web/freenode/ip.212.174.15.168) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:22:45" id="T07:22:45"><abbr title="2011-09-21T07:22:45+00:00">07:22:45</abbr></a>] &lt;<cite>baegleguy</cite>&gt; <q>guys, my bb don't give any serial output when loading. But leds are open, and when i plugged sdcard, leds get flashing but no hdmi output.</q></li>
+<li class="message">[<a href="#T07:23:07" id="T07:23:07"><abbr title="2011-09-21T07:23:07+00:00">07:23:07</abbr></a>] &lt;<cite>baegleguy</cite>&gt; <q>what could had happen?</q></li>
+<li class="quit">[<a href="#T07:25:48" id="T07:25:48"><abbr title="2011-09-21T07:25:48+00:00">07:25:48</abbr></a>] <span>* rsv (7aa62e54@gateway/web/freenode/ip.122.166.46.84) Quit (Quit: Page closed)</span></li>
+<li class="quit">[<a href="#T07:26:02" id="T07:26:02"><abbr title="2011-09-21T07:26:02+00:00">07:26:02</abbr></a>] <span>* brolin (~brolin@190.250.28.228) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="join">[<a href="#T07:49:28" id="T07:49:28"><abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr></a>] <span>* Matt_O1 (~MattOwnby@216.160.243.228) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* jefferai (~quassel@kde/amarok/mitchell) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* niclas (~niclas@nat/ti/x-hwzlsdrdhxnylslf) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* _chase_ (~chase@nat/ti/x-wtvgkwrwefuetjdx) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* nullpuppy (~dustin@freematrix/staff/nullpuppy) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* jevin (~jevin@napalm.jevinskie.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* calculus (~calculus@gentoo/user/calculus) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* j4son (jdog@tntnw.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* isbric (~isbric@c-915be255.020-12-6875761.cust.bredbandsbolaget.se) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* pfoetchen (~pfoetchen@winc043.informatik.uni-wuerzburg.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* speakman (~daniel@unaffiliated/speakman) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* jonand (~kakmnstr@h35n1-asp-a13.ias.bredband.telia.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* Nexton (U2FsdGVkX1@shell.hiit.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:49:28+00:00">07:49:28</abbr>] <span>* PaulePanter (~paul@mail.gw90.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:49:35" id="T07:49:35"><abbr title="2011-09-21T07:49:35+00:00">07:49:35</abbr></a>] <span>* PaulePanter (~paul@mail.gw90.de) has joined #beagleboard</span></li>
+<li class="quit">[<a href="#T07:49:39" id="T07:49:39"><abbr title="2011-09-21T07:49:39+00:00">07:49:39</abbr></a>] <span>* balestrino (~balestrin@illegal-use-181-112.dimnp.unipi.it) Quit (Excess Flood)</span></li>
+<li class="join">[<a href="#T07:49:45" id="T07:49:45"><abbr title="2011-09-21T07:49:45+00:00">07:49:45</abbr></a>] <span>* balestrino (~balestrin@illegal-use-181-112.dimnp.unipi.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:50:37" id="T07:50:37"><abbr title="2011-09-21T07:50:37+00:00">07:50:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>baegleguy: check your seria??</q></li>
+<li class="message">[<a href="#T07:50:39" id="T07:50:39"><abbr title="2011-09-21T07:50:39+00:00">07:50:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>serial</q></li>
+<li class="join">[<a href="#T07:51:25" id="T07:51:25"><abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr></a>] <span>* raster (raster@enlightenment2.osuosl.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* Guest16855 (~zumbi@77.230.237.25) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* arun_ (~arun@unaffiliated/sindian) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* chrisw957_ (~chris@98.172.134.113) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* Crofton|work (~balister@pool-74-107-170-211.ronkva.east.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* kukyakya (~kukyakya@icpc14.kaist.ac.kr) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* denix0 (~denix@pool-71-191-138-237.washdc.fios.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* plm (~plm@65.111.170.40) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* htns (~htns@175.139.208.57) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* toobluesc (~nitro@cpe-76-183-36-8.tx.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* Electric_Monk (~colin@87-194-159-227.bethere.co.uk) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* buq2 (~buq2@dsl-trebrasgw2-fe98de00-17.dhcp.inet.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* XShocK_ (~XShocK@static-67-62-51-170.dsl.cavtel.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:25+00:00">07:51:25</abbr>] <span>* xxiao (~xxiao@li41-126.members.linode.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:51:31" id="T07:51:31"><abbr title="2011-09-21T07:51:31+00:00">07:51:31</abbr></a>] <span>* toobluesc (~nitro@cpe-76-183-36-8.tx.res.rr.com) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T07:51:37" id="T07:51:37"><abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr></a>] <span>* 16WAAFGRS (~balestrin@illegal-use-181-112.dimnp.unipi.it) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* Kamondelious (~kamondeli@24.52.209.68) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* thurbad (~natesewel@cpe-70-124-80-154.austin.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* joel-afk (~joel@cpe-76-184-244-226.tx.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* ssvb (~ssvb@a88-114-220-213.elisa-laajakaista.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* gdm (~gdm@186.18.175.127) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* mazzanet (~mazzanet@hpavc/mazzanet) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* kulve (631109c573@humboldt.pingu.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* ShadowJK (jk@terminus.enivax.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* adj (antti@hervanta.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* Luca256 (~coelho@a88-115-100-174.elisa-laajakaista.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* tmzt (~tmzt@76.211.8.155) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* zuh (6d46d0727e@humboldt.pingu.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* jonmasters (~jcm@edison.jonmasters.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:37+00:00">07:51:37</abbr>] <span>* armin76 (~armin@gentoo/developer/armin76) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:51:45" id="T07:51:45"><abbr title="2011-09-21T07:51:45+00:00">07:51:45</abbr></a>] <span>* tomba (tomba@taika.fi) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:51:54" id="T07:51:54"><abbr title="2011-09-21T07:51:54+00:00">07:51:54</abbr></a>] <span>* contempt (contempt@unaffiliated/contempt) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T07:51:59" id="T07:51:59"><abbr title="2011-09-21T07:51:59+00:00">07:51:59</abbr></a>] <span>* Darek- (darek@work.sznajder.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:59+00:00">07:51:59</abbr>] <span>* negril (~negril@31-16-117-198-dynip.superkabel.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:59+00:00">07:51:59</abbr>] <span>* chainsawbike (~chainsawb@chainsawbike-1-pt.tunnel.tserv25.sin1.ipv6.he.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:59+00:00">07:51:59</abbr>] <span>* arun (~arun@unaffiliated/sindian) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:51:59+00:00">07:51:59</abbr>] <span>* contempt (contempt@unaffiliated/contempt) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:52:13" id="T07:52:13"><abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr></a>] <span>* Russ (foobar@ip70-176-251-1.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* mranostay (~mranostay@108-64-218-123.lightspeed.moblal.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* awozniak__ (~awozniak@adsl-76-205-222-174.dsl.snlo01.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* rsalveti (~rsalveti@linaro/rsalveti) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* koen_ (~koen@ip545070eb.adsl-surfen.hetnet.nl) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* ggreer (~AngryPars@unaffiliated/angryparsley) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* toofar (~toobluesc@rrcs-24-153-174-218.sw.biz.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* lool (~lool@debian/developer/lool) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* myhrman (~arune@83.140.94.129.biz.sta.port80.se) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* fgau (~fgau@webbox1220.server-home.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* javaJake (~javaJake@unaffiliated/javajake) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* thuttu77 (~thuttu77@cs181145227.pp.htv.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* Gareth (~gareth@www.wiked.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:13+00:00">07:52:13</abbr>] <span>* stuffcorpse (stuffy@amarok/developer/rickc) has joined #beagle</span></li>
+<li class="quit">[<a href="#T07:52:34" id="T07:52:34"><abbr title="2011-09-21T07:52:34+00:00">07:52:34</abbr></a>] <span>* balestrino (~balestrin@illegal-use-181-112.dimnp.unipi.it) Quit (Excess Flood)</span></li>
+<li class="join">[<a href="#T07:52:42" id="T07:52:42"><abbr title="2011-09-21T07:52:42+00:00">07:52:42</abbr></a>] <span>* dm8tbr (dm8tbr@gw.bfst.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:52:42+00:00">07:52:42</abbr>] <span>* BThompson (bhthompson@nat/google/x-lizvfcrczcmekpge) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T07:52:47" id="T07:52:47"><abbr title="2011-09-21T07:52:47+00:00">07:52:47</abbr></a>] <span>* raster is now known as Guest40083</span></li>
+<li class="message">[<a href="#T07:53:25" id="T07:53:25"><abbr title="2011-09-21T07:53:25+00:00">07:53:25</abbr></a>] &lt;<cite>baegleguy</cite>&gt; <q>my beagleboard don't give serial output, but angstrom boot is successfull, and hdmi working</q></li>
+<li class="action">[<a href="#T07:53:35" id="T07:53:35"><abbr title="2011-09-21T07:53:35+00:00">07:53:35</abbr></a>] <span>* av500 hands Guest40083 a coldie</span></li>
+<li class="message">[<a href="#T07:53:36" id="T07:53:36"><abbr title="2011-09-21T07:53:36+00:00">07:53:36</abbr></a>] &lt;<cite>baegleguy</cite>&gt; <q>what could be the problem?</q></li>
+<li class="message">[<a href="#T07:53:43" id="T07:53:43"><abbr title="2011-09-21T07:53:43+00:00">07:53:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>baegleguy: check your serial</q></li>
+<li class="join">[<a href="#T07:54:04" id="T07:54:04"><abbr title="2011-09-21T07:54:04+00:00">07:54:04</abbr></a>] <span>* balestrino (~balestrin@illegal-use-181-112.dimnp.unipi.it) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:54:25" id="T07:54:25"><abbr title="2011-09-21T07:54:25+00:00">07:54:25</abbr></a>] <span>* cwillu_at_work (~cwillu@70.64.129.37) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:54:45" id="T07:54:45"><abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr></a>] <span>* kaio (~kaio@27-33-161-52.static.tpgi.com.au) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* jpsaman (~jpsaman@2001:4cb8:17:1:f24d:a2ff:fe65:bd7e) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* virals (~viral@183.83.62.38) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* mikey_w (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* ZeZu (null@c-98-227-57-88.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* djlewis1 (~djlewis@216-61-218-132.dsl.tcworks.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* dl9pf_ (~quassel@p5B213025.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* marcheu (~marcheu@annarchy.freedesktop.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* ynezz (ynezz@ibawizard.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* housel (~user@ip70-187-191-250.oc.oc.cox.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* Gaston|Home (Gaston@c-1e2ee353.155-1-64736c11.cust.bredbandsbolaget.se) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* hpham (~hpham@72.14.176.143) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* jkfresh (~jkfresh@208.64.37.92) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:45+00:00">07:54:45</abbr>] <span>* topi` (foobar@62.220.235.64) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:54:47" id="T07:54:47"><abbr title="2011-09-21T07:54:47+00:00">07:54:47</abbr></a>] <span>* 13WAAEDZ1 (~balestrin@illegal-use-181-112.dimnp.unipi.it) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-09-21T07:54:47+00:00">07:54:47</abbr>] <span>* 13WAAEDZ1 (~balestrin@illegal-use-181-112.dimnp.unipi.it) Quit (Excess Flood)</span></li>
+<li class="join">[<abbr title="2011-09-21T07:54:47+00:00">07:54:47</abbr>] <span>* Zygo (startkeylo@startkeylogger.hungrycats.org) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:56:55" id="T07:56:55"><abbr title="2011-09-21T07:56:55+00:00">07:56:55</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>koen_: fresh build from setup-scripts/oe-core, and I get this <a href="http://pastebin.com/uDQCmges.">http://pastebin.com/uDQCmges.</a> also get a folder called "?[m?[K" on toplevel.</q></li>
+<li class="message">[<a href="#T07:58:35" id="T07:58:35"><abbr title="2011-09-21T07:58:35+00:00">07:58:35</abbr></a>] &lt;<cite>baegleguy</cite>&gt; <q>av500 serial cable is ok, check with my other beagleboard</q></li>
+<li class="message">[<a href="#T07:58:48" id="T07:58:48"><abbr title="2011-09-21T07:58:48+00:00">07:58:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well, then something else isnt</q></li>
+<li class="message">[<a href="#T07:59:24" id="T07:59:24"><abbr title="2011-09-21T07:59:24+00:00">07:59:24</abbr></a>] &lt;<cite>baegleguy</cite>&gt; <q>leds are ok, Angstorm and Android Os's get work, but serial don't :/</q></li>
+<li class="message">[<a href="#T07:59:51" id="T07:59:51"><abbr title="2011-09-21T07:59:51+00:00">07:59:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and on the other beagle?</q></li>
