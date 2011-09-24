@@ -250,3 +250,47 @@
 <li class="message">[<a href="#T18:59:14" id="T18:59:14"><abbr title="2011-09-24T18:59:14+00:00">18:59:14</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>without problems... but when activating tv out, i see that fb0 -&gt; overlay0 is ok, but when enabling fb1 -&gt; overlay1, the board directly hangs</q></li>
 <li class="message">[<a href="#T18:59:37" id="T18:59:37"><abbr title="2011-09-24T18:59:37+00:00">18:59:37</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hmm</q></li>
 <li class="message">[<a href="#T18:59:38" id="T18:59:38"><abbr title="2011-09-24T18:59:38+00:00">18:59:38</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>probably becasue fb1 = tv</q></li>
+<li class="message">[<a href="#T19:00:09" id="T19:00:09"><abbr title="2011-09-24T19:00:09+00:00">19:00:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>jooe: check the manager that overlay1 is assinged to</q></li>
+<li class="message">[<a href="#T19:00:19" id="T19:00:19"><abbr title="2011-09-24T19:00:19+00:00">19:00:19</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>-s :)</q></li>
+<li class="message">[<a href="#T19:00:30" id="T19:00:30"><abbr title="2011-09-24T19:00:30+00:00">19:00:30</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>in sys/devices/platform/omapdss</q></li>
+<li class="message">[<a href="#T19:00:40" id="T19:00:40"><abbr title="2011-09-24T19:00:40+00:00">19:00:40</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>manager for overlay1 is tv...</q></li>
+<li class="message">[<a href="#T19:00:44" id="T19:00:44"><abbr title="2011-09-24T19:00:44+00:00">19:00:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T19:00:47" id="T19:00:47"><abbr title="2011-09-24T19:00:47+00:00">19:00:47</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>that is what i want</q></li>
+<li class="message">[<a href="#T19:00:54" id="T19:00:54"><abbr title="2011-09-24T19:00:54+00:00">19:00:54</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>enable dss debug</q></li>
+<li class="message">[<a href="#T19:01:00" id="T19:01:00"><abbr title="2011-09-24T19:01:00+00:00">19:01:00</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>done</q></li>
+<li class="message">[<a href="#T19:01:08" id="T19:01:08"><abbr title="2011-09-24T19:01:08+00:00">19:01:08</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and?</q></li>
+<li class="message">[<a href="#T19:01:15" id="T19:01:15"><abbr title="2011-09-24T19:01:15+00:00">19:01:15</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>pastebin it</q></li>
+<li class="message">[<a href="#T19:01:31" id="T19:01:31"><abbr title="2011-09-24T19:01:31+00:00">19:01:31</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>when i enable overlay1, the board doesn't respond anymore</q></li>
+<li class="message">[<a href="#T19:01:32" id="T19:01:32"><abbr title="2011-09-24T19:01:32+00:00">19:01:32</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>if you're using tvout fb1 is already in use as the primary framebuffer, isn' it?</q></li>
+<li class="message">[<a href="#T19:02:07" id="T19:02:07"><abbr title="2011-09-24T19:02:07+00:00">19:02:07</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>thurbad: not sure about that</q></li>
+<li class="message">[<a href="#T19:02:24" id="T19:02:24"><abbr title="2011-09-24T19:02:24+00:00">19:02:24</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>i'm displaying gfx on fb0</q></li>
+<li class="message">[<a href="#T19:02:29" id="T19:02:29"><abbr title="2011-09-24T19:02:29+00:00">19:02:29</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>check the dss docs I think that's mentioned in there</q></li>
+<li class="message">[<a href="#T19:03:18" id="T19:03:18"><abbr title="2011-09-24T19:03:18+00:00">19:03:18</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>thurbad: ni</q></li>
+<li class="message">[<a href="#T19:03:20" id="T19:03:20"><abbr title="2011-09-24T19:03:20+00:00">19:03:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T19:03:38" id="T19:03:38"><abbr title="2011-09-24T19:03:38+00:00">19:03:38</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>ahhhh!.. he said it!!</q></li>
+<li class="message">[<a href="#T19:03:41" id="T19:03:41"><abbr title="2011-09-24T19:03:41+00:00">19:03:41</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>fb1 is one of the yuv overlays, fb0 is the GFX one</q></li>
+<li class="message">[<a href="#T19:06:59" id="T19:06:59"><abbr title="2011-09-24T19:06:59+00:00">19:06:59</abbr></a>] &lt;<cite>jooe</cite>&gt; <q><a href="http://pastebin.com/TVn3fTy8">http://pastebin.com/TVn3fTy8</a></q></li>
+<li class="message">[<a href="#T19:07:31" id="T19:07:31"><abbr title="2011-09-24T19:07:31+00:00">19:07:31</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>that's what i get before overlay1 is enabled...</q></li>
+<li class="message">[<a href="#T19:09:20" id="T19:09:20"><abbr title="2011-09-24T19:09:20+00:00">19:09:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>i see ne dss traces</q></li>
+<li class="message">[<a href="#T19:09:21" id="T19:09:21"><abbr title="2011-09-24T19:09:21+00:00">19:09:21</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T19:10:03" id="T19:10:03"><abbr title="2011-09-24T19:10:03+00:00">19:10:03</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>humm, yes, only OMAPFB, let me check...</q></li>
+<li class="message">[<a href="#T19:10:46" id="T19:10:46"><abbr title="2011-09-24T19:10:46+00:00">19:10:46</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm xm</q></li>
+<li class="message">[<a href="#T19:13:13" id="T19:13:13"><abbr title="2011-09-24T19:13:13+00:00">19:13:13</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>i think dss traces are enabled (kernel and bootargs)</q></li>
+<li class="join">[<a href="#T19:14:44" id="T19:14:44"><abbr title="2011-09-24T19:14:44+00:00">19:14:44</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="quit">[<a href="#T19:15:40" id="T19:15:40"><abbr title="2011-09-24T19:15:40+00:00">19:15:40</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T19:15:45" id="T19:15:45"><abbr title="2011-09-24T19:15:45+00:00">19:15:45</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:23:12" id="T19:23:12"><abbr title="2011-09-24T19:23:12+00:00">19:23:12</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>if i set the manager for overlay1 -&gt; lcd , then i can use it without problem</q></li>
+<li class="message">[<a href="#T19:24:21" id="T19:24:21"><abbr title="2011-09-24T19:24:21+00:00">19:24:21</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>otherwise, in the moment i enable overlay1, the board dies</q></li>
+<li class="join">[<a href="#T19:27:07" id="T19:27:07"><abbr title="2011-09-24T19:27:07+00:00">19:27:07</abbr></a>] <span>* derirremitderwaf (~derirremi@HSI-KBW-109-192-158-105.hsi6.kabel-badenwuerttemberg.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:27:23" id="T19:27:23"><abbr title="2011-09-24T19:27:23+00:00">19:27:23</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T19:27:36" id="T19:27:36"><abbr title="2011-09-24T19:27:36+00:00">19:27:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>but that "enabling" shou??ld emit dss debug traces</q></li>
+<li class="message">[<a href="#T19:28:07" id="T19:28:07"><abbr title="2011-09-24T19:28:07+00:00">19:28:07</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>only see OMAPFB</q></li>
+<li class="join">[<a href="#T19:28:34" id="T19:28:34"><abbr title="2011-09-24T19:28:34+00:00">19:28:34</abbr></a>] <span>* mike_ (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T19:29:00" id="T19:29:00"><abbr title="2011-09-24T19:29:00+00:00">19:29:00</abbr></a>] <span>* mike_ is now known as Guest18581</span></li>
+<li class="message">[<a href="#T19:30:27" id="T19:30:27"><abbr title="2011-09-24T19:30:27+00:00">19:30:27</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>when changing to lcd, there's a omapdss trace: </q></li>
+<li class="message">[<a href="#T19:30:28" id="T19:30:28"><abbr title="2011-09-24T19:30:28+00:00">19:30:28</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>[  486.030029] omapdss: Could not find exact pixel clock. Requested 23500 kHz, got 24000 kHz</q></li>
+<li class="message">[<a href="#T19:31:06" id="T19:31:06"><abbr title="2011-09-24T19:31:06+00:00">19:31:06</abbr></a>] &lt;<cite>jooe</cite>&gt; <q>but when enabling in tv... if there is a trace, i cannot say</q></li>
+<li class="quit">[<a href="#T19:32:51" id="T19:32:51"><abbr title="2011-09-24T19:32:51+00:00">19:32:51</abbr></a>] <span>* javaJake (~javaJake@unaffiliated/javajake) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="join">[<a href="#T19:39:00" id="T19:39:00"><abbr title="2011-09-24T19:39:00+00:00">19:39:00</abbr></a>] <span>* tasslehoff (~tasslehof@145.79-161-31.customer.lyse.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T19:43:03" id="T19:43:03"><abbr title="2011-09-24T19:43:03+00:00">19:43:03</abbr></a>] <span>* virals (~viral@122.179.53.57) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="join">[<a href="#T19:56:46" id="T19:56:46"><abbr title="2011-09-24T19:56:46+00:00">19:56:46</abbr></a>] <span>* woglinde_ (~heinold@g225144251.adsl.alicedsl.de) has joined #beagle</span></li>
