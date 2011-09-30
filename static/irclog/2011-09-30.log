@@ -1145,3 +1145,129 @@
 <li class="quit">[<a href="#T19:53:21" id="T19:53:21"><abbr title="2011-09-30T19:53:21+00:00">19:53:21</abbr></a>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) Quit (Remote host closed the connection)</span></li>
 <li class="quit">[<a href="#T19:53:44" id="T19:53:44"><abbr title="2011-09-30T19:53:44+00:00">19:53:44</abbr></a>] <span>* doublebeta (~ircme@205.185.116.160) Quit (Quit: Changing server)</span></li>
 <li class="message">[<a href="#T19:58:13" id="T19:58:13"><abbr title="2011-09-30T19:58:13+00:00">19:58:13</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q> interesting, that since I joined this irc channel the number of participants remains about the same </q></li>
+<li class="join">[<a href="#T20:03:06" id="T20:03:06"><abbr title="2011-09-30T20:03:06+00:00">20:03:06</abbr></a>] <span>* doublebeta (~ircme@205.185.116.160) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:03:11" id="T20:03:11"><abbr title="2011-09-30T20:03:11+00:00">20:03:11</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>eh.</q></li>
+<li class="message">[<a href="#T20:03:55" id="T20:03:55"><abbr title="2011-09-30T20:03:55+00:00">20:03:55</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>Haaaa, well it seems reading from 0x0 raises an exception. And since I can't set up interrupts until I know where to put my vectors... le catch22. I really gotta get jtag... :&lt;</q></li>
+<li class="join">[<a href="#T20:04:51" id="T20:04:51"><abbr title="2011-09-30T20:04:51+00:00">20:04:51</abbr></a>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-09-30T20:04:51+00:00">20:04:51</abbr>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T20:06:51" id="T20:06:51"><abbr title="2011-09-30T20:06:51+00:00">20:06:51</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>sakoman: hi :)</q></li>
+<li class="message">[<a href="#T20:07:31" id="T20:07:31"><abbr title="2011-09-30T20:07:31+00:00">20:07:31</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>Trying 0xFFFF0000</q></li>
+<li class="message">[<a href="#T20:07:45" id="T20:07:45"><abbr title="2011-09-30T20:07:45+00:00">20:07:45</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>YAY</q></li>
+<li class="message">[<a href="#T20:07:55" id="T20:07:55"><abbr title="2011-09-30T20:07:55+00:00">20:07:55</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>the ol offset</q></li>
+<li class="message">[<a href="#T20:08:15" id="T20:08:15"><abbr title="2011-09-30T20:08:15+00:00">20:08:15</abbr></a>] &lt;<cite>sakoman</cite>&gt; <q>hey djlewis!</q></li>
+<li class="message">[<abbr title="2011-09-30T20:08:15+00:00">20:08:15</abbr>] &lt;<cite>doublebeta</cite>&gt; <q>er. output seems wrong. I hope my routines still work *blush*</q></li>
+<li class="quit">[<a href="#T20:08:40" id="T20:08:40"><abbr title="2011-09-30T20:08:40+00:00">20:08:40</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Verlassend)</span></li>
+<li class="message">[<a href="#T20:10:36" id="T20:10:36"><abbr title="2011-09-30T20:10:36+00:00">20:10:36</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q><a href="http://paste2.org/p/1681764">http://paste2.org/p/1681764</a> data seems fairly random up here</q></li>
+<li class="message">[<a href="#T20:10:45" id="T20:10:45"><abbr title="2011-09-30T20:10:45+00:00">20:10:45</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>Looks like I need to set up the MMU _before_ interrupts.</q></li>
+<li class="join">[<a href="#T20:13:15" id="T20:13:15"><abbr title="2011-09-30T20:13:15+00:00">20:13:15</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-xjtspipdrewlzzya) has joined #beagle</span></li>
+<li class="quit">[<a href="#T20:14:14" id="T20:14:14"><abbr title="2011-09-30T20:14:14+00:00">20:14:14</abbr></a>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T20:17:39" id="T20:17:39"><abbr title="2011-09-30T20:17:39+00:00">20:17:39</abbr></a>] <span>* phantoxe (~destroy@a95-92-86-197.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="quit">[<a href="#T20:18:18" id="T20:18:18"><abbr title="2011-09-30T20:18:18+00:00">20:18:18</abbr></a>] <span>* Matt_O2 (~MattOwnby@nat.myfamilyinc.com) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T20:25:11" id="T20:25:11"><abbr title="2011-09-30T20:25:11+00:00">20:25:11</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q><a href="http://paste2.org/p/1681798">http://paste2.org/p/1681798</a> yup looks like a whole lot of nuthin up here. That or my pointer isn't incrementing, lol.</q></li>
+<li class="join">[<a href="#T20:27:40" id="T20:27:40"><abbr title="2011-09-30T20:27:40+00:00">20:27:40</abbr></a>] <span>* muriani (~james@internal.directron.us) has joined #beagle</span></li>
+<li class="quit">[<a href="#T20:29:27" id="T20:29:27"><abbr title="2011-09-30T20:29:27+00:00">20:29:27</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-noynukzygspzjtau) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T20:32:07" id="T20:32:07"><abbr title="2011-09-30T20:32:07+00:00">20:32:07</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>well dang. More blind coding.</q></li>
+<li class="message">[<a href="#T20:32:57" id="T20:32:57"><abbr title="2011-09-30T20:32:57+00:00">20:32:57</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>I hate having to reboot the machine my shell's on</q></li>
+<li class="quit">[<a href="#T20:33:16" id="T20:33:16"><abbr title="2011-09-30T20:33:16+00:00">20:33:16</abbr></a>] <span>* peabody124 (~peabody12@c-98-201-161-152.hsd1.tx.comcast.net) Quit (Quit: peabody124)</span></li>
+<li class="message">[<a href="#T20:33:43" id="T20:33:43"><abbr title="2011-09-30T20:33:43+00:00">20:33:43</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>I cant reboot the machine my irc sheel is on :)</q></li>
+<li class="message">[<a href="#T20:33:57" id="T20:33:57"><abbr title="2011-09-30T20:33:57+00:00">20:33:57</abbr></a>] &lt;<cite>muriani</cite>&gt; <q>heh</q></li>
+<li class="join">[<a href="#T20:34:32" id="T20:34:32"><abbr title="2011-09-30T20:34:32+00:00">20:34:32</abbr></a>] <span>* florian (~fuchs@sign-4d094cd3.pool.mediaWays.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-09-30T20:34:32+00:00">20:34:32</abbr>] <span>* florian (~fuchs@sign-4d094cd3.pool.mediaWays.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-09-30T20:34:32+00:00">20:34:32</abbr>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:34:38" id="T20:34:38"><abbr title="2011-09-30T20:34:38+00:00">20:34:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you mean, you can't run while(1) {calloc(0xffffffff);} a few times? ;)</q></li>
+<li class="message">[<a href="#T20:35:49" id="T20:35:49"><abbr title="2011-09-30T20:35:49+00:00">20:35:49</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>wont that just OOM  kill that process?</q></li>
+<li class="message">[<a href="#T20:36:08" id="T20:36:08"><abbr title="2011-09-30T20:36:08+00:00">20:36:08</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>muriani: heh, yeah...</q></li>
+<li class="message">[<a href="#T20:36:13" id="T20:36:13"><abbr title="2011-09-30T20:36:13+00:00">20:36:13</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q> 06:36:11 up 54 days, 10:49,  3 users,  load average: 0.00, 0.00, 0.00</q></li>
+<li class="message">[<a href="#T20:36:16" id="T20:36:16"><abbr title="2011-09-30T20:36:16+00:00">20:36:16</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>wooo</q></li>
+<li class="message">[<a href="#T20:36:18" id="T20:36:18"><abbr title="2011-09-30T20:36:18+00:00">20:36:18</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>54 day uptime</q></li>
+<li class="message">[<a href="#T20:36:43" id="T20:36:43"><abbr title="2011-09-30T20:36:43+00:00">20:36:43</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>just write to /dev/mem</q></li>
+<li class="message">[<a href="#T20:36:50" id="T20:36:50"><abbr title="2011-09-30T20:36:50+00:00">20:36:50</abbr></a>] &lt;<cite>vcs</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T20:37:01" id="T20:37:01"><abbr title="2011-09-30T20:37:01+00:00">20:37:01</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>Provided it's not OpenVZ, that'll probably reset you nice and hard.</q></li>
+<li class="message">[<a href="#T20:37:13" id="T20:37:13"><abbr title="2011-09-30T20:37:13+00:00">20:37:13</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>Alternatively play with /dev/port, but that'll likely brick your shit.</q></li>
+<li class="message">[<a href="#T20:40:55" id="T20:40:55"><abbr title="2011-09-30T20:40:55+00:00">20:40:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>not necessarily</q></li>
+<li class="message">[<a href="#T20:40:59" id="T20:40:59"><abbr title="2011-09-30T20:40:59+00:00">20:40:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it may kill something else</q></li>
+<li class="message">[<a href="#T20:41:05" id="T20:41:05"><abbr title="2011-09-30T20:41:05+00:00">20:41:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so as long as you run many of them... ;)</q></li>
+<li class="message">[<a href="#T20:44:00" id="T20:44:00"><abbr title="2011-09-30T20:44:00+00:00">20:44:00</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>/dev/port bricked my shit really hardcore.</q></li>
+<li class="message">[<a href="#T20:44:05" id="T20:44:05"><abbr title="2011-09-30T20:44:05+00:00">20:44:05</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>smoke and everything</q></li>
+<li class="message">[<a href="#T20:44:24" id="T20:44:24"><abbr title="2011-09-30T20:44:24+00:00">20:44:24</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>Plus don't evvver do that when you have a CRT monitor connected.</q></li>
+<li class="message">[<a href="#T20:44:31" id="T20:44:31"><abbr title="2011-09-30T20:44:31+00:00">20:44:31</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>= BOOMSKIES</q></li>
+<li class="message">[<a href="#T20:45:54" id="T20:45:54"><abbr title="2011-09-30T20:45:54+00:00">20:45:54</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: no</q></li>
+<li class="message">[<a href="#T20:46:04" id="T20:46:04"><abbr title="2011-09-30T20:46:04+00:00">20:46:04</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: oom killers kicks in when there is no memory left</q></li>
+<li class="message">[<a href="#T20:46:22" id="T20:46:22"><abbr title="2011-09-30T20:46:22+00:00">20:46:22</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>av500: and because linux overcommits memory, calls like this won't really use anything</q></li>
+<li class="message">[<a href="#T20:46:41" id="T20:46:41"><abbr title="2011-09-30T20:46:41+00:00">20:46:41</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>on 64bit i've tried to allocate few TB of ram</q></li>
+<li class="message">[<a href="#T20:46:47" id="T20:46:47"><abbr title="2011-09-30T20:46:47+00:00">20:46:47</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and it worked</q></li>
+<li class="message">[<a href="#T20:46:57" id="T20:46:57"><abbr title="2011-09-30T20:46:57+00:00">20:46:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>actually, it should do something</q></li>
+<li class="message">[<a href="#T20:47:04" id="T20:47:04"><abbr title="2011-09-30T20:47:04+00:00">20:47:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that's why I use calloc, not malloc :P</q></li>
+<li class="message">[<a href="#T20:47:28" id="T20:47:28"><abbr title="2011-09-30T20:47:28+00:00">20:47:28</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>calloc == malloc pretty much</q></li>
+<li class="message">[<a href="#T20:47:33" id="T20:47:33"><abbr title="2011-09-30T20:47:33+00:00">20:47:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>don't see how calloc can assume pages are clean</q></li>
+<li class="message">[<a href="#T20:47:36" id="T20:47:36"><abbr title="2011-09-30T20:47:36+00:00">20:47:36</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>one way to rape swap = malloc + memset</q></li>
+<li class="message">[<a href="#T20:47:45" id="T20:47:45"><abbr title="2011-09-30T20:47:45+00:00">20:47:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no, calloc gurantees the memory is zeroed out</q></li>
+<li class="message">[<a href="#T20:47:50" id="T20:47:50"><abbr title="2011-09-30T20:47:50+00:00">20:47:50</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T20:48:14" id="T20:48:14"><abbr title="2011-09-30T20:48:14+00:00">20:48:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no? the man page says it is zeroed out</q></li>
+<li class="message">[<a href="#T20:48:16" id="T20:48:16"><abbr title="2011-09-30T20:48:16+00:00">20:48:16</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>calloc guarantees that it will look zeroed out</q></li>
+<li class="message">[<a href="#T20:48:42" id="T20:48:42"><abbr title="2011-09-30T20:48:42+00:00">20:48:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and how can calloc do this w/o a write and have it work in all cases?</q></li>
+<li class="message">[<a href="#T20:49:04" id="T20:49:04"><abbr title="2011-09-30T20:49:04+00:00">20:49:04</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>just memset your malloc and live with it.</q></li>
+<li class="message">[<a href="#T20:49:26" id="T20:49:26"><abbr title="2011-09-30T20:49:26+00:00">20:49:26</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ds2: well, linux implementation of calloc to be precise</q></li>
+<li class="message">[<a href="#T20:49:30" id="T20:49:30"><abbr title="2011-09-30T20:49:30+00:00">20:49:30</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>It can do that with lots of paging tricks</q></li>
+<li class="message">[<a href="#T20:49:39" id="T20:49:39"><abbr title="2011-09-30T20:49:39+00:00">20:49:39</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>ugly x86 shit</q></li>
+<li class="message">[<a href="#T20:49:47" id="T20:49:47"><abbr title="2011-09-30T20:49:47+00:00">20:49:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>again, I ask how can calloc do this? </q></li>
+<li class="message">[<a href="#T20:49:51" id="T20:49:51"><abbr title="2011-09-30T20:49:51+00:00">20:49:51</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>I'll leave that to the Linux monkeys :)</q></li>
+<li class="message">[<a href="#T20:50:01" id="T20:50:01"><abbr title="2011-09-30T20:50:01+00:00">20:50:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or are you saying calloc can never return memory that has been used before?</q></li>
+<li class="message">[<a href="#T20:50:18" id="T20:50:18"><abbr title="2011-09-30T20:50:18+00:00">20:50:18</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>well, unused memory is still uninitialised</q></li>
+<li class="message">[<a href="#T20:50:19" id="T20:50:19"><abbr title="2011-09-30T20:50:19+00:00">20:50:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>i.e. it always gets fresh pages from /dev/zero or sbrk();</q></li>
+<li class="message">[<a href="#T20:50:25" id="T20:50:25"><abbr title="2011-09-30T20:50:25+00:00">20:50:25</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>It willl contain _anything_</q></li>
+<li class="message">[<a href="#T20:50:29" id="T20:50:29"><abbr title="2011-09-30T20:50:29+00:00">20:50:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no, on linux, fresh pages are 0'ed</q></li>
+<li class="message">[<a href="#T20:50:33" id="T20:50:33"><abbr title="2011-09-30T20:50:33+00:00">20:50:33</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ds2: pages are marked to be cleared when needed</q></li>
+<li class="message">[<a href="#T20:50:34" id="T20:50:34"><abbr title="2011-09-30T20:50:34+00:00">20:50:34</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>It can even make daemons fly out your nose.</q></li>
+<li class="message">[<a href="#T20:50:50" id="T20:50:50"><abbr title="2011-09-30T20:50:50+00:00">20:50:50</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ds2: calloc and malloc uses mmap as backend for them</q></li>
+<li class="message">[<a href="#T20:50:57" id="T20:50:57"><abbr title="2011-09-30T20:50:57+00:00">20:50:57</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>Hopefully pages are 0d to prevent pulling another program's data by forcing it out to swap.</q></li>
+<li class="message">[<a href="#T20:51:01" id="T20:51:01"><abbr title="2011-09-30T20:51:01+00:00">20:51:01</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ds2: and for security reasons pages are 0d</q></li>
+<li class="message">[<a href="#T20:51:02" id="T20:51:02"><abbr title="2011-09-30T20:51:02+00:00">20:51:02</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>= vuln</q></li>
+<li class="message">[<a href="#T20:51:13" id="T20:51:13"><abbr title="2011-09-30T20:51:13+00:00">20:51:13</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>Like what I said :D!</q></li>
+<li class="message">[<a href="#T20:51:19" id="T20:51:19"><abbr title="2011-09-30T20:51:19+00:00">20:51:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>jacekowski: okay, fair enough. </q></li>
+<li class="message">[<a href="#T20:51:29" id="T20:51:29"><abbr title="2011-09-30T20:51:29+00:00">20:51:29</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>it's not portable implementation</q></li>
+<li class="message">[<a href="#T20:51:37" id="T20:51:37"><abbr title="2011-09-30T20:51:37+00:00">20:51:37</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but glibc isn't really meant to be portable</q></li>
+<li class="message">[<a href="#T20:51:40" id="T20:51:40"><abbr title="2011-09-30T20:51:40+00:00">20:51:40</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>wont work on minix</q></li>
+<li class="message">[<a href="#T20:52:09" id="T20:52:09"><abbr title="2011-09-30T20:52:09+00:00">20:52:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>while(1) { memset((calloc(0xffffff)), 0xff, 0xffffff); }</q></li>
+<li class="message">[<a href="#T20:52:10" id="T20:52:10"><abbr title="2011-09-30T20:52:10+00:00">20:52:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there :P</q></li>
+<li class="message">[<a href="#T20:52:30" id="T20:52:30"><abbr title="2011-09-30T20:52:30+00:00">20:52:30</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>calloc needs 2 parameters</q></li>
+<li class="message">[<a href="#T20:52:39" id="T20:52:39"><abbr title="2011-09-30T20:52:39+00:00">20:52:39</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>so that still won't work</q></li>
+<li class="message">[<a href="#T20:52:59" id="T20:52:59"><abbr title="2011-09-30T20:52:59+00:00">20:52:59</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>nmemb and n-something else which means size of memb</q></li>
+<li class="message">[<a href="#T20:53:11" id="T20:53:11"><abbr title="2011-09-30T20:53:11+00:00">20:53:11</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>size - would you believe.</q></li>
+<li class="message">[<a href="#T20:53:22" id="T20:53:22"><abbr title="2011-09-30T20:53:22+00:00">20:53:22</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>void *calloc(size_t nmemb, size_t size);</q></li>
+<li class="message">[<a href="#T20:53:34" id="T20:53:34"><abbr title="2011-09-30T20:53:34+00:00">20:53:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>FINE.</q></li>
+<li class="message">[<a href="#T20:53:39" id="T20:53:39"><abbr title="2011-09-30T20:53:39+00:00">20:53:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>while(1) { memset((malloc(0xffffff)), 0xff, 0xffffff); }</q></li>
+<li class="message">[<a href="#T20:53:57" id="T20:53:57"><abbr title="2011-09-30T20:53:57+00:00">20:53:57</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>it's going to fail on 32bit</q></li>
+<li class="message">[<a href="#T20:53:58" id="T20:53:58"><abbr title="2011-09-30T20:53:58+00:00">20:53:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>depending on the stack, that calloc, may work before...it'll just be not well defined.</q></li>
+<li class="message">[<a href="#T20:54:21" id="T20:54:21"><abbr title="2011-09-30T20:54:21+00:00">20:54:21</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T20:54:26" id="T20:54:26"><abbr title="2011-09-30T20:54:26+00:00">20:54:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q> /topic Broken DoS code. </q></li>
+<li class="message">[<abbr title="2011-09-30T20:54:26+00:00">20:54:26</abbr>] &lt;<cite>jacekowski</cite>&gt; <q>is that 6xf or </q></li>
+<li class="message">[<a href="#T20:54:27" id="T20:54:27"><abbr title="2011-09-30T20:54:27+00:00">20:54:27</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T20:54:28" id="T20:54:28"><abbr title="2011-09-30T20:54:28+00:00">20:54:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T20:54:34" id="T20:54:34"><abbr title="2011-09-30T20:54:34+00:00">20:54:34</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T20:54:36" id="T20:54:36"><abbr title="2011-09-30T20:54:36+00:00">20:54:36</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ahm</q></li>
+<li class="message">[<a href="#T20:54:38" id="T20:54:38"><abbr title="2011-09-30T20:54:38+00:00">20:54:38</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>it may work</q></li>
+<li class="message">[<a href="#T20:54:43" id="T20:54:43"><abbr title="2011-09-30T20:54:43+00:00">20:54:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yes, 6xf, purposely to avoid 32bit issues</q></li>
+<li class="message">[<a href="#T20:54:54" id="T20:54:54"><abbr title="2011-09-30T20:54:54+00:00">20:54:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it may still fail due to limit() though</q></li>
+<li class="message">[<a href="#T20:55:16" id="T20:55:16"><abbr title="2011-09-30T20:55:16+00:00">20:55:16</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>better way to abuse stuff is malloc and then mlock</q></li>
+<li class="message">[<a href="#T20:56:06" id="T20:56:06"><abbr title="2011-09-30T20:56:06+00:00">20:56:06</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>the race is on, 1st one to drop out of irc has won</q></li>
+<li class="quit">[<a href="#T20:56:25" id="T20:56:25"><abbr title="2011-09-30T20:56:25+00:00">20:56:25</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T20:56:38" id="T20:56:38"><abbr title="2011-09-30T20:56:38+00:00">20:56:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>won't work. mlock requires root</q></li>
+<li class="message">[<a href="#T20:56:43" id="T20:56:43"><abbr title="2011-09-30T20:56:43+00:00">20:56:43</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>jluisn won</q></li>
+<li class="message">[<a href="#T20:56:47" id="T20:56:47"><abbr title="2011-09-30T20:56:47+00:00">20:56:47</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ds2: no it doesn't</q></li>
+<li class="message">[<a href="#T20:57:00" id="T20:57:00"><abbr title="2011-09-30T20:57:00+00:00">20:57:00</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ds2: any user can mlock as long as it's not limited using limit</q></li>
+<li class="message">[<abbr title="2011-09-30T20:57:00+00:00">20:57:00</abbr>] &lt;<cite>ds2</cite>&gt; <q>       EPERM  (Linux  2.6.9  and  later)  the  caller   was   not   privileged</q></li>
+<li class="message">[<abbr title="2011-09-30T20:57:00+00:00">20:57:00</abbr>] &lt;<cite>ds2</cite>&gt; <q>              (CAP_IPC_LOCK) and its RLIMIT_MEMLOCK soft resource limit was 0.</q></li>
+<li class="message">[<a href="#T20:57:02" id="T20:57:02"><abbr title="2011-09-30T20:57:02+00:00">20:57:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>per man page</q></li>
+<li class="message">[<a href="#T20:57:03" id="T20:57:03"><abbr title="2011-09-30T20:57:03+00:00">20:57:03</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q><a href="http://paste2.org/p/1681826">http://paste2.org/p/1681826</a> huuuh ok.</q></li>
+<li class="message">[<a href="#T20:57:26" id="T20:57:26"><abbr title="2011-09-30T20:57:26+00:00">20:57:26</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>first word of that dump is very interesting</q></li>
+<li class="message">[<a href="#T20:57:40" id="T20:57:40"><abbr title="2011-09-30T20:57:40+00:00">20:57:40</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ds2: that's if you block it with selinux and whatnot</q></li>
+<li class="message">[<a href="#T20:57:43" id="T20:57:43"><abbr title="2011-09-30T20:57:43+00:00">20:57:43</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>0x80080000 was in u-boot's config, perhaps as the load address.</q></li>
+<li class="message">[<a href="#T20:57:44" id="T20:57:44"><abbr title="2011-09-30T20:57:44+00:00">20:57:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>doublebeta: you found the ICBM launch codes?</q></li>
+<li class="message">[<a href="#T20:57:46" id="T20:57:46"><abbr title="2011-09-30T20:57:46+00:00">20:57:46</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>ds2: on vanilla kernel any user can do it</q></li>
+<li class="message">[<a href="#T20:58:08" id="T20:58:08"><abbr title="2011-09-30T20:58:08+00:00">20:58:08</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>_av500_: hurr durr yup, would you like to play a game?</q></li>
+<li class="message">[<a href="#T20:58:18" id="T20:58:18"><abbr title="2011-09-30T20:58:18+00:00">20:58:18</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>tic</q></li>
+<li class="message">[<a href="#T20:58:26" id="T20:58:26"><abbr title="2011-09-30T20:58:26+00:00">20:58:26</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T20:59:16" id="T20:59:16"><abbr title="2011-09-30T20:59:16+00:00">20:59:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>jacekowski: FWIW, that man page is from a debian box</q></li>
+<li class="message">[<a href="#T20:59:26" id="T20:59:26"><abbr title="2011-09-30T20:59:26+00:00">20:59:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>in any case</q></li>
+<li class="message">[<a href="#T20:59:30" id="T20:59:30"><abbr title="2011-09-30T20:59:30+00:00">20:59:30</abbr></a>] &lt;<cite>doublebeta</cite>&gt; <q>7AM</q></li>
