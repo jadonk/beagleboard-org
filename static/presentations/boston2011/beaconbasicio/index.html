@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"> 
+<head> 
+	<title>Basic I/O with the TinCanTools Beacon Board</title> 
+ <link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy.css" /> 
+ <script src="slidy.js" charset="utf-8" type="text/javascript"></script> 
+ <!-- source: http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css --> 
+ <!-- source: http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js -->
+ <link rel="stylesheet" type="text/css" media="screen, projection, print" href="beagle.css" /> 
+ <link rel="icon" href="beagle.ico" type="image/x-icon" />
+ <link rel="shortcut icon" href="beagle.ico" type="image/x-icon" />
+</head>
+<body>
+	<div class="background"> 
+		<img id="head-logo" title="beagleboard logo" alt="beagleboard logo" src="beagle.png" />
+		<img id="head-icon" src="url.png" alt="beagleboard url" />
+	</div> 
+	<div class="slide cover"> 
+		<h1>Basic I/O with the TinCanTools Beacon Board</h1>
+		<div style="float: right;">
+		<p>
+			<a href="mailto:jkridner@beagleboard.org">
+				Jason Kridner, jkridner@beagleboard.org
+			</a><br />
+			Wednesday, September 28, 2011, 9:15AM<br />
+			Embedded Systems Conference Boston<br />
+			Room 210
+		</p>
+		<p>Some improvements courtesy of:<br />
+			<a href="mailto:marco@intelliges.com.br">Marco Casaroli, marco@intelliges.com.br</a><br />
+			<a href="mailto:n-perrella@ti.com">Nuncio Perrella, n-perrella@ti.com</a>
+		</p>
+   <p>
+    Slides available at<br />
+    <a href="http://beagleboard.org/esc/boston2011/beaconbasicio">
+     http://beagleboard.org/esc/boston2011/beaconbasicio
+    </a>
+   </p>
+		</div>
+	</div> 
+
+	<div class="slide">
+		<h1>Abstract</h1> 
+		<h2>&nbsp;</h2>
+		<p>Learn about the basics of utilizing drivers in Linux to perform simple I/O tasks including GPIO communications. The TinCanTools Beacon Board will be used as an example to let you test your ability to control and time signals on your BeagleBoard-xM's expansion port.
+		</p>
+	</div>
+	
+	<div class="slide"> 
+		<h1>Getting Started</h1> 
+		<h2>&nbsp;</h2>
+		<ul> 
+			<li>Much to learn</li> 
+			<ul> 
+  				<li>I'm used to microcontrollers: just give me the datasheet with register definitions and set me free!</li>
+			</ul>
+			<li>Training on boot &amp; device drivers useful</li>
+			
+			<ul> 
+				<li>Often geared more at system bring-up</li>
+  				<li>What about the everyday user?</li>
+  				<li>Where is that abstraction benefit?</li> 
+			</ul>
+			<li>Let's just walk a working system!</li> 
+		</ul>
+	</div> 
+	
+	<div class="slide"> 
+		<h1>What is the baseline?</h1> 
+		<h2><a href="http://refspecs.linuxfoundation.org/lsb.shtml">http://refspecs.linuxfoundation.org/lsb.shtml</a></h2>
+		<ul> 
+			<li>Every Linux system may be customized</li> 
+			<ul> 
+  				<li>This is the nature of open source</li>
+  				<li>Stuff still needs to work together</li> 
+			</ul>
+			<li>The Linux Standard Base</li> 
+			<ul> 
+  				<li>Umbrella for various Linux Foundation groups</li>
+  				<li>A specification and a testkit</li>
+  				<li>Documents typical libraries, functions and files expected to be found by the developer</li> 
+			</ul>
+		</ul>
+	</div>
+	
+	<div class="slide"> 
+		<h1>lsb_release</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+root@beagleboard:~# lsb_release -a
+Distributor ID: Angstrom
+Description:    Angstrom GNU/Linux 2011.03 (Dureza)
+Release:        2011.03
+Codename:       Dureza
+</pre>
+	</div>
+	
+	<div class="slide"> 
+		<h1>Filesystem Hierarchy Standard</h1> 
+		<h2><a href="http://www.pathname.com/fhs/">http://www.pathname.com/fhs/</a></h2>
+		<ul>
+			<li>/bin: essential user command binaries</li>
+			<li>/sbin: system binaries</li>
+			<li>/boot: static files for the bootloader</li>
+			<li>/lib: essential shared libraries and kernel modules</li>
+			<li>/etc: host-specific configuration</li>
+			<li>/home: user home directories</li>
+			<li>/root: home directory for the root user</li>
+			<li>/usr: non-essentials</li>
+		</ul>
+	</div>
+	
+	<div class="slide"> 
+		<h1>Filesystem Hierarchy Standard</h1> 
+		<h2><a href="http://www.pathname.com/fhs/">http://www.pathname.com/fhs/</a></h2>
+		<ul> 			
+			<li>/tmp: temporary files</li>
+			<li>/var: data that is changes at run-time</li>
+			<li>/proc: "information from processes" (virtual)</li>
+			<li>/sys: "system filesystem" (virtual)</li>
+			<li>/dev: device files</li>
+			<li>/media: mount point for removable media</li>
+			<li>/lost+found: data without directory entry</li>
+			<li>/mnt: mount point for temporary mounted file systems</li>
+			<li>/opt: add-on application software packages</li>
+		</ul>
+	</div>
+	
+	<div class="slide"> 
+		<h1>/proc</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+root@beagleboard:~# ls /proc
+1     1151  1214  183  44   87         consoles     kpageflags    sys
+10    1160  1215  184  47   9          cpu          loadavg       sysrq-trigger
+1021  1171  1218  19   48   901        cpuinfo      locks         sysvipc
+1026  1172  1242  2    49   946        crypto       meminfo       timer_list
+1029  1177  1251  20   5    950        devices      misc          timer_stats
+1031  1182  1254  21   50   953        diskstats    modules       tty
+1034  1183  1256  22   51   956        driver       mounts        uptime
+1039  1187  1259  23   52   965        execdomains  mtd           version
+1048  1190  1262  24   53   966        fb           net           vmallocinfo
+1049  1192  1282  25   57   967        filesystems  pagetypeinfo  vmstat
+1061  1193  1295  26   58   993        fs           partitions    zoneinfo
+1074  12    1296  27   59   996        interrupts   sched_debug
+1076  1203  13    28   6    asound     iomem        schedstat
+1077  1205  1301  29   61   atags      ioports      scsi
+1081  1207  14    3    62   buddyinfo  irq          self
+1083  1209  15    30   644  bus        kallsyms     slabinfo
+11    1211  16    31   7    cgroups    key-users    softirqs
+1102  1212  17    32   8    cmdline    kmsg         stat
+1121  1213  18    43   857  config.gz  kpagecount   swaps
+</pre>
+	</div>
+
+	<div class="slide"> 
+		<h1>/proc</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+root@beagleboard:~# cat /proc/cpuinfo 
+Processor       : ARMv7 Processor rev 2 (v7l)
+BogoMIPS        : 996.74
+Features        : swp half thumb fastmult vfp edsp thumbee neon vfpv3 
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant     : 0x3
+CPU part        : 0xc08
+CPU revision    : 2
+
+Hardware        : OMAP3 Beagle Board
+Revision        : 0020
+Serial          : 0000000000000000
+</pre>
+	</div>
+	
+	<div class="slide"> 
+		<h1>The file interface abstraction</h1> 
+		<h2>&nbsp;</h2>
+		<ul class="incremental"> 
+			<li>What can I do with files?</li>
+			<ul> 
+  				<li>open, read, write, close, delete</li>
+  				<li> What is an "ioctl"</li>
+				<li>What is "mmap"</li>
+			</ul>
+			<li>What is a virtual file system</li>
+			<ul>
+  				<li>Looks like a file, but executes code in the kernel</li>
+  				<li>Not really storing anything to media</li>
+  				<li>A bit like a "ram disk"</li>
+			</ul>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>Busybox</h1> 
+		<h2>The Swiss Army Knife of Embedded Linux</h2>
+		<h2><a href="http://www.busybox.net">http://www.busybox.net</a></h2>
+		<ul> 
+			<li>Multiple execution binary using symbolic links</li>
+			<li>Examples:</li>
+			<ul> 
+  				<li>[, [[, addgroup, adduser, ar, ash, awk, basename, blkid, bunzip2, bzcat, cat, chattr, chgrp, chmod, chown, chpasswd, chroot, chvt, clear, cmp, 
+cp, cpio, cryptpw, cut, date, dc, dd, deallocvt, delgroup, deluser, df, dhcprelay, diff, dirname, dmesg, du, dumpkmap, dumpleases, echo, egrep, 
+env, expr, false, fbset, fbsplash, fdisk, fgrep, find, free, freeramdisk, fsck, fsck.minix, fuser, getopt, getty, grep, gunzip, gzip, halt, head, hexdump, 
+hostname, httpd, hwclock, id, ifconfig, ifdown, ifup, init, insmod, ip, kill, killall, klogd, last, less, linuxrc, ln, loadfont, loadkmap, logger, login, 
+logname, logread, losetup, ls, lsmod, makedevs, md5sum, mdev, microcom, mkdir, mkfifo, mkfs.minix, mknod, mkswap, mktemp, modprobe, 
+more, mount, mv, nc, netstat, nice, nohup, nslookup, od, openvt, passwd, patch, pidof, ping, ping6, pivot_root, poweroff, printf, ps, pwd, 
+rdate, rdev, readahead, readlink, readprofile, realpath, reboot, renice, reset, rm, rmdir, rmmod, route, rtcwake, run-parts, sed, seq, 
+setconsole, setfont, sh, showkey, sleep, sort, start-stop-daemon, stat, strings, stty, su, sulogin, swapoff, swapon, switch_root, sync, sysctl, 
+syslogd, tail, tar, tee, telnet, telnetd, test, tftp, time, top, touch, tr, traceroute, true, tty, udhcpc, udhcpd, umount, uname, uniq, unzip, uptime, 
+usleep, vi, vlock, watch, wc, wget, which, who, whoami, xargs, yes, zcat</li>
+			</ul>
+		</ul>
+	</div>
+	
+	<div class="slide"> 
+		<h1>Kernel.org documentation</h1> 
+		<h2><a href="http://www.kernel.org/doc/">http://www.kernel.org/doc/</a></h2>
+		<ul> 
+			<li>Documentation extracted from the Linux kernel and mirrored on the web where Google can find it:</li> 
+			<ul> 
+  				<li>Documentation - Text files in the kernel source tarball's Documentation subdirectory</li>
+  				<li>htmldocs - Kernel Documentation maintained in docbook format (output of "make htmldocs")</li>
+				<li>Menuconfig - help text for each kernel configuration option (from kconfig source)</li>
+				<li>README various README files scattered around Linux kernel source</li>
+				<li> RFC - List of IETF RFCs referred to by kernel source files. Links to both the text of the RFC and the source files that refer to it</li>
+				<li>Output of kernel's "make help"</li>
+			</ul>
+			<li>Standards documents applicable to the Linux kernel</li> 
+			<li>Other web pages containing kernel documentation</li>
+			<li>Translations to other languages</li>
+			<li>Documentation on memory management</li>
+			<li>Miscellaneous</li>
+		</ul>
+	</div> 
+
+	<div class="slide"> 
+		<h1>Kernel Application Binary Interface</h1> 
+		<h2><a href="http://www.kernel.org/doc/Documentation/ABI/">http://www.kernel.org/doc/Documentation/ABI/</a></h2>
+		<ul> 
+			<li>Low-level kernel interface from "userland"</li>
+			<li>Status of interface</li>
+			<ul> 
+  				<li>Stable</li>
+  				<ul>
+  					<li>Encouraged to use freely</li>
+  					<li>Guaranteed for at least two years</li>
+  				</ul>
+  				<li>Testing</li> 
+  				<ul>
+  					<li>Mostly complete, but might change</li>
+  					<li>Let developers know how you are using</li>
+  				</ul>
+  				<li>Obsolete</li>
+  				<ul>
+  					<li>Scheduled for removal</li>
+  				</ul>
+  				<li>Removed</li>
+			</ul>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>Kernel Application Binary Interface</h1> 
+		<h2><a href="http://www.kernel.org/doc/Documentation/ABI/">http://www.kernel.org/doc/Documentation/ABI/</a></h2>
+		<ul> 
+			<li>Types of interfaces</li>
+			<ul> 
+  				<li>Syscalls</li>
+  				<ul>
+  					<li>Trap interface with IDs</li>
+  					<li>May be possible to have a direct entry</li>
+  				</ul>
+  				<li>SYSFS</li> 
+  				<ul>
+  					<li>Virtual file system</li>
+  				</ul>
+			</ul>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>Syscalls</h1> 
+		<h2><a href="http://www.kernel.org/doc/man-pages/online/pages/man2/syscalls.2.html">http://www.kernel.org/doc/man-pages/online/pages/man2/syscalls.2.html</a></h2>
+		<ul> 
+			<li>open/read/write/lseek/close/unlink</li>
+			<li>ioctl</li>
+			<li>mknod</li>
+			<li>fork/select/poll/...</li>
+			<li>mkdir/...</li>
+			<li>mount/umount</li>
+			<li>mmap</li>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>What is SYSFS?</h1> 
+		<h2>&nbsp;</h2>
+		<ul> 
+			<li>Virtual file system that exposes drivers to userspace</li>
+			<li>mount</li>
+			<ul>
+				<li>sysfs on /sys type sysfs (rw,relatime)</li>
+			</ul>
+			<li>/sys/devices - driver hierarchy</li>
+			<li>/sys/bus - symbolic links to bus owners</li>
+			<li>/sys/class - common interfaces</li>
+			<li>/sys/block - block interface</li>
+			<li>How about some examples?</li>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>/sys/module</h1> 
+		<h2><a href="http://www.kernel.org/doc/Documentation/ABI/stable/sysfs-module">http://www.kernel.org/doc/Documentation/ABI/stable/sysfs-module</a></h2>
+		<ul> 
+			<li>/sys/module/MODULENAME</li>
+			<ul>
+				<li>.../parameters: options you can provide</li>
+				<li>.../refcnt: number of times in use</li>
+			</ul>
+			<li>Examples:</li>
+			<pre>
+8250          input_polldev  omapdss   snd            ubi
+auth_rpcgss   ipv6           omapfb    snd_pcm        ubifs
+block         kernel         oprofile  snd_pcm_oss    uinput
+bluetooth     keyboard       printk    snd_rawmidi    usb_storage
+btusb         lockd          psmouse   snd_timer      usbcore
+dns_resolver  mmc_core       rfcomm    snd_usb_audio  usbhid
+eeprom_93cx6  mmcblk         rfkill    soundcore      videobuf_core
+ehci_hcd      mousedev       scsi_mod  spidev         vpfe_capture
+hci_uart      musb_hdrc      sg        spurious       vt
+hid           netpoll        smc911x   sr_mod         xz_dec
+hid_apple     nfs            smc91x    sunrpc
+hid_ntrig     omap3_isp      smsc911x  tcp_cubic
+hidp          omap_vout      smsc95xx  uas
+</pre>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>/sys/class/leds</h1> 
+		<h2><a href="http://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-led">http://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-led</a></h2>
+		<ul> 
+			<li>/sys/class/leds/LED</li>
+			<ul>
+				<li>.../brightness: 0-max_brightness, >0 = on</li>
+				<li>.../max_brightness: default is 255</li>
+				<li>.../trigger: triggers available from kernel</li>
+				<li>.../inverted: invert on/off state</li>
+			</ul>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>/sys/class/gpio</h1> 
+		<h2><a href="http://www.kernel.org/doc/Documentation/ABI/testing/sysfs-gpio">http://www.kernel.org/doc/Documentation/ABI/testing/sysfs-gpio</a></h2>
+		<ul> 
+			<li>Must be explicitly exported to userspace and not claimed by kernel code</li>
+			<li> /sys/class/gpio</li>
+			<ul>
+				<li>.../export: asks the kernel to export a GPIO to userspace</li>
+				<li>.../unexport: to return a GPIO to the kernel</li>
+				<li>.../gpioN: for each exported GPIO #N</li>
+				<ul>
+					<li>.../value: always readable, writes fail for input GPIOs</li>
+					<li>.../direction: r/w as: in, out (low); write: high, low</li>
+					<li>.../edge: r/w as: none, falling, rising, both</li>
+				</ul>
+				<li>.../gpiochipN:for each gpiochip; #N is its first GPIO</li>
+				<ul>
+					<li>.../base: (r/o) same as N</li>
+					<li>.../label: (r/o) descriptive, not necessarily unique</li>
+					<li>.../ngpio: (r/o) number of GPIOs; numbered N to N + (ngpio - 1)</li>
+				</ul>
+			</ul>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>GPIOs</h1> 
+		<h2>readgpio</h2>
+		<pre>
+# cd /sys/class/gpio
+# ls
+# echo "174" &gt; export
+# ls
+# echo "in" &gt; gpio174/direction
+# cat gpio174/value
+</pre>
+<pre class="incremental">
+# echo "40" &gt; export
+# ls
+# echo "out" &gt; gpio40/direction
+# cat gpio40/value
+# echo "1" &gt; gpio40/value
+# cat gpio40/value
+</pre>
+	</div>
+
+	<div class="slide"> 
+		<h1>Reading events</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(int argc, char** argv)
+{
+    int fd, ret, data[64];
+    fd = ret = open(argv[argc - 1], O_RDONLY);
+    printf("open returned %d\n", ret);
+    while (1) {
+        ret = read(fd, &amp;data, sizeof(data));
+        printf("read returned %d bytes\n", ret);
+        sleep(1);
+    }
+    exit(0);
+}
+</pre>
+	</div>
+
+	<div class="slide"> 
+		<h1>Reading events</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+root@beagleboard:~# cd ~/labs/event
+root@beagleboard:~/labs/event# gcc -o myread myread.c
+root@beagleboard:~/labs/event# ./myread /dev/input/touchscreen0
+open returned 3
+read returned 80 bytes
+read returned 240 bytes
+read returned 256 bytes
+read returned 256 bytes
+read returned 256 bytes
+read returned 144 bytes
+^C
+</pre>
+	</div>
+	
+	<div class="slide"> 
+		<h1>Reading events</h1> 
+		<h2>testuserbtn</h2>
+		<ul> 
+			<li>Kernel documentation:</li>
+			<ul>
+				<li><a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=blob;f=Documentation/input/input.txt">http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=blob;f=Documentation/input/input.txt</a></li>
+			</ul>
+			<li>opkg install evtest</li>
+			<li>evtest /dev/input/event0</li>
+			<ul>
+				<li>Press the "USER" button</li>
+				<li>^C to exit</li>
+			</ul>
+			<li>evtest /dev/input/event4</li>
+			<ul>
+				<li>Move the mouse</li>
+				<li>^C to exit</li>
+			</ul>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>Reading events</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+root@beagleboard:~/labs# evtest /dev/input/event0
+Input driver version is 1.0.1
+Input device ID: bus 0x19 vendor 0x1 product 0x1 version 0x100
+Input device name: "gpio-keys"
+Supported events:
+  Event type 0 (Sync)
+  Event type 1 (Key)
+    Event code 276 (ExtraBtn)
+Testing ... (interrupt to exit)
+Event: time 1307366684.251618, type 1 (Key), code 276 (ExtraBtn), value 1
+Event: time 1307366684.251649, -------------- Report Sync ------------
+Event: time 1307366684.348203, type 1 (Key), code 276 (ExtraBtn), value 0
+Event: time 1307366684.348234, -------------- Report Sync ------------
+</pre>
+	</div>
+	<div class="slide"> 
+		<h1>Access monitor EDID EEPROM</h1> 
+		<h2>testedid</h2>
+		<pre>
+# opkg install i2c-tools
+# i2cdump -y 0x3 0x50 b
+</pre>
+	</div>
+
+	<div class="slide"> 
+		<h1>Access monitor EDID EEPROM</h1> 
+		<h2>i2c.c</h2>
+		<pre>
+#include ...
+#define DATA_LEN 256
+
+int main()
+{
+        int file;
+        unsigned int i;
+        char buf[DATA_LEN];
+
+        file = open("/dev/i2c-3", O_RDWR);
+        if (file &lt; 0)                          exit(1);
+        if (ioctl(file, I2C_SLAVE, 0x50) &lt; 0)  exit(1);
+        if (read(file, buf, DATA_LEN-1) &lt; 1)   exit(1);
+        else
+                for (i=0;i&lt;DATA_LEN-1;i++)
+                        printf("%c", buf[i]);
+        return 0;
+}
+
+</pre>
+	</div>
+
+
+	<div class="slide"> 
+		<h1>USB OTG and EHCI</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+# cd /sys/bus/usb/devices
+# ls
+# cat usb1/speed
+# cat usb?/manufacturer
+# lsusb
+</pre>
+	</div>
+	
+	<div class="slide"> 
+		<h1>Discovering USBFS</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+root@beagleboard:~# cat /sys/module/usbcore/parameters/usbfs_snoop
+N
+root@beagleboard:~# echo Y > /sys/module/usbcore/parameters/usbfs_snoop
+root@beagleboard:~# mount -t usbfs none /mnt
+root@beagleboard:~# ls /mnt
+001  Devices
+root@beagleboard:~/labs# cat /mnt/devices
+T:  Bus=01 Lev=00 Prnt=00 Port=00 Cnt=00 Dev#=  1 Spd=480  MxCh= 3
+B:  Alloc=  0/800 us ( 0%), #Int=  3, #Iso=  0
+D:  Ver= 2.00 Cls=09(hub  ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=1d6b ProdID=0002 Rev= 2.06
+S:  Manufacturer=Linux 2.6.39 ehci_hcd
+S:  Product=OMAP-EHCI Host Controller
+S:  SerialNumber=ehci-omap.0
+C:* #Ifs= 1 Cfg#= 1 Atr=e0 MxPwr=  0mA
+I:* If#= 0 Alt= 0 #EPs= 1 Cls=09(hub  ) Sub=00 Prot=00 Driver=hub
+E:  Ad=81(I) Atr=03(Int.) MxPS=   4 Ivl=256ms
+T:  Bus=01 Lev=02 Prnt=02 Port=03 Cnt=03 Dev#=  5 Spd=1.5  MxCh= 0
+D:  Ver= 1.10 Cls=00(>ifc ) Sub=00 Prot=00 MxPS= 8 #Cfgs=  1
+P:  Vendor=093a ProdID=2510 Rev= 1.00
+S:  Manufacturer=PixArt
+S:  Product=USB Optical Mouse
+C:* #Ifs= 1 Cfg#= 1 Atr=a0 MxPwr=100mA
+I:* If#= 0 Alt= 0 #EPs= 1 Cls=03(HID  ) Sub=01 Prot=02 Driver=usbhid
+E:  Ad=81(I) Atr=03(Int.) MxPS=   4 Ivl=10ms
+</pre>
+	</div>
+
+	<div class="slide"> 
+		<h1>Device nodes</h1> 
+		<h2>&nbsp;</h2>
+		<ul> 
+			<li>Kernel interfaces that can be exposed to a file handle</li>
+			<ul>
+				<li>Instead of hierarchical directory structure, uses a set of major and minor numbers</li>
+			</ul>
+			<li>Google udev</li>
+			<li>mknod --help</li>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>Is everything really just a file?</h1> 
+		<h2>&nbsp;</h2>
+		<ul> 
+			<li>No, but it is the primary model</li>
+			<li>The kernel also provides functions through a vector table used by the C library</li>
+			<li>If you create a new driver, you should create SYSFS entries to enable easy use</li>
+		</ul>
+	</div>
+
+	<div class="slide"> 
+		<h1>Toggle an LED with SYSFS</h1> 
+		<h2>&nbsp;</h2>
+		<pre>
+# cd /sys/class/leds/
+# ls
+beagleboard::pmu_stat  beagleboard::usr0  beagleboard::usr1
+# cd beagleboard\:\:usr0
+# ls
+brightness  device  max_brightness  power  subsystem  trigger  uevent
+# cat trigger
+none nand-disk mmc0 [heartbeat]
+echo "none" > trigger
+# echo "1" > brightness
+# echo "0" > brightness
+# echo "heartbeat" > trigger
+</pre>
+	</div>
+
+ <div class="slide"> 
+  <h1>What is a Beacon Board?</h1> 
+  <h2><a href="http://elinux.org/BeaconBoard">eLinux.org/BeaconBoard</a></h2>
+  <img src="400px-BeaconBoard.jpg" alt="Beacon Board" height="70%" style="float: right" />
+  <ul>
+   <li>The Beacon Board is ...
+    <ul>
+     <li>a small accessory board that is primarily intended for use with the PandaBoard or
+      BeagleBoard however it can be wired into any development platform that supports GPIOs</li>
+    </ul>
+   </li>
+   <li>The Beacon Board has ...
+    <ul>
+     <li><a href="http://elinux.org/images/2/28/Rgb-led.pdf">tri-color LED</a> with
+      <a href="http://elinux.org/images/7/71/Ws2801.pdf">PWM controller</a>
+     </li>
+     <li><a href="http://elinux.org/images/6/64/7seg-display.pdf">7-segment display</a> with
+      <a href="http://elinux.org/images/2/2d/74hc595.pdf">serial shift register</a>
+     </li>
+     <li><a href="http://elinux.org/images/4/4e/Cat24aa01.pdf">I2C EEPROM</a></li>
+     <li><a href="http://elinux.org/images/1/11/74AVC8T245.pdf">level shifter</a></li>
+    </ul>
+   </li>
+  </ul>
+ </div>
+
+ <div class="slide"> 
+  <h1>How is it wired?</h1> 
+  <h2>&nbsp;</h2>
+<p>7 Segment Display</p>
+<table border="1"> 
+<tr> 
+<th>Pin
+</th><th>Function
+</th><th>Beagle
+</th></tr> 
+<tr> 
+<td>14
+</td><td>CLOCK
+</td><td>GPIO161
+</td></tr> 
+<tr> 
+<td>16
+</td><td>LATCH
+</td><td>GPIO162
+</td></tr> 
+<tr> 
+<td>10
+</td><td>DATA
+</td><td>GPIO145
+</td></tr></table> 
+<p><br /> 
+</p> 
+<p>RGB LED</p> 
+<table border="1"> 
+<tr> 
+<th>Pin
+</th><th>Function
+</th><th>Beagle
+</th></tr> 
+<tr> 
+<td>12
+</td><td>DATA
+</td><td>GPIO158
+</td></tr> 
+<tr> 
+<td>18
+</td><td>CLOCK
+</td><td>GPIO159
+</td></tr></table> 
+ </div>
+
+ <div class="slide"> 
+  <h1>Read BeaconBoard I2C EEPROM</h1> 
+  <h2>&nbsp;</h2>
+  <pre>
+root@beagleboard:~# cd ~/labs/i2c
+root@beagleboard:~/labs/i2c# ls
+root@beagleboard:~/labs/i2c# rm i2c
+root@beagleboard:~/labs/i2c# cat i2c.c
+root@beagleboard:~/labs/i2c# gcc -o i2c i2c.c
+root@beagleboard:~/labs/i2c# ./i2c
+  </pre>
+  <p>Note: By the <a href="http://elinux.org/BeagleBoardPinMux#List_of_Vendor_and_Device_IDs">BeagleBoard expansion board registry</a>, these boards are meant to have a Vendor ID of 1 and a Device ID of 5, but the EEPROMs don't appear to have been programmed.  You will notice, however, that you won't read any values if the board is not plugged in.</p>
+ </div>
+
+ <div class="slide"> 
+  <h1>Verifying the pin mux</h1> 
+  <h2><a href="http://www.ti.com/product/dm3730">DM3730 TRM</a></h2>
+  <pre>
+root@beagleboard:~/labs/i2c# cd
+root@beagleboard:~# mount -t debugfs none /sys/kernel/debug/
+root@beagleboard:~# ls /sys/kernel/debug/ -w 40
+asoc	   memblock   sched_features
+bdi	   mmc0       smartreflex
+bluetooth  musb       usb
+clock	   omap_mux   vram
+extfrag    omapdss    wakeup_sources
+gpio	   pm_debug
+hid	   regulator
+root@beagleboard:~# less /sys/kernel/debug/omap_mux/board/core 
+root@beagleboard:~# devmem2 0x48002174 w 0x00040118
+root@beagleboard:~# less /sys/kernel/debug/omap_mux/board/core 
+  </pre>
+ </div>
+
+ <div class="slide"> 
+  <h1>Let's see some lights!</h1> 
+  <h2>&nbsp;</h2>
+  <pre>
+root@beagleboard:~# cd ~/labs/beacon
+root@beagleboard:~/labs/beacon# ls
+root@beagleboard:~/labs/beacon# nano beacon_demo.js
+root@beagleboard:~/labs/beacon# ./beacon_demo.js
+  </pre>
+ </div>
+
+	<div class="slide"> 
+		<h1>Summary</h1> 
+		<h2>&nbsp;</h2>
+		<ul> 
+			<li><a href="http://beagleboard.org">http://beagleboard.org</a></li>
+			<li><a href="http://www.kernel.org/doc">http://www.kernel.org/doc</a></li>
+			<li><a href="http://elinux.org">http://elinux.org</a></li>
+			<li><a href="http://google.com">Google!</a></li>
+			<li><a href="http://www.omappedia.org">http://www.omappedia.org</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>
