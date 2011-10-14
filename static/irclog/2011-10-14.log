@@ -546,3 +546,70 @@
 <li class="join">[<a href="#T14:58:23" id="T14:58:23"><abbr title="2011-10-14T14:58:23+00:00">14:58:23</abbr></a>] <span>* kaio (~kaio@fedora/kaio) has joined #beagle</span></li>
 <li class="quit">[<a href="#T14:59:14" id="T14:59:14"><abbr title="2011-10-14T14:59:14+00:00">14:59:14</abbr></a>] <span>* kaio (~kaio@fedora/kaio) Quit (Remote host closed the connection)</span></li>
 <li class="join">[<a href="#T14:59:36" id="T14:59:36"><abbr title="2011-10-14T14:59:36+00:00">14:59:36</abbr></a>] <span>* kaio (~kaio@fedora/kaio) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:01:14" id="T15:01:14"><abbr title="2011-10-14T15:01:14+00:00">15:01:14</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ant_work: I've been working on fixing the 'rw' situation, but I've hit a bug</q></li>
+<li class="message">[<a href="#T15:01:27" id="T15:01:27"><abbr title="2011-10-14T15:01:27+00:00">15:01:27</abbr></a>] &lt;<cite>koen</cite>&gt; <q>'mount / -o remount' doesn't actually remount the right one</q></li>
+<li class="message">[<a href="#T15:01:54" id="T15:01:54"><abbr title="2011-10-14T15:01:54+00:00">15:01:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>root@beagleboard:~# head -n2 /proc/mounts </q></li>
+<li class="message">[<abbr title="2011-10-14T15:01:54+00:00">15:01:54</abbr>] &lt;<cite>koen</cite>&gt; <q>rootfs / rootfs rw 0 0</q></li>
+<li class="message">[<abbr title="2011-10-14T15:01:54+00:00">15:01:54</abbr>] &lt;<cite>koen</cite>&gt; <q>/dev/root / ext3 rw,relatime,errors=continue,barrier=0,data=writeback 0 0</q></li>
+<li class="join">[<a href="#T15:02:37" id="T15:02:37"><abbr title="2011-10-14T15:02:37+00:00">15:02:37</abbr></a>] <span>* jkridner1 (~jkridner@nat/ti/x-jzlhsmjizbhzqhqf) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-10-14T15:02:37+00:00">15:02:37</abbr>] <span>* jkridner1 (~jkridner@nat/ti/x-jzlhsmjizbhzqhqf) has joined #beagleboard</span></li>
+<li class="quit">[<abbr title="2011-10-14T15:02:37+00:00">15:02:37</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (Disconnected by services)</span></li>
+<li class="nick-change">[<abbr title="2011-10-14T15:02:37+00:00">15:02:37</abbr>] <span>* jkridner1 is now known as jkridner</span></li>
+<li class="quit">[<abbr title="2011-10-14T15:02:37+00:00">15:02:37</abbr>] <span>* jkridner (~jkridner@nat/ti/x-jzlhsmjizbhzqhqf) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-10-14T15:02:37+00:00">15:02:37</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2011-10-14T15:02:37+00:00">15:02:37</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:03:26" id="T15:03:26"><abbr title="2011-10-14T15:03:26+00:00">15:03:26</abbr></a>] <span>* jpirko (jirka@nat/redhat/x-vzcfvplxicburpuw) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T15:05:21" id="T15:05:21"><abbr title="2011-10-14T15:05:21+00:00">15:05:21</abbr></a>] <span>* rcn-ee_at_work (~voodoo@64.77.213.245) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:05:23" id="T15:05:23"><abbr title="2011-10-14T15:05:23+00:00">15:05:23</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>koen: iirc is a busybox known bug</q></li>
+<li class="action">[<a href="#T15:05:35" id="T15:05:35"><abbr title="2011-10-14T15:05:35+00:00">15:05:35</abbr></a>] <span>* koen isn't using busybox</span></li>
+<li class="quit">[<a href="#T15:05:50" id="T15:05:50"><abbr title="2011-10-14T15:05:50+00:00">15:05:50</abbr></a>] <span>* drakkan1000 (~drakkan@dynamic-adsl-94-36-210-47.clienti.tiscali.it) Quit (Quit: Ex-Chat)</span></li>
+<li class="message">[<a href="#T15:05:51" id="T15:05:51"><abbr title="2011-10-14T15:05:51+00:00">15:05:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>wait</q></li>
+<li class="message">[<a href="#T15:05:58" id="T15:05:58"><abbr title="2011-10-14T15:05:58+00:00">15:05:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>aaaaaaaargh!</q></li>
+<li class="message">[<a href="#T15:06:02" id="T15:06:02"><abbr title="2011-10-14T15:06:02+00:00">15:06:02</abbr></a>] &lt;<cite>koen</cite>&gt; <q>busybox mount</q></li>
+<li class="action">[<a href="#T15:06:04" id="T15:06:04"><abbr title="2011-10-14T15:06:04+00:00">15:06:04</abbr></a>] <span>* koen stabs it</span></li>
+<li class="message">[<a href="#T15:06:07" id="T15:06:07"><abbr title="2011-10-14T15:06:07+00:00">15:06:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ant_work: thanks again!</q></li>
+<li class="message">[<a href="#T15:06:53" id="T15:06:53"><abbr title="2011-10-14T15:06:53+00:00">15:06:53</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>happy to help sorting out from udev tunnel :)</q></li>
+<li class="quit">[<a href="#T15:14:57" id="T15:14:57"><abbr title="2011-10-14T15:14:57+00:00">15:14:57</abbr></a>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T15:15:05" id="T15:15:05"><abbr title="2011-10-14T15:15:05+00:00">15:15:05</abbr></a>] <span>* jkridner (~jkridner@nat/ti/x-rlpcoapkwlroypoy) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:15:06" id="T15:15:06"><abbr title="2011-10-14T15:15:06+00:00">15:15:06</abbr></a>] <span>* jkridner (~jkridner@nat/ti/x-rlpcoapkwlroypoy) has joined #beagleboard</span></li>
+<li class="quit">[<a href="#T15:15:12" id="T15:15:12"><abbr title="2011-10-14T15:15:12+00:00">15:15:12</abbr></a>] <span>* jkridner (~jkridner@nat/ti/x-rlpcoapkwlroypoy) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-10-14T15:15:12+00:00">15:15:12</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2011-10-14T15:15:12+00:00">15:15:12</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:15:44" id="T15:15:44"><abbr title="2011-10-14T15:15:44+00:00">15:15:44</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q><a href="https://bugs.busybox.net/show_bug.cgi?id=2329">https://bugs.busybox.net/show_bug.cgi?id=2329</a></q></li>
+<li class="message">[<a href="#T15:15:51" id="T15:15:51"><abbr title="2011-10-14T15:15:51+00:00">15:15:51</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>seems related</q></li>
+<li class="quit">[<a href="#T15:18:03" id="T15:18:03"><abbr title="2011-10-14T15:18:03+00:00">15:18:03</abbr></a>] <span>* matthsu (~matt@114-43-128-210.dynamic.hinet.net) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="action">[<a href="#T15:20:33" id="T15:20:33"><abbr title="2011-10-14T15:20:33+00:00">15:20:33</abbr></a>] <span>* koen forget that angstrom isn't using task-base anymore so util-linux-mount isn't getting injected anymore</span></li>
+<li class="message">[<a href="#T15:21:37" id="T15:21:37"><abbr title="2011-10-14T15:21:37+00:00">15:21:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ant_work: that bugreport is weird, /etc/mtab should be a symlink to /proc/mounts</q></li>
+<li class="join">[<a href="#T15:22:37" id="T15:22:37"><abbr title="2011-10-14T15:22:37+00:00">15:22:37</abbr></a>] <span>* thurbad (~natesewel@64.132.24.248) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:22:44" id="T15:22:44"><abbr title="2011-10-14T15:22:44+00:00">15:22:44</abbr></a>] <span>* rcranetx (~rcranetx@192.91.75.29) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:26:00" id="T15:26:00"><abbr title="2011-10-14T15:26:00+00:00">15:26:00</abbr></a>] <span>* CMoH (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:26:39" id="T15:26:39"><abbr title="2011-10-14T15:26:39+00:00">15:26:39</abbr></a>] <span>* howlymowly (~quassel@tubsat.fb12.tu-berlin.de) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="quit">[<a href="#T15:29:13" id="T15:29:13"><abbr title="2011-10-14T15:29:13+00:00">15:29:13</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Excess Flood)</span></li>
+<li class="join">[<a href="#T15:31:35" id="T15:31:35"><abbr title="2011-10-14T15:31:35+00:00">15:31:35</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:32:51" id="T15:32:51"><abbr title="2011-10-14T15:32:51+00:00">15:32:51</abbr></a>] <span>* ZeZu (~null@c-98-227-57-88.hsd1.in.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:33:23" id="T15:33:23"><abbr title="2011-10-14T15:33:23+00:00">15:33:23</abbr></a>] <span>* DarrenE (~darreneth@nat/ti/x-aypvzbooekhgudbz) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T15:33:43" id="T15:33:43"><abbr title="2011-10-14T15:33:43+00:00">15:33:43</abbr></a>] <span>* alancam (~alancam@nat/ti/x-soutpooyvtyeyxvx) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T15:37:29" id="T15:37:29"><abbr title="2011-10-14T15:37:29+00:00">15:37:29</abbr></a>] <span>* bgamari (~ben@physicsnat56.physics.umass.edu) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:38:04" id="T15:38:04"><abbr title="2011-10-14T15:38:04+00:00">15:38:04</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>mru: R_ARM_PLT32 is deprecated, right?</q></li>
+<li class="message">[<a href="#T15:38:19" id="T15:38:19"><abbr title="2011-10-14T15:38:19+00:00">15:38:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>whatever the manual says</q></li>
+<li class="message">[<a href="#T15:39:18" id="T15:39:18"><abbr title="2011-10-14T15:39:18+00:00">15:39:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and the manual says yes</q></li>
+<li class="message">[<a href="#T15:39:50" id="T15:39:50"><abbr title="2011-10-14T15:39:50+00:00">15:39:50</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>mru: Arg, so I put together a quick test to see how GCC would handle tail call interworking</q></li>
+<li class="message">[<a href="#T15:39:53" id="T15:39:53"><abbr title="2011-10-14T15:39:53+00:00">15:39:53</abbr></a>] &lt;<cite>bgamari</cite>&gt; <q>and it produced that</q></li>
+<li class="message">[<a href="#T15:40:02" id="T15:40:02"><abbr title="2011-10-14T15:40:02+00:00">15:40:02</abbr></a>] &lt;<cite>electronick</cite>&gt; <q>after finishing loading of ubuntu, i can not use usb mouse with a hub(no external powered). any suggestion?</q></li>
+<li class="message">[<a href="#T15:41:00" id="T15:41:00"><abbr title="2011-10-14T15:41:00+00:00">15:41:00</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>electronick, <a href="https://bugs.launchpad.net/bugs/871650">https://bugs.launchpad.net/bugs/871650</a></q></li>
+<li class="message">[<a href="#T15:41:46" id="T15:41:46"><abbr title="2011-10-14T15:41:46+00:00">15:41:46</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>(its in the release notes)</q></li>
+<li class="message">[<a href="#T15:43:39" id="T15:43:39"><abbr title="2011-10-14T15:43:39+00:00">15:43:39</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>it's a kernel setting for the polarity of the power enable line in the kernel</q></li>
+<li class="message">[<a href="#T15:44:05" id="T15:44:05"><abbr title="2011-10-14T15:44:05+00:00">15:44:05</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>I'm surprised they haven't fixed it yet, the xM rev C isseveral months old now</q></li>
+<li class="join">[<a href="#T15:44:26" id="T15:44:26"><abbr title="2011-10-14T15:44:26+00:00">15:44:26</abbr></a>] <span>* BThompson (~bhthompso@216.239.45.4) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:45:09" id="T15:45:09"><abbr title="2011-10-14T15:45:09+00:00">15:45:09</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>thurbad, well, we're waiting for a patch from linaro </q></li>
+<li class="message">[<a href="#T15:45:40" id="T15:45:40"><abbr title="2011-10-14T15:45:40+00:00">15:45:40</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>the prob is that nobody in ubuntu-arm has a rev C so we didnt even notice its an issue</q></li>
+<li class="message">[<a href="#T15:46:39" id="T15:46:39"><abbr title="2011-10-14T15:46:39+00:00">15:46:39</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>yeah I can see were that would make debugging tough</q></li>
+<li class="join">[<a href="#T15:47:56" id="T15:47:56"><abbr title="2011-10-14T15:47:56+00:00">15:47:56</abbr></a>] <span>* jayabharath (~jayabhara@192.91.75.30) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:48:25" id="T15:48:25"><abbr title="2011-10-14T15:48:25+00:00">15:48:25</abbr></a>] <span>* ant_work (~andrea@host6-80-static.42-85-b.business.telecomitalia.it) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T15:49:08" id="T15:49:08"><abbr title="2011-10-14T15:49:08+00:00">15:49:08</abbr></a>] <span>* Gaston|Home (Gaston@ua-83-227-239-139.cust.bredbandsbolaget.se) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T15:49:59" id="T15:49:59"><abbr title="2011-10-14T15:49:59+00:00">15:49:59</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>we had a user reporting it a week before release, when the archive was already frozen ... as soon as a fix shows up we will provide uImage and friends to manually replace them on the images for rev. C users</q></li>
+<li class="join">[<a href="#T15:50:20" id="T15:50:20"><abbr title="2011-10-14T15:50:20+00:00">15:50:20</abbr></a>] <span>* matthsu (~matt@114-43-128-210.dynamic.hinet.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:56:00" id="T15:56:00"><abbr title="2011-10-14T15:56:00+00:00">15:56:00</abbr></a>] <span>* likewise (~likewise@64.197.120.3) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:57:33" id="T15:57:33"><abbr title="2011-10-14T15:57:33+00:00">15:57:33</abbr></a>] <span>* likewise (~likewise@64.197.120.3) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T15:58:17" id="T15:58:17"><abbr title="2011-10-14T15:58:17+00:00">15:58:17</abbr></a>] <span>* kaio (~kaio@fedora/kaio) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T15:59:54" id="T15:59:54"><abbr title="2011-10-14T15:59:54+00:00">15:59:54</abbr></a>] <span>* matthsu (~matt@114-43-128-210.dynamic.hinet.net) Quit (Ping timeout: 244 seconds)</span></li>
