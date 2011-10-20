@@ -692,3 +692,125 @@
 <li class="join">[<a href="#T20:53:49" id="T20:53:49"><abbr title="2011-10-20T20:53:49+00:00">20:53:49</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-ltfjwkfajbrywgbj) has joined #beagle</span></li>
 <li class="quit">[<a href="#T20:56:00" id="T20:56:00"><abbr title="2011-10-20T20:56:00+00:00">20:56:00</abbr></a>] <span>* djlewis_ (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) Quit (Ping timeout: 240 seconds)</span></li>
 <li class="quit">[<a href="#T20:57:04" id="T20:57:04"><abbr title="2011-10-20T20:57:04+00:00">20:57:04</abbr></a>] <span>* Tr0yL (5464e35e@gateway/web/freenode/ip.84.100.227.94) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T21:00:30" id="T21:00:30"><abbr title="2011-10-20T21:00:30+00:00">21:00:30</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>mru, you awake</q></li>
+<li class="message">[<a href="#T21:01:09" id="T21:01:09"><abbr title="2011-10-20T21:01:09+00:00">21:01:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>pong</q></li>
+<li class="message">[<a href="#T21:01:32" id="T21:01:32"><abbr title="2011-10-20T21:01:32+00:00">21:01:32</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I just had some inline asm fail to compile on a more recent gcc</q></li>
+<li class="message">[<a href="#T21:01:35" id="T21:01:35"><abbr title="2011-10-20T21:01:35+00:00">21:01:35</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>hang on</q></li>
+<li class="message">[<a href="#T21:01:38" id="T21:01:38"><abbr title="2011-10-20T21:01:38+00:00">21:01:38</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>going to pastenin</q></li>
+<li class="message">[<a href="#T21:01:56" id="T21:01:56"><abbr title="2011-10-20T21:01:56+00:00">21:01:56</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>impossible register constraint in  'asm' is the error</q></li>
+<li class="message">[<a href="#T21:02:13" id="T21:02:13"><abbr title="2011-10-20T21:02:13+00:00">21:02:13</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://pastebin.com/EaXtTbVe">http://pastebin.com/EaXtTbVe</a></q></li>
+<li class="join">[<a href="#T21:02:43" id="T21:02:43"><abbr title="2011-10-20T21:02:43+00:00">21:02:43</abbr></a>] <span>* woglinde (~heinold@g225006002.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:02:45" id="T21:02:45"><abbr title="2011-10-20T21:02:45+00:00">21:02:45</abbr></a>] <span>* BlInK311 (~Ward@ool-435317d6.dyn.optonline.net) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:03:23" id="T21:03:23"><abbr title="2011-10-20T21:03:23+00:00">21:03:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>looks like a dot product</q></li>
+<li class="message">[<a href="#T21:03:35" id="T21:03:35"><abbr title="2011-10-20T21:03:35+00:00">21:03:35</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>very good :)</q></li>
+<li class="message">[<a href="#T21:04:19" id="T21:04:19"><abbr title="2011-10-20T21:04:19+00:00">21:04:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>now I can't say what's wrong without seeing the declarations for all the operands of that asm</q></li>
+<li class="message">[<a href="#T21:04:27" id="T21:04:27"><abbr title="2011-10-20T21:04:27+00:00">21:04:27</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>k</q></li>
+<li class="message">[<a href="#T21:04:32" id="T21:04:32"><abbr title="2011-10-20T21:04:32+00:00">21:04:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>well, I can guess what 'n' is</q></li>
+<li class="message">[<a href="#T21:04:42" id="T21:04:42"><abbr title="2011-10-20T21:04:42+00:00">21:04:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and a and b</q></li>
+<li class="message">[<a href="#T21:04:51" id="T21:04:51"><abbr title="2011-10-20T21:04:51+00:00">21:04:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh, I got it</q></li>
+<li class="message">[<a href="#T21:05:02" id="T21:05:02"><abbr title="2011-10-20T21:05:02+00:00">21:05:02</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q><a href="http://pastebin.com/5wVGAecQ">http://pastebin.com/5wVGAecQ</a></q></li>
+<li class="message">[<abbr title="2011-10-20T21:05:02+00:00">21:05:02</abbr>] &lt;<cite>mru</cite>&gt; <q>s is a float used as return value</q></li>
+<li class="message">[<a href="#T21:05:22" id="T21:05:22"><abbr title="2011-10-20T21:05:22+00:00">21:05:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>simple answer: don't use inline asm</q></li>
+<li class="message">[<a href="#T21:05:27" id="T21:05:27"><abbr title="2011-10-20T21:05:27+00:00">21:05:27</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I know</q></li>
+<li class="message">[<a href="#T21:05:39" id="T21:05:39"><abbr title="2011-10-20T21:05:39+00:00">21:05:39</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>next time I have to deal with this, I plan to work it out</q></li>
+<li class="message">[<a href="#T21:05:46" id="T21:05:46"><abbr title="2011-10-20T21:05:46+00:00">21:05:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so why do you use it?</q></li>
+<li class="message">[<a href="#T21:05:57" id="T21:05:57"><abbr title="2011-10-20T21:05:57+00:00">21:05:57</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I haven't had time to sort it out</q></li>
+<li class="message">[<a href="#T21:06:20" id="T21:06:20"><abbr title="2011-10-20T21:06:20+00:00">21:06:20</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>got a quick fix?</q></li>
+<li class="message">[<a href="#T21:06:30" id="T21:06:30"><abbr title="2011-10-20T21:06:30+00:00">21:06:30</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>you may beat me in person next week</q></li>
+<li class="quit">[<a href="#T21:06:39" id="T21:06:39"><abbr title="2011-10-20T21:06:39+00:00">21:06:39</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-ltfjwkfajbrywgbj) Quit (Quit: jayabharath)</span></li>
+<li class="message">[<a href="#T21:06:55" id="T21:06:55"><abbr title="2011-10-20T21:06:55+00:00">21:06:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>btw why do you initialise s before the asm?</q></li>
+<li class="message">[<a href="#T21:06:58" id="T21:06:58"><abbr title="2011-10-20T21:06:58+00:00">21:06:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's not necessary</q></li>
+<li class="message">[<a href="#T21:07:20" id="T21:07:20"><abbr title="2011-10-20T21:07:20+00:00">21:07:20</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>er</q></li>
+<li class="message">[<a href="#T21:07:42" id="T21:07:42"><abbr title="2011-10-20T21:07:42+00:00">21:07:42</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T21:07:52" id="T21:07:52"><abbr title="2011-10-20T21:07:52+00:00">21:07:52</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>probably just out of habit</q></li>
+<li class="message">[<a href="#T21:08:05" id="T21:08:05"><abbr title="2011-10-20T21:08:05+00:00">21:08:05</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>the c vresion likely had s+=thing</q></li>
+<li class="message">[<a href="#T21:08:24" id="T21:08:24"><abbr title="2011-10-20T21:08:24+00:00">21:08:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>anyway, if you insist on using inline asm, read <a href="http://hardwarebug.org/2010/07/06/arm-inline-asm-secrets/">http://hardwarebug.org/2010/07/06/arm-inline-asm-secrets/</a></q></li>
+<li class="message">[<a href="#T21:08:42" id="T21:08:42"><abbr title="2011-10-20T21:08:42+00:00">21:08:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>change the w constraint to a t</q></li>
+<li class="message">[<a href="#T21:09:08" id="T21:09:08"><abbr title="2011-10-20T21:09:08+00:00">21:09:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>now I'd do this a little differently</q></li>
+<li class="message">[<a href="#T21:09:14" id="T21:09:14"><abbr title="2011-10-20T21:09:14+00:00">21:09:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>to save some unnecessary instructions</q></li>
+<li class="message">[<a href="#T21:09:25" id="T21:09:25"><abbr title="2011-10-20T21:09:25+00:00">21:09:25</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah, I've read that and I am convinced going to .s files will be easier than sorting out constraints</q></li>
+<li class="message">[<a href="#T21:09:53" id="T21:09:53"><abbr title="2011-10-20T21:09:53+00:00">21:09:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there are lots of constructs you can't even dream of doing with inline asm operands</q></li>
+<li class="quit">[<a href="#T21:10:42" id="T21:10:42"><abbr title="2011-10-20T21:10:42+00:00">21:10:42</abbr></a>] <span>* Thorn (~Thorn@unaffiliated/thorn) Quit ()</span></li>
+<li class="message">[<a href="#T21:10:57" id="T21:10:57"><abbr title="2011-10-20T21:10:57+00:00">21:10:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which abi are you using btw?</q></li>
+<li class="message">[<a href="#T21:11:09" id="T21:11:09"><abbr title="2011-10-20T21:11:09+00:00">21:11:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>soft atm</q></li>
+<li class="message">[<a href="#T21:11:16" id="T21:11:16"><abbr title="2011-10-20T21:11:16+00:00">21:11:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>on an a8?</q></li>
+<li class="message">[<a href="#T21:11:20" id="T21:11:20"><abbr title="2011-10-20T21:11:20+00:00">21:11:20</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T21:11:24" id="T21:11:24"><abbr title="2011-10-20T21:11:24+00:00">21:11:24</abbr></a>] &lt;<cite>koen</cite>&gt; <q>softfp?</q></li>
+<li class="message">[<a href="#T21:11:34" id="T21:11:34"><abbr title="2011-10-20T21:11:34+00:00">21:11:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>say hi to 20-cycle returns from that function</q></li>
+<li class="message">[<a href="#T21:11:38" id="T21:11:38"><abbr title="2011-10-20T21:11:38+00:00">21:11:38</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>whatever angstrom uses :)</q></li>
+<li class="message">[<a href="#T21:11:51" id="T21:11:51"><abbr title="2011-10-20T21:11:51+00:00">21:11:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: there are two float ABIs</q></li>
+<li class="message">[<a href="#T21:11:54" id="T21:11:54"><abbr title="2011-10-20T21:11:54+00:00">21:11:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>soft and hard</q></li>
+<li class="message">[<a href="#T21:12:18" id="T21:12:18"><abbr title="2011-10-20T21:12:18+00:00">21:12:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc just abuses the abi switch to choose softfp</q></li>
+<li class="message">[<a href="#T21:12:27" id="T21:12:27"><abbr title="2011-10-20T21:12:27+00:00">21:12:27</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>mru, using hard would change that?</q></li>
+<li class="message">[<a href="#T21:12:33" id="T21:12:33"><abbr title="2011-10-20T21:12:33+00:00">21:12:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T21:12:48" id="T21:12:48"><abbr title="2011-10-20T21:12:48+00:00">21:12:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>with hard the result stays in a vfp register</q></li>
+<li class="message">[<a href="#T21:12:54" id="T21:12:54"><abbr title="2011-10-20T21:12:54+00:00">21:12:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>s0 to be precise</q></li>
+<li class="message">[<a href="#T21:13:00" id="T21:13:00"><abbr title="2011-10-20T21:13:00+00:00">21:13:00</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T21:13:19" id="T21:13:19"><abbr title="2011-10-20T21:13:19+00:00">21:13:19</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>: "=t"(s), "+r"(a), "+r"(b), "+r"(n)         </q></li>
+<li class="message">[<a href="#T21:13:23" id="T21:13:23"><abbr title="2011-10-20T21:13:23+00:00">21:13:23</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>is what you meant?</q></li>
+<li class="message">[<a href="#T21:13:26" id="T21:13:26"><abbr title="2011-10-20T21:13:26+00:00">21:13:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T21:13:31" id="T21:13:31"><abbr title="2011-10-20T21:13:31+00:00">21:13:31</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>some prolem</q></li>
+<li class="message">[<a href="#T21:13:37" id="T21:13:37"><abbr title="2011-10-20T21:13:37+00:00">21:13:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you should also make the r operands early-clobber</q></li>
+<li class="message">[<a href="#T21:13:42" id="T21:13:42"><abbr title="2011-10-20T21:13:42+00:00">21:13:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but that's not the cause of your error</q></li>
+<li class="message">[<a href="#T21:14:15" id="T21:14:15"><abbr title="2011-10-20T21:14:15+00:00">21:14:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gcc version?</q></li>
+<li class="message">[<a href="#T21:14:36" id="T21:14:36"><abbr title="2011-10-20T21:14:36+00:00">21:14:36</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>4.5.4</q></li>
+<li class="message">[<a href="#T21:14:40" id="T21:14:40"><abbr title="2011-10-20T21:14:40+00:00">21:14:40</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>but I suspect patched</q></li>
+<li class="message">[<a href="#T21:14:48" id="T21:14:48"><abbr title="2011-10-20T21:14:48+00:00">21:14:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>should be fine</q></li>
+<li class="message">[<a href="#T21:15:13" id="T21:15:13"><abbr title="2011-10-20T21:15:13+00:00">21:15:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>some of those things mentioned in my blag post are new to 4.5</q></li>
+<li class="quit">[<a href="#T21:15:14" id="T21:15:14"><abbr title="2011-10-20T21:15:14+00:00">21:15:14</abbr></a>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:15:35" id="T21:15:35"><abbr title="2011-10-20T21:15:35+00:00">21:15:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>4.5.4 + linaro</q></li>
+<li class="message">[<a href="#T21:15:46" id="T21:15:46"><abbr title="2011-10-20T21:15:46+00:00">21:15:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>linaro patches are usually good</q></li>
+<li class="message">[<a href="#T21:15:55" id="T21:15:55"><abbr title="2011-10-20T21:15:55+00:00">21:15:55</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>well, this used to work ....</q></li>
+<li class="message">[<a href="#T21:15:59" id="T21:15:59"><abbr title="2011-10-20T21:15:59+00:00">21:15:59</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>well</q></li>
+<li class="message">[<a href="#T21:16:01" id="T21:16:01"><abbr title="2011-10-20T21:16:01+00:00">21:16:01</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>compile</q></li>
+<li class="message">[<a href="#T21:16:35" id="T21:16:35"><abbr title="2011-10-20T21:16:35+00:00">21:16:35</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>got soe otehr suggestions that might get the compiler to stop vomitting</q></li>
+<li class="message">[<a href="#T21:18:30" id="T21:18:30"><abbr title="2011-10-20T21:18:30+00:00">21:18:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>compiler flags?</q></li>
+<li class="message">[<a href="#T21:19:35" id="T21:19:35"><abbr title="2011-10-20T21:19:35+00:00">21:19:35</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>the usual angstrom ones</q></li>
+<li class="message">[<a href="#T21:19:46" id="T21:19:46"><abbr title="2011-10-20T21:19:46+00:00">21:19:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which are what?</q></li>
+<li class="message">[<a href="#T21:19:53" id="T21:19:53"><abbr title="2011-10-20T21:19:53+00:00">21:19:53</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T21:20:07" id="T21:20:07"><abbr title="2011-10-20T21:20:07+00:00">21:20:07</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I my see a problem</q></li>
+<li class="message">[<a href="#T21:20:11" id="T21:20:11"><abbr title="2011-10-20T21:20:11+00:00">21:20:11</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>stupid cmake</q></li>
+<li class="message">[<a href="#T21:20:15" id="T21:20:15"><abbr title="2011-10-20T21:20:15+00:00">21:20:15</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>well stupid operator</q></li>
+<li class="message">[<a href="#T21:20:47" id="T21:20:47"><abbr title="2011-10-20T21:20:47+00:00">21:20:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>missing -march/-mcpu?</q></li>
+<li class="message">[<a href="#T21:20:51" id="T21:20:51"><abbr title="2011-10-20T21:20:51+00:00">21:20:51</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah</q></li>
+<li class="join">[<a href="#T21:20:57" id="T21:20:57"><abbr title="2011-10-20T21:20:57+00:00">21:20:57</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-uqzagicilrwkzrqy) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:21:03" id="T21:21:03"><abbr title="2011-10-20T21:21:03+00:00">21:21:03</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>wasn't setting them for C files only cpp</q></li>
+<li class="message">[<a href="#T21:21:09" id="T21:21:09"><abbr title="2011-10-20T21:21:09+00:00">21:21:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>sorry to bother you</q></li>
+<li class="message">[<a href="#T21:21:18" id="T21:21:18"><abbr title="2011-10-20T21:21:18+00:00">21:21:18</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I owe you beer</q></li>
+<li class="message">[<a href="#T21:21:59" id="T21:21:59"><abbr title="2011-10-20T21:21:59+00:00">21:21:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>all hail cmake</q></li>
+<li class="message">[<a href="#T21:22:46" id="T21:22:46"><abbr title="2011-10-20T21:22:46+00:00">21:22:46</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>well operator error</q></li>
+<li class="message">[<a href="#T21:22:55" id="T21:22:55"><abbr title="2011-10-20T21:22:55+00:00">21:22:55</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>my configure notes set the flags for both</q></li>
+<li class="message">[<a href="#T21:23:09" id="T21:23:09"><abbr title="2011-10-20T21:23:09+00:00">21:23:09</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I copied the cmake command from uhd which is straight c++ files</q></li>
+<li class="quit">[<a href="#T21:23:39" id="T21:23:39"><abbr title="2011-10-20T21:23:39+00:00">21:23:39</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:23:54" id="T21:23:54"><abbr title="2011-10-20T21:23:54+00:00">21:23:54</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>crofton *g*</q></li>
+<li class="message">[<a href="#T21:24:12" id="T21:24:12"><abbr title="2011-10-20T21:24:12+00:00">21:24:12</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>preparing elce showcase?</q></li>
+<li class="message">[<a href="#T21:24:19" id="T21:24:19"><abbr title="2011-10-20T21:24:19+00:00">21:24:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Crofton|work: so you took the autotools approach to writing cmakefiles</q></li>
+<li class="message">[<a href="#T21:24:44" id="T21:24:44"><abbr title="2011-10-20T21:24:44+00:00">21:24:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: heavy cargo-culting?</q></li>
+<li class="message">[<a href="#T21:25:32" id="T21:25:32"><abbr title="2011-10-20T21:25:32+00:00">21:25:32</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T21:25:35" id="T21:25:35"><abbr title="2011-10-20T21:25:35+00:00">21:25:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mru: heavy copy/paste</q></li>
+<li class="message">[<a href="#T21:25:40" id="T21:25:40"><abbr title="2011-10-20T21:25:40+00:00">21:25:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>combined with cargo culting</q></li>
+<li class="message">[<a href="#T21:25:42" id="T21:25:42"><abbr title="2011-10-20T21:25:42+00:00">21:25:42</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T21:25:54" id="T21:25:54"><abbr title="2011-10-20T21:25:54+00:00">21:25:54</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I need to make some toolchain files to stop this kind of error</q></li>
+<li class="quit">[<a href="#T21:27:03" id="T21:27:03"><abbr title="2011-10-20T21:27:03+00:00">21:27:03</abbr></a>] <span>* joelagnel (~joel@cpe-76-184-244-226.tx.res.rr.com) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="message">[<a href="#T21:31:14" id="T21:31:14"><abbr title="2011-10-20T21:31:14+00:00">21:31:14</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>mru, even with hard float, the result will get written to memory when the function returns</q></li>
+<li class="message">[<a href="#T21:32:15" id="T21:32:15"><abbr title="2011-10-20T21:32:15+00:00">21:32:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so?</q></li>
+<li class="message">[<a href="#T21:32:30" id="T21:32:30"><abbr title="2011-10-20T21:32:30+00:00">21:32:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>immediately?</q></li>
+<li class="quit">[<a href="#T21:32:46" id="T21:32:46"><abbr title="2011-10-20T21:32:46+00:00">21:32:46</abbr></a>] <span>* gustavoz (~gustavoz@host210.190-136-154.telecom.net.ar) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T21:34:49" id="T21:34:49"><abbr title="2011-10-20T21:34:49+00:00">21:34:49</abbr></a>] <span>* jkridner (~jkridner@nat/ti/x-sbfgoaqnfxehxthr) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-10-20T21:34:49+00:00">21:34:49</abbr>] <span>* jkridner (~jkridner@nat/ti/x-sbfgoaqnfxehxthr) has joined #beagleboard</span></li>
+<li class="quit">[<abbr title="2011-10-20T21:34:49+00:00">21:34:49</abbr>] <span>* jkridner (~jkridner@nat/ti/x-sbfgoaqnfxehxthr) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-10-20T21:34:49+00:00">21:34:49</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2011-10-20T21:34:49+00:00">21:34:49</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:35:13" id="T21:35:13"><abbr title="2011-10-20T21:35:13+00:00">21:35:13</abbr></a>] <span>* woglinde (~heinold@g225006002.adsl.alicedsl.de) Quit (Quit: leaving)</span></li>
+<li class="join">[<a href="#T21:35:35" id="T21:35:35"><abbr title="2011-10-20T21:35:35+00:00">21:35:35</abbr></a>] <span>* joelagnel (~joel@cpe-76-184-244-226.tx.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:35:44" id="T21:35:44"><abbr title="2011-10-20T21:35:44+00:00">21:35:44</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I suspect it does</q></li>
+<li class="message">[<a href="#T21:36:00" id="T21:36:00"><abbr title="2011-10-20T21:36:00+00:00">21:36:00</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>since we are taking two input vectors and creating the third output one</q></li>
+<li class="message">[<a href="#T21:36:24" id="T21:36:24"><abbr title="2011-10-20T21:36:24+00:00">21:36:24</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>thawhere each element in the output vector is the result of the dot product</q></li>
+<li class="message">[<a href="#T21:37:35" id="T21:37:35"><abbr title="2011-10-20T21:37:35+00:00">21:37:35</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>so what we would need to do is calcualte 4 output elements before storing the result</q></li>
+<li class="message">[<a href="#T21:37:41" id="T21:37:41"><abbr title="2011-10-20T21:37:41+00:00">21:37:41</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>so we could store a q reg</q></li>
+<li class="message">[<a href="#T21:42:00" id="T21:42:00"><abbr title="2011-10-20T21:42:00+00:00">21:42:00</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>aren't there preomptimized NEON based dot product routines out there already? that seems to be a common thing</q></li>
+<li class="quit">[<a href="#T21:45:59" id="T21:45:59"><abbr title="2011-10-20T21:45:59+00:00">21:45:59</abbr></a>] <span>* kaio (~kaio@fedora/kaio) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T21:46:20" id="T21:46:20"><abbr title="2011-10-20T21:46:20+00:00">21:46:20</abbr></a>] <span>* kaio (~kaio@fedora/kaio) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:52:35" id="T21:52:35"><abbr title="2011-10-20T21:52:35+00:00">21:52:35</abbr></a>] <span>* rcf (~rcf@81.243.31.87) Quit (Quit: This war is mine)</span></li>
+<li class="message">[<a href="#T21:59:44" id="T21:59:44"><abbr title="2011-10-20T21:59:44+00:00">21:59:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ds2: sounds like he's doing a cross-correlation</q></li>
+<li class="message">[<a href="#T21:59:52" id="T21:59:52"><abbr title="2011-10-20T21:59:52+00:00">21:59:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which is better done with an fft</q></li>
