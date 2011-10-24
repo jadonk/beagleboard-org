@@ -284,3 +284,30 @@
 <li class="message">[<a href="#T15:59:36" id="T15:59:36"><abbr title="2011-10-24T15:59:36+00:00">15:59:36</abbr></a>] &lt;<cite>jten</cite>&gt; <q>usb0: ERROR while getting interface flags: No such device</q></li>
 <li class="message">[<a href="#T15:59:44" id="T15:59:44"><abbr title="2011-10-24T15:59:44+00:00">15:59:44</abbr></a>] &lt;<cite>jten</cite>&gt; <q>can not get the networking to work</q></li>
 <li class="message">[<a href="#T15:59:46" id="T15:59:46"><abbr title="2011-10-24T15:59:46+00:00">15:59:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>Ceriand|work: because you just joined the channel</q></li>
+<li class="message">[<a href="#T16:01:25" id="T16:01:25"><abbr title="2011-10-24T16:01:25+00:00">16:01:25</abbr></a>] &lt;<cite>jten</cite>&gt; <q>I have the smsc95xx driver loaded</q></li>
+<li class="message">[<abbr title="2011-10-24T16:01:25+00:00">16:01:25</abbr>] &lt;<cite>Ceriand|work</cite>&gt; <q>wouldn't a dedicated ethernet device come up as eth0 not usb0?</q></li>
+<li class="message">[<a href="#T16:01:57" id="T16:01:57"><abbr title="2011-10-24T16:01:57+00:00">16:01:57</abbr></a>] &lt;<cite>jten</cite>&gt; <q>the beagleboards smsc95xx uses a usb networking interface</q></li>
+<li class="message">[<a href="#T16:02:16" id="T16:02:16"><abbr title="2011-10-24T16:02:16+00:00">16:02:16</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>yes, but IIRC usbX is only for the USB gadget ethernet interface</q></li>
+<li class="message">[<a href="#T16:02:25" id="T16:02:25"><abbr title="2011-10-24T16:02:25+00:00">16:02:25</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>what does ifconfig -a say?</q></li>
+<li class="message">[<a href="#T16:02:38" id="T16:02:38"><abbr title="2011-10-24T16:02:38+00:00">16:02:38</abbr></a>] &lt;<cite>jten</cite>&gt; <q>just lo</q></li>
+<li class="message">[<a href="#T16:02:40" id="T16:02:40"><abbr title="2011-10-24T16:02:40+00:00">16:02:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's called eth0 on my beagle-xm</q></li>
+<li class="message">[<a href="#T16:02:49" id="T16:02:49"><abbr title="2011-10-24T16:02:49+00:00">16:02:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>usb ethernet devices are a bit random</q></li>
+<li class="message">[<a href="#T16:02:58" id="T16:02:58"><abbr title="2011-10-24T16:02:58+00:00">16:02:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>sometimes they are usbX, sometimes ethX</q></li>
+<li class="message">[<a href="#T16:03:02" id="T16:03:02"><abbr title="2011-10-24T16:03:02+00:00">16:03:02</abbr></a>] &lt;<cite>jten</cite>&gt; <q>localhost ~ # ifconfig eth0 up eth0: ERROR while getting interface flags: No such device</q></li>
+<li class="message">[<a href="#T16:03:10" id="T16:03:10"><abbr title="2011-10-24T16:03:10+00:00">16:03:10</abbr></a>] &lt;<cite>jten</cite>&gt; <q>same problem though :/</q></li>
+<li class="message">[<a href="#T16:03:23" id="T16:03:23"><abbr title="2011-10-24T16:03:23+00:00">16:03:23</abbr></a>] &lt;<cite>jten</cite>&gt; <q>either way that module is not working</q></li>
+<li class="message">[<a href="#T16:03:41" id="T16:03:41"><abbr title="2011-10-24T16:03:41+00:00">16:03:41</abbr></a>] &lt;<cite>Ceriand|work</cite>&gt; <q>jten: what does dmesg say when you load the driver?</q></li>
+<li class="message">[<a href="#T16:03:51" id="T16:03:51"><abbr title="2011-10-24T16:03:51+00:00">16:03:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and what does lsusb say?</q></li>
+<li class="message">[<a href="#T16:04:11" id="T16:04:11"><abbr title="2011-10-24T16:04:11+00:00">16:04:11</abbr></a>] &lt;<cite>jten</cite>&gt; <q>usbcore: registered new interface driver smsc95xx</q></li>
+<li class="message">[<a href="#T16:04:30" id="T16:04:30"><abbr title="2011-10-24T16:04:30+00:00">16:04:30</abbr></a>] &lt;<cite>jten</cite>&gt; <q>localhost ~ # lsusb -bash: lsusb: command not found</q></li>
+<li class="message">[<a href="#T16:16:10" id="T16:16:10"><abbr title="2011-10-24T16:16:10+00:00">16:16:10</abbr></a>] &lt;<cite>jten</cite>&gt; <q>mru: which kernel version are you using?</q></li>
+<li class="message">[<a href="#T16:17:29" id="T16:17:29"><abbr title="2011-10-24T16:17:29+00:00">16:17:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>most of them since the xm came out</q></li>
+<li class="message">[<a href="#T16:25:54" id="T16:25:54"><abbr title="2011-10-24T16:25:54+00:00">16:25:54</abbr></a>] &lt;<cite>jten</cite>&gt; <q>maybe my board is broke</q></li>
+<li class="join">[<a href="#T16:26:45" id="T16:26:45"><abbr title="2011-10-24T16:26:45+00:00">16:26:45</abbr></a>] <span>* peabody124_ (~peabody12@128.249.96.127) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:26:52" id="T16:26:52"><abbr title="2011-10-24T16:26:52+00:00">16:26:52</abbr></a>] <span>* peabody124_ (~peabody12@128.249.96.127) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T16:26:57" id="T16:26:57"><abbr title="2011-10-24T16:26:57+00:00">16:26:57</abbr></a>] <span>* peabody124 (~peabody12@128.249.96.21) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T16:27:07" id="T16:27:07"><abbr title="2011-10-24T16:27:07+00:00">16:27:07</abbr></a>] <span>* peabody124 (~peabody12@128.249.96.21) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:27:26" id="T16:27:26"><abbr title="2011-10-24T16:27:26+00:00">16:27:26</abbr></a>] &lt;<cite>jten</cite>&gt; <q>anyone fancy trying my images?</q></li>
+<li class="message">[<a href="#T16:28:56" id="T16:28:56"><abbr title="2011-10-24T16:28:56+00:00">16:28:56</abbr></a>] &lt;<cite>rcn-ee</cite>&gt; <q>or you could try the original image, which should work..</q></li>
+<li class="join">[<a href="#T16:35:34" id="T16:35:34"><abbr title="2011-10-24T16:35:34+00:00">16:35:34</abbr></a>] <span>* bgamari (~ben@pool-96-233-180-23.spfdma.east.verizon.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:49:18" id="T16:49:18"><abbr title="2011-10-24T16:49:18+00:00">16:49:18</abbr></a>] <span>* lyakh (~lyakh@85.13.70.251) Quit (Quit: Leaving)</span></li>
