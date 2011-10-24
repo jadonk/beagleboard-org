@@ -130,3 +130,68 @@
 <li class="join">[<a href="#T09:57:08" id="T09:57:08"><abbr title="2011-10-24T09:57:08+00:00">09:57:08</abbr></a>] <span>* Laurent_ (c1317c6b@gateway/web/freenode/ip.193.49.124.107) has joined #beagle</span></li>
 <li class="message">[<a href="#T09:58:28" id="T09:58:28"><abbr title="2011-10-24T09:58:28+00:00">09:58:28</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>hi, xvimagesink use Xorg to display video, but what use omapfbsink ? Thx :)</q></li>
 <li class="message">[<a href="#T09:59:19" id="T09:59:19"><abbr title="2011-10-24T09:59:19+00:00">09:59:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>xvimage-sink -&gt; xv, omapfb-sink -&gt; ?</q></li>
+<li class="message">[<a href="#T10:00:18" id="T10:00:18"><abbr title="2011-10-24T10:00:18+00:00">10:00:18</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>what ?</q></li>
+<li class="message">[<a href="#T10:00:54" id="T10:00:54"><abbr title="2011-10-24T10:00:54+00:00">10:00:54</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>xvimagesink use Xv (XFree86 video) yes</q></li>
+<li class="message">[<a href="#T10:01:03" id="T10:01:03"><abbr title="2011-10-24T10:01:03+00:00">10:01:03</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>but omapfb ?</q></li>
+<li class="message">[<a href="#T10:01:36" id="T10:01:36"><abbr title="2011-10-24T10:01:36+00:00">10:01:36</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>what use omapfbsink to display video ?</q></li>
+<li class="action">[<a href="#T10:01:51" id="T10:01:51"><abbr title="2011-10-24T10:01:51+00:00">10:01:51</abbr></a>] <span>* koen would guess omapfb</span></li>
+<li class="quit">[<a href="#T10:04:11" id="T10:04:11"><abbr title="2011-10-24T10:04:11+00:00">10:04:11</abbr></a>] <span>* Russ (foobar@ip70-176-251-1.ph.ph.cox.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T10:04:21" id="T10:04:21"><abbr title="2011-10-24T10:04:21+00:00">10:04:21</abbr></a>] <span>* hitlin37_ (b64723e4@gateway/web/freenode/ip.182.71.35.228) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:04:53" id="T10:04:53"><abbr title="2011-10-24T10:04:53+00:00">10:04:53</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>because when i use xvimagesink my cpu is loaded to 20% and when i use omapfbsink my cpu is load 3%</q></li>
+<li class="message">[<a href="#T10:05:39" id="T10:05:39"><abbr title="2011-10-24T10:05:39+00:00">10:05:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>omapfb uses less memcpy it seems</q></li>
+<li class="message">[<a href="#T10:08:18" id="T10:08:18"><abbr title="2011-10-24T10:08:18+00:00">10:08:18</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>so, omapfb use less memory?</q></li>
+<li class="message">[<a href="#T10:08:36" id="T10:08:36"><abbr title="2011-10-24T10:08:36+00:00">10:08:36</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>than xv</q></li>
+<li class="message">[<a href="#T10:08:59" id="T10:08:59"><abbr title="2011-10-24T10:08:59+00:00">10:08:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>less memcpy at least</q></li>
+<li class="message">[<a href="#T10:10:17" id="T10:10:17"><abbr title="2011-10-24T10:10:17+00:00">10:10:17</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>in fact i try to understand the difference of usage of CPU when i use xv or omapfb</q></li>
+<li class="message">[<a href="#T10:11:05" id="T10:11:05"><abbr title="2011-10-24T10:11:05+00:00">10:11:05</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>when i set my pipeline with dspvdev ! xvimagesink</q></li>
+<li class="join">[<a href="#T10:11:08" id="T10:11:08"><abbr title="2011-10-24T10:11:08+00:00">10:11:08</abbr></a>] <span>* CMoH|office (~cipi@89.35.222.158) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-10-24T10:11:08+00:00">10:11:08</abbr>] <span>* CMoH|office (~cipi@89.35.222.158) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-10-24T10:11:08+00:00">10:11:08</abbr>] <span>* CMoH|office (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:11:31" id="T10:11:31"><abbr title="2011-10-24T10:11:31+00:00">10:11:31</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>i understand that's the cpu witch display the video with Xorg</q></li>
+<li class="message">[<a href="#T10:12:07" id="T10:12:07"><abbr title="2011-10-24T10:12:07+00:00">10:12:07</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>but i don't really understand what element display with omapfb</q></li>
+<li class="message">[<a href="#T10:15:26" id="T10:15:26"><abbr title="2011-10-24T10:15:26+00:00">10:15:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I have no idea what xv on omap3 does</q></li>
+<li class="message">[<a href="#T10:15:34" id="T10:15:34"><abbr title="2011-10-24T10:15:34+00:00">10:15:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>does it use dss overlays?</q></li>
+<li class="message">[<a href="#T10:15:58" id="T10:15:58"><abbr title="2011-10-24T10:15:58+00:00">10:15:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if not, then yes, it memcopies video into the GFX buffer</q></li>
+<li class="message">[<a href="#T10:16:06" id="T10:16:06"><abbr title="2011-10-24T10:16:06+00:00">10:16:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and needs to colorconvert it too</q></li>
+<li class="message">[<a href="#T10:16:30" id="T10:16:30"><abbr title="2011-10-24T10:16:30+00:00">10:16:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>omapfb just memcopies YUV data into the overlays</q></li>
+<li class="message">[<a href="#T10:18:30" id="T10:18:30"><abbr title="2011-10-24T10:18:30+00:00">10:18:30</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>xv does colorconvert </q></li>
+<li class="message">[<a href="#T10:18:37" id="T10:18:37"><abbr title="2011-10-24T10:18:37+00:00">10:18:37</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>xv does colorconvert  ?</q></li>
+<li class="message">[<a href="#T10:19:32" id="T10:19:32"><abbr title="2011-10-24T10:19:32+00:00">10:19:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>[12:15:26] &lt;av500&gt; I have no idea what xv on omap3 does</q></li>
+<li class="message">[<a href="#T10:19:43" id="T10:19:43"><abbr title="2011-10-24T10:19:43+00:00">10:19:43</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>oh yes sorry</q></li>
+<li class="message">[<a href="#T10:19:46" id="T10:19:46"><abbr title="2011-10-24T10:19:46+00:00">10:19:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but hey, luckily it's open source</q></li>
+<li class="message">[<a href="#T10:21:15" id="T10:21:15"><abbr title="2011-10-24T10:21:15+00:00">10:21:15</abbr></a>] &lt;<cite>Laurent_</cite>&gt; <q>overlays it is like frambuffer?</q></li>
+<li class="message">[<a href="#T10:21:37" id="T10:21:37"><abbr title="2011-10-24T10:21:37+00:00">10:21:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the DSS hardware overlays, GFX and VID1 and VID2</q></li>
+<li class="message">[<a href="#T10:21:56" id="T10:21:56"><abbr title="2011-10-24T10:21:56+00:00">10:21:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>which are not to be confused with X11 "overlays" which can be anything</q></li>
+<li class="message">[<a href="#T10:22:19" id="T10:22:19"><abbr title="2011-10-24T10:22:19+00:00">10:22:19</abbr></a>] &lt;<cite>pugvader</cite>&gt; <q>Your choice: Ron Paul or WAR.</q></li>
+<li class="action">[<a href="#T10:23:06" id="T10:23:06"><abbr title="2011-10-24T10:23:06+00:00">10:23:06</abbr></a>] <span>* av500 is not into MMORPGs....</span></li>
+<li class="part">[<a href="#T10:29:44" id="T10:29:44"><abbr title="2011-10-24T10:29:44+00:00">10:29:44</abbr></a>] <span>* sniperjo (~sniperjo@ANice-151-1-44-199.w83-197.abo.wanadoo.fr) has left #beagle</span></li>
+<li class="message">[<a href="#T10:33:01" id="T10:33:01"><abbr title="2011-10-24T10:33:01+00:00">10:33:01</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>has anyone had problems getting the ethernet port working?</q></li>
+<li class="message">[<a href="#T10:33:13" id="T10:33:13"><abbr title="2011-10-24T10:33:13+00:00">10:33:13</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>the smsc95xx module is compiled in but its not working</q></li>
+<li class="message">[<a href="#T10:36:02" id="T10:36:02"><abbr title="2011-10-24T10:36:02+00:00">10:36:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there is an omap3 xv driver that uses overlays</q></li>
+<li class="message">[<a href="#T10:36:20" id="T10:36:20"><abbr title="2011-10-24T10:36:20+00:00">10:36:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and a horribly inefficient planar to packed yuv conversion</q></li>
+<li class="message">[<a href="#T10:36:25" id="T10:36:25"><abbr title="2011-10-24T10:36:25+00:00">10:36:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and it's buggy as hell</q></li>
+<li class="message">[<a href="#T10:36:40" id="T10:36:40"><abbr title="2011-10-24T10:36:40+00:00">10:36:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the sgx driver probably uses gpu textures</q></li>
+<li class="message">[<a href="#T10:36:47" id="T10:36:47"><abbr title="2011-10-24T10:36:47+00:00">10:36:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and thus wastes mem bandwidth</q></li>
+<li class="message">[<a href="#T10:37:50" id="T10:37:50"><abbr title="2011-10-24T10:37:50+00:00">10:37:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>in the end all 3 solutions use memcpy</q></li>
+<li class="message">[<a href="#T10:38:35" id="T10:38:35"><abbr title="2011-10-24T10:38:35+00:00">10:38:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which 3?</q></li>
+<li class="message">[<a href="#T10:38:40" id="T10:38:40"><abbr title="2011-10-24T10:38:40+00:00">10:38:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and mine does not use memcpy</q></li>
+<li class="message">[<a href="#T10:38:48" id="T10:38:48"><abbr title="2011-10-24T10:38:48+00:00">10:38:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yours is not in said list</q></li>
+<li class="message">[<a href="#T10:39:04" id="T10:39:04"><abbr title="2011-10-24T10:39:04+00:00">10:39:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yours is also not part of a wrap-fest</q></li>
+<li class="message">[<a href="#T10:40:26" id="T10:40:26"><abbr title="2011-10-24T10:40:26+00:00">10:40:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>since he has 3% with omapfb, I assume he uses the dsp</q></li>
+<li class="message">[<a href="#T10:40:41" id="T10:40:41"><abbr title="2011-10-24T10:40:41+00:00">10:40:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so he already has packed</q></li>
+<li class="message">[<a href="#T10:41:41" id="T10:41:41"><abbr title="2011-10-24T10:41:41+00:00">10:41:41</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>localhost init.d # ifconfig usb0 up usb0: ERROR while getting interface flags: No such device</q></li>
+<li class="message">[<a href="#T10:41:43" id="T10:41:43"><abbr title="2011-10-24T10:41:43+00:00">10:41:43</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>:/</q></li>
+<li class="message">[<a href="#T10:41:49" id="T10:41:49"><abbr title="2011-10-24T10:41:49+00:00">10:41:49</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>any ideas?</q></li>
+<li class="message">[<a href="#T10:42:11" id="T10:42:11"><abbr title="2011-10-24T10:42:11+00:00">10:42:11</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>localhost net # gzip -cd &lt; /proc/config.gz |grep SMS</q></li>
+<li class="message">[<abbr title="2011-10-24T10:42:11+00:00">10:42:11</abbr>] &lt;<cite>jono86</cite>&gt; <q>CONFIG_USB_NET_SMSC95XX=y</q></li>
+<li class="message">[<a href="#T10:42:17" id="T10:42:17"><abbr title="2011-10-24T10:42:17+00:00">10:42:17</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>should be compiled in</q></li>
+<li class="join">[<a href="#T10:48:30" id="T10:48:30"><abbr title="2011-10-24T10:48:30+00:00">10:48:30</abbr></a>] <span>* gustavoz (~gustavoz@host200.190-231-143.telecom.net.ar) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:48:47" id="T10:48:47"><abbr title="2011-10-24T10:48:47+00:00">10:48:47</abbr></a>] &lt;<cite>hitlin37_</cite>&gt; <q>jono86,you should look into ur dmesg or initial boot messages.</q></li>
+<li class="message">[<a href="#T10:52:59" id="T10:52:59"><abbr title="2011-10-24T10:52:59+00:00">10:52:59</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>yea i dont think I have the module driver for the smsc95xx</q></li>
+<li class="message">[<a href="#T10:53:13" id="T10:53:13"><abbr title="2011-10-24T10:53:13+00:00">10:53:13</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>and i do not have the kernel sourc</q></li>
+<li class="message">[<a href="#T10:53:34" id="T10:53:34"><abbr title="2011-10-24T10:53:34+00:00">10:53:34</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>does anyone had a good patched kernel I can use with the source?</q></li>
+<li class="message">[<a href="#T10:55:36" id="T10:55:36"><abbr title="2011-10-24T10:55:36+00:00">10:55:36</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>nm found what i need :)</q></li>
+<li class="quit">[<a href="#T10:56:22" id="T10:56:22"><abbr title="2011-10-24T10:56:22+00:00">10:56:22</abbr></a>] <span>* tasslehoff (~Tasslehof@147.84-49-231.nextgentel.com) Quit (Quit: WeeChat 0.3.5)</span></li>
+<li class="message">[<a href="#T10:57:00" id="T10:57:00"><abbr title="2011-10-24T10:57:00+00:00">10:57:00</abbr></a>] &lt;<cite>hitlin37_</cite>&gt; <q>ethernet works fine in almost all prebuilt images</q></li>
+<li class="message">[<a href="#T10:57:58" id="T10:57:58"><abbr title="2011-10-24T10:57:58+00:00">10:57:58</abbr></a>] &lt;<cite>jono86</cite>&gt; <q>am using kernel 3.0.0</q></li>
+<li class="part">[<a href="#T10:58:52" id="T10:58:52"><abbr title="2011-10-24T10:58:52+00:00">10:58:52</abbr></a>] <span>* pugvader (~pugvader@p54B2B355.dip.t-dialin.net) has left #beagle</span></li>
