@@ -212,3 +212,86 @@
 <li class="quit">[<a href="#T08:57:12" id="T08:57:12"><abbr title="2011-10-25T08:57:12+00:00">08:57:12</abbr></a>] <span>* Xerion (~xerion@5419A766.cm-5-2c.dynamic.ziggo.nl) Quit (Ping timeout: 240 seconds)</span></li>
 <li class="message">[<a href="#T08:59:34" id="T08:59:34"><abbr title="2011-10-25T08:59:34+00:00">08:59:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if you decode with the dsp, then you data is already YUV packed</q></li>
 <li class="message">[<a href="#T08:59:50" id="T08:59:50"><abbr title="2011-10-25T08:59:50+00:00">08:59:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so you only need to memcpy it into the overlay buffer</q></li>
+<li class="message">[<a href="#T09:02:47" id="T09:02:47"><abbr title="2011-10-25T09:02:47+00:00">09:02:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>need to memcpy?</q></li>
+<li class="message">[<a href="#T09:02:48" id="T09:02:48"><abbr title="2011-10-25T09:02:48+00:00">09:02:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>wtf</q></li>
+<li class="message">[<a href="#T09:02:59" id="T09:02:59"><abbr title="2011-10-25T09:02:59+00:00">09:02:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>just point the overlay at your buffer</q></li>
+<li class="join">[<a href="#T09:03:28" id="T09:03:28"><abbr title="2011-10-25T09:03:28+00:00">09:03:28</abbr></a>] <span>* sakoman_ (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-10-25T09:03:28+00:00">09:03:28</abbr>] <span>* sakoman_ (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T09:03:44" id="T09:03:44"><abbr title="2011-10-25T09:03:44+00:00">09:03:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or that</q></li>
+<li class="message">[<a href="#T09:04:25" id="T09:04:25"><abbr title="2011-10-25T09:04:25+00:00">09:04:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: remind me of the omapfb ioctl that does that :)</q></li>
+<li class="quit">[<a href="#T09:04:35" id="T09:04:35"><abbr title="2011-10-25T09:04:35+00:00">09:04:35</abbr></a>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T09:04:48" id="T09:04:48"><abbr title="2011-10-25T09:04:48+00:00">09:04:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you can always mmap /dev/mem and play with the registers</q></li>
+<li class="message">[<a href="#T09:05:04" id="T09:05:04"><abbr title="2011-10-25T09:05:04+00:00">09:05:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or point the decoder at the fb buffers</q></li>
+<li class="message">[<a href="#T09:06:10" id="T09:06:10"><abbr title="2011-10-25T09:06:10+00:00">09:06:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure</q></li>
+<li class="quit">[<a href="#T09:06:37" id="T09:06:37"><abbr title="2011-10-25T09:06:37+00:00">09:06:37</abbr></a>] <span>* Russ (foobar@ip70-176-251-1.ph.ph.cox.net) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T09:12:31" id="T09:12:31"><abbr title="2011-10-25T09:12:31+00:00">09:12:31</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Excess Flood)</span></li>
+<li class="message">[<a href="#T09:12:58" id="T09:12:58"><abbr title="2011-10-25T09:12:58+00:00">09:12:58</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>i thought...</q></li>
+<li class="join">[<a href="#T09:13:50" id="T09:13:50"><abbr title="2011-10-25T09:13:50+00:00">09:13:50</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:17:10" id="T09:17:10"><abbr title="2011-10-25T09:17:10+00:00">09:17:10</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>my pipeline is : g s t ???launch ???0.10 f i l e s r c l o c a t i o n = ??/ b a s e l i n e /hp/ p r e s e t H P 6 4 8 0 h d 4 8 0 b a s e l i n e . mp4 ! ffdemux mov mp4 m4a 3gp 3g2 mj2 ! dspvdec ! omapfbsink</q></li>
+<li class="message">[<a href="#T09:17:35" id="T09:17:35"><abbr title="2011-10-25T09:17:35+00:00">09:17:35</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>so the CPU demux and the dsp decode and display</q></li>
+<li class="message">[<a href="#T09:17:37" id="T09:17:37"><abbr title="2011-10-25T09:17:37+00:00">09:17:37</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>is it?</q></li>
+<li class="message">[<a href="#T09:18:23" id="T09:18:23"><abbr title="2011-10-25T09:18:23+00:00">09:18:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what's with the spaces?</q></li>
+<li class="message">[<a href="#T09:19:00" id="T09:19:00"><abbr title="2011-10-25T09:19:00+00:00">09:19:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>unicode</q></li>
+<li class="message">[<a href="#T09:19:17" id="T09:19:17"><abbr title="2011-10-25T09:19:17+00:00">09:19:17</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>sorry for the space</q></li>
+<li class="message">[<a href="#T09:19:26" id="T09:19:26"><abbr title="2011-10-25T09:19:26+00:00">09:19:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: watch for a double space to terminate the string</q></li>
+<li class="join">[<a href="#T09:19:29" id="T09:19:29"><abbr title="2011-10-25T09:19:29+00:00">09:19:29</abbr></a>] <span>* arun__ (~arun@62.168.14.90) has joined #beagle</span></li>
+<li class="message">[<abbr title="2011-10-25T09:19:29+00:00">09:19:29</abbr>] &lt;<cite>laurent_</cite>&gt; <q>gst-launch-0.10 filesrc location=~/baseline/hp/preset_HP6_480_hd480_baseline.mp4  ! ffdemux_mov_mp4_m4a_3gp_3g2_mj2 ! dspvdec ! omapfbsink</q></li>
+<li class="message">[<a href="#T09:19:52" id="T09:19:52"><abbr title="2011-10-25T09:19:52+00:00">09:19:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ffdemux_mov_mp4_m4a_3gp_3g2_mj2</q></li>
+<li class="message">[<a href="#T09:20:01" id="T09:20:01"><abbr title="2011-10-25T09:20:01+00:00">09:20:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>they encoded the source code in the file name?</q></li>
+<li class="message">[<a href="#T09:20:03" id="T09:20:03"><abbr title="2011-10-25T09:20:03+00:00">09:20:03</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>yes</q></li>
+<li class="quit">[<a href="#T09:20:10" id="T09:20:10"><abbr title="2011-10-25T09:20:10+00:00">09:20:10</abbr></a>] <span>* arun_ (~arun@unaffiliated/sindian) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T09:20:45" id="T09:20:45"><abbr title="2011-10-25T09:20:45+00:00">09:20:45</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>ffdemux_mov_mp4_m4a_3gp_3g2_mj2 is demux by CPU ?</q></li>
+<li class="message">[<a href="#T09:21:08" id="T09:21:08"><abbr title="2011-10-25T09:21:08+00:00">09:21:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>instead of by magic?</q></li>
+<li class="message">[<a href="#T09:21:40" id="T09:21:40"><abbr title="2011-10-25T09:21:40+00:00">09:21:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes, by cpu</q></li>
+<li class="message">[<a href="#T09:21:58" id="T09:21:58"><abbr title="2011-10-25T09:21:58+00:00">09:21:58</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>oki thanks</q></li>
+<li class="message">[<a href="#T09:22:12" id="T09:22:12"><abbr title="2011-10-25T09:22:12+00:00">09:22:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: not by the CMU?</q></li>
+<li class="message">[<a href="#T09:22:19" id="T09:22:19"><abbr title="2011-10-25T09:22:19+00:00">09:22:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh wait, they call it MPU</q></li>
+<li class="message">[<a href="#T09:22:24" id="T09:22:24"><abbr title="2011-10-25T09:22:24+00:00">09:22:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the magic processing unit</q></li>
+<li class="message">[<a href="#T09:22:30" id="T09:22:30"><abbr title="2011-10-25T09:22:30+00:00">09:22:30</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T09:22:44" id="T09:22:44"><abbr title="2011-10-25T09:22:44+00:00">09:22:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: the CPS</q></li>
+<li class="message">[<a href="#T09:22:53" id="T09:22:53"><abbr title="2011-10-25T09:22:53+00:00">09:22:53</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>CPU = comic processing unit ;)</q></li>
+<li class="message">[<a href="#T09:22:59" id="T09:22:59"><abbr title="2011-10-25T09:22:59+00:00">09:22:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>running the MCP</q></li>
+<li class="message">[<a href="#T09:25:14" id="T09:25:14"><abbr title="2011-10-25T09:25:14+00:00">09:25:14</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>i think omapfb use DMA but i'm not sure</q></li>
+<li class="message">[<a href="#T09:27:24" id="T09:27:24"><abbr title="2011-10-25T09:27:24+00:00">09:27:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it does not</q></li>
+<li class="message">[<a href="#T09:27:34" id="T09:27:34"><abbr title="2011-10-25T09:27:34+00:00">09:27:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you get a buffer from /dev/fb that you mmap</q></li>
+<li class="message">[<a href="#T09:27:41" id="T09:27:41"><abbr title="2011-10-25T09:27:41+00:00">09:27:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>there you put your pixels inside</q></li>
+<li class="message">[<a href="#T09:27:58" id="T09:27:58"><abbr title="2011-10-25T09:27:58+00:00">09:27:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or you render directly into that buffer</q></li>
+<li class="message">[<a href="#T09:28:15" id="T09:28:15"><abbr title="2011-10-25T09:28:15+00:00">09:28:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>same as for fb0 and GFX pixels</q></li>
+<li class="message">[<a href="#T09:34:42" id="T09:34:42"><abbr title="2011-10-25T09:34:42+00:00">09:34:42</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>the frambuffer is inside the dsp  ?</q></li>
+<li class="quit">[<a href="#T09:36:24" id="T09:36:24"><abbr title="2011-10-25T09:36:24+00:00">09:36:24</abbr></a>] <span>* prpplague (~prpplague@94.175.239.226) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T09:39:26" id="T09:39:26"><abbr title="2011-10-25T09:39:26+00:00">09:39:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T09:40:28" id="T09:40:28"><abbr title="2011-10-25T09:40:28+00:00">09:40:28</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>in CPU ? or it's a component on the BB</q></li>
+<li class="message">[<a href="#T09:40:59" id="T09:40:59"><abbr title="2011-10-25T09:40:59+00:00">09:40:59</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>i look the block diagram OMAP3530 in this moment</q></li>
+<li class="nick-change">[<a href="#T09:43:49" id="T09:43:49"><abbr title="2011-10-25T09:43:49+00:00">09:43:49</abbr></a>] <span>* arun__ is now known as arun_</span></li>
+<li class="message">[<a href="#T09:44:45" id="T09:44:45"><abbr title="2011-10-25T09:44:45+00:00">09:44:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the framebuffer is a piece of memory</q></li>
+<li class="message">[<a href="#T09:44:52" id="T09:44:52"><abbr title="2011-10-25T09:44:52+00:00">09:44:52</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>ok ty</q></li>
+<li class="message">[<a href="#T09:45:02" id="T09:45:02"><abbr title="2011-10-25T09:45:02+00:00">09:45:02</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>so i'm nb i'm very sorry</q></li>
+<li class="join">[<a href="#T09:45:10" id="T09:45:10"><abbr title="2011-10-25T09:45:10+00:00">09:45:10</abbr></a>] <span>* siji (~siji@static-mum-120.63.152.64.mtnl.net.in) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:45:16" id="T09:45:16"><abbr title="2011-10-25T09:45:16+00:00">09:45:16</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>so i repeat</q></li>
+<li class="message">[<a href="#T09:45:25" id="T09:45:25"><abbr title="2011-10-25T09:45:25+00:00">09:45:25</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>the video is on SD</q></li>
+<li class="message">[<a href="#T09:45:45" id="T09:45:45"><abbr title="2011-10-25T09:45:45+00:00">09:45:45</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>the cpu demux the video of the SD</q></li>
+<li class="message">[<a href="#T09:46:16" id="T09:46:16"><abbr title="2011-10-25T09:46:16+00:00">09:46:16</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>cpu put video data in frambuffer</q></li>
+<li class="message">[<a href="#T09:46:37" id="T09:46:37"><abbr title="2011-10-25T09:46:37+00:00">09:46:37</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>and dsp get this video data to decode and to display it</q></li>
+<li class="message">[<a href="#T09:46:39" id="T09:46:39"><abbr title="2011-10-25T09:46:39+00:00">09:46:39</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>is it?</q></li>
+<li class="quit">[<a href="#T09:49:33" id="T09:49:33"><abbr title="2011-10-25T09:49:33+00:00">09:49:33</abbr></a>] <span>* arun_ (~arun@62.168.14.90) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T09:51:28" id="T09:51:28"><abbr title="2011-10-25T09:51:28+00:00">09:51:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T09:51:39" id="T09:51:39"><abbr title="2011-10-25T09:51:39+00:00">09:51:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the cpu puts the *compressed* video data into a buffer</q></li>
+<li class="message">[<a href="#T09:51:52" id="T09:51:52"><abbr title="2011-10-25T09:51:52+00:00">09:51:52</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>oh ok</q></li>
+<li class="message">[<a href="#T09:52:00" id="T09:52:00"><abbr title="2011-10-25T09:52:00+00:00">09:52:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the dsp reads that buffer and writes the *raw* video into a buffer</q></li>
+<li class="message">[<a href="#T09:52:07" id="T09:52:07"><abbr title="2011-10-25T09:52:07+00:00">09:52:07</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>an other buffer?</q></li>
+<li class="message">[<a href="#T09:52:08" id="T09:52:08"><abbr title="2011-10-25T09:52:08+00:00">09:52:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>that 2nd buffer can be the framebuffer already</q></li>
+<li class="message">[<a href="#T09:52:14" id="T09:52:14"><abbr title="2011-10-25T09:52:14+00:00">09:52:14</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>ah yes</q></li>
+<li class="message">[<a href="#T09:52:15" id="T09:52:15"><abbr title="2011-10-25T09:52:15+00:00">09:52:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or you do one memcpy</q></li>
+<li class="message">[<a href="#T09:52:25" id="T09:52:25"><abbr title="2011-10-25T09:52:25+00:00">09:52:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>since you ue gst, memcpy is very likely</q></li>
+<li class="message">[<a href="#T09:52:27" id="T09:52:27"><abbr title="2011-10-25T09:52:27+00:00">09:52:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>use</q></li>
+<li class="message">[<a href="#T09:53:08" id="T09:53:08"><abbr title="2011-10-25T09:53:08+00:00">09:53:08</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>demux it's like decompressed ?</q></li>
+<li class="message">[<a href="#T09:53:41" id="T09:53:41"><abbr title="2011-10-25T09:53:41+00:00">09:53:41</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>for me demux it's separate video to audio</q></li>
+<li class="message">[<a href="#T09:53:48" id="T09:53:48"><abbr title="2011-10-25T09:53:48+00:00">09:53:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>indeed</q></li>
+<li class="message">[<a href="#T09:53:51" id="T09:53:51"><abbr title="2011-10-25T09:53:51+00:00">09:53:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the cpu does that too</q></li>
+<li class="message">[<a href="#T09:53:57" id="T09:53:57"><abbr title="2011-10-25T09:53:57+00:00">09:53:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but we are discussing video</q></li>
+<li class="message">[<a href="#T09:54:06" id="T09:54:06"><abbr title="2011-10-25T09:54:06+00:00">09:54:06</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>yes only video</q></li>
+<li class="message">[<abbr title="2011-10-25T09:54:06+00:00">09:54:06</abbr>] &lt;<cite>av500</cite>&gt; <q>demux != decompress</q></li>
+<li class="message">[<a href="#T09:54:09" id="T09:54:09"><abbr title="2011-10-25T09:54:09+00:00">09:54:09</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T09:56:10" id="T09:56:10"><abbr title="2011-10-25T09:56:10+00:00">09:56:10</abbr></a>] &lt;<cite>laurent_</cite>&gt; <q>so the dsp decompress and decode video from the seconde buffer (frambuffer) ?</q></li>
+<li class="message">[<a href="#T09:56:41" id="T09:56:41"><abbr title="2011-10-25T09:56:41+00:00">09:56:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="quit">[<a href="#T09:59:36" id="T09:59:36"><abbr title="2011-10-25T09:59:36+00:00">09:59:36</abbr></a>] <span>* virals (~viral@59.95.203.206) Quit (Ping timeout: 240 seconds)</span></li>
