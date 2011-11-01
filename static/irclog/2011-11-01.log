@@ -716,3 +716,140 @@
 <li class="quit">[<a href="#T18:56:06" id="T18:56:06"><abbr title="2011-11-01T18:56:06+00:00">18:56:06</abbr></a>] <span>* ZeZu (null@c-98-227-57-88.hsd1.in.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
 <li class="message">[<a href="#T18:59:26" id="T18:59:26"><abbr title="2011-11-01T18:59:26+00:00">18:59:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: <a href="http://www.angstrom-distribution.org/demo/beaglebone/">http://www.angstrom-distribution.org/demo/beaglebone/</a> has been updated</q></li>
 <li class="message">[<a href="#T18:59:32" id="T18:59:32"><abbr title="2011-11-01T18:59:32+00:00">18:59:32</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>thanks!</q></li>
+<li class="message">[<a href="#T19:00:07" id="T19:00:07"><abbr title="2011-11-01T19:00:07+00:00">19:00:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I cheated by uploading it while I was testing it</q></li>
+<li class="message">[<a href="#T19:00:11" id="T19:00:11"><abbr title="2011-11-01T19:00:11+00:00">19:00:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but it seems to work ok</q></li>
+<li class="message">[<a href="#T19:00:26" id="T19:00:26"><abbr title="2011-11-01T19:00:26+00:00">19:00:26</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>why not say 'bitbake cloud9-image'?</q></li>
+<li class="message">[<a href="#T19:00:59" id="T19:00:59"><abbr title="2011-11-01T19:00:59+00:00">19:00:59</abbr></a>] &lt;<cite>koen</cite>&gt; <q>because oebb.sh will update git repos as well :)</q></li>
+<li class="message">[<a href="#T19:01:17" id="T19:01:17"><abbr title="2011-11-01T19:01:17+00:00">19:01:17</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I mean, instead of systemd-image</q></li>
+<li class="message">[<a href="#T19:01:23" id="T19:01:23"><abbr title="2011-11-01T19:01:23+00:00">19:01:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T19:01:33" id="T19:01:33"><abbr title="2011-11-01T19:01:33+00:00">19:01:33</abbr></a>] &lt;<cite>koen</cite>&gt; <q>mainly due to fstab issues</q></li>
+<li class="message">[<a href="#T19:01:55" id="T19:01:55"><abbr title="2011-11-01T19:01:55+00:00">19:01:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: I wish someone would write a tiny C app that cats loop files together so we don't need losetup</q></li>
+<li class="message">[<a href="#T19:01:56" id="T19:01:56"><abbr title="2011-11-01T19:01:56+00:00">19:01:56</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>k</q></li>
+<li class="message">[<a href="#T19:02:26" id="T19:02:26"><abbr title="2011-11-01T19:02:26+00:00">19:02:26</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>hmmm.... to avoid losetup only?</q></li>
+<li class="message">[<a href="#T19:02:34" id="T19:02:34"><abbr title="2011-11-01T19:02:34+00:00">19:02:34</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>cat can probably do that w/o a C file.</q></li>
+<li class="message">[<a href="#T19:02:40" id="T19:02:40"><abbr title="2011-11-01T19:02:40+00:00">19:02:40</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>dd + cat.</q></li>
+<li class="message">[<a href="#T19:02:47" id="T19:02:47"><abbr title="2011-11-01T19:02:47+00:00">19:02:47</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>or just dd.</q></li>
+<li class="message">[<a href="#T19:03:14" id="T19:03:14"><abbr title="2011-11-01T19:03:14+00:00">19:03:14</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>if losetup is our only problem.</q></li>
+<li class="message">[<a href="#T19:03:37" id="T19:03:37"><abbr title="2011-11-01T19:03:37+00:00">19:03:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>well, mkfs.vfat doesn't support taking a dir as input</q></li>
+<li class="message">[<abbr title="2011-11-01T19:03:37+00:00">19:03:37</abbr>] &lt;<cite>jkridner</cite>&gt; <q>I guess using losetup gives us a tiny bit of error checking, but not much.</q></li>
+<li class="quit">[<a href="#T19:03:47" id="T19:03:47"><abbr title="2011-11-01T19:03:47+00:00">19:03:47</abbr></a>] <span>* rcn-ee (~voodoo@64.77.213.245) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T19:03:52" id="T19:03:52"><abbr title="2011-11-01T19:03:52+00:00">19:03:52</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>makefatboot</q></li>
+<li class="message">[<a href="#T19:04:12" id="T19:04:12"><abbr title="2011-11-01T19:04:12+00:00">19:04:12</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>er</q></li>
+<li class="message">[<a href="#T19:04:14" id="T19:04:14"><abbr title="2011-11-01T19:04:14+00:00">19:04:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you want something like what the cramfs tools does?</q></li>
+<li class="message">[<abbr title="2011-11-01T19:04:14+00:00">19:04:14</abbr>] &lt;<cite>Russ</cite>&gt; <q>makebootfat</q></li>
+<li class="message">[<a href="#T19:04:19" id="T19:04:19"><abbr title="2011-11-01T19:04:19+00:00">19:04:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>right?</q></li>
+<li class="message">[<a href="#T19:04:39" id="T19:04:39"><abbr title="2011-11-01T19:04:39+00:00">19:04:39</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>before I found makebootfat, I used mcopy -i &lt;image&gt; &lt;file[s]&gt; ::</q></li>
+<li class="message">[<a href="#T19:04:41" id="T19:04:41"><abbr title="2011-11-01T19:04:41+00:00">19:04:41</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ds2: what any fs tool does :)</q></li>
+<li class="message">[<a href="#T19:04:46" id="T19:04:46"><abbr title="2011-11-01T19:04:46+00:00">19:04:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>koen: for vfat, mtools</q></li>
+<li class="message">[<a href="#T19:04:55" id="T19:04:55"><abbr title="2011-11-01T19:04:55+00:00">19:04:55</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q><a href="http://advancemame.sourceforge.net/boot-readme.html">http://advancemame.sourceforge.net/boot-readme.html</a> ?</q></li>
+<li class="message">[<a href="#T19:05:22" id="T19:05:22"><abbr title="2011-11-01T19:05:22+00:00">19:05:22</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ya, just click the manpage</q></li>
+<li class="message">[<a href="#T19:11:30" id="T19:11:30"><abbr title="2011-11-01T19:11:30+00:00">19:11:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: a3@720MHz: 900ms kernel + 3000ms userspace = 3900ms boot</q></li>
+<li class="message">[<a href="#T19:11:46" id="T19:11:46"><abbr title="2011-11-01T19:11:46+00:00">19:11:46</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so we have ??6 seconds for uboot to be stupid</q></li>
+<li class="quit">[<a href="#T19:12:15" id="T19:12:15"><abbr title="2011-11-01T19:12:15+00:00">19:12:15</abbr></a>] <span>* pugvader_ (Guerney@p54B2B5A3.dip.t-dialin.net) Quit (Quit: leaving)</span></li>
+<li class="quit">[<a href="#T19:15:32" id="T19:15:32"><abbr title="2011-11-01T19:15:32+00:00">19:15:32</abbr></a>] <span>* Russ (~russ@206.29.182.166) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T19:16:49" id="T19:16:49"><abbr title="2011-11-01T19:16:49+00:00">19:16:49</abbr></a>] <span>* Russ (~russ@206.29.182.166) has joined #beagle</span></li>
+<li class="join">[<a href="#T19:19:03" id="T19:19:03"><abbr title="2011-11-01T19:19:03+00:00">19:19:03</abbr></a>] <span>* florian (~fuchs@port-217-146-132-69.static.qsc.de) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-11-01T19:19:03+00:00">19:19:03</abbr>] <span>* florian (~fuchs@port-217-146-132-69.static.qsc.de) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2011-11-01T19:19:03+00:00">19:19:03</abbr>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:19:13" id="T19:19:13"><abbr title="2011-11-01T19:19:13+00:00">19:19:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q><a href="http://www.flickr.com/photos/koenkooi/6303545872/in/photostream">http://www.flickr.com/photos/koenkooi/6303545872/in/photostream</a></q></li>
+<li class="quit">[<a href="#T19:19:55" id="T19:19:55"><abbr title="2011-11-01T19:19:55+00:00">19:19:55</abbr></a>] <span>* A2Sheds (~ly@unaffiliated/l84supper) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="message">[<a href="#T19:20:06" id="T19:20:06"><abbr title="2011-11-01T19:20:06+00:00">19:20:06</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I need to figure out where our uenv.txt is so that I can add 'loadaddr=0x80007fc00'</q></li>
+<li class="message">[<a href="#T19:20:16" id="T19:20:16"><abbr title="2011-11-01T19:20:16+00:00">19:20:16</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>that should save 1-2s.</q></li>
+<li class="message">[<a href="#T19:20:39" id="T19:20:39"><abbr title="2011-11-01T19:20:39+00:00">19:20:39</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>moving more to modules (and building more modules) will also help.  not sure if you've been doing that.</q></li>
+<li class="message">[<a href="#T19:21:25" id="T19:21:25"><abbr title="2011-11-01T19:21:25+00:00">19:21:25</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>your photos still have "All Rights Reserved".</q></li>
+<li class="quit">[<a href="#T19:22:03" id="T19:22:03"><abbr title="2011-11-01T19:22:03+00:00">19:22:03</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-kvylvvvruukvbdhc) Quit (Quit: jayabharath)</span></li>
+<li class="quit">[<a href="#T19:23:01" id="T19:23:01"><abbr title="2011-11-01T19:23:01+00:00">19:23:01</abbr></a>] <span>* RoscoPSK (62e574c6@gateway/web/freenode/ip.98.229.116.198) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T19:23:02" id="T19:23:02"><abbr title="2011-11-01T19:23:02+00:00">19:23:02</abbr></a>] <span>* jayabharath (~jayabhara@nat/ti/x-uqstllpabikpkmla) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:24:11" id="T19:24:11"><abbr title="2011-11-01T19:24:11+00:00">19:24:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: I'd rather patch uboot</q></li>
+<li class="message">[<a href="#T19:24:30" id="T19:24:30"><abbr title="2011-11-01T19:24:30+00:00">19:24:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I'm against using uenv.txt to work around crappy code when we can fix it</q></li>
+<li class="message">[<a href="#T19:24:56" id="T19:24:56"><abbr title="2011-11-01T19:24:56+00:00">19:24:56</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>why is it crappy?  just seems different to me.</q></li>
+<li class="message">[<a href="#T19:25:12" id="T19:25:12"><abbr title="2011-11-01T19:25:12+00:00">19:25:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>if we fix uboot all subartic stuff benefits</q></li>
+<li class="join">[<a href="#T19:25:22" id="T19:25:22"><abbr title="2011-11-01T19:25:22+00:00">19:25:22</abbr></a>] <span>* jguysr (4a045c8a@gateway/web/freenode/ip.74.4.92.138) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:25:23" id="T19:25:23"><abbr title="2011-11-01T19:25:23+00:00">19:25:23</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>oh, btw, I meant 'loadaddr=0x80007fc0'.</q></li>
+<li class="message">[<a href="#T19:25:52" id="T19:25:52"><abbr title="2011-11-01T19:25:52+00:00">19:25:52</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I raised it to Tom and I thought the conclusion was that it was bone specific, w/o a lot of lift for other devices....</q></li>
+<li class="message">[<a href="#T19:26:04" id="T19:26:04"><abbr title="2011-11-01T19:26:04+00:00">19:26:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>lift?</q></li>
+<li class="message">[<a href="#T19:26:16" id="T19:26:16"><abbr title="2011-11-01T19:26:16+00:00">19:26:16</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>and that we could just as easily fix the kernel to work where it is loaded by default.</q></li>
+<li class="message">[<a href="#T19:26:26" id="T19:26:26"><abbr title="2011-11-01T19:26:26+00:00">19:26:26</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>lift == help, speed, etc.</q></li>
+<li class="message">[<a href="#T19:26:47" id="T19:26:47"><abbr title="2011-11-01T19:26:47+00:00">19:26:47</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>his concern was that if the kernel was too large, then it could run into other code....</q></li>
+<li class="message">[<a href="#T19:26:53" id="T19:26:53"><abbr title="2011-11-01T19:26:53+00:00">19:26:53</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>our kernel just happens to be small enough.</q></li>
+<li class="message">[<a href="#T19:26:58" id="T19:26:58"><abbr title="2011-11-01T19:26:58+00:00">19:26:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>right</q></li>
+<li class="action">[<a href="#T19:27:12" id="T19:27:12"><abbr title="2011-11-01T19:27:12+00:00">19:27:12</abbr></a>] <span>* koen wouldn't call 3.2MB small, but I catch your drift</span></li>
+<li class="message">[<abbr title="2011-11-01T19:27:12+00:00">19:27:12</abbr>] &lt;<cite>jkridner</cite>&gt; <q>so, when customers start getting the u-boot, they might get into trouble if they don't relocate the kernel...</q></li>
+<li class="message">[<a href="#T19:27:20" id="T19:27:20"><abbr title="2011-11-01T19:27:20+00:00">19:27:20</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>so, he wanted to have it be in as safe a place as possible.</q></li>
+<li class="message">[<a href="#T19:27:30" id="T19:27:30"><abbr title="2011-11-01T19:27:30+00:00">19:27:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>so we fix the kernel, no?</q></li>
+<li class="message">[<a href="#T19:27:48" id="T19:27:48"><abbr title="2011-11-01T19:27:48+00:00">19:27:48</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>therefore, uenv.txt setting....</q></li>
+<li class="message">[<a href="#T19:27:51" id="T19:27:51"><abbr title="2011-11-01T19:27:51+00:00">19:27:51</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>either way....</q></li>
+<li class="message">[<a href="#T19:27:54" id="T19:27:54"><abbr title="2011-11-01T19:27:54+00:00">19:27:54</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>or patch u-boot....</q></li>
+<li class="message">[<a href="#T19:28:04" id="T19:28:04"><abbr title="2011-11-01T19:28:04+00:00">19:28:04</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>but, the idea is that the change wouldn't go upstream...</q></li>
+<li class="message">[<a href="#T19:28:19" id="T19:28:19"><abbr title="2011-11-01T19:28:19+00:00">19:28:19</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>we'd carry it, because we've tested that this loadaddr works for our kernel.</q></li>
+<li class="message">[<a href="#T19:28:23" id="T19:28:23"><abbr title="2011-11-01T19:28:23+00:00">19:28:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>why wouldn't it go upstream?</q></li>
+<li class="quit">[<a href="#T19:28:24" id="T19:28:24"><abbr title="2011-11-01T19:28:24+00:00">19:28:24</abbr></a>] <span>* jguysr (4a045c8a@gateway/web/freenode/ip.74.4.92.138) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T19:28:30" id="T19:28:30"><abbr title="2011-11-01T19:28:30+00:00">19:28:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>is wolfgang against it?</q></li>
+<li class="message">[<a href="#T19:28:44" id="T19:28:44"><abbr title="2011-11-01T19:28:44+00:00">19:28:44</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I guess it could, but the concern is that customers building kernels might overwrite u-boot, etc.</q></li>
+<li class="message">[<a href="#T19:28:55" id="T19:28:55"><abbr title="2011-11-01T19:28:55+00:00">19:28:55</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>nothing stopping us from submitting it upstream....</q></li>
+<li class="message">[<a href="#T19:29:05" id="T19:29:05"><abbr title="2011-11-01T19:29:05+00:00">19:29:05</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>and having PSP u-boot have a "safer" location patch.</q></li>
+<li class="action">[<a href="#T19:29:27" id="T19:29:27"><abbr title="2011-11-01T19:29:27+00:00">19:29:27</abbr></a>] <span>* koen is annoyed with us not even trying and using uenv.txt as unbreak me</span></li>
+<li class="message">[<a href="#T19:29:32" id="T19:29:32"><abbr title="2011-11-01T19:29:32+00:00">19:29:32</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I just thought having it in uenv.txt was fast and safe-for-us, in case someone changed u-boot.</q></li>
+<li class="message">[<a href="#T19:30:23" id="T19:30:23"><abbr title="2011-11-01T19:30:23+00:00">19:30:23</abbr></a>] &lt;<cite>koen</cite>&gt; <q>in general users (and hence customers) do not get uenv.txt</q></li>
+<li class="message">[<a href="#T19:30:50" id="T19:30:50"><abbr title="2011-11-01T19:30:50+00:00">19:30:50</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and if someone changes u-boot, uenv.txt might start failing</q></li>
+<li class="message">[<a href="#T19:31:18" id="T19:31:18"><abbr title="2011-11-01T19:31:18+00:00">19:31:18</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>where are you going to put it in?</q></li>
+<li class="message">[<a href="#T19:31:25" id="T19:31:25"><abbr title="2011-11-01T19:31:25+00:00">19:31:25</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>OE?</q></li>
+<li class="message">[<a href="#T19:31:30" id="T19:31:30"><abbr title="2011-11-01T19:31:30+00:00">19:31:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I don't care</q></li>
+<li class="message">[<a href="#T19:31:32" id="T19:31:32"><abbr title="2011-11-01T19:31:32+00:00">19:31:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I want it fixed</q></li>
+<li class="message">[<a href="#T19:32:20" id="T19:32:20"><abbr title="2011-11-01T19:32:20+00:00">19:32:20</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>what does it mean to have it fixed?</q></li>
+<li class="message">[<a href="#T19:32:39" id="T19:32:39"><abbr title="2011-11-01T19:32:39+00:00">19:32:39</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I mean, it is an optimization and there are many places where we can apply it.</q></li>
+<li class="message">[<a href="#T19:32:43" id="T19:32:43"><abbr title="2011-11-01T19:32:43+00:00">19:32:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>no extra relocations with fussing with uenv.txt</q></li>
+<li class="message">[<a href="#T19:32:53" id="T19:32:53"><abbr title="2011-11-01T19:32:53+00:00">19:32:53</abbr></a>] &lt;<cite>koen</cite>&gt; <q>without*</q></li>
+<li class="message">[<a href="#T19:33:01" id="T19:33:01"><abbr title="2011-11-01T19:33:01+00:00">19:33:01</abbr></a>] &lt;<cite>koen</cite>&gt; <q>kernel, uboot, mlo, whatever</q></li>
+<li class="join">[<a href="#T19:33:14" id="T19:33:14"><abbr title="2011-11-01T19:33:14+00:00">19:33:14</abbr></a>] <span>* woglinde (~heinold@f052235221.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:33:30" id="T19:33:30"><abbr title="2011-11-01T19:33:30+00:00">19:33:30</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>fixing u-boot is easiest for me, if not in uenv.txt</q></li>
+<li class="message">[<a href="#T19:33:43" id="T19:33:43"><abbr title="2011-11-01T19:33:43+00:00">19:33:43</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I'd just change the default loadaddr to 0x80007fc0.</q></li>
+<li class="message">[<a href="#T19:33:52" id="T19:33:52"><abbr title="2011-11-01T19:33:52+00:00">19:33:52</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>in the default environment.</q></li>
+<li class="message">[<a href="#T19:34:07" id="T19:34:07"><abbr title="2011-11-01T19:34:07+00:00">19:34:07</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hi jkridner</q></li>
+<li class="message">[<a href="#T19:34:14" id="T19:34:14"><abbr title="2011-11-01T19:34:14+00:00">19:34:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>saw your bone video</q></li>
+<li class="message">[<a href="#T19:34:28" id="T19:34:28"><abbr title="2011-11-01T19:34:28+00:00">19:34:28</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>as soon as I can catch up on communications and shipping stuff, and testing and ...  (lost in the myriad of tasks)</q></li>
+<li class="message">[<a href="#T19:34:53" id="T19:34:53"><abbr title="2011-11-01T19:34:53+00:00">19:34:53</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Tartarus: that zreladdr Kconfig option, would that help?</q></li>
+<li class="message">[<a href="#T19:34:54" id="T19:34:54"><abbr title="2011-11-01T19:34:54+00:00">19:34:54</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>Google Reader just changed functionality. :(</q></li>
+<li class="message">[<a href="#T19:35:15" id="T19:35:15"><abbr title="2011-11-01T19:35:15+00:00">19:35:15</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: I read the outbreak of anger on g+ out greader</q></li>
+<li class="message">[<a href="#T19:35:37" id="T19:35:37"><abbr title="2011-11-01T19:35:37+00:00">19:35:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>about*</q></li>
+<li class="message">[<a href="#T19:36:08" id="T19:36:08"><abbr title="2011-11-01T19:36:08+00:00">19:36:08</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I know all those stupid Facebook hate messages that come out when they change the interface are a waste of time, but they actually removed **FEATURES**.</q></li>
+<li class="message">[<a href="#T19:36:30" id="T19:36:30"><abbr title="2011-11-01T19:36:30+00:00">19:36:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>that's what google gets for hiring away all those gnome developers</q></li>
+<li class="message">[<a href="#T19:36:49" id="T19:36:49"><abbr title="2011-11-01T19:36:49+00:00">19:36:49</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>heh</q></li>
+<li class="join">[<a href="#T19:37:42" id="T19:37:42"><abbr title="2011-11-01T19:37:42+00:00">19:37:42</abbr></a>] <span>* rcn-ee (~voodoo@64.77.213.245) has joined #beagle</span></li>
+<li class="quit">[<a href="#T19:38:51" id="T19:38:51"><abbr title="2011-11-01T19:38:51+00:00">19:38:51</abbr></a>] <span>* thaytan (~thaytan@ppp59-167-167-201.static.internode.on.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T19:39:06" id="T19:39:06"><abbr title="2011-11-01T19:39:06+00:00">19:39:06</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>koen: maybe, haven't tried</q></li>
+<li class="message">[<abbr title="2011-11-01T19:39:06+00:00">19:39:06</abbr>] &lt;<cite>woglinde</cite>&gt; <q>hi rcn-ee</q></li>
+<li class="message">[<a href="#T19:39:09" id="T19:39:09"><abbr title="2011-11-01T19:39:09+00:00">19:39:09</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>jkridner: ha</q></li>
+<li class="message">[<a href="#T19:39:26" id="T19:39:26"><abbr title="2011-11-01T19:39:26+00:00">19:39:26</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>And yeah, I'm most annoyed at the screen space they stole for the "SUBSCRIBE" button and other crap in that row</q></li>
+<li class="action">[<a href="#T19:39:46" id="T19:39:46"><abbr title="2011-11-01T19:39:46+00:00">19:39:46</abbr></a>] <span>* Tartarus now just has to share all his stupid crap to the wife via G+, carefully</span></li>
+<li class="message">[<a href="#T19:40:14" id="T19:40:14"><abbr title="2011-11-01T19:40:14+00:00">19:40:14</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>The lack of a shared RSS feed destroys BeagleBoard.org's RSS feed. :(</q></li>
+<li class="message">[<a href="#T19:40:23" id="T19:40:23"><abbr title="2011-11-01T19:40:23+00:00">19:40:23</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>which, was just a GReader shared feed.</q></li>
+<li class="message">[<a href="#T19:40:29" id="T19:40:29"><abbr title="2011-11-01T19:40:29+00:00">19:40:29</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>:'(</q></li>
+<li class="message">[<a href="#T19:40:56" id="T19:40:56"><abbr title="2011-11-01T19:40:56+00:00">19:40:56</abbr></a>] &lt;<cite>rcn-ee</cite>&gt; <q>hi woglinde, how's it going..</q></li>
+<li class="message">[<a href="#T19:41:06" id="T19:41:06"><abbr title="2011-11-01T19:41:06+00:00">19:41:06</abbr></a>] &lt;<cite>rcn-ee</cite>&gt; <q>jkridner, site finally went live.. ;)</q></li>
+<li class="message">[<a href="#T19:41:17" id="T19:41:17"><abbr title="2011-11-01T19:41:17+00:00">19:41:17</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I already updated the link.</q></li>
+<li class="message">[<a href="#T19:41:23" id="T19:41:23"><abbr title="2011-11-01T19:41:23+00:00">19:41:23</abbr></a>] &lt;<cite>rcn-ee</cite>&gt; <q>awesome!</q></li>
+<li class="message">[<a href="#T19:41:24" id="T19:41:24"><abbr title="2011-11-01T19:41:24+00:00">19:41:24</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>#tab-4</q></li>
+<li class="message">[<a href="#T19:42:19" id="T19:42:19"><abbr title="2011-11-01T19:42:19+00:00">19:42:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>rcn-ee which side?</q></li>
+<li class="message">[<a href="#T19:43:13" id="T19:43:13"><abbr title="2011-11-01T19:43:13+00:00">19:43:13</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>woglinde: see <a href="http://beagleboard.org/buy">http://beagleboard.org/buy</a> and look for Digi-Key.</q></li>
+<li class="message">[<a href="#T19:44:13" id="T19:44:13"><abbr title="2011-11-01T19:44:13+00:00">19:44:13</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm hehe watterot has zero</q></li>
+<li class="join">[<a href="#T19:44:22" id="T19:44:22"><abbr title="2011-11-01T19:44:22+00:00">19:44:22</abbr></a>] <span>* smplman (~speery@64.132.167.18) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:44:43" id="T19:44:43"><abbr title="2011-11-01T19:44:43+00:00">19:44:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>everyone has zero</q></li>
+<li class="message">[<a href="#T19:44:48" id="T19:44:48"><abbr title="2011-11-01T19:44:48+00:00">19:44:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>well, except my desk</q></li>
+<li class="message">[<a href="#T19:44:49" id="T19:44:49"><abbr title="2011-11-01T19:44:49+00:00">19:44:49</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*g*</q></li>
+<li class="message">[<a href="#T19:45:38" id="T19:45:38"><abbr title="2011-11-01T19:45:38+00:00">19:45:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>A3?</q></li>
+<li class="message">[<a href="#T19:46:03" id="T19:46:03"><abbr title="2011-11-01T19:46:03+00:00">19:46:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>am355x</q></li>
+<li class="message">[<a href="#T19:46:55" id="T19:46:55"><abbr title="2011-11-01T19:46:55+00:00">19:46:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hiho av500</q></li>
+<li class="message">[<a href="#T19:47:07" id="T19:47:07"><abbr title="2011-11-01T19:47:07+00:00">19:47:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah, not cortex-a3</q></li>
+<li class="nick-change">[<a href="#T19:47:58" id="T19:47:58"><abbr title="2011-11-01T19:47:58+00:00">19:47:58</abbr></a>] <span>* ghoti is now known as world</span></li>
+<li class="message">[<a href="#T19:48:01" id="T19:48:01"><abbr title="2011-11-01T19:48:01+00:00">19:48:01</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ds2: is that the debian one without neon and vfp?</q></li>
+<li class="nick-change">[<a href="#T19:48:05" id="T19:48:05"><abbr title="2011-11-01T19:48:05+00:00">19:48:05</abbr></a>] <span>* world is now known as ghoti</span></li>
+<li class="message">[<a href="#T19:51:34" id="T19:51:34"><abbr title="2011-11-01T19:51:34+00:00">19:51:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>thought debian has the iwmmx andn nfe? :)</q></li>
+<li class="message">[<a href="#T19:53:06" id="T19:53:06"><abbr title="2011-11-01T19:53:06+00:00">19:53:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T19:53:12" id="T19:53:12"><abbr title="2011-11-01T19:53:12+00:00">19:53:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>iwmmxt is newer than armv4t, so no</q></li>
+<li class="message">[<a href="#T19:55:24" id="T19:55:24"><abbr title="2011-11-01T19:55:24+00:00">19:55:24</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah right, xcale is v5</q></li>
+<li class="message">[<a href="#T19:55:32" id="T19:55:32"><abbr title="2011-11-01T19:55:32+00:00">19:55:32</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T19:56:12" id="T19:56:12"><abbr title="2011-11-01T19:56:12+00:00">19:56:12</abbr></a>] &lt;<cite>kapu</cite>&gt; <q>omgz</q></li>
+<li class="quit">[<a href="#T19:57:17" id="T19:57:17"><abbr title="2011-11-01T19:57:17+00:00">19:57:17</abbr></a>] <span>* BlInK311 (~Ward@ool-435317d6.dyn.optonline.net) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T19:57:36" id="T19:57:36"><abbr title="2011-11-01T19:57:36+00:00">19:57:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I wonder if TI has a jlink flavor </q></li>
+<li class="message">[<a href="#T19:58:45" id="T19:58:45"><abbr title="2011-11-01T19:58:45+00:00">19:58:45</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I bet TI has an abstraction layer for it</q></li>
