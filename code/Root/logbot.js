@@ -9,7 +9,7 @@ function startLogbot()
   if (logdir.isDirectory()) 
    {
     var server = "irc.freenode.net";
-    var channels = ["#beagle", "#beagleboard"];
+    var channels = ["#beagle", "#beagleboard", "#beaglebone"];
     var nick = "BeagleBot";
     var passwd = 'BeNice';  // change password
     var joinMessage = "This channel is logged: http://www.beagleboard.org/irclogs";
