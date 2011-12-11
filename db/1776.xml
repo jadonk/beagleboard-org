@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="1776" name="Bowld" prototype="Page" created="1323564323811" lastModified="1323564323811">
+  <hop:parent idref="20" prototyperef="Page"/>
+    <edit_skin>edit_project</edit_skin>
+    <updatetime type="date">10.12.2011 18:45:23 CST</updatetime>
+    <uri>Bowld</uri>
+    <time type="date">10.12.2011 18:45:23 CST</time>
+    <pseudoparent idref="20" prototyperef="Page"/>
+    <registrant>jwitt90.myopenid.com</registrant>
+    <pname>Bowld--The Electronic Tibetan Singing Bowl</pname>
+    <user>jwitt90.myopenid.com</user>
+    <body>ABSTRACT
+This paper describes a new musical device inspired by the mechanics and traditions of Tibetan singing bowls.  Singing bowls are naturally spiritual instruments; the tranquil stirring motion necessary to evoke the soothing resonances of the singing bowl creates a very individual contemplative ambiance.  In addition, the simplicity of the gestures required to play a singing bowl lends the instrument well to electronic sensing, and its basic portable nature creates the alluring challenge of developing a completely autonomous, computer-based instrument.  Through use of a soft potentiometer, a button, two accelerometers, and an internal microprocessor, and BeagleBoard, Bowld models a singing bowl mechanically and electronically.  Relying on FM synthesis for the audio, Bowld can also be tilted to create timbral shifts.  Bowld also includes external mechanisms to simulate the presence of water in the bowl.  All together, Bowld stands as a modern, electronic interpretation of a singing bowl.
+
+Keywords
+Bowld, Singing Bowl, Soft Potentiometer, Pure Data, ChucK, BeagleBoard, microprocessor  
+
+1.	INTRODUCTION
+Prior to the creation of Bowld, we were quite fascinated with the resonant and calming tendencies of singing bowls.  While many electronic forms of analog instruments now exist (AKAI’s EWI models a wind instrument, synthesizer keyboards model the piano, etc), we found a general lack of mechanical models for more ambient instruments.  Often, electronic instruments receive criticism for their overly robotic, nonhuman tendencies.  In designing Bowld, an instrument used for personal reflection, we had persistently to be cognizant of this obstacle.  We sought to blend the essential human characteristics of its acoustic inspiration with modern electronics via expressive and sensitive gesture tracking on Bowld.
+
+2.	HARDWARE
+The main housing for the Bowld’s hardware is a pot from IKEA with a diameter of 16cm.[1]  The pot houses an accelerometer, a BeagleBoard[2], an Arduino Nano[3] microprocessor, a 3-axis accelerometer (although only two are used), a T-class amplifier, and a speaker that seals off the inside of the bowl.  The speaker, with a diameter slightly smaller than that of the pot, is attached with nuts and bolts that tighten to create pressure against the inner rim of the pot, thereby wedging the speaker in place.  There is a small hole in the bottom of Bowld to allow cables to pass into it.  These cables are for AC/DC power sources for the BeagleBoard (5V) and amplifier (12V), a power/volume potentiometer knob for the amplifier, input from a second accelerometer, and, if desired, a serial cable for easy communication with the BeagleBoard.
+    A 500mm flexible SoftPot[4] is adhered to the pot’s outer rim, and a button accompanies it.  The before mentioned second accelerometer is attached to a small external pitcher, and runs into the Arduino Nano through the hole in the bottom of the bowl.  The SoftPot and button also run into the Arduino through the small space between the outer edge of the speaker and the rim of the pot.  The input from these sensors and the accelerometer inside the pot is processed by the microprocessor and sent to the BeagleBoard for sound synthesis.
+
+3.	DESIGN OVERVIEW
+
+3.1	Modes of Expression
+In order to capture and translate the human interactive aspects experienced with singing bowls to the electronic Bowld, we had to install several layers of controllers.  Just as the outer rim of a traditional singing bowl is rubbed to excite a musical resonance in the bowl, we installed a soft potentiometer around the rim of our metallic bowl for the user to interact with.  The soft potentiometer reports the position of a single source external stimulus, in our case a traditional wooden mallet, although most items, including a finger, can be used to play Bowld.
+	We installed a button on the rim of the bowl to simulate the metallic chime effect achieved from tapping the rim of an acoustic singing bowl.  A light tap from the mallet triggers the button and sounds the chime.	
+     In addition, an accelerometer placed in an attached pitcher allows the user to add metaphorical water into the bowl.  As the water level rises, the pitch increases.  Eventually, the bowl fills completely with water, and reaches a maximum pitch.  Because the electronics in the bowl protrude from a tiny hole in the bottom the bowl, the metaphorical water also drains slowly from Bowld, restoring the original pitch over time.
+     Finally, an accelerometer located within the bowl adds another degree of human control to Bowld.  Responding to tilt, the timbre of the audio output shifts.  The tilt of this accelerometer is also mapped to the pitch of the chime sound, creating a bending effect when one hits the “rim tap” button while tilting Bowld.  This bending effect is also meant to emphasize the metaphorical water in the bowl, imitating the effect water in a real bowl has if you excite the bowl and quickly tilt it, causing the water to change shape and the pitch to bend. 
+3.2	Technology
+Bowld takes advantage of Texas Instruments’ BeagleBoard development board technology and utilizes the Arduino Nano platform as a primary I/O mechanism, running the StandardFirmata firmware available with the Arduino software.    The BeagleBoard operates using Ubuntu Linux which can be controlled remotely via an SSH connection to a laptop, or run predetermined processes autonomously.  Pure Data (PD)[4], installed already on the BeagleBoard as a part of Satellite CCRMA,[6] reads the firmware data the Arduino retrieves from the mounted sensors.  We installed ChucK[7] on the BeagleBoard as our primary sound synthesizing mechanism.  Using Open Sound Control (OSC), ChucK communicates with PD to read in synthesis parameters.  Use of the tiny, yet powerful, BeagleBoard enabled us to create an autonomous instrument with the BeagleBoard mounted inside of the bowl.
+
+4.	SOUND DESIGN
+Bowld relies almost exclusively on Frequency Modulation (FM) synthesis for it’s sound synthesis.  One takes an oscillating “carrier frequency” and modulates it with another wave with a frequency known as the “modulating frequency” and amplitude known as the “modulation amplitude.”  Sending the waveform through sweeping hi and low-pass filters creates a metallic ringing as a tribute to the sound of acoustic singing bowls.  Changing the carrier frequency directly alters the tone pitch, while changes in the modulation amplitude and frequency more directly influence the harmonic (timbral) content of the sound.  Several gestures modify two of the three parameters (carrier frequency, and modulation amplitude) in Bowld’s synthesis patch to create an ethereal resonant sound.  The chime sound Bowld creates when the button on the rim is tapped uses the TubeBell instrument model from Perry Cook’s Synthesis Toolkit (STK).[8]
+
+5.	CONTROLLERS
+
+5.1	Soft Potentiometer
+To track the position of the mallet, we used a SoftPot Membrane Potentiometer that wrapped around the bowl. Depending on how one wires the circuit, this thin strip can detect either the amount of pressure exerted on the strip or the position on the strip where the person is applying pressure. Since it cannot detect both simultaneously, we decided to have the strip track position. Bowld’s program receives the position readings, estimates the velocity at which the item applying pressure is traveling, and steadily increases the gain of the output sound as long as the velocity remains positive. When the program detects zero velocity (because nothing is touching the SoftPot), it drops the gain to zero. The gain shift employs steady ramping to ensure a smooth sound change to the listener.  
+5.2	Inner Bowl Accelerometer
+Inside Bowld, we mounted a 3-dimensional accelerometer.  As the instrument (and therefore, the accelerometer) is tilted, values from the X- and Y-axes of the accelerometer are sent into ChucK from PD.  The X-value maps to the amplitude of modulation used in the FM synthesis, and the Y-value determines the filter cut-offs for the hi and low-pass filters through a sinusoidal mapping.  The sum of the two values is used to determine the degree of pitch shift applied to the TubeBell chime, creating the bending effect when the player tilts the instrument. 
+5.3	Pitcher Accelerometer
+Inside a small water pitcher, we also mounted a 3-dimensional accelerometer.  As one tilts the pitcher, as if to emulate pouring water into the main bowl, values from the Y-axis of the accelerometer are sent into PD.  Using a threshold mechanism, PD determines whether one is initiating the pouring motion or returning the pitcher to its upright, non-pouring position.  When the pitcher is transferring metaphorical water to the bowl, PD sends a signal to ChucK, initializing a process which constantly raises the carrier frequency used in the FM synthesis.  While pouring, the carrier frequency value ultimately reaches a maximum height, letting the musician know that the bowl is full of water.  When the pouring motion concludes, PD sends another signal to ChucK.  This signal ends the pitch increase and begins to slowly drain the water out of the bowl, causing the carrier frequency to decrease over time until it rests once again at its default value.
+
+6.	CONCLUSION AND FUTURE WORK
+Through a use of gesture sensing, FM synthesis, and creative hardwire rigging, the Bowld models quite successfully an acoustic singing bowl, while adding dimensions of timbral shift. All of these actions were made possible via the BeagleBoard and Arduino linkages to PD and ChucK.  While the current prototype works well, there were a few issues we encountered that could be fixed in the future.  For instance, we currently have a wired power source.  The wires protruding from the bottom of the bowl detract from the aesthetic and practical value of having a completely self-contained instrument.  In the future, using batteries to internalize the power source could greatly improve the image and ergonomics of Bowld, as well as giving it the mobility to complete the original vision of an entirely autonomous instrument.
+In addition, at certain frequencies and volume levels, the bowl exhibits a slight amount of buzzing.  This sound comes from the screws that mount the speaker onto the top of the bowl.  While the flaw works well with the metaphor (if you have played an acoustic singing bowl you know that even slight changes in the angle or pressure of the resonating mallet can cause the bowl to buzz against it), perhaps greater screw insulation could limit this unintentional feature in the future. 
+
+7.	ACKNOWLEDGEMENTS
+Thank you very much to Edgar Berdahl, Wendy Ju, and Spencer Salazar for the invaluable help and resources as we developed our final project.  Also thanks to Sasha Leitman for her help in finding the proper speaker, and to CCRMA for funding the project through Music 250A.
+ 
+8.	REFERENCES
+[1] Ikea MEDALJ Pot - http://www.ikea.com/us/en/catalog/products/10100443/#/10100443
+[2] Beagle Board - http://beagleboard.org/hardware
+[3] Arduino Nano - http://arduino.cc/en/Main/ArduinoBoardNano
+[4] SoftPot - https://www.sparkfun.com/products/8681
+[5] Pure Data - http://crca.ucsd.edu/~msp/Pd_documentation/x2.htm
+[6] ChucK - http://chuck.cs.princeton.edu/doc/
+[7]  Berdahl, Ed &amp; Wendy Ju – Satellite CCRMA http://ccrma.stanford.edu/~eberdahl/Satellite
+[8] Stk.TubeBell Details - https://ccrma.stanford.edu/software/stk/classstk_1_1TubeBell.html</body>
+    <errmsg></errmsg>
+    <homepage>http://www.stanford.edu/~jwitt90/files/BroerWongWittenbergBowld.pdf</homepage>
+    <render_skin>project</render_skin>
+    <shortdesc>Bowld, through use of FM synthesis, Arduino microprocessing, BeagleBoard technology, and several sensors, seeks to model electronically and mechanically a traditional Tibetan singing bowl.  </shortdesc>
+    <rssfeed></rssfeed>
+  </hopobject>
+</xmlroot>
