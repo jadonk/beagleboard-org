@@ -111,3 +111,38 @@
 <li class="join">[<abbr title="2011-12-28T04:55:06+00:00">04:55:06</abbr>] <span>* Anduck (Anduck@a88-112-226-74.elisa-laajakaista.fi) has joined #beagle</span></li>
 <li class="message">[<a href="#T04:55:27" id="T04:55:27"><abbr title="2011-12-28T04:55:27+00:00">04:55:27</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>if there is no uEnv.txt it can't load it. it isn't necessary. so what happens after that?</q></li>
 <li class="quit">[<a href="#T04:56:32" id="T04:56:32"><abbr title="2011-12-28T04:56:32+00:00">04:56:32</abbr></a>] <span>* Boulet (trivial@76.89.182.237) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="join">[<a href="#T05:03:05" id="T05:03:05"><abbr title="2011-12-28T05:03:05+00:00">05:03:05</abbr></a>] <span>* nsekhar (3d5fc1e7@gateway/web/freenode/ip.61.95.193.231) has joined #beagle</span></li>
+<li class="message">[<a href="#T05:03:22" id="T05:03:22"><abbr title="2011-12-28T05:03:22+00:00">05:03:22</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>aholler: thx</q></li>
+<li class="message">[<a href="#T05:03:24" id="T05:03:24"><abbr title="2011-12-28T05:03:24+00:00">05:03:24</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>** Unable to read "uImage" from mmc 0:1 **</q></li>
+<li class="message">[<a href="#T05:03:56" id="T05:03:56"><abbr title="2011-12-28T05:03:56+00:00">05:03:56</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>on my working beaglebone, i get</q></li>
+<li class="message">[<a href="#T05:03:57" id="T05:03:57"><abbr title="2011-12-28T05:03:57+00:00">05:03:57</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>Loading file "/boot/uImage" from mmc device 0:2 (xxa2)</q></li>
+<li class="message">[<a href="#T05:04:40" id="T05:04:40"><abbr title="2011-12-28T05:04:40+00:00">05:04:40</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>and both are using the same MLO?</q></li>
+<li class="message">[<a href="#T05:05:07" id="T05:05:07"><abbr title="2011-12-28T05:05:07+00:00">05:05:07</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>yes, i even checked the md5sums</q></li>
+<li class="message">[<a href="#T05:05:56" id="T05:05:56"><abbr title="2011-12-28T05:05:56+00:00">05:05:56</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>i'm thinking that in the uboot environment variables, something might be different</q></li>
+<li class="join">[<a href="#T05:06:16" id="T05:06:16"><abbr title="2011-12-28T05:06:16+00:00">05:06:16</abbr></a>] <span>* guanucoluis (~luis@186.12.198.46) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T05:06:37" id="T05:06:37"><abbr title="2011-12-28T05:06:37+00:00">05:06:37</abbr></a>] <span>* Boulet (trivial@76.89.182.237) has joined #beagle</span></li>
+<li class="join">[<abbr title="2011-12-28T05:06:37+00:00">05:06:37</abbr>] <span>* Boulet (trivial@76.89.182.237) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T05:06:45" id="T05:06:45"><abbr title="2011-12-28T05:06:45+00:00">05:06:45</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>the env comes with uEnv.txt or from flash. I assume the bone doesn't have flash</q></li>
+<li class="message">[<a href="#T05:08:13" id="T05:08:13"><abbr title="2011-12-28T05:08:13+00:00">05:08:13</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>u-boot is the same too?</q></li>
+<li class="message">[<a href="#T05:08:42" id="T05:08:42"><abbr title="2011-12-28T05:08:42+00:00">05:08:42</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>u-boot also the same</q></li>
+<li class="message">[<a href="#T05:08:56" id="T05:08:56"><abbr title="2011-12-28T05:08:56+00:00">05:08:56</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>to see the embedded env of u-boot, you could use strings u-boot.bin.</q></li>
+<li class="join">[<a href="#T05:09:17" id="T05:09:17"><abbr title="2011-12-28T05:09:17+00:00">05:09:17</abbr></a>] <span>* nsekhar1 (~a0875516@nat/ti/x-zpewshexsgsrbgpe) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T05:09:41" id="T05:09:41"><abbr title="2011-12-28T05:09:41+00:00">05:09:41</abbr></a>] <span>* nsekhar1 (~a0875516@nat/ti/x-zpewshexsgsrbgpe) Quit (Client Quit)</span></li>
+<li class="message">[<abbr title="2011-12-28T05:09:41+00:00">05:09:41</abbr>] &lt;<cite>aholler</cite>&gt; <q>I don't know what it does, so you need to look at the startup-script yourself</q></li>
+<li class="join">[<a href="#T05:10:12" id="T05:10:12"><abbr title="2011-12-28T05:10:12+00:00">05:10:12</abbr></a>] <span>* nsekhar1 (~a0875516@nat/ti/x-cdqklnoyxnlstykg) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T05:10:16" id="T05:10:16"><abbr title="2011-12-28T05:10:16+00:00">05:10:16</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>there should be something like mmc init or mmc restart or similiar.</q></li>
+<li class="join">[<a href="#T05:10:24" id="T05:10:24"><abbr title="2011-12-28T05:10:24+00:00">05:10:24</abbr></a>] <span>* Vigneswari (~root@218.248.25.99) has joined #beagle</span></li>
+<li class="message">[<a href="#T05:10:41" id="T05:10:41"><abbr title="2011-12-28T05:10:41+00:00">05:10:41</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>mmc init worked on my xM</q></li>
+<li class="message">[<a href="#T05:10:52" id="T05:10:52"><abbr title="2011-12-28T05:10:52+00:00">05:10:52</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>but this u-boot doesn't have it</q></li>
+<li class="message">[<a href="#T05:11:09" id="T05:11:09"><abbr title="2011-12-28T05:11:09+00:00">05:11:09</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>that might have changed</q></li>
+<li class="message">[<a href="#T05:11:14" id="T05:11:14"><abbr title="2011-12-28T05:11:14+00:00">05:11:14</abbr></a>] &lt;<cite>dsoto</cite>&gt; <q>i'm gonig to try to get a diff on the printenv from the two boards and see what's up</q></li>
+<li class="join">[<a href="#T05:11:46" id="T05:11:46"><abbr title="2011-12-28T05:11:46+00:00">05:11:46</abbr></a>] <span>* nsekhar1 (~a0875516@nat/ti/x-cdqklnoyxnlstykg) has joined #beagle</span></li>
+<li class="quit">[<a href="#T05:12:38" id="T05:12:38"><abbr title="2011-12-28T05:12:38+00:00">05:12:38</abbr></a>] <span>* nsekhar (3d5fc1e7@gateway/web/freenode/ip.61.95.193.231) Quit (Quit: Page closed)</span></li>
+<li class="nick-change">[<a href="#T05:14:29" id="T05:14:29"><abbr title="2011-12-28T05:14:29+00:00">05:14:29</abbr></a>] <span>* thweber_ is now known as thweber</span></li>
+<li class="quit">[<a href="#T05:21:41" id="T05:21:41"><abbr title="2011-12-28T05:21:41+00:00">05:21:41</abbr></a>] <span>* gdm_ (~gdm@186.19.75.44) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T05:26:16" id="T05:26:16"><abbr title="2011-12-28T05:26:16+00:00">05:26:16</abbr></a>] <span>* mikey_w (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T05:34:00" id="T05:34:00"><abbr title="2011-12-28T05:34:00+00:00">05:34:00</abbr></a>] <span>* peabody124 (~peabody12@ip68-102-210-178.ks.ok.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T05:39:07" id="T05:39:07"><abbr title="2011-12-28T05:39:07+00:00">05:39:07</abbr></a>] <span>* mikey_w (~mike@pool-74-110-218-2.rcmdva.fios.verizon.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T05:50:10" id="T05:50:10"><abbr title="2011-12-28T05:50:10+00:00">05:50:10</abbr></a>] <span>* arc_mat_ (~matze@p4FD8B17C.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T05:52:42" id="T05:52:42"><abbr title="2011-12-28T05:52:42+00:00">05:52:42</abbr></a>] <span>* Kamondelious (~kamondeli@69-165-222-157.dsl.teksavvy.com) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T05:52:53" id="T05:52:53"><abbr title="2011-12-28T05:52:53+00:00">05:52:53</abbr></a>] <span>* arc_mat (~matze@p4FD8DA48.dip.t-dialin.net) Quit (Ping timeout: 240 seconds)</span></li>
