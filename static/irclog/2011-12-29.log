@@ -1036,3 +1036,27 @@
 <li class="message">[<a href="#T22:59:15" id="T22:59:15"><abbr title="2011-12-29T22:59:15+00:00">22:59:15</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>well the loaders do setup the pin muxing</q></li>
 <li class="message">[<a href="#T22:59:36" id="T22:59:36"><abbr title="2011-12-29T22:59:36+00:00">22:59:36</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>dunno if linux ever changes that</q></li>
 <li class="message">[<a href="#T22:59:56" id="T22:59:56"><abbr title="2011-12-29T22:59:56+00:00">22:59:56</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>There is kernel control of pinmuxing now, but GPIO appears to be a special case.</q></li>
+<li class="message">[<a href="#T23:00:27" id="T23:00:27"><abbr title="2011-12-29T23:00:27+00:00">23:00:27</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Previously, the GPIO data structure was initialized based on the state of the mux as set by the loader.</q></li>
+<li class="message">[<a href="#T23:00:38" id="T23:00:38"><abbr title="2011-12-29T23:00:38+00:00">23:00:38</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>That constrained what pins could be used by the GPIO driver.</q></li>
+<li class="message">[<a href="#T23:00:55" id="T23:00:55"><abbr title="2011-12-29T23:00:55+00:00">23:00:55</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>ic</q></li>
+<li class="message">[<a href="#T23:00:56" id="T23:00:56"><abbr title="2011-12-29T23:00:56+00:00">23:00:56</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>Even though you could set the mux to the gpio function later in the kernel,you couldn't use it as such.</q></li>
+<li class="message">[<a href="#T23:01:38" id="T23:01:38"><abbr title="2011-12-29T23:01:38+00:00">23:01:38</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>conversely though, you can switch _away_ from GPIO to other functions w/o penalty.</q></li>
+<li class="quit">[<a href="#T23:07:10" id="T23:07:10"><abbr title="2011-12-29T23:07:10+00:00">23:07:10</abbr></a>] <span>* badZeppelin (~Adium@dsl-hkibrasgw3-ffdbc300-148.dhcp.inet.fi) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T23:09:00" id="T23:09:00"><abbr title="2011-12-29T23:09:00+00:00">23:09:00</abbr></a>] <span>* kergoth (~kergoth@covenant.kergoth.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:10:43" id="T23:10:43"><abbr title="2011-12-29T23:10:43+00:00">23:10:43</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>welcome kergoth :)</q></li>
+<li class="message">[<a href="#T23:10:47" id="T23:10:47"><abbr title="2011-12-29T23:10:47+00:00">23:10:47</abbr></a>] &lt;<cite>kergoth</cite>&gt; <q>hey</q></li>
+<li class="join">[<a href="#T23:12:19" id="T23:12:19"><abbr title="2011-12-29T23:12:19+00:00">23:12:19</abbr></a>] <span>* Hopsy (~kvirc@77.63.205.184) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T23:12:55" id="T23:12:55"><abbr title="2011-12-29T23:12:55+00:00">23:12:55</abbr></a>] &lt;<cite>Hopsy</cite>&gt; <q>heyy</q></li>
+<li class="message">[<a href="#T23:13:01" id="T23:13:01"><abbr title="2011-12-29T23:13:01+00:00">23:13:01</abbr></a>] &lt;<cite>Hopsy</cite>&gt; <q>someone here?</q></li>
+<li class="join">[<a href="#T23:16:45" id="T23:16:45"><abbr title="2011-12-29T23:16:45+00:00">23:16:45</abbr></a>] <span>* novogram_ (~novogramm@w0109-49-134-83-125.uqwimax.jp) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2011-12-29T23:16:45+00:00">23:16:45</abbr>] <span>* novogrammer (~novogramm@w0109-49-134-83-125.uqwimax.jp) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T23:18:09" id="T23:18:09"><abbr title="2011-12-29T23:18:09+00:00">23:18:09</abbr></a>] <span>* nascentmind (~nascentmi@122.172.5.227) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T23:28:26" id="T23:28:26"><abbr title="2011-12-29T23:28:26+00:00">23:28:26</abbr></a>] <span>* phantoxe (~destroy@a95-92-89-24.cpe.netcabo.pt) Quit ()</span></li>
+<li class="join">[<a href="#T23:28:53" id="T23:28:53"><abbr title="2011-12-29T23:28:53+00:00">23:28:53</abbr></a>] <span>* phantoxe (~destroy@a95-92-89-24.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:29:28" id="T23:29:28"><abbr title="2011-12-29T23:29:28+00:00">23:29:28</abbr></a>] <span>* lyakh (~lyakh@dslb-088-076-023-097.pools.arcor-ip.net) Quit (Quit: thanks, bye)</span></li>
+<li class="quit">[<a href="#T23:29:49" id="T23:29:49"><abbr title="2011-12-29T23:29:49+00:00">23:29:49</abbr></a>] <span>* rcn-ee (~voodoo@64.77.213.245) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T23:34:20" id="T23:34:20"><abbr title="2011-12-29T23:34:20+00:00">23:34:20</abbr></a>] <span>* Hopsy (~kvirc@77.63.205.184) Quit (Quit: KVIrc 4.0.4 Insomnia <a href="http://www.kvirc.net/)">http://www.kvirc.net/)</a></span></li>
+<li class="quit">[<a href="#T23:45:09" id="T23:45:09"><abbr title="2011-12-29T23:45:09+00:00">23:45:09</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T23:47:22" id="T23:47:22"><abbr title="2011-12-29T23:47:22+00:00">23:47:22</abbr></a>] <span>* rcn-ee (~voodoo@thief-pool2-123-49.mncable.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:52:05" id="T23:52:05"><abbr title="2011-12-29T23:52:05+00:00">23:52:05</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>later . . . :)</q></li>
+<li class="quit">[<a href="#T23:52:13" id="T23:52:13"><abbr title="2011-12-29T23:52:13+00:00">23:52:13</abbr></a>] <span>* djlewis (~djelwis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) Quit (Quit: Leaving.)</span></li>
