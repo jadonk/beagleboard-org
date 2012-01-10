@@ -1,0 +1,75 @@
+<li class="join">[<a href="#T00:01:03" id="T00:01:03"><abbr title="2012-01-10T00:01:03+00:00">00:01:03</abbr></a>] <span>* Russ_ (~russ@206.29.182.141) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:01:16" id="T00:01:16"><abbr title="2012-01-10T00:01:16+00:00">00:01:16</abbr></a>] &lt;<cite>truls</cite>&gt; <q>ds2: it's at 3.5V</q></li>
+<li class="message">[<a href="#T00:01:47" id="T00:01:47"><abbr title="2012-01-10T00:01:47+00:00">00:01:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>a tiny bit high but that is coming from the PMIC</q></li>
+<li class="message">[<a href="#T00:02:20" id="T00:02:20"><abbr title="2012-01-10T00:02:20+00:00">00:02:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what about the 3.3V rail from the pmic? VDD_3V3EXP</q></li>
+<li class="message">[<a href="#T00:04:07" id="T00:04:07"><abbr title="2012-01-10T00:04:07+00:00">00:04:07</abbr></a>] &lt;<cite>truls</cite>&gt; <q>18mV on that (pin 3,4 on P9)</q></li>
+<li class="join">[<a href="#T00:04:13" id="T00:04:13"><abbr title="2012-01-10T00:04:13+00:00">00:04:13</abbr></a>] <span>* peabody124 (~peabody12@83.218.185.92) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:04:16" id="T00:04:16"><abbr title="2012-01-10T00:04:16+00:00">00:04:16</abbr></a>] &lt;<cite>truls</cite>&gt; <q>which is essentially nothing i guess</q></li>
+<li class="message">[<a href="#T00:05:39" id="T00:05:39"><abbr title="2012-01-10T00:05:39+00:00">00:05:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wonder if it is just turned off </q></li>
+<li class="message">[<a href="#T00:05:47" id="T00:05:47"><abbr title="2012-01-10T00:05:47+00:00">00:05:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>have you done anything to the hardware?</q></li>
+<li class="message">[<a href="#T00:06:38" id="T00:06:38"><abbr title="2012-01-10T00:06:38+00:00">00:06:38</abbr></a>] &lt;<cite>truls</cite>&gt; <q>nope, just played around with echo 0 &gt; /sys/class/leds/beaglebone\:\:usr1/brightness via the ssh</q></li>
+<li class="message">[<a href="#T00:06:54" id="T00:06:54"><abbr title="2012-01-10T00:06:54+00:00">00:06:54</abbr></a>] &lt;<cite>truls</cite>&gt; <q>just got the board, upgraded the angstrom distro, and was playing around on the commandline</q></li>
+<li class="nick-change">[<a href="#T00:06:57" id="T00:06:57"><abbr title="2012-01-10T00:06:57+00:00">00:06:57</abbr></a>] <span>* Russ_ is now known as Russ</span></li>
+<li class="quit">[<a href="#T00:07:07" id="T00:07:07"><abbr title="2012-01-10T00:07:07+00:00">00:07:07</abbr></a>] <span>* peabody124 (~peabody12@83.218.185.92) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T00:08:06" id="T00:08:06"><abbr title="2012-01-10T00:08:06+00:00">00:08:06</abbr></a>] &lt;<cite>truls</cite>&gt; <q>(via ssh using the ethernet over usb)</q></li>
+<li class="message">[<a href="#T00:08:25" id="T00:08:25"><abbr title="2012-01-10T00:08:25+00:00">00:08:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Hmmm</q></li>
+<li class="message">[<a href="#T00:09:46" id="T00:09:46"><abbr title="2012-01-10T00:09:46+00:00">00:09:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you call on if you want to try this but -</q></li>
+<li class="message">[<a href="#T00:10:12" id="T00:10:12"><abbr title="2012-01-10T00:10:12+00:00">00:10:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>try shorting PWR_BUT to ground (be sure you get the right pins) briefly (i.e. 1-2 seconds)</q></li>
+<li class="message">[<a href="#T00:10:25" id="T00:10:25"><abbr title="2012-01-10T00:10:25+00:00">00:10:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that is the power switch. see if it behaves any differently after this</q></li>
+<li class="message">[<a href="#T00:10:28" id="T00:10:28"><abbr title="2012-01-10T00:10:28+00:00">00:10:28</abbr></a>] &lt;<cite>truls</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T00:10:32" id="T00:10:32"><abbr title="2012-01-10T00:10:32+00:00">00:10:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>also, are you monitoring the console?</q></li>
+<li class="message">[<a href="#T00:10:59" id="T00:10:59"><abbr title="2012-01-10T00:10:59+00:00">00:10:59</abbr></a>] &lt;<cite>truls</cite>&gt; <q>no, no console to monitor, but i can hook it up</q></li>
+<li class="message">[<a href="#T00:11:51" id="T00:11:51"><abbr title="2012-01-10T00:11:51+00:00">00:11:51</abbr></a>] &lt;<cite>truls</cite>&gt; <q>the ftdi doesn't activate, so even hooking it up would mean no new usb serial devices to hook my minicom up to</q></li>
+<li class="message">[<a href="#T00:12:00" id="T00:12:00"><abbr title="2012-01-10T00:12:00+00:00">00:12:00</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is one more test you can do but the design of it makes it a major acrobatics </q></li>
+<li class="message">[<a href="#T00:12:07" id="T00:12:07"><abbr title="2012-01-10T00:12:07+00:00">00:12:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Hmmm</q></li>
+<li class="quit">[<a href="#T00:12:15" id="T00:12:15"><abbr title="2012-01-10T00:12:15+00:00">00:12:15</abbr></a>] <span>* Russ (~russ@206.29.182.141) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T00:12:31" id="T00:12:31"><abbr title="2012-01-10T00:12:31+00:00">00:12:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>okay, if pwr_but doesn't do it, donno what else to try as it isn't worth depopulating parts to undo design flaws</q></li>
+<li class="message">[<a href="#T00:13:58" id="T00:13:58"><abbr title="2012-01-10T00:13:58+00:00">00:13:58</abbr></a>] &lt;<cite>truls</cite>&gt; <q>nothing new happened after shorting pwr_but to ground</q></li>
+<li class="message">[<a href="#T00:14:14" id="T00:14:14"><abbr title="2012-01-10T00:14:14+00:00">00:14:14</abbr></a>] &lt;<cite>truls</cite>&gt; <q>same single power blink, then "dead"</q></li>
+<li class="message">[<a href="#T00:14:22" id="T00:14:22"><abbr title="2012-01-10T00:14:22+00:00">00:14:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it did blink?</q></li>
+<li class="message">[<a href="#T00:14:37" id="T00:14:37"><abbr title="2012-01-10T00:14:37+00:00">00:14:37</abbr></a>] &lt;<cite>truls</cite>&gt; <q>it always blinks one time after plugging it in</q></li>
+<li class="message">[<a href="#T00:14:49" id="T00:14:49"><abbr title="2012-01-10T00:14:49+00:00">00:14:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I mean, it did blink after you shorted the PWR_BUT signal?</q></li>
+<li class="message">[<a href="#T00:14:54" id="T00:14:54"><abbr title="2012-01-10T00:14:54+00:00">00:14:54</abbr></a>] &lt;<cite>truls</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T00:15:00" id="T00:15:00"><abbr title="2012-01-10T00:15:00+00:00">00:15:00</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T00:15:26" id="T00:15:26"><abbr title="2012-01-10T00:15:26+00:00">00:15:26</abbr></a>] &lt;<cite>truls</cite>&gt; <q>actually yes, just tried it again</q></li>
+<li class="message">[<a href="#T00:15:42" id="T00:15:42"><abbr title="2012-01-10T00:15:42+00:00">00:15:42</abbr></a>] &lt;<cite>truls</cite>&gt; <q>(it's a small led, so easy to miss it if it blinks fast)</q></li>
+<li class="message">[<a href="#T00:15:59" id="T00:15:59"><abbr title="2012-01-10T00:15:59+00:00">00:15:59</abbr></a>] &lt;<cite>truls</cite>&gt; <q>it blinked just after i shorted, then stayed off</q></li>
+<li class="message">[<a href="#T00:16:11" id="T00:16:11"><abbr title="2012-01-10T00:16:11+00:00">00:16:11</abbr></a>] &lt;<cite>truls</cite>&gt; <q>releasing the short didnt change anything</q></li>
+<li class="message">[<a href="#T00:17:19" id="T00:17:19"><abbr title="2012-01-10T00:17:19+00:00">00:17:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T00:17:36" id="T00:17:36"><abbr title="2012-01-10T00:17:36+00:00">00:17:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that would almost suggests there is something it doesn't like</q></li>
+<li class="message">[<a href="#T00:17:43" id="T00:17:43"><abbr title="2012-01-10T00:17:43+00:00">00:17:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>prehaps a short or another fault somewhere</q></li>
+<li class="message">[<a href="#T00:18:21" id="T00:18:21"><abbr title="2012-01-10T00:18:21+00:00">00:18:21</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>there have been a few others with the same symptom here</q></li>
+<li class="message">[<a href="#T00:18:32" id="T00:18:32"><abbr title="2012-01-10T00:18:32+00:00">00:18:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>did you ever plug anything into the expansion connectors at all?</q></li>
+<li class="message">[<a href="#T00:18:52" id="T00:18:52"><abbr title="2012-01-10T00:18:52+00:00">00:18:52</abbr></a>] &lt;<cite>truls</cite>&gt; <q>no, first time was after it died to test the voltage on the rails</q></li>
+<li class="message">[<a href="#T00:19:08" id="T00:19:08"><abbr title="2012-01-10T00:19:08+00:00">00:19:08</abbr></a>] &lt;<cite>truls</cite>&gt; <q>i just used the usb on my macbook air</q></li>
+<li class="message">[<a href="#T00:19:29" id="T00:19:29"><abbr title="2012-01-10T00:19:29+00:00">00:19:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>did you try the barrel connector?</q></li>
+<li class="message">[<a href="#T00:19:31" id="T00:19:31"><abbr title="2012-01-10T00:19:31+00:00">00:19:31</abbr></a>] &lt;<cite>truls</cite>&gt; <q>(no warnings about pulling too much current on the mba either)</q></li>
+<li class="message">[<a href="#T00:19:37" id="T00:19:37"><abbr title="2012-01-10T00:19:37+00:00">00:19:37</abbr></a>] &lt;<cite>truls</cite>&gt; <q>yes, that's what im using now</q></li>
+<li class="message">[<a href="#T00:19:42" id="T00:19:42"><abbr title="2012-01-10T00:19:42+00:00">00:19:42</abbr></a>] &lt;<cite>truls</cite>&gt; <q>same result as usb</q></li>
+<li class="join">[<a href="#T00:19:49" id="T00:19:49"><abbr title="2012-01-10T00:19:49+00:00">00:19:49</abbr></a>] <span>* kaio (~kaio@fedora/kaio) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:19:57" id="T00:19:57"><abbr title="2012-01-10T00:19:57+00:00">00:19:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>are both of them plugged in at the same time?</q></li>
+<li class="message">[<a href="#T00:20:01" id="T00:20:01"><abbr title="2012-01-10T00:20:01+00:00">00:20:01</abbr></a>] &lt;<cite>truls</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T00:20:14" id="T00:20:14"><abbr title="2012-01-10T00:20:14+00:00">00:20:14</abbr></a>] &lt;<cite>truls</cite>&gt; <q>just barrel now, never tried both of them</q></li>
+<li class="message">[<a href="#T00:21:10" id="T00:21:10"><abbr title="2012-01-10T00:21:10+00:00">00:21:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I'd say return it</q></li>
+<li class="message">[<a href="#T00:21:28" id="T00:21:28"><abbr title="2012-01-10T00:21:28+00:00">00:21:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>more diag is going to get invasive and the RMA guys might not like people diag'ing it before they do ;)</q></li>
+<li class="message">[<a href="#T00:21:34" id="T00:21:34"><abbr title="2012-01-10T00:21:34+00:00">00:21:34</abbr></a>] &lt;<cite>truls</cite>&gt; <q>heh, true</q></li>
+<li class="message">[<a href="#T00:21:50" id="T00:21:50"><abbr title="2012-01-10T00:21:50+00:00">00:21:50</abbr></a>] &lt;<cite>truls</cite>&gt; <q>thanks for all the help though</q></li>
+<li class="message">[<a href="#T00:21:53" id="T00:21:53"><abbr title="2012-01-10T00:21:53+00:00">00:21:53</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that PMIC has a power path management</q></li>
+<li class="message">[<a href="#T00:22:14" id="T00:22:14"><abbr title="2012-01-10T00:22:14+00:00">00:22:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>either the internal switch is foobared or there is a fault somewhere</q></li>
+<li class="message">[<a href="#T00:22:34" id="T00:22:34"><abbr title="2012-01-10T00:22:34+00:00">00:22:34</abbr></a>] &lt;<cite>truls</cite>&gt; <q>the schematics says the reset is uncommected, which i find odd</q></li>
+<li class="message">[<a href="#T00:22:43" id="T00:22:43"><abbr title="2012-01-10T00:22:43+00:00">00:22:43</abbr></a>] &lt;<cite>truls</cite>&gt; <q>but maybe that ic doesn't mind...</q></li>
+<li class="message">[<a href="#T00:22:47" id="T00:22:47"><abbr title="2012-01-10T00:22:47+00:00">00:22:47</abbr></a>] &lt;<cite>truls</cite>&gt; <q>unconnected</q></li>
+<li class="message">[<a href="#T00:22:48" id="T00:22:48"><abbr title="2012-01-10T00:22:48+00:00">00:22:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>should be fine... internal pull ups, IIRC</q></li>
+<li class="message">[<a href="#T00:22:52" id="T00:22:52"><abbr title="2012-01-10T00:22:52+00:00">00:22:52</abbr></a>] &lt;<cite>truls</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T00:23:34" id="T00:23:34"><abbr title="2012-01-10T00:23:34+00:00">00:23:34</abbr></a>] &lt;<cite>truls</cite>&gt; <q>thanks for all the help though, makes me feel a bit better about returning it at least, knowing kinda where the problem is</q></li>
+<li class="message">[<a href="#T00:24:02" id="T00:24:02"><abbr title="2012-01-10T00:24:02+00:00">00:24:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>'k</q></li>
+<li class="message">[<a href="#T00:25:00" id="T00:25:00"><abbr title="2012-01-10T00:25:00+00:00">00:25:00</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>later . . .</q></li>
+<li class="quit">[<a href="#T00:25:04" id="T00:25:04"><abbr title="2012-01-10T00:25:04+00:00">00:25:04</abbr></a>] <span>* djlewis (~djelwis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<a href="#T00:25:27" id="T00:25:27"><abbr title="2012-01-10T00:25:27+00:00">00:25:27</abbr></a>] <span>* kaio (~kaio@fedora/kaio) Quit (Quit: This computer has gone to sleep)</span></li>
+<li class="quit">[<a href="#T00:29:55" id="T00:29:55"><abbr title="2012-01-10T00:29:55+00:00">00:29:55</abbr></a>] <span>* thurbad (~natesewel@64.132.24.248) Quit (Quit: thurbad)</span></li>
+<li class="quit">[<a href="#T00:33:41" id="T00:33:41"><abbr title="2012-01-10T00:33:41+00:00">00:33:41</abbr></a>] <span>* Dhut (476e2e4b@gateway/web/freenode/ip.71.110.46.75) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T00:44:21" id="T00:44:21"><abbr title="2012-01-10T00:44:21+00:00">00:44:21</abbr></a>] <span>* leslie_ (~quassel@210.13.123.221) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:45:20" id="T00:45:20"><abbr title="2012-01-10T00:45:20+00:00">00:45:20</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Verlassend)</span></li>
+<li class="join">[<a href="#T00:47:35" id="T00:47:35"><abbr title="2012-01-10T00:47:35+00:00">00:47:35</abbr></a>] <span>* kaio (~kaio@fedora/kaio) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:56:23" id="T00:56:23"><abbr title="2012-01-10T00:56:23+00:00">00:56:23</abbr></a>] <span>* aholler (~aholler@p57B2011F.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:57:21" id="T00:57:21"><abbr title="2012-01-10T00:57:21+00:00">00:57:21</abbr></a>] <span>* Russ (~russ@206.29.182.141) has joined #beagle</span></li>
