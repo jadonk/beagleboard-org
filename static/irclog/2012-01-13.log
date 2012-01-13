@@ -294,3 +294,88 @@
 <li class="message">[<a href="#T20:57:59" id="T20:57:59"><abbr title="2012-01-13T20:57:59+00:00">20:57:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>iirc right, there are folks running T1's off of a PPC core by itself</q></li>
 <li class="message">[<a href="#T20:58:20" id="T20:58:20"><abbr title="2012-01-13T20:58:20+00:00">20:58:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and that includes running RBS and/or Q.931/Q.921</q></li>
 <li class="message">[<a href="#T20:59:57" id="T20:59:57"><abbr title="2012-01-13T20:59:57+00:00">20:59:57</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>Hmm. Guess I'll try it with a generic compile and see what the performance is</q></li>
+<li class="message">[<a href="#T21:00:29" id="T21:00:29"><abbr title="2012-01-13T21:00:29+00:00">21:00:29</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>With your VoIP familiarity :)  Don't suppose you have a reference for tying FXS/FXO ports, and/or PRI into a beagle?</q></li>
+<li class="message">[<a href="#T21:00:37" id="T21:00:37"><abbr title="2012-01-13T21:00:37+00:00">21:00:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>711 is braindead simple</q></li>
+<li class="message">[<a href="#T21:00:44" id="T21:00:44"><abbr title="2012-01-13T21:00:44+00:00">21:00:44</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>711 is, yes</q></li>
+<li class="message">[<a href="#T21:00:45" id="T21:00:45"><abbr title="2012-01-13T21:00:45+00:00">21:00:45</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>straight 64k</q></li>
+<li class="message">[<a href="#T21:00:57" id="T21:00:57"><abbr title="2012-01-13T21:00:57+00:00">21:00:57</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>but I don't think most sip phones use that by default</q></li>
+<li class="message">[<abbr title="2012-01-13T21:00:57+00:00">21:00:57</abbr>] &lt;<cite>ds2</cite>&gt; <q>no... it is a straight forward TDM design</q></li>
+<li class="message">[<a href="#T21:01:12" id="T21:01:12"><abbr title="2012-01-13T21:01:12+00:00">21:01:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is a lot of bw</q></li>
+<li class="message">[<a href="#T21:01:30" id="T21:01:30"><abbr title="2012-01-13T21:01:30+00:00">21:01:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you wind up burning like 128K on the wire...which blows if you are merely in EDGE or 1x territory</q></li>
+<li class="message">[<a href="#T21:01:38" id="T21:01:38"><abbr title="2012-01-13T21:01:38+00:00">21:01:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>forget GPRS</q></li>
+<li class="message">[<a href="#T21:02:00" id="T21:02:00"><abbr title="2012-01-13T21:02:00+00:00">21:02:00</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>usecase is a mini-pbx hanging off the network router/switch</q></li>
+<li class="message">[<a href="#T21:02:12" id="T21:02:12"><abbr title="2012-01-13T21:02:12+00:00">21:02:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>pretty straight forward design</q></li>
+<li class="quit">[<a href="#T21:02:16" id="T21:02:16"><abbr title="2012-01-13T21:02:16+00:00">21:02:16</abbr></a>] <span>* klick0 (~klick000@67.149.211.229) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T21:02:31" id="T21:02:31"><abbr title="2012-01-13T21:02:31+00:00">21:02:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>IIRC, AMD used to make chips to do all that in hw</q></li>
+<li class="message">[<a href="#T21:02:38" id="T21:02:38"><abbr title="2012-01-13T21:02:38+00:00">21:02:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>TI probally did too</q></li>
+<li class="message">[<a href="#T21:02:50" id="T21:02:50"><abbr title="2012-01-13T21:02:50+00:00">21:02:50</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>Just not sure what will give me the physical interface: tie in via expansion header (and my beagle knowledge is rusty.  Mine has been in the closet for a year)</q></li>
+<li class="message">[<a href="#T21:03:06" id="T21:03:06"><abbr title="2012-01-13T21:03:06+00:00">21:03:06</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>or has some created a USB to T1 adapter already?</q></li>
+<li class="message">[<a href="#T21:03:07" id="T21:03:07"><abbr title="2012-01-13T21:03:07+00:00">21:03:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that'll work a limited number of channels</q></li>
+<li class="join">[<a href="#T21:03:19" id="T21:03:19"><abbr title="2012-01-13T21:03:19+00:00">21:03:19</abbr></a>] <span>* masterant (~masterant@132.68.58.68) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:03:31" id="T21:03:31"><abbr title="2012-01-13T21:03:31+00:00">21:03:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>bbl, got to get food</q></li>
+<li class="message">[<a href="#T21:03:42" id="T21:03:42"><abbr title="2012-01-13T21:03:42+00:00">21:03:42</abbr></a>] &lt;<cite>wanderer</cite>&gt; <q>Thanks for info, ds2.  I appreciate it.</q></li>
+<li class="quit">[<a href="#T21:07:25" id="T21:07:25"><abbr title="2012-01-13T21:07:25+00:00">21:07:25</abbr></a>] <span>* jipi_ (~jipi@203.116.251.234) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T21:07:43" id="T21:07:43"><abbr title="2012-01-13T21:07:43+00:00">21:07:43</abbr></a>] <span>* masterant (~masterant@132.68.58.68) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T21:09:07" id="T21:09:07"><abbr title="2012-01-13T21:09:07+00:00">21:09:07</abbr></a>] &lt;<cite>bbxm</cite>&gt; <q>does the beagleboard xm uses the same omap dss2 driver as the beagleboard (although it has a dm3730 processor instead of omap)?</q></li>
+<li class="message">[<a href="#T21:09:54" id="T21:09:54"><abbr title="2012-01-13T21:09:54+00:00">21:09:54</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>omap they are all</q></li>
+<li class="join">[<a href="#T21:09:55" id="T21:09:55"><abbr title="2012-01-13T21:09:55+00:00">21:09:55</abbr></a>] <span>* thurbad (~natesewel@64.132.24.248) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:14:14" id="T21:14:14"><abbr title="2012-01-13T21:14:14+00:00">21:14:14</abbr></a>] <span>* masterant (~masterant@132.68.58.68) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:15:16" id="T21:15:16"><abbr title="2012-01-13T21:15:16+00:00">21:15:16</abbr></a>] <span>* kevinsc (~a0214685@nat/ti/x-cerlvoscjaiqmvtq) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:15:59" id="T21:15:59"><abbr title="2012-01-13T21:15:59+00:00">21:15:59</abbr></a>] <span>* joelagnel (~joel@188.116.243.214) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:18:45" id="T21:18:45"><abbr title="2012-01-13T21:18:45+00:00">21:18:45</abbr></a>] <span>* masterant (~masterant@132.68.58.68) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="message">[<a href="#T21:20:36" id="T21:20:36"><abbr title="2012-01-13T21:20:36+00:00">21:20:36</abbr></a>] &lt;<cite>bbxm</cite>&gt; <q>what devices are fb0,1,2 mapped to?</q></li>
+<li class="join">[<a href="#T21:22:34" id="T21:22:34"><abbr title="2012-01-13T21:22:34+00:00">21:22:34</abbr></a>] <span>* verygeeky (~AndChat@64.81.6.80) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:25:41" id="T21:25:41"><abbr title="2012-01-13T21:25:41+00:00">21:25:41</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>42</q></li>
+<li class="message">[<a href="#T21:28:46" id="T21:28:46"><abbr title="2012-01-13T21:28:46+00:00">21:28:46</abbr></a>] &lt;<cite>verygeeky</cite>&gt; <q>..but what's the question?</q></li>
+<li class="part">[<a href="#T21:29:43" id="T21:29:43"><abbr title="2012-01-13T21:29:43+00:00">21:29:43</abbr></a>] <span>* wanderer (ce3692c5@gateway/web/freenode/ip.206.54.146.197) has left #beagleboard</span></li>
+<li class="join">[<a href="#T21:31:06" id="T21:31:06"><abbr title="2012-01-13T21:31:06+00:00">21:31:06</abbr></a>] <span>* jipi (~jipi@203.116.251.233) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:31:14" id="T21:31:14"><abbr title="2012-01-13T21:31:14+00:00">21:31:14</abbr></a>] <span>* masterant (~masterant@132.68.58.68) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:33:32" id="T21:33:32"><abbr title="2012-01-13T21:33:32+00:00">21:33:32</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>friday?</q></li>
+<li class="part">[<a href="#T21:35:15" id="T21:35:15"><abbr title="2012-01-13T21:35:15+00:00">21:35:15</abbr></a>] <span>* bbxm (9206844b@gateway/web/freenode/ip.146.6.132.75) has left #beagle</span></li>
+<li class="quit">[<a href="#T21:35:34" id="T21:35:34"><abbr title="2012-01-13T21:35:34+00:00">21:35:34</abbr></a>] <span>* masterant (~masterant@132.68.58.68) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T21:37:34" id="T21:37:34"><abbr title="2012-01-13T21:37:34+00:00">21:37:34</abbr></a>] &lt;<cite>verygeeky</cite>&gt; <q>Are there perl modules that expose the same GPIO etc. fundementals that bonescript does?</q></li>
+<li class="message">[<a href="#T21:38:02" id="T21:38:02"><abbr title="2012-01-13T21:38:02+00:00">21:38:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q> /sysfs exposes GPIO's</q></li>
+<li class="message">[<a href="#T21:38:04" id="T21:38:04"><abbr title="2012-01-13T21:38:04+00:00">21:38:04</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>not perl</q></li>
+<li class="message">[<a href="#T21:38:10" id="T21:38:10"><abbr title="2012-01-13T21:38:10+00:00">21:38:10</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>perl may use /sysfs</q></li>
+<li class="message">[<a href="#T21:39:47" id="T21:39:47"><abbr title="2012-01-13T21:39:47+00:00">21:39:47</abbr></a>] &lt;<cite>verygeeky</cite>&gt; <q>K.  Beaglebone arrived a day ago.  Fun stuff.</q></li>
+<li class="message">[<a href="#T21:40:55" id="T21:40:55"><abbr title="2012-01-13T21:40:55+00:00">21:40:55</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>wanderer: sure you can make the dsp run audio codecs</q></li>
+<li class="message">[<a href="#T21:40:57" id="T21:40:57"><abbr title="2012-01-13T21:40:57+00:00">21:40:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm sadly or not it attract more people not so firm with embedded at all</q></li>
+<li class="quit">[<a href="#T21:41:04" id="T21:41:04"><abbr title="2012-01-13T21:41:04+00:00">21:41:04</abbr></a>] <span>* brijesh_ (~bksingh@nat/ti/x-cvlnjdwgkdzzznkk) Quit ()</span></li>
+<li class="message">[<a href="#T21:41:12" id="T21:41:12"><abbr title="2012-01-13T21:41:12+00:00">21:41:12</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>the 720p decode is irrelevant since the dsp has hw unit for part of that</q></li>
+<li class="message">[<a href="#T21:41:29" id="T21:41:29"><abbr title="2012-01-13T21:41:29+00:00">21:41:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hail av500</q></li>
+<li class="message">[<a href="#T21:41:40" id="T21:41:40"><abbr title="2012-01-13T21:41:40+00:00">21:41:40</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>I suggest you start on the arm and only if you cannot meet your specs move stuff to the dsp</q></li>
+<li class="message">[<a href="#T21:42:21" id="T21:42:21"><abbr title="2012-01-13T21:42:21+00:00">21:42:21</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 I still dont know how the dsp can work with 2 or more streams at the same time</q></li>
+<li class="quit">[<abbr title="2012-01-13T21:42:21+00:00">21:42:21</abbr>] <span>* wanderer (ce3692c5@gateway/web/freenode/ip.206.54.146.197) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T21:42:32" id="T21:42:32"><abbr title="2012-01-13T21:42:32+00:00">21:42:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you need a muxer and demuxer in sw before right?</q></li>
+<li class="message">[<a href="#T21:42:33" id="T21:42:33"><abbr title="2012-01-13T21:42:33+00:00">21:42:33</abbr></a>] &lt;<cite>verygeeky</cite>&gt; <q>woglinde I'm coming to it with enough arduino to feel spoiled by the userland toys.</q></li>
+<li class="message">[<a href="#T21:42:54" id="T21:42:54"><abbr title="2012-01-13T21:42:54+00:00">21:42:54</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>verygeeky okay lets say embedded linux</q></li>
+<li class="message">[<a href="#T21:43:10" id="T21:43:10"><abbr title="2012-01-13T21:43:10+00:00">21:43:10</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>woglinde: why should it not???</q></li>
+<li class="message">[<a href="#T21:43:36" id="T21:43:36"><abbr title="2012-01-13T21:43:36+00:00">21:43:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you can run as many codec instances as your heap and cpu power allows</q></li>
+<li class="message">[<a href="#T21:44:37" id="T21:44:37"><abbr title="2012-01-13T21:44:37+00:00">21:44:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 because I thought of the dsp as streaming enging</q></li>
+<li class="message">[<a href="#T21:44:38" id="T21:44:38"><abbr title="2012-01-13T21:44:38+00:00">21:44:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>e</q></li>
+<li class="message">[<a href="#T21:44:46" id="T21:44:46"><abbr title="2012-01-13T21:44:46+00:00">21:44:46</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you put one in and get one out</q></li>
+<li class="message">[<a href="#T21:44:56" id="T21:44:56"><abbr title="2012-01-13T21:44:56+00:00">21:44:56</abbr></a>] &lt;<cite>verygeeky</cite>&gt; <q>I'm certainly new to angstrom.  Not to busybox etc, tho.</q></li>
+<li class="message">[<a href="#T21:45:08" id="T21:45:08"><abbr title="2012-01-13T21:45:08+00:00">21:45:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>so the muxing is done by the kernel modules already</q></li>
+<li class="message">[<a href="#T21:45:36" id="T21:45:36"><abbr title="2012-01-13T21:45:36+00:00">21:45:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>woglinde: what muxing=</q></li>
+<li class="message">[<a href="#T21:45:39" id="T21:45:39"><abbr title="2012-01-13T21:45:39+00:00">21:45:39</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>woglinde: what muxing?</q></li>
+<li class="message">[<a href="#T21:45:47" id="T21:45:47"><abbr title="2012-01-13T21:45:47+00:00">21:45:47</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>data</q></li>
+<li class="quit">[<a href="#T21:46:03" id="T21:46:03"><abbr title="2012-01-13T21:46:03+00:00">21:46:03</abbr></a>] <span>* prpplague (~danders@nat/ti/x-maeuzfchrwolargq) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:46:06" id="T21:46:06"><abbr title="2012-01-13T21:46:06+00:00">21:46:06</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>sorry, i dont get it</q></li>
+<li class="message">[<a href="#T21:46:36" id="T21:46:36"><abbr title="2012-01-13T21:46:36+00:00">21:46:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 I have 2 audio streams</q></li>
+<li class="message">[<a href="#T21:46:48" id="T21:46:48"><abbr title="2012-01-13T21:46:48+00:00">21:46:48</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>k</q></li>
+<li class="message">[<a href="#T21:46:49" id="T21:46:49"><abbr title="2012-01-13T21:46:49+00:00">21:46:49</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and now I want it to manipulate by the dsp at the same time</q></li>
+<li class="quit">[<a href="#T21:46:56" id="T21:46:56"><abbr title="2012-01-13T21:46:56+00:00">21:46:56</abbr></a>] <span>* killring (~killring@76.226.181.217) Quit (Quit: leaving)</span></li>
+<li class="message">[<a href="#T21:46:57" id="T21:46:57"><abbr title="2012-01-13T21:46:57+00:00">21:46:57</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>k</q></li>
+<li class="quit">[<a href="#T21:47:05" id="T21:47:05"><abbr title="2012-01-13T21:47:05+00:00">21:47:05</abbr></a>] <span>* powool (~pha@redrum.sph.umich.edu) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T21:47:07" id="T21:47:07"><abbr title="2012-01-13T21:47:07+00:00">21:47:07</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you open 2 codecs on the dsp</q></li>
+<li class="message">[<a href="#T21:47:16" id="T21:47:16"><abbr title="2012-01-13T21:47:16+00:00">21:47:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>from e.g. 2 processes or threads</q></li>
+<li class="message">[<a href="#T21:47:28" id="T21:47:28"><abbr title="2012-01-13T21:47:28+00:00">21:47:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>or you use the async api of CE</q></li>
+<li class="message">[<a href="#T21:47:38" id="T21:47:38"><abbr title="2012-01-13T21:47:38+00:00">21:47:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>okay thats what I wanted to know</q></li>
+<li class="join">[<a href="#T21:49:17" id="T21:49:17"><abbr title="2012-01-13T21:49:17+00:00">21:49:17</abbr></a>] <span>* masterant (~masterant@132.68.58.68) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:49:39" id="T21:49:39"><abbr title="2012-01-13T21:49:39+00:00">21:49:39</abbr></a>] <span>* GPSFan (~kenm@64.92.145.112) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T21:52:35" id="T21:52:35"><abbr title="2012-01-13T21:52:35+00:00">21:52:35</abbr></a>] <span>* Matt_O2 (~MattOwnby@nat.myfamilyinc.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:55:13" id="T21:55:13"><abbr title="2012-01-13T21:55:13+00:00">21:55:13</abbr></a>] <span>* viridari (~viridari@unaffiliated/viridari) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T21:55:24" id="T21:55:24"><abbr title="2012-01-13T21:55:24+00:00">21:55:24</abbr></a>] <span>* masterant (~masterant@132.68.58.68) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T21:55:35" id="T21:55:35"><abbr title="2012-01-13T21:55:35+00:00">21:55:35</abbr></a>] <span>* Matt_O1 (~MattOwnby@216.160.243.228) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="part">[<a href="#T21:57:56" id="T21:57:56"><abbr title="2012-01-13T21:57:56+00:00">21:57:56</abbr></a>] <span>* Mojito (~Mojito@c-24-61-135-142.hsd1.nh.comcast.net) has left #beagle</span></li>
+<li class="quit">[<a href="#T21:59:55" id="T21:59:55"><abbr title="2012-01-13T21:59:55+00:00">21:59:55</abbr></a>] <span>* BlInK311 (~BlInK311@ool-435317d6.dyn.optonline.net) Quit (Quit: Leaving)</span></li>
