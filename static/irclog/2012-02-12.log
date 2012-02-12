@@ -283,3 +283,35 @@
 <li class="message">[<a href="#T11:38:17" id="T11:38:17"><abbr title="2012-02-12T11:38:17+00:00">11:38:17</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>it didn't look particularly clever, so I didn't use it before. but apparently in the partitioning logic, there's some hidden magic</q></li>
 <li class="message">[<a href="#T11:40:39" id="T11:40:39"><abbr title="2012-02-12T11:40:39+00:00">11:40:39</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>thanks for the pointer</q></li>
 <li class="join">[<a href="#T11:53:54" id="T11:53:54"><abbr title="2012-02-12T11:53:54+00:00">11:53:54</abbr></a>] <span>* userx- (~0x-@unaffiliated/userx-) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:06:21" id="T12:06:21"><abbr title="2012-02-12T12:06:21+00:00">12:06:21</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>ok, getting a bit further now</q></li>
+<li class="message">[<a href="#T12:07:00" id="T12:07:00"><abbr title="2012-02-12T12:07:00+00:00">12:07:00</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>still not booting my system, but it's loading the kernel and then dying. way better than not even loading the xloader :)</q></li>
+<li class="message">[<a href="#T12:07:19" id="T12:07:19"><abbr title="2012-02-12T12:07:19+00:00">12:07:19</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>dying means?</q></li>
+<li class="message">[<a href="#T12:09:18" id="T12:09:18"><abbr title="2012-02-12T12:09:18+00:00">12:09:18</abbr></a>] &lt;<cite>kblin</cite>&gt; <q>mmc0: error -110 whilst initialising SD card</q></li>
+<li class="join">[<a href="#T12:15:05" id="T12:15:05"><abbr title="2012-02-12T12:15:05+00:00">12:15:05</abbr></a>] <span>* theosoft (4dbf5dfa@gateway/web/freenode/ip.77.191.93.250) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:18:10" id="T12:18:10"><abbr title="2012-02-12T12:18:10+00:00">12:18:10</abbr></a>] <span>* zxdx (~zxdx@178.121.192.20) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T12:18:42" id="T12:18:42"><abbr title="2012-02-12T12:18:42+00:00">12:18:42</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>kblin: <a href="http://comments.gmane.org/gmane.comp.hardware.beagleboard.user/15307">http://comments.gmane.org/gmane.comp.hardware.beagleboard.user/15307</a></q></li>
+<li class="join">[<a href="#T12:21:09" id="T12:21:09"><abbr title="2012-02-12T12:21:09+00:00">12:21:09</abbr></a>] <span>* novogrammer (~novogramm@softbank126108028029.bbtec.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:21:11" id="T12:21:11"><abbr title="2012-02-12T12:21:11+00:00">12:21:11</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>I don't get access (valid FILE) to the sys fs.</q></li>
+<li class="message">[<a href="#T12:21:18" id="T12:21:18"><abbr title="2012-02-12T12:21:18+00:00">12:21:18</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>fd[0] = fopen("/sys/class/gpio/export", "ab");</q></li>
+<li class="message">[<a href="#T12:21:25" id="T12:21:25"><abbr title="2012-02-12T12:21:25+00:00">12:21:25</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>Any hint ??</q></li>
+<li class="message">[<a href="#T12:22:15" id="T12:22:15"><abbr title="2012-02-12T12:22:15+00:00">12:22:15</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>ls -l /sys/class/gpio/export</q></li>
+<li class="message">[<a href="#T12:24:14" id="T12:24:14"><abbr title="2012-02-12T12:24:14+00:00">12:24:14</abbr></a>] &lt;<cite>zoobab</cite>&gt; <q>hi</q></li>
+<li class="message">[<a href="#T12:24:16" id="T12:24:16"><abbr title="2012-02-12T12:24:16+00:00">12:24:16</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>--w-------    1 root     root          4096 Jan  1 00:00 /sys/class/gpio/export</q></li>
+<li class="message">[<a href="#T12:24:57" id="T12:24:57"><abbr title="2012-02-12T12:24:57+00:00">12:24:57</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>hmmm .   i will try chmod ...</q></li>
+<li class="message">[<a href="#T12:25:06" id="T12:25:06"><abbr title="2012-02-12T12:25:06+00:00">12:25:06</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>what is "ab" for?</q></li>
+<li class="message">[<a href="#T12:25:26" id="T12:25:26"><abbr title="2012-02-12T12:25:26+00:00">12:25:26</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>no, think about what "ab" means</q></li>
+<li class="message">[<a href="#T12:25:38" id="T12:25:38"><abbr title="2012-02-12T12:25:38+00:00">12:25:38</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>append binary tried also rb, wb, rb+ wb+ ....</q></li>
+<li class="message">[<a href="#T12:26:01" id="T12:26:01"><abbr title="2012-02-12T12:26:01+00:00">12:26:01</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>as root?</q></li>
+<li class="message">[<a href="#T12:26:40" id="T12:26:40"><abbr title="2012-02-12T12:26:40+00:00">12:26:40</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>no ... normal user ...</q></li>
+<li class="message">[<a href="#T12:27:45" id="T12:27:45"><abbr title="2012-02-12T12:27:45+00:00">12:27:45</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>echo etc is ok, but fron C no luck :)</q></li>
+<li class="quit">[<a href="#T12:27:54" id="T12:27:54"><abbr title="2012-02-12T12:27:54+00:00">12:27:54</abbr></a>] <span>* jefferai (~quassel@kde/amarok/mitchell) Quit (Quit: No Ping reply in 180 seconds.)</span></li>
+<li class="join">[<a href="#T12:28:04" id="T12:28:04"><abbr title="2012-02-12T12:28:04+00:00">12:28:04</abbr></a>] <span>* jefferai (~quassel@kde/amarok/mitchell) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:28:06" id="T12:28:06"><abbr title="2012-02-12T12:28:06+00:00">12:28:06</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>echo as normal user?</q></li>
+<li class="message">[<a href="#T12:28:07" id="T12:28:07"><abbr title="2012-02-12T12:28:07+00:00">12:28:07</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>shell echo &gt; 34 etc</q></li>
+<li class="message">[<a href="#T12:28:43" id="T12:28:43"><abbr title="2012-02-12T12:28:43+00:00">12:28:43</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>you might need to read a bash manual</q></li>
+<li class="message">[<a href="#T12:28:51" id="T12:28:51"><abbr title="2012-02-12T12:28:51+00:00">12:28:51</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>or tutorial</q></li>
+<li class="message">[<a href="#T12:30:12" id="T12:30:12"><abbr title="2012-02-12T12:30:12+00:00">12:30:12</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>hihi chmod 222 /sys... now got a result ....</q></li>
+<li class="message">[<a href="#T12:30:27" id="T12:30:27"><abbr title="2012-02-12T12:30:27+00:00">12:30:27</abbr></a>] &lt;<cite>theosoft</cite>&gt; <q>ab and wb</q></li>
+<li class="join">[<a href="#T12:51:20" id="T12:51:20"><abbr title="2012-02-12T12:51:20+00:00">12:51:20</abbr></a>] <span>* DJWillis (djwillis@cpc1-bath5-2-0-cust122.aztw.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:54:41" id="T12:54:41"><abbr title="2012-02-12T12:54:41+00:00">12:54:41</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>Crofton: pong.  I get in tonight.</q></li>
+<li class="quit">[<a href="#T12:57:43" id="T12:57:43"><abbr title="2012-02-12T12:57:43+00:00">12:57:43</abbr></a>] <span>* novogrammer (~novogramm@softbank126108028029.bbtec.net) Quit (Remote host closed the connection)</span></li>
