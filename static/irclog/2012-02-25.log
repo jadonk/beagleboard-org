@@ -1353,3 +1353,169 @@
 <li class="quit">[<a href="#T20:56:59" id="T20:56:59"><abbr title="2012-02-25T20:56:59+00:00">20:56:59</abbr></a>] <span>* pcacjr (~pcacjr@187.78.78.235) Quit (Ping timeout: 265 seconds)</span></li>
 <li class="quit">[<a href="#T20:58:10" id="T20:58:10"><abbr title="2012-02-25T20:58:10+00:00">20:58:10</abbr></a>] <span>* pcacjr_ (~pcacjr@187.78.77.21) Quit (Ping timeout: 252 seconds)</span></li>
 <li class="message">[<a href="#T20:59:55" id="T20:59:55"><abbr title="2012-02-25T20:59:55+00:00">20:59:55</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>hmm.... still i did "screen /dev/ttyUSB0 115200" and even "screen /dev/ttyUSB1 115200" and i cannot get any console</q></li>
+<li class="join">[<a href="#T21:00:46" id="T21:00:46"><abbr title="2012-02-25T21:00:46+00:00">21:00:46</abbr></a>] <span>* peabody124 (~peabody12@207-91-146-182.nstci.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:01:36" id="T21:01:36"><abbr title="2012-02-25T21:01:36+00:00">21:01:36</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>i had better luck with picocom then i did screen</q></li>
+<li class="message">[<a href="#T21:01:55" id="T21:01:55"><abbr title="2012-02-25T21:01:55+00:00">21:01:55</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>and i had to hit a key</q></li>
+<li class="message">[<a href="#T21:01:56" id="T21:01:56"><abbr title="2012-02-25T21:01:56+00:00">21:01:56</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>enter</q></li>
+<li class="message">[<a href="#T21:02:02" id="T21:02:02"><abbr title="2012-02-25T21:02:02+00:00">21:02:02</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>to get the login prompt to come up</q></li>
+<li class="message">[<a href="#T21:02:14" id="T21:02:14"><abbr title="2012-02-25T21:02:14+00:00">21:02:14</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>unless you can get your console attached before it finishes booting</q></li>
+<li class="message">[<a href="#T21:02:50" id="T21:02:50"><abbr title="2012-02-25T21:02:50+00:00">21:02:50</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>OrlandoT find out where it is connected</q></li>
+<li class="message">[<a href="#T21:03:03" id="T21:03:03"><abbr title="2012-02-25T21:03:03+00:00">21:03:03</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>poking wild around gains this much</q></li>
+<li class="message">[<a href="#T21:03:13" id="T21:03:13"><abbr title="2012-02-25T21:03:13+00:00">21:03:13</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>dont</q></li>
+<li class="quit">[<a href="#T21:04:29" id="T21:04:29"><abbr title="2012-02-25T21:04:29+00:00">21:04:29</abbr></a>] <span>* arthurnn (~Adium@CPEb8c75dc9670b-CM0026f30c520d.cpe.net.cable.rogers.com) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T21:04:56" id="T21:04:56"><abbr title="2012-02-25T21:04:56+00:00">21:04:56</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T21:05:08" id="T21:05:08"><abbr title="2012-02-25T21:05:08+00:00">21:05:08</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>how can i find out where it is connected</q></li>
+<li class="message">[<a href="#T21:05:27" id="T21:05:27"><abbr title="2012-02-25T21:05:27+00:00">21:05:27</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>I'm only poking wildly around because I do not know how to do it properly</q></li>
+<li class="message">[<a href="#T21:06:48" id="T21:06:48"><abbr title="2012-02-25T21:06:48+00:00">21:06:48</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>at this time I did a dmesg and I see that ttyUSB0 and ttyUSB1 were detected</q></li>
+<li class="message">[<a href="#T21:07:02" id="T21:07:02"><abbr title="2012-02-25T21:07:02+00:00">21:07:02</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>then what should I do next?</q></li>
+<li class="message">[<a href="#T21:10:12" id="T21:10:12"><abbr title="2012-02-25T21:10:12+00:00">21:10:12</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>you should be able to picocom -b 115200 /dev/ttyUSB1</q></li>
+<li class="message">[<a href="#T21:10:15" id="T21:10:15"><abbr title="2012-02-25T21:10:15+00:00">21:10:15</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>I'm just getting Permission denied errors</q></li>
+<li class="message">[<a href="#T21:10:16" id="T21:10:16"><abbr title="2012-02-25T21:10:16+00:00">21:10:16</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>make: execvp: /usr/src/u-boot-2011.12/u-boot-2011.12/mkconfig: Permission denied</q></li>
+<li class="message">[<a href="#T21:10:17" id="T21:10:17"><abbr title="2012-02-25T21:10:17+00:00">21:10:17</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>and start interacting</q></li>
+<li class="message">[<a href="#T21:11:00" id="T21:11:00"><abbr title="2012-02-25T21:11:00+00:00">21:11:00</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>i don't have mine connected to my pc anymore, sorry I can't be more helpful :/</q></li>
+<li class="message">[<a href="#T21:11:07" id="T21:11:07"><abbr title="2012-02-25T21:11:07+00:00">21:11:07</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>picocom? ok let me download it</q></li>
+<li class="join">[<a href="#T21:12:09" id="T21:12:09"><abbr title="2012-02-25T21:12:09+00:00">21:12:09</abbr></a>] <span>* etheretic2 (~etheretic@cm-84.208.181.2.getinternet.no) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:12:53" id="T21:12:53"><abbr title="2012-02-25T21:12:53+00:00">21:12:53</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>hmm... interesting now at least I am seeing some strange characters in the console using picocom</q></li>
+<li class="message">[<a href="#T21:13:05" id="T21:13:05"><abbr title="2012-02-25T21:13:05+00:00">21:13:05</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>like if i had the wrong baud rate setup</q></li>
+<li class="message">[<a href="#T21:13:29" id="T21:13:29"><abbr title="2012-02-25T21:13:29+00:00">21:13:29</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>hrm</q></li>
+<li class="message">[<a href="#T21:13:34" id="T21:13:34"><abbr title="2012-02-25T21:13:34+00:00">21:13:34</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>how can i exit the picocom now?</q></li>
+<li class="message">[<a href="#T21:13:40" id="T21:13:40"><abbr title="2012-02-25T21:13:40+00:00">21:13:40</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>haha, it's a little goofy</q></li>
+<li class="message">[<a href="#T21:13:44" id="T21:13:44"><abbr title="2012-02-25T21:13:44+00:00">21:13:44</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>maybe i should try ttyUSB0</q></li>
+<li class="message">[<a href="#T21:13:45" id="T21:13:45"><abbr title="2012-02-25T21:13:45+00:00">21:13:45</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>ctrl a - x</q></li>
+<li class="message">[<a href="#T21:13:48" id="T21:13:48"><abbr title="2012-02-25T21:13:48+00:00">21:13:48</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>so holding control down</q></li>
+<li class="message">[<a href="#T21:13:51" id="T21:13:51"><abbr title="2012-02-25T21:13:51+00:00">21:13:51</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>hit a then x</q></li>
+<li class="message">[<a href="#T21:13:57" id="T21:13:57"><abbr title="2012-02-25T21:13:57+00:00">21:13:57</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>without letting go of control</q></li>
+<li class="message">[<a href="#T21:14:37" id="T21:14:37"><abbr title="2012-02-25T21:14:37+00:00">21:14:37</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>did that work?</q></li>
+<li class="message">[<a href="#T21:14:38" id="T21:14:38"><abbr title="2012-02-25T21:14:38+00:00">21:14:38</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>oops i found out the hardway that it wasn't ttyUSB0 lol</q></li>
+<li class="message">[<a href="#T21:14:51" id="T21:14:51"><abbr title="2012-02-25T21:14:51+00:00">21:14:51</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>USB0 seems to be for storage</q></li>
+<li class="quit">[<a href="#T21:15:21" id="T21:15:21"><abbr title="2012-02-25T21:15:21+00:00">21:15:21</abbr></a>] <span>* etheretic (~etheretic@cm-84.208.181.2.getinternet.no) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T21:16:08" id="T21:16:08"><abbr title="2012-02-25T21:16:08+00:00">21:16:08</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>picocom -b 115200 /dev/ttyUSB1 seems to do the trick except that I get strange characters instead of the console</q></li>
+<li class="quit">[<a href="#T21:16:11" id="T21:16:11"><abbr title="2012-02-25T21:16:11+00:00">21:16:11</abbr></a>] <span>* peabody124 (~peabody12@207-91-146-182.nstci.net) Quit (Quit: peabody124)</span></li>
+<li class="message">[<a href="#T21:16:19" id="T21:16:19"><abbr title="2012-02-25T21:16:19+00:00">21:16:19</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>can you interact with it?</q></li>
+<li class="message">[<a href="#T21:16:23" id="T21:16:23"><abbr title="2012-02-25T21:16:23+00:00">21:16:23</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>like if I had the wrong baud rate setup but it clearly says 115200</q></li>
+<li class="message">[<a href="#T21:16:27" id="T21:16:27"><abbr title="2012-02-25T21:16:27+00:00">21:16:27</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T21:16:34" id="T21:16:34"><abbr title="2012-02-25T21:16:34+00:00">21:16:34</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>does it respond to character presses or the enter key?</q></li>
+<li class="message">[<a href="#T21:16:41" id="T21:16:41"><abbr title="2012-02-25T21:16:41+00:00">21:16:41</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>jsut with goofy characters?</q></li>
+<li class="message">[<a href="#T21:16:43" id="T21:16:43"><abbr title="2012-02-25T21:16:43+00:00">21:16:43</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>well, everytime i hit enter it replies with a bunch of garbage characters</q></li>
+<li class="message">[<a href="#T21:16:47" id="T21:16:47"><abbr title="2012-02-25T21:16:47+00:00">21:16:47</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T21:17:19" id="T21:17:19"><abbr title="2012-02-25T21:17:19+00:00">21:17:19</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>pretty sure 115200 is correct too</q></li>
+<li class="message">[<a href="#T21:17:20" id="T21:17:20"><abbr title="2012-02-25T21:17:20+00:00">21:17:20</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>oh my god</q></li>
+<li class="message">[<a href="#T21:17:25" id="T21:17:25"><abbr title="2012-02-25T21:17:25+00:00">21:17:25</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>it started to work now</q></li>
+<li class="message">[<a href="#T21:17:39" id="T21:17:39"><abbr title="2012-02-25T21:17:39+00:00">21:17:39</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>yeah??</q></li>
+<li class="message">[<a href="#T21:17:43" id="T21:17:43"><abbr title="2012-02-25T21:17:43+00:00">21:17:43</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>I simply tried multiple times with picocom and it started working all of the sudden</q></li>
+<li class="message">[<a href="#T21:17:49" id="T21:17:49"><abbr title="2012-02-25T21:17:49+00:00">21:17:49</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>man this thing is buggy</q></li>
+<li class="message">[<a href="#T21:17:51" id="T21:17:51"><abbr title="2012-02-25T21:17:51+00:00">21:17:51</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>very odd</q></li>
+<li class="message">[<a href="#T21:18:00" id="T21:18:00"><abbr title="2012-02-25T21:18:00+00:00">21:18:00</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>are you using virtualbox or vmware?</q></li>
+<li class="message">[<a href="#T21:18:06" id="T21:18:06"><abbr title="2012-02-25T21:18:06+00:00">21:18:06</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>vmware</q></li>
+<li class="message">[<a href="#T21:18:14" id="T21:18:14"><abbr title="2012-02-25T21:18:14+00:00">21:18:14</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>vmware is usually good with usb</q></li>
+<li class="message">[<a href="#T21:18:20" id="T21:18:20"><abbr title="2012-02-25T21:18:20+00:00">21:18:20</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>hrm, can't help there... i know i've found virtualbox to be pretty buggy with usb</q></li>
+<li class="message">[<abbr title="2012-02-25T21:18:20+00:00">21:18:20</abbr>] &lt;<cite>OrlandoT</cite>&gt; <q>windows as my host</q></li>
+<li class="message">[<a href="#T21:18:33" id="T21:18:33"><abbr title="2012-02-25T21:18:33+00:00">21:18:33</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>newer versions are better</q></li>
+<li class="join">[<a href="#T21:18:34" id="T21:18:34"><abbr title="2012-02-25T21:18:34+00:00">21:18:34</abbr></a>] <span>* risca (~risca@wi-secure-8039.cc.umanitoba.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:18:35" id="T21:18:35"><abbr title="2012-02-25T21:18:35+00:00">21:18:35</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>I've managed to do a chmod 755 mkconfig</q></li>
+<li class="message">[<a href="#T21:18:40" id="T21:18:40"><abbr title="2012-02-25T21:18:40+00:00">21:18:40</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>but windows really likes to fight for control of usb</q></li>
+<li class="message">[<a href="#T21:19:13" id="T21:19:13"><abbr title="2012-02-25T21:19:13+00:00">21:19:13</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>which is why i gave up and just used putty from windows, i found that to be quite reliable</q></li>
+<li class="message">[<a href="#T21:19:21" id="T21:19:21"><abbr title="2012-02-25T21:19:21+00:00">21:19:21</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>and I've configured the uboot using "make am335x_evm_config"</q></li>
+<li class="message">[<a href="#T21:19:23" id="T21:19:23"><abbr title="2012-02-25T21:19:23+00:00">21:19:23</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>but all i needed to do was a little configuration</q></li>
+<li class="message">[<a href="#T21:19:51" id="T21:19:51"><abbr title="2012-02-25T21:19:51+00:00">21:19:51</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>but I get permissions errors when I run mak</q></li>
+<li class="message">[<a href="#T21:19:53" id="T21:19:53"><abbr title="2012-02-25T21:19:53+00:00">21:19:53</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>make</q></li>
+<li class="join">[<a href="#T21:19:58" id="T21:19:58"><abbr title="2012-02-25T21:19:58+00:00">21:19:58</abbr></a>] <span>* pcacjr (~pcacjr@187.78.45.73) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:20:14" id="T21:20:14"><abbr title="2012-02-25T21:20:14+00:00">21:20:14</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>this thing is flaky</q></li>
+<li class="message">[<a href="#T21:20:18" id="T21:20:18"><abbr title="2012-02-25T21:20:18+00:00">21:20:18</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>did you extract the tarball as root or something?</q></li>
+<li class="message">[<a href="#T21:20:35" id="T21:20:35"><abbr title="2012-02-25T21:20:35+00:00">21:20:35</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>i am getting garbage characters again</q></li>
+<li class="message">[<a href="#T21:20:48" id="T21:20:48"><abbr title="2012-02-25T21:20:48+00:00">21:20:48</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>even though I did not disconnect or touched any usb stuff</q></li>
+<li class="message">[<abbr title="2012-02-25T21:20:48+00:00">21:20:48</abbr>] &lt;<cite>Sharpyuk</cite>&gt; <q>no extracted the tar on my windows machine and copied over using WinSCP</q></li>
+<li class="message">[<a href="#T21:21:01" id="T21:21:01"><abbr title="2012-02-25T21:21:01+00:00">21:21:01</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>ouch</q></li>
+<li class="message">[<a href="#T21:21:10" id="T21:21:10"><abbr title="2012-02-25T21:21:10+00:00">21:21:10</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>lol why ouch</q></li>
+<li class="message">[<a href="#T21:21:25" id="T21:21:25"><abbr title="2012-02-25T21:21:25+00:00">21:21:25</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>how should I do it?</q></li>
+<li class="message">[<a href="#T21:21:44" id="T21:21:44"><abbr title="2012-02-25T21:21:44+00:00">21:21:44</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>because you lost information like that</q></li>
+<li class="message">[<abbr title="2012-02-25T21:21:44+00:00">21:21:44</abbr>] &lt;<cite>jay6981</cite>&gt; <q>just extract it on the device</q></li>
+<li class="message">[<abbr title="2012-02-25T21:21:44+00:00">21:21:44</abbr>] &lt;<cite>Sharpyuk</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T21:21:52" id="T21:21:52"><abbr title="2012-02-25T21:21:52+00:00">21:21:52</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>what command for unzipping with tar</q></li>
+<li class="join">[<a href="#T21:21:57" id="T21:21:57"><abbr title="2012-02-25T21:21:57+00:00">21:21:57</abbr></a>] <span>* |static| (~0x-@unaffiliated/userx-) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:21:59" id="T21:21:59"><abbr title="2012-02-25T21:21:59+00:00">21:21:59</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>windows filesystem can't store permissions and uid/gid etc</q></li>
+<li class="message">[<a href="#T21:22:03" id="T21:22:03"><abbr title="2012-02-25T21:22:03+00:00">21:22:03</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>tar -xvf</q></li>
+<li class="message">[<a href="#T21:22:04" id="T21:22:04"><abbr title="2012-02-25T21:22:04+00:00">21:22:04</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>tar xvfz filename.tgz</q></li>
+<li class="message">[<a href="#T21:22:05" id="T21:22:05"><abbr title="2012-02-25T21:22:05+00:00">21:22:05</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>tar xvzfp :)</q></li>
+<li class="message">[<a href="#T21:22:07" id="T21:22:07"><abbr title="2012-02-25T21:22:07+00:00">21:22:07</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>if it's tar.gz</q></li>
+<li class="message">[<a href="#T21:22:09" id="T21:22:09"><abbr title="2012-02-25T21:22:09+00:00">21:22:09</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>tar -zxvf</q></li>
+<li class="message">[<a href="#T21:22:20" id="T21:22:20"><abbr title="2012-02-25T21:22:20+00:00">21:22:20</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>what's p?</q></li>
+<li class="message">[<a href="#T21:22:32" id="T21:22:32"><abbr title="2012-02-25T21:22:32+00:00">21:22:32</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>now i'm curious</q></li>
+<li class="message">[<a href="#T21:22:35" id="T21:22:35"><abbr title="2012-02-25T21:22:35+00:00">21:22:35</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>sorry I was taking the p...</q></li>
+<li class="message">[<a href="#T21:22:56" id="T21:22:56"><abbr title="2012-02-25T21:22:56+00:00">21:22:56</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>I never know which switches to use..</q></li>
+<li class="message">[<a href="#T21:23:02" id="T21:23:02"><abbr title="2012-02-25T21:23:02+00:00">21:23:02</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T21:23:06" id="T21:23:06"><abbr title="2012-02-25T21:23:06+00:00">21:23:06</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>:)</q></li>
+<li class="quit">[<a href="#T21:23:16" id="T21:23:16"><abbr title="2012-02-25T21:23:16+00:00">21:23:16</abbr></a>] <span>* |static| (~0x-@unaffiliated/userx-) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T21:23:17" id="T21:23:17"><abbr title="2012-02-25T21:23:17+00:00">21:23:17</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>i get screwed up when i come accross a .bz2 file</q></li>
+<li class="message">[<a href="#T21:23:28" id="T21:23:28"><abbr title="2012-02-25T21:23:28+00:00">21:23:28</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>Sharpyuk: step one: stop using windows :)</q></li>
+<li class="message">[<a href="#T21:23:31" id="T21:23:31"><abbr title="2012-02-25T21:23:31+00:00">21:23:31</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>i've commited tar and tar.gz to memory now</q></li>
+<li class="message">[<a href="#T21:23:35" id="T21:23:35"><abbr title="2012-02-25T21:23:35+00:00">21:23:35</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>yep I agree</q></li>
+<li class="message">[<a href="#T21:23:55" id="T21:23:55"><abbr title="2012-02-25T21:23:55+00:00">21:23:55</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>at least spin up a linux vm to work in</q></li>
+<li class="message">[<a href="#T21:24:05" id="T21:24:05"><abbr title="2012-02-25T21:24:05+00:00">21:24:05</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>that's what I was going to say</q></li>
+<li class="message">[<a href="#T21:24:18" id="T21:24:18"><abbr title="2012-02-25T21:24:18+00:00">21:24:18</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>I could do a vm easy enough</q></li>
+<li class="message">[<a href="#T21:24:52" id="T21:24:52"><abbr title="2012-02-25T21:24:52+00:00">21:24:52</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>then spend 3 weeks building a linux kernel that will install on the vm :_</q></li>
+<li class="quit">[<a href="#T21:24:55" id="T21:24:55"><abbr title="2012-02-25T21:24:55+00:00">21:24:55</abbr></a>] <span>* userx- (~0x-@unaffiliated/userx-) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<abbr title="2012-02-25T21:24:55+00:00">21:24:55</abbr>] &lt;<cite>Sharpyuk</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T21:25:05" id="T21:25:05"><abbr title="2012-02-25T21:25:05+00:00">21:25:05</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T21:25:12" id="T21:25:12"><abbr title="2012-02-25T21:25:12+00:00">21:25:12</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>you'd learn a lot doing it I bet</q></li>
+<li class="message">[<a href="#T21:27:36" id="T21:27:36"><abbr title="2012-02-25T21:27:36+00:00">21:27:36</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>for sure, I've already learnt a lot from you guys!</q></li>
+<li class="message">[<a href="#T21:29:10" id="T21:29:10"><abbr title="2012-02-25T21:29:10+00:00">21:29:10</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>its a .bz2</q></li>
+<li class="quit">[<a href="#T21:29:27" id="T21:29:27"><abbr title="2012-02-25T21:29:27+00:00">21:29:27</abbr></a>] <span>* pcacjr (~pcacjr@187.78.45.73) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T21:29:32" id="T21:29:32"><abbr title="2012-02-25T21:29:32+00:00">21:29:32</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>Sharpyuk: since you brought it up... <a href="http://www.linuxfromscratch.org/lfs/">http://www.linuxfromscratch.org/lfs/</a></q></li>
+<li class="message">[<a href="#T21:30:48" id="T21:30:48"><abbr title="2012-02-25T21:30:48+00:00">21:30:48</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>that looks fun!</q></li>
+<li class="message">[<a href="#T21:31:03" id="T21:31:03"><abbr title="2012-02-25T21:31:03+00:00">21:31:03</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>it would be educational</q></li>
+<li class="message">[<a href="#T21:32:18" id="T21:32:18"><abbr title="2012-02-25T21:32:18+00:00">21:32:18</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>it would take me 3 years not 3 weeks</q></li>
+<li class="message">[<a href="#T21:32:21" id="T21:32:21"><abbr title="2012-02-25T21:32:21+00:00">21:32:21</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>i'm trying to learn how to build linux device drivers</q></li>
+<li class="message">[<a href="#T21:32:33" id="T21:32:33"><abbr title="2012-02-25T21:32:33+00:00">21:32:33</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>ordered a copy of Linux Device Driver 3rd edition</q></li>
+<li class="message">[<a href="#T21:32:36" id="T21:32:36"><abbr title="2012-02-25T21:32:36+00:00">21:32:36</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>good reading :)</q></li>
+<li class="message">[<a href="#T21:33:21" id="T21:33:21"><abbr title="2012-02-25T21:33:21+00:00">21:33:21</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>not really sure just yet how bitbake fits in when building a kernel module</q></li>
+<li class="message">[<a href="#T21:33:35" id="T21:33:35"><abbr title="2012-02-25T21:33:35+00:00">21:33:35</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>sounds like it.. I think I'd be better learning the basics first.. like how to unzip a .bz2 file</q></li>
+<li class="message">[<a href="#T21:33:50" id="T21:33:50"><abbr title="2012-02-25T21:33:50+00:00">21:33:50</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T21:34:00" id="T21:34:00"><abbr title="2012-02-25T21:34:00+00:00">21:34:00</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>man tar</q></li>
+<li class="message">[<a href="#T21:34:07" id="T21:34:07"><abbr title="2012-02-25T21:34:07+00:00">21:34:07</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>wait, if you are on the bone</q></li>
+<li class="message">[<a href="#T21:34:10" id="T21:34:10"><abbr title="2012-02-25T21:34:10+00:00">21:34:10</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>i don't think it has man</q></li>
+<li class="message">[<a href="#T21:34:16" id="T21:34:16"><abbr title="2012-02-25T21:34:16+00:00">21:34:16</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T21:34:24" id="T21:34:24"><abbr title="2012-02-25T21:34:24+00:00">21:34:24</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>haha google tar</q></li>
+<li class="message">[<a href="#T21:34:29" id="T21:34:29"><abbr title="2012-02-25T21:34:29+00:00">21:34:29</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>i can never remember the switch</q></li>
+<li class="message">[<a href="#T21:34:31" id="T21:34:31"><abbr title="2012-02-25T21:34:31+00:00">21:34:31</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>for bz2</q></li>
+<li class="message">[<a href="#T21:34:33" id="T21:34:33"><abbr title="2012-02-25T21:34:33+00:00">21:34:33</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T21:35:28" id="T21:35:28"><abbr title="2012-02-25T21:35:28+00:00">21:35:28</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>tar jxf</q></li>
+<li class="join">[<a href="#T21:35:29" id="T21:35:29"><abbr title="2012-02-25T21:35:29+00:00">21:35:29</abbr></a>] <span>* _roger_ (~a0740758@nat/ti/x-bibtlxdrgfvqkxid) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:37:00" id="T21:37:00"><abbr title="2012-02-25T21:37:00+00:00">21:37:00</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T21:37:12" id="T21:37:12"><abbr title="2012-02-25T21:37:12+00:00">21:37:12</abbr></a>] &lt;<cite>Red2</cite>&gt; <q>right j for bz2... i was gonna guess j or h</q></li>
+<li class="message">[<a href="#T21:37:33" id="T21:37:33"><abbr title="2012-02-25T21:37:33+00:00">21:37:33</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>the newer tars can seem to figure it out</q></li>
+<li class="quit">[<a href="#T21:37:55" id="T21:37:55"><abbr title="2012-02-25T21:37:55+00:00">21:37:55</abbr></a>] <span>* tor (~tor@c-1465e655.125-1-64736c10.cust.bredbandsbolaget.se) Quit (Quit: Ex-Chat)</span></li>
+<li class="join">[<a href="#T21:38:32" id="T21:38:32"><abbr title="2012-02-25T21:38:32+00:00">21:38:32</abbr></a>] <span>* snowrichard (~richard@184.52.149.149) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:39:42" id="T21:39:42"><abbr title="2012-02-25T21:39:42+00:00">21:39:42</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>i'm trying to install chromium browser and my download is only 2Kb/sec</q></li>
+<li class="message">[<a href="#T21:42:56" id="T21:42:56"><abbr title="2012-02-25T21:42:56+00:00">21:42:56</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>its working now</q></li>
+<li class="join">[<a href="#T21:44:18" id="T21:44:18"><abbr title="2012-02-25T21:44:18+00:00">21:44:18</abbr></a>] <span>* himcesjf (~cesjf@unaffiliated/himcesjf) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:44:37" id="T21:44:37"><abbr title="2012-02-25T21:44:37+00:00">21:44:37</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>what were you working on Sharpyuk?</q></li>
+<li class="message">[<a href="#T21:44:51" id="T21:44:51"><abbr title="2012-02-25T21:44:51+00:00">21:44:51</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>I think i saw one of your messages on the mailing list</q></li>
+<li class="message">[<a href="#T21:45:04" id="T21:45:04"><abbr title="2012-02-25T21:45:04+00:00">21:45:04</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>Sharpyuk: what's working?</q></li>
+<li class="quit">[<a href="#T21:46:46" id="T21:46:46"><abbr title="2012-02-25T21:46:46+00:00">21:46:46</abbr></a>] <span>* dneary (~dneary@Maemo/community/docmaster/dneary) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T21:47:41" id="T21:47:41"><abbr title="2012-02-25T21:47:41+00:00">21:47:41</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>the make for uboot</q></li>
+<li class="message">[<a href="#T21:48:11" id="T21:48:11"><abbr title="2012-02-25T21:48:11+00:00">21:48:11</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>native compiler?</q></li>
+<li class="message">[<a href="#T21:48:19" id="T21:48:19"><abbr title="2012-02-25T21:48:19+00:00">21:48:19</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T21:48:41" id="T21:48:41"><abbr title="2012-02-25T21:48:41+00:00">21:48:41</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>it finished, I've tried mkimage and it's still unable to find it</q></li>
+<li class="quit">[<a href="#T21:48:51" id="T21:48:51"><abbr title="2012-02-25T21:48:51+00:00">21:48:51</abbr></a>] <span>* himcesjf (~cesjf@unaffiliated/himcesjf) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T21:49:22" id="T21:49:22"><abbr title="2012-02-25T21:49:22+00:00">21:49:22</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>not sure what I've done wrong</q></li>
+<li class="message">[<a href="#T21:50:06" id="T21:50:06"><abbr title="2012-02-25T21:50:06+00:00">21:50:06</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>have never tried building one on beagle</q></li>
+<li class="message">[<a href="#T21:50:33" id="T21:50:33"><abbr title="2012-02-25T21:50:33+00:00">21:50:33</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>seems like it leaves the output in arch/... something though</q></li>
+<li class="join">[<a href="#T21:53:54" id="T21:53:54"><abbr title="2012-02-25T21:53:54+00:00">21:53:54</abbr></a>] <span>* himcesjf (~cesjf@unaffiliated/himcesjf) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:54:10" id="T21:54:10"><abbr title="2012-02-25T21:54:10+00:00">21:54:10</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>I can see mkimage in the /tools folder</q></li>
+<li class="message">[<a href="#T21:54:39" id="T21:54:39"><abbr title="2012-02-25T21:54:39+00:00">21:54:39</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>there's these .h .c .o and one without an extension</q></li>
+<li class="message">[<a href="#T21:55:04" id="T21:55:04"><abbr title="2012-02-25T21:55:04+00:00">21:55:04</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>but it doesn't work if I try run it</q></li>
+<li class="join">[<a href="#T21:55:05" id="T21:55:05"><abbr title="2012-02-25T21:55:05+00:00">21:55:05</abbr></a>] <span>* davest (DCSTEWAR@nat/intel/x-arglwjeejpailapu) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T21:56:18" id="T21:56:18"><abbr title="2012-02-25T21:56:18+00:00">21:56:18</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>Sharpyuk: make sure its in path</q></li>
+<li class="message">[<a href="#T21:56:19" id="T21:56:19"><abbr title="2012-02-25T21:56:19+00:00">21:56:19</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>does anybody know how I can compile a Angstrom kernel module outside the kernel source tree? normally I would do something like make -C ~/kernel-x.x M='pwd' modules with a Makefile like obj-m := hello.o</q></li>
+<li class="message">[<a href="#T21:56:23" id="T21:56:23"><abbr title="2012-02-25T21:56:23+00:00">21:56:23</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>but that is natively not cross compiled</q></li>
+<li class="message">[<a href="#T21:56:34" id="T21:56:34"><abbr title="2012-02-25T21:56:34+00:00">21:56:34</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>does anybody know how I can compile a Angstrom kernel module outside the kernel source tree? normally I would do something like make -C ~/kernel-x.x M='pwd' modules with a Makefile like obj-m := hello.o</q></li>
+<li class="message">[<a href="#T21:56:42" id="T21:56:42"><abbr title="2012-02-25T21:56:42+00:00">21:56:42</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>but that is natively not cross compiled</q></li>
+<li class="message">[<a href="#T21:56:47" id="T21:56:47"><abbr title="2012-02-25T21:56:47+00:00">21:56:47</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>OrlandoT get a cross-compiler</q></li>
+<li class="message">[<a href="#T21:56:58" id="T21:56:58"><abbr title="2012-02-25T21:56:58+00:00">21:56:58</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>set it via CROSS_COMPILE and do the same</q></li>
+<li class="message">[<a href="#T21:57:16" id="T21:57:16"><abbr title="2012-02-25T21:57:16+00:00">21:57:16</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or write a recipe and let it build via bitbake</q></li>
+<li class="join">[<a href="#T21:58:05" id="T21:58:05"><abbr title="2012-02-25T21:58:05+00:00">21:58:05</abbr></a>] <span>* forks_ (79493a60@gateway/web/freenode/ip.121.73.58.96) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:58:48" id="T21:58:48"><abbr title="2012-02-25T21:58:48+00:00">21:58:48</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>I suppose that I already have a cross compiler since Angstrom was built with bitbake oob</q></li>
+<li class="message">[<a href="#T21:58:54" id="T21:58:54"><abbr title="2012-02-25T21:58:54+00:00">21:58:54</abbr></a>] &lt;<cite>Sharpyuk</cite>&gt; <q>what's best way to do the path, can I use SET PATH=$PATH:/usr/src/u-boot-2011.12/tools</q></li>
+<li class="message">[<a href="#T21:59:33" id="T21:59:33"><abbr title="2012-02-25T21:59:33+00:00">21:59:33</abbr></a>] &lt;<cite>OrlandoT</cite>&gt; <q>I just don't know where to find the cross compiler tools inside the directories that angstrom build system has</q></li>
+<li class="quit">[<a href="#T21:59:55" id="T21:59:55"><abbr title="2012-02-25T21:59:55+00:00">21:59:55</abbr></a>] <span>* himcesjf (~cesjf@unaffiliated/himcesjf) Quit ()</span></li>
