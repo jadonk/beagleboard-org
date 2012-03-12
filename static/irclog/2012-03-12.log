@@ -233,3 +233,78 @@
 <li class="message">[<a href="#T00:59:38" id="T00:59:38"><abbr title="2012-03-12T00:59:38+00:00">00:59:38</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>you won't get the full experience unless you do it from scratch and setup the DPLLs yourself</q></li>
 <li class="message">[<a href="#T00:59:55" id="T00:59:55"><abbr title="2012-03-12T00:59:55+00:00">00:59:55</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>jay6981: i honestly belive you need to do that</q></li>
 <li class="message">[<a href="#T00:59:59" id="T00:59:59"><abbr title="2012-03-12T00:59:59+00:00">00:59:59</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>that's the eventual plan</q></li>
+<li class="quit">[<a href="#T01:00:05" id="T01:00:05"><abbr title="2012-03-12T01:00:05+00:00">01:00:05</abbr></a>] <span>* bhthompson (~bhthompso@c-98-234-177-179.hsd1.ca.comcast.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T01:00:15" id="T01:00:15"><abbr title="2012-03-12T01:00:15+00:00">01:00:15</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>i did it for the omap35xx</q></li>
+<li class="message">[<a href="#T01:00:16" id="T01:00:16"><abbr title="2012-03-12T01:00:16+00:00">01:00:16</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>but for now just getting interrupts, the MMU, and a few other things working before that</q></li>
+<li class="message">[<a href="#T01:00:23" id="T01:00:23"><abbr title="2012-03-12T01:00:23+00:00">01:00:23</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>XMPPwocky: what you have will almost run after the on chip rom code has executed</q></li>
+<li class="join">[<a href="#T01:00:30" id="T01:00:30"><abbr title="2012-03-12T01:00:30+00:00">01:00:30</abbr></a>] <span>* bhthompson (~bhthompso@c-98-234-177-179.hsd1.ca.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:00:41" id="T01:00:41"><abbr title="2012-03-12T01:00:41+00:00">01:00:41</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>XMPPwocky: but now you don't know what uboot has done for you</q></li>
+<li class="message">[<a href="#T01:00:44" id="T01:00:44"><abbr title="2012-03-12T01:00:44+00:00">01:00:44</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>XMPPwocky: default interrupt vector is on die sram</q></li>
+<li class="message">[<a href="#T01:01:07" id="T01:01:07"><abbr title="2012-03-12T01:01:07+00:00">01:01:07</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>sure, but then I've got to set up the UART from scratch too</q></li>
+<li class="message">[<a href="#T01:01:16" id="T01:01:16"><abbr title="2012-03-12T01:01:16+00:00">01:01:16</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>so? that isn't hard</q></li>
+<li class="message">[<a href="#T01:01:27" id="T01:01:27"><abbr title="2012-03-12T01:01:27+00:00">01:01:27</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>XMPPwocky: it only needs a pll wich the on chip rom code probably does for you anyways</q></li>
+<li class="message">[<a href="#T01:01:29" id="T01:01:29"><abbr title="2012-03-12T01:01:29+00:00">01:01:29</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>sure, but if I don't have to right now, I'd rather not</q></li>
+<li class="message">[<a href="#T01:01:33" id="T01:01:33"><abbr title="2012-03-12T01:01:33+00:00">01:01:33</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>then bang the bytes out</q></li>
+<li class="message">[<abbr title="2012-03-12T01:01:33+00:00">01:01:33</abbr>] &lt;<cite>jay6981</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T01:02:09" id="T01:02:09"><abbr title="2012-03-12T01:02:09+00:00">01:02:09</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>the mask rom is nice enough to hand off a clock tree that'll work with 64k sram and the uart</q></li>
+<li class="message">[<a href="#T01:02:32" id="T01:02:32"><abbr title="2012-03-12T01:02:32+00:00">01:02:32</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>so how /do/ you load something into sram</q></li>
+<li class="message">[<a href="#T01:02:36" id="T01:02:36"><abbr title="2012-03-12T01:02:36+00:00">01:02:36</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>ftdi</q></li>
+<li class="message">[<a href="#T01:02:39" id="T01:02:39"><abbr title="2012-03-12T01:02:39+00:00">01:02:39</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>or mmc</q></li>
+<li class="message">[<a href="#T01:02:40" id="T01:02:40"><abbr title="2012-03-12T01:02:40+00:00">01:02:40</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>you have a bone</q></li>
+<li class="message">[<a href="#T01:02:47" id="T01:02:47"><abbr title="2012-03-12T01:02:47+00:00">01:02:47</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>i made my own "MLO"</q></li>
+<li class="message">[<a href="#T01:02:49" id="T01:02:49"><abbr title="2012-03-12T01:02:49+00:00">01:02:49</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>so use the ftdi</q></li>
+<li class="message">[<a href="#T01:03:02" id="T01:03:02"><abbr title="2012-03-12T01:03:02+00:00">01:03:02</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>unsolo_: JTAG?</q></li>
+<li class="message">[<a href="#T01:03:21" id="T01:03:21"><abbr title="2012-03-12T01:03:21+00:00">01:03:21</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>openocd + eclipse + ftdi (jtag) and you can break code in the 64KB</q></li>
+<li class="message">[<a href="#T01:03:26" id="T01:03:26"><abbr title="2012-03-12T01:03:26+00:00">01:03:26</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>even load it</q></li>
+<li class="message">[<a href="#T01:03:29" id="T01:03:29"><abbr title="2012-03-12T01:03:29+00:00">01:03:29</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>jump it</q></li>
+<li class="message">[<a href="#T01:03:30" id="T01:03:30"><abbr title="2012-03-12T01:03:30+00:00">01:03:30</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>the mask rom will allegedly load things straight from uart into sram but I never managed to make it work</q></li>
+<li class="message">[<a href="#T01:03:33" id="T01:03:33"><abbr title="2012-03-12T01:03:33+00:00">01:03:33</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>and all kinds of fun</q></li>
+<li class="message">[<a href="#T01:03:41" id="T01:03:41"><abbr title="2012-03-12T01:03:41+00:00">01:03:41</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>jay6981: its easy</q></li>
+<li class="message">[<a href="#T01:03:48" id="T01:03:48"><abbr title="2012-03-12T01:03:48+00:00">01:03:48</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>i didn't have the luxury of a jtag setup</q></li>
+<li class="message">[<a href="#T01:04:01" id="T01:04:01"><abbr title="2012-03-12T01:04:01+00:00">01:04:01</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>jay6981: honestly thats just stupid ;)</q></li>
+<li class="message">[<a href="#T01:04:11" id="T01:04:11"><abbr title="2012-03-12T01:04:11+00:00">01:04:11</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>k, I'll look at openocd</q></li>
+<li class="message">[<a href="#T01:04:14" id="T01:04:14"><abbr title="2012-03-12T01:04:14+00:00">01:04:14</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>no eclipse</q></li>
+<li class="message">[<a href="#T01:04:19" id="T01:04:19"><abbr title="2012-03-12T01:04:19+00:00">01:04:19</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>i don't think it was stupid at all</q></li>
+<li class="message">[<a href="#T01:04:20" id="T01:04:20"><abbr title="2012-03-12T01:04:20+00:00">01:04:20</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>XMPPwocky: why not</q></li>
+<li class="message">[<a href="#T01:04:35" id="T01:04:35"><abbr title="2012-03-12T01:04:35+00:00">01:04:35</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>i did it from scratch without relying on any tool other than the board and mmc</q></li>
+<li class="message">[<a href="#T01:04:44" id="T01:04:44"><abbr title="2012-03-12T01:04:44+00:00">01:04:44</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>it doesn't get any more pure than that</q></li>
+<li class="message">[<a href="#T01:04:55" id="T01:04:55"><abbr title="2012-03-12T01:04:55+00:00">01:04:55</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>unsolo_: i hate eclipse</q></li>
+<li class="quit">[<a href="#T01:05:03" id="T01:05:03"><abbr title="2012-03-12T01:05:03+00:00">01:05:03</abbr></a>] <span>* bhthompson (~bhthompso@c-98-234-177-179.hsd1.ca.comcast.net) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T01:05:14" id="T01:05:14"><abbr title="2012-03-12T01:05:14+00:00">01:05:14</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>XMPPwocky: then hook it to kdevelop or qtcreaor or some other ide you can view the regs live in</q></li>
+<li class="message">[<a href="#T01:05:33" id="T01:05:33"><abbr title="2012-03-12T01:05:33+00:00">01:05:33</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>unsolo_: gdb looks like it works</q></li>
+<li class="message">[<a href="#T01:05:44" id="T01:05:44"><abbr title="2012-03-12T01:05:44+00:00">01:05:44</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>gdb works but its not very efficient</q></li>
+<li class="message">[<a href="#T01:05:59" id="T01:05:59"><abbr title="2012-03-12T01:05:59+00:00">01:05:59</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>since you have tons of trial and error you need something efficient</q></li>
+<li class="message">[<a href="#T01:06:18" id="T01:06:18"><abbr title="2012-03-12T01:06:18+00:00">01:06:18</abbr></a>] &lt;<cite>jay6981</cite>&gt; <q>qemu-arm-system was helpful</q></li>
+<li class="message">[<a href="#T01:06:34" id="T01:06:34"><abbr title="2012-03-12T01:06:34+00:00">01:06:34</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>jay6981: probably</q></li>
+<li class="message">[<a href="#T01:06:42" id="T01:06:42"><abbr title="2012-03-12T01:06:42+00:00">01:06:42</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>anyhow now its sleep for real</q></li>
+<li class="message">[<a href="#T01:06:59" id="T01:06:59"><abbr title="2012-03-12T01:06:59+00:00">01:06:59</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>lol both the USB ports on the bone are OTG</q></li>
+<li class="message">[<a href="#T01:07:25" id="T01:07:25"><abbr title="2012-03-12T01:07:25+00:00">01:07:25</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>but one is jinxed by the ftdi i think</q></li>
+<li class="quit">[<a href="#T01:08:22" id="T01:08:22"><abbr title="2012-03-12T01:08:22+00:00">01:08:22</abbr></a>] <span>* grummund (~user@unaffiliated/grummund) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T01:08:57" id="T01:08:57"><abbr title="2012-03-12T01:08:57+00:00">01:08:57</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>unless the usb2412 has a dual mode operation</q></li>
+<li class="message">[<a href="#T01:09:06" id="T01:09:06"><abbr title="2012-03-12T01:09:06+00:00">01:09:06</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>in which case the chip can jtag itself</q></li>
+<li class="message">[<a href="#T01:10:06" id="T01:10:06"><abbr title="2012-03-12T01:10:06+00:00">01:10:06</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>meh, I'll just use uboot</q></li>
+<li class="join">[<a href="#T01:11:04" id="T01:11:04"><abbr title="2012-03-12T01:11:04+00:00">01:11:04</abbr></a>] <span>* grummund (~user@unaffiliated/grummund) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:21:02" id="T01:21:02"><abbr title="2012-03-12T01:21:02+00:00">01:21:02</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>so push {r0, r1, r2} pop {r0, r1, r2} is a no-op, or should it be pop {r2, r1, r0}</q></li>
+<li class="message">[<a href="#T01:21:52" id="T01:21:52"><abbr title="2012-03-12T01:21:52+00:00">01:21:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>first</q></li>
+<li class="message">[<a href="#T01:22:05" id="T01:22:05"><abbr title="2012-03-12T01:22:05+00:00">01:22:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>actually, doesn't matter</q></li>
+<li class="message">[<a href="#T01:22:16" id="T01:22:16"><abbr title="2012-03-12T01:22:16+00:00">01:22:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>unless the syntax requires them in order</q></li>
+<li class="message">[<a href="#T01:22:29" id="T01:22:29"><abbr title="2012-03-12T01:22:29+00:00">01:22:29</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>"Pop Multiple Registers loads multiple registers from the stack, loading from consecutive memory locations</q></li>
+<li class="join">[<a href="#T01:22:30" id="T01:22:30"><abbr title="2012-03-12T01:22:30+00:00">01:22:30</abbr></a>] <span>* c4milo (~c4milo@207-38-137-125.c3-0.avec-ubr2.nyr-avec.ny.cable.rcn.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:22:35" id="T01:22:35"><abbr title="2012-03-12T01:22:35+00:00">01:22:35</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>seems to imply that, yeah</q></li>
+<li class="message">[<a href="#T01:23:39" id="T01:23:39"><abbr title="2012-03-12T01:23:39+00:00">01:23:39</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>and then mov is mov (destination) (src)</q></li>
+<li class="message">[<a href="#T01:24:00" id="T01:24:00"><abbr title="2012-03-12T01:24:00+00:00">01:24:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, first operand is always destination</q></li>
+<li class="message">[<a href="#T01:24:29" id="T01:24:29"><abbr title="2012-03-12T01:24:29+00:00">01:24:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the encoding of the load/store multiple instructions has a bitmask for the registers</q></li>
+<li class="message">[<abbr title="2012-03-12T01:24:29+00:00">01:24:29</abbr>] &lt;<cite>XMPPwocky</cite>&gt; <q>great</q></li>
+<li class="message">[<a href="#T01:24:49" id="T01:24:49"><abbr title="2012-03-12T01:24:49+00:00">01:24:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so the order you write doesn't matter</q></li>
+<li class="join">[<a href="#T01:25:02" id="T01:25:02"><abbr title="2012-03-12T01:25:02+00:00">01:25:02</abbr></a>] <span>* TheAlphaNerd (~thealphan@unaffiliated/thealphanerd) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:25:05" id="T01:25:05"><abbr title="2012-03-12T01:25:05+00:00">01:25:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and the manual doesn't seem to require any specific ordering</q></li>
+<li class="join">[<a href="#T01:26:15" id="T01:26:15"><abbr title="2012-03-12T01:26:15+00:00">01:26:15</abbr></a>] <span>* jluisn (~quassel@187.114.217.217) has joined #beagle</span></li>
+<li class="action">[<a href="#T01:26:54" id="T01:26:54"><abbr title="2012-03-12T01:26:54+00:00">01:26:54</abbr></a>] <span>* mranostay waves around the channel</span></li>
+<li class="quit">[<a href="#T01:38:24" id="T01:38:24"><abbr title="2012-03-12T01:38:24+00:00">01:38:24</abbr></a>] <span>* jluisn (~quassel@187.114.217.217) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T01:43:59" id="T01:43:59"><abbr title="2012-03-12T01:43:59+00:00">01:43:59</abbr></a>] <span>* jstearns74 (~jeremy@c-76-113-24-53.hsd1.nm.comcast.net) has joined #beagle</span></li>
+<li class="part">[<a href="#T01:44:30" id="T01:44:30"><abbr title="2012-03-12T01:44:30+00:00">01:44:30</abbr></a>] <span>* jstearns74 (~jeremy@c-76-113-24-53.hsd1.nm.comcast.net) has left #beagle</span></li>
+<li class="quit">[<a href="#T01:55:17" id="T01:55:17"><abbr title="2012-03-12T01:55:17+00:00">01:55:17</abbr></a>] <span>* TheAlphaNerd (~thealphan@unaffiliated/thealphanerd) Quit (Quit: TheAlphaNerd)</span></li>
+<li class="join">[<a href="#T01:58:11" id="T01:58:11"><abbr title="2012-03-12T01:58:11+00:00">01:58:11</abbr></a>] <span>* TheAlphaNerd (~thealphan@69.165.254.232) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2012-03-12T01:58:11+00:00">01:58:11</abbr>] <span>* TheAlphaNerd (~thealphan@69.165.254.232) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2012-03-12T01:58:11+00:00">01:58:11</abbr>] <span>* TheAlphaNerd (~thealphan@unaffiliated/thealphanerd) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:58:40" id="T01:58:40"><abbr title="2012-03-12T01:58:40+00:00">01:58:40</abbr></a>] <span>* TheAlphaNerd (~thealphan@unaffiliated/thealphanerd) Quit (Client Quit)</span></li>
