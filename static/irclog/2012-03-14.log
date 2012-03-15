@@ -1471,3 +1471,181 @@
 <li class="message">[<a href="#T22:59:10" id="T22:59:10"><abbr title="2012-03-14T22:59:10+00:00">22:59:10</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>tilt if one is in use and you request 2</q></li>
 <li class="message">[<a href="#T22:59:24" id="T22:59:24"><abbr title="2012-03-14T22:59:24+00:00">22:59:24</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ka6sox, ok, so to put it in perspective..I have this crazy idea that once you have a several pru plugins???you start to get users trying to build on them like black boxes</q></li>
 <li class="quit">[<a href="#T22:59:45" id="T22:59:45"><abbr title="2012-03-14T22:59:45+00:00">22:59:45</abbr></a>] <span>* bgamari_ (~ben@physicsnat56.physics.umass.edu) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T23:00:12" id="T23:00:12"><abbr title="2012-03-14T23:00:12+00:00">23:00:12</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>they may load two, you want it to scream bloody murder if the second one tries to request resources that aren't available</q></li>
+<li class="message">[<a href="#T23:01:01" id="T23:01:01"><abbr title="2012-03-14T23:01:01+00:00">23:01:01</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>this is beyond this point of "make it work" to "make it a useful building block"</q></li>
+<li class="message">[<a href="#T23:01:35" id="T23:01:35"><abbr title="2012-03-14T23:01:35+00:00">23:01:35</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>so user loadable PRU modules?</q></li>
+<li class="message">[<a href="#T23:01:38" id="T23:01:38"><abbr title="2012-03-14T23:01:38+00:00">23:01:38</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ka6sox, right, so that's a perfect common use case</q></li>
+<li class="message">[<a href="#T23:02:15" id="T23:02:15"><abbr title="2012-03-14T23:02:15+00:00">23:02:15</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>modprobe</q></li>
+<li class="message">[<a href="#T23:02:27" id="T23:02:27"><abbr title="2012-03-14T23:02:27+00:00">23:02:27</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>pruprobe</q></li>
+<li class="message">[<a href="#T23:02:28" id="T23:02:28"><abbr title="2012-03-14T23:02:28+00:00">23:02:28</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>where a user is a typical beaglebone hobbyist</q></li>
+<li class="message">[<a href="#T23:03:05" id="T23:03:05"><abbr title="2012-03-14T23:03:05+00:00">23:03:05</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>but you get what I'm saying..you load a driver, it needs to load "firmware" and it could fail due to lack of resources</q></li>
+<li class="message">[<a href="#T23:03:13" id="T23:03:13"><abbr title="2012-03-14T23:03:13+00:00">23:03:13</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>and driver doesn't load</q></li>
+<li class="message">[<a href="#T23:03:24" id="T23:03:24"><abbr title="2012-03-14T23:03:24+00:00">23:03:24</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>there are 2 bits though...</q></li>
+<li class="message">[<a href="#T23:03:31" id="T23:03:31"><abbr title="2012-03-14T23:03:31+00:00">23:03:31</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>the user space and the pru space.</q></li>
+<li class="message">[<a href="#T23:03:39" id="T23:03:39"><abbr title="2012-03-14T23:03:39+00:00">23:03:39</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>analogous to many common drivers requiring firmware to init/probe</q></li>
+<li class="message">[<a href="#T23:03:43" id="T23:03:43"><abbr title="2012-03-14T23:03:43+00:00">23:03:43</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T23:03:48" id="T23:03:48"><abbr title="2012-03-14T23:03:48+00:00">23:03:48</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>both go together as part of the plugin.</q></li>
+<li class="message">[<a href="#T23:04:11" id="T23:04:11"><abbr title="2012-03-14T23:04:11+00:00">23:04:11</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>could be kernel space</q></li>
+<li class="quit">[<a href="#T23:04:20" id="T23:04:20"><abbr title="2012-03-14T23:04:20+00:00">23:04:20</abbr></a>] <span>* risca (~risca@wi-secure-3639.cc.umanitoba.ca) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T23:04:37" id="T23:04:37"><abbr title="2012-03-14T23:04:37+00:00">23:04:37</abbr></a>] <span>* mykhal0x4f (~mykhal@gateway/tor-sasl/mykhal) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-03-14T23:04:37+00:00">23:04:37</abbr>] <span>* mykhal0x4f (~mykhal@gateway/tor-sasl/mykhal) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T23:04:38" id="T23:04:38"><abbr title="2012-03-14T23:04:38+00:00">23:04:38</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>you can implement a kernel tty driver using the pru</q></li>
+<li class="message">[<a href="#T23:05:05" id="T23:05:05"><abbr title="2012-03-14T23:05:05+00:00">23:05:05</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I'd kind of like some kernel space for control registers at least.</q></li>
+<li class="quit">[<a href="#T23:05:33" id="T23:05:33"><abbr title="2012-03-14T23:05:33+00:00">23:05:33</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T23:05:34" id="T23:05:34"><abbr title="2012-03-14T23:05:34+00:00">23:05:34</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>and some sysfs "control bits"</q></li>
+<li class="message">[<a href="#T23:05:35" id="T23:05:35"><abbr title="2012-03-14T23:05:35+00:00">23:05:35</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>so in that model it's like loading firmware for any other device</q></li>
+<li class="message">[<a href="#T23:05:42" id="T23:05:42"><abbr title="2012-03-14T23:05:42+00:00">23:05:42</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T23:05:45" id="T23:05:45"><abbr title="2012-03-14T23:05:45+00:00">23:05:45</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>and yeah, you get some sysfs knobs for the core</q></li>
+<li class="message">[<a href="#T23:06:07" id="T23:06:07"><abbr title="2012-03-14T23:06:07+00:00">23:06:07</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>turn it off, turn it on, interrupt stuff etc.</q></li>
+<li class="message">[<a href="#T23:06:30" id="T23:06:30"><abbr title="2012-03-14T23:06:30+00:00">23:06:30</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>maybe even a "load" knob.</q></li>
+<li class="message">[<a href="#T23:06:58" id="T23:06:58"><abbr title="2012-03-14T23:06:58+00:00">23:06:58</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>show resource usage</q></li>
+<li class="message">[<a href="#T23:07:16" id="T23:07:16"><abbr title="2012-03-14T23:07:16+00:00">23:07:16</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>the core knows some good stuff in this case</q></li>
+<li class="message">[<a href="#T23:07:21" id="T23:07:21"><abbr title="2012-03-14T23:07:21+00:00">23:07:21</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>each pru would need its own sysfs register...</q></li>
+<li class="message">[<a href="#T23:07:29" id="T23:07:29"><abbr title="2012-03-14T23:07:29+00:00">23:07:29</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>stop/start/reset/load</q></li>
+<li class="quit">[<a href="#T23:07:39" id="T23:07:39"><abbr title="2012-03-14T23:07:39+00:00">23:07:39</abbr></a>] <span>* syrioosh (~quassel@xz140.internetdsl.tpnet.pl) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T23:07:44" id="T23:07:44"><abbr title="2012-03-14T23:07:44+00:00">23:07:44</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>so then the other userspace side of things (just forget that UIO is the standard interface for the moment)</q></li>
+<li class="message">[<a href="#T23:09:47" id="T23:09:47"><abbr title="2012-03-14T23:09:47+00:00">23:09:47</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>in that core stuff, you provide a mechanism to load a pru program from userspace and bind it to UIO???one that groks the magic header</q></li>
+<li class="quit">[<a href="#T23:09:54" id="T23:09:54"><abbr title="2012-03-14T23:09:54+00:00">23:09:54</abbr></a>] <span>* mykhal0x4f (~mykhal@gateway/tor-sasl/mykhal) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T23:10:06" id="T23:10:06"><abbr title="2012-03-14T23:10:06+00:00">23:10:06</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>and the "right way" is not to hammer stuff directly into memory</q></li>
+<li class="message">[<a href="#T23:10:15" id="T23:10:15"><abbr title="2012-03-14T23:10:15+00:00">23:10:15</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>just like we discourage /dev/mem use for obvious reasons</q></li>
+<li class="join">[<a href="#T23:10:35" id="T23:10:35"><abbr title="2012-03-14T23:10:35+00:00">23:10:35</abbr></a>] <span>* unsolo_ (~unsolo@107.80-203-44.nextgentel.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:10:48" id="T23:10:48"><abbr title="2012-03-14T23:10:48+00:00">23:10:48</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-03-14T23:10:48+00:00">23:10:48</abbr>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T23:10:54" id="T23:10:54"><abbr title="2012-03-14T23:10:54+00:00">23:10:54</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>because, "oh yeah" that bypasses the damn kernel resource management frame^H^H^H^H^Hsystem for memory regions</q></li>
+<li class="quit">[<a href="#T23:11:08" id="T23:11:08"><abbr title="2012-03-14T23:11:08+00:00">23:11:08</abbr></a>] <span>* unsolo (~unsolo@80.203.44.107) Quit (Read error: Operation timed out)</span></li>
+<li class="message">[<a href="#T23:11:38" id="T23:11:38"><abbr title="2012-03-14T23:11:38+00:00">23:11:38</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>just assign a pmem space equal to both PRU's and the shared bit..its tiny.</q></li>
+<li class="message">[<a href="#T23:11:53" id="T23:11:53"><abbr title="2012-03-14T23:11:53+00:00">23:11:53</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>and not hammer /dev/mem</q></li>
+<li class="message">[<a href="#T23:11:55" id="T23:11:55"><abbr title="2012-03-14T23:11:55+00:00">23:11:55</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ka6sox, I think that's right???may file the gpio model and "export" a pru to userspace even..dunno</q></li>
+<li class="message">[<a href="#T23:12:00" id="T23:12:00"><abbr title="2012-03-14T23:12:00+00:00">23:12:00</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>yeah, good</q></li>
+<li class="message">[<a href="#T23:12:07" id="T23:12:07"><abbr title="2012-03-14T23:12:07+00:00">23:12:07</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>s/file/follow/</q></li>
+<li class="message">[<a href="#T23:14:21" id="T23:14:21"><abbr title="2012-03-14T23:14:21+00:00">23:14:21</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>the pru is an internal thing whereas gpio can be internal or external...</q></li>
+<li class="message">[<a href="#T23:14:39" id="T23:14:39"><abbr title="2012-03-14T23:14:39+00:00">23:14:39</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I really don't expect to be typing things @ the pru and then having it act...</q></li>
+<li class="message">[<a href="#T23:14:54" id="T23:14:54"><abbr title="2012-03-14T23:14:54+00:00">23:14:54</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T23:15:33" id="T23:15:33"><abbr title="2012-03-14T23:15:33+00:00">23:15:33</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I want it to take things from here to there when this happens.</q></li>
+<li class="message">[<a href="#T23:16:03" id="T23:16:03"><abbr title="2012-03-14T23:16:03+00:00">23:16:03</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>yeah, I guess it's not necessarily the best analogy</q></li>
+<li class="message">[<a href="#T23:16:34" id="T23:16:34"><abbr title="2012-03-14T23:16:34+00:00">23:16:34</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I was thinking about userspace versus kernel space client drivers..only in that context</q></li>
+<li class="message">[<a href="#T23:16:40" id="T23:16:40"><abbr title="2012-03-14T23:16:40+00:00">23:16:40</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T23:16:41" id="T23:16:41"><abbr title="2012-03-14T23:16:41+00:00">23:16:41</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>okay</q></li>
+<li class="join">[<a href="#T23:16:51" id="T23:16:51"><abbr title="2012-03-14T23:16:51+00:00">23:16:51</abbr></a>] <span>* NulL` (~bleh1@92.39.205.149) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:16:59" id="T23:16:59"><abbr title="2012-03-14T23:16:59+00:00">23:16:59</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>the userspace I see mostly in the "management" of the resources...</q></li>
+<li class="message">[<a href="#T23:17:08" id="T23:17:08"><abbr title="2012-03-14T23:17:08+00:00">23:17:08</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>not execution and operation.</q></li>
+<li class="message">[<a href="#T23:18:00" id="T23:18:00"><abbr title="2012-03-14T23:18:00+00:00">23:18:00</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>more akin to setting the IP/netmask/gateway and restarting "networking"</q></li>
+<li class="message">[<a href="#T23:18:16" id="T23:18:16"><abbr title="2012-03-14T23:18:16+00:00">23:18:16</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>well, I've got this use case thought where somebody loads a program that does deterministic data acquisition and uses a UIO userspace driver to pick bytes out of a buffer</q></li>
+<li class="message">[<a href="#T23:18:31" id="T23:18:31"><abbr title="2012-03-14T23:18:31+00:00">23:18:31</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>meanwhile he has a spi-pruss.c driver loaded on the other PRU</q></li>
+<li class="message">[<a href="#T23:18:57" id="T23:18:57"><abbr title="2012-03-14T23:18:57+00:00">23:18:57</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>okay so I guess we could let it do that easily enough</q></li>
+<li class="message">[<a href="#T23:19:13" id="T23:19:13"><abbr title="2012-03-14T23:19:13+00:00">23:19:13</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>pmem holds the programme and gets loaded</q></li>
+<li class="quit">[<a href="#T23:19:19" id="T23:19:19"><abbr title="2012-03-14T23:19:19+00:00">23:19:19</abbr></a>] <span>* Guest1417 (~bleh1@92.39.205.149) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T23:19:21" id="T23:19:21"><abbr title="2012-03-14T23:19:21+00:00">23:19:21</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>people like to do that simple stuff that's non-critical timing in userspace completely</q></li>
+<li class="message">[<a href="#T23:19:35" id="T23:19:35"><abbr title="2012-03-14T23:19:35+00:00">23:19:35</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>then call pruss.c to use it</q></li>
+<li class="quit">[<a href="#T23:19:43" id="T23:19:43"><abbr title="2012-03-14T23:19:43+00:00">23:19:43</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<abbr title="2012-03-14T23:19:43+00:00">23:19:43</abbr>] &lt;<cite>mdp</cite>&gt; <q>sounds good</q></li>
+<li class="message">[<a href="#T23:19:58" id="T23:19:58"><abbr title="2012-03-14T23:19:58+00:00">23:19:58</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>or for faster use...use a pmem enabled driver.</q></li>
+<li class="message">[<a href="#T23:20:22" id="T23:20:22"><abbr title="2012-03-14T23:20:22+00:00">23:20:22</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>like the video capture stuff does on davinci</q></li>
+<li class="join">[<a href="#T23:20:24" id="T23:20:24"><abbr title="2012-03-14T23:20:24+00:00">23:20:24</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-03-14T23:20:24+00:00">23:20:24</abbr>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T23:22:11" id="T23:22:11"><abbr title="2012-03-14T23:22:11+00:00">23:22:11</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I like it</q></li>
+<li class="message">[<a href="#T23:22:36" id="T23:22:36"><abbr title="2012-03-14T23:22:36+00:00">23:22:36</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>gives levels of service appropriate to what is needed to interface to userspace.</q></li>
+<li class="quit">[<a href="#T23:23:36" id="T23:23:36"><abbr title="2012-03-14T23:23:36+00:00">23:23:36</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Excess Flood)</span></li>
+<li class="message">[<a href="#T23:24:28" id="T23:24:28"><abbr title="2012-03-14T23:24:28+00:00">23:24:28</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>from sysfs start/stop/reset/load/irq to full pmem</q></li>
+<li class="join">[<a href="#T23:24:52" id="T23:24:52"><abbr title="2012-03-14T23:24:52+00:00">23:24:52</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:26:02" id="T23:26:02"><abbr title="2012-03-14T23:26:02+00:00">23:26:02</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>and theoretically dma even if necessary.</q></li>
+<li class="quit">[<a href="#T23:26:21" id="T23:26:21"><abbr title="2012-03-14T23:26:21+00:00">23:26:21</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T23:26:38" id="T23:26:38"><abbr title="2012-03-14T23:26:38+00:00">23:26:38</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:26:39" id="T23:26:39"><abbr title="2012-03-14T23:26:39+00:00">23:26:39</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T23:27:25" id="T23:27:25"><abbr title="2012-03-14T23:27:25+00:00">23:27:25</abbr></a>] <span>* c4milo (~c4milo@207-38-137-125.c3-0.avec-ubr2.nyr-avec.ny.cable.rcn.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:30:36" id="T23:30:36"><abbr title="2012-03-14T23:30:36+00:00">23:30:36</abbr></a>] <span>* tema (~tema@95-55-113-4.dynamic.avangarddsl.ru) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T23:31:01" id="T23:31:01"><abbr title="2012-03-14T23:31:01+00:00">23:31:01</abbr></a>] <span>* Daniel____ (~Daniel@nat/ti/x-flumszhuhryjsgxw) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T23:31:50" id="T23:31:50"><abbr title="2012-03-14T23:31:50+00:00">23:31:50</abbr></a>] <span>* emeb (~ericb@ip72-223-81-94.ph.ph.cox.net) has joined #beaglebone</span></li>
+<li class="join">[<abbr title="2012-03-14T23:31:50+00:00">23:31:50</abbr>] <span>* emeb (~ericb@ip72-223-81-94.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:32:49" id="T23:32:49"><abbr title="2012-03-14T23:32:49+00:00">23:32:49</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T23:32:58" id="T23:32:58"><abbr title="2012-03-14T23:32:58+00:00">23:32:58</abbr></a>] <span>* mykhal0x4f (~mykhal@gateway/tor-sasl/mykhal) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-03-14T23:32:58+00:00">23:32:58</abbr>] <span>* mykhal0x4f (~mykhal@gateway/tor-sasl/mykhal) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T23:36:33" id="T23:36:33"><abbr title="2012-03-14T23:36:33+00:00">23:36:33</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>mdp: is that what you were thinking?</q></li>
+<li class="message">[<a href="#T23:37:35" id="T23:37:35"><abbr title="2012-03-14T23:37:35+00:00">23:37:35</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>pretty much..though I tend to think away from android-isms like pmem :)</q></li>
+<li class="message">[<a href="#T23:38:07" id="T23:38:07"><abbr title="2012-03-14T23:38:07+00:00">23:38:07</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>but I've heard it's supposed to be embraced now</q></li>
+<li class="join">[<a href="#T23:39:27" id="T23:39:27"><abbr title="2012-03-14T23:39:27+00:00">23:39:27</abbr></a>] <span>* raster (~raster@enlightenment/developer/raster) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:40:05" id="T23:40:05"><abbr title="2012-03-14T23:40:05+00:00">23:40:05</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>i learned pmem from working on a davinci</q></li>
+<li class="message">[<a href="#T23:40:10" id="T23:40:10"><abbr title="2012-03-14T23:40:10+00:00">23:40:10</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>with linux</q></li>
+<li class="quit">[<a href="#T23:40:12" id="T23:40:12"><abbr title="2012-03-14T23:40:12+00:00">23:40:12</abbr></a>] <span>* kkeller (~Ken_Kelle@174-17-252-103.phnx.qwest.net) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T23:40:29" id="T23:40:29"><abbr title="2012-03-14T23:40:29+00:00">23:40:29</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>or kmem...</q></li>
+<li class="message">[<a href="#T23:41:09" id="T23:41:09"><abbr title="2012-03-14T23:41:09+00:00">23:41:09</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>call it what you like, just not late for the party.</q></li>
+<li class="message">[<a href="#T23:41:14" id="T23:41:14"><abbr title="2012-03-14T23:41:14+00:00">23:41:14</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>cmem</q></li>
+<li class="message">[<a href="#T23:41:44" id="T23:41:44"><abbr title="2012-03-14T23:41:44+00:00">23:41:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>+1</q></li>
+<li class="quit">[<a href="#T23:41:49" id="T23:41:49"><abbr title="2012-03-14T23:41:49+00:00">23:41:49</abbr></a>] <span>* mykhal0x4f (~mykhal@gateway/tor-sasl/mykhal) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T23:41:56" id="T23:41:56"><abbr title="2012-03-14T23:41:56+00:00">23:41:56</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>at least thats what one would use on the c64x+ on the dm37/omap3</q></li>
+<li class="message">[<a href="#T23:42:05" id="T23:42:05"><abbr title="2012-03-14T23:42:05+00:00">23:42:05</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>thats the name</q></li>
+<li class="message">[<a href="#T23:42:17" id="T23:42:17"><abbr title="2012-03-14T23:42:17+00:00">23:42:17</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>cmem..its been a year or 2 since I worked on that.</q></li>
+<li class="message">[<a href="#T23:42:28" id="T23:42:28"><abbr title="2012-03-14T23:42:28+00:00">23:42:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ka6sox: its been 5 here :)</q></li>
+<li class="quit">[<a href="#T23:45:40" id="T23:45:40"><abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr></a>] <span>* tholm (~siskom@190.172.223.98) Quit (Quit: Leaving.)</span></li>
+<li class="quit">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Read error: Operation timed out)</span></li>
+<li class="quit">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] <span>* hpham (~hpham@fwdweb.net) Quit (Read error: Operation timed out)</span></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>well, started 5ys ago</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>mru</cite>&gt; <q>cma should be finished real soon now (tm)</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>+100</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>unsolo_</cite>&gt; <q>hmm whats cma ?</q></li>
+<li class="join">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beaglebone</span></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>unsolo_</cite>&gt; <q>sorry my dumness</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>cmem done proper</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>mru</cite>&gt; <q>contiguous memory allocator</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>in-kernel cmem</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>unsolo_</cite>&gt; <q>ahh</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>vs the outside of kernel cmem cmem</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>mdp</cite>&gt; <q>aha, *whew*</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>unsolo_: and cmem is only link, bridge does not need it</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>unsolo_</cite>&gt; <q>remeber the ps3 linux kernel needed a continous memory space allocated for the framebuffer..</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>since it uses the dsp mmu</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>unsolo_</cite>&gt; <q>_av500_: i see</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>unsolo_: most framebuffers do</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>ka6sox</cite>&gt; <q>for the PRU we need a TINY framebuffer</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>mdp</cite>&gt; <q>ok, you guys implement this now, I've got to go have rhubarb pie for RPi day!</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>ka6sox</cite>&gt; <q>just enough to move things back and forth.</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>if it fit a page....</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>fits</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>unsolo_</cite>&gt; <q>ka6sox: wouldnt a mbox system suffice</q></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>_av500_</cite>&gt; <q>mdp: not rhasparb pi?</q></li>
+<li class="join">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] <span>* xenland (~xenland@74-38-0-53.dsl1.plcd.ca.frontiernet.net) has joined #beagle</span></li>
+<li class="message">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] &lt;<cite>mdp</cite>&gt; <q>close???strawberry-rhubarb to be exact???and beer:30, of course</q></li>
+<li class="quit">[<abbr title="2012-03-14T23:45:40+00:00">23:45:40</abbr>] <span>* djlewis (~djelwis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T23:45:47" id="T23:45:47"><abbr title="2012-03-14T23:45:47+00:00">23:45:47</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>unsolo_, that would make it async which I guess is fine.</q></li>
+<li class="join">[<a href="#T23:45:57" id="T23:45:57"><abbr title="2012-03-14T23:45:57+00:00">23:45:57</abbr></a>] <span>* cacodaemon (~abaddon@178.120.16.36) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:46:02" id="T23:46:02"><abbr title="2012-03-14T23:46:02+00:00">23:46:02</abbr></a>] <span>* jouz (57d02f7a@gateway/web/freenode/ip.87.208.47.122) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:46:07" id="T23:46:07"><abbr title="2012-03-14T23:46:07+00:00">23:46:07</abbr></a>] <span>* hpham (~hpham@fwdweb.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:46:26" id="T23:46:26"><abbr title="2012-03-14T23:46:26+00:00">23:46:26</abbr></a>] &lt;<cite>xenland</cite>&gt; <q>Is it okay to hook an lcd that draws 100mA to the 3.3v supply on the beaglebone? or is that too much current</q></li>
+<li class="message">[<a href="#T23:46:43" id="T23:46:43"><abbr title="2012-03-14T23:46:43+00:00">23:46:43</abbr></a>] &lt;<cite>xenland</cite>&gt; <q>(i should say is that not enough current)</q></li>
+<li class="quit">[<a href="#T23:46:53" id="T23:46:53"><abbr title="2012-03-14T23:46:53+00:00">23:46:53</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Verlassend)</span></li>
+<li class="quit">[<a href="#T23:47:09" id="T23:47:09"><abbr title="2012-03-14T23:47:09+00:00">23:47:09</abbr></a>] <span>* fooblya_monad (~abaddon@178.120.16.36) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T23:47:16" id="T23:47:16"><abbr title="2012-03-14T23:47:16+00:00">23:47:16</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I guess I like that better as I tend to like things like erlang that use that model.</q></li>
+<li class="join">[<a href="#T23:47:29" id="T23:47:29"><abbr title="2012-03-14T23:47:29+00:00">23:47:29</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:47:48" id="T23:47:48"><abbr title="2012-03-14T23:47:48+00:00">23:47:48</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>and properly implemented is non-blocking</q></li>
+<li class="action">[<a href="#T23:48:26" id="T23:48:26"><abbr title="2012-03-14T23:48:26+00:00">23:48:26</abbr></a>] <span>* mru wants blockbuster i/o</span></li>
+<li class="message">[<a href="#T23:52:13" id="T23:52:13"><abbr title="2012-03-14T23:52:13+00:00">23:52:13</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>then the kernel needs to be re-written to not use shared memory model.</q></li>
+<li class="message">[<a href="#T23:53:07" id="T23:53:07"><abbr title="2012-03-14T23:53:07+00:00">23:53:07</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>although it continues to get better.</q></li>
+<li class="message">[<a href="#T23:54:05" id="T23:54:05"><abbr title="2012-03-14T23:54:05+00:00">23:54:05</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T23:54:08" id="T23:54:08"><abbr title="2012-03-14T23:54:08+00:00">23:54:08</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>that will take some time</q></li>
+<li class="message">[<a href="#T23:54:59" id="T23:54:59"><abbr title="2012-03-14T23:54:59+00:00">23:54:59</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I did 8-bit micros for years...single threaded things...then switched to working on FPGA/CPLD/ASIC stuff...its hard to come back to single threaded when you have seen the light.</q></li>
+<li class="action">[<a href="#T23:55:31" id="T23:55:31"><abbr title="2012-03-14T23:55:31+00:00">23:55:31</abbr></a>] <span>* unsolo_ saw the light in cell then it faded</span></li>
+<li class="message">[<a href="#T23:55:32" id="T23:55:32"><abbr title="2012-03-14T23:55:32+00:00">23:55:32</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>which is why I like playing with the PRUs</q></li>
+<li class="message">[<a href="#T23:56:03" id="T23:56:03"><abbr title="2012-03-14T23:56:03+00:00">23:56:03</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>isnt a c64x dsp more fun than a pru</q></li>
+<li class="quit">[<a href="#T23:56:07" id="T23:56:07"><abbr title="2012-03-14T23:56:07+00:00">23:56:07</abbr></a>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T23:56:13" id="T23:56:13"><abbr title="2012-03-14T23:56:13+00:00">23:56:13</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T23:56:23" id="T23:56:23"><abbr title="2012-03-14T23:56:23+00:00">23:56:23</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T23:56:32" id="T23:56:32"><abbr title="2012-03-14T23:56:32+00:00">23:56:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>depends on what you need</q></li>
+<li class="message">[<a href="#T23:56:35" id="T23:56:35"><abbr title="2012-03-14T23:56:35+00:00">23:56:35</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>done a lot of DSP stuff too...still single threaded.</q></li>
+<li class="message">[<a href="#T23:57:14" id="T23:57:14"><abbr title="2012-03-14T23:57:14+00:00">23:57:14</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>right, for what I am doing I do care that 85 things change on a single clock cycle...</q></li>
+<li class="message">[<a href="#T23:57:27" id="T23:57:27"><abbr title="2012-03-14T23:57:27+00:00">23:57:27</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>oh</q></li>
+<li class="join">[<abbr title="2012-03-14T23:57:27+00:00">23:57:27</abbr>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-03-14T23:57:27+00:00">23:57:27</abbr>] <span>* mykhal (~mykhal@gateway/tor-sasl/mykhal) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T23:57:41" id="T23:57:41"><abbr title="2012-03-14T23:57:41+00:00">23:57:41</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>so the pru is more like a fpga than a uc then i guess</q></li>
+<li class="message">[<a href="#T23:57:52" id="T23:57:52"><abbr title="2012-03-14T23:57:52+00:00">23:57:52</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>no, 2 of them are</q></li>
+<li class="message">[<a href="#T23:57:59" id="T23:57:59"><abbr title="2012-03-14T23:57:59+00:00">23:57:59</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T23:58:04" id="T23:58:04"><abbr title="2012-03-14T23:58:04+00:00">23:58:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the pru is a very much a uc</q></li>
+<li class="message">[<a href="#T23:58:18" id="T23:58:18"><abbr title="2012-03-14T23:58:18+00:00">23:58:18</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>yes it is a uc</q></li>
+<li class="action">[<a href="#T23:58:24" id="T23:58:24"><abbr title="2012-03-14T23:58:24+00:00">23:58:24</abbr></a>] <span>* unsolo_ still fails to se the "great" fuss</span></li>
+<li class="message">[<a href="#T23:58:32" id="T23:58:32"><abbr title="2012-03-14T23:58:32+00:00">23:58:32</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>but *each* one has its own thread.</q></li>
+<li class="message">[<a href="#T23:58:49" id="T23:58:49"><abbr title="2012-03-14T23:58:49+00:00">23:58:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>each one is a uc</q></li>
+<li class="message">[<a href="#T23:58:54" id="T23:58:54"><abbr title="2012-03-14T23:58:54+00:00">23:58:54</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T23:58:59" id="T23:58:59"><abbr title="2012-03-14T23:58:59+00:00">23:58:59</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T23:59:18" id="T23:59:18"><abbr title="2012-03-14T23:59:18+00:00">23:59:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the omap4 has two m3 cores</q></li>
+<li class="message">[<a href="#T23:59:27" id="T23:59:27"><abbr title="2012-03-14T23:59:27+00:00">23:59:27</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>ahh i see</q></li>
+<li class="message">[<a href="#T23:59:51" id="T23:59:51"><abbr title="2012-03-14T23:59:51+00:00">23:59:51</abbr></a>] &lt;<cite>unsolo_</cite>&gt; <q>mru: it also has two A9's</q></li>
