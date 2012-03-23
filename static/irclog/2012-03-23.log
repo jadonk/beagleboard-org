@@ -244,3 +244,42 @@
 <li class="join">[<a href="#T10:58:02" id="T10:58:02"><abbr title="2012-03-23T10:58:02+00:00">10:58:02</abbr></a>] <span>* icota (~quassel@dh207-11-190.xnet.hr) has joined #beagle</span></li>
 <li class="join">[<a href="#T10:59:02" id="T10:59:02"><abbr title="2012-03-23T10:59:02+00:00">10:59:02</abbr></a>] <span>* stefan88_15 (~steff@141.85.225.204) has joined #beagle</span></li>
 <li class="part">[<a href="#T10:59:08" id="T10:59:08"><abbr title="2012-03-23T10:59:08+00:00">10:59:08</abbr></a>] <span>* stefan88_15 (~steff@141.85.225.204) has left #beagle</span></li>
+<li class="message">[<a href="#T11:05:44" id="T11:05:44"><abbr title="2012-03-23T11:05:44+00:00">11:05:44</abbr></a>] &lt;<cite>icota</cite>&gt; <q>koen: any luck with these latest 3.5 LCD timings? need someone to test?</q></li>
+<li class="join">[<a href="#T11:13:25" id="T11:13:25"><abbr title="2012-03-23T11:13:25+00:00">11:13:25</abbr></a>] <span>* guanucoluis1 (~luis@190.123.122.242) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T11:21:24" id="T11:21:24"><abbr title="2012-03-23T11:21:24+00:00">11:21:24</abbr></a>] <span>* ychavan (~ychavan@121.246.33.98) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T11:29:02" id="T11:29:02"><abbr title="2012-03-23T11:29:02+00:00">11:29:02</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>WTF.</q></li>
+<li class="message">[<a href="#T11:29:52" id="T11:29:52"><abbr title="2012-03-23T11:29:52+00:00">11:29:52</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>ldr sp, =stack_start_address; push {r0, r1}; pop {r0, r1}; push {r0, r1, r2, r3}; pop {r0, r1, r2, r3}</q></li>
+<li class="message">[<a href="#T11:30:17" id="T11:30:17"><abbr title="2012-03-23T11:30:17+00:00">11:30:17</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>r2 and r3 are corrupted.</q></li>
+<li class="message">[<a href="#T11:30:21" id="T11:30:21"><abbr title="2012-03-23T11:30:21+00:00">11:30:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I'm pretty sure push and pop work fine</q></li>
+<li class="message">[<a href="#T11:30:45" id="T11:30:45"><abbr title="2012-03-23T11:30:45+00:00">11:30:45</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>any special place sp has to be? it's word aligned</q></li>
+<li class="message">[<a href="#T11:30:52" id="T11:30:52"><abbr title="2012-03-23T11:30:52+00:00">11:30:52</abbr></a>] &lt;<cite>mru</cite>&gt; <q>remember the stack grows downwards</q></li>
+<li class="message">[<a href="#T11:30:59" id="T11:30:59"><abbr title="2012-03-23T11:30:59+00:00">11:30:59</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T11:31:07" id="T11:31:07"><abbr title="2012-03-23T11:31:07+00:00">11:31:07</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>i can actually view memory and see it</q></li>
+<li class="message">[<a href="#T11:31:15" id="T11:31:15"><abbr title="2012-03-23T11:31:15+00:00">11:31:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and the stack must be word-aligned at all times</q></li>
+<li class="message">[<a href="#T11:31:19" id="T11:31:19"><abbr title="2012-03-23T11:31:19+00:00">11:31:19</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>and the second push call just seems to no-op</q></li>
+<li class="message">[<a href="#T11:32:08" id="T11:32:08"><abbr title="2012-03-23T11:32:08+00:00">11:32:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>trust me, push and pop work</q></li>
+<li class="message">[<a href="#T11:32:09" id="T11:32:09"><abbr title="2012-03-23T11:32:09+00:00">11:32:09</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>mru: yep, stack_start_address is 0x8200fc00</q></li>
+<li class="message">[<a href="#T11:32:28" id="T11:32:28"><abbr title="2012-03-23T11:32:28+00:00">11:32:28</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>mru: i know, but i'm trying to figure out why they won't in this case</q></li>
+<li class="action">[<a href="#T11:33:19" id="T11:33:19"><abbr title="2012-03-23T11:33:19+00:00">11:33:19</abbr></a>] <span>* XMPPwocky tries to make a test case</span></li>
+<li class="join">[<a href="#T11:37:14" id="T11:37:14"><abbr title="2012-03-23T11:37:14+00:00">11:37:14</abbr></a>] <span>* _chase_ (~a0271661@nat/ti/x-wuwefkehwpxemdne) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:42:15" id="T11:42:15"><abbr title="2012-03-23T11:42:15+00:00">11:42:15</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>oh, now it works</q></li>
+<li class="message">[<a href="#T11:42:17" id="T11:42:17"><abbr title="2012-03-23T11:42:17+00:00">11:42:17</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>course.</q></li>
+<li class="message">[<a href="#T11:43:47" id="T11:43:47"><abbr title="2012-03-23T11:43:47+00:00">11:43:47</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>night</q></li>
+<li class="message">[<a href="#T11:43:58" id="T11:43:58"><abbr title="2012-03-23T11:43:58+00:00">11:43:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>falls</q></li>
+<li class="message">[<a href="#T11:45:16" id="T11:45:16"><abbr title="2012-03-23T11:45:16+00:00">11:45:16</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>and is trampled by his horse</q></li>
+<li class="message">[<a href="#T11:46:37" id="T11:46:37"><abbr title="2012-03-23T11:46:37+00:00">11:46:37</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>oh, carp. i know what it was</q></li>
+<li class="message">[<a href="#T11:46:44" id="T11:46:44"><abbr title="2012-03-23T11:46:44+00:00">11:46:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>do tell</q></li>
+<li class="message">[<a href="#T11:47:08" id="T11:47:08"><abbr title="2012-03-23T11:47:08+00:00">11:47:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and are you sure it was a carp, not a trout?</q></li>
+<li class="message">[<a href="#T11:47:29" id="T11:47:29"><abbr title="2012-03-23T11:47:29+00:00">11:47:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the trout is after all the fish of choice on irc</q></li>
+<li class="message">[<abbr title="2012-03-23T11:47:29+00:00">11:47:29</abbr>] &lt;<cite>XMPPwocky</cite>&gt; <q>boot.bin is old</q></li>
+<li class="message">[<a href="#T11:47:31" id="T11:47:31"><abbr title="2012-03-23T11:47:31+00:00">11:47:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>was probably the sole reason</q></li>
+<li class="message">[<a href="#T11:47:49" id="T11:47:49"><abbr title="2012-03-23T11:47:49+00:00">11:47:49</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>av500: :/</q></li>
+<li class="message">[<a href="#T11:49:38" id="T11:49:38"><abbr title="2012-03-23T11:49:38+00:00">11:49:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>are we doing fish puns today?</q></li>
+<li class="message">[<a href="#T11:50:00" id="T11:50:00"><abbr title="2012-03-23T11:50:00+00:00">11:50:00</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>but in fresh bins ...</q></li>
+<li class="message">[<a href="#T11:50:26" id="T11:50:26"><abbr title="2012-03-23T11:50:26+00:00">11:50:26</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>mru: i don</q></li>
+<li class="message">[<a href="#T11:50:37" id="T11:50:37"><abbr title="2012-03-23T11:50:37+00:00">11:50:37</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>i'm not sure WHAT the halibut we're doing</q></li>
+<li class="message">[<a href="#T11:51:08" id="T11:51:08"><abbr title="2012-03-23T11:51:08+00:00">11:51:08</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>but the rest of us seem to have cod on quickly</q></li>
+<li class="message">[<a href="#T11:52:08" id="T11:52:08"><abbr title="2012-03-23T11:52:08+00:00">11:52:08</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>come on, salmon else has to come up with one</q></li>
+<li class="message">[<a href="#T11:52:34" id="T11:52:34"><abbr title="2012-03-23T11:52:34+00:00">11:52:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but you're doing just fin on your own</q></li>
+<li class="message">[<a href="#T11:53:22" id="T11:53:22"><abbr title="2012-03-23T11:53:22+00:00">11:53:22</abbr></a>] &lt;<cite>XMPPwocky</cite>&gt; <q>i really ought to go to bed, so can we resume this at a more opportuna moment?</q></li>
+<li class="action">[<a href="#T11:53:47" id="T11:53:47"><abbr title="2012-03-23T11:53:47+00:00">11:53:47</abbr></a>] <span>* av500 does not eel like it</span></li>
