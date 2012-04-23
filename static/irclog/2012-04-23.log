@@ -650,3 +650,102 @@
 <li class="join">[<a href="#T14:53:41" id="T14:53:41"><abbr title="2012-04-23T14:53:41+00:00">14:53:41</abbr></a>] <span>* peabody124 (~peabody12@c-98-201-56-63.hsd1.tx.comcast.net) has joined #beagle</span></li>
 <li class="quit">[<abbr title="2012-04-23T14:53:41+00:00">14:53:41</abbr>] <span>* peabody124 (~peabody12@c-98-201-56-63.hsd1.tx.comcast.net) Quit (Client Quit)</span></li>
 <li class="quit">[<a href="#T14:54:11" id="T14:54:11"><abbr title="2012-04-23T14:54:11+00:00">14:54:11</abbr></a>] <span>* emeb_mac (~ericb@ip72-223-81-94.ph.ph.cox.net) Quit (Quit: emeb_mac)</span></li>
+<li class="message">[<a href="#T15:00:57" id="T15:00:57"><abbr title="2012-04-23T15:00:57+00:00">15:00:57</abbr></a>] &lt;<cite>angs</cite>&gt; <q>what is equivalent c code for "cat /sys/class/gpio/gpio37/value"?</q></li>
+<li class="message">[<a href="#T15:02:18" id="T15:02:18"><abbr title="2012-04-23T15:02:18+00:00">15:02:18</abbr></a>] &lt;<cite>panto</cite>&gt; <q>fp = fopen("/sys/class/gpio/gpio37/value"); puts(gets(fp)); fclose(fp)</q></li>
+<li class="message">[<a href="#T15:02:23" id="T15:02:23"><abbr title="2012-04-23T15:02:23+00:00">15:02:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>char buf[4096]; int fd = open("/sys/class/gpio/gpio37/value", O_RDONLY); int s = read(fd, buf, sizeof(buf)); write(0, buf, s);</q></li>
+<li class="message">[<a href="#T15:02:41" id="T15:02:41"><abbr title="2012-04-23T15:02:41+00:00">15:02:41</abbr></a>] &lt;<cite>panto</cite>&gt; <q>err, you need a buffer</q></li>
+<li class="message">[<a href="#T15:02:45" id="T15:02:45"><abbr title="2012-04-23T15:02:45+00:00">15:02:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: 4096 is enough for everybody?</q></li>
+<li class="message">[<a href="#T15:02:49" id="T15:02:49"><abbr title="2012-04-23T15:02:49+00:00">15:02:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:02:54" id="T15:02:54"><abbr title="2012-04-23T15:02:54+00:00">15:02:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>sysfs files are limited to one page</q></li>
+<li class="message">[<a href="#T15:03:03" id="T15:03:03"><abbr title="2012-04-23T15:03:03+00:00">15:03:03</abbr></a>] &lt;<cite>angs</cite>&gt; <q>thanks a lot</q></li>
+<li class="message">[<a href="#T15:03:06" id="T15:03:06"><abbr title="2012-04-23T15:03:06+00:00">15:03:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ha, so PAGE_SIZE!</q></li>
+<li class="message">[<a href="#T15:03:07" id="T15:03:07"><abbr title="2012-04-23T15:03:07+00:00">15:03:07</abbr></a>] &lt;<cite>panto</cite>&gt; <q>err, char buf[BUFSIZ]; gets(buf, fp);</q></li>
+<li class="message">[<a href="#T15:03:17" id="T15:03:17"><abbr title="2012-04-23T15:03:17+00:00">15:03:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: PAGE_SIZE is 4096 on arm</q></li>
+<li class="message">[<a href="#T15:03:36" id="T15:03:36"><abbr title="2012-04-23T15:03:36+00:00">15:03:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:03:43" id="T15:03:43"><abbr title="2012-04-23T15:03:43+00:00">15:03:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>y u hate portable code?</q></li>
+<li class="message">[<a href="#T15:04:09" id="T15:04:09"><abbr title="2012-04-23T15:04:09+00:00">15:04:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>panto: what if BUFSIZ is smaller than the file?</q></li>
+<li class="message">[<a href="#T15:04:12" id="T15:04:12"><abbr title="2012-04-23T15:04:12+00:00">15:04:12</abbr></a>] &lt;<cite>koen</cite>&gt; <q>shouldn't you use get_page_size?</q></li>
+<li class="message">[<a href="#T15:04:16" id="T15:04:16"><abbr title="2012-04-23T15:04:16+00:00">15:04:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>then you have a very nice buffer overflow</q></li>
+<li class="message">[<a href="#T15:04:27" id="T15:04:27"><abbr title="2012-04-23T15:04:27+00:00">15:04:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then the kernel ownz you!</q></li>
+<li class="message">[<a href="#T15:04:34" id="T15:04:34"><abbr title="2012-04-23T15:04:34+00:00">15:04:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>getpagesize(), that it</q></li>
+<li class="message">[<a href="#T15:04:35" id="T15:04:35"><abbr title="2012-04-23T15:04:35+00:00">15:04:35</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mru: my version only reads one line</q></li>
+<li class="message">[<a href="#T15:04:45" id="T15:04:45"><abbr title="2012-04-23T15:04:45+00:00">15:04:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: sysconf(_SC_PAGESIZE), sure</q></li>
+<li class="message">[<a href="#T15:04:52" id="T15:04:52"><abbr title="2012-04-23T15:04:52+00:00">15:04:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>but BUFSIZ is guaranteed to have a minimum size IIRC</q></li>
+<li class="message">[<a href="#T15:04:57" id="T15:04:57"><abbr title="2012-04-23T15:04:57+00:00">15:04:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>panto: is not</q></li>
+<li class="message">[<a href="#T15:05:18" id="T15:05:18"><abbr title="2012-04-23T15:05:18+00:00">15:05:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>BUFSIZ: Size of &lt;stdio.h&gt; buffers.  This shall expand to a positive value.</q></li>
+<li class="action">[<a href="#T15:05:22" id="T15:05:22"><abbr title="2012-04-23T15:05:22+00:00">15:05:22</abbr></a>] <span>* panto puts on his language lawyer hat</span></li>
+<li class="message">[<a href="#T15:05:29" id="T15:05:29"><abbr title="2012-04-23T15:05:29+00:00">15:05:29</abbr></a>] &lt;<cite>panto</cite>&gt; <q>let me check</q></li>
+<li class="message">[<a href="#T15:05:40" id="T15:05:40"><abbr title="2012-04-23T15:05:40+00:00">15:05:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that was a quote from the spec</q></li>
+<li class="message">[<a href="#T15:06:14" id="T15:06:14"><abbr title="2012-04-23T15:06:14+00:00">15:06:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and the positive requirement is a posix addition</q></li>
+<li class="message">[<a href="#T15:06:26" id="T15:06:26"><abbr title="2012-04-23T15:06:26+00:00">15:06:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>c99 only requires that it be an integer constant expression</q></li>
+<li class="message">[<a href="#T15:07:00" id="T15:07:00"><abbr title="2012-04-23T15:07:00+00:00">15:07:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>"that is the size of the buffer used by the setbuf function"</q></li>
+<li class="quit">[<a href="#T15:07:07" id="T15:07:07"><abbr title="2012-04-23T15:07:07+00:00">15:07:07</abbr></a>] <span>* mag- (~mgreer@ip68-2-83-159.ph.ph.cox.net) Quit (Quit: Terminated with extreme prejudice - dircproxy 1.0.5)</span></li>
+<li class="message">[<a href="#T15:07:11" id="T15:07:11"><abbr title="2012-04-23T15:07:11+00:00">15:07:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so maybe that implicitly ensures it's &gt;0</q></li>
+<li class="message">[<a href="#T15:08:07" id="T15:08:07"><abbr title="2012-04-23T15:08:07+00:00">15:08:07</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I always use it as a constant that declares some semi-efficient block size for IO</q></li>
+<li class="join">[<a href="#T15:08:37" id="T15:08:37"><abbr title="2012-04-23T15:08:37+00:00">15:08:37</abbr></a>] <span>* divine (~divine@97-94-146-75.dhcp.trlk.ca.charter.com) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T15:08:44" id="T15:08:44"><abbr title="2012-04-23T15:08:44+00:00">15:08:44</abbr></a>] &lt;<cite>panto</cite>&gt; <q>yeah, in theory it's just a positive integer - so I concede</q></li>
+<li class="message">[<a href="#T15:09:22" id="T15:09:22"><abbr title="2012-04-23T15:09:22+00:00">15:09:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uclibc on blackfin sets it to 256</q></li>
+<li class="join">[<a href="#T15:09:32" id="T15:09:32"><abbr title="2012-04-23T15:09:32+00:00">15:09:32</abbr></a>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:10:32" id="T15:10:32"><abbr title="2012-04-23T15:10:32+00:00">15:10:32</abbr></a>] <span>* panto (c0ab037e@gateway/web/freenode/ip.192.171.3.126) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T15:10:34" id="T15:10:34"><abbr title="2012-04-23T15:10:34+00:00">15:10:34</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>just use std::string</q></li>
+<li class="message">[<a href="#T15:10:36" id="T15:10:36"><abbr title="2012-04-23T15:10:36+00:00">15:10:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>which should be enough for everybody</q></li>
+<li class="message">[<a href="#T15:11:22" id="T15:11:22"><abbr title="2012-04-23T15:11:22+00:00">15:11:22</abbr></a>] &lt;<cite>angs</cite>&gt; <q>would it be correct to use something like "int = system(cat /sys/class/gpio/gpio37/value)"?</q></li>
+<li class="message">[<a href="#T15:11:32" id="T15:11:32"><abbr title="2012-04-23T15:11:32+00:00">15:11:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T15:12:11" id="T15:12:11"><abbr title="2012-04-23T15:12:11+00:00">15:12:11</abbr></a>] &lt;<cite>angs</cite>&gt; <q>it is not possible to assing system output to a variable?</q></li>
+<li class="message">[<a href="#T15:12:19" id="T15:12:19"><abbr title="2012-04-23T15:12:19+00:00">15:12:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure its possible</q></li>
+<li class="message">[<a href="#T15:12:48" id="T15:12:48"><abbr title="2012-04-23T15:12:48+00:00">15:12:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its also possible to read the man page for system</q></li>
+<li class="quit">[<a href="#T15:13:43" id="T15:13:43"><abbr title="2012-04-23T15:13:43+00:00">15:13:43</abbr></a>] <span>* rcn-ee (~voodoo@56.sub-75-224-249.myvzw.com) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T15:14:51" id="T15:14:51"><abbr title="2012-04-23T15:14:51+00:00">15:14:51</abbr></a>] <span>* wizzkaz (~wizzkaz@77-22-70-121-dynip.superkabel.de) has joined #beaglebone</span></li>
+<li class="join">[<abbr title="2012-04-23T15:14:51+00:00">15:14:51</abbr>] <span>* wizzkaz (~wizzkaz@77-22-70-121-dynip.superkabel.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-04-23T15:14:51+00:00">15:14:51</abbr>] <span>* wizzkaz (~wizzkaz@77-22-70-121-dynip.superkabel.de) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T15:16:20" id="T15:16:20"><abbr title="2012-04-23T15:16:20+00:00">15:16:20</abbr></a>] <span>* fullstop (~quassel@173.210.91.4) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T15:16:44" id="T15:16:44"><abbr title="2012-04-23T15:16:44+00:00">15:16:44</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>are man pages accessible through social networks?</q></li>
+<li class="join">[<a href="#T15:17:36" id="T15:17:36"><abbr title="2012-04-23T15:17:36+00:00">15:17:36</abbr></a>] <span>* mag (~mgreer@ip68-2-83-159.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:18:11" id="T15:18:11"><abbr title="2012-04-23T15:18:11+00:00">15:18:11</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>one should the make friends to all out there ;)</q></li>
+<li class="message">[<a href="#T15:18:16" id="T15:18:16"><abbr title="2012-04-23T15:18:16+00:00">15:18:16</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>s/the/them/</q></li>
+<li class="message">[<a href="#T15:19:35" id="T15:19:35"><abbr title="2012-04-23T15:19:35+00:00">15:19:35</abbr></a>] &lt;<cite>fooblya_monad</cite>&gt; <q>Does somebody know performance limits for gpio ports on BeagleBone? I`d like to solder some 10 MSPS ADC to GPIO and try some DSP, but don`t know max throughput of ports</q></li>
+<li class="join">[<a href="#T15:19:44" id="T15:19:44"><abbr title="2012-04-23T15:19:44+00:00">15:19:44</abbr></a>] <span>* kkeller (~Ken_Kelle@97-124-99-249.phnx.qwest.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:19:50" id="T15:19:50"><abbr title="2012-04-23T15:19:50+00:00">15:19:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>fooblya_monad: wont work</q></li>
+<li class="message">[<a href="#T15:20:46" id="T15:20:46"><abbr title="2012-04-23T15:20:46+00:00">15:20:46</abbr></a>] &lt;<cite>fooblya_monad</cite>&gt; <q>why?</q></li>
+<li class="message">[<a href="#T15:21:39" id="T15:21:39"><abbr title="2012-04-23T15:21:39+00:00">15:21:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>because of performance limits for gpio ports on BeagleBone</q></li>
+<li class="message">[<a href="#T15:21:52" id="T15:21:52"><abbr title="2012-04-23T15:21:52+00:00">15:21:52</abbr></a>] &lt;<cite>fooblya_monad</cite>&gt; <q>?? :)</q></li>
+<li class="message">[<a href="#T15:22:13" id="T15:22:13"><abbr title="2012-04-23T15:22:13+00:00">15:22:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>use an spi adc</q></li>
+<li class="quit">[<a href="#T15:23:27" id="T15:23:27"><abbr title="2012-04-23T15:23:27+00:00">15:23:27</abbr></a>] <span>* jpirko (jirka@nat/redhat/x-iukwkkcdgkeunwqo) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T15:29:38" id="T15:29:38"><abbr title="2012-04-23T15:29:38+00:00">15:29:38</abbr></a>] <span>* thaytan (~thaytan@113.94.233.220.static.exetel.com.au) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="join">[<a href="#T15:30:55" id="T15:30:55"><abbr title="2012-04-23T15:30:55+00:00">15:30:55</abbr></a>] <span>* thaytan (~thaytan@113.94.233.220.static.exetel.com.au) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:38:32" id="T15:38:32"><abbr title="2012-04-23T15:38:32+00:00">15:38:32</abbr></a>] <span>* prpplague (~danders@192.91.66.186) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:44:52" id="T15:44:52"><abbr title="2012-04-23T15:44:52+00:00">15:44:52</abbr></a>] <span>* XorA (~XorA@slimlogic.co.uk) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="message">[<a href="#T15:49:32" id="T15:49:32"><abbr title="2012-04-23T15:49:32+00:00">15:49:32</abbr></a>] &lt;<cite>jsabeaudry</cite>&gt; <q>av500, I had some more time to work on my IRQ latency problem, did some more measures, it seems that 4/5 times the delay is exactly 127 ms,</q></li>
+<li class="join">[<a href="#T15:49:45" id="T15:49:45"><abbr title="2012-04-23T15:49:45+00:00">15:49:45</abbr></a>] <span>* jay6981 (~Adium@99-90-66-112.lightspeed.sntcca.sbcglobal.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:49:54" id="T15:49:54"><abbr title="2012-04-23T15:49:54+00:00">15:49:54</abbr></a>] &lt;<cite>jsabeaudry</cite>&gt; <q>4/5 times that it fails*</q></li>
+<li class="message">[<a href="#T15:50:21" id="T15:50:21"><abbr title="2012-04-23T15:50:21+00:00">15:50:21</abbr></a>] &lt;<cite>jsabeaudry</cite>&gt; <q>more than 99% of the time the irq is served under 1ms</q></li>
+<li class="message">[<a href="#T15:51:30" id="T15:51:30"><abbr title="2012-04-23T15:51:30+00:00">15:51:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>statistically you are on the safe side, go write that term paper :)</q></li>
+<li class="message">[<abbr title="2012-04-23T15:51:30+00:00">15:51:30</abbr>] &lt;<cite>aholler</cite>&gt; <q>hmm, gregkh had announce 3.3.3, just not with the word stable in the subject.</q></li>
+<li class="message">[<a href="#T15:51:44" id="T15:51:44"><abbr title="2012-04-23T15:51:44+00:00">15:51:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>aholler: so 3.3.3 is unstable?</q></li>
+<li class="message">[<a href="#T15:51:59" id="T15:51:59"><abbr title="2012-04-23T15:51:59+00:00">15:51:59</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>it's just "Linux 3.3.3"</q></li>
+<li class="message">[<a href="#T15:52:24" id="T15:52:24"><abbr title="2012-04-23T15:52:24+00:00">15:52:24</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>not sure if that means something ;)</q></li>
+<li class="message">[<a href="#T15:52:41" id="T15:52:41"><abbr title="2012-04-23T15:52:41+00:00">15:52:41</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>oh my god, some one call phoronix</q></li>
+<li class="message">[<a href="#T15:52:46" id="T15:52:46"><abbr title="2012-04-23T15:52:46+00:00">15:52:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>he's taking over linux development</q></li>
+<li class="message">[<a href="#T15:52:55" id="T15:52:55"><abbr title="2012-04-23T15:52:55+00:00">15:52:55</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>they'll want to hear about this</q></li>
+<li class="message">[<a href="#T15:53:17" id="T15:53:17"><abbr title="2012-04-23T15:53:17+00:00">15:53:17</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>linus retires?</q></li>
+<li class="message">[<a href="#T15:53:30" id="T15:53:30"><abbr title="2012-04-23T15:53:30+00:00">15:53:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>retries</q></li>
+<li class="message">[<a href="#T15:53:38" id="T15:53:38"><abbr title="2012-04-23T15:53:38+00:00">15:53:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>this time with micro kernel...</q></li>
+<li class="message">[<abbr title="2012-04-23T15:53:38+00:00">15:53:38</abbr>] &lt;<cite>Russ</cite>&gt; <q>abort?</q></li>
+<li class="message">[<a href="#T15:53:41" id="T15:53:41"><abbr title="2012-04-23T15:53:41+00:00">15:53:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>doing it right</q></li>
+<li class="action">[<a href="#T15:54:00" id="T15:54:00"><abbr title="2012-04-23T15:54:00+00:00">15:54:00</abbr></a>] <span>* Russ looks up a picture of a quetzal</span></li>
+<li class="quit">[<a href="#T15:54:54" id="T15:54:54"><abbr title="2012-04-23T15:54:54+00:00">15:54:54</abbr></a>] <span>* thurbad (~natesewel@64.132.24.248) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T15:55:03" id="T15:55:03"><abbr title="2012-04-23T15:55:03+00:00">15:55:03</abbr></a>] <span>* tema (~tema@178-16-155-142.obit.ru) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:55:52" id="T15:55:52"><abbr title="2012-04-23T15:55:52+00:00">15:55:52</abbr></a>] <span>* tasslehoff (~tasslehof@145.79-161-31.customer.lyse.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:56:50" id="T15:56:50"><abbr title="2012-04-23T15:56:50+00:00">15:56:50</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>koen, did you want to mirror the demo @ OSUOSL?</q></li>
+<li class="message">[<a href="#T15:57:20" id="T15:57:20"><abbr title="2012-04-23T15:57:20+00:00">15:57:20</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ka6sox: that's a jkridner question, he's in charge of beagle mirrors :)</q></li>
+<li class="message">[<a href="#T15:57:34" id="T15:57:34"><abbr title="2012-04-23T15:57:34+00:00">15:57:34</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>okay..sorry</q></li>
+<li class="join">[<a href="#T15:57:53" id="T15:57:53"><abbr title="2012-04-23T15:57:53+00:00">15:57:53</abbr></a>] <span>* emeb (~ericb@ip72-223-81-94.ph.ph.cox.net) has joined #beaglebone</span></li>
+<li class="join">[<abbr title="2012-04-23T15:57:53+00:00">15:57:53</abbr>] <span>* emeb (~ericb@ip72-223-81-94.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:57:54" id="T15:57:54"><abbr title="2012-04-23T15:57:54+00:00">15:57:54</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>jkridner, ^^^</q></li>
+<li class="message">[<a href="#T15:58:14" id="T15:58:14"><abbr title="2012-04-23T15:58:14+00:00">15:58:14</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>Russ: 3.3.3 contains something for you: USB: pl2303: fix DTR/RTS being raised on baud rate change</q></li>
+<li class="message">[<a href="#T15:58:41" id="T15:58:41"><abbr title="2012-04-23T15:58:41+00:00">15:58:41</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>since I don't change baud rate...</q></li>
+<li class="message">[<a href="#T15:59:02" id="T15:59:02"><abbr title="2012-04-23T15:59:02+00:00">15:59:02</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>on 3.3.0 though, changing the baud rate to zero does drop DTR as expected</q></li>
+<li class="join">[<a href="#T15:59:15" id="T15:59:15"><abbr title="2012-04-23T15:59:15+00:00">15:59:15</abbr></a>] <span>* thurbad (~natesewel@64.132.24.248) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:59:18" id="T15:59:18"><abbr title="2012-04-23T15:59:18+00:00">15:59:18</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>hmm, 115200 is the default on boot-up?</q></li>
+<li class="message">[<a href="#T15:59:26" id="T15:59:26"><abbr title="2012-04-23T15:59:26+00:00">15:59:26</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>for?</q></li>
+<li class="quit">[<abbr title="2012-04-23T15:59:26+00:00">15:59:26</abbr>] <span>* davest (~DCSTEWAR@134.134.139.76) Quit (Quit: Leaving.)</span></li>
