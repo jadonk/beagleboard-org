@@ -1,0 +1,54 @@
+<li class="join">[<a href="#T00:00:11" id="T00:00:11"><abbr title="2012-04-26T00:00:11+00:00">00:00:11</abbr></a>] <span>* lostf (808abd1a@gateway/web/freenode/ip.128.138.189.26) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:00:36" id="T00:00:36"><abbr title="2012-04-26T00:00:36+00:00">00:00:36</abbr></a>] &lt;<cite>lostf</cite>&gt; <q>does anyone know how to use uart1 through the sys filesystem?</q></li>
+<li class="message">[<a href="#T00:01:06" id="T00:01:06"><abbr title="2012-04-26T00:01:06+00:00">00:01:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what do you want to do?</q></li>
+<li class="message">[<a href="#T00:01:39" id="T00:01:39"><abbr title="2012-04-26T00:01:39+00:00">00:01:39</abbr></a>] &lt;<cite>lostf</cite>&gt; <q>use uart1 to recieve data from a cpld</q></li>
+<li class="message">[<a href="#T00:01:55" id="T00:01:55"><abbr title="2012-04-26T00:01:55+00:00">00:01:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>why not use /dev/ttyO0 or whatever it maps to?</q></li>
+<li class="message">[<a href="#T00:02:09" id="T00:02:09"><abbr title="2012-04-26T00:02:09+00:00">00:02:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's how you normally use a uart</q></li>
+<li class="message">[<a href="#T00:05:36" id="T00:05:36"><abbr title="2012-04-26T00:05:36+00:00">00:05:36</abbr></a>] &lt;<cite>lostf</cite>&gt; <q>i've never done it before</q></li>
+<li class="quit">[<a href="#T00:05:49" id="T00:05:49"><abbr title="2012-04-26T00:05:49+00:00">00:05:49</abbr></a>] <span>* userx (~0x@unaffiliated/userx) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T00:05:58" id="T00:05:58"><abbr title="2012-04-26T00:05:58+00:00">00:05:58</abbr></a>] &lt;<cite>lostf</cite>&gt; <q>do you just pipe to dev/ttyO0 to write?</q></li>
+<li class="message">[<a href="#T00:06:02" id="T00:06:02"><abbr title="2012-04-26T00:06:02+00:00">00:06:02</abbr></a>] &lt;<cite>lostf</cite>&gt; <q>and cat to read?</q></li>
+<li class="join">[<a href="#T00:06:12" id="T00:06:12"><abbr title="2012-04-26T00:06:12+00:00">00:06:12</abbr></a>] <span>* userx (~0x@unaffiliated/userx) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:06:21" id="T00:06:21"><abbr title="2012-04-26T00:06:21+00:00">00:06:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you need to configure the right parameters first</q></li>
+<li class="message">[<a href="#T00:06:24" id="T00:06:24"><abbr title="2012-04-26T00:06:24+00:00">00:06:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>like bitrate</q></li>
+<li class="message">[<a href="#T00:06:39" id="T00:06:39"><abbr title="2012-04-26T00:06:39+00:00">00:06:39</abbr></a>] &lt;<cite>lostf</cite>&gt; <q>how do you do that?</q></li>
+<li class="message">[<a href="#T00:07:44" id="T00:07:44"><abbr title="2012-04-26T00:07:44+00:00">00:07:44</abbr></a>] &lt;<cite>mru</cite>&gt; <q>stty</q></li>
+<li class="message">[<a href="#T00:07:55" id="T00:07:55"><abbr title="2012-04-26T00:07:55+00:00">00:07:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you want a command line tool</q></li>
+<li class="message">[<a href="#T00:08:13" id="T00:08:13"><abbr title="2012-04-26T00:08:13+00:00">00:08:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>man termios for the C interface</q></li>
+<li class="message">[<a href="#T00:08:36" id="T00:08:36"><abbr title="2012-04-26T00:08:36+00:00">00:08:36</abbr></a>] &lt;<cite>lostf</cite>&gt; <q>thank you</q></li>
+<li class="quit">[<a href="#T00:09:37" id="T00:09:37"><abbr title="2012-04-26T00:09:37+00:00">00:09:37</abbr></a>] <span>* pastjean (~pastjean@c207.134.175-115.clta.globetrotter.net) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T00:14:19" id="T00:14:19"><abbr title="2012-04-26T00:14:19+00:00">00:14:19</abbr></a>] <span>* _roger_ (~a0740758@nat/ti/x-qzvgmecjckzasnii) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="part">[<a href="#T00:15:07" id="T00:15:07"><abbr title="2012-04-26T00:15:07+00:00">00:15:07</abbr></a>] <span>* sjbtk (434e2f0e@gateway/web/freenode/ip.67.78.47.14) has left #beagle</span></li>
+<li class="quit">[<a href="#T00:17:45" id="T00:17:45"><abbr title="2012-04-26T00:17:45+00:00">00:17:45</abbr></a>] <span>* isaacbw (~isaac@cpe-74-79-19-221.twcny.res.rr.com) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T00:19:23" id="T00:19:23"><abbr title="2012-04-26T00:19:23+00:00">00:19:23</abbr></a>] <span>* isaacbw (~isaac@cpe-74-79-19-221.twcny.res.rr.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:25:23" id="T00:25:23"><abbr title="2012-04-26T00:25:23+00:00">00:25:23</abbr></a>] <span>* CMoH (~cipi@unaffiliated/c-moh) Quit (Quit: Konversation terminated!)</span></li>
+<li class="message">[<a href="#T00:26:03" id="T00:26:03"><abbr title="2012-04-26T00:26:03+00:00">00:26:03</abbr></a>] &lt;<cite>CanyonMan</cite>&gt; <q>these xbee units work amazingly well</q></li>
+<li class="quit">[<a href="#T00:31:35" id="T00:31:35"><abbr title="2012-04-26T00:31:35+00:00">00:31:35</abbr></a>] <span>* isaacbw (~isaac@cpe-74-79-19-221.twcny.res.rr.com) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T00:33:24" id="T00:33:24"><abbr title="2012-04-26T00:33:24+00:00">00:33:24</abbr></a>] <span>* thurbad (~natesewel@64.132.24.248) Quit (Quit: thurbad)</span></li>
+<li class="join">[<a href="#T00:38:38" id="T00:38:38"><abbr title="2012-04-26T00:38:38+00:00">00:38:38</abbr></a>] <span>* djerome (~djerome@ip68-2-20-108.ph.ph.cox.net) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T00:46:11" id="T00:46:11"><abbr title="2012-04-26T00:46:11+00:00">00:46:11</abbr></a>] <span>* Crofton (~balister@pool-71-171-22-246.nwrknj.east.verizon.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T00:46:55" id="T00:46:55"><abbr title="2012-04-26T00:46:55+00:00">00:46:55</abbr></a>] <span>* Crofton (~balister@pool-71-171-22-246.nwrknj.east.verizon.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:47:08" id="T00:47:08"><abbr title="2012-04-26T00:47:08+00:00">00:47:08</abbr></a>] <span>* phantoneD (~destroy@a95-92-89-24.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:47:18" id="T00:47:18"><abbr title="2012-04-26T00:47:18+00:00">00:47:18</abbr></a>] <span>* avinashhm (~avinash@wsip-70-183-20-162.oc.oc.cox.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T00:48:18" id="T00:48:18"><abbr title="2012-04-26T00:48:18+00:00">00:48:18</abbr></a>] <span>* ppotera (~ppotera@99-100-130-116.lightspeed.stlsmo.sbcglobal.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:49:46" id="T00:49:46"><abbr title="2012-04-26T00:49:46+00:00">00:49:46</abbr></a>] &lt;<cite>ppotera</cite>&gt; <q>Anyone feel like answering a newbie git question?</q></li>
+<li class="message">[<a href="#T00:49:54" id="T00:49:54"><abbr title="2012-04-26T00:49:54+00:00">00:49:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>shoot</q></li>
+<li class="message">[<a href="#T00:49:55" id="T00:49:55"><abbr title="2012-04-26T00:49:55+00:00">00:49:55</abbr></a>] &lt;<cite>ppotera</cite>&gt; <q>How would I grab this tree? <a href="http://dominion.thruhere.net/git/cgit.cgi/linux-omap/tree/?h=nishant-github/linux-omap-3.0">http://dominion.thruhere.net/git/cgit.cgi/linux-omap/tree/?h=nishant-github/linux-omap-3.0</a></q></li>
+<li class="nick-change">[<a href="#T00:50:06" id="T00:50:06"><abbr title="2012-04-26T00:50:06+00:00">00:50:06</abbr></a>] <span>* prp^2 is now known as prpplague</span></li>
+<li class="quit">[<a href="#T00:50:34" id="T00:50:34"><abbr title="2012-04-26T00:50:34+00:00">00:50:34</abbr></a>] <span>* phantoxeD (~destroy@a95-92-89-24.cpe.netcabo.pt) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T00:50:36" id="T00:50:36"><abbr title="2012-04-26T00:50:36+00:00">00:50:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>click the summary tab</q></li>
+<li class="message">[<a href="#T00:50:42" id="T00:50:42"><abbr title="2012-04-26T00:50:42+00:00">00:50:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's a clone url at the bottom of the page</q></li>
+<li class="message">[<a href="#T00:51:21" id="T00:51:21"><abbr title="2012-04-26T00:51:21+00:00">00:51:21</abbr></a>] &lt;<cite>ppotera</cite>&gt; <q>um um, where exactly?</q></li>
+<li class="action">[<a href="#T00:51:43" id="T00:51:43"><abbr title="2012-04-26T00:51:43+00:00">00:51:43</abbr></a>] <span>* mranostay hands mru a beer</span></li>
+<li class="message">[<a href="#T00:51:45" id="T00:51:45"><abbr title="2012-04-26T00:51:45+00:00">00:51:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>right under the 'Clone' heading</q></li>
+<li class="join">[<a href="#T00:52:02" id="T00:52:02"><abbr title="2012-04-26T00:52:02+00:00">00:52:02</abbr></a>] <span>* nakmin (~quassel@203.247.149.126) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:52:09" id="T00:52:09"><abbr title="2012-04-26T00:52:09+00:00">00:52:09</abbr></a>] <span>* Crofton (~balister@pool-71-171-22-246.nwrknj.east.verizon.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T00:52:42" id="T00:52:42"><abbr title="2012-04-26T00:52:42+00:00">00:52:42</abbr></a>] &lt;<cite>ppotera</cite>&gt; <q>Ah, under the "summary"</q></li>
+<li class="message">[<a href="#T00:52:44" id="T00:52:44"><abbr title="2012-04-26T00:52:44+00:00">00:52:44</abbr></a>] &lt;<cite>ppotera</cite>&gt; <q>Cheers!</q></li>
+<li class="message">[<a href="#T00:52:49" id="T00:52:49"><abbr title="2012-04-26T00:52:49+00:00">00:52:49</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>ppotera: <a href="http://bit.ly/ISF042">http://bit.ly/ISF042</a></q></li>
+<li class="join">[<a href="#T00:52:56" id="T00:52:56"><abbr title="2012-04-26T00:52:56+00:00">00:52:56</abbr></a>] <span>* Crofton (~balister@pool-71-171-22-246.nwrknj.east.verizon.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:53:47" id="T00:53:47"><abbr title="2012-04-26T00:53:47+00:00">00:53:47</abbr></a>] <span>* isaacbw (~isaac@cpe-74-79-19-221.twcny.res.rr.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:54:14" id="T00:54:14"><abbr title="2012-04-26T00:54:14+00:00">00:54:14</abbr></a>] <span>* nakmin (~quassel@203.247.149.126) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T00:54:24" id="T00:54:24"><abbr title="2012-04-26T00:54:24+00:00">00:54:24</abbr></a>] <span>* vanity (~quassel@203.247.149.126) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:57:08" id="T00:57:08"><abbr title="2012-04-26T00:57:08+00:00">00:57:08</abbr></a>] <span>* phantoxe (~destroy@a95-92-89-24.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:58:10" id="T00:58:10"><abbr title="2012-04-26T00:58:10+00:00">00:58:10</abbr></a>] <span>* ppotera (~ppotera@99-100-130-116.lightspeed.stlsmo.sbcglobal.net) Quit (Quit: ppotera)</span></li>
