@@ -238,3 +238,37 @@
 <li class="join">[<a href="#T09:48:47" id="T09:48:47"><abbr title="2012-05-02T09:48:47+00:00">09:48:47</abbr></a>] <span>* lpi (c13cce86@gateway/web/freenode/ip.193.60.206.134) has joined #beagle</span></li>
 <li class="join">[<a href="#T09:50:44" id="T09:50:44"><abbr title="2012-05-02T09:50:44+00:00">09:50:44</abbr></a>] <span>* _tasslehoff_ (~Tasslehof@84.49.231.147) has joined #beagle</span></li>
 <li class="quit">[<a href="#T09:59:24" id="T09:59:24"><abbr title="2012-05-02T09:59:24+00:00">09:59:24</abbr></a>] <span>* novogrammer (~novogramm@softbank126108028029.bbtec.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T10:00:57" id="T10:00:57"><abbr title="2012-05-02T10:00:57+00:00">10:00:57</abbr></a>] <span>* novogrammer (~novogramm@softbank126108028029.bbtec.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:02:08" id="T10:02:08"><abbr title="2012-05-02T10:02:08+00:00">10:02:08</abbr></a>] &lt;<cite>koen</cite>&gt; <q>_tasslehoff_: I think I found the bug</q></li>
+<li class="message">[<a href="#T10:03:30" id="T10:03:30"><abbr title="2012-05-02T10:03:30+00:00">10:03:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>_tasslehoff_: where does your /usr/lib/libsrv_um.so point to?</q></li>
+<li class="join">[<a href="#T10:05:20" id="T10:05:20"><abbr title="2012-05-02T10:05:20+00:00">10:05:20</abbr></a>] <span>* stefan88_15 (~steff@141.85.225.204) has joined #beagle</span></li>
+<li class="part">[<a href="#T10:05:21" id="T10:05:21"><abbr title="2012-05-02T10:05:21+00:00">10:05:21</abbr></a>] <span>* stefan88_15 (~steff@141.85.225.204) has left #beagle</span></li>
+<li class="message">[<a href="#T10:10:23" id="T10:10:23"><abbr title="2012-05-02T10:10:23+00:00">10:10:23</abbr></a>] &lt;<cite>_tasslehoff_</cite>&gt; <q>koen: /usr/lib/libsrv_um.so -&gt; libsrv_um_dri.so.1.6.16.4117</q></li>
+<li class="message">[<a href="#T10:11:04" id="T10:11:04"><abbr title="2012-05-02T10:11:04+00:00">10:11:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>_tasslehoff_: cd /usr/lib ; ln -sf libsrv_um.so.1.6.16.4117 libsrv_um.so</q></li>
+<li class="join">[<a href="#T10:11:25" id="T10:11:25"><abbr title="2012-05-02T10:11:25+00:00">10:11:25</abbr></a>] <span>* niro (~niro@cpc5-nrte5-0-0-cust23.8-4.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:12:37" id="T10:12:37"><abbr title="2012-05-02T10:12:37+00:00">10:12:37</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T10:13:49" id="T10:13:49"><abbr title="2012-05-02T10:13:49+00:00">10:13:49</abbr></a>] &lt;<cite>_tasslehoff_</cite>&gt; <q>koen: "PVRShell: EGL 1.4 initialized", so that's good.</q></li>
+<li class="message">[<a href="#T10:13:57" id="T10:13:57"><abbr title="2012-05-02T10:13:57+00:00">10:13:57</abbr></a>] &lt;<cite>_tasslehoff_</cite>&gt; <q>No chameleon man on my display though</q></li>
+<li class="quit">[<a href="#T10:14:11" id="T10:14:11"><abbr title="2012-05-02T10:14:11+00:00">10:14:11</abbr></a>] <span>* novogrammer (~novogramm@softbank126108028029.bbtec.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T10:14:21" id="T10:14:21"><abbr title="2012-05-02T10:14:21+00:00">10:14:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>using x? and if so, is /etc/powervr.ini correct?</q></li>
+<li class="message">[<a href="#T10:14:28" id="T10:14:28"><abbr title="2012-05-02T10:14:28+00:00">10:14:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and is DSIPLAY set?</q></li>
+<li class="message">[<a href="#T10:14:36" id="T10:14:36"><abbr title="2012-05-02T10:14:36+00:00">10:14:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and does 'xhost +' help?</q></li>
+<li class="join">[<a href="#T10:14:50" id="T10:14:50"><abbr title="2012-05-02T10:14:50+00:00">10:14:50</abbr></a>] <span>* novogrammer (~novogramm@softbank126108028029.bbtec.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:15:00" id="T10:15:00"><abbr title="2012-05-02T10:15:00+00:00">10:15:00</abbr></a>] &lt;<cite>_tasslehoff_</cite>&gt; <q>not using X</q></li>
+<li class="message">[<a href="#T10:15:18" id="T10:15:18"><abbr title="2012-05-02T10:15:18+00:00">10:15:18</abbr></a>] &lt;<cite>_tasslehoff_</cite>&gt; <q>it took down the whole thing (hearbeat led stopped). rebooting now</q></li>
+<li class="message">[<a href="#T10:15:53" id="T10:15:53"><abbr title="2012-05-02T10:15:53+00:00">10:15:53</abbr></a>] &lt;<cite>_tasslehoff_</cite>&gt; <q>WindowSystem=libpvrPVR2D_FRONTWSEGL.so.1</q></li>
+<li class="message">[<a href="#T10:16:25" id="T10:16:25"><abbr title="2012-05-02T10:16:25+00:00">10:16:25</abbr></a>] &lt;<cite>koen</cite>&gt; <q>omap3530?</q></li>
+<li class="message">[<a href="#T10:16:57" id="T10:16:57"><abbr title="2012-05-02T10:16:57+00:00">10:16:57</abbr></a>] &lt;<cite>_tasslehoff_</cite>&gt; <q>koen: yep</q></li>
+<li class="message">[<a href="#T10:18:21" id="T10:18:21"><abbr title="2012-05-02T10:18:21+00:00">10:18:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you're hitting the bug sakoman and I are seeing as well</q></li>
+<li class="message">[<a href="#T10:18:28" id="T10:18:28"><abbr title="2012-05-02T10:18:28+00:00">10:18:28</abbr></a>] &lt;<cite>koen</cite>&gt; <q>instant lockup on omap3530 ES3.x</q></li>
+<li class="join">[<a href="#T10:19:07" id="T10:19:07"><abbr title="2012-05-02T10:19:07+00:00">10:19:07</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T10:22:12" id="T10:22:12"><abbr title="2012-05-02T10:22:12+00:00">10:22:12</abbr></a>] <span>* ericb2 (~X@aud25-1-88-166-8-11.fbx.proxad.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2012-05-02T10:22:12+00:00">10:22:12</abbr>] <span>* ericb2 (~X@aud25-1-88-166-8-11.fbx.proxad.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2012-05-02T10:22:12+00:00">10:22:12</abbr>] <span>* ericb2 (~X@unaffiliated/ericb2) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:25:14" id="T10:25:14"><abbr title="2012-05-02T10:25:14+00:00">10:25:14</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Excess Flood)</span></li>
+<li class="join">[<a href="#T10:25:39" id="T10:25:39"><abbr title="2012-05-02T10:25:39+00:00">10:25:39</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:29:46" id="T10:29:46"><abbr title="2012-05-02T10:29:46+00:00">10:29:46</abbr></a>] &lt;<cite>_tasslehoff_</cite>&gt; <q>ouch</q></li>
+<li class="join">[<a href="#T10:43:16" id="T10:43:16"><abbr title="2012-05-02T10:43:16+00:00">10:43:16</abbr></a>] <span>* stefan88_15 (~steff@141.85.225.204) has joined #beagle</span></li>
+<li class="part">[<a href="#T10:43:19" id="T10:43:19"><abbr title="2012-05-02T10:43:19+00:00">10:43:19</abbr></a>] <span>* stefan88_15 (~steff@141.85.225.204) has left #beagle</span></li>
+<li class="quit">[<a href="#T10:47:21" id="T10:47:21"><abbr title="2012-05-02T10:47:21+00:00">10:47:21</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (Excess Flood)</span></li>
+<li class="join">[<a href="#T10:47:46" id="T10:47:46"><abbr title="2012-05-02T10:47:46+00:00">10:47:46</abbr></a>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
