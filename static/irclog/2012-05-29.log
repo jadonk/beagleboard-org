@@ -461,3 +461,527 @@
 <li class="message">[<abbr title="2012-05-29T12:59:03+00:00">12:59:03</abbr>] &lt;<cite>av500</cite>&gt; <q>Angstrom-TI-GNOME-image-eglibc-ipk-v2012.01-core-beagleboard-2012.01.11.img.gz</q></li>
 <li class="message">[<a href="#T12:59:11" id="T12:59:11"><abbr title="2012-05-29T12:59:11+00:00">12:59:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>this one</q></li>
 <li class="message">[<a href="#T12:59:51" id="T12:59:51"><abbr title="2012-05-29T12:59:51+00:00">12:59:51</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>Ok, I'll try that. I guess I will unzip it first right?</q></li>
+<li class="message">[<a href="#T13:00:05" id="T13:00:05"><abbr title="2012-05-29T13:00:05+00:00">13:00:05</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>just use zcat</q></li>
+<li class="message">[<a href="#T13:00:15" id="T13:00:15"><abbr title="2012-05-29T13:00:15+00:00">13:00:15</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>although I don't think I should have got 'permission denied' with a wrong image....???</q></li>
+<li class="message">[<a href="#T13:00:34" id="T13:00:34"><abbr title="2012-05-29T13:00:34+00:00">13:00:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cat does not care for that image it writes</q></li>
+<li class="message">[<a href="#T13:00:40" id="T13:00:40"><abbr title="2012-05-29T13:00:40+00:00">13:00:40</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>are you trying to cat as a user to the disk device ?</q></li>
+<li class="message">[<a href="#T13:01:01" id="T13:01:01"><abbr title="2012-05-29T13:01:01+00:00">13:01:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>for what*</q></li>
+<li class="message">[<a href="#T13:01:02" id="T13:01:02"><abbr title="2012-05-29T13:01:02+00:00">13:01:02</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>you need to have full write permission to /dev/sdb in your case</q></li>
+<li class="message">[<a href="#T13:01:09" id="T13:01:09"><abbr title="2012-05-29T13:01:09+00:00">13:01:09</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q> sudo cat Angstrom-TI-GNOME-image-eglibc-ipk-v2012.01-core-beagleboard-2012.01.11.img &gt;/dev/sdb</q></li>
+<li class="message">[<a href="#T13:01:18" id="T13:01:18"><abbr title="2012-05-29T13:01:18+00:00">13:01:18</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>that wont work</q></li>
+<li class="message">[<a href="#T13:01:38" id="T13:01:38"><abbr title="2012-05-29T13:01:38+00:00">13:01:38</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>use sudo -s</q></li>
+<li class="message">[<a href="#T13:01:49" id="T13:01:49"><abbr title="2012-05-29T13:01:49+00:00">13:01:49</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>and then cat or zcat</q></li>
+<li class="message">[<a href="#T13:02:12" id="T13:02:12"><abbr title="2012-05-29T13:02:12+00:00">13:02:12</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>in your command above the sudo applies to the cat, but not to the redirect</q></li>
+<li class="message">[<a href="#T13:02:29" id="T13:02:29"><abbr title="2012-05-29T13:02:29+00:00">13:02:29</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>(i.e. &gt;/dev/sdb is executed as a user)</q></li>
+<li class="message">[<a href="#T13:02:32" id="T13:02:32"><abbr title="2012-05-29T13:02:32+00:00">13:02:32</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>ah! thanks for explaining this</q></li>
+<li class="message">[<a href="#T13:03:04" id="T13:03:04"><abbr title="2012-05-29T13:03:04+00:00">13:03:04</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>$ sudo -s zcat Angstrom-TI-GNOME-image-eglibc-ipk-v2012.01-core-beagleboard-2012.01.11.img &gt;/dev/sdb</q></li>
+<li class="message">[<a href="#T13:03:16" id="T13:03:16"><abbr title="2012-05-29T13:03:16+00:00">13:03:16</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>you could use something like "cat foo.img | sudo tee /dev/foo" ...</q></li>
+<li class="message">[<a href="#T13:03:25" id="T13:03:25"><abbr title="2012-05-29T13:03:25+00:00">13:03:25</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>still a problem about permissions</q></li>
+<li class="message">[<a href="#T13:03:26" id="T13:03:26"><abbr title="2012-05-29T13:03:26+00:00">13:03:26</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>no, sudo -s</q></li>
+<li class="message">[<a href="#T13:03:33" id="T13:03:33"><abbr title="2012-05-29T13:03:33+00:00">13:03:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or dd and a bs=4M to maybe make it faster</q></li>
+<li class="message">[<abbr title="2012-05-29T13:03:33+00:00">13:03:33</abbr>] &lt;<cite>ogra_</cite>&gt; <q>not any command after that</q></li>
+<li class="message">[<a href="#T13:03:39" id="T13:03:39"><abbr title="2012-05-29T13:03:39+00:00">13:03:39</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>it will give you a root shell</q></li>
+<li class="message">[<a href="#T13:03:46" id="T13:03:46"><abbr title="2012-05-29T13:03:46+00:00">13:03:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sudo su</q></li>
+<li class="message">[<a href="#T13:03:53" id="T13:03:53"><abbr title="2012-05-29T13:03:53+00:00">13:03:53</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>yeah, dd is better than tee for sure</q></li>
+<li class="message">[<a href="#T13:04:00" id="T13:04:00"><abbr title="2012-05-29T13:04:00+00:00">13:04:00</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>ok, I am understanding now (I hope:)</q></li>
+<li class="message">[<abbr title="2012-05-29T13:04:00+00:00">13:04:00</abbr>] &lt;<cite>ogra_</cite>&gt; <q>dont use sudo su ...</q></li>
+<li class="message">[<a href="#T13:04:17" id="T13:04:17"><abbr title="2012-05-29T13:04:17+00:00">13:04:17</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>sudo su will carry over the user env</q></li>
+<li class="message">[<a href="#T13:04:25" id="T13:04:25"><abbr title="2012-05-29T13:04:25+00:00">13:04:25</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>sudo "zcat img &gt;foo"</q></li>
+<li class="message">[<a href="#T13:04:37" id="T13:04:37"><abbr title="2012-05-29T13:04:37+00:00">13:04:37</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>yeah, quoting helps too</q></li>
+<li class="message">[<abbr title="2012-05-29T13:04:37+00:00">13:04:37</abbr>] &lt;<cite>av500</cite>&gt; <q>sudo su -</q></li>
+<li class="message">[<a href="#T13:04:55" id="T13:04:55"><abbr title="2012-05-29T13:04:55+00:00">13:04:55</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>now it is going... thanks guys!</q></li>
+<li class="message">[<a href="#T13:05:01" id="T13:05:01"><abbr title="2012-05-29T13:05:01+00:00">13:05:01</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>that should work, though i would still rather rely on sudo doing the right think with -s or -i</q></li>
+<li class="message">[<a href="#T13:05:07" id="T13:05:07"><abbr title="2012-05-29T13:05:07+00:00">13:05:07</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>without the quotes you are just sending the nothing to foo</q></li>
+<li class="message">[<a href="#T13:05:18" id="T13:05:18"><abbr title="2012-05-29T13:05:18+00:00">13:05:18</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>nothing = output of zcat</q></li>
+<li class="message">[<a href="#T13:05:33" id="T13:05:33"><abbr title="2012-05-29T13:05:33+00:00">13:05:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>zmiaow</q></li>
+<li class="message">[<a href="#T13:05:53" id="T13:05:53"><abbr title="2012-05-29T13:05:53+00:00">13:05:53</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>hmm, wrong, anyway, just use quotes or get root ;)</q></li>
+<li class="message">[<abbr title="2012-05-29T13:05:53+00:00">13:05:53</abbr>] &lt;<cite>dm8tbr</cite>&gt; <q>zLOLCAT?</q></li>
+<li class="join">[<abbr title="2012-05-29T13:05:53+00:00">13:05:53</abbr>] <span>* exosyst (~exosyst@host86-130-72-235.range86-130.btcentralplus.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:06:16" id="T13:06:16"><abbr title="2012-05-29T13:06:16+00:00">13:06:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>dm8tbr: yes, for zlul</q></li>
+<li class="message">[<a href="#T13:06:29" id="T13:06:29"><abbr title="2012-05-29T13:06:29+00:00">13:06:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>zlulz in fact</q></li>
+<li class="message">[<a href="#T13:06:46" id="T13:06:46"><abbr title="2012-05-29T13:06:46+00:00">13:06:46</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>:-D</q></li>
+<li class="message">[<a href="#T13:07:11" id="T13:07:11"><abbr title="2012-05-29T13:07:11+00:00">13:07:11</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>zlolcat has invisible bike^woutput!</q></li>
+<li class="quit">[<a href="#T13:07:20" id="T13:07:20"><abbr title="2012-05-29T13:07:20+00:00">13:07:20</abbr></a>] <span>* arti_t (~arti_t@122.166.11.13) Quit (Ping timeout: 249 seconds)</span></li>
+<li class="action">[<a href="#T13:07:29" id="T13:07:29"><abbr title="2012-05-29T13:07:29+00:00">13:07:29</abbr></a>] <span>* koen boards the roflcopter</span></li>
+<li class="message">[<a href="#T13:08:19" id="T13:08:19"><abbr title="2012-05-29T13:08:19+00:00">13:08:19</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>cats are totally stupid. the one of my parents no learned, after 3 years, how to climb down a ladder, but he is too stupid to climb back up.</q></li>
+<li class="message">[<a href="#T13:08:21" id="T13:08:21"><abbr title="2012-05-29T13:08:21+00:00">13:08:21</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>.oO(lolcat and roflcopter extensions for cowsay...)</q></li>
+<li class="join">[<a href="#T13:09:15" id="T13:09:15"><abbr title="2012-05-29T13:09:15+00:00">13:09:15</abbr></a>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:09:21" id="T13:09:21"><abbr title="2012-05-29T13:09:21+00:00">13:09:21</abbr></a>] <span>* Minou1 (~alex@138.246.31.230) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:09:36" id="T13:09:36"><abbr title="2012-05-29T13:09:36+00:00">13:09:36</abbr></a>] &lt;<cite>MrDuck</cite>&gt; <q>hello, does someone have experience with qemu-omap3? It segfaults when starting a working beagle_cx image</q></li>
+<li class="message">[<a href="#T13:09:44" id="T13:09:44"><abbr title="2012-05-29T13:09:44+00:00">13:09:44</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>aholler, its a matter of perspective ... if you carry the cat up the ladder once it doesnt get back up, i would actually call it a clever cat :)</q></li>
+<li class="quit">[<a href="#T13:10:00" id="T13:10:00"><abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr></a>] <span>* movax (~movax@99-9-113-80.lightspeed.livnmi.sbcglobal.net) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* Minou1 (~alex@138.246.31.230) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* _chase_ (~a0271661@nat/ti/x-pkvzpekcizahbqqd) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* hvaibhav1 (~a0393758@nat/ti/x-jhlkmfroomarytjr) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* rsalveti (~rsalveti@linaro/rsalveti) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* diablorosso_ (~xweber@p5B2D02D1.dip0.t-ipconnect.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* KimK (~Kim__@209.248.147.2.nw.nuvox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* signal11 (esteban@abq.quaddro.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* marcheu (~marcheu@annarchy.freedesktop.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* fooblya_monad (~abaddon@178.120.23.99) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:00+00:00">13:10:00</abbr>] <span>* grey_wolf (~greywolf@c-24-17-167-106.hsd1.wa.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:01" id="T13:10:01"><abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr></a>] <span>* thaytan (~thaytan@113.94.233.220.static.exetel.com.au) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* phh (~quassel@137.194.15.151) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* |nfecteD (~rawr@cm-84.211.42.28.getinternet.no) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* nebi (~nebi@irc.nebit.nu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* armin76 (~armin@gentoo/developer/armin76) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* agmlego (~agmlego@lug.mtu.edu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* jacekowski (jacekowski@2001:41d0:8:2d8d::2) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* kblin (~kai@samba/team/kai) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* chainsawbike (~chainsawb@unaffiliated/chainsawbike) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* sneak (~sneak@unaffiliated/sneak) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* ant_work (~ant@host6-80-static.42-85-b.business.telecomitalia.it) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* divine (~divine@97-94-146-75.dhcp.trlk.ca.charter.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* ynezz (ynezz@ibawizard.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* awafaa (~awafaa@forcev.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* Jacmet (~peko@stolen.plutonium.dk) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:01+00:00">13:10:01</abbr>] <span>* thweber (~thomas@81-89-104-214.blue.kundencontroller.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:02" id="T13:10:02"><abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr></a>] <span>* ka6sox (ka6sox@nasadmin/ka6sox) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* Rious (~Rious@ec2-50-17-240-121.compute-1.amazonaws.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* syn112 (~syn111@2002:84a0:4c0b::84a0:4c0b) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* RushPL (~quassel@2a01:4f8:151:73a3::2) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* angs (~a@gw.venturelab.ideon.se) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* lyakh (~lyakh@dslb-094-221-116-144.pools.arcor-ip.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* hattwick (~hattwick@68-184-17-253.dhcp.unas.ma.charter.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* thuttu77 (~thuttu77@cs181246145.pp.htv.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* piezo (~piezo@pdpc/supporter/active/piezo) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* w|zzy (~qt@unaffiliated/wzzy/x-2246474) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:02+00:00">13:10:02</abbr>] <span>* mazzanet (~mazzanet@hpavc/mazzanet) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:03" id="T13:10:03"><abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr></a>] <span>* contempt (contempt@unaffiliated/contempt) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* arun (~arun@unaffiliated/sindian) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* hpham (~hpham@fwdweb.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* lool (~lool@debian/developer/lool) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* tomba (tomba@taika.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* chrisw957 (~chris@wsip-184-180-237-194.tu.ok.cox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* javaJake (~javaJake@unaffiliated/javajake) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* prpplague (~prpplague@ppp-70-249-148-125.dsl.rcsntx.swbell.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* Guest38569 (~cipher@monica.cs.rpi.edu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* kaektech (~kaek@76.92.129.185) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* chrisp (~quassel@cpe-69-207-190-61.rochester.res.rr.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* scrts (~quassel@unaffiliated/scrts) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:03+00:00">13:10:03</abbr>] <span>* wiselynx (~wiselynx@213-209-160-195.ip.skylogicnet.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:04" id="T13:10:04"><abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr></a>] <span>* ds2 (noinf@netblock-66-245-251-24.dslextreme.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* XMPPwocky (wocky@xmppwocky.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* adj (antti@hervanta.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* ozzloy (~ozzloy@unaffiliated/ozzloy) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* mrenouf|away (~mrenouf@bitgrind.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* rblackwe (~rblackwe@li178-5.members.linode.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* netman87 (netman87@kapsi.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* peejay (~peej@hive76/member/peejay) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* drobbins (~drobbins@funtoo/bdfl/drobbins) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* housel (~user@mccarthy.opendylan.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* ilya_ (~ilya@188.134.70.194) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* pfefferz (~pfefferz@118.143.64.130) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* _sundar_ (~sundar@110.234.156.82) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* CMoH (~cipi@unaffiliated/c-moh) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* stippeng (~quassel@peterbilt.cs.abo.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* mranostay (~mranostay@pdpc/supporter/active/mranostay) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* negril (~negril@31-16-106-15-dynip.superkabel.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* dgilmore (~dgilmore@fedora/dgilmore) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* Tartarus (trini@pixelshelf.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* ghoti (~paul@scratch.it.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* chrisw957_ (~chris@wsip-184-180-237-194.tu.ok.cox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:04+00:00">13:10:04</abbr>] <span>* pfoetchen (~pfoetchen@winc043.informatik.uni-wuerzburg.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:05" id="T13:10:05"><abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr></a>] <span>* nickjohnson (u789@gateway/web/irccloud.com/x-qyljgbwkgewarpfp) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* fierman (~SjaffieZ@yavin.puscii.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* exosyst (~exosyst@host86-130-72-235.range86-130.btcentralplus.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* Sh0rtWave (~Sh0rtWave@unaffiliated/shortwave) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* Guest96320 (~mike@c-71-63-115-202.hsd1.va.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* fullstop_ (~quassel@173.210.91.4) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* gustavoz (~gustavoz@host235.190-30-7.telecom.net.ar) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* phantoxe (~destroy@a95-92-89-24.cpe.netcabo.pt) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* dwery (~dwery@nslu2-linux/dwery) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* cboyd (~cboyd@76.161.200.249) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* raymohi (~raymohi@sarah.raymohi.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* denix (~denix@pool-108-48-117-33.washdc.fios.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* stuk_gen (~quassel@151.65.12.244) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* dENNES (~Adium@port375.ds1-hr.adsl.cybercity.dk) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:05+00:00">13:10:05</abbr>] <span>* phantoxeD (~destroy@a95-92-89-24.cpe.netcabo.pt) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:06" id="T13:10:06"><abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr></a>] <span>* cboyd1 (~cboyd@c-68-81-103-149.hsd1.pa.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* RITRedbeard__ (~RITReadbe@c-68-37-165-37.hsd1.nj.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* jsabeaudry (~jsabeaudr@242.161.18.64.static.oricom.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* mikey_w (~mike@c-71-63-115-202.hsd1.va.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* Crofton|work (~balister@pool-96-240-167-139.ronkva.east.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* sl_ (~rick@111-251-84-225.dynamic.hinet.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* ssvb (~ssvb@a88-114-220-213.elisa-laajakaista.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* fiola (~fiola@cpc15-heme9-2-0-cust8.9-1.cable.virginmedia.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* calculus (~calculus@gentoo/user/calculus) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* FunkyPenguin (u716@opensuse/member/FunkyPenguin) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* ccssnet (~ccssnet@c-98-216-141-157.hsd1.ma.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* Darek- (darek@work.sznajder.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* mps (mp@aggr.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* xxiao (~xxiao@li41-126.members.linode.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* jannau (~janne@v38276.1blu.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* falstaff (~quassel@2001:1620:fa7:0:e10d:d7bc:8571:d43) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* scromp (~bnaylor@140.186.190.103) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* koen (~koen@cl-267.ams-05.nl.sixxs.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* cbrake (~cbrake@oh-69-34-21-229.sta.embarqhsd.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* fgau (~fgau@webbox1220.server-home.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* BThompson (bhthompson@nat/google/x-vhwlzccrtqkblpbw) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* hads (~hads@argon.nice.net.nz) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* dm8tbr (dm8tbr@cl-790.ham-01.de.sixxs.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* NishanthMenon (~nmenon@192.94.92.11) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* MrDuck (~MrDuck@138.246.31.230) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* ScottCh (~scott@99-46-157-129.lightspeed.rlghnc.sbcglobal.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:06+00:00">13:10:06</abbr>] <span>* openfree (~dennis@116.228.88.131) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:07" id="T13:10:07"><abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr></a>] <span>* Bryanstein (~Bryanstei@shellium/admin/bryanstein) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* aholler (~aholler@p57B205AA.dip0.t-ipconnect.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* trelane (~trelane@funtoo/staff/trelane) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* buq2 (~buq2@dsl-trebrasgw2-fe98de00-17.dhcp.inet.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* tasslehoff (~tasslehof@147.84-49-231.nextgentel.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* jkridner (~jason@pdpc/supporter/active/jkridner) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* dv_ (~quassel@chello080108009040.14.11.vie.surfer.at) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* bobsickle (bob@motsugo.ucc.gu.uwa.edu.au) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* pokey9000 (~pokey9000@75-27-134-1.lightspeed.austtx.sbcglobal.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* Thor (~thor@unaffiliated/thor) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* cehh (~carher@nat/ti/x-cfstrjacustkiwsu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* Calchan (user26350@gentoo/developer/calchan) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* j4son_ (jdog@206.51.234.64) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* bones_was_here (~bones@59.167.222.216) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* jevin (~jevin@napalm.jevinskie.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:07+00:00">13:10:07</abbr>] <span>* ShadowJK (jk@terminus.enivax.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:08" id="T13:10:08"><abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr></a>] <span>* zuh (~zuh@humboldt.pingu.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* wmat (wmat@wallace.mixdown.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* leming (kevin@miheli.ch) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* nslu2-log (~nslu2-log@140.211.169.184) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* _troll_ (~mru@batanen.kinali.ch) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* LetoThe2nd (~jd@unaffiliated/letothe2nd) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* cris (~c@ns2a.ncct.uottawa.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* Facefox (~facefox@pool-74-111-197-200.lsanca.fios.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* mru (~mru@hotblack.mansr.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* drakkan1000_ (~drakkan@dynamic-adsl-78-12-153-64.clienti.tiscali.it) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* travalas (~ncharles@pool-108-49-55-4.bstnma.fios.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* Electric_Monk (~colin@c-69-181-67-131.hsd1.ca.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* nextime (~nextime@unaffiliated/nextime) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* vPraetor (~ubnuser@203.101.61.10) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* cjoe (~customerj@fibhost-66-7-177.fibernet.hu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* unsolo (~unsolo@80.203.43.135) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:08+00:00">13:10:08</abbr>] <span>* rcranetx1 (~rcranetx@nat/ti/x-nhegeehavualbbio) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:09" id="T13:10:09"><abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr></a>] <span>* cosmo1t (montenis@cosmo.2y.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* jpirko (jirka@nat/redhat/x-jehkdbqehhdcdemh) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* nemik_ (~cyanact@c-67-162-60-211.hsd1.il.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* ychavan (ychavan@nat/redhat/x-lwftlbwncywanvle) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* riskable (~quassel@c-69-180-64-152.hsd1.fl.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* meklort (~meklort@router.meklort.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* mnt_real (~mnt_real@bas1-montreal43-2925256435.dsl.bell.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* _av500_ (~av500@lgf.archos.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* netsoundWW (netsound@fen-rtr10-ge43.t-c-w.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* heeen (heeen@endboss.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* mag (~mgreer@ip68-2-83-159.ph.ph.cox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* jefferai (~quassel@kde/amarok/mitchell) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* toofar_ (~toobluesc@rrcs-24-153-174-218.sw.biz.rr.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* vexorg (~vexorg@h216-18-7-221.gtconnect.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* Guest88650 (~zumbi@77.224.206.23) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* decadance_ (~decadance@204.93.201.197) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* hitlin37 (~chatzilla@182.71.144.118) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* av500 (~vladimir@b2b-46-252-131-98.unitymedia.biz) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* C-o-r-E (~nash@modemcable200.212-81-70.mc.videotron.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* jonand (~jonand@h35n1-asp-a13.ias.bredband.telia.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:09+00:00">13:10:09</abbr>] <span>* russell-- (~russell@donk.personaltelco.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:10:10" id="T13:10:10"><abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr></a>] <span>* mrshu (xg@92.240.248.100) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* jonmasters (~jcm@edison.jonmasters.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* Luca256 (~luca@pimentas.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* wgrant (~wgrant@ubuntu/member/wgrant) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* Robdgreat (~rob@unaffiliated/robdgreat) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* PaulePanter (~paul@mail.gw90.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* b7500af1 (~b7500af1@LLPROXY.LL.MIT.EDU) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* Openfree` (~Openfreer@116.228.88.131) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* serekson (9e937d21@gateway/web/freenode/ip.158.147.125.33) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2012-05-29T13:10:10+00:00">13:10:10</abbr>] <span>* Mik__ (5a98011c@gateway/web/freenode/ip.90.152.1.28) Quit (*.net *.split)</span></li>
+<li class="join">[<a href="#T13:16:07" id="T13:16:07"><abbr title="2012-05-29T13:16:07+00:00">13:16:07</abbr></a>] <span>* nslu2-log (~nslu2-log@140.211.169.184) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T13:16:08" id="T13:16:08"><abbr title="2012-05-29T13:16:08+00:00">13:16:08</abbr></a>] <span>* nslu2-log (~nslu2-log@140.211.169.184) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T13:16:11" id="T13:16:11"><abbr title="2012-05-29T13:16:11+00:00">13:16:11</abbr></a>] <span>* Minou1 (~alex@138.246.31.230) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:11+00:00">13:16:11</abbr>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:11+00:00">13:16:11</abbr>] <span>* exosyst (~exosyst@host86-130-72-235.range86-130.btcentralplus.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:11+00:00">13:16:11</abbr>] <span>* angs (~a@gw.venturelab.ideon.se) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:11+00:00">13:16:11</abbr>] <span>* rcranetx1 (~rcranetx@nat/ti/x-nhegeehavualbbio) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:11+00:00">13:16:11</abbr>] <span>* Sh0rtWave (~Sh0rtWave@unaffiliated/shortwave) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:16:12" id="T13:16:12"><abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr></a>] <span>* serekson (9e937d21@gateway/web/freenode/ip.158.147.125.33) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* NishanthMenon (~nmenon@192.94.92.11) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* tomba (tomba@taika.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* b7500af1 (~b7500af1@LLPROXY.LL.MIT.EDU) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ilya_ (~ilya@188.134.70.194) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* MrDuck (~MrDuck@138.246.31.230) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* cosmo1t (montenis@cosmo.2y.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* cris (~c@ns2a.ncct.uottawa.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* syn112 (~syn111@2002:84a0:4c0b::84a0:4c0b) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Facefox (~facefox@pool-74-111-197-200.lsanca.fios.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* buq2 (~buq2@dsl-trebrasgw2-fe98de00-17.dhcp.inet.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* pfefferz (~pfefferz@118.143.64.130) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* lyakh (~lyakh@dslb-094-221-116-144.pools.arcor-ip.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Guest96320 (~mike@c-71-63-115-202.hsd1.va.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ogra_ (~ogra@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ScottCh (~scott@99-46-157-129.lightspeed.rlghnc.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* openfree (~dennis@116.228.88.131) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* fullstop_ (~quassel@173.210.91.4) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* gustavoz (~gustavoz@host235.190-30-7.telecom.net.ar) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* chrisw957 (~chris@wsip-184-180-237-194.tu.ok.cox.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* _sundar_ (~sundar@110.234.156.82) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* _chase_ (~a0271661@nat/ti/x-pkvzpekcizahbqqd) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Mik__ (5a98011c@gateway/web/freenode/ip.90.152.1.28) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* hvaibhav1 (~a0393758@nat/ti/x-jhlkmfroomarytjr) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* tasslehoff (~tasslehof@147.84-49-231.nextgentel.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ant_work (~ant@host6-80-static.42-85-b.business.telecomitalia.it) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* phantoxe (~destroy@a95-92-89-24.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* divine (~divine@97-94-146-75.dhcp.trlk.ca.charter.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* CMoH (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jpirko (jirka@nat/redhat/x-jehkdbqehhdcdemh) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* hattwick (~hattwick@68-184-17-253.dhcp.unas.ma.charter.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* dwery (~dwery@nslu2-linux/dwery) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* thuttu77 (~thuttu77@cs181246145.pp.htv.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* cboyd (~cboyd@76.161.200.249) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Openfree` (~Openfreer@116.228.88.131) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Bryanstein (~Bryanstei@shellium/admin/bryanstein) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mru (~mru@hotblack.mansr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* stippeng (~quassel@peterbilt.cs.abo.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Guest88650 (~zumbi@77.224.206.23) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* raymohi (~raymohi@sarah.raymohi.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ynezz (ynezz@ibawizard.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* nemik_ (~cyanact@c-67-162-60-211.hsd1.il.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* decadance_ (~decadance@204.93.201.197) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* denix (~denix@pool-108-48-117-33.washdc.fios.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* agmlego (~agmlego@lug.mtu.edu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jannau (~janne@v38276.1blu.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* stuk_gen (~quassel@151.65.12.244) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* drakkan1000_ (~drakkan@dynamic-adsl-78-12-153-64.clienti.tiscali.it) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* rsalveti (~rsalveti@linaro/rsalveti) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ychavan (ychavan@nat/redhat/x-lwftlbwncywanvle) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jkridner (~jason@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* dENNES (~Adium@port375.ds1-hr.adsl.cybercity.dk) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* hitlin37 (~chatzilla@182.71.144.118) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* travalas (~ncharles@pool-108-49-55-4.bstnma.fios.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* aholler (~aholler@p57B205AA.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* diablorosso_ (~xweber@p5B2D02D1.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* phantoxeD (~destroy@a95-92-89-24.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* KimK (~Kim__@209.248.147.2.nw.nuvox.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* dv_ (~quassel@chello080108009040.14.11.vie.surfer.at) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* riskable (~quassel@c-69-180-64-152.hsd1.fl.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* meklort (~meklort@router.meklort.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* cboyd1 (~cboyd@c-68-81-103-149.hsd1.pa.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* RITRedbeard__ (~RITReadbe@c-68-37-165-37.hsd1.nj.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mranostay (~mranostay@pdpc/supporter/active/mranostay) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* piezo (~piezo@pdpc/supporter/active/piezo) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jsabeaudry (~jsabeaudr@242.161.18.64.static.oricom.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* negril (~negril@31-16-106-15-dynip.superkabel.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* av500 (~vladimir@b2b-46-252-131-98.unitymedia.biz) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mikey_w (~mike@c-71-63-115-202.hsd1.va.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* javaJake (~javaJake@unaffiliated/javajake) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* dgilmore (~dgilmore@fedora/dgilmore) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* trelane (~trelane@funtoo/staff/trelane) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Crofton|work (~balister@pool-96-240-167-139.ronkva.east.verizon.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Electric_Monk (~colin@c-69-181-67-131.hsd1.ca.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* prpplague (~prpplague@ppp-70-249-148-125.dsl.rcsntx.swbell.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* signal11 (esteban@abq.quaddro.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Guest38569 (~cipher@monica.cs.rpi.edu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* kaektech (~kaek@76.92.129.185) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Tartarus (trini@pixelshelf.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mnt_real (~mnt_real@bas1-montreal43-2925256435.dsl.bell.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* nextime (~nextime@unaffiliated/nextime) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* marcheu (~marcheu@annarchy.freedesktop.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* sl_ (~rick@111-251-84-225.dynamic.hinet.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* fooblya_monad (~abaddon@178.120.23.99) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* vPraetor (~ubnuser@203.101.61.10) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* falstaff (~quassel@2001:1620:fa7:0:e10d:d7bc:8571:d43) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ssvb (~ssvb@a88-114-220-213.elisa-laajakaista.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* grey_wolf (~greywolf@c-24-17-167-106.hsd1.wa.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jacekowski (jacekowski@2001:41d0:8:2d8d::2) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* fiola (~fiola@cpc15-heme9-2-0-cust8.9-1.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* calculus (~calculus@gentoo/user/calculus) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* scromp (~bnaylor@140.186.190.103) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* cjoe (~customerj@fibhost-66-7-177.fibernet.hu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* wiselynx (~wiselynx@213-209-160-195.ip.skylogicnet.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* C-o-r-E (~nash@modemcable200.212-81-70.mc.videotron.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* |nfecteD (~rawr@cm-84.211.42.28.getinternet.no) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* phh (~quassel@137.194.15.151) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* thaytan (~thaytan@113.94.233.220.static.exetel.com.au) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* wmat (wmat@wallace.mixdown.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* zuh (~zuh@humboldt.pingu.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* housel (~user@mccarthy.opendylan.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* lool (~lool@debian/developer/lool) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ShadowJK (jk@terminus.enivax.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* hpham (~hpham@fwdweb.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* xxiao (~xxiao@li41-126.members.linode.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jevin (~jevin@napalm.jevinskie.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* rblackwe (~rblackwe@li178-5.members.linode.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mrenouf|away (~mrenouf@bitgrind.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mps (mp@aggr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* dm8tbr (dm8tbr@cl-790.ham-01.de.sixxs.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* hads (~hads@argon.nice.net.nz) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* bones_was_here (~bones@59.167.222.216) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* j4son_ (jdog@206.51.234.64) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ozzloy (~ozzloy@unaffiliated/ozzloy) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* BThompson (bhthompson@nat/google/x-vhwlzccrtqkblpbw) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* arun (~arun@unaffiliated/sindian) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* drobbins (~drobbins@funtoo/bdfl/drobbins) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Calchan (user26350@gentoo/developer/calchan) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* fgau (~fgau@webbox1220.server-home.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Rious (~Rious@ec2-50-17-240-121.compute-1.amazonaws.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* adj (antti@hervanta.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* cehh (~carher@nat/ti/x-cfstrjacustkiwsu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* XMPPwocky (wocky@xmppwocky.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* cbrake (~cbrake@oh-69-34-21-229.sta.embarqhsd.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* contempt (contempt@unaffiliated/contempt) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ds2 (noinf@netblock-66-245-251-24.dslextreme.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Darek- (darek@work.sznajder.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* fierman (~SjaffieZ@yavin.puscii.nl) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* netman87 (netman87@kapsi.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* sneak (~sneak@unaffiliated/sneak) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* RushPL (~quassel@2a01:4f8:151:73a3::2) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* koen (~koen@cl-267.ams-05.nl.sixxs.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ka6sox (ka6sox@nasadmin/ka6sox) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Thor (~thor@unaffiliated/thor) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* pokey9000 (~pokey9000@75-27-134-1.lightspeed.austtx.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ccssnet (~ccssnet@c-98-216-141-157.hsd1.ma.comcast.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* peejay (~peej@hive76/member/peejay) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* nickjohnson (u789@gateway/web/irccloud.com/x-qyljgbwkgewarpfp) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* FunkyPenguin (u716@opensuse/member/FunkyPenguin) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* pfoetchen (~pfoetchen@winc043.informatik.uni-wuerzburg.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* chainsawbike (~chainsawb@unaffiliated/chainsawbike) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* scrts (~quassel@unaffiliated/scrts) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* chrisw957_ (~chris@wsip-184-180-237-194.tu.ok.cox.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* sakoman (~sakoman@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mazzanet (~mazzanet@hpavc/mazzanet) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* w|zzy (~qt@unaffiliated/wzzy/x-2246474) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* chrisp (~quassel@cpe-69-207-190-61.rochester.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* bobsickle (bob@motsugo.ucc.gu.uwa.edu.au) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* kblin (~kai@samba/team/kai) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* thweber (~thomas@81-89-104-214.blue.kundencontroller.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Jacmet (~peko@stolen.plutonium.dk) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* awafaa (~awafaa@forcev.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* nebi (~nebi@irc.nebit.nu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* armin76 (~armin@gentoo/developer/armin76) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* _av500_ (~av500@lgf.archos.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jonand (~jonand@h35n1-asp-a13.ias.bredband.telia.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* russell-- (~russell@donk.personaltelco.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* netsoundWW (netsound@fen-rtr10-ge43.t-c-w.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mrshu (xg@92.240.248.100) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* unsolo (~unsolo@80.203.43.135) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* heeen (heeen@endboss.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* leming (kevin@miheli.ch) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* mag (~mgreer@ip68-2-83-159.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jonmasters (~jcm@edison.jonmasters.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* nslu2-log (~nslu2-log@140.211.169.184) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* _troll_ (~mru@batanen.kinali.ch) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Luca256 (~luca@pimentas.org) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* jefferai (~quassel@kde/amarok/mitchell) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* toofar_ (~toobluesc@rrcs-24-153-174-218.sw.biz.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* wgrant (~wgrant@ubuntu/member/wgrant) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* Robdgreat (~rob@unaffiliated/robdgreat) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* PaulePanter (~paul@mail.gw90.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2012-05-29T13:16:12+00:00">13:16:12</abbr>] <span>* vexorg (~vexorg@h216-18-7-221.gtconnect.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:16:22" id="T13:16:22"><abbr title="2012-05-29T13:16:22+00:00">13:16:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>angs: this dmesg is after booting</q></li>
+<li class="message">[<a href="#T13:16:27" id="T13:16:27"><abbr title="2012-05-29T13:16:27+00:00">13:16:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no?</q></li>
+<li class="message">[<a href="#T13:16:40" id="T13:16:40"><abbr title="2012-05-29T13:16:40+00:00">13:16:40</abbr></a>] &lt;<cite>angs</cite>&gt; <q>no after update and upgrade</q></li>
+<li class="message">[<a href="#T13:16:50" id="T13:16:50"><abbr title="2012-05-29T13:16:50+00:00">13:16:50</abbr></a>] &lt;<cite>angs</cite>&gt; <q>I didnt see any error msg after that operation</q></li>
+<li class="message">[<a href="#T13:17:14" id="T13:17:14"><abbr title="2012-05-29T13:17:14+00:00">13:17:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T13:17:17" id="T13:17:17"><abbr title="2012-05-29T13:17:17+00:00">13:17:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its a boot log</q></li>
+<li class="message">[<a href="#T13:17:25" id="T13:17:25"><abbr title="2012-05-29T13:17:25+00:00">13:17:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the error is reported when mounting the ext4</q></li>
+<li class="message">[<a href="#T13:18:00" id="T13:18:00"><abbr title="2012-05-29T13:18:00+00:00">13:18:00</abbr></a>] &lt;<cite>MrDuck</cite>&gt; <q>does anyone know qemu-omap3? for me it segfaults on startup. any tutorials/ideas?</q></li>
+<li class="message">[<a href="#T13:18:05" id="T13:18:05"><abbr title="2012-05-29T13:18:05+00:00">13:18:05</abbr></a>] &lt;<cite>MrDuck</cite>&gt; <q>thx!</q></li>
+<li class="join">[<a href="#T13:18:08" id="T13:18:08"><abbr title="2012-05-29T13:18:08+00:00">13:18:08</abbr></a>] <span>* LetoThe2nd (~jd@unaffiliated/letothe2nd) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:18:44" id="T13:18:44"><abbr title="2012-05-29T13:18:44+00:00">13:18:44</abbr></a>] &lt;<cite>angs</cite>&gt; <q>do you think that formating and installation angstroms dist was not successful?</q></li>
+<li class="message">[<a href="#T13:19:28" id="T13:19:28"><abbr title="2012-05-29T13:19:28+00:00">13:19:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>installing angstrom does not involve "opkg upgrade"</q></li>
+<li class="message">[<a href="#T13:20:10" id="T13:20:10"><abbr title="2012-05-29T13:20:10+00:00">13:20:10</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: Do you still want my Angstrom image with the 8192cu driver?</q></li>
+<li class="join">[<a href="#T13:20:19" id="T13:20:19"><abbr title="2012-05-29T13:20:19+00:00">13:20:19</abbr></a>] <span>* movax (~movax@99-9-113-80.lightspeed.livnmi.sbcglobal.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:20:28" id="T13:20:28"><abbr title="2012-05-29T13:20:28+00:00">13:20:28</abbr></a>] &lt;<cite>angs</cite>&gt; <q>yes riskable, I was checking your webpage but could not see any new thread</q></li>
+<li class="message">[<a href="#T13:20:36" id="T13:20:36"><abbr title="2012-05-29T13:20:36+00:00">13:20:36</abbr></a>] &lt;<cite>angs</cite>&gt; <q>related 8192cu</q></li>
+<li class="message">[<a href="#T13:20:57" id="T13:20:57"><abbr title="2012-05-29T13:20:57+00:00">13:20:57</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: When I said I'll put it on "riskable.com somewhere" I meant I'd just upload it to riskable.com/files or something :)</q></li>
+<li class="message">[<a href="#T13:21:11" id="T13:21:11"><abbr title="2012-05-29T13:21:11+00:00">13:21:11</abbr></a>] &lt;<cite>angs</cite>&gt; <q>ah ok :)</q></li>
+<li class="message">[<a href="#T13:21:12" id="T13:21:12"><abbr title="2012-05-29T13:21:12+00:00">13:21:12</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>I didn't mean I'd post a blog update.  I haven't updated that blog in years, LOL</q></li>
+<li class="message">[<a href="#T13:21:15" id="T13:21:15"><abbr title="2012-05-29T13:21:15+00:00">13:21:15</abbr></a>] &lt;<cite>angs</cite>&gt; <q>I did not know it</q></li>
+<li class="message">[<a href="#T13:21:19" id="T13:21:19"><abbr title="2012-05-29T13:21:19+00:00">13:21:19</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>I'll make an image for you now :)</q></li>
+<li class="message">[<a href="#T13:21:29" id="T13:21:29"><abbr title="2012-05-29T13:21:29+00:00">13:21:29</abbr></a>] &lt;<cite>angs</cite>&gt; <q>thank you very much :)</q></li>
+<li class="message">[<a href="#T13:22:25" id="T13:22:25"><abbr title="2012-05-29T13:22:25+00:00">13:22:25</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>angs, did you properly unmount the SD after writing the angstrom image to it ?</q></li>
+<li class="message">[<a href="#T13:22:51" id="T13:22:51"><abbr title="2012-05-29T13:22:51+00:00">13:22:51</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: How do you want it?  As a whole SD card image or just two tarballs containing the filesystems in question?</q></li>
+<li class="message">[<a href="#T13:22:59" id="T13:22:59"><abbr title="2012-05-29T13:22:59+00:00">13:22:59</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>sounds like the kernel just detects on boot that it wasnt properly unmounted, then this message is totally normal</q></li>
+<li class="message">[<a href="#T13:23:14" id="T13:23:14"><abbr title="2012-05-29T13:23:14+00:00">13:23:14</abbr></a>] &lt;<cite>angs</cite>&gt; <q>&lt;riskable&gt;: I would appreciate for the whole SD card</q></li>
+<li class="message">[<a href="#T13:23:32" id="T13:23:32"><abbr title="2012-05-29T13:23:32+00:00">13:23:32</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: OK, I'll make a dd image of the entirety of /dev/sdc for ya</q></li>
+<li class="message">[<a href="#T13:23:35" id="T13:23:35"><abbr title="2012-05-29T13:23:35+00:00">13:23:35</abbr></a>] &lt;<cite>angs</cite>&gt; <q>ogra_: I did not unmounted it</q></li>
+<li class="message">[<a href="#T13:23:40" id="T13:23:40"><abbr title="2012-05-29T13:23:40+00:00">13:23:40</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>aha</q></li>
+<li class="join">[<a href="#T13:24:07" id="T13:24:07"><abbr title="2012-05-29T13:24:07+00:00">13:24:07</abbr></a>] <span>* GPSFan (~kenm@64.92.145.112) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:24:10" id="T13:24:10"><abbr title="2012-05-29T13:24:10+00:00">13:24:10</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>then it is an expected message ... you could put it back into your PC and do an fsck</q></li>
+<li class="message">[<a href="#T13:24:22" id="T13:24:22"><abbr title="2012-05-29T13:24:22+00:00">13:24:22</abbr></a>] &lt;<cite>angs</cite>&gt; <q>riskable: thanks a lot</q></li>
+<li class="message">[<a href="#T13:24:30" id="T13:24:30"><abbr title="2012-05-29T13:24:30+00:00">13:24:30</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>(and make sure it was properly unmounted etc so it doesnt come up again)</q></li>
+<li class="message">[<a href="#T13:24:48" id="T13:24:48"><abbr title="2012-05-29T13:24:48+00:00">13:24:48</abbr></a>] &lt;<cite>angs</cite>&gt; <q>&lt;ogra_&gt;: thank you, I did not think about it</q></li>
+<li class="message">[<a href="#T13:25:07" id="T13:25:07"><abbr title="2012-05-29T13:25:07+00:00">13:25:07</abbr></a>] &lt;<cite>angs</cite>&gt; <q>I will load riskable's image</q></li>
+<li class="message">[<a href="#T13:25:16" id="T13:25:16"><abbr title="2012-05-29T13:25:16+00:00">13:25:16</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: No problem.  Running "dd if=/dev/sdc of=/storage/beagleboard/angstrom_working_somewhat_8192cu_dd_image.img" right now :)</q></li>
+<li class="message">[<a href="#T13:26:36" id="T13:26:36"><abbr title="2012-05-29T13:26:36+00:00">13:26:36</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>For reference, this is Angstrom built from the latest git repos two days ago with the Realtek 8192cu driver copied into /lib/modules/3.2.16/kernel/driver/net/wireless/rtlwifi</q></li>
+<li class="message">[<a href="#T13:27:12" id="T13:27:12"><abbr title="2012-05-29T13:27:12+00:00">13:27:12</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>If you have your USB dongle plugged in when you boot up you can start it up with "ifup wlan0"</q></li>
+<li class="message">[<a href="#T13:27:37" id="T13:27:37"><abbr title="2012-05-29T13:27:37+00:00">13:27:37</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>I just realized that I left /etc/network/interfaces configured to connect to my ESSID...  So edit that file before you run "ifup wlan0"</q></li>
+<li class="join">[<a href="#T13:27:53" id="T13:27:53"><abbr title="2012-05-29T13:27:53+00:00">13:27:53</abbr></a>] <span>* icota (~quassel@dh207-34-148.xnet.hr) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:28:18" id="T13:28:18"><abbr title="2012-05-29T13:28:18+00:00">13:28:18</abbr></a>] &lt;<cite>angs</cite>&gt; <q>thanks a lot</q></li>
+<li class="message">[<a href="#T13:28:45" id="T13:28:45"><abbr title="2012-05-29T13:28:45+00:00">13:28:45</abbr></a>] &lt;<cite>koen</cite>&gt; <q>stay away from /etc/network/interfaces</q></li>
+<li class="message">[<abbr title="2012-05-29T13:28:45+00:00">13:28:45</abbr>] &lt;<cite>angs</cite>&gt; <q>could you give me the download link of the image file?</q></li>
+<li class="message">[<a href="#T13:28:49" id="T13:28:49"><abbr title="2012-05-29T13:28:49+00:00">13:28:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>have a look at <a href="http://ladyada.net/products/beaglebone/wifi.html">http://ladyada.net/products/beaglebone/wifi.html</a></q></li>
+<li class="message">[<a href="#T13:31:01" id="T13:31:01"><abbr title="2012-05-29T13:31:01+00:00">13:31:01</abbr></a>] &lt;<cite>angs</cite>&gt; <q>it is very good tutorial, thank you</q></li>
+<li class="join">[<a href="#T13:31:03" id="T13:31:03"><abbr title="2012-05-29T13:31:03+00:00">13:31:03</abbr></a>] <span>* emeb_mac (~ericb@ip72-223-81-94.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:32:59" id="T13:32:59"><abbr title="2012-05-29T13:32:59+00:00">13:32:59</abbr></a>] <span>* exosyst (~exosyst@host86-130-72-235.range86-130.btcentralplus.com) Quit (Quit: Leaving)</span></li>
+<li class="nick-change">[<a href="#T13:34:07" id="T13:34:07"><abbr title="2012-05-29T13:34:07+00:00">13:34:07</abbr></a>] <span>* prpplague is now known as prp^2</span></li>
+<li class="message">[<a href="#T13:34:40" id="T13:34:40"><abbr title="2012-05-29T13:34:40+00:00">13:34:40</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: Uploading to my server now...  Will take a few minutes</q></li>
+<li class="message">[<a href="#T13:35:43" id="T13:35:43"><abbr title="2012-05-29T13:35:43+00:00">13:35:43</abbr></a>] &lt;<cite>angs</cite>&gt; <q>riskable: ok thanks, I am looking forward to have the link</q></li>
+<li class="message">[<a href="#T13:36:41" id="T13:36:41"><abbr title="2012-05-29T13:36:41+00:00">13:36:41</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: When it is done it will be here:  <a href="http://riskable.com/files/angstrom_working_somewhat_8192cu_dd_image.img.gz">http://riskable.com/files/angstrom_working_somewhat_8192cu_dd_image.img.gz</a></q></li>
+<li class="message">[<a href="#T13:37:04" id="T13:37:04"><abbr title="2012-05-29T13:37:04+00:00">13:37:04</abbr></a>] &lt;<cite>koen</cite>&gt; <q>give <a href="http://dominion.thruhere.net/koen/angstrom/beaglebone/Angstrom-Cloud9-IDE-GNOME-eglibc-ipk-v2012.05-beaglebone-2012.05.24.img.xz">http://dominion.thruhere.net/koen/angstrom/beaglebone/Angstrom-Cloud9-IDE-GNOME-eglibc-ipk-v2012.05-beaglebone-2012.05.24.img.xz</a> a try first</q></li>
+<li class="message">[<a href="#T13:38:02" id="T13:38:02"><abbr title="2012-05-29T13:38:02+00:00">13:38:02</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: I'll also upload the original files I used to create the image while I'm at it</q></li>
+<li class="message">[<a href="#T13:39:14" id="T13:39:14"><abbr title="2012-05-29T13:39:14+00:00">13:39:14</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>koen, oh, cloud9 ? so TI is into cloud computing now ? :)</q></li>
+<li class="message">[<a href="#T13:39:26" id="T13:39:26"><abbr title="2012-05-29T13:39:26+00:00">13:39:26</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>koen: I didn't use conman because I wanted the ability to bring wlan0 up and down trivially while I switched drivers WHILE I still had eth0 connected</q></li>
+<li class="message">[<a href="#T13:42:33" id="T13:42:33"><abbr title="2012-05-29T13:42:33+00:00">13:42:33</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: FYI:  the upload should be done in 10-15 minutes</q></li>
+<li class="nick-change">[<a href="#T13:42:52" id="T13:42:52"><abbr title="2012-05-29T13:42:52+00:00">13:42:52</abbr></a>] <span>* fullstop_ is now known as fullstop</span></li>
+<li class="quit">[<a href="#T13:43:09" id="T13:43:09"><abbr title="2012-05-29T13:43:09+00:00">13:43:09</abbr></a>] <span>* fullstop (~quassel@173.210.91.4) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T13:43:33" id="T13:43:33"><abbr title="2012-05-29T13:43:33+00:00">13:43:33</abbr></a>] <span>* fullstop (~quassel@173.210.91.4) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:43:50" id="T13:43:50"><abbr title="2012-05-29T13:43:50+00:00">13:43:50</abbr></a>] &lt;<cite>angs</cite>&gt; <q>I downloaded angstrom_working_somewhat_8192cu_dd_image.img.gz</q></li>
+<li class="quit">[<a href="#T13:44:43" id="T13:44:43"><abbr title="2012-05-29T13:44:43+00:00">13:44:43</abbr></a>] <span>* ScottCh (~scott@99-46-157-129.lightspeed.rlghnc.sbcglobal.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T13:44:50" id="T13:44:50"><abbr title="2012-05-29T13:44:50+00:00">13:44:50</abbr></a>] &lt;<cite>angs</cite>&gt; <q>50.3 MB</q></li>
+<li class="message">[<a href="#T13:46:17" id="T13:46:17"><abbr title="2012-05-29T13:46:17+00:00">13:46:17</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Hi all</q></li>
+<li class="message">[<a href="#T13:46:19" id="T13:46:19"><abbr title="2012-05-29T13:46:19+00:00">13:46:19</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>Yeah, it's not done yet!</q></li>
+<li class="message">[<a href="#T13:46:32" id="T13:46:32"><abbr title="2012-05-29T13:46:32+00:00">13:46:32</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>I'm working with a Beagleboard xM Rev C</q></li>
+<li class="message">[<a href="#T13:46:39" id="T13:46:39"><abbr title="2012-05-29T13:46:39+00:00">13:46:39</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: I'm still uploading it</q></li>
+<li class="message">[<a href="#T13:46:47" id="T13:46:47"><abbr title="2012-05-29T13:46:47+00:00">13:46:47</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>and I'm running into similar problems as mentioned with serial Errata #8</q></li>
+<li class="message">[<abbr title="2012-05-29T13:46:47+00:00">13:46:47</abbr>] &lt;<cite>angs</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T13:46:57" id="T13:46:57"><abbr title="2012-05-29T13:46:57+00:00">13:46:57</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>at least initially I was</q></li>
+<li class="message">[<abbr title="2012-05-29T13:46:57+00:00">13:46:57</abbr>] &lt;<cite>riskable</cite>&gt; <q>The scp command says it still has about 5 minutes to go</q></li>
+<li class="message">[<a href="#T13:47:00" id="T13:47:00"><abbr title="2012-05-29T13:47:00+00:00">13:47:00</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>now I can't get it to work at all</q></li>
+<li class="message">[<a href="#T13:47:11" id="T13:47:11"><abbr title="2012-05-29T13:47:11+00:00">13:47:11</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>Here's the md5sum for when you do get it:  9dd387ac7a8145f3a085461100d81b0b</q></li>
+<li class="message">[<a href="#T13:47:22" id="T13:47:22"><abbr title="2012-05-29T13:47:22+00:00">13:47:22</abbr></a>] &lt;<cite>angs</cite>&gt; <q>thank you</q></li>
+<li class="message">[<a href="#T13:47:49" id="T13:47:49"><abbr title="2012-05-29T13:47:49+00:00">13:47:49</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>The file size is 698M</q></li>
+<li class="action">[<a href="#T13:48:00" id="T13:48:00"><abbr title="2012-05-29T13:48:00+00:00">13:48:00</abbr></a>] <span>* riskable is happy to have 5Mbit upload today</span></li>
+<li class="message">[<a href="#T13:49:19" id="T13:49:19"><abbr title="2012-05-29T13:49:19+00:00">13:49:19</abbr></a>] &lt;<cite>Mik__</cite>&gt; <q>av500: the image you suggested seems to work fine - thanks! The video resolution must be changed, but I don't care about that.</q></li>
+<li class="message">[<a href="#T13:49:38" id="T13:49:38"><abbr title="2012-05-29T13:49:38+00:00">13:49:38</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>koen: For reference the rtl8192cu driver in the default build just plain doesn't work.  It is permanently stuck thinking rfkill is soft-locked and the rfkill command won't let you turn off the soft lock</q></li>
+<li class="message">[<a href="#T13:50:20" id="T13:50:20"><abbr title="2012-05-29T13:50:20+00:00">13:50:20</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>I got Realtek's 8192cu driver working but the result isn't the greatest...  Pretty much 50% packet loss no matter what I do</q></li>
+<li class="message">[<a href="#T13:51:38" id="T13:51:38"><abbr title="2012-05-29T13:51:38+00:00">13:51:38</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: The upload is done.  Grab it:  <a href="http://riskable.com/files/angstrom_working_somewhat_8192cu_dd_image.img.gz">http://riskable.com/files/angstrom_working_somewhat_8192cu_dd_image.img.gz</a></q></li>
+<li class="message">[<a href="#T13:52:10" id="T13:52:10"><abbr title="2012-05-29T13:52:10+00:00">13:52:10</abbr></a>] &lt;<cite>angs</cite>&gt; <q>&lt;riskable&gt;: Thanks a lot</q></li>
+<li class="quit">[<a href="#T13:52:53" id="T13:52:53"><abbr title="2012-05-29T13:52:53+00:00">13:52:53</abbr></a>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T13:53:00" id="T13:53:00"><abbr title="2012-05-29T13:53:00+00:00">13:53:00</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: I also uploaded the driver itself (which I just compiled fresh):  <a href="http://riskable.com/files/8192cu.ko">http://riskable.com/files/8192cu.ko</a></q></li>
+<li class="join">[<a href="#T13:53:12" id="T13:53:12"><abbr title="2012-05-29T13:53:12+00:00">13:53:12</abbr></a>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:53:35" id="T13:53:35"><abbr title="2012-05-29T13:53:35+00:00">13:53:35</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Here's a question</q></li>
+<li class="message">[<a href="#T13:53:46" id="T13:53:46"><abbr title="2012-05-29T13:53:46+00:00">13:53:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Russ: !!!!</q></li>
+<li class="message">[<a href="#T13:53:58" id="T13:53:58"><abbr title="2012-05-29T13:53:58+00:00">13:53:58</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>morning</q></li>
+<li class="message">[<a href="#T13:54:02" id="T13:54:02"><abbr title="2012-05-29T13:54:02+00:00">13:54:02</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>I'm using an FTDI FT232R serial breakout. This is *intended* for RS-232.</q></li>
+<li class="message">[<a href="#T13:54:15" id="T13:54:15"><abbr title="2012-05-29T13:54:15+00:00">13:54:15</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>it worked a few times, but now I get nothing but noise</q></li>
+<li class="message">[<a href="#T13:54:19" id="T13:54:19"><abbr title="2012-05-29T13:54:19+00:00">13:54:19</abbr></a>] &lt;<cite>angs</cite>&gt; <q>I am download them, thanks a lot riskable</q></li>
+<li class="message">[<a href="#T13:54:20" id="T13:54:20"><abbr title="2012-05-29T13:54:20+00:00">13:54:20</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>angs: That file might "just work" in an existing Beagleboard image if it is running kernel 3.2.16...  Just copy it to /lib/modules/3.2.16/kernel/driver/net/wireless/rtlwifi/ and run "depmod -a".  Then "modprobe -r rtl8192cu" and "modprobe 8192cu" and try it out</q></li>
+<li class="message">[<a href="#T13:54:34" id="T13:54:34"><abbr title="2012-05-29T13:54:34+00:00">13:54:34</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>which makes me wonder a couple of things, like maybe if there's a problem with serial levels but I have no way to find out at the moment.</q></li>
+<li class="message">[<a href="#T13:54:40" id="T13:54:40"><abbr title="2012-05-29T13:54:40+00:00">13:54:40</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>I need to get an oscope</q></li>
+<li class="message">[<a href="#T13:54:42" id="T13:54:42"><abbr title="2012-05-29T13:54:42+00:00">13:54:42</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>So you could try it now while you're waiting for the larger download to finish :)</q></li>
+<li class="quit">[<a href="#T13:55:43" id="T13:55:43"><abbr title="2012-05-29T13:55:43+00:00">13:55:43</abbr></a>] <span>* ychavan (ychavan@nat/redhat/x-lwftlbwncywanvle) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T13:55:57" id="T13:55:57"><abbr title="2012-05-29T13:55:57+00:00">13:55:57</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>Sh0rtWave: disconnect the dongle, unload the driver, reconnect the dongle</q></li>
+<li class="message">[<a href="#T13:56:20" id="T13:56:20"><abbr title="2012-05-29T13:56:20+00:00">13:56:20</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>with the beagleboard powered up I presume?</q></li>
+<li class="message">[<a href="#T13:56:40" id="T13:56:40"><abbr title="2012-05-29T13:56:40+00:00">13:56:40</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>This isn't so much a dongle as a sparkfun prototyping module</q></li>
+<li class="message">[<a href="#T13:57:01" id="T13:57:01"><abbr title="2012-05-29T13:57:01+00:00">13:57:01</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>s/dongle/usb-plug/</q></li>
+<li class="message">[<a href="#T13:57:07" id="T13:57:07"><abbr title="2012-05-29T13:57:07+00:00">13:57:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>riskable: <a href="http://ladyada.net/products/beaglebone/wifi.html">http://ladyada.net/products/beaglebone/wifi.html</a></q></li>
+<li class="message">[<a href="#T13:57:13" id="T13:57:13"><abbr title="2012-05-29T13:57:13+00:00">13:57:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>riskable: that deals with the rfkill issues</q></li>
+<li class="message">[<a href="#T13:57:26" id="T13:57:26"><abbr title="2012-05-29T13:57:26+00:00">13:57:26</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>didn't help</q></li>
+<li class="message">[<a href="#T13:57:30" id="T13:57:30"><abbr title="2012-05-29T13:57:30+00:00">13:57:30</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Still got loads of noise</q></li>
+<li class="message">[<a href="#T13:57:33" id="T13:57:33"><abbr title="2012-05-29T13:57:33+00:00">13:57:33</abbr></a>] &lt;<cite>cboyd</cite>&gt; <q>i buillt the systemd-gnome-image for my beagleboard using oe-core. My beagleboard boots successfully.  However, my usb mouse and keyboard does not work? Does anyone have any idea what is wrong?</q></li>
+<li class="message">[<a href="#T13:57:46" id="T13:57:46"><abbr title="2012-05-29T13:57:46+00:00">13:57:46</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>koen: I followed that tutorial and it didn't work.  I got the rfkill issues</q></li>
+<li class="message">[<a href="#T13:57:52" id="T13:57:52"><abbr title="2012-05-29T13:57:52+00:00">13:57:52</abbr></a>] &lt;<cite>koen</cite>&gt; <q>cboyd: install the usbhid module</q></li>
+<li class="message">[<a href="#T13:59:11" id="T13:59:11"><abbr title="2012-05-29T13:59:11+00:00">13:59:11</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>Sh0rtWave: check cables if you have friggled it together yourself</q></li>
+<li class="message">[<a href="#T13:59:24" id="T13:59:24"><abbr title="2012-05-29T13:59:24+00:00">13:59:24</abbr></a>] &lt;<cite>riskable</cite>&gt; <q>I'm trying now from scratch though...  Since I just made a whole-SD image backup :)</q></li>
+<li class="quit">[<a href="#T13:59:38" id="T13:59:38"><abbr title="2012-05-29T13:59:38+00:00">13:59:38</abbr></a>] <span>* angs (~a@gw.venturelab.ideon.se) Quit (Ping timeout: 245 seconds)</span></li>
