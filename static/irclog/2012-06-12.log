@@ -752,3 +752,64 @@
 <li class="message">[<a href="#T15:59:30" id="T15:59:30"><abbr title="2012-06-12T15:59:30+00:00">15:59:30</abbr></a>] &lt;<cite>xxiao</cite>&gt; <q>some CONFIG_ or dependency are missing</q></li>
 <li class="part">[<a href="#T15:59:33" id="T15:59:33"><abbr title="2012-06-12T15:59:33+00:00">15:59:33</abbr></a>] <span>* powool (~pha@redrum.sph.umich.edu) has left #beagle</span></li>
 <li class="message">[<a href="#T15:59:54" id="T15:59:54"><abbr title="2012-06-12T15:59:54+00:00">15:59:54</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>xxiao: so what i have to do?</q></li>
+<li class="message">[<a href="#T16:00:20" id="T16:00:20"><abbr title="2012-06-12T16:00:20+00:00">16:00:20</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>stuk_gen: and therefor you don't want to tell us the output of zgrep?</q></li>
+<li class="message">[<a href="#T16:01:05" id="T16:01:05"><abbr title="2012-06-12T16:01:05+00:00">16:01:05</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>aholler: CONFIG_HID_MULTITOUCH=m</q></li>
+<li class="quit">[<a href="#T16:01:29" id="T16:01:29"><abbr title="2012-06-12T16:01:29+00:00">16:01:29</abbr></a>] <span>* mnt_real (~mnt_real@bas1-montreal43-1177820323.dsl.bell.ca) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T16:03:05" id="T16:03:05"><abbr title="2012-06-12T16:03:05+00:00">16:03:05</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>aholler: this is the output you want</q></li>
+<li class="quit">[<a href="#T16:06:26" id="T16:06:26"><abbr title="2012-06-12T16:06:26+00:00">16:06:26</abbr></a>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T16:07:08" id="T16:07:08"><abbr title="2012-06-12T16:07:08+00:00">16:07:08</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>and zgrep USB_HID /proc/config.gz</q></li>
+<li class="message">[<a href="#T16:08:02" id="T16:08:02"><abbr title="2012-06-12T16:08:02+00:00">16:08:02</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>and afterwards do a depmod -a</q></li>
+<li class="join">[<a href="#T16:08:15" id="T16:08:15"><abbr title="2012-06-12T16:08:15+00:00">16:08:15</abbr></a>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:08:23" id="T16:08:23"><abbr title="2012-06-12T16:08:23+00:00">16:08:23</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>aholler: <a href="http://pastebin.com/gaN5i564">http://pastebin.com/gaN5i564</a></q></li>
+<li class="message">[<a href="#T16:08:25" id="T16:08:25"><abbr title="2012-06-12T16:08:25+00:00">16:08:25</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>this is complete</q></li>
+<li class="quit">[<a href="#T16:09:03" id="T16:09:03"><abbr title="2012-06-12T16:09:03+00:00">16:09:03</abbr></a>] <span>* Russ (foobar@ip68-106-254-4.ph.ph.cox.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T16:09:19" id="T16:09:19"><abbr title="2012-06-12T16:09:19+00:00">16:09:19</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>CONFIG_USB_HID=m</q></li>
+<li class="message">[<abbr title="2012-06-12T16:09:19+00:00">16:09:19</abbr>] &lt;<cite>stuk_gen</cite>&gt; <q>CONFIG_USB_HIDDEV=y</q></li>
+<li class="join">[<a href="#T16:09:29" id="T16:09:29"><abbr title="2012-06-12T16:09:29+00:00">16:09:29</abbr></a>] <span>* Russ__ (foobar@ip68-106-254-4.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:09:54" id="T16:09:54"><abbr title="2012-06-12T16:09:54+00:00">16:09:54</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>aholler: depmod -a</q></li>
+<li class="message">[<a href="#T16:10:22" id="T16:10:22"><abbr title="2012-06-12T16:10:22+00:00">16:10:22</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>aholler: modprobe hid-multitouch report always unknown symbol ...</q></li>
+<li class="nick-change">[<a href="#T16:10:44" id="T16:10:44"><abbr title="2012-06-12T16:10:44+00:00">16:10:44</abbr></a>] <span>* Russ__ is now known as Russ</span></li>
+<li class="message">[<a href="#T16:11:13" id="T16:11:13"><abbr title="2012-06-12T16:11:13+00:00">16:11:13</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>so you are missing another module, usbhid</q></li>
+<li class="message">[<a href="#T16:11:46" id="T16:11:46"><abbr title="2012-06-12T16:11:46+00:00">16:11:46</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>find /lib/modules/ -name '*usbhid*'</q></li>
+<li class="message">[<a href="#T16:12:24" id="T16:12:24"><abbr title="2012-06-12T16:12:24+00:00">16:12:24</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>so retry opkg install kernel-module-usbhid</q></li>
+<li class="message">[<a href="#T16:12:30" id="T16:12:30"><abbr title="2012-06-12T16:12:30+00:00">16:12:30</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>and modprobe ...</q></li>
+<li class="message">[<a href="#T16:12:40" id="T16:12:40"><abbr title="2012-06-12T16:12:40+00:00">16:12:40</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>good</q></li>
+<li class="message">[<a href="#T16:12:43" id="T16:12:43"><abbr title="2012-06-12T16:12:43+00:00">16:12:43</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>now works</q></li>
+<li class="join">[<a href="#T16:12:57" id="T16:12:57"><abbr title="2012-06-12T16:12:57+00:00">16:12:57</abbr></a>] <span>* scrts_ (~quassel@2001:778:200:23a1:219:d1ff:fe8c:53ea) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:12:59" id="T16:12:59"><abbr title="2012-06-12T16:12:59+00:00">16:12:59</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>with 3.2.16 i dont have to include this module</q></li>
+<li class="message">[<a href="#T16:13:03" id="T16:13:03"><abbr title="2012-06-12T16:13:03+00:00">16:13:03</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>maybe is just include</q></li>
+<li class="quit">[<a href="#T16:13:44" id="T16:13:44"><abbr title="2012-06-12T16:13:44+00:00">16:13:44</abbr></a>] <span>* scrts (~quassel@unaffiliated/scrts) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T16:15:13" id="T16:15:13"><abbr title="2012-06-12T16:15:13+00:00">16:15:13</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>so thanks aholler and xxiao</q></li>
+<li class="join">[<a href="#T16:15:21" id="T16:15:21"><abbr title="2012-06-12T16:15:21+00:00">16:15:21</abbr></a>] <span>* lkesteloot (~lkesteloo@173-167-103-174-sfba.hfc.comcastbusiness.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:17:31" id="T16:17:31"><abbr title="2012-06-12T16:17:31+00:00">16:17:31</abbr></a>] <span>* lpi (c13cce39@gateway/web/freenode/ip.193.60.206.57) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T16:21:37" id="T16:21:37"><abbr title="2012-06-12T16:21:37+00:00">16:21:37</abbr></a>] <span>* Geminizer (~Geminizer@sledge.ccr.buffalo.edu) Quit (Quit: Linkinus - <a href="http://linkinus.com)">http://linkinus.com)</a></span></li>
+<li class="message">[<a href="#T16:22:30" id="T16:22:30"><abbr title="2012-06-12T16:22:30+00:00">16:22:30</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>and all without me calling opkg ;)</q></li>
+<li class="part">[<a href="#T16:23:09" id="T16:23:09"><abbr title="2012-06-12T16:23:09+00:00">16:23:09</abbr></a>] <span>* jannau (~janne@v38276.1blu.de) has left #beagle</span></li>
+<li class="join">[<a href="#T16:23:24" id="T16:23:24"><abbr title="2012-06-12T16:23:24+00:00">16:23:24</abbr></a>] <span>* jannau (~janne@v38276.1blu.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:24:11" id="T16:24:11"><abbr title="2012-06-12T16:24:11+00:00">16:24:11</abbr></a>] <span>* kalem (~kalem@unaffiliated/kalem) Quit (Quit: Sto andando via)</span></li>
+<li class="quit">[<a href="#T16:28:22" id="T16:28:22"><abbr title="2012-06-12T16:28:22+00:00">16:28:22</abbr></a>] <span>* phantoxe (~destroy@a95-92-89-24.cpe.netcabo.pt) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T16:28:41" id="T16:28:41"><abbr title="2012-06-12T16:28:41+00:00">16:28:41</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>aholler:  becouse you think i have installed the package :P but angstrong do a clean so i have to use opkg</q></li>
+<li class="action">[<a href="#T16:29:05" id="T16:29:05"><abbr title="2012-06-12T16:29:05+00:00">16:29:05</abbr></a>] <span>* xxiao is extremely bored with daily job</span></li>
+<li class="message">[<a href="#T16:29:14" id="T16:29:14"><abbr title="2012-06-12T16:29:14+00:00">16:29:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so get a better one</q></li>
+<li class="message">[<a href="#T16:29:36" id="T16:29:36"><abbr title="2012-06-12T16:29:36+00:00">16:29:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's enough interesting work out there that needs doing</q></li>
+<li class="message">[<a href="#T16:29:38" id="T16:29:38"><abbr title="2012-06-12T16:29:38+00:00">16:29:38</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>next day i have the last step using the meta-toolchain-qte :)</q></li>
+<li class="join">[<a href="#T16:31:06" id="T16:31:06"><abbr title="2012-06-12T16:31:06+00:00">16:31:06</abbr></a>] <span>* phantoxe (~destroy@a95-92-89-24.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:35:39" id="T16:35:39"><abbr title="2012-06-12T16:35:39+00:00">16:35:39</abbr></a>] <span>* djlewis (~djelwis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:36:17" id="T16:36:17"><abbr title="2012-06-12T16:36:17+00:00">16:36:17</abbr></a>] <span>* stuk_gen (~quassel@151.65.15.221) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T16:41:32" id="T16:41:32"><abbr title="2012-06-12T16:41:32+00:00">16:41:32</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>_av500_: always trolling i see? :)</q></li>
+<li class="message">[<a href="#T16:44:25" id="T16:44:25"><abbr title="2012-06-12T16:44:25+00:00">16:44:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>mranostay: I have actually seen _av500_ not troll once</q></li>
+<li class="message">[<a href="#T16:45:00" id="T16:45:00"><abbr title="2012-06-12T16:45:00+00:00">16:45:00</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>link or gtfo? :)</q></li>
+<li class="message">[<a href="#T16:45:09" id="T16:45:09"><abbr title="2012-06-12T16:45:09+00:00">16:45:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh, that was IRL</q></li>
+<li class="join">[<a href="#T16:45:23" id="T16:45:23"><abbr title="2012-06-12T16:45:23+00:00">16:45:23</abbr></a>] <span>* rcf (~rcf@178-117-158-72.access.telenet.be) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:45:40" id="T16:45:40"><abbr title="2012-06-12T16:45:40+00:00">16:45:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>do you have a browser that supports RealityLink(tm)?</q></li>
+<li class="message">[<a href="#T16:46:18" id="T16:46:18"><abbr title="2012-06-12T16:46:18+00:00">16:46:18</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>what is real life again?</q></li>
+<li class="message">[<a href="#T16:47:00" id="T16:47:00"><abbr title="2012-06-12T16:47:00+00:00">16:47:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the stuff that doesn't go away when you pull the power plug</q></li>
+<li class="message">[<a href="#T16:48:15" id="T16:48:15"><abbr title="2012-06-12T16:48:15+00:00">16:48:15</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>it does when i take my contacts out. isn't that the same thing?</q></li>
+<li class="action">[<a href="#T16:48:38" id="T16:48:38"><abbr title="2012-06-12T16:48:38+00:00">16:48:38</abbr></a>] <span>* mru pokes mranostay with a sharp stick</span></li>
+<li class="quit">[<a href="#T16:51:32" id="T16:51:32"><abbr title="2012-06-12T16:51:32+00:00">16:51:32</abbr></a>] <span>* Tartarus (trini@pixelshelf.com) Quit (Excess Flood)</span></li>
+<li class="join">[<a href="#T16:51:52" id="T16:51:52"><abbr title="2012-06-12T16:51:52+00:00">16:51:52</abbr></a>] <span>* Tartarus (trini@pixelshelf.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:52:12" id="T16:52:12"><abbr title="2012-06-12T16:52:12+00:00">16:52:12</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>dude not cool</q></li>
+<li class="join">[<a href="#T16:54:44" id="T16:54:44"><abbr title="2012-06-12T16:54:44+00:00">16:54:44</abbr></a>] <span>* educa (b276178f@gateway/web/freenode/ip.178.118.23.143) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:54:57" id="T16:54:57"><abbr title="2012-06-12T16:54:57+00:00">16:54:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>see, that was real</q></li>
+<li class="join">[<a href="#T16:56:22" id="T16:56:22"><abbr title="2012-06-12T16:56:22+00:00">16:56:22</abbr></a>] <span>* almost_anna (~aad@50-0-191-227.dsl.static.sonic.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:59:54" id="T16:59:54"><abbr title="2012-06-12T16:59:54+00:00">16:59:54</abbr></a>] <span>* NulL` (~bleh1@80.65.244.180) has joined #beagle</span></li>
