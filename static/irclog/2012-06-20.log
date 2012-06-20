@@ -382,3 +382,149 @@
 <li class="message">[<a href="#T11:58:07" id="T11:58:07"><abbr title="2012-06-20T11:58:07+00:00">11:58:07</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>Nothing shows up on serial</q></li>
 <li class="message">[<a href="#T11:58:24" id="T11:58:24"><abbr title="2012-06-20T11:58:24+00:00">11:58:24</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>then first fix that</q></li>
 <li class="message">[<a href="#T11:58:48" id="T11:58:48"><abbr title="2012-06-20T11:58:48+00:00">11:58:48</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>how can you erase the nand without seeing something on the serial?</q></li>
+<li class="join">[<a href="#T12:00:45" id="T12:00:45"><abbr title="2012-06-20T12:00:45+00:00">12:00:45</abbr></a>] <span>* snowrichard (a6f9c04b@gateway/web/freenode/ip.166.249.192.75) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:00:57" id="T12:00:57"><abbr title="2012-06-20T12:00:57+00:00">12:00:57</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>I am sorry let me explain, I use gtkterm the serial connections are present but I cannot connect anymore after flashing nand! It used to show connection acm0 now it does not.</q></li>
+<li class="message">[<a href="#T12:01:57" id="T12:01:57"><abbr title="2012-06-20T12:01:57+00:00">12:01:57</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>then the u-boot on your mmc made it orange. but you still should see something. so fix the mmc</q></li>
+<li class="message">[<a href="#T12:02:11" id="T12:02:11"><abbr title="2012-06-20T12:02:11+00:00">12:02:11</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>s/mmc/sd-card/</q></li>
+<li class="message">[<a href="#T12:03:27" id="T12:03:27"><abbr title="2012-06-20T12:03:27+00:00">12:03:27</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>So you mean to say the uboot on my mmc is corrupted? That's the problem?</q></li>
+<li class="join">[<a href="#T12:03:53" id="T12:03:53"><abbr title="2012-06-20T12:03:53+00:00">12:03:53</abbr></a>] <span>* mgburr (~quassel@75-145-200-241-Jacksonville.hfc.comcastbusiness.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:04:07" id="T12:04:07"><abbr title="2012-06-20T12:04:07+00:00">12:04:07</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>don't know, you should even see something before u-boot got loaded and the screen got orange</q></li>
+<li class="message">[<a href="#T12:04:27" id="T12:04:27"><abbr title="2012-06-20T12:04:27+00:00">12:04:27</abbr></a>] &lt;<cite>travalas</cite>&gt; <q>jakeday: no, rfkill doesn't seem to stick so I think there's maybe a driver issue.</q></li>
+<li class="message">[<a href="#T12:04:31" id="T12:04:31"><abbr title="2012-06-20T12:04:31+00:00">12:04:31</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>Yeah I used to before I flashed my NAND</q></li>
+<li class="message">[<a href="#T12:05:44" id="T12:05:44"><abbr title="2012-06-20T12:05:44+00:00">12:05:44</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>then fix the sd-card</q></li>
+<li class="message">[<a href="#T12:06:55" id="T12:06:55"><abbr title="2012-06-20T12:06:55+00:00">12:06:55</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>Can you tell me what I need to do? I am following tutorial from elinux.org/BeagleBoardUbuntu</q></li>
+<li class="quit">[<a href="#T12:07:09" id="T12:07:09"><abbr title="2012-06-20T12:07:09+00:00">12:07:09</abbr></a>] <span>* snowrichard (a6f9c04b@gateway/web/freenode/ip.166.249.192.75) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T12:07:21" id="T12:07:21"><abbr title="2012-06-20T12:07:21+00:00">12:07:21</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>They gave a direct shell script that prepares sd card!</q></li>
+<li class="message">[<a href="#T12:09:40" id="T12:09:40"><abbr title="2012-06-20T12:09:40+00:00">12:09:40</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>How can I see the date uboot might be sending serially on gtkterm? During boot up no connection is established?</q></li>
+<li class="message">[<a href="#T12:09:45" id="T12:09:45"><abbr title="2012-06-20T12:09:45+00:00">12:09:45</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>Data*</q></li>
+<li class="message">[<a href="#T12:10:26" id="T12:10:26"><abbr title="2012-06-20T12:10:26+00:00">12:10:26</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>screen /dev/ttyUSB0 115200 # ctrl-a shift-k to quit</q></li>
+<li class="message">[<a href="#T12:10:39" id="T12:10:39"><abbr title="2012-06-20T12:10:39+00:00">12:10:39</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>forget gtkterm</q></li>
+<li class="message">[<a href="#T12:11:44" id="T12:11:44"><abbr title="2012-06-20T12:11:44+00:00">12:11:44</abbr></a>] &lt;<cite>tasslehoff</cite>&gt; <q>+1</q></li>
+<li class="message">[<a href="#T12:12:59" id="T12:12:59"><abbr title="2012-06-20T12:12:59+00:00">12:12:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>aholler: is gtkterm an accurate recreation of hyperterm?</q></li>
+<li class="message">[<a href="#T12:13:47" id="T12:13:47"><abbr title="2012-06-20T12:13:47+00:00">12:13:47</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>don't know, it's a terminal emulation foo build to use modems, so too bloated for todays people ;)</q></li>
+<li class="message">[<a href="#T12:14:51" id="T12:14:51"><abbr title="2012-06-20T12:14:51+00:00">12:14:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I can't remember when I last used a terminal emulator with an actual dialup modem</q></li>
+<li class="message">[<a href="#T12:15:24" id="T12:15:24"><abbr title="2012-06-20T12:15:24+00:00">12:15:24</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>my last was a zyxel with 57600 ;)</q></li>
+<li class="message">[<a href="#T12:15:29" id="T12:15:29"><abbr title="2012-06-20T12:15:29+00:00">12:15:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's over 10 years since I used a modem at all</q></li>
+<li class="message">[<a href="#T12:15:35" id="T12:15:35"><abbr title="2012-06-20T12:15:35+00:00">12:15:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not much more though</q></li>
+<li class="message">[<a href="#T12:15:45" id="T12:15:45"><abbr title="2012-06-20T12:15:45+00:00">12:15:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but that was using pppd</q></li>
+<li class="quit">[<a href="#T12:16:12" id="T12:16:12"><abbr title="2012-06-20T12:16:12+00:00">12:16:12</abbr></a>] <span>* harshpb (~harshpb@122.248.163.3) Quit (Read error: Operation timed out)</span></li>
+<li class="message">[<a href="#T12:17:40" id="T12:17:40"><abbr title="2012-06-20T12:17:40+00:00">12:17:40</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>mru haha you didnt play with a gsm modem?</q></li>
+<li class="message">[<a href="#T12:17:55" id="T12:17:55"><abbr title="2012-06-20T12:17:55+00:00">12:17:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>oh, I've done that too</q></li>
+<li class="message">[<a href="#T12:18:04" id="T12:18:04"><abbr title="2012-06-20T12:18:04+00:00">12:18:04</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>so you lied</q></li>
+<li class="action">[<a href="#T12:18:08" id="T12:18:08"><abbr title="2012-06-20T12:18:08+00:00">12:18:08</abbr></a>] <span>* woglinde runs</span></li>
+<li class="message">[<a href="#T12:18:25" id="T12:18:25"><abbr title="2012-06-20T12:18:25+00:00">12:18:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>still using pppd</q></li>
+<li class="message">[<a href="#T12:18:39" id="T12:18:39"><abbr title="2012-06-20T12:18:39+00:00">12:18:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T12:19:15" id="T12:19:15"><abbr title="2012-06-20T12:19:15+00:00">12:19:15</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>until you have the fancy modems which maps stuff to usb-net</q></li>
+<li class="message">[<a href="#T12:19:21" id="T12:19:21"><abbr title="2012-06-20T12:19:21+00:00">12:19:21</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>I still remember that I did burn eproms with last fw for the zyxel ;)</q></li>
+<li class="quit">[<a href="#T12:19:36" id="T12:19:36"><abbr title="2012-06-20T12:19:36+00:00">12:19:36</abbr></a>] <span>* victoraa (d5e33a9d@gateway/web/freenode/ip.213.227.58.157) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T12:22:02" id="T12:22:02"><abbr title="2012-06-20T12:22:02+00:00">12:22:02</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>afterwards I've gone isdn.</q></li>
+<li class="message">[<a href="#T12:23:40" id="T12:23:40"><abbr title="2012-06-20T12:23:40+00:00">12:23:40</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>aholler I bought an mini vigor some weeks ago</q></li>
+<li class="message">[<a href="#T12:24:00" id="T12:24:00"><abbr title="2012-06-20T12:24:00+00:00">12:24:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>after Karsten made fax working with misdn2</q></li>
+<li class="message">[<a href="#T12:24:14" id="T12:24:14"><abbr title="2012-06-20T12:24:14+00:00">12:24:14</abbr></a>] &lt;<cite>mru</cite>&gt; <q>fax, now there's something I can barely remember</q></li>
+<li class="message">[<a href="#T12:24:32" id="T12:24:32"><abbr title="2012-06-20T12:24:32+00:00">12:24:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>germany swears on fax</q></li>
+<li class="message">[<a href="#T12:24:55" id="T12:24:55"><abbr title="2012-06-20T12:24:55+00:00">12:24:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>is a faxed signature legally binding?</q></li>
+<li class="message">[<a href="#T12:25:02" id="T12:25:02"><abbr title="2012-06-20T12:25:02+00:00">12:25:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T12:25:12" id="T12:25:12"><abbr title="2012-06-20T12:25:12+00:00">12:25:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>explains it</q></li>
+<li class="message">[<a href="#T12:25:36" id="T12:25:36"><abbr title="2012-06-20T12:25:36+00:00">12:25:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you can fax to courts</q></li>
+<li class="message">[<a href="#T12:25:51" id="T12:25:51"><abbr title="2012-06-20T12:25:51+00:00">12:25:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I stay away from courts</q></li>
+<li class="message">[<a href="#T12:25:57" id="T12:25:57"><abbr title="2012-06-20T12:25:57+00:00">12:25:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's simple: just don't get caught</q></li>
+<li class="message">[<a href="#T12:27:04" id="T12:27:04"><abbr title="2012-06-20T12:27:04+00:00">12:27:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>fax is essential when dealing with patents</q></li>
+<li class="message">[<a href="#T12:27:05" id="T12:27:05"><abbr title="2012-06-20T12:27:05+00:00">12:27:05</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>isdn is dead too. and now they all get faced with the problems using a fax over voip ;)</q></li>
+<li class="message">[<a href="#T12:27:07" id="T12:27:07"><abbr title="2012-06-20T12:27:07+00:00">12:27:07</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>aholler: nope I am pretty sure uboot ain't sending any logs somehow!</q></li>
+<li class="message">[<a href="#T12:27:38" id="T12:27:38"><abbr title="2012-06-20T12:27:38+00:00">12:27:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>console=/dev/fax</q></li>
+<li class="message">[<a href="#T12:28:22" id="T12:28:22"><abbr title="2012-06-20T12:28:22+00:00">12:28:22</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>ColloquyUser: MLO sends something even before u-boot gets loaded. if MLO won't get loaded you should see at least a "40"</q></li>
+<li class="message">[<a href="#T12:28:31" id="T12:28:31"><abbr title="2012-06-20T12:28:31+00:00">12:28:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or 60</q></li>
+<li class="message">[<a href="#T12:28:43" id="T12:28:43"><abbr title="2012-06-20T12:28:43+00:00">12:28:43</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>c3 = 40</q></li>
+<li class="message">[<a href="#T12:29:15" id="T12:29:15"><abbr title="2012-06-20T12:29:15+00:00">12:29:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so c = 13.3333333333333?</q></li>
+<li class="message">[<a href="#T12:29:51" id="T12:29:51"><abbr title="2012-06-20T12:29:51+00:00">12:29:51</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>too short</q></li>
+<li class="message">[<a href="#T12:30:25" id="T12:30:25"><abbr title="2012-06-20T12:30:25+00:00">12:30:25</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>use hf ;)</q></li>
+<li class="message">[<a href="#T12:30:39" id="T12:30:39"><abbr title="2012-06-20T12:30:39+00:00">12:30:39</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>or gmp</q></li>
+<li class="message">[<a href="#T12:30:59" id="T12:30:59"><abbr title="2012-06-20T12:30:59+00:00">12:30:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or 3.41995189335?</q></li>
+<li class="message">[<a href="#T12:32:18" id="T12:32:18"><abbr title="2012-06-20T12:32:18+00:00">12:32:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>aholler: my Casio does not has more digits</q></li>
+<li class="message">[<a href="#T12:32:39" id="T12:32:39"><abbr title="2012-06-20T12:32:39+00:00">12:32:39</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>oh, no ti? ;)</q></li>
+<li class="message">[<a href="#T12:33:48" id="T12:33:48"><abbr title="2012-06-20T12:33:48+00:00">12:33:48</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>how bitbake found a recipe? example if i run bitbake qt4-embedded how can found qt4-embedded_4_8_0.bb</q></li>
+<li class="message">[<a href="#T12:34:54" id="T12:34:54"><abbr title="2012-06-20T12:34:54+00:00">12:34:54</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>aholler:</q></li>
+<li class="message">[<a href="#T12:34:57" id="T12:34:57"><abbr title="2012-06-20T12:34:57+00:00">12:34:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>aholler: hp ftw</q></li>
+<li class="message">[<a href="#T12:35:36" id="T12:35:36"><abbr title="2012-06-20T12:35:36+00:00">12:35:36</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>I never understood people using ti calculators with upn. ;)</q></li>
+<li class="message">[<a href="#T12:36:13" id="T12:36:13"><abbr title="2012-06-20T12:36:13+00:00">12:36:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>aholler: of course HP</q></li>
+<li class="message">[<abbr title="2012-06-20T12:36:13+00:00">12:36:13</abbr>] &lt;<cite>aholler</cite>&gt; <q>upn = german for rpn</q></li>
+<li class="message">[<a href="#T12:36:38" id="T12:36:38"><abbr title="2012-06-20T12:36:38+00:00">12:36:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ti with rpn?</q></li>
+<li class="message">[<a href="#T12:36:58" id="T12:36:58"><abbr title="2012-06-20T12:36:58+00:00">12:36:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what custom rom were you using?</q></li>
+<li class="message">[<a href="#T12:37:29" id="T12:37:29"><abbr title="2012-06-20T12:37:29+00:00">12:37:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>a zyxel one</q></li>
+<li class="message">[<a href="#T12:37:42" id="T12:37:42"><abbr title="2012-06-20T12:37:42+00:00">12:37:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>as he said above</q></li>
+<li class="message">[<a href="#T12:38:05" id="T12:38:05"><abbr title="2012-06-20T12:38:05+00:00">12:38:05</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>wasn't that ti with the rpn-calculators and bcd-digits?</q></li>
+<li class="message">[<a href="#T12:39:00" id="T12:39:00"><abbr title="2012-06-20T12:39:00+00:00">12:39:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the TI graphing calcs use bcd internally, yes</q></li>
+<li class="message">[<a href="#T12:39:02" id="T12:39:02"><abbr title="2012-06-20T12:39:02+00:00">12:39:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but no rpn</q></li>
+<li class="join">[<a href="#T12:39:24" id="T12:39:24"><abbr title="2012-06-20T12:39:24+00:00">12:39:24</abbr></a>] <span>* snowrichard (a6f9c04b@gateway/web/freenode/ip.166.249.192.75) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:39:52" id="T12:39:52"><abbr title="2012-06-20T12:39:52+00:00">12:39:52</abbr></a>] &lt;<cite>ColloquyUser</cite>&gt; <q>aholler: Any tutorial you are familiar with to make sd card for uboot?</q></li>
+<li class="message">[<a href="#T12:40:02" id="T12:40:02"><abbr title="2012-06-20T12:40:02+00:00">12:40:02</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>those ones: <a href="http://www.classiccmp.org/dunfield/calc/h/ti30.jpg">http://www.classiccmp.org/dunfield/calc/h/ti30.jpg</a></q></li>
+<li class="message">[<a href="#T12:40:14" id="T12:40:14"><abbr title="2012-06-20T12:40:14+00:00">12:40:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>not rpn</q></li>
+<li class="message">[<a href="#T12:40:33" id="T12:40:33"><abbr title="2012-06-20T12:40:33+00:00">12:40:33</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>i used to have an HP41c it was rpm</q></li>
+<li class="message">[<a href="#T12:40:42" id="T12:40:42"><abbr title="2012-06-20T12:40:42+00:00">12:40:42</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>rpn rather</q></li>
+<li class="message">[<a href="#T12:42:02" id="T12:42:02"><abbr title="2012-06-20T12:42:02+00:00">12:42:02</abbr></a>] &lt;<cite>snowrichard</cite>&gt; <q>it also handled alpha characters for  labeling the function keys</q></li>
+<li class="message">[<a href="#T12:42:14" id="T12:42:14"><abbr title="2012-06-20T12:42:14+00:00">12:42:14</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>maybe my memories got that wrong and it was HP with the rpn</q></li>
+<li class="message">[<a href="#T12:42:54" id="T12:42:54"><abbr title="2012-06-20T12:42:54+00:00">12:42:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T12:43:29" id="T12:43:29"><abbr title="2012-06-20T12:43:29+00:00">12:43:29</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>this is the last week that i try with oe...and i thinking we leave the project...</q></li>
+<li class="message">[<a href="#T12:45:09" id="T12:45:09"><abbr title="2012-06-20T12:45:09+00:00">12:45:09</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>it might get hard to find something better for cross-compiling</q></li>
+<li class="message">[<a href="#T12:45:42" id="T12:45:42"><abbr title="2012-06-20T12:45:42+00:00">12:45:42</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>stuk_gen and?</q></li>
+<li class="message">[<a href="#T12:46:09" id="T12:46:09"><abbr title="2012-06-20T12:46:09+00:00">12:46:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>stuk_gen: you are aware that there is oe and bitbake documentation?</q></li>
+<li class="message">[<a href="#T12:46:34" id="T12:46:34"><abbr title="2012-06-20T12:46:34+00:00">12:46:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>aholler let him try the other solutions</q></li>
+<li class="message">[<a href="#T12:46:39" id="T12:46:39"><abbr title="2012-06-20T12:46:39+00:00">12:46:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and he will come back</q></li>
+<li class="message">[<a href="#T12:46:57" id="T12:46:57"><abbr title="2012-06-20T12:46:57+00:00">12:46:57</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>oe is too hard</q></li>
+<li class="message">[<a href="#T12:47:08" id="T12:47:08"><abbr title="2012-06-20T12:47:08+00:00">12:47:08</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>and if this is the best solution...</q></li>
+<li class="message">[<a href="#T12:47:12" id="T12:47:12"><abbr title="2012-06-20T12:47:12+00:00">12:47:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>just put Android</q></li>
+<li class="message">[<a href="#T12:47:30" id="T12:47:30"><abbr title="2012-06-20T12:47:30+00:00">12:47:30</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>i think the embedded is not for me...and i use a normal pc for my work</q></li>
+<li class="message">[<a href="#T12:47:41" id="T12:47:41"><abbr title="2012-06-20T12:47:41+00:00">12:47:41</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>woglinde: or he will learn that he just could us qt-creator on a linux-pc to develop his app and afterwards invoke qmake on the beagle ;)</q></li>
+<li class="message">[<a href="#T12:47:50" id="T12:47:50"><abbr title="2012-06-20T12:47:50+00:00">12:47:50</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>av500: i need qt...android is not my case</q></li>
+<li class="message">[<a href="#T12:48:00" id="T12:48:00"><abbr title="2012-06-20T12:48:00+00:00">12:48:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>or do a recipe for the qt app, easier &amp; faster</q></li>
+<li class="message">[<abbr title="2012-06-20T12:48:00+00:00">12:48:00</abbr>] &lt;<cite>av500</cite>&gt; <q>there is qt in oe</q></li>
+<li class="message">[<a href="#T12:48:08" id="T12:48:08"><abbr title="2012-06-20T12:48:08+00:00">12:48:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>aholler sure but packaging will be hard for him</q></li>
+<li class="message">[<a href="#T12:48:09" id="T12:48:09"><abbr title="2012-06-20T12:48:09+00:00">12:48:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and qt apps</q></li>
+<li class="quit">[<a href="#T12:48:46" id="T12:48:46"><abbr title="2012-06-20T12:48:46+00:00">12:48:46</abbr></a>] <span>* snowrichard (a6f9c04b@gateway/web/freenode/ip.166.249.192.75) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<abbr title="2012-06-20T12:48:46+00:00">12:48:46</abbr>] &lt;<cite>stuk_gen</cite>&gt; <q>woglinde: i just using qt creator on host...</q></li>
+<li class="message">[<a href="#T12:48:58" id="T12:48:58"><abbr title="2012-06-20T12:48:58+00:00">12:48:58</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>but you can't only use qmake2 on a pro file...</q></li>
+<li class="message">[<a href="#T12:49:24" id="T12:49:24"><abbr title="2012-06-20T12:49:24+00:00">12:49:24</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>because you can't debug</q></li>
+<li class="message">[<a href="#T12:50:30" id="T12:50:30"><abbr title="2012-06-20T12:50:30+00:00">12:50:30</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>what i don't understand is why i have to paid 5000 euro to get what i can doing by using oe...</q></li>
+<li class="message">[<a href="#T12:50:43" id="T12:50:43"><abbr title="2012-06-20T12:50:43+00:00">12:50:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I wonder how people debugged qt apps before qt-creator existed</q></li>
+<li class="message">[<a href="#T12:50:57" id="T12:50:57"><abbr title="2012-06-20T12:50:57+00:00">12:50:57</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>stuk_gen pay me the 5000 euro and I will do it for you</q></li>
+<li class="message">[<a href="#T12:51:27" id="T12:51:27"><abbr title="2012-06-20T12:51:27+00:00">12:51:27</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>koen: they used eclipse ;)</q></li>
+<li class="message">[<a href="#T12:51:37" id="T12:51:37"><abbr title="2012-06-20T12:51:37+00:00">12:51:37</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>aholler and?</q></li>
+<li class="message">[<a href="#T12:51:47" id="T12:51:47"><abbr title="2012-06-20T12:51:47+00:00">12:51:47</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>before...</q></li>
+<li class="message">[<abbr title="2012-06-20T12:51:47+00:00">12:51:47</abbr>] &lt;<cite>woglinde</cite>&gt; <q>you can still use it as gdb frontend</q></li>
+<li class="message">[<a href="#T12:51:49" id="T12:51:49"><abbr title="2012-06-20T12:51:49+00:00">12:51:49</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>before...</q></li>
+<li class="message">[<a href="#T12:52:04" id="T12:52:04"><abbr title="2012-06-20T12:52:04+00:00">12:52:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>5000????</q></li>
+<li class="message">[<a href="#T12:52:18" id="T12:52:18"><abbr title="2012-06-20T12:52:18+00:00">12:52:18</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 not bad!</q></li>
+<li class="message">[<a href="#T12:52:23" id="T12:52:23"><abbr title="2012-06-20T12:52:23+00:00">12:52:23</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>this is what</q></li>
+<li class="message">[<a href="#T12:52:34" id="T12:52:34"><abbr title="2012-06-20T12:52:34+00:00">12:52:34</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>i have to paid</q></li>
+<li class="message">[<a href="#T12:52:39" id="T12:52:39"><abbr title="2012-06-20T12:52:39+00:00">12:52:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>where?</q></li>
+<li class="message">[<a href="#T12:52:45" id="T12:52:45"><abbr title="2012-06-20T12:52:45+00:00">12:52:45</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>for get a simple qt build embedded for beagleboard</q></li>
+<li class="message">[<a href="#T12:52:52" id="T12:52:52"><abbr title="2012-06-20T12:52:52+00:00">12:52:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>to whom?</q></li>
+<li class="message">[<a href="#T12:52:55" id="T12:52:55"><abbr title="2012-06-20T12:52:55+00:00">12:52:55</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>...made bye angstrom</q></li>
+<li class="message">[<a href="#T12:53:02" id="T12:53:02"><abbr title="2012-06-20T12:53:02+00:00">12:53:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>o.O</q></li>
+<li class="message">[<a href="#T12:53:04" id="T12:53:04"><abbr title="2012-06-20T12:53:04+00:00">12:53:04</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>qt commercial</q></li>
+<li class="message">[<a href="#T12:53:21" id="T12:53:21"><abbr title="2012-06-20T12:53:21+00:00">12:53:21</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>koen: somehow that mtd/ubi-user.h header changed under my nose...</q></li>
+<li class="message">[<a href="#T12:53:22" id="T12:53:22"><abbr title="2012-06-20T12:53:22+00:00">12:53:22</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>its give a qt creator with qt embedded for arm</q></li>
+<li class="join">[<a href="#T12:53:24" id="T12:53:24"><abbr title="2012-06-20T12:53:24+00:00">12:53:24</abbr></a>] <span>* tema (~tema@178-16-155-142.obit.ru) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:53:34" id="T12:53:34"><abbr title="2012-06-20T12:53:34+00:00">12:53:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so dont pay</q></li>
+<li class="message">[<a href="#T12:53:39" id="T12:53:39"><abbr title="2012-06-20T12:53:39+00:00">12:53:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 hm yeah there comapies in asia which need professional qt support</q></li>
+<li class="message">[<a href="#T12:53:48" id="T12:53:48"><abbr title="2012-06-20T12:53:48+00:00">12:53:48</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>qt creator have a little useful for put on board the binary</q></li>
+<li class="message">[<a href="#T12:53:54" id="T12:53:54"><abbr title="2012-06-20T12:53:54+00:00">12:53:54</abbr></a>] &lt;<cite>ant_work</cite>&gt; <q>koen: what I have is sysroot is *not* the 3.4 header, though I've built that recipe</q></li>
+<li class="message">[<a href="#T12:53:55" id="T12:53:55"><abbr title="2012-06-20T12:53:55+00:00">12:53:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>one of my friend makes consulting for nokia</q></li>
+<li class="message">[<a href="#T12:54:06" id="T12:54:06"><abbr title="2012-06-20T12:54:06+00:00">12:54:06</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>i mean</q></li>
+<li class="message">[<a href="#T12:54:07" id="T12:54:07"><abbr title="2012-06-20T12:54:07+00:00">12:54:07</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>digia</q></li>
+<li class="message">[<a href="#T12:54:24" id="T12:54:24"><abbr title="2012-06-20T12:54:24+00:00">12:54:24</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm or digia now</q></li>
+<li class="message">[<a href="#T12:54:26" id="T12:54:26"><abbr title="2012-06-20T12:54:26+00:00">12:54:26</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>maybee</q></li>
+<li class="message">[<a href="#T12:54:34" id="T12:54:34"><abbr title="2012-06-20T12:54:34+00:00">12:54:34</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>but ok...you pay for support and...ok...</q></li>
+<li class="message">[<a href="#T12:54:40" id="T12:54:40"><abbr title="2012-06-20T12:54:40+00:00">12:54:40</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T12:54:51" id="T12:54:51"><abbr title="2012-06-20T12:54:51+00:00">12:54:51</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>but the libraries is build by angstrom this make me angry</q></li>
+<li class="message">[<a href="#T12:54:59" id="T12:54:59"><abbr title="2012-06-20T12:54:59+00:00">12:54:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or you pay the same money your lousy devs and they struggle for half a year</q></li>
+<li class="message">[<a href="#T12:55:33" id="T12:55:33"><abbr title="2012-06-20T12:55:33+00:00">12:55:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>stuk_gen pssst I can sell you linux</q></li>
+<li class="message">[<a href="#T12:55:57" id="T12:55:57"><abbr title="2012-06-20T12:55:57+00:00">12:55:57</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>nice nice</q></li>
+<li class="join">[<a href="#T12:56:46" id="T12:56:46"><abbr title="2012-06-20T12:56:46+00:00">12:56:46</abbr></a>] <span>* kalem (~kalem@unaffiliated/kalem) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:57:12" id="T12:57:12"><abbr title="2012-06-20T12:57:12+00:00">12:57:12</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>why don't you try to reply to my question? its now a waste of time</q></li>
+<li class="message">[<a href="#T12:57:35" id="T12:57:35"><abbr title="2012-06-20T12:57:35+00:00">12:57:35</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>stuk_gen you mean how bitbake parses recipes?</q></li>
+<li class="message">[<a href="#T12:57:50" id="T12:57:50"><abbr title="2012-06-20T12:57:50+00:00">12:57:50</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>how bitbake found recipes</q></li>
+<li class="message">[<a href="#T12:58:33" id="T12:58:33"><abbr title="2012-06-20T12:58:33+00:00">12:58:33</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>no, he wants to develop an app with qt-creator which uses dbus, and several other linux-libs and struggles combining that with cross-compiling</q></li>
+<li class="message">[<a href="#T12:58:52" id="T12:58:52"><abbr title="2012-06-20T12:58:52+00:00">12:58:52</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>aholler: this is the next step</q></li>
+<li class="message">[<a href="#T12:59:12" id="T12:59:12"><abbr title="2012-06-20T12:59:12+00:00">12:59:12</abbr></a>] &lt;<cite>stuk_gen</cite>&gt; <q>aholler: but nobody reply to me...so i decide to edit the recipes and manually do it</q></li>
+<li class="message">[<a href="#T13:00:00" id="T13:00:00"><abbr title="2012-06-20T13:00:00+00:00">13:00:00</abbr></a>] &lt;<cite>aholler</cite>&gt; <q>stuk_gen: maybe you should ask in qt-channels</q></li>
