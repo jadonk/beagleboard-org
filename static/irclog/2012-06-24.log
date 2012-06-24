@@ -304,3 +304,94 @@
 <li class="message">[<a href="#T20:24:12" id="T20:24:12"><abbr title="2012-06-24T20:24:12+00:00">20:24:12</abbr></a>] &lt;<cite>sbma44</cite>&gt; <q>more to the point though, the project's documentation seems to leave a lot to be desired. at least that's the impression I came away with after fighting with it for a while.</q></li>
 <li class="quit">[<a href="#T20:25:57" id="T20:25:57"><abbr title="2012-06-24T20:25:57+00:00">20:25:57</abbr></a>] <span>* dv_ (~quassel@chello080108009040.14.11.vie.surfer.at) Quit (Remote host closed the connection)</span></li>
 <li class="message">[<a href="#T20:54:52" id="T20:54:52"><abbr title="2012-06-24T20:54:52+00:00">20:54:52</abbr></a>] &lt;<cite>furan</cite>&gt; <q>anyone done fast i/o with mmap?</q></li>
+<li class="quit">[<a href="#T21:00:42" id="T21:00:42"><abbr title="2012-06-24T21:00:42+00:00">21:00:42</abbr></a>] <span>* krajo1 (~krajo1@ip4-83-240-125-22.cust.nbox.cz) Quit (Quit: Konversation terminated!)</span></li>
+<li class="message">[<a href="#T21:03:23" id="T21:03:23"><abbr title="2012-06-24T21:03:23+00:00">21:03:23</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>how fast?</q></li>
+<li class="message">[<a href="#T21:03:27" id="T21:03:27"><abbr title="2012-06-24T21:03:27+00:00">21:03:27</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>what interface?</q></li>
+<li class="message">[<a href="#T21:08:46" id="T21:08:46"><abbr title="2012-06-24T21:08:46+00:00">21:08:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>fast_mmap?</q></li>
+<li class="message">[<a href="#T21:11:51" id="T21:11:51"><abbr title="2012-06-24T21:11:51+00:00">21:11:51</abbr></a>] &lt;<cite>furan</cite>&gt; <q>welp, mmaping physical memory and accessing the gpio registers directly is faster than using /dev/blahblahblah, way faster</q></li>
+<li class="message">[<a href="#T21:12:03" id="T21:12:03"><abbr title="2012-06-24T21:12:03+00:00">21:12:03</abbr></a>] &lt;<cite>furan</cite>&gt; <q>I've only read about people doing it on the different beagle lists</q></li>
+<li class="message">[<a href="#T21:12:06" id="T21:12:06"><abbr title="2012-06-24T21:12:06+00:00">21:12:06</abbr></a>] &lt;<cite>furan</cite>&gt; <q>haven't tried it</q></li>
+<li class="message">[<a href="#T21:12:08" id="T21:12:08"><abbr title="2012-06-24T21:12:08+00:00">21:12:08</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q> via /dev?</q></li>
+<li class="message">[<a href="#T21:12:12" id="T21:12:12"><abbr title="2012-06-24T21:12:12+00:00">21:12:12</abbr></a>] &lt;<cite>furan</cite>&gt; <q>thinking about writing a small library for it</q></li>
+<li class="message">[<a href="#T21:12:14" id="T21:12:14"><abbr title="2012-06-24T21:12:14+00:00">21:12:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>you mean via /sys</q></li>
+<li class="message">[<a href="#T21:12:22" id="T21:12:22"><abbr title="2012-06-24T21:12:22+00:00">21:12:22</abbr></a>] &lt;<cite>furan</cite>&gt; <q>sure</q></li>
+<li class="quit">[<a href="#T21:12:23" id="T21:12:23"><abbr title="2012-06-24T21:12:23+00:00">21:12:23</abbr></a>] <span>* _roger_ (~a0740758@nat/ti/x-kgiebcvojikckizq) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T21:15:16" id="T21:15:16"><abbr title="2012-06-24T21:15:16+00:00">21:15:16</abbr></a>] <span>* dENNES (~Adium@port375.ds1-hr.adsl.cybercity.dk) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T21:20:05" id="T21:20:05"><abbr title="2012-06-24T21:20:05+00:00">21:20:05</abbr></a>] <span>* brillopad (~brillopad@cpc15-live21-2-0-cust168.know.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:21:36" id="T21:21:36"><abbr title="2012-06-24T21:21:36+00:00">21:21:36</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Hi guys - any way of running Gnome with no display so that I can remote in with VNC?</q></li>
+<li class="message">[<a href="#T21:21:47" id="T21:21:47"><abbr title="2012-06-24T21:21:47+00:00">21:21:47</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>I've install gnome and x11vnc</q></li>
+<li class="message">[<a href="#T21:21:50" id="T21:21:50"><abbr title="2012-06-24T21:21:50+00:00">21:21:50</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>installed, even</q></li>
+<li class="message">[<a href="#T21:22:33" id="T21:22:33"><abbr title="2012-06-24T21:22:33+00:00">21:22:33</abbr></a>] &lt;<cite>damjan</cite>&gt; <q>brillopad: x11vnc already requires a X server</q></li>
+<li class="message">[<a href="#T21:22:39" id="T21:22:39"><abbr title="2012-06-24T21:22:39+00:00">21:22:39</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Actually, gnome was already installed</q></li>
+<li class="message">[<abbr title="2012-06-24T21:22:39+00:00">21:22:39</abbr>] &lt;<cite>damjan</cite>&gt; <q>use vncserver or some such</q></li>
+<li class="message">[<a href="#T21:28:16" id="T21:28:16"><abbr title="2012-06-24T21:28:16+00:00">21:28:16</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Thanks</q></li>
+<li class="message">[<a href="#T21:28:35" id="T21:28:35"><abbr title="2012-06-24T21:28:35+00:00">21:28:35</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Do formatted USB drivers automatically mount in Angstrom?</q></li>
+<li class="quit">[<a href="#T21:29:22" id="T21:29:22"><abbr title="2012-06-24T21:29:22+00:00">21:29:22</abbr></a>] <span>* sbma44 (~thomaslee@c-24-126-57-105.hsd1.dc.comcast.net) Quit (Quit: sbma44)</span></li>
+<li class="join">[<a href="#T21:29:30" id="T21:29:30"><abbr title="2012-06-24T21:29:30+00:00">21:29:30</abbr></a>] <span>* educa (b276178f@gateway/web/freenode/ip.178.118.23.143) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:30:50" id="T21:30:50"><abbr title="2012-06-24T21:30:50+00:00">21:30:50</abbr></a>] <span>* misham (~misham@cpe-24-25-210-181.san.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:31:04" id="T21:31:04"><abbr title="2012-06-24T21:31:04+00:00">21:31:04</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>brillopad no</q></li>
+<li class="message">[<a href="#T21:31:17" id="T21:31:17"><abbr title="2012-06-24T21:31:17+00:00">21:31:17</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Thought not</q></li>
+<li class="message">[<a href="#T21:31:33" id="T21:31:33"><abbr title="2012-06-24T21:31:33+00:00">21:31:33</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Just formatted a partition (/dev/sda2) and it shows up as type 'Linux'</q></li>
+<li class="message">[<a href="#T21:31:48" id="T21:31:48"><abbr title="2012-06-24T21:31:48+00:00">21:31:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm maybee systemd does it</q></li>
+<li class="message">[<a href="#T21:31:52" id="T21:31:52"><abbr title="2012-06-24T21:31:52+00:00">21:31:52</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>but I am not sure</q></li>
+<li class="message">[<a href="#T21:32:12" id="T21:32:12"><abbr title="2012-06-24T21:32:12+00:00">21:32:12</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Every time I try to mount it 'mount -t ext3 /dev/sda2 /mnt/exthd' the board crashes and I have to power cycle</q></li>
+<li class="message">[<a href="#T21:32:34" id="T21:32:34"><abbr title="2012-06-24T21:32:34+00:00">21:32:34</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>on beagle?</q></li>
+<li class="message">[<a href="#T21:32:53" id="T21:32:53"><abbr title="2012-06-24T21:32:53+00:00">21:32:53</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>BeagleBone</q></li>
+<li class="message">[<a href="#T21:33:00" id="T21:33:00"><abbr title="2012-06-24T21:33:00+00:00">21:33:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>do you power it on via usb?</q></li>
+<li class="message">[<a href="#T21:33:03" id="T21:33:03"><abbr title="2012-06-24T21:33:03+00:00">21:33:03</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or ac</q></li>
+<li class="message">[<a href="#T21:34:59" id="T21:34:59"><abbr title="2012-06-24T21:34:59+00:00">21:34:59</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>AC</q></li>
+<li class="message">[<a href="#T21:35:05" id="T21:35:05"><abbr title="2012-06-24T21:35:05+00:00">21:35:05</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>5V in.</q></li>
+<li class="message">[<a href="#T21:35:49" id="T21:35:49"><abbr title="2012-06-24T21:35:49+00:00">21:35:49</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>how much watt?</q></li>
+<li class="message">[<a href="#T21:36:05" id="T21:36:05"><abbr title="2012-06-24T21:36:05+00:00">21:36:05</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Ah. Unsure. One sec.</q></li>
+<li class="message">[<a href="#T21:37:40" id="T21:37:40"><abbr title="2012-06-24T21:37:40+00:00">21:37:40</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Watts not specified on the box - output current 3000mA (3A) if that's any help</q></li>
+<li class="message">[<a href="#T21:37:45" id="T21:37:45"><abbr title="2012-06-24T21:37:45+00:00">21:37:45</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>USB HD is powered separately, btw</q></li>
+<li class="message">[<a href="#T21:37:51" id="T21:37:51"><abbr title="2012-06-24T21:37:51+00:00">21:37:51</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ups sorry</q></li>
+<li class="message">[<a href="#T21:37:55" id="T21:37:55"><abbr title="2012-06-24T21:37:55+00:00">21:37:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>yes I meant mA</q></li>
+<li class="message">[<a href="#T21:38:00" id="T21:38:00"><abbr title="2012-06-24T21:38:00+00:00">21:38:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>3 should be okay</q></li>
+<li class="quit">[<a href="#T21:38:15" id="T21:38:15"><abbr title="2012-06-24T21:38:15+00:00">21:38:15</abbr></a>] <span>* ilyanok (~ilya@188.134.70.194) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T21:38:20" id="T21:38:20"><abbr title="2012-06-24T21:38:20+00:00">21:38:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>than its crappy usb driver again</q></li>
+<li class="message">[<a href="#T21:40:15" id="T21:40:15"><abbr title="2012-06-24T21:40:15+00:00">21:40:15</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Crap. Any way of fixing?</q></li>
+<li class="message">[<a href="#T21:40:46" id="T21:40:46"><abbr title="2012-06-24T21:40:46+00:00">21:40:46</abbr></a>] &lt;<cite>HeadAche</cite>&gt; <q>Why cant I use devmem to see this register?: ISP_CTRL RW 32 0x00000040 0x480BC040</q></li>
+<li class="message">[<a href="#T21:41:00" id="T21:41:00"><abbr title="2012-06-24T21:41:00+00:00">21:41:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>what happens if you try?</q></li>
+<li class="message">[<a href="#T21:41:02" id="T21:41:02"><abbr title="2012-06-24T21:41:02+00:00">21:41:02</abbr></a>] &lt;<cite>HeadAche</cite>&gt; <q>Unhandled fault: external abort on non-linefetch (0x1018) at 0x40047040</q></li>
+<li class="message">[<a href="#T21:41:07" id="T21:41:07"><abbr title="2012-06-24T21:41:07+00:00">21:41:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>clock is off</q></li>
+<li class="message">[<a href="#T21:41:22" id="T21:41:22"><abbr title="2012-06-24T21:41:22+00:00">21:41:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you need to turn on the isp interface clock first</q></li>
+<li class="action">[<a href="#T21:42:08" id="T21:42:08"><abbr title="2012-06-24T21:42:08+00:00">21:42:08</abbr></a>] <span>* HeadAche hunting for clock address</span></li>
+<li class="message">[<a href="#T21:42:40" id="T21:42:40"><abbr title="2012-06-24T21:42:40+00:00">21:42:40</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*sigh* why the u-boot musb support dont works anymore</q></li>
+<li class="message">[<a href="#T21:42:54" id="T21:42:54"><abbr title="2012-06-24T21:42:54+00:00">21:42:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you'd normally have the kernel manage the clocks</q></li>
+<li class="message">[<a href="#T21:43:12" id="T21:43:12"><abbr title="2012-06-24T21:43:12+00:00">21:43:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but if you're feeling lucky, you can poke at the prcm registers directly</q></li>
+<li class="message">[<a href="#T21:43:56" id="T21:43:56"><abbr title="2012-06-24T21:43:56+00:00">21:43:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>brillopad no fix</q></li>
+<li class="message">[<a href="#T21:44:11" id="T21:44:11"><abbr title="2012-06-24T21:44:11+00:00">21:44:11</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Balls. Thanks, woglinde.</q></li>
+<li class="message">[<a href="#T21:44:25" id="T21:44:25"><abbr title="2012-06-24T21:44:25+00:00">21:44:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>although if the kernel does decide to mess with the same register, e.g. to turn on or off some other clock, it'll overwrite whatever you did</q></li>
+<li class="message">[<a href="#T21:44:38" id="T21:44:38"><abbr title="2012-06-24T21:44:38+00:00">21:44:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>brillopad hm last question which kernel version</q></li>
+<li class="message">[<a href="#T21:44:52" id="T21:44:52"><abbr title="2012-06-24T21:44:52+00:00">21:44:52</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>brillopad maybee a newer kernel has some fixes</q></li>
+<li class="message">[<a href="#T21:45:00" id="T21:45:00"><abbr title="2012-06-24T21:45:00+00:00">21:45:00</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>How do I check kernel version?</q></li>
+<li class="message">[<a href="#T21:45:12" id="T21:45:12"><abbr title="2012-06-24T21:45:12+00:00">21:45:12</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>uname -a</q></li>
+<li class="message">[<abbr title="2012-06-24T21:45:12+00:00">21:45:12</abbr>] &lt;<cite>mru</cite>&gt; <q>by looking at the version number</q></li>
+<li class="message">[<a href="#T21:45:15" id="T21:45:15"><abbr title="2012-06-24T21:45:15+00:00">21:45:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>uname -r</q></li>
+<li class="message">[<a href="#T21:45:23" id="T21:45:23"><abbr title="2012-06-24T21:45:23+00:00">21:45:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>-a prints so many numbers it can be confusing</q></li>
+<li class="message">[<abbr title="2012-06-24T21:45:23+00:00">21:45:23</abbr>] &lt;<cite>brillopad</cite>&gt; <q>3.2.21</q></li>
+<li class="message">[<a href="#T21:45:52" id="T21:45:52"><abbr title="2012-06-24T21:45:52+00:00">21:45:52</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>uhm where did you get it?</q></li>
+<li class="message">[<a href="#T21:46:47" id="T21:46:47"><abbr title="2012-06-24T21:46:47+00:00">21:46:47</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>meta-ti is still at 3.2.18</q></li>
+<li class="message">[<a href="#T21:47:19" id="T21:47:19"><abbr title="2012-06-24T21:47:19+00:00">21:47:19</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>or are you using ubuntu?</q></li>
+<li class="message">[<a href="#T21:48:24" id="T21:48:24"><abbr title="2012-06-24T21:48:24+00:00">21:48:24</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Can't remember</q></li>
+<li class="message">[<a href="#T21:48:29" id="T21:48:29"><abbr title="2012-06-24T21:48:29+00:00">21:48:29</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>I must be well out of date</q></li>
+<li class="quit">[<abbr title="2012-06-24T21:48:29+00:00">21:48:29</abbr>] <span>* misham (~misham@cpe-24-25-210-181.san.res.rr.com) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T21:48:38" id="T21:48:38"><abbr title="2012-06-24T21:48:38+00:00">21:48:38</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Which is the best image to use?</q></li>
+<li class="message">[<abbr title="2012-06-24T21:48:38+00:00">21:48:38</abbr>] &lt;<cite>woglinde</cite>&gt; <q>o.O</q></li>
+<li class="message">[<a href="#T21:49:09" id="T21:49:09"><abbr title="2012-06-24T21:49:09+00:00">21:49:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>3.2.21 was released this week...</q></li>
+<li class="message">[<a href="#T21:49:46" id="T21:49:46"><abbr title="2012-06-24T21:49:46+00:00">21:49:46</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>Which of these should I use? Sorry, completely lost :-/</q></li>
+<li class="message">[<a href="#T21:49:48" id="T21:49:48"><abbr title="2012-06-24T21:49:48+00:00">21:49:48</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q><a href="http://angstrom.s3.amazonaws.com/demo/beagleboard/index.html">http://angstrom.s3.amazonaws.com/demo/beagleboard/index.html</a></q></li>
+<li class="message">[<a href="#T21:49:53" id="T21:49:53"><abbr title="2012-06-24T21:49:53+00:00">21:49:53</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:49:55" id="T21:49:55"><abbr title="2012-06-24T21:49:55+00:00">21:49:55</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q><a href="https://github.com/Angstrom-distribution/meta-ti/blob/master/recipes-kernel/linux/linux-ti33x-psp_3.2.bb">https://github.com/Angstrom-distribution/meta-ti/blob/master/recipes-kernel/linux/linux-ti33x-psp_3.2.bb</a></q></li>
+<li class="message">[<a href="#T21:49:59" id="T21:49:59"><abbr title="2012-06-24T21:49:59+00:00">21:49:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>the patch list</q></li>
+<li class="message">[<a href="#T21:50:59" id="T21:50:59"><abbr title="2012-06-24T21:50:59+00:00">21:50:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I would use Angstrom-TI-GNOME-image-eglibc-ipk-v2012.01-core-beagleboard-2012.01.11.img.gz</q></li>
+<li class="message">[<a href="#T21:51:27" id="T21:51:27"><abbr title="2012-06-24T21:51:27+00:00">21:51:27</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>but they arent for bone</q></li>
+<li class="message">[<a href="#T21:52:33" id="T21:52:33"><abbr title="2012-06-24T21:52:33+00:00">21:52:33</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>kernel and uboot at least</q></li>
+<li class="message">[<a href="#T21:52:35" id="T21:52:35"><abbr title="2012-06-24T21:52:35+00:00">21:52:35</abbr></a>] &lt;<cite>brillopad</cite>&gt; <q>woglinde - downloading it now</q></li>
+<li class="message">[<a href="#T21:52:40" id="T21:52:40"><abbr title="2012-06-24T21:52:40+00:00">21:52:40</abbr></a>] &lt;<cite>denix</cite>&gt; <q>woglinde: stop confusing people, meta-ti is not on github</q></li>
+<li class="message">[<a href="#T21:53:05" id="T21:53:05"><abbr title="2012-06-24T21:53:05+00:00">21:53:05</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>denix args than settle it with koen not to confuse people</q></li>
+<li class="message">[<a href="#T21:54:02" id="T21:54:02"><abbr title="2012-06-24T21:54:02+00:00">21:54:02</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ah okay</q></li>
+<li class="message">[<a href="#T21:54:06" id="T21:54:06"><abbr title="2012-06-24T21:54:06+00:00">21:54:06</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>sorry its in the reamde</q></li>
+<li class="message">[<a href="#T21:54:12" id="T21:54:12"><abbr title="2012-06-24T21:54:12+00:00">21:54:12</abbr></a>] &lt;<cite>denix</cite>&gt; <q>That's his mirror and WIP - he's free to do what he wants</q></li>
+<li class="join">[<a href="#T21:55:48" id="T21:55:48"><abbr title="2012-06-24T21:55:48+00:00">21:55:48</abbr></a>] <span>* waltermixxx_ (~waltermix@CPE98fc11656ed0-CM0026f322414d.cpe.net.cable.rogers.com) has joined #beagle</span></li>
