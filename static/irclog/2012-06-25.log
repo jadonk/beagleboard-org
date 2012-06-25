@@ -449,3 +449,41 @@
 <li class="message">[<a href="#T16:59:38" id="T16:59:38"><abbr title="2012-06-25T16:59:38+00:00">16:59:38</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Hrm</q></li>
 <li class="message">[<a href="#T16:59:51" id="T16:59:51"><abbr title="2012-06-25T16:59:51+00:00">16:59:51</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>So I got buildroot to build everything fine.</q></li>
 <li class="message">[<a href="#T17:00:00" id="T17:00:00"><abbr title="2012-06-25T17:00:00+00:00">17:00:00</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Until I decide to recompile using udev.</q></li>
+<li class="message">[<a href="#T17:00:11" id="T17:00:11"><abbr title="2012-06-25T17:00:11+00:00">17:00:11</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>udev now fails at linktime because it can't find accept4</q></li>
+<li class="message">[<a href="#T17:00:16" id="T17:00:16"><abbr title="2012-06-25T17:00:16+00:00">17:00:16</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>undefined reference, etc.</q></li>
+<li class="message">[<a href="#T17:00:59" id="T17:00:59"><abbr title="2012-06-25T17:00:59+00:00">17:00:59</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>what's curious about it, is the linux kernel fully supports it (3.2.8), and glibc is &gt; 2.10, so</q></li>
+<li class="message">[<a href="#T17:01:03" id="T17:01:03"><abbr title="2012-06-25T17:01:03+00:00">17:01:03</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>something's off somewhere</q></li>
+<li class="message">[<a href="#T17:01:12" id="T17:01:12"><abbr title="2012-06-25T17:01:12+00:00">17:01:12</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>maybe I'm missing a -L</q></li>
+<li class="message">[<a href="#T17:01:17" id="T17:01:17"><abbr title="2012-06-25T17:01:17+00:00">17:01:17</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Anyone else run into this?</q></li>
+<li class="quit">[<a href="#T17:03:03" id="T17:03:03"><abbr title="2012-06-25T17:03:03+00:00">17:03:03</abbr></a>] <span>* Lysandros (~o_0@unaffiliated/lysandros) Quit (Quit: casa)</span></li>
+<li class="message">[<a href="#T17:03:14" id="T17:03:14"><abbr title="2012-06-25T17:03:14+00:00">17:03:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I dont use buildroot</q></li>
+<li class="message">[<a href="#T17:05:54" id="T17:05:54"><abbr title="2012-06-25T17:05:54+00:00">17:05:54</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>I think I'm probably just missing a library declaration somewhere</q></li>
+<li class="message">[<a href="#T17:05:58" id="T17:05:58"><abbr title="2012-06-25T17:05:58+00:00">17:05:58</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>like a -L</q></li>
+<li class="message">[<a href="#T17:07:17" id="T17:07:17"><abbr title="2012-06-25T17:07:17+00:00">17:07:17</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>-L is only a searchpath</q></li>
+<li class="message">[<a href="#T17:07:43" id="T17:07:43"><abbr title="2012-06-25T17:07:43+00:00">17:07:43</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Yes</q></li>
+<li class="message">[<a href="#T17:07:49" id="T17:07:49"><abbr title="2012-06-25T17:07:49+00:00">17:07:49</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>I think that it's not looking in the right place for the lib</q></li>
+<li class="message">[<a href="#T17:08:01" id="T17:08:01"><abbr title="2012-06-25T17:08:01+00:00">17:08:01</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>I could specify explicitly with -l</q></li>
+<li class="message">[<a href="#T17:08:32" id="T17:08:32"><abbr title="2012-06-25T17:08:32+00:00">17:08:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>accept4 comes from libc</q></li>
+<li class="message">[<a href="#T17:08:42" id="T17:08:42"><abbr title="2012-06-25T17:08:42+00:00">17:08:42</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>it configures ok, which you'd think that if it needed a specific libc version, it would fail at the config step</q></li>
+<li class="message">[<a href="#T17:09:28" id="T17:09:28"><abbr title="2012-06-25T17:09:28+00:00">17:09:28</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Google search says accept4 is in glibc versions &gt; 2.10</q></li>
+<li class="message">[<a href="#T17:10:23" id="T17:10:23"><abbr title="2012-06-25T17:10:23+00:00">17:10:23</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>unless something's missing in my toolchain, which I doubt since that's the very latest release too</q></li>
+<li class="message">[<a href="#T17:10:28" id="T17:10:28"><abbr title="2012-06-25T17:10:28+00:00">17:10:28</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>Everything else has compiled fine.</q></li>
+<li class="join">[<a href="#T17:12:04" id="T17:12:04"><abbr title="2012-06-25T17:12:04+00:00">17:12:04</abbr></a>] <span>* arcaico (~ativa@201-58-17-170.user.veloxzone.com.br) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:19:16" id="T17:19:16"><abbr title="2012-06-25T17:19:16+00:00">17:19:16</abbr></a>] <span>* davest (~dcstewar@134.134.137.71) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T17:19:17" id="T17:19:17"><abbr title="2012-06-25T17:19:17+00:00">17:19:17</abbr></a>] &lt;<cite>snelly</cite>&gt; <q>for those running USB-Ethernet NICs, what kind of throughput are you seeing?</q></li>
+<li class="message">[<a href="#T17:19:39" id="T17:19:39"><abbr title="2012-06-25T17:19:39+00:00">17:19:39</abbr></a>] &lt;<cite>snelly</cite>&gt; <q>is there any model that has better performance than the rest?</q></li>
+<li class="message">[<a href="#T17:20:51" id="T17:20:51"><abbr title="2012-06-25T17:20:51+00:00">17:20:51</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>well hell, I see what's wrong.</q></li>
+<li class="message">[<a href="#T17:20:55" id="T17:20:55"><abbr title="2012-06-25T17:20:55+00:00">17:20:55</abbr></a>] &lt;<cite>Sh0rtWave</cite>&gt; <q>damnation</q></li>
+<li class="join">[<a href="#T17:27:04" id="T17:27:04"><abbr title="2012-06-25T17:27:04+00:00">17:27:04</abbr></a>] <span>* davest (dcstewar@nat/intel/x-ltziyororhczfkdw) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:30:06" id="T17:30:06"><abbr title="2012-06-25T17:30:06+00:00">17:30:06</abbr></a>] <span>* arcaico (~ativa@201-58-17-170.user.veloxzone.com.br) Quit (Quit: Saindo)</span></li>
+<li class="join">[<a href="#T17:30:41" id="T17:30:41"><abbr title="2012-06-25T17:30:41+00:00">17:30:41</abbr></a>] <span>* powool (~pha@redrum.sph.umich.edu) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:31:23" id="T17:31:23"><abbr title="2012-06-25T17:31:23+00:00">17:31:23</abbr></a>] &lt;<cite>niro_</cite>&gt; <q>anyone have any experience with opengl es on bb-xm?</q></li>
+<li class="part">[<a href="#T17:31:34" id="T17:31:34"><abbr title="2012-06-25T17:31:34+00:00">17:31:34</abbr></a>] <span>* powool (~pha@redrum.sph.umich.edu) has left #beagle</span></li>
+<li class="quit">[<a href="#T17:32:31" id="T17:32:31"><abbr title="2012-06-25T17:32:31+00:00">17:32:31</abbr></a>] <span>* ilyanok (~ilya@188.134.70.194) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="quit">[<a href="#T17:40:31" id="T17:40:31"><abbr title="2012-06-25T17:40:31+00:00">17:40:31</abbr></a>] <span>* rcn-ee (~voodoo@64.77.213.245) Quit (Quit: Leaving)</span></li>
+<li class="nick-change">[<a href="#T17:45:25" id="T17:45:25"><abbr title="2012-06-25T17:45:25+00:00">17:45:25</abbr></a>] <span>* fooblya_monad is now known as cacodaemon</span></li>
+<li class="join">[<a href="#T17:46:01" id="T17:46:01"><abbr title="2012-06-25T17:46:01+00:00">17:46:01</abbr></a>] <span>* ericb2 (~X@unaffiliated/ericb2) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:47:14" id="T17:47:14"><abbr title="2012-06-25T17:47:14+00:00">17:47:14</abbr></a>] <span>* sid5291_ (~sid5291@117.213.250.132) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T17:55:10" id="T17:55:10"><abbr title="2012-06-25T17:55:10+00:00">17:55:10</abbr></a>] <span>* eephillip (~eephillip@pdpc/supporter/student/eephillip) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T17:55:36" id="T17:55:36"><abbr title="2012-06-25T17:55:36+00:00">17:55:36</abbr></a>] <span>* grey_wolf (~greywolf@c-24-17-167-106.hsd1.wa.comcast.net) Quit (Quit: leaving)</span></li>
+<li class="quit">[<a href="#T17:56:13" id="T17:56:13"><abbr title="2012-06-25T17:56:13+00:00">17:56:13</abbr></a>] <span>* phantoxe (~destroy@a95-92-89-24.cpe.netcabo.pt) Quit ()</span></li>
