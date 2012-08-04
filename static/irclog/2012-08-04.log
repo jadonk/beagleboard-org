@@ -236,3 +236,27 @@
 <li class="join">[<a href="#T16:17:41" id="T16:17:41"><abbr title="2012-08-04T16:17:41+00:00">16:17:41</abbr></a>] <span>* peabody124 (~peabody12@108-77-9-54.lightspeed.hstntx.sbcglobal.net) has joined #beagle</span></li>
 <li class="join">[<a href="#T16:35:58" id="T16:35:58"><abbr title="2012-08-04T16:35:58+00:00">16:35:58</abbr></a>] <span>* tema (~tema@84-231-22-131.elisa-mobile.fi) has joined #beagle</span></li>
 <li class="join">[<a href="#T16:49:50" id="T16:49:50"><abbr title="2012-08-04T16:49:50+00:00">16:49:50</abbr></a>] <span>* GPSFan (~kenm@64.92.145.112) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:04:48" id="T17:04:48"><abbr title="2012-08-04T17:04:48+00:00">17:04:48</abbr></a>] <span>* thurbad (~natesewel@64.132.24.36) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:05:52" id="T17:05:52"><abbr title="2012-08-04T17:05:52+00:00">17:05:52</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>does anyone know of a easy way to sync only a specific partition?</q></li>
+<li class="quit">[<a href="#T17:08:49" id="T17:08:49"><abbr title="2012-08-04T17:08:49+00:00">17:08:49</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-syotojjwyrmrrowg) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T17:09:27" id="T17:09:27"><abbr title="2012-08-04T17:09:27+00:00">17:09:27</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>google returns a lot of results for syncing between partitions, but I'm looking for something like the sync command that will ignore the rootfs</q></li>
+<li class="nick-change">[<a href="#T17:09:56" id="T17:09:56"><abbr title="2012-08-04T17:09:56+00:00">17:09:56</abbr></a>] <span>* ka6sox-away is now known as ka6sox-enyo</span></li>
+<li class="message">[<a href="#T17:24:26" id="T17:24:26"><abbr title="2012-08-04T17:24:26+00:00">17:24:26</abbr></a>] &lt;<cite>phh</cite>&gt; <q>one way would be to remount the partition as sync</q></li>
+<li class="message">[<a href="#T17:27:37" id="T17:27:37"><abbr title="2012-08-04T17:27:37+00:00">17:27:37</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>will that slow the system down by syncing on every write to that partition?</q></li>
+<li class="message">[<a href="#T17:27:58" id="T17:27:58"><abbr title="2012-08-04T17:27:58+00:00">17:27:58</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>(on beagleboard specifically)</q></li>
+<li class="message">[<a href="#T17:28:08" id="T17:28:08"><abbr title="2012-08-04T17:28:08+00:00">17:28:08</abbr></a>] &lt;<cite>phh</cite>&gt; <q>i mean, when you want to sync</q></li>
+<li class="message">[<a href="#T17:28:11" id="T17:28:11"><abbr title="2012-08-04T17:28:11+00:00">17:28:11</abbr></a>] &lt;<cite>phh</cite>&gt; <q>remount it as sync</q></li>
+<li class="message">[<a href="#T17:28:16" id="T17:28:16"><abbr title="2012-08-04T17:28:16+00:00">17:28:16</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T17:28:17" id="T17:28:17"><abbr title="2012-08-04T17:28:17+00:00">17:28:17</abbr></a>] &lt;<cite>phh</cite>&gt; <q>and remount it as async immediately after that</q></li>
+<li class="message">[<a href="#T17:29:19" id="T17:29:19"><abbr title="2012-08-04T17:29:19+00:00">17:29:19</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>hmm, interesting.. would in sync that partition immediately when remounted?</q></li>
+<li class="message">[<a href="#T17:30:36" id="T17:30:36"><abbr title="2012-08-04T17:30:36+00:00">17:30:36</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>s/in/it/</q></li>
+<li class="join">[<a href="#T17:33:53" id="T17:33:53"><abbr title="2012-08-04T17:33:53+00:00">17:33:53</abbr></a>] <span>* KeatonT (~KeatonT@unaffiliated/keatont) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:36:26" id="T17:36:26"><abbr title="2012-08-04T17:36:26+00:00">17:36:26</abbr></a>] <span>* KeatonT (~KeatonT@unaffiliated/keatont) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T17:37:35" id="T17:37:35"><abbr title="2012-08-04T17:37:35+00:00">17:37:35</abbr></a>] <span>* hieuletrung (~hieuletru@116.193.72.83) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T17:39:59" id="T17:39:59"><abbr title="2012-08-04T17:39:59+00:00">17:39:59</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>I think just running mount -o remount on the partition I want to sync may achieve my goal, thanks</q></li>
+<li class="join">[<a href="#T17:41:57" id="T17:41:57"><abbr title="2012-08-04T17:41:57+00:00">17:41:57</abbr></a>] <span>* KeatonT (~KeatonT@unaffiliated/keatont) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:44:35" id="T17:44:35"><abbr title="2012-08-04T17:44:35+00:00">17:44:35</abbr></a>] <span>* jvcleave (~jvcleave@74.83.250.220) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:49:34" id="T17:49:34"><abbr title="2012-08-04T17:49:34+00:00">17:49:34</abbr></a>] <span>* hieuletrung (~hieuletru@222.254.179.224) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:58:56" id="T17:58:56"><abbr title="2012-08-04T17:58:56+00:00">17:58:56</abbr></a>] <span>* alinrus (~alinrus@188.24.40.90) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2012-08-04T17:58:56+00:00">17:58:56</abbr>] <span>* alinrus (~alinrus@188.24.40.90) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2012-08-04T17:58:56+00:00">17:58:56</abbr>] <span>* alinrus (~alinrus@unaffiliated/alinrus) has joined #beagle</span></li>
