@@ -752,3 +752,41 @@
 <li class="message">[<a href="#T20:57:14" id="T20:57:14"><abbr title="2012-08-20T20:57:14+00:00">20:57:14</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>the point is they cannot do driver mods on the r:pi  without some reverse engineering</q></li>
 <li class="message">[<a href="#T20:57:47" id="T20:57:47"><abbr title="2012-08-20T20:57:47+00:00">20:57:47</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>indeed</q></li>
 <li class="join">[<a href="#T20:59:13" id="T20:59:13"><abbr title="2012-08-20T20:59:13+00:00">20:59:13</abbr></a>] <span>* djerome (~djerome@ip68-2-20-108.ph.ph.cox.net) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T21:02:41" id="T21:02:41"><abbr title="2012-08-20T21:02:41+00:00">21:02:41</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>wonder how it does with emissions....</q></li>
+<li class="message">[<a href="#T21:15:55" id="T21:15:55"><abbr title="2012-08-20T21:15:55+00:00">21:15:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>prpplague: but a kernel driver might require advanced pointer usage</q></li>
+<li class="message">[<a href="#T21:23:45" id="T21:23:45"><abbr title="2012-08-20T21:23:45+00:00">21:23:45</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>heheh</q></li>
+<li class="quit">[<a href="#T21:24:51" id="T21:24:51"><abbr title="2012-08-20T21:24:51+00:00">21:24:51</abbr></a>] <span>* thurbad (~natesewel@64.132.24.36) Quit (Quit: thurbad)</span></li>
+<li class="quit">[<a href="#T21:25:32" id="T21:25:32"><abbr title="2012-08-20T21:25:32+00:00">21:25:32</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-unzompihqazicwwg) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T21:25:56" id="T21:25:56"><abbr title="2012-08-20T21:25:56+00:00">21:25:56</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-yhjcrcwpfoputobm) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:30:47" id="T21:30:47"><abbr title="2012-08-20T21:30:47+00:00">21:30:47</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-yhjcrcwpfoputobm) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T21:31:50" id="T21:31:50"><abbr title="2012-08-20T21:31:50+00:00">21:31:50</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>does it annoy anyone else when people use exit() in main()?</q></li>
+<li class="message">[<a href="#T21:33:04" id="T21:33:04"><abbr title="2012-08-20T21:33:04+00:00">21:33:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's a bit pointless</q></li>
+<li class="message">[<a href="#T21:33:13" id="T21:33:13"><abbr title="2012-08-20T21:33:13+00:00">21:33:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>do they do on the last line too?</q></li>
+<li class="message">[<a href="#T21:33:16" id="T21:33:16"><abbr title="2012-08-20T21:33:16+00:00">21:33:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>*do it</q></li>
+<li class="message">[<a href="#T21:34:05" id="T21:34:05"><abbr title="2012-08-20T21:34:05+00:00">21:34:05</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T21:34:16" id="T21:34:16"><abbr title="2012-08-20T21:34:16+00:00">21:34:16</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>also hate return -1;</q></li>
+<li class="message">[<a href="#T21:34:22" id="T21:34:22"><abbr title="2012-08-20T21:34:22+00:00">21:34:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>in main?</q></li>
+<li class="message">[<a href="#T21:34:31" id="T21:34:31"><abbr title="2012-08-20T21:34:31+00:00">21:34:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's a Very Bad Idea (tm)</q></li>
+<li class="message">[<a href="#T21:34:34" id="T21:34:34"><abbr title="2012-08-20T21:34:34+00:00">21:34:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what is wrong with return -1?</q></li>
+<li class="message">[<a href="#T21:34:43" id="T21:34:43"><abbr title="2012-08-20T21:34:43+00:00">21:34:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you want return 255?</q></li>
+<li class="message">[<a href="#T21:35:15" id="T21:35:15"><abbr title="2012-08-20T21:35:15+00:00">21:35:15</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>ds2: should be returning with return -E*msg*</q></li>
+<li class="message">[<a href="#T21:35:26" id="T21:35:26"><abbr title="2012-08-20T21:35:26+00:00">21:35:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>in main?</q></li>
+<li class="join">[<a href="#T21:35:52" id="T21:35:52"><abbr title="2012-08-20T21:35:52+00:00">21:35:52</abbr></a>] <span>* kkeller (~Ken_Kelle@97-124-115-100.phnx.qwest.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:37:37" id="T21:37:37"><abbr title="2012-08-20T21:37:37+00:00">21:37:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>here's a funny one, "if exit() is called more than once, the behavior is undefined"</q></li>
+<li class="message">[<a href="#T21:37:59" id="T21:37:59"><abbr title="2012-08-20T21:37:59+00:00">21:37:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>really? ;)</q></li>
+<li class="message">[<a href="#T21:38:01" id="T21:38:01"><abbr title="2012-08-20T21:38:01+00:00">21:38:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>beer for the first to suggest a way this might be accomplished</q></li>
+<li class="message">[<a href="#T21:38:02" id="T21:38:02"><abbr title="2012-08-20T21:38:02+00:00">21:38:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Hmmmmm</q></li>
+<li class="message">[<a href="#T21:38:07" id="T21:38:07"><abbr title="2012-08-20T21:38:07+00:00">21:38:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it is possible</q></li>
+<li class="message">[<a href="#T21:38:15" id="T21:38:15"><abbr title="2012-08-20T21:38:15+00:00">21:38:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>fork()!</q></li>
+<li class="message">[<a href="#T21:38:25" id="T21:38:25"><abbr title="2012-08-20T21:38:25+00:00">21:38:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>atexit()</q></li>
+<li class="message">[<a href="#T21:38:31" id="T21:38:31"><abbr title="2012-08-20T21:38:31+00:00">21:38:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ds2 wins</q></li>
+<li class="message">[<a href="#T21:39:06" id="T21:39:06"><abbr title="2012-08-20T21:39:06+00:00">21:39:06</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>we know of a couple of serious coders amongst ut :)</q></li>
+<li class="message">[<a href="#T21:39:13" id="T21:39:13"><abbr title="2012-08-20T21:39:13+00:00">21:39:13</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>s/ut/us</q></li>
+<li class="message">[<a href="#T21:39:37" id="T21:39:37"><abbr title="2012-08-20T21:39:37+00:00">21:39:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you're also not allowed to longjmp out of an atexit handler</q></li>
+<li class="action">[<a href="#T21:40:26" id="T21:40:26"><abbr title="2012-08-20T21:40:26+00:00">21:40:26</abbr></a>] <span>* djlewis couldn't long jump in a sand box..</span></li>
+<li class="join">[<a href="#T21:41:14" id="T21:41:14"><abbr title="2012-08-20T21:41:14+00:00">21:41:14</abbr></a>] <span>* himcesjf (~cesjf@unaffiliated/himcesjf) has joined #beagle</span></li>
+<li class="part">[<a href="#T21:41:33" id="T21:41:33"><abbr title="2012-08-20T21:41:33+00:00">21:41:33</abbr></a>] <span>* himcesjf (~cesjf@unaffiliated/himcesjf) has left #beagle</span></li>
+<li class="quit">[<a href="#T21:43:14" id="T21:43:14"><abbr title="2012-08-20T21:43:14+00:00">21:43:14</abbr></a>] <span>* prpplague (~danders@192.94.92.11) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T21:44:14" id="T21:44:14"><abbr title="2012-08-20T21:44:14+00:00">21:44:14</abbr></a>] <span>* juvenal (~juvenal@201-92-74-225.dsl.telesp.net.br) Quit (Quit: Computer has gone to sleep.)</span></li>
+<li class="join">[<a href="#T21:45:58" id="T21:45:58"><abbr title="2012-08-20T21:45:58+00:00">21:45:58</abbr></a>] <span>* zxoch (~zxoch@148.244.158.36) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:53:39" id="T21:53:39"><abbr title="2012-08-20T21:53:39+00:00">21:53:39</abbr></a>] <span>* thurbad (~natesewel@cpe-70-124-80-154.austin.res.rr.com) has joined #beagle</span></li>
