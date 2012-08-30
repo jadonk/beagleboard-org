@@ -12,7 +12,7 @@ function listBody ()
   var body = "";
   try
    {
-    var orderedByDate = this.getOrderedView("uri");
+    var orderedByDate = this.getOrderedView("time desc");
     var collection = orderedByDate.list();
    }
   catch (ex)
@@ -65,10 +65,10 @@ function listBody ()
        + '</div></td>';
       body += '<td><small>'
        + encode(collection[i].shortdesc)
-       + '</small></td><td><small>Last updated by: '
+       + '</small></td><td><small>Registered by: '
        + collection[i].registrant
-       + '<br>'
-       + collection[i].updatetime
+       + '<br>Updated: '
+       + collection[i].time
        + '</small></td></tr>\n'
        ;
      }
