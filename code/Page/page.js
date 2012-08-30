@@ -6,6 +6,8 @@ function main_action ()
    }
   res.handlers["User"] = User();
   res.data.title = this.uri;
+  if (this.render_skin == "project" && this.pname)
+   res.data.title = this.pname;
   if (this.render_skin == "homepage" || this.render_skin == "bare")
    {
     res.data.body = this.body;
@@ -115,6 +117,7 @@ function info_action ()
 
 function cleanBody()
  {
+  return (true);
   try
    {
     XML.prettyIndent = 1;
@@ -127,7 +130,7 @@ function cleanBody()
     cleaner.setOmitUnknownTags(true);
     cleaner.setTreatDeprecatedTagsAsContent(true);
     //cleaner.useCdata(true);
-    cleaner.clean();
+    //cleaner.clean();
     var s = "" + cleaner.getXmlAsString();
     var x = new XML(s);
     req.data["body"] = "" + x..body.div;
