@@ -299,3 +299,33 @@
 <li class="message">[<a href="#T12:55:35" id="T12:55:35"><abbr title="2012-08-30T12:55:35+00:00">12:55:35</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>o.O</q></li>
 <li class="message">[<a href="#T12:58:35" id="T12:58:35"><abbr title="2012-08-30T12:58:35+00:00">12:58:35</abbr></a>] &lt;<cite>ynezz</cite>&gt; <q>and to use pin 115 you need GPIO Advanced License which costs about $3</q></li>
 <li class="message">[<a href="#T12:59:42" id="T12:59:42"><abbr title="2012-08-30T12:59:42+00:00">12:59:42</abbr></a>] &lt;<cite>ynezz</cite>&gt; <q><a href="http://webshop.beagleboard.org/bone-gpio-advanced-license">http://webshop.beagleboard.org/bone-gpio-advanced-license</a></q></li>
+<li class="message">[<a href="#T13:00:04" id="T13:00:04"><abbr title="2012-08-30T13:00:04+00:00">13:00:04</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ynezz lol</q></li>
+<li class="message">[<a href="#T13:01:58" id="T13:01:58"><abbr title="2012-08-30T13:01:58+00:00">13:01:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you can always bitbang a gpio using SPI</q></li>
+<li class="message">[<a href="#T13:02:01" id="T13:02:01"><abbr title="2012-08-30T13:02:01+00:00">13:02:01</abbr></a>] &lt;<cite>koen</cite>&gt; <q>oh wait...</q></li>
+<li class="message">[<a href="#T13:02:17" id="T13:02:17"><abbr title="2012-08-30T13:02:17+00:00">13:02:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: using IEEE488</q></li>
+<li class="message">[<a href="#T13:02:24" id="T13:02:24"><abbr title="2012-08-30T13:02:24+00:00">13:02:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and a few 19" racks</q></li>
+<li class="join">[<a href="#T13:02:48" id="T13:02:48"><abbr title="2012-08-30T13:02:48+00:00">13:02:48</abbr></a>] <span>* MrDuck (~MrDuck@138.246.31.230) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:05:37" id="T13:05:37"><abbr title="2012-08-30T13:05:37+00:00">13:05:37</abbr></a>] <span>* emeb_mac (~ericb@ip72-201-79-123.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:07:48" id="T13:07:48"><abbr title="2012-08-30T13:07:48+00:00">13:07:48</abbr></a>] <span>* kunguz (~kaan@119.201.25.39) Quit (Quit: Konversation terminated!)</span></li>
+<li class="join">[<a href="#T13:14:43" id="T13:14:43"><abbr title="2012-08-30T13:14:43+00:00">13:14:43</abbr></a>] <span>* arcanescu (925706ef@gateway/web/freenode/ip.146.87.6.239) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:15:04" id="T13:15:04"><abbr title="2012-08-30T13:15:04+00:00">13:15:04</abbr></a>] &lt;<cite>Vibe</cite>&gt; <q>hmm that gpio3_19 isn't in use</q></li>
+<li class="message">[<a href="#T13:15:22" id="T13:15:22"><abbr title="2012-08-30T13:15:22+00:00">13:15:22</abbr></a>] &lt;<cite>Vibe</cite>&gt; <q>so its just "reset" pin or something</q></li>
+<li class="message">[<a href="#T13:16:29" id="T13:16:29"><abbr title="2012-08-30T13:16:29+00:00">13:16:29</abbr></a>] &lt;<cite>Vibe</cite>&gt; <q>ohh looked picture wrong, its maybe in use</q></li>
+<li class="message">[<a href="#T13:19:59" id="T13:19:59"><abbr title="2012-08-30T13:19:59+00:00">13:19:59</abbr></a>] &lt;<cite>Vibe</cite>&gt; <q>code says -&gt; "char *reset_pin_filename = "/sys/class/gpio/gpio115/direction";"</q></li>
+<li class="message">[<a href="#T13:20:11" id="T13:20:11"><abbr title="2012-08-30T13:20:11+00:00">13:20:11</abbr></a>] &lt;<cite>Vibe</cite>&gt; <q>so its working as reset pin</q></li>
+<li class="join">[<a href="#T13:21:47" id="T13:21:47"><abbr title="2012-08-30T13:21:47+00:00">13:21:47</abbr></a>] <span>* smplman (~speery@64.132.167.18) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:23:52" id="T13:23:52"><abbr title="2012-08-30T13:23:52+00:00">13:23:52</abbr></a>] <span>* fusion94 (~fusion94@pdpc/supporter/student/fusion94) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:29:38" id="T13:29:38"><abbr title="2012-08-30T13:29:38+00:00">13:29:38</abbr></a>] <span>* kunguz (~kaan@119.201.25.39) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:33:01" id="T13:33:01"><abbr title="2012-08-30T13:33:01+00:00">13:33:01</abbr></a>] &lt;<cite>Vibe</cite>&gt; <q>so if it's not in use it can used as reset pin?</q></li>
+<li class="message">[<a href="#T13:35:48" id="T13:35:48"><abbr title="2012-08-30T13:35:48+00:00">13:35:48</abbr></a>] &lt;<cite>Vibe</cite>&gt; <q>koen: thx. where does that 32 come from?</q></li>
+<li class="message">[<a href="#T13:36:08" id="T13:36:08"><abbr title="2012-08-30T13:36:08+00:00">13:36:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>32 bits per register</q></li>
+<li class="quit">[<a href="#T13:38:05" id="T13:38:05"><abbr title="2012-08-30T13:38:05+00:00">13:38:05</abbr></a>] <span>* kunguz (~kaan@119.201.25.39) Quit (Quit: Konversation terminated!)</span></li>
+<li class="quit">[<a href="#T13:42:00" id="T13:42:00"><abbr title="2012-08-30T13:42:00+00:00">13:42:00</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T13:43:12" id="T13:43:12"><abbr title="2012-08-30T13:43:12+00:00">13:43:12</abbr></a>] <span>* thurbad (~natesewel@cpe-70-124-80-154.austin.res.rr.com) Quit (Quit: thurbad)</span></li>
+<li class="join">[<a href="#T13:47:19" id="T13:47:19"><abbr title="2012-08-30T13:47:19+00:00">13:47:19</abbr></a>] <span>* orated (~orated@unaffiliated/sre-su) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:48:38" id="T13:48:38"><abbr title="2012-08-30T13:48:38+00:00">13:48:38</abbr></a>] <span>* woglinde (~henning@f052067247.adsl.alicedsl.de) Quit (Ping timeout: 268 seconds)</span></li>
+<li class="quit">[<a href="#T13:54:45" id="T13:54:45"><abbr title="2012-08-30T13:54:45+00:00">13:54:45</abbr></a>] <span>* mnt_real (~mnt_real@bas1-montreal43-2925255524.dsl.bell.ca) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="join">[<a href="#T13:55:28" id="T13:55:28"><abbr title="2012-08-30T13:55:28+00:00">13:55:28</abbr></a>] <span>* mnt_real (~mnt_real@bas1-montreal43-2925385221.dsl.bell.ca) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:58:45" id="T13:58:45"><abbr title="2012-08-30T13:58:45+00:00">13:58:45</abbr></a>] <span>* chainz (3d10a062@gateway/web/freenode/ip.61.16.160.98) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T13:59:17" id="T13:59:17"><abbr title="2012-08-30T13:59:17+00:00">13:59:17</abbr></a>] <span>* emeb_mac (~ericb@ip72-201-79-123.ph.ph.cox.net) Quit (Quit: emeb_mac)</span></li>
+<li class="quit">[<a href="#T13:59:35" id="T13:59:35"><abbr title="2012-08-30T13:59:35+00:00">13:59:35</abbr></a>] <span>* jedas (52878b40@gateway/web/freenode/ip.82.135.139.64) Quit (Quit: Page closed)</span></li>
