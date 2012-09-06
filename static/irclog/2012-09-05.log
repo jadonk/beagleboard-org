@@ -786,3 +786,206 @@
 <li class="message">[<a href="#T22:59:52" id="T22:59:52"><abbr title="2012-09-05T22:59:52+00:00">22:59:52</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>but I put that uImage on the board already</q></li>
 <li class="message">[<a href="#T22:59:54" id="T22:59:54"><abbr title="2012-09-05T22:59:54+00:00">22:59:54</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>that's all that virtual/kernel creates</q></li>
 <li class="message">[<a href="#T22:59:57" id="T22:59:57"><abbr title="2012-09-05T22:59:57+00:00">22:59:57</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>and no etherenet</q></li>
+<li class="message">[<a href="#T23:00:27" id="T23:00:27"><abbr title="2012-09-05T23:00:27+00:00">23:00:27</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>ethernet is inside the modules archive</q></li>
+<li class="message">[<a href="#T23:00:38" id="T23:00:38"><abbr title="2012-09-05T23:00:38+00:00">23:00:38</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>if it's not built into the kernel</q></li>
+<li class="message">[<a href="#T23:00:42" id="T23:00:42"><abbr title="2012-09-05T23:00:42+00:00">23:00:42</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'm not an OE expert, but I'd think that ./build/tmp-angstrom_v2012_05-eglibc/deploy/images/beagleboard/modules-3.2.18-r121b-beagleboard.tgz  is the kernel modules</q></li>
+<li class="message">[<a href="#T23:00:44" id="T23:00:44"><abbr title="2012-09-05T23:00:44+00:00">23:00:44</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>oh, how can I instal those modules?</q></li>
+<li class="message">[<a href="#T23:00:48" id="T23:00:48"><abbr title="2012-09-05T23:00:48+00:00">23:00:48</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I see it</q></li>
+<li class="message">[<a href="#T23:01:07" id="T23:01:07"><abbr title="2012-09-05T23:01:07+00:00">23:01:07</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I don't know what the files in that archive look like but unzip it onto your SD card that you're booting with</q></li>
+<li class="message">[<a href="#T23:01:24" id="T23:01:24"><abbr title="2012-09-05T23:01:24+00:00">23:01:24</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I mean, does that tgz contain /lib/modules/.... ?</q></li>
+<li class="message">[<a href="#T23:01:37" id="T23:01:37"><abbr title="2012-09-05T23:01:37+00:00">23:01:37</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>use tar to extract them to /lib/modules/&lt;kernel version&gt; on your card (not the host)</q></li>
+<li class="message">[<a href="#T23:01:50" id="T23:01:50"><abbr title="2012-09-05T23:01:50+00:00">23:01:50</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok thanks I will do that</q></li>
+<li class="message">[<a href="#T23:01:57" id="T23:01:57"><abbr title="2012-09-05T23:01:57+00:00">23:01:57</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>make sure they go in the right place</q></li>
+<li class="message">[<a href="#T23:02:22" id="T23:02:22"><abbr title="2012-09-05T23:02:22+00:00">23:02:22</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>thurbad: is there not an img file or something that's built with the whole disk image in it?</q></li>
+<li class="message">[<a href="#T23:02:47" id="T23:02:47"><abbr title="2012-09-05T23:02:47+00:00">23:02:47</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'd have thought there'd be a .tgz with that same stuff in it</q></li>
+<li class="message">[<a href="#T23:02:53" id="T23:02:53"><abbr title="2012-09-05T23:02:53+00:00">23:02:53</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I was looking for that too</q></li>
+<li class="message">[<a href="#T23:02:56" id="T23:02:56"><abbr title="2012-09-05T23:02:56+00:00">23:02:56</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>it would be great if it was</q></li>
+<li class="message">[<a href="#T23:02:58" id="T23:02:58"><abbr title="2012-09-05T23:02:58+00:00">23:02:58</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>there's a rootfs archive if you build it</q></li>
+<li class="message">[<a href="#T23:03:03" id="T23:03:03"><abbr title="2012-09-05T23:03:03+00:00">23:03:03</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>solve all teh problems :)</q></li>
+<li class="message">[<a href="#T23:03:36" id="T23:03:36"><abbr title="2012-09-05T23:03:36+00:00">23:03:36</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>so there is no img that you can load on the sd card?</q></li>
+<li class="message">[<a href="#T23:03:49" id="T23:03:49"><abbr title="2012-09-05T23:03:49+00:00">23:03:49</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>did you do  MACHINE=your_machine ./oebb.sh bitbake console-image ?</q></li>
+<li class="message">[<a href="#T23:03:55" id="T23:03:55"><abbr title="2012-09-05T23:03:55+00:00">23:03:55</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>the commands right before step 3 build the rootfs</q></li>
+<li class="message">[<a href="#T23:04:16" id="T23:04:16"><abbr title="2012-09-05T23:04:16+00:00">23:04:16</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, those, did you do them?</q></li>
+<li class="message">[<a href="#T23:04:56" id="T23:04:56"><abbr title="2012-09-05T23:04:56+00:00">23:04:56</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>oh, I was going to do that it has 3000 steps I stop at 900</q></li>
+<li class="message">[<a href="#T23:04:59" id="T23:04:59"><abbr title="2012-09-05T23:04:59+00:00">23:04:59</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I will do it then</q></li>
+<li class="message">[<a href="#T23:05:02" id="T23:05:02"><abbr title="2012-09-05T23:05:02+00:00">23:05:02</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>if that creates one</q></li>
+<li class="message">[<a href="#T23:05:29" id="T23:05:29"><abbr title="2012-09-05T23:05:29+00:00">23:05:29</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>MACHINE=beagleboard ./oebb.sh bitbake virtual/kernel</q></li>
+<li class="quit">[<a href="#T23:05:34" id="T23:05:34"><abbr title="2012-09-05T23:05:34+00:00">23:05:34</abbr></a>] <span>* lyakh (~lyakh@dslb-094-221-107-140.pools.arcor-ip.net) Quit (Quit: thanks, bye)</span></li>
+<li class="message">[<a href="#T23:05:43" id="T23:05:43"><abbr title="2012-09-05T23:05:43+00:00">23:05:43</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I assume so. I've never done it. I just build the kernel manually (with my own configuration, etc)...</q></li>
+<li class="message">[<a href="#T23:05:46" id="T23:05:46"><abbr title="2012-09-05T23:05:46+00:00">23:05:46</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I keep learning new things :)</q></li>
+<li class="message">[<a href="#T23:05:47" id="T23:05:47"><abbr title="2012-09-05T23:05:47+00:00">23:05:47</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>yeah there are a LOT of packages that a distro relies on</q></li>
+<li class="quit">[<a href="#T23:06:07" id="T23:06:07"><abbr title="2012-09-05T23:06:07+00:00">23:06:07</abbr></a>] <span>* HokieTux (~HokieTux@157.22.28.10) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T23:06:16" id="T23:06:16"><abbr title="2012-09-05T23:06:16+00:00">23:06:16</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>so what you probably want to do is kick that off, and then in the meantime, try to get your modules installed correctly from that modules .tgz file</q></li>
+<li class="message">[<a href="#T23:06:22" id="T23:06:22"><abbr title="2012-09-05T23:06:22+00:00">23:06:22</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>However.........</q></li>
+<li class="message">[<a href="#T23:06:29" id="T23:06:29"><abbr title="2012-09-05T23:06:29+00:00">23:06:29</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'm not sure that's going to solve your problem</q></li>
+<li class="message">[<a href="#T23:06:34" id="T23:06:34"><abbr title="2012-09-05T23:06:34+00:00">23:06:34</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>that's _one_ problem, no doubt about it</q></li>
+<li class="message">[<a href="#T23:06:38" id="T23:06:38"><abbr title="2012-09-05T23:06:38+00:00">23:06:38</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>may wantto set it to run overnight... it takes several hours</q></li>
+<li class="message">[<a href="#T23:06:55" id="T23:06:55"><abbr title="2012-09-05T23:06:55+00:00">23:06:55</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>what's the underlying problem?</q></li>
+<li class="message">[<a href="#T23:07:06" id="T23:07:06"><abbr title="2012-09-05T23:07:06+00:00">23:07:06</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>But if you have a rev C and the kernel thinks it's a rev Ax/Bx, the ethernet will not work. I've been there.</q></li>
+<li class="message">[<a href="#T23:07:37" id="T23:07:37"><abbr title="2012-09-05T23:07:37+00:00">23:07:37</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>oh a rev C xM Board?</q></li>
+<li class="message">[<a href="#T23:08:10" id="T23:08:10"><abbr title="2012-09-05T23:08:10+00:00">23:08:10</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>THat's what he said. icemetal confirm...</q></li>
+<li class="message">[<a href="#T23:08:15" id="T23:08:15"><abbr title="2012-09-05T23:08:15+00:00">23:08:15</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>shouldn't be a problem if you're building from the git repo</q></li>
+<li class="message">[<a href="#T23:08:38" id="T23:08:38"><abbr title="2012-09-05T23:08:38+00:00">23:08:38</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>his bootup is this: <a href="http://pastebin.com/MKtGRYhR">http://pastebin.com/MKtGRYhR</a></q></li>
+<li class="message">[<a href="#T23:08:57" id="T23:08:57"><abbr title="2012-09-05T23:08:57+00:00">23:08:57</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>yes is rev c</q></li>
+<li class="join">[<a href="#T23:08:58" id="T23:08:58"><abbr title="2012-09-05T23:08:58+00:00">23:08:58</abbr></a>] <span>* pastjean (~pastjean@142.137.217.125) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:09:19" id="T23:09:19"><abbr title="2012-09-05T23:09:19+00:00">23:09:19</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>sorry is A3</q></li>
+<li class="message">[<a href="#T23:09:25" id="T23:09:25"><abbr title="2012-09-05T23:09:25+00:00">23:09:25</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>my mistake</q></li>
+<li class="message">[<a href="#T23:09:27" id="T23:09:27"><abbr title="2012-09-05T23:09:27+00:00">23:09:27</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>arrrgh.....</q></li>
+<li class="message">[<a href="#T23:09:28" id="T23:09:28"><abbr title="2012-09-05T23:09:28+00:00">23:09:28</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T23:09:32" id="T23:09:32"><abbr title="2012-09-05T23:09:32+00:00">23:09:32</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>maybe that's not a problem then</q></li>
+<li class="message">[<a href="#T23:09:34" id="T23:09:34"><abbr title="2012-09-05T23:09:34+00:00">23:09:34</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I downloaded kernel C</q></li>
+<li class="message">[<a href="#T23:09:37" id="T23:09:37"><abbr title="2012-09-05T23:09:37+00:00">23:09:37</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>wit......</q></li>
+<li class="message">[<a href="#T23:09:39" id="T23:09:39"><abbr title="2012-09-05T23:09:39+00:00">23:09:39</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>and it worked</q></li>
+<li class="message">[<a href="#T23:09:41" id="T23:09:41"><abbr title="2012-09-05T23:09:41+00:00">23:09:41</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>What do you have?</q></li>
+<li class="message">[<a href="#T23:09:44" id="T23:09:44"><abbr title="2012-09-05T23:09:44+00:00">23:09:44</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>BeagleBoard?</q></li>
+<li class="message">[<a href="#T23:09:46" id="T23:09:46"><abbr title="2012-09-05T23:09:46+00:00">23:09:46</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>BeagleBone?</q></li>
+<li class="message">[<a href="#T23:10:07" id="T23:10:07"><abbr title="2012-09-05T23:10:07+00:00">23:10:07</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>yeah beagleboard from here <a href="http://downloads.angstrom-distribution.org/demo/beagleboard/">http://downloads.angstrom-distribution.org/demo/beagleboard/</a></q></li>
+<li class="message">[<a href="#T23:10:21" id="T23:10:21"><abbr title="2012-09-05T23:10:21+00:00">23:10:21</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>but is teh modules I'm checking now I think thats the problem</q></li>
+<li class="message">[<a href="#T23:10:27" id="T23:10:27"><abbr title="2012-09-05T23:10:27+00:00">23:10:27</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>no no no</q></li>
+<li class="message">[<a href="#T23:10:31" id="T23:10:31"><abbr title="2012-09-05T23:10:31+00:00">23:10:31</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>physical hardware</q></li>
+<li class="message">[<a href="#T23:10:47" id="T23:10:47"><abbr title="2012-09-05T23:10:47+00:00">23:10:47</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I will load the modules and be back in 10 mins</q></li>
+<li class="message">[<a href="#T23:10:50" id="T23:10:50"><abbr title="2012-09-05T23:10:50+00:00">23:10:50</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>turn linewrap on so we can see the full boot args</q></li>
+<li class="message">[<a href="#T23:10:52" id="T23:10:52"><abbr title="2012-09-05T23:10:52+00:00">23:10:52</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>let you know the results</q></li>
+<li class="message">[<a href="#T23:10:59" id="T23:10:59"><abbr title="2012-09-05T23:10:59+00:00">23:10:59</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T23:13:13" id="T23:13:13"><abbr title="2012-09-05T23:13:13+00:00">23:13:13</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>where can i get patches for kernel 2.6.32? Im on bb-xm</q></li>
+<li class="message">[<a href="#T23:14:16" id="T23:14:16"><abbr title="2012-09-05T23:14:16+00:00">23:14:16</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>tholm: The older Angstrom stuff used to build that kernel</q></li>
+<li class="message">[<a href="#T23:14:22" id="T23:14:22"><abbr title="2012-09-05T23:14:22+00:00">23:14:22</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'd assume those patches would be in there</q></li>
+<li class="message">[<a href="#T23:14:28" id="T23:14:28"><abbr title="2012-09-05T23:14:28+00:00">23:14:28</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>in OE</q></li>
+<li class="message">[<a href="#T23:14:59" id="T23:14:59"><abbr title="2012-09-05T23:14:59+00:00">23:14:59</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>why 2.6.32 specifically?</q></li>
+<li class="message">[<a href="#T23:15:04" id="T23:15:04"><abbr title="2012-09-05T23:15:04+00:00">23:15:04</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>dsp</q></li>
+<li class="message">[<a href="#T23:15:06" id="T23:15:06"><abbr title="2012-09-05T23:15:06+00:00">23:15:06</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I've not tried to build an old rev with OE though. I'm sure it can be done, probably a tag for it</q></li>
+<li class="message">[<a href="#T23:15:39" id="T23:15:39"><abbr title="2012-09-05T23:15:39+00:00">23:15:39</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>dsplink works on 2.6.32</q></li>
+<li class="join">[<a href="#T23:15:59" id="T23:15:59"><abbr title="2012-09-05T23:15:59+00:00">23:15:59</abbr></a>] <span>* Riastradh (~riastradh@fsf/member/riastradh) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:16:23" id="T23:16:23"><abbr title="2012-09-05T23:16:23+00:00">23:16:23</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>i mean up to 2.6.37</q></li>
+<li class="message">[<a href="#T23:16:53" id="T23:16:53"><abbr title="2012-09-05T23:16:53+00:00">23:16:53</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>this is after I installed the modules</q></li>
+<li class="message">[<a href="#T23:16:54" id="T23:16:54"><abbr title="2012-09-05T23:16:54+00:00">23:16:54</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q><a href="http://pastebin.com/G2QuEbBT">http://pastebin.com/G2QuEbBT</a></q></li>
+<li class="message">[<a href="#T23:17:06" id="T23:17:06"><abbr title="2012-09-05T23:17:06+00:00">23:17:06</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>still no ethernet :(</q></li>
+<li class="message">[<a href="#T23:17:27" id="T23:17:27"><abbr title="2012-09-05T23:17:27+00:00">23:17:27</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>still no linewrap either</q></li>
+<li class="quit">[<a href="#T23:17:29" id="T23:17:29"><abbr title="2012-09-05T23:17:29+00:00">23:17:29</abbr></a>] <span>* pastjean (~pastjean@142.137.217.125) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T23:18:26" id="T23:18:26"><abbr title="2012-09-05T23:18:26+00:00">23:18:26</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>what you mean by linewrap thurbad?</q></li>
+<li class="message">[<a href="#T23:18:43" id="T23:18:43"><abbr title="2012-09-05T23:18:43+00:00">23:18:43</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>icemetal: ctrl+w</q></li>
+<li class="message">[<a href="#T23:19:01" id="T23:19:01"><abbr title="2012-09-05T23:19:01+00:00">23:19:01</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>if ur using minicom</q></li>
+<li class="message">[<a href="#T23:19:07" id="T23:19:07"><abbr title="2012-09-05T23:19:07+00:00">23:19:07</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>yes minicom</q></li>
+<li class="message">[<a href="#T23:19:09" id="T23:19:09"><abbr title="2012-09-05T23:19:09+00:00">23:19:09</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>ctrl + a, w on minicom</q></li>
+<li class="message">[<a href="#T23:19:14" id="T23:19:14"><abbr title="2012-09-05T23:19:14+00:00">23:19:14</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="join">[<a href="#T23:19:39" id="T23:19:39"><abbr title="2012-09-05T23:19:39+00:00">23:19:39</abbr></a>] <span>* pastjean (~pastjean@142.137.217.125) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:19:40" id="T23:19:40"><abbr title="2012-09-05T23:19:40+00:00">23:19:40</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>ur right</q></li>
+<li class="message">[<a href="#T23:20:02" id="T23:20:02"><abbr title="2012-09-05T23:20:02+00:00">23:20:02</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>what that does?</q></li>
+<li class="message">[<a href="#T23:20:21" id="T23:20:21"><abbr title="2012-09-05T23:20:21+00:00">23:20:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sends bits</q></li>
+<li class="message">[<a href="#T23:20:35" id="T23:20:35"><abbr title="2012-09-05T23:20:35+00:00">23:20:35</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>burns bb-xm</q></li>
+<li class="message">[<a href="#T23:20:48" id="T23:20:48"><abbr title="2012-09-05T23:20:48+00:00">23:20:48</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok nothing happens</q></li>
+<li class="message">[<a href="#T23:20:53" id="T23:20:53"><abbr title="2012-09-05T23:20:53+00:00">23:20:53</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>makes it so long lines wrap in stead of getting chopped off</q></li>
+<li class="message">[<a href="#T23:21:02" id="T23:21:02"><abbr title="2012-09-05T23:21:02+00:00">23:21:02</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>reboot icemetal</q></li>
+<li class="message">[<a href="#T23:21:06" id="T23:21:06"><abbr title="2012-09-05T23:21:06+00:00">23:21:06</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="quit">[<abbr title="2012-09-05T23:21:06+00:00">23:21:06</abbr>] <span>* KeatonT (~textual@unaffiliated/keatont) Quit (Quit: Computer has gone to sleep.)</span></li>
+<li class="message">[<a href="#T23:21:15" id="T23:21:15"><abbr title="2012-09-05T23:21:15+00:00">23:21:15</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>no need, just run dmesg again</q></li>
+<li class="message">[<a href="#T23:21:37" id="T23:21:37"><abbr title="2012-09-05T23:21:37+00:00">23:21:37</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>that's the easy way</q></li>
+<li class="message">[<a href="#T23:21:44" id="T23:21:44"><abbr title="2012-09-05T23:21:44+00:00">23:21:44</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I did dmesg</q></li>
+<li class="join">[<a href="#T23:21:49" id="T23:21:49"><abbr title="2012-09-05T23:21:49+00:00">23:21:49</abbr></a>] <span>* HokieTux (~HokieTux@157.22.28.10) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:21:58" id="T23:21:58"><abbr title="2012-09-05T23:21:58+00:00">23:21:58</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I put it on the pastebin</q></li>
+<li class="message">[<a href="#T23:22:02" id="T23:22:02"><abbr title="2012-09-05T23:22:02+00:00">23:22:02</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q><a href="http://pastebin.com/G2QuEbBT">http://pastebin.com/G2QuEbBT</a></q></li>
+<li class="quit">[<a href="#T23:22:17" id="T23:22:17"><abbr title="2012-09-05T23:22:17+00:00">23:22:17</abbr></a>] <span>* pastjean (~pastjean@142.137.217.125) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T23:22:22" id="T23:22:22"><abbr title="2012-09-05T23:22:22+00:00">23:22:22</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>yes, but you didn't have linewrap on yet</q></li>
+<li class="message">[<a href="#T23:23:05" id="T23:23:05"><abbr title="2012-09-05T23:23:05+00:00">23:23:05</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>ctrl+a and then z</q></li>
+<li class="message">[<a href="#T23:23:32" id="T23:23:32"><abbr title="2012-09-05T23:23:32+00:00">23:23:32</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="quit">[<a href="#T23:23:37" id="T23:23:37"><abbr title="2012-09-05T23:23:37+00:00">23:23:37</abbr></a>] <span>* juvenal (~juvenal@201-92-77-150.dsl.telesp.net.br) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T23:23:56" id="T23:23:56"><abbr title="2012-09-05T23:23:56+00:00">23:23:56</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>press w and you will see on yr screen linewrap on</q></li>
+<li class="message">[<a href="#T23:23:57" id="T23:23:57"><abbr title="2012-09-05T23:23:57+00:00">23:23:57</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>and then ? a menu pops up</q></li>
+<li class="message">[<a href="#T23:24:08" id="T23:24:08"><abbr title="2012-09-05T23:24:08+00:00">23:24:08</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T23:24:28" id="T23:24:28"><abbr title="2012-09-05T23:24:28+00:00">23:24:28</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>when I press W the menu clears</q></li>
+<li class="message">[<a href="#T23:24:41" id="T23:24:41"><abbr title="2012-09-05T23:24:41+00:00">23:24:41</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T23:24:54" id="T23:24:54"><abbr title="2012-09-05T23:24:54+00:00">23:24:54</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>what's next?</q></li>
+<li class="message">[<a href="#T23:24:59" id="T23:24:59"><abbr title="2012-09-05T23:24:59+00:00">23:24:59</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>dmesg</q></li>
+<li class="message">[<a href="#T23:25:29" id="T23:25:29"><abbr title="2012-09-05T23:25:29+00:00">23:25:29</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T23:26:20" id="T23:26:20"><abbr title="2012-09-05T23:26:20+00:00">23:26:20</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q><a href="http://pastebin.com/naE5zgUx">http://pastebin.com/naE5zgUx</a></q></li>
+<li class="message">[<a href="#T23:27:25" id="T23:27:25"><abbr title="2012-09-05T23:27:25+00:00">23:27:25</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>same</q></li>
+<li class="message">[<a href="#T23:27:30" id="T23:27:30"><abbr title="2012-09-05T23:27:30+00:00">23:27:30</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>linewrap is still off, perhaps you had it enabled briefly and then turned it back off?</q></li>
+<li class="message">[<a href="#T23:28:19" id="T23:28:19"><abbr title="2012-09-05T23:28:19+00:00">23:28:19</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I did crl+a then press z then press w</q></li>
+<li class="message">[<a href="#T23:28:50" id="T23:28:50"><abbr title="2012-09-05T23:28:50+00:00">23:28:50</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>is that correct?</q></li>
+<li class="quit">[<a href="#T23:29:08" id="T23:29:08"><abbr title="2012-09-05T23:29:08+00:00">23:29:08</abbr></a>] <span>* Hoolxi (~Openfree@183.195.224.101) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T23:29:17" id="T23:29:17"><abbr title="2012-09-05T23:29:17+00:00">23:29:17</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T23:29:23" id="T23:29:23"><abbr title="2012-09-05T23:29:23+00:00">23:29:23</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>yeah, that's a toggle, if it's on from CTRL+A, W it will turn off again</q></li>
+<li class="message">[<a href="#T23:29:49" id="T23:29:49"><abbr title="2012-09-05T23:29:49+00:00">23:29:49</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>the Z is unnecessary unless you need a reminder of the controls</q></li>
+<li class="message">[<a href="#T23:30:08" id="T23:30:08"><abbr title="2012-09-05T23:30:08+00:00">23:30:08</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>ok this wont fail</q></li>
+<li class="message">[<a href="#T23:30:16" id="T23:30:16"><abbr title="2012-09-05T23:30:16+00:00">23:30:16</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>minicom -w</q></li>
+<li class="message">[<a href="#T23:30:40" id="T23:30:40"><abbr title="2012-09-05T23:30:40+00:00">23:30:40</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T23:30:41" id="T23:30:41"><abbr title="2012-09-05T23:30:41+00:00">23:30:41</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T23:32:38" id="T23:32:38"><abbr title="2012-09-05T23:32:38+00:00">23:32:38</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q><a href="http://pastebin.com/i7irQdD1">http://pastebin.com/i7irQdD1</a></q></li>
+<li class="message">[<a href="#T23:32:51" id="T23:32:51"><abbr title="2012-09-05T23:32:51+00:00">23:32:51</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>bingo</q></li>
+<li class="quit">[<a href="#T23:33:05" id="T23:33:05"><abbr title="2012-09-05T23:33:05+00:00">23:33:05</abbr></a>] <span>* kkeller (~Ken_Kelle@97-124-115-100.phnx.qwest.net) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T23:33:29" id="T23:33:29"><abbr title="2012-09-05T23:33:29+00:00">23:33:29</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T23:33:38" id="T23:33:38"><abbr title="2012-09-05T23:33:38+00:00">23:33:38</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>anyway idk what is yr issue?</q></li>
+<li class="message">[<a href="#T23:33:42" id="T23:33:42"><abbr title="2012-09-05T23:33:42+00:00">23:33:42</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>shouldn't that ro after rootfs be rw?</q></li>
+<li class="message">[<a href="#T23:33:48" id="T23:33:48"><abbr title="2012-09-05T23:33:48+00:00">23:33:48</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>no ethernet</q></li>
+<li class="message">[<a href="#T23:33:56" id="T23:33:56"><abbr title="2012-09-05T23:33:56+00:00">23:33:56</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>on this kernel</q></li>
+<li class="message">[<a href="#T23:34:11" id="T23:34:11"><abbr title="2012-09-05T23:34:11+00:00">23:34:11</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>but there is ethernet on kernel 3.0.14</q></li>
+<li class="message">[<a href="#T23:34:20" id="T23:34:20"><abbr title="2012-09-05T23:34:20+00:00">23:34:20</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>thurbad: no, ro</q></li>
+<li class="message">[<a href="#T23:34:25" id="T23:34:25"><abbr title="2012-09-05T23:34:25+00:00">23:34:25</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>that I download dfrom here <a href="http://downloads.angstrom-distribution.org/demo/beagleboard/">http://downloads.angstrom-distribution.org/demo/beagleboard/</a></q></li>
+<li class="message">[<a href="#T23:34:31" id="T23:34:31"><abbr title="2012-09-05T23:34:31+00:00">23:34:31</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>init scripts remount rw</q></li>
+<li class="message">[<a href="#T23:35:31" id="T23:35:31"><abbr title="2012-09-05T23:35:31+00:00">23:35:31</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>what you mean alan?</q></li>
+<li class="message">[<a href="#T23:35:37" id="T23:35:37"><abbr title="2012-09-05T23:35:37+00:00">23:35:37</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>root=/dev/mmcblk0p2 ro</q></li>
+<li class="message">[<a href="#T23:35:42" id="T23:35:42"><abbr title="2012-09-05T23:35:42+00:00">23:35:42</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T23:35:48" id="T23:35:48"><abbr title="2012-09-05T23:35:48+00:00">23:35:48</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>root=/dev/mmcblk0p2 rw</q></li>
+<li class="message">[<a href="#T23:36:06" id="T23:36:06"><abbr title="2012-09-05T23:36:06+00:00">23:36:06</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>ro is correct</q></li>
+<li class="message">[<a href="#T23:36:14" id="T23:36:14"><abbr title="2012-09-05T23:36:14+00:00">23:36:14</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>-sh: rw: command not found</q></li>
+<li class="message">[<a href="#T23:36:28" id="T23:36:28"><abbr title="2012-09-05T23:36:28+00:00">23:36:28</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>seems like stuff is failing to mount properly early on</q></li>
+<li class="message">[<a href="#T23:36:30" id="T23:36:30"><abbr title="2012-09-05T23:36:30+00:00">23:36:30</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>-sh: ro: command not found</q></li>
+<li class="message">[<a href="#T23:36:36" id="T23:36:36"><abbr title="2012-09-05T23:36:36+00:00">23:36:36</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>uenv.txt</q></li>
+<li class="message">[<abbr title="2012-09-05T23:36:36+00:00">23:36:36</abbr>] &lt;<cite>alan_o</cite>&gt; <q>icemetal: no.... in your command line at boot time</q></li>
+<li class="message">[<a href="#T23:36:42" id="T23:36:42"><abbr title="2012-09-05T23:36:42+00:00">23:36:42</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, that</q></li>
+<li class="message">[<a href="#T23:36:51" id="T23:36:51"><abbr title="2012-09-05T23:36:51+00:00">23:36:51</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>change that file</q></li>
+<li class="message">[<a href="#T23:37:16" id="T23:37:16"><abbr title="2012-09-05T23:37:16+00:00">23:37:16</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>tholm: no</q></li>
+<li class="message">[<a href="#T23:37:23" id="T23:37:23"><abbr title="2012-09-05T23:37:23+00:00">23:37:23</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>there's no reason to change that to rw</q></li>
+<li class="message">[<a href="#T23:37:28" id="T23:37:28"><abbr title="2012-09-05T23:37:28+00:00">23:37:28</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>ro is correct</q></li>
+<li class="message">[<a href="#T23:37:35" id="T23:37:35"><abbr title="2012-09-05T23:37:35+00:00">23:37:35</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>it's changed to rw by the init scripts</q></li>
+<li class="message">[<a href="#T23:37:46" id="T23:37:46"><abbr title="2012-09-05T23:37:46+00:00">23:37:46</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>or systemd now, or whatever you have for that</q></li>
+<li class="message">[<a href="#T23:37:56" id="T23:37:56"><abbr title="2012-09-05T23:37:56+00:00">23:37:56</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>that's absolutely not the problem.</q></li>
+<li class="message">[<a href="#T23:38:06" id="T23:38:06"><abbr title="2012-09-05T23:38:06+00:00">23:38:06</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>idk sometimes that distro had that issue</q></li>
+<li class="message">[<a href="#T23:38:57" id="T23:38:57"><abbr title="2012-09-05T23:38:57+00:00">23:38:57</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>so what it could be?</q></li>
+<li class="message">[<a href="#T23:39:04" id="T23:39:04"><abbr title="2012-09-05T23:39:04+00:00">23:39:04</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>What's your lsusb look like now?</q></li>
+<li class="message">[<a href="#T23:39:14" id="T23:39:14"><abbr title="2012-09-05T23:39:14+00:00">23:39:14</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>hold</q></li>
+<li class="message">[<a href="#T23:39:17" id="T23:39:17"><abbr title="2012-09-05T23:39:17+00:00">23:39:17</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>now that you have modules installed properly</q></li>
+<li class="message">[<a href="#T23:39:34" id="T23:39:34"><abbr title="2012-09-05T23:39:34+00:00">23:39:34</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>also, verify taht you put them in the right place</q></li>
+<li class="message">[<a href="#T23:39:42" id="T23:39:42"><abbr title="2012-09-05T23:39:42+00:00">23:39:42</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>same as before</q></li>
+<li class="message">[<a href="#T23:39:44" id="T23:39:44"><abbr title="2012-09-05T23:39:44+00:00">23:39:44</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>show the output of lsmod</q></li>
+<li class="message">[<a href="#T23:39:50" id="T23:39:50"><abbr title="2012-09-05T23:39:50+00:00">23:39:50</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>and it detects the mouse</q></li>
+<li class="message">[<abbr title="2012-09-05T23:39:50+00:00">23:39:50</abbr>] &lt;<cite>icemetal</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T23:39:51" id="T23:39:51"><abbr title="2012-09-05T23:39:51+00:00">23:39:51</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I mean look at the output of lsmod</q></li>
+<li class="message">[<a href="#T23:40:09" id="T23:40:09"><abbr title="2012-09-05T23:40:09+00:00">23:40:09</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>are there modules loaded?</q></li>
+<li class="message">[<a href="#T23:40:10" id="T23:40:10"><abbr title="2012-09-05T23:40:10+00:00">23:40:10</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>nothing on lsmod</q></li>
+<li class="message">[<a href="#T23:40:12" id="T23:40:12"><abbr title="2012-09-05T23:40:12+00:00">23:40:12</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T23:40:19" id="T23:40:19"><abbr title="2012-09-05T23:40:19+00:00">23:40:19</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I think that;s the problem</q></li>
+<li class="message">[<a href="#T23:40:31" id="T23:40:31"><abbr title="2012-09-05T23:40:31+00:00">23:40:31</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>try to load a module that you know exists.</q></li>
+<li class="message">[<a href="#T23:40:33" id="T23:40:33"><abbr title="2012-09-05T23:40:33+00:00">23:40:33</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>if ethernet is a module and is not loaded</q></li>
+<li class="message">[<a href="#T23:40:37" id="T23:40:37"><abbr title="2012-09-05T23:40:37+00:00">23:40:37</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>modprobe $some_module_name</q></li>
+<li class="message">[<a href="#T23:40:53" id="T23:40:53"><abbr title="2012-09-05T23:40:53+00:00">23:40:53</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>look at the files that are in that .tgz, and try to load one of those modules by name that way</q></li>
+<li class="message">[<a href="#T23:40:58" id="T23:40:58"><abbr title="2012-09-05T23:40:58+00:00">23:40:58</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>(don't do the ko)</q></li>
+<li class="message">[<a href="#T23:41:03" id="T23:41:03"><abbr title="2012-09-05T23:41:03+00:00">23:41:03</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>modprobe -a smsc95xx</q></li>
+<li class="message">[<a href="#T23:41:07" id="T23:41:07"><abbr title="2012-09-05T23:41:07+00:00">23:41:07</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>(I mean don't put .ko on the end of it)</q></li>
+<li class="message">[<a href="#T23:41:08" id="T23:41:08"><abbr title="2012-09-05T23:41:08+00:00">23:41:08</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T23:41:23" id="T23:41:23"><abbr title="2012-09-05T23:41:23+00:00">23:41:23</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>if smsc95xx was compiled as a module by OE, etc....</q></li>
+<li class="message">[<a href="#T23:41:40" id="T23:41:40"><abbr title="2012-09-05T23:41:40+00:00">23:41:40</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I build all that crap in :)</q></li>
+<li class="message">[<a href="#T23:41:49" id="T23:41:49"><abbr title="2012-09-05T23:41:49+00:00">23:41:49</abbr></a>] &lt;<cite>tholm</cite>&gt; <q>dont think so</q></li>
+<li class="message">[<a href="#T23:42:34" id="T23:42:34"><abbr title="2012-09-05T23:42:34+00:00">23:42:34</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I keep getting error FATAL: Could not load /lib/modules/3.2.18/modules.dep: No such file or directory</q></li>
+<li class="message">[<a href="#T23:42:56" id="T23:42:56"><abbr title="2012-09-05T23:42:56+00:00">23:42:56</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>icemetal: ding ding ding ding</q></li>
+<li class="message">[<a href="#T23:43:01" id="T23:43:01"><abbr title="2012-09-05T23:43:01+00:00">23:43:01</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>maybe depmod -a will fix that</q></li>
+<li class="message">[<a href="#T23:43:15" id="T23:43:15"><abbr title="2012-09-05T23:43:15+00:00">23:43:15</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>What's in /lib/modules/3.2.18?</q></li>
+<li class="message">[<a href="#T23:44:09" id="T23:44:09"><abbr title="2012-09-05T23:44:09+00:00">23:44:09</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>that's where we said to untar the modules archive BTW</q></li>
+<li class="message">[<a href="#T23:44:38" id="T23:44:38"><abbr title="2012-09-05T23:44:38+00:00">23:44:38</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>ok 3.2.18 is not there I dont know why I just copy there</q></li>
+<li class="message">[<a href="#T23:44:50" id="T23:44:50"><abbr title="2012-09-05T23:44:50+00:00">23:44:50</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>but thanks</q></li>
+<li class="message">[<a href="#T23:45:14" id="T23:45:14"><abbr title="2012-09-05T23:45:14+00:00">23:45:14</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>did you copy to your host systems /lib/modules?</q></li>
+<li class="message">[<a href="#T23:45:51" id="T23:45:51"><abbr title="2012-09-05T23:45:51+00:00">23:45:51</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>thurbad: he has a .tgz that OE built for him with modules in it</q></li>
+<li class="message">[<a href="#T23:46:04" id="T23:46:04"><abbr title="2012-09-05T23:46:04+00:00">23:46:04</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>thurbad: hopefully he used that</q></li>
+<li class="message">[<a href="#T23:46:27" id="T23:46:27"><abbr title="2012-09-05T23:46:27+00:00">23:46:27</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>yeah but it didn't put them in the correct place apparently</q></li>
+<li class="message">[<a href="#T23:47:02" id="T23:47:02"><abbr title="2012-09-05T23:47:02+00:00">23:47:02</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>putting them on the host system is an easy mistake to make</q></li>
+<li class="message">[<a href="#T23:47:30" id="T23:47:30"><abbr title="2012-09-05T23:47:30+00:00">23:47:30</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>thurbad: the thing I still don't like is that the ethernet device doesn't show in lsusb. Maybe it's behind a hub that needs a driver which is a module?</q></li>
+<li class="message">[<a href="#T23:47:42" id="T23:47:42"><abbr title="2012-09-05T23:47:42+00:00">23:47:42</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>thurbad: the USB works, because he has a mouse in it.</q></li>
+<li class="message">[<a href="#T23:47:54" id="T23:47:54"><abbr title="2012-09-05T23:47:54+00:00">23:47:54</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>yes USB works but is not as module I think</q></li>
+<li class="message">[<abbr title="2012-09-05T23:47:54+00:00">23:47:54</abbr>] &lt;<cite>thurbad</cite>&gt; <q>it won't show up at all if the usb hub is uninitialized</q></li>
+<li class="message">[<a href="#T23:48:01" id="T23:48:01"><abbr title="2012-09-05T23:48:01+00:00">23:48:01</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>thurbad: that's why I'm not sure this is the only problem.</q></li>
+<li class="message">[<a href="#T23:48:07" id="T23:48:07"><abbr title="2012-09-05T23:48:07+00:00">23:48:07</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>oh, mouse works?</q></li>
+<li class="message">[<a href="#T23:48:12" id="T23:48:12"><abbr title="2012-09-05T23:48:12+00:00">23:48:12</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T23:48:34" id="T23:48:34"><abbr title="2012-09-05T23:48:34+00:00">23:48:34</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>what does ifconfig -a show?</q></li>
+<li class="quit">[<a href="#T23:48:38" id="T23:48:38"><abbr title="2012-09-05T23:48:38+00:00">23:48:38</abbr></a>] <span>* rcf (~rcf@178-117-158-72.access.telenet.be) Quit (Quit: This war is mine)</span></li>
+<li class="quit">[<a href="#T23:53:46" id="T23:53:46"><abbr title="2012-09-05T23:53:46+00:00">23:53:46</abbr></a>] <span>* guanucoluis (~luis@2001:470:e450:0:225:56ff:fea1:2064) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T23:54:26" id="T23:54:26"><abbr title="2012-09-05T23:54:26+00:00">23:54:26</abbr></a>] &lt;<cite>icemetal</cite>&gt; <q>I will do that in a moment I'm just copy the modules again</q></li>
