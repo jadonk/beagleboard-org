@@ -95,15 +95,6 @@ function listBody ()
   if (collection[0].render_skin == "project")
    {
     body += "</table>\n";
-    body += '<script type="text/javascript">\n'
-     + ' (function() {\n'
-     + ' var po = document.createElement("script");'
-     + ' po.type = "text/javascript"; po.async = true;'
-     + ' po.src = "https://apis.google.com/js/plusone.js";\n'
-     + ' var s = document.getElementsByTagName("script")[0];'
-     + ' s.parentNode.insertBefore(po, s);\n'
-     + '})();\n'
-     + '</script>\n';
    }
   else
    body += "</ul>\n";
