@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2131" name="Page" prototype="Page" created="1349209471904" lastModified="1349210483219">
+  <hopobject id="2131" name="Page" prototype="Page" created="1349209471904" lastModified="1349210691061">
   <hop:parent idref="0" prototyperef="Root"/>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4</http_browser>
     <lang>en-us</lang>
     <uri>buy-test</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">02.10.2012 15:41:23 CDT</time>
+    <time type="date">02.10.2012 15:44:51 CDT</time>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.198.47.16.w0vp9aykw82a</hopsession>
@@ -166,17 +166,18 @@
  &lt;h2&gt;&lt;a href=&quot;http://beaglebonecapes.com&quot;&gt;BeagleBone Cape add-on boards&lt;/a&gt;&lt;/h2&gt;
 &lt;script&gt;
 $(&apos;ul.dropdown&apos;).each(function(){
-  var list=$(this),
-  select=$(document.createElement(&apos;select&apos;)).insertBefore($(this).hide());
+  var list=$(this);
+  var select=$(document.createElement(&apos;select&apos;)).insertBefore($(this).hide());
   $(&apos;&gt;li&apos;, this).each(function(){
-    var target=$(this).attr(&apos;target&apos;),
-    option=$(document.createElement(&apos;option&apos;))
-     .appendTo(select)
-     .val(this.href)
+    var option=$(document.createElement(&apos;option&apos;))
+     .appendTo(select);
+    $(&apos;&gt;a&apos;, this).each(function(){
+     option.val(this.href)
      .html($(this).html())
      .click(function(){
        window.open($(this).val());
      });
+   });
   });
   list.remove();
 });
