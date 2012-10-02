@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2131" name="Page" prototype="Page" created="1349209471904" lastModified="1349211527092">
+  <hopobject id="2131" name="Page" prototype="Page" created="1349209471904" lastModified="1349211782656">
   <hop:parent idref="0" prototyperef="Root"/>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4</http_browser>
     <lang>en-us</lang>
     <uri>buy-test</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">02.10.2012 15:58:47 CDT</time>
+    <time type="date">02.10.2012 16:03:02 CDT</time>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.198.47.16.w0vp9aykw82a</hopsession>
@@ -170,15 +170,17 @@
 $(&apos;ul.dropdown&apos;).each(function(){
   var list=$(this);
   var select=$(document.createElement(&apos;select&apos;)).insertBefore($(this).hide());
+  select.change(function(){
+   $(&apos;&gt;option:selected&apos;, this).each(function(){
+    window.open($(this).val());
+   });
+  });
   $(&apos;&gt;li&apos;, this).each(function(){
     var option=$(document.createElement(&apos;option&apos;));
     option.appendTo(select);
     option.html($(this).html());
     $(&apos;&gt;a&apos;, this).each(function(){
      option.val(this.href);
-     option.change(function(){
-       window.open($(this).val());
-     });
    });
   });
   list.remove();
