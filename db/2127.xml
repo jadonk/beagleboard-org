@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2127" name="Bonelib" prototype="Page" created="1349110534079" lastModified="1349110534079">
+  <hopobject id="2127" name="Bonelib" prototype="Page" created="1349110534079" lastModified="1349275728765">
   <hop:parent idref="20" prototyperef="Page"/>
-    <edit_skin>edit_project</edit_skin>
-    <updatetime type="date">01.10.2012 11:55:34 CDT</updatetime>
-    <uri>Bonelib</uri>
-    <time type="date">01.10.2012 11:55:34 CDT</time>
-    <pseudoparent idref="20" prototyperef="Page"/>
-    <registrant>janick-bergeron.myopenid.com</registrant>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <is_xhtml type="boolean">true</is_xhtml>
     <pname>C++ and PERL Hardware Abstraction Library</pname>
-    <user>janick-bergeron.myopenid.com</user>
-    <body>Library of C++/PERL objects providing a high-level abstraction of the BeagleBone peripherals</body>
-    <errmsg></errmsg>
+    <registrant>janick-bergeron.myopenid.com</registrant>
+    <http_language>en-US,en;q=0.8</http_language>
+    <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4</http_browser>
+    <uri>Bonelib</uri>
+    <time type="date">03.10.2012 09:48:48 CDT</time>
+    <updatetime type="date">01.10.2012 11:55:34 CDT</updatetime>
+    <hopsession>127.0.0.198.182.56.a8rz94jxxaah</hopsession>
+    <body>For example, instead of looking up the BeagleBone System Reference Manual and determine that pin 3 on connector P8 corresponds to GPIO1[6], and that, in turn, corresponds to /sys/class/gpio/gpio38, then maxing sure the pin muxing is set to mode 7 + input + pull-down (via /sys/kernel/debug/omap_mux/gpmac_ad), that the GPIO is set to input (via /sys/class/gpio/gpio38/direction -- still with me?), Bonelib makes it as simple as:
+
+BeagleBone::gpio* inp = BeagleBone::gpio::P8(3);
+inp.configure(BeagleBone::pin::IN, BeagleBone::pin::PD);
+bool = inp.get();
+
+voila!
+
+Find the full user documentation at http://sourceforge.net/p/bonelib/wiki/Home/</body>
+    <pseudoparent idref="20" prototyperef="Page"/>
+    <rssfeed></rssfeed>
     <homepage>https://sourceforge.net/projects/bonelib/</homepage>
     <render_skin>project</render_skin>
+    <edit_skin>edit_project</edit_skin>
+    <http_referer>http://beagleboard.org/project/Bonelib/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <errmsg></errmsg>
     <shortdesc>Library of C++/PERL objects providing a high-level abstraction of the BeagleBone peripherals</shortdesc>
-    <rssfeed></rssfeed>
+    <user>janick-bergeron.myopenid.com</user>
   </hopobject>
 </xmlroot>
