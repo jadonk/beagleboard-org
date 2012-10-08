@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2136" name="Page" prototype="Page" created="1349711280472" lastModified="1349713392248">
+  <hopobject id="2136" name="Page" prototype="Page" created="1349711280472" lastModified="1349713697165">
   <hop:parent idref="0" prototyperef="Root"/>
     <http_browser>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4</http_browser>
     <lang>en-us</lang>
     <uri>getting-started</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">08.10.2012 11:23:12 CDT</time>
+    <time type="date">08.10.2012 11:28:17 CDT</time>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.107.5.165.95krpamcv4vp</hopsession>
@@ -49,7 +49,14 @@
   &lt;/tr&gt;
  &lt;/table&gt;
  &lt;h2&gt;Step #2: Eject BEAGLE_BONE&lt;/h2&gt;
- &lt;p&gt;Note that &quot;Safely remove hardware&quot; is &lt;b&gt;not&lt;/b&gt; the same as EJECT. The EJECT operation tells your BeagleBone to switch from &quot;storage mode&quot; to &quot;network mode&quot;, enabling you to access the networking features over your USB cable.&lt;/p&gt;
+ &lt;p&gt;Note that &quot;Safely remove hardware&quot; is &lt;b&gt;not&lt;/b&gt; the same as EJECT. The EJECT operation tells your BeagleBone to switch from &quot;storage mode&quot; to &quot;network mode&quot;, enabling you to access the networking features over your USB cable.
+   &lt;br /&gt;&lt;small&gt;&lt;b&gt;Note #1:&lt;/b&gt; It has been observed in Windows that it may actually take a
+   couple of minutes for the driver to load on occasion.&lt;/small&gt;&lt;br /&gt;
+   &lt;br /&gt;&lt;small&gt;&lt;b&gt;Note #2:&lt;/b&gt; It has been observed in Windows that you may be prompted
+   to locate the &apos;linux.inf&apos; file.  If you installed the driver properly, you should be able to
+   find it under c:\windows\system32\drvstore\linux_...&lt;/small&gt;&lt;br /&gt;
+   &lt;br /&gt;
+  &lt;/p&gt;
  &lt;h2&gt;Step #3: Browse to your board&lt;/h2&gt;
  &lt;p&gt;Using either &lt;a href=&quot;http://www.google.com/chrome&quot;&gt;Chrome&lt;/a&gt; or &lt;a href=&quot;http://www.mozilla.org/firefox&quot;&gt;Firefox&lt;/a&gt;, browse to the web server running on your board:
   &lt;ul class=&quot;arrow&quot;&gt;
@@ -61,7 +68,7 @@
   &lt;ul class=&quot;arrow&quot;&gt;
    &lt;li&gt;&lt;a href=&quot;http://192.168.7.2:3000&quot;&gt;http://192.168.7.2:3000/&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
- &lt;h2&gt;&lt;u&gt;Troubleshooting&lt;/u&gt;&lt;/h2&gt;
+ &lt;h2&gt;&lt;u&gt;Troubleshooting and reference&lt;/u&gt;&lt;/h2&gt;
   &lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://beagleboard.org/static/beaglebone/latest/Docs/Hardware/BONE_SRM.pdf&quot;&gt;
    BeagleBone System Reference Manual&lt;/a&gt;&lt;/b&gt;
   &lt;-- please read before asking for help
@@ -69,6 +76,9 @@
   &lt;b&gt;&lt;a href=&quot;http://beagleboard.org/static/beaglebone/latest/README.htm&quot;&gt;
   BeagleBone README Quick-Start Guide&lt;/a&gt;&lt;/b&gt;
   &lt;-- latest version of this document
+  &lt;br /&gt;
+  &lt;a href=&quot;http://beagleboard.org/discuss&quot;&gt;Online discussion&lt;/a&gt;
+  &lt;-- Where to ask questions
   &lt;br /&gt;
   &lt;a href=&quot;http://beagleboard.org/angstrom&quot;&gt;Angstrom Mirrors&lt;/a&gt;
   &lt;-- latest pre-built microSD card images
@@ -103,46 +113,16 @@
    &lt;a href=&quot;http://people.freebsd.org/~dmarion/beaglebone/creating_bootable_sd_card/&quot;&gt;FreeBSD&lt;/a&gt;
   &lt;/li&gt;
  &lt;/ul&gt;
-
- &lt;h2 id=&quot;software&quot;&gt;&lt;u&gt;Super-quick-start&lt;/u&gt;&lt;/h2&gt;
- &lt;p&gt;Connect Ethernet and browse to &lt;a href=&quot;http://beaglebone.local&quot;&gt;
-  &lt;b&gt;beaglebone.local&lt;/b&gt;&lt;/a&gt;.  You can also &apos;ssh root@beaglebone.local&apos;.
- &lt;/p&gt;
- &lt;p&gt;Your browser will introduce you to the board features and
-  Cloud9 IDE with Bonescript.
- &lt;/p&gt;
-
- &lt;h3&gt;beaglebone.local&lt;/h3&gt;
- &lt;p&gt;To provide this network name, the BeagleBone is running 
-  &lt;a href=&quot;http://en.wikipedia.org/wiki/Avahi_(software)&quot;&gt;Avahi&lt;/a&gt; and a
-  &lt;a href=&quot;http://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol&quot;&gt;
-  DHCP client&lt;/a&gt;.  This is supported by most network configurations and Mac,
-  Windows and Linux computers.
- &lt;/p&gt;
- &lt;p&gt;
-  You can also connect to your BeagleBone using
-  built-in USB-to-serial or USB-to-Ethernet.
- &lt;/p&gt;
-
  &lt;h3 id=&quot;decision&quot;&gt;Powering options&lt;/h3&gt;
  &lt;p&gt;
-  You may power via a USB cable (provided) or purchase a
-  &lt;a href=&quot;http://beagleboard.org/peripheral#5V&quot;&gt;recommended 5V power
-  adapter&lt;/a&gt;.
+  To power the board with connected USB peripherals, a
+  &lt;a href=&quot;http://beagleboard.org/peripheral#5V&quot;&gt;2A, 5V power
+  adapter is recommended&lt;/a&gt;.
  &lt;p&gt;
   &lt;small&gt;&lt;b&gt;Note:&lt;/b&gt; Some software images limit the clock speed of the BeagleBone
   by determining if the power source is USB or the 5V adapter to avoid excess use
   of current.&lt;/small&gt;
  &lt;/p&gt;
-
- &lt;h2 id=&quot;drivers&quot;&gt;&lt;u&gt;Using USB-to-serial/JTAG/Ethernet on your computer&lt;/u&gt;&lt;/h2&gt;
- &lt;h3&gt;Drivers&lt;/h3&gt;
- &lt;p&gt;&lt;small&gt;&lt;b&gt;Note:&lt;/b&gt;&lt;br/&gt;
-  On revision A3/A4 boards, the VID/PID matches
-  the TI XDS100v2: 0x0403/0xA6D0&lt;br/&gt;
-  On revision A5+ boards, the generic FTDI VID/PID is used: 0x0403/0x6010&lt;/small&gt;
- &lt;/p&gt;
-
  &lt;h3&gt;JTAG debug&lt;/h3&gt;
  &lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5&quot;&gt;
   Code Composer Studio v5 (CCSv5)&lt;/a&gt;&lt;/b&gt; is available for free for BealgeBone users and
@@ -155,42 +135,17 @@
   Linux is verified.  Please visit
   &lt;a href=&quot;http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/&quot;&gt;
   Matt Massey&apos;s blog post describing installation in Ubuntu&lt;/a&gt;.&lt;/p&gt;
-
  &lt;h3 id=&quot;serial&quot;&gt;&lt;u&gt;Connect to your BeagleBone&apos;s serial console&lt;/u&gt;&lt;/h3&gt;
  &lt;p&gt;Under Windows, it is recommended to follow the
   &lt;a href=&quot;http://ladyada.net/products/beaglebone/ethernet.html&quot;&gt;
   Adafruit tutorial&lt;/a&gt;.
  &lt;p&gt;
-
  &lt;p&gt;For Mac or Linux, it is recommended simply to invoke &apos;screen&apos;:
   &lt;pre&gt;
 screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   &lt;/pre&gt;
   Type CTRL-a k to exit screen.
  &lt;/p&gt;
-
- &lt;h3 id=&quot;g_ether&quot;&gt;&lt;u&gt;Launch USB-to-Ethernet interface&lt;/u&gt;&lt;/h3&gt;
- &lt;p&gt;&lt;b&gt;&lt;u&gt;Eject&lt;/u&gt; the &quot;BEAGLE_BONE&quot; drive to enable the USB-to-Ethernet interface.&lt;/b&gt;&lt;/p&gt;
- &lt;p&gt;At boot-up, the processor on your BeagleBone is running a USB storage &quot;gadget&quot; driver
-  that served you up this file.  For this software build, you need to swap the storage gadget
-  for a USB-to-Ethernet gadget when you are ready to establish an IP connection over your
-  USB cable.
- &lt;/p&gt;
- &lt;ul class=&quot;arrow&quot;&gt;
-  &lt;li&gt;From your PC, eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.&lt;br /&gt;
-   &lt;br /&gt;&lt;small&gt;&lt;b&gt;Note #1:&lt;/b&gt; It has been observed in Windows that it may actually take a
-   couple of minutes for the driver to load on occasion.&lt;/small&gt;&lt;br /&gt;
-   &lt;br /&gt;&lt;small&gt;&lt;b&gt;Note #2:&lt;/b&gt; It has been observed in Windows that you may be prompted
-   to locate the &apos;linux.inf&apos; file.  If you installed the driver properly, you should be able to
-   find it under c:\windows\system32\drvstore\linux_...&lt;/small&gt;&lt;br /&gt;
-   &lt;br /&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Configure the adapter that appears for DHCP.&lt;/li&gt;
-  &lt;li&gt;The adapter should be given the IP address 192.168.7.1.&lt;li&gt;
-  &lt;li&gt;The BeagleBone should have IP address 192.168.7.2.&lt;li&gt;
-  &lt;li&gt;It is recommended to use Chrome or Firefox.&lt;/li&gt;
- &lt;/ul&gt;
-
  &lt;h2 id=&quot;hardware&quot;&gt;&lt;u&gt;Hardware&lt;/u&gt;&lt;/h2&gt;
  &lt;h3 &gt;&lt;u&gt;Design materials&lt;/u&gt;&lt;/h3&gt;
  &lt;ul&gt;
