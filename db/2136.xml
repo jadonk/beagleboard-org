@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2136" name="Page" prototype="Page" created="1349711280472" lastModified="1349711280555">
+  <hop:parent idref="0" prototyperef="Root"/>
+    <http_browser>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4</http_browser>
+    <lang>en-us</lang>
+    <uri>getting-started</uri>
+    <http_host>beagleboard.org</http_host>
+    <time type="date">08.10.2012 10:48:00 CDT</time>
+    <pseudoparent idref="0" prototyperef="Root"/>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <hopsession>127.0.0.107.5.165.95krpamcv4vp</hopsession>
+    <user>blog.hangerhead.com</user>
+    <body>&lt;a href=&quot;http://beagleboard.org&quot;&gt;
+  &lt;img id=&quot;head-logo&quot; title=&quot;beagleboard logo&quot; alt=&quot;beagleboard logo&quot;
+   src=&quot;Docs/beagle.png&quot; height=&quot;80px&quot; /&gt;
+  &lt;img id=&quot;head-icon&quot; src=&quot;Docs/url.png&quot; alt=&quot;beagleboard url&quot; /&gt;
+ &lt;/a&gt;
+ &lt;img id=&quot;in-hand&quot; src=&quot;Docs/in-hand.png&quot;
+  alt=&quot;beaglebone in hand&quot; align=&quot;right&quot; height=&quot;200px&quot; /&gt;
+
+ &lt;h1&gt;BeagleBone README Quick-Start Guide&lt;/h1&gt;
+ &lt;p&gt;
+  &lt;b&gt;&lt;a href=&quot;http://beagleboard.org/static/beaglebone/latest/Docs/Hardware/BONE_SRM.pdf&quot;&gt;
+   BeagleBone System Reference Manual&lt;/a&gt;&lt;/b&gt;
+  &amp;lt-- please read before asking for help
+  &lt;br/&gt;
+  &lt;b&gt;&lt;a href=&quot;http://beagleboard.org/static/beaglebone/latest/README.htm&quot;&gt;
+  BeagleBone README Quick-Start Guide&lt;/a&gt;&lt;/b&gt;
+  &amp;lt-- latest version of this document
+ &lt;/p&gt;
+ &lt;p&gt;
+  This document was last updated for BeagleBone revision &lt;b&gt;A6&lt;/b&gt;.
+ &lt;/p&gt;
+
+ &lt;h2 id=&quot;before&quot;&gt;&lt;u&gt;Available software updates&lt;/u&gt;&lt;/h2&gt;
+ &lt;p&gt;
+  &lt;a href=&quot;http://beagleboard.org/angstrom&quot;&gt;Angstrom Mirrors&lt;/a&gt;
+  &amp;lt-- latest pre-built microSD card images
+  &lt;br/&gt;
+  &lt;a href=&quot;http://www.angstrom-distribution.org/building-angstrom&quot;&gt;
+   Building Angstrom&lt;/a&gt;
+  &amp;lt-- instructions to rebuild the image
+ &lt;/p&gt;
+ &lt;h3&gt;Other currently available starting images&lt;/h3&gt;
+ &lt;ul class=&quot;arrow&quot;&gt;
+  &lt;li&gt;Texas Instruments releases: 
+   &lt;a href=&quot;http://processors.wiki.ti.com/index.php/BeagleBone-Android-DevKit_Guide&quot;&gt;
+    Android&lt;/a&gt;,
+   &lt;a href=&quot;http://software-dl.ti.com/dsps/dsps_public_sw/am_bu/sdk/AM335xSDK/latest/index_FDS.html&quot;&gt;
+    Linux&lt;/a&gt;,
+   &lt;a href=&quot;http://processors.wiki.ti.com/index.php/StarterWare&quot;&gt;
+    StarterWare (no OS)&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Linux: 
+   &lt;a href=&quot;http://elinux.org/BeagleBoardUbuntu&quot;&gt;Ubuntu&lt;/a&gt;,
+   &lt;a href=&quot;http://wiki.debian.org/InstallingDebianOn/TI/BeagleBone&quot;&gt;Debian&lt;/a&gt;,
+   &lt;a href=&quot;http://archlinuxarm.org/platforms/armv7/beaglebone&quot;&gt;ArchLinux&lt;/a&gt;,
+   &lt;a href=&quot;http://dev.gentoo.org/~armin76/arm/beaglebone/install.xml&quot;&gt;Gentoo&lt;/a&gt;,
+   &lt;a href=&quot;http://wiki.sabayon.org/index.php?title=Hitchhikers_Guide_to_the_BeagleBone_(and_ARMv7a)&quot;&gt;
+    Sabayon&lt;/a&gt;,
+   &lt;a href=&quot;http://www.zoobab.com/beaglebone&quot;&gt;Buildroot&lt;/a&gt;,
+   &lt;a href=&quot;http://nerves-project.org/&quot;&gt;Erlang&lt;/a&gt;,
+   &lt;a href=&quot;http://elinux.org/BeagleBoardFedora&quot;&gt;Fedora&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Other:
+   &lt;a href=&quot;http://community.qnx.com/sf/wiki/do/viewPage/projects.bsp/wiki/TiAm335Beaglebone&quot;&gt;QNX&lt;/a&gt;,
+   &lt;a href=&quot;http://people.freebsd.org/~dmarion/beaglebone/creating_bootable_sd_card/&quot;&gt;FreeBSD&lt;/a&gt;
+  &lt;/li&gt;
+ &lt;/ul&gt;
+
+ &lt;h2 id=&quot;software&quot;&gt;&lt;u&gt;Super-quick-start&lt;/u&gt;&lt;/h2&gt;
+ &lt;p&gt;Connect Ethernet and browse to &lt;a href=&quot;http://beaglebone.local&quot;&gt;
+  &lt;b&gt;beaglebone.local&lt;/b&gt;&lt;/a&gt;.  You can also &apos;ssh&amp;nbsp;root@beaglebone.local&apos;.
+ &lt;/p&gt;
+ &lt;p&gt;Your browser will introduce you to the board features and
+  Cloud9 IDE with Bonescript.
+ &lt;/p&gt;
+
+ &lt;h3&gt;beaglebone.local&lt;/h3&gt;
+ &lt;p&gt;To provide this network name, the BeagleBone is running 
+  &lt;a href=&quot;http://en.wikipedia.org/wiki/Avahi_(software)&quot;&gt;Avahi&lt;/a&gt; and a
+  &lt;a href=&quot;http://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol&quot;&gt;
+  DHCP client&lt;/a&gt;.  This is supported by most network configurations and Mac,
+  Windows and Linux computers.
+ &lt;/p&gt;
+ &lt;p&gt;
+  You can also connect to your BeagleBone using
+  built-in USB-to-serial or USB-to-Ethernet.
+ &lt;/p&gt;
+
+ &lt;h3 id=&quot;decision&quot;&gt;Powering options&lt;/h3&gt;
+ &lt;p&gt;
+  You may power via a USB cable (provided) or purchase a
+  &lt;a href=&quot;http://beagleboard.org/peripheral#5V&quot;&gt;recommended 5V power
+  adapter&lt;/a&gt;.
+ &lt;p&gt;
+  &lt;small&gt;&lt;b&gt;Note:&lt;/b&gt; Some software images limit the clock speed of the BeagleBone
+  by determining if the power source is USB or the 5V adapter to avoid excess use
+  of current.&lt;/small&gt;
+ &lt;/p&gt;
+
+ &lt;h2 id=&quot;drivers&quot;&gt;&lt;u&gt;Using USB-to-serial/JTAG/Ethernet on your computer&lt;/u&gt;&lt;/h2&gt;
+ &lt;h3&gt;Drivers&lt;/h3&gt;
+ &lt;p&gt;
+  Depending on the platform and board revision, you may need to manualy install or
+  load drivers for access to these interfaces.
+ &lt;/p&gt;
+ &lt;table border=&quot;1&quot;&gt;
+  &lt;tr&gt;
+   &lt;th&gt;Operating System&lt;/th&gt;
+   &lt;th&gt;USB-to-serial
+    (&lt;a href=&quot;http://www.ftdichip.com/Drivers/VCP.htm&quot;&gt;FTDI&lt;/a&gt;)
+   &lt;/th&gt;
+   &lt;th&gt;Ethernet over USB
+    (&lt;a href=&quot;http://www.linux-usb.org/gadget/&quot;&gt;Gadget&lt;/a&gt;)
+   &lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Windows (32-bit)&lt;/td&gt;
+   &lt;td&gt;
+    &lt;a href=&quot;Drivers/Windows/BONE_DRV.exe&quot;&gt;BONE_DRV.exe&lt;/a&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+    &lt;a href=&quot;Drivers/Windows/BONE_DRV.exe&quot;&gt;BONE_DRV.exe&lt;/a&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Windows (64-bit)&lt;/td&gt;
+   &lt;td&gt;
+    &lt;a href=&quot;Drivers/Windows/BONE_D64.exe&quot;&gt;BONE_D64.exe&lt;/a&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+    &lt;a href=&quot;Drivers/Windows/BONE_D64.exe&quot;&gt;BONE_D64.exe&lt;/a&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Mac OS X&lt;/td&gt;
+   &lt;td&gt;
+    Rev&amp;nbsp;A3-A4:&amp;nbsp;&lt;a href=&quot;Drivers/MacOSX/FTDI/FTDI_Ser.dmg&quot;&gt;FTDI_Ser.dmg&lt;/a&gt;&lt;br/&gt;
+    Rev&amp;nbsp;A5+:&amp;nbsp;Not&amp;nbsp;required
+   &lt;/td&gt;
+   &lt;td&gt;
+    Not required
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Linux&lt;/td&gt;
+   &lt;td&gt;
+    Rev&amp;nbsp;A3-A4:&amp;nbsp&lt;a href=&quot;Drivers/Linux/FTDI/mkudevrule.sh&quot;&gt;mkudevrule.sh&lt;/a&gt;&lt;br/&gt;
+    Rev&amp;nbsp;A5+:&amp;nbsp;Not&amp;nbsp;required
+   &lt;/td&gt;
+   &lt;td&gt;
+    Not required
+   &lt;/td&gt;
+  &lt;/tr&gt;
+ &lt;/table&gt;
+ &lt;p&gt;&lt;small&gt;&lt;b&gt;Note:&lt;/b&gt;&lt;br/&gt;
+  On revision A3/A4 boards, the VID/PID matches
+  the TI XDS100v2: 0x0403/0xA6D0&lt;br/&gt;
+  On revision A5+ boards, the generic FTDI VID/PID is used: 0x0403/0x6010&lt;/small&gt;
+ &lt;/p&gt;
+
+ &lt;h3&gt;JTAG debug&lt;/h3&gt;
+ &lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5&quot;&gt;
+  Code Composer Studio v5 (CCSv5)&lt;/a&gt;&lt;/b&gt; is available for free for BealgeBone users and
+  is a TI-provided Eclipse-based integrated development environment that enables you to
+  debug and develop C/C++ applications.  Please visit the
+  &lt;a href=&quot;http://processors.wiki.ti.com/index.php/FAQ_-_CCSv5&quot;&gt;CCSv5 Frequently Asked
+  Questions page&lt;/a&gt;.&lt;/p&gt;
+ &lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://openocd.sourceforge.net&quot;&gt;OpenOCD&lt;/a&gt;&lt;/b&gt; is an application
+  that provides JTAG-based debugging on all three operating systems, but currently only
+  Linux is verified.  Please visit
+  &lt;a href=&quot;http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/&quot;&gt;
+  Matt Massey&apos;s blog post describing installation in Ubuntu&lt;/a&gt;.&lt;/p&gt;
+
+ &lt;h3 id=&quot;serial&quot;&gt;&lt;u&gt;Connect to your BeagleBone&apos;s serial console&lt;/u&gt;&lt;/h3&gt;
+ &lt;p&gt;Under Windows, it is recommended to follow the
+  &lt;a href=&quot;http://ladyada.net/products/beaglebone/ethernet.html&quot;&gt;
+  Adafruit tutorial&lt;/a&gt;.
+ &lt;p&gt;
+
+ &lt;p&gt;For Mac or Linux, it is recommended simply to invoke &apos;screen&apos;:
+  &lt;pre&gt;
+screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
+  &lt;/pre&gt;
+  Type CTRL-a k to exit screen.
+ &lt;/p&gt;
+
+ &lt;h3 id=&quot;g_ether&quot;&gt;&lt;u&gt;Launch USB-to-Ethernet interface&lt;/u&gt;&lt;/h3&gt;
+ &lt;p&gt;&lt;b&gt;&lt;u&gt;Eject&lt;/u&gt; the &quot;BEAGLE_BONE&quot; drive to enable the USB-to-Ethernet interface.&lt;/b&gt;&lt;/p&gt;
+ &lt;p&gt;At boot-up, the processor on your BeagleBone is running a USB storage &quot;gadget&quot; driver
+  that served you up this file.  For this software build, you need to swap the storage gadget
+  for a USB-to-Ethernet gadget when you are ready to establish an IP connection over your
+  USB cable.
+ &lt;/p&gt;
+ &lt;ul class=&quot;arrow&quot;&gt;
+  &lt;li&gt;From your PC, eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.&lt;br /&gt;
+   &lt;br /&gt;&lt;small&gt;&lt;b&gt;Note #1:&lt;/b&gt; It has been observed in Windows that it may actually take a
+   couple of minutes for the driver to load on occasion.&lt;/small&gt;&lt;br /&gt;
+   &lt;br /&gt;&lt;small&gt;&lt;b&gt;Note #2:&lt;/b&gt; It has been observed in Windows that you may be prompted
+   to locate the &apos;linux.inf&apos; file.  If you installed the driver properly, you should be able to
+   find it under c:\windows\system32\drvstore\linux_...&lt;/small&gt;&lt;br /&gt;
+   &lt;br /&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Configure the adapter that appears for DHCP.&lt;/li&gt;
+  &lt;li&gt;The adapter should be given the IP address 192.168.7.1.&lt;li&gt;
+  &lt;li&gt;The BeagleBone should have IP address 192.168.7.2.&lt;li&gt;
+  &lt;li&gt;It is recommended to use Chrome or Firefox.&lt;/li&gt;
+ &lt;/ul&gt;
+
+ &lt;h2 id=&quot;hardware&quot;&gt;&lt;u&gt;Hardware&lt;/u&gt;&lt;/h2&gt;
+ &lt;h3 &gt;&lt;u&gt;Design materials&lt;/u&gt;&lt;/h3&gt;
+ &lt;ul&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;Docs/Hardware/BONE_SRM.pdf&quot;&gt;System Reference Manual&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;Docs/Hardware/BONE_SCH.pdf&quot;&gt;Schematics (PDF)&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;Docs/Hardware/BONE_SCH.zip&quot;&gt;Schematics (Orcad)&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;Docs/Hardware/BONE_BOM.xls&quot;&gt;Bill of materials&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;Docs/Hardware/BONE_PCB.zip&quot;&gt;PCB design files&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+   &lt;a href=&quot;Docs/Hardware/BONE_MFG.zip&quot;&gt;PCB manufacturing files&lt;/a&gt;
+ &lt;/ul&gt;
+
+ &lt;h3 id=&quot;revisions&quot;&gt;&lt;u&gt;Revisions&lt;/u&gt;&lt;/h3&gt;
+ &lt;p&gt; &lt;a href=&quot;http://circuitco.com/support/index.php?title=BeagleBone&quot;&gt;
+ CircuitCo.com&apos;s BeagleBone page&lt;/a&gt; documents all of the known hardware issues.
+ &lt;/p&gt;
+
+ &lt;h4&gt;A3&lt;/h4&gt; &lt;p&gt;This is the original version of the board. Main issue was
+ issues with the reset switch where the reset line was being pulled low which
+ could cause random dropping of the Ethernet port. This issue has not be seen
+ broadly.&lt;/p&gt;
+  
+ &lt;h4&gt;A4&lt;/h4&gt; &lt;p&gt;This version of the board was mainly to provide a new SD
+ connector due to supply issues. Also added was R219 in an attempt to make the
+ Yellow LED on the RJ45 turn on when at 100M operation. This caused the
+ Ethernet not to work on power up but did work after a board reboot.&lt;/p&gt;
+   
+ &lt;h4&gt;A5&lt;/h4&gt; &lt;p&gt;This version of the board returns the functionality of the
+ board to that of the Rev A3 via the removal of R219. There have been no PCB
+ changes for this revision. It uses the same PCB revision as the A4. It also
+ ships with an updated version of the Angstrom image providing out of the box
+ support for the DVI-D and 7” LCD Capes.&lt;/p&gt;
+    
+ &lt;p&gt;There will be three possible versions of the Rev A5. One will be the new
+ production version that is built from the ground up as an A5. The second
+ version will be a reworked Revision A4 that has R219 removed at the factory
+ and retested. The third version will be a revision A3, that just has the
+ updated SW added. All reworked versions will have the reset switches double
+ checked as well. All reworked boards will be retested using the full
+ production test process.&lt;/p&gt;
+     
+ &lt;p&gt;You will be able to identify these versions via the serial number. They
+ all will be labeled as revision A5. The two digits after the BB in the serial
+ number, S/N: 5111BB&lt;font color=&quot;red&quot;&gt;00&lt;/font&gt;0023, will indicate the board.
+ A fresh revision A5, will be 00, A4 reworked will be 01, and a recertified A3
+ will be 02. There is no functional or operational difference between any of
+ these boards. They are all revision A5 and will ship with the same SW.&lt;/p&gt;
+
+ &lt;h4&gt;A6&lt;/h4&gt;
+ &lt;p&gt;This version of the board has several updates, but none should impact
+ execution of existing software.&lt;/p&gt;
+ &lt;ul class=&quot;arrow&quot;&gt;
+  &lt;li&gt;Yellow LED to turns on during 100M operation&lt;/li&gt;
+  &lt;li&gt;Two additional PRU signals overlaid with existing signals to the
+   expansion header&lt;/li&gt;
+  &lt;li&gt;Moved resistors away from the standoff&lt;/li&gt;
+  &lt;li&gt;Removed connection to VPP pin from the layout&lt;/li&gt;
+  &lt;li&gt;Removed R163 to avoid spurious JTAG reset issues&lt;/li&gt;
+  &lt;li&gt;Removed incorrect and ignored configuration resistor for LAN8710&lt;/li&gt;
+ &lt;/ul&gt;
+
+ &lt;h2 id=&quot;updates&quot;&gt;&lt;u&gt;Software updates&lt;/u&gt;&lt;/h2&gt;
+ &lt;h3 id=&quot;todo&quot;&gt;&lt;u&gt;Known issues and to-do list&lt;/u&gt;&lt;/h3&gt;
+ &lt;ul class=&quot;arrow&quot;&gt;
+  &lt;li&gt;System
+   &lt;ul class=&quot;subitem&quot;&gt;
+    &lt;li&gt;Mount time for USB-to-Ethernet may take a couple of minutes under Windows&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Kernel
+   &lt;ul class=&quot;subitem&quot;&gt;
+    &lt;li&gt;Need completed CAN drivers&lt;/li&gt;
+    &lt;li&gt;Need improved PWM support&lt;/li&gt;
+    &lt;li&gt;Need device tree support and run-time configuration with daughterboards&lt;/li&gt;
+    &lt;li&gt;Need improved USB and USB DMA support&lt;/li&gt;
+    &lt;li&gt;Need improved SD performance&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SD card image
+   &lt;ul class=&quot;subitem&quot;&gt;
+    &lt;li&gt;Add Java&lt;/li&gt;
+    &lt;li&gt;Need simplified IP discovery&lt;/li&gt;
+    &lt;li&gt;Need improved GateOne performance and resolve &apos;redirect loop&apos; issue&lt;/li&gt;
+    &lt;li&gt;Need to consider ConnMan tethering for USB-based IP&lt;/li&gt;
+    &lt;li&gt;&apos;top&apos; refresh rate can sometimes be crazy fast&lt;/li&gt;
+    &lt;li&gt;Restore automounting of hotplugged media&lt;/li&gt;
+    &lt;li&gt;Restore Matrix and add application entries for GateOne and Cloud9 IDE&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Documentation
+   &lt;ul class=&quot;subitem&quot;&gt;
+    &lt;li&gt;Need daughterboard building guide&lt;/li&gt;
+    &lt;li&gt;Add graphics and/or videos where appropriate&lt;/li&gt;
+    &lt;li&gt;Need full description of /sys entries&lt;/li&gt;
+    &lt;li&gt;Basic information on apps for each major interface type, ie. I2C, SPI, etc.&lt;/li&gt;
+    &lt;li&gt;Need to highlight daughterboard (&quot;cape&quot;) EEPROM spec&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cloud9 IDE and BoneScript
+   &lt;ul class=&quot;subitem&quot;&gt;
+    &lt;li&gt;Update the git data to match the checked out repository&lt;/li&gt;
+    &lt;li&gt;Update version of Bone101 included to one that runs&lt;/li&gt;
+    &lt;li&gt;Inclusion of node-fibers such that delays don&apos;t hog the CPU&lt;/li&gt;
+    &lt;li&gt;Arduino-like automatic execution of installed apps&lt;/li&gt;
+    &lt;li&gt;Dynamic web conent example with board status and streaming data&lt;/li&gt;
+    &lt;li&gt;Optimal utilization of the PRU and performance improvements&lt;/li&gt;
+    &lt;li&gt;Extensive improvements to the BoneScript API&lt;/li&gt;
+    &lt;li&gt;Need examples on programming in C and Python through the Cloud9 IDE interface&lt;/li&gt;
+    &lt;li&gt;Include npm and several node modules&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+ &lt;/ul&gt;</body>
+    <http_language>en-US,en;q=0.8</http_language>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_referer>http://beagleboard.org/getting-started/edit</http_referer>
+  </hopobject>
+</xmlroot>
