@@ -32,6 +32,8 @@ function listBody ()
    
   if (collection[0].render_skin == "project")
    body += "<table id='projects'>\n";
+  if (collection[0].render_skin == "cape")
+   body += "<table id='capes' border='1'>\n";
   else
    body += "<ul>\n";
   for (var i in collection)
@@ -73,6 +75,26 @@ function listBody ()
        + '</small></td></tr>\n'
        ;
      }
+    else if (collection[i].render_skin == "cape")
+     {
+      body += '<tr>\n';
+      body +=
+       ' <td><a href="' + collection[i].href() + '">'
+       + collection[i].uri
+       + '</a></td>\n' 
+       ;
+      body +=
+       ' <td><a href="mailto:' + collection[i].email + '">'
+       + collection[i].name
+       + '</a></td>\n' 
+       ;
+      body +=
+       ' <td><a href="' + collection[i].project_url + '">'
+       + collection[i].project_url
+       + '</a></td>\n' 
+      body += ' <td>' + collection[i].min + '</td>\n';
+      body += '</tr>\n';
+     }
     else if (collection[i].render_skin == "rss")
      {
       body +=
@@ -94,9 +116,9 @@ function listBody ()
      }
    }
   if (collection[0].render_skin == "project")
-   {
-    body += "</table>\n";
-   }
+   body += "</table>\n";
+  else if (collection[0].render_skin == "cape")
+   body += "</table>\n";
   else
    body += "</ul>\n";
   return (body);
