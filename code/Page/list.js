@@ -18,7 +18,8 @@ function listBody ()
   catch (ex)
    {
     var collection = [];
-    //body += "<p>No children exist for this page</p>\n";
+    body = "<p>No children exist for this page</p>\n";
+    return (body);
    }
    
   function fixUrl(param)

@@ -1,0 +1,73 @@
+<form method="post">
+ <h1>BeagleBone Cape Plug-in Board Design Contest</h1>
+ <p>This is the submission form for the BeagleBone Cape Design Contest.</p>
+ <p><font color="red">* = Required</font></p>
+ <p align="center"><font color="red"><% this.errmsg %></font></p>
+ <label for="uri">
+  <strong>What is the name of your Cape design?</strong>
+  <font color="red">*</font><br />
+  Please provide a name for your Cape design<br />
+ </label>
+ <input type="text" name="uri" value="<% this.uri %>" id="uri" /><br />
+ <br />
+ <label for="body">
+  <strong>What is the design and key features?</strong>
+  <font color="red">*</font><br />
+  Describe your cape design<br />
+ </label>
+ <textarea name="body" rows="8" cols="75" class="style2" id="body"><% this.body %></textarea><br />
+ <br />
+ <label for="name">
+  <strong>What is your name?</strong>
+  <font color="red">*</font><br />
+  Please provide first and last name<br />
+ </label>
+ <input type="text" name="name" value="<% this.name %>" id="name" /><br />
+ <br />
+ <label for="email">
+  <strong>What is the e-mail address for queries?</strong>
+  <font color="red">*</font><br />
+ </label>
+ <input type="text" name="email" value="<% this.email %>" id="email" /><br />
+ <br />
+ <label for="project_url">
+  <strong>What is your cape project URL?</strong>
+  <font color="red">*</font><br />
+  Please host your cape design on a page like Github! You may post all supporting material there<br />
+ </label>
+ <input type="text" name="project_url" value="<% this.project_url %>" id="project_url" /><br />
+ <br />
+ <label for="min">
+  <strong>Does your cape design meet the minimum requirements?</strong>
+  <font color="red">*</font><br />
+  Minimum requirements are:<ul>
+   <li>Schematic with extractable net-list,</li>
+   <li>Bill of Materials (excel with reference designators and manufacturer part numbers) and</li>
+   <li>all supporting software required for your design.</li>
+  </ul><br />
+ </label>
+ <input type="radio" name="min" value="yes">
+  Yes, my design meets the minimum requirements.
+ </input><br />
+ <input type="radio" name="min" value="no">
+  No, my design does not meet the minimum requirements.
+ </input><br />
+ <br />
+ <hr />
+ <br />
+ <p>
+  <input id="agree_box" name="agree" type="checkbox" onclick="show_submit();" />
+  &nbsp;&nbsp;By selecting this box you AGREE to be bound by the foregoing rules and conditions, click "Submit" to submit your entry, and these terms shall form a legally binding agreement with TI.
+ </p>
+ <p>&nbsp;&nbsp;If you DO NOT AGREE to be bound by the terms of the foregoing rules and conditions, or if you want to decide later, close this window and your submission will not be sent.</p>
+ <p>&nbsp;&nbsp;If you wish to receive emails about other events and offerings from TI Sitara, its affiliates or its partners, please click here to visit TI's registration pages: <a href="http://my.ti.com">http://my.ti.com</a></p>
+ <div id="submit_button"></div>
+</form>
+<script>
+function show_submit() {
+ if($('#agree_box').is(':checked'))
+  $('#submit_button').html('<input class="btn1" name="submit" type="submit" value="Save" />');
+ else
+  $('#submit_button').html('');
+}
+</script>
