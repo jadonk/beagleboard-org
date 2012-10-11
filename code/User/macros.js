@@ -35,6 +35,8 @@ function prompt_macro (param)
 
       var openID = req.data["openid_url"];
       var returnToURL = req.getServletRequest().getRequestURL();
+      if (req.data["target"])
+       returnToURL = "http://beagleboard.org" + req.data["target"];
       if (param["realm"])
        var realm = param["realm"];
       else
