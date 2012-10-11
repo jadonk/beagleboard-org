@@ -35,7 +35,8 @@ function edit_action ()
 
   if (!session.user || !session.user["name"])
    {
-    res.redirect(root.href("login") + "?target=" + this.href());
+    var targetURL = root.href("login") + "?target=" + this.href();
+    res.redirect(targetURL);
     return;
    }
   res.handlers["User"] = User();
@@ -84,12 +85,27 @@ function edit_action ()
       var runtime = Packages.java.lang.Runtime.getRuntime();
       var message = "http://beagleboard.org" + this.href() + " was edited by " + session.user["name"];
       runtime.exec("scripts/beagle/edit.sh");
-      if (false && this.href() != global.lastPageUpdated)
+      var currentTime = new Date();
+      if (typeof bot === 'undefined')
+       {
+        global.defineLibraryScope("bot");
+        bot.lastSpoke = currentTime;
+       }
+      var timeSinceUpdate = currentTime - this.time;
+      var timeSinceNotice = currentTime - bot.lastSpoke;
+      app.log("Previous edit was " + timeSinceUpdate/1000 + "s ago");
+      app.log("Previous notice was " + timeSinceNotice/1000 + "s ago");
+      if
+       (
+        (timeSinceUpdate > (1000*60*60*24))
+	&& (timeSinceNotice > (1000*60*60))
+       )
        {
         global.logbot.sendMessage('#beagle', message);
 	global.logbot.append(3, message, "BeagleBot");
+	bot.lastSpoke = currentTime;
+        bot.lastSpokePage = this.href();
        }
-      global.lastPageUpdated = this.href();
       this.time = new Date();
       res.redirect(this.href());
       return;

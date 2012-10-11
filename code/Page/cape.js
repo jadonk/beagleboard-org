@@ -33,7 +33,8 @@ function edit_cape_action ()
  {
   if (!session.user || !session.user["name"])
    {
-    res.redirect(root.href("login") + "?target=" + this.href());
+    var targetURL = root.href("login") + "?target=" + this.href();
+    res.redirect(targetURL);
     return;
    }
   res.handlers["User"] = User();

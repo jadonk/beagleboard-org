@@ -53,6 +53,11 @@ function prompt_macro (param)
       var serverResponse = verifyResponse(requestURL, queryString);
       app.log("serverResponse=" + serverResponse);
      }
+    else if (req.isPost())
+     {
+      app.log("Login attempt without openid: " + JSON.stringify(req));
+      res.redirect("/login?target=" + req.path);
+     }
    }
 
   /**
@@ -234,11 +239,7 @@ function prompt_macro (param)
    }
   else
    {
-    promptString += '  <form method="post" action="">\n';
-    promptString += '   <input type="text" id="openid" name="openid_url"></input>\n';
-    promptString += '   <button type="submit">Login</button>\n';
-    promptString += '  </form>\n';
-    promptString += ' | <a href="/register">Register</a>';
+    promptString += ' <div id="prompt_form"></div> <a href="/register">Register</a>\n';
    }
   promptString += '</div>';
   return (promptString);
