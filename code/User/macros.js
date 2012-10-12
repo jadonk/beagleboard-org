@@ -55,8 +55,9 @@ function prompt_macro (param)
      }
     else if (req.isPost())
      {
-      app.log("Login attempt without openid: " + JSON.stringify(req));
-      res.redirect("/login?target=" + req.path);
+      app.log("Login attempt without openid");
+      var requestURL = req.getServletRequest().getRequestURL();
+      res.redirect("/login?target=" + requestURL);
      }
    }
 
@@ -197,6 +198,18 @@ function prompt_macro (param)
    }
 
   updateUserState();
+
+  if (session.data.edit_new)
+   {
+    app.log("session.data.edit_new=" + session.data.edit_new + ", session.user=" + session.user);
+    if (session.user)
+     {
+      var redirectURL = session.data.edit_new;
+      session.data.edit_new = null;
+      delete session.data.edit_new;
+      res.redirect(redirectURL);
+     }
+   }
 
   var promptString = '';
   if (param.registrant)

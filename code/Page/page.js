@@ -212,6 +212,23 @@ function getChildElement (name)
     notfound_body += "<p>The requested page does not currently exist.</p>";
     x = new Page("system", name, notfound_body);
     x.pseudoParent = this;
+    try
+     {
+      if (!session.user)
+       {
+        var orderedByDate = this.getOrderedView("time desc");
+        var collection = orderedByDate.list();
+        var edit_skin = collection[0].edit_skin || "edit";
+        var redirectURL = this.href() + "new/" + edit_skin;
+        session.data.edit_new = redirectURL;
+        app.log("Setting session.data.edit_new=" + redirectURL);
+       }
+     }
+    catch(e)
+     {
+      app.log("session.data.edit_new: No exiting children found for " + this.href() + " exception: " + e);
+     }
+
    }
   return (x);
  }
