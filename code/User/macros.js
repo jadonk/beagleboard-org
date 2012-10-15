@@ -252,7 +252,7 @@ function prompt_macro (param)
    }
   else
    {
-    promptString += ' <div id="prompt_form"></div> <a href="/register">Register</a>\n';
+    promptString += ' <div id="prompt_form"> | </div> <a href="/register">Register</a>\n';
    }
   promptString += '</div>';
   return (promptString);
