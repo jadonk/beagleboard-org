@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2204" name="Page" prototype="Page" created="1350683344092" lastModified="1350707994395">
+  <hopobject id="2204" name="Page" prototype="Page" created="1350683344092" lastModified="1350708543073">
   <hop:parent idref="0" prototyperef="Root"/>
     <http_browser>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4</http_browser>
     <lang>en-us</lang>
     <uri>rotate-test</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">19.10.2012 23:39:54 CDT</time>
+    <time type="date">19.10.2012 23:49:03 CDT</time>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_remotehost>127.0.0.1</http_remotehost>
     <hopsession>127.0.0.107.5.165.95krpamcv4vp</hopsession>
     <user>blog.hangerhead.com</user>
     <body>&lt;div id=&quot;rotate-items&quot; style=&apos;width: 600px; height: 400px;&apos;&gt;
  &lt;img id=&quot;a&quot; src=&quot;/static/images/bone.jpg&quot; style=&apos;height: 300px; position: absolute; left: 200px; top: 100px; z-index: 3;&apos; /&gt; 
- &lt;img id=&quot;b&quot; src=&quot;/static/images/board.jpg&quot; style=&apos;height: 80px; position: absolute; left: 500px; top: 50px; z-index: 1;&apos; /&gt; 
- &lt;img id=&quot;c&quot; src=&quot;/static/images/xm.jpg&quot; style=&apos;height: 80px; position: absolute; left: 50px; top: 50px; z-index: 2;&apos;  /&gt;
+ &lt;img id=&quot;b&quot; src=&quot;/static/images/board.jpg&quot; style=&apos;height: 80px; position: absolute; left: 50px; top: 50px; z-index: 1;&apos; /&gt; 
+ &lt;img id=&quot;c&quot; src=&quot;/static/images/xm.jpg&quot; style=&apos;height: 80px; position: absolute; left: 500px; top: 50px; z-index: 2;&apos;  /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;script&gt;
  var onleft = {
   height: &quot;80px&quot;,
   left: &quot;50px&quot;,
-  top: &quot;50px&quot;,
-  &apos;z-index&apos;: &quot;1&quot;
+  top: &quot;50px&quot;
  };
  var oncenter = {
   height: &quot;300px&quot;,
   left: &quot;200px&quot;,
-  top: &quot;100px&quot;,
-  &apos;z-index&apos;: &quot;3&quot;
+  top: &quot;100px&quot;
  };
  var onright = {
   height: &quot;80px&quot;,
   left: &quot;500px&quot;,
-  top: &quot;50px&quot;,
-  &apos;z-index&apos;: &quot;2&quot;
+  top: &quot;50px&quot;
  };
  doRotate = function() {
   if($(&apos;#a&apos;).css(&apos;left&apos;) == onleft.left) {
    $(&apos;#a&apos;).animate(onright, 1000);
+   $(&apos;#a&apos;).css(&apos;z-index&apos;, &apos;2&apos;);
    $(&apos;#b&apos;).animate(oncenter, 1000);
+   $(&apos;#b&apos;).css(&apos;z-index&apos;, &apos;3&apos;);
    $(&apos;#c&apos;).animate(onleft, 1000);
+   $(&apos;#c&apos;).css(&apos;z-index&apos;, &apos;1&apos;);
   } else  if($(&apos;#a&apos;).css(&apos;left&apos;) == oncenter.left) {
    $(&apos;#a&apos;).animate(onleft, 1000);
+   $(&apos;#a&apos;).css(&apos;z-index&apos;, &apos;1&apos;);
    $(&apos;#b&apos;).animate(onright, 1000);
+   $(&apos;#b&apos;).css(&apos;z-index&apos;, &apos;2&apos;);
    $(&apos;#c&apos;).animate(oncenter, 1000);
-  } else {
+   $(&apos;#c&apos;).css(&apos;z-index&apos;, &apos;3&apos;);
+} else {
    $(&apos;#a&apos;).animate(oncenter, 1000);
+   $(&apos;#a&apos;).css(&apos;z-index&apos;, &apos;3&apos;);
    $(&apos;#b&apos;).animate(onleft, 1000);
+   $(&apos;#b&apos;).css(&apos;z-index&apos;, &apos;1&apos;);
    $(&apos;#c&apos;).animate(onright, 1000);
+   $(&apos;#c&apos;).css(&apos;z-index&apos;, &apos;2&apos;);
   }
  };
  setInterval(doRotate, 5000);
