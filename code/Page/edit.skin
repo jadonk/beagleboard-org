@@ -1,6 +1,22 @@
 <form action="edit" method="post">
  URI: <input type="text" name="uri" value="<% this.uri %>" /><br />
- Page: <textarea rows="20" cols="80" name="body"><% this.body %></textarea><br />
+ Page: 
+  <div id="editor" style="position: relative; height: 600px; width: 800px;">
+  <textarea rows="20" cols="80" name="body"><% this.body %></textarea>
+  </div><br />
  Language: <input type="text" name="lang" value="<% this.lang %>" /><br />
  <input type="submit" name="submit" value="Save" />
 </form>
+<script src="/static/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+ var textarea = $('textarea[name="body"]');
+ textarea.hide();
+ $('#editor').show();
+ var editor = ace.edit("editor");
+ editor.setTheme("ace/theme/monokai");
+ editor.getSession().setMode("ace/mode/html");
+ editor.getSession().setValue(textarea.val());
+ editor.getSession().on('change', function() {
+  textarea.val(editor.getSession().getValue());
+ });
+</script>
