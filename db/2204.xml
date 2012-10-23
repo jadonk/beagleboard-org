@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2204" name="Page" prototype="Page" created="1350683344092" lastModified="1350948048353">
+  <hopobject id="2204" name="Page" prototype="Page" created="1350683344092" lastModified="1350994014863">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,7 +9,7 @@
     <http_language>en-US,en;q=0.8</http_language>
     <uri>rotate-test</uri>
     <http_browser>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4</http_browser>
-    <time type="date">22.10.2012 18:20:48 CDT</time>
+    <time type="date">23.10.2012 07:06:54 CDT</time>
     <hopsession>127.0.0.107.5.165.95krpamcv4vp</hopsession>
     <body>&lt;div id=&quot;rotate-items&quot; style=&apos;width: 800px; height: 600px;&apos;&gt;
  &lt;img id=&quot;a&quot; src=&quot;/static/images/bone.jpg&quot; style=&apos;height: 500px; position: absolute; left: 250px; top: 100px; z-index: 3;&apos; /&gt; 
@@ -19,7 +19,7 @@
 &lt;p&gt;&lt;/p&gt;
 &lt;ul id=&quot;slider&quot;&gt;
 &lt;/ul&gt;
-&lt;script src=&quot;/static/jquery.movingboxes.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/static/jquery.flexslider-min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
  var onleft = {
   height: &quot;80px&quot;,
@@ -84,13 +84,8 @@
        $(&apos;.results_image&apos;).css(&apos;max-width&apos;, &quot;100px&quot;);
        $(&apos;.results_image&apos;).css(&apos;max-height&apos;, &quot;100px&quot;);
 
-		$(&apos;#slider&apos;).movingBoxes({
-			width: 500,
-			panelWidth: 0.5,
-			startPanel   : 1,      // start with this panel
-			wrap         : false,   // if true, the panel will &quot;wrap&quot; (it really rewinds/fast forwards) at the ends
-			buildNav     : true,   // if true, navigation links will be added
-			navFormatter : function(){ return &quot;&amp;#9679;&quot;; } // function which returns the navigation text for each panel
+		$(&apos;#slider&apos;).flexslider({
+			animation: &apos;slide&apos;
 		});
 
       }
