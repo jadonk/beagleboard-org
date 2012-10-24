@@ -1101,3 +1101,195 @@
 <li class="join">[<abbr title="2012-10-24T17:59:44+00:00">17:59:44</abbr>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
 <li class="message">[<a href="#T17:59:49" id="T17:59:49"><abbr title="2012-10-24T17:59:49+00:00">17:59:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>1. client requests buffer from driver</q></li>
 <li class="message">[<a href="#T17:59:54" id="T17:59:54"><abbr title="2012-10-24T17:59:54+00:00">17:59:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>2. client writes samples to buffer</q></li>
+<li class="message">[<a href="#T18:00:16" id="T18:00:16"><abbr title="2012-10-24T18:00:16+00:00">18:00:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>3. client submits buffer for playback</q></li>
+<li class="message">[<a href="#T18:00:26" id="T18:00:26"><abbr title="2012-10-24T18:00:26+00:00">18:00:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>4. kernel passes buffer to mixing daemon</q></li>
+<li class="message">[<a href="#T18:00:43" id="T18:00:43"><abbr title="2012-10-24T18:00:43+00:00">18:00:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>5. daemon requests output buffer from driver</q></li>
+<li class="message">[<a href="#T18:00:50" id="T18:00:50"><abbr title="2012-10-24T18:00:50+00:00">18:00:50</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>why the request submit ..</q></li>
+<li class="message">[<a href="#T18:00:51" id="T18:00:51"><abbr title="2012-10-24T18:00:51+00:00">18:00:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>6. daemon mixes all input into output</q></li>
+<li class="message">[<a href="#T18:01:06" id="T18:01:06"><abbr title="2012-10-24T18:01:06+00:00">18:01:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>7. daemon submits output buffer to kernel for playback</q></li>
+<li class="message">[<a href="#T18:01:13" id="T18:01:13"><abbr title="2012-10-24T18:01:13+00:00">18:01:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>8. actual playback</q></li>
+<li class="message">[<a href="#T18:01:28" id="T18:01:28"><abbr title="2012-10-24T18:01:28+00:00">18:01:28</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>wouldnt a simple ringbuffer interaction with the kernel be better ?</q></li>
+<li class="message">[<a href="#T18:01:41" id="T18:01:41"><abbr title="2012-10-24T18:01:41+00:00">18:01:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>details</q></li>
+<li class="message">[<a href="#T18:01:51" id="T18:01:51"><abbr title="2012-10-24T18:01:51+00:00">18:01:51</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T18:02:13" id="T18:02:13"><abbr title="2012-10-24T18:02:13+00:00">18:02:13</abbr></a>] &lt;<cite>mru</cite>&gt; <q>buffer ownership has to be tracked one way or another</q></li>
+<li class="message">[<a href="#T18:02:23" id="T18:02:23"><abbr title="2012-10-24T18:02:23+00:00">18:02:23</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>but yea something like that would be nice.</q></li>
+<li class="message">[<a href="#T18:02:39" id="T18:02:39"><abbr title="2012-10-24T18:02:39+00:00">18:02:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the userspace daemon could then do whatever the hell it wants</q></li>
+<li class="nick-change">[<a href="#T18:02:47" id="T18:02:47"><abbr title="2012-10-24T18:02:47+00:00">18:02:47</abbr></a>] <span>* ka6sox-away is now known as ka6so</span></li>
+<li class="join">[<a href="#T18:02:48" id="T18:02:48"><abbr title="2012-10-24T18:02:48+00:00">18:02:48</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:02:51" id="T18:02:51"><abbr title="2012-10-24T18:02:51+00:00">18:02:51</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>dma-bufs, solved generically</q></li>
+<li class="nick-change">[<a href="#T18:02:52" id="T18:02:52"><abbr title="2012-10-24T18:02:52+00:00">18:02:52</abbr></a>] <span>* ka6so is now known as ka6sox</span></li>
+<li class="message">[<a href="#T18:02:53" id="T18:02:53"><abbr title="2012-10-24T18:02:53+00:00">18:02:53</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>and ofc a nice "mixer" api some event mechanism</q></li>
+<li class="message">[<a href="#T18:03:07" id="T18:03:07"><abbr title="2012-10-24T18:03:07+00:00">18:03:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's just sugar</q></li>
+<li class="message">[<a href="#T18:03:15" id="T18:03:15"><abbr title="2012-10-24T18:03:15+00:00">18:03:15</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>yea but its all there..</q></li>
+<li class="message">[<a href="#T18:03:24" id="T18:03:24"><abbr title="2012-10-24T18:03:24+00:00">18:03:24</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>mru: It seems high-latency to go back and forth from kernel space</q></li>
+<li class="message">[<a href="#T18:03:32" id="T18:03:32"><abbr title="2012-10-24T18:03:32+00:00">18:03:32</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>alan_o: oO</q></li>
+<li class="message">[<a href="#T18:03:33" id="T18:03:33"><abbr title="2012-10-24T18:03:33+00:00">18:03:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>compared to what?</q></li>
+<li class="message">[<a href="#T18:03:46" id="T18:03:46"><abbr title="2012-10-24T18:03:46+00:00">18:03:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>alsa does user-user ipc instead</q></li>
+<li class="message">[<a href="#T18:03:54" id="T18:03:54"><abbr title="2012-10-24T18:03:54+00:00">18:03:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which involves syscalls too</q></li>
+<li class="message">[<abbr title="2012-10-24T18:03:54+00:00">18:03:54</abbr>] &lt;<cite>alan_o</cite>&gt; <q>Compared to making /dev/dsp multi-open and doing mixing in kernel.</q></li>
+<li class="message">[<a href="#T18:04:12" id="T18:04:12"><abbr title="2012-10-24T18:04:12+00:00">18:04:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you care about latency, you don't do mixing</q></li>
+<li class="message">[<a href="#T18:04:13" id="T18:04:13"><abbr title="2012-10-24T18:04:13+00:00">18:04:13</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>kernel space would simply mix in data from each "source" in a zero copy kinda way</q></li>
+<li class="message">[<abbr title="2012-10-24T18:04:13+00:00">18:04:13</abbr>] &lt;<cite>mru</cite>&gt; <q>period</q></li>
+<li class="message">[<a href="#T18:04:32" id="T18:04:32"><abbr title="2012-10-24T18:04:32+00:00">18:04:32</abbr></a>] &lt;<cite>mru</cite>&gt; <q>none of what I described needs any copying</q></li>
+<li class="message">[<a href="#T18:04:41" id="T18:04:41"><abbr title="2012-10-24T18:04:41+00:00">18:04:41</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>agreed on the copying</q></li>
+<li class="message">[<a href="#T18:05:04" id="T18:05:04"><abbr title="2012-10-24T18:05:04+00:00">18:05:04</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>mru: the mixer needs to mix together locally before writing out at least.</q></li>
+<li class="message">[<a href="#T18:05:19" id="T18:05:19"><abbr title="2012-10-24T18:05:19+00:00">18:05:19</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>and since rate conversion is a thing one should perhaps have a small buffer as well</q></li>
+<li class="message">[<a href="#T18:05:36" id="T18:05:36"><abbr title="2012-10-24T18:05:36+00:00">18:05:36</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>also format conversion</q></li>
+<li class="message">[<a href="#T18:05:49" id="T18:05:49"><abbr title="2012-10-24T18:05:49+00:00">18:05:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>all of which can be done equally well in userspace</q></li>
+<li class="message">[<a href="#T18:05:54" id="T18:05:54"><abbr title="2012-10-24T18:05:54+00:00">18:05:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>format conversion is cheap</q></li>
+<li class="message">[<a href="#T18:06:02" id="T18:06:02"><abbr title="2012-10-24T18:06:02+00:00">18:06:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it affects only 1 client, not all</q></li>
+<li class="message">[<a href="#T18:06:06" id="T18:06:06"><abbr title="2012-10-24T18:06:06+00:00">18:06:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>a kernel thread would incur the same latency</q></li>
+<li class="message">[<abbr title="2012-10-24T18:06:06+00:00">18:06:06</abbr>] &lt;<cite>av500</cite>&gt; <q>mixing affects all</q></li>
+<li class="message">[<a href="#T18:06:23" id="T18:06:23"><abbr title="2012-10-24T18:06:23+00:00">18:06:23</abbr></a>] &lt;<cite>mru</cite>&gt; <q>format conversion is pure sugar</q></li>
+<li class="message">[<a href="#T18:06:41" id="T18:06:41"><abbr title="2012-10-24T18:06:41+00:00">18:06:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you could easily deman each client supply a single format/rate</q></li>
+<li class="message">[<a href="#T18:06:46" id="T18:06:46"><abbr title="2012-10-24T18:06:46+00:00">18:06:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>*demand</q></li>
+<li class="message">[<abbr title="2012-10-24T18:06:46+00:00">18:06:46</abbr>] &lt;<cite>panto</cite>&gt; <q>mru, in the case where multiple streams can be supported by the h/w, the daemon is not that needed</q></li>
+<li class="message">[<a href="#T18:06:55" id="T18:06:55"><abbr title="2012-10-24T18:06:55+00:00">18:06:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T18:06:59" id="T18:06:59"><abbr title="2012-10-24T18:06:59+00:00">18:06:59</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so skip it in those cases</q></li>
+<li class="message">[<a href="#T18:07:04" id="T18:07:04"><abbr title="2012-10-24T18:07:04+00:00">18:07:04</abbr></a>] &lt;<cite>panto</cite>&gt; <q>altough, what I'd do is just kill the formats</q></li>
+<li class="message">[<a href="#T18:07:13" id="T18:07:13"><abbr title="2012-10-24T18:07:13+00:00">18:07:13</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>mru: jackd..</q></li>
+<li class="message">[<a href="#T18:07:16" id="T18:07:16"><abbr title="2012-10-24T18:07:16+00:00">18:07:16</abbr></a>] &lt;<cite>panto</cite>&gt; <q>select a nice high rate (mono) and just use that</q></li>
+<li class="message">[<a href="#T18:07:20" id="T18:07:20"><abbr title="2012-10-24T18:07:20+00:00">18:07:20</abbr></a>] &lt;<cite>mru</cite>&gt; <q>unsolo: what of it?</q></li>
+<li class="message">[<a href="#T18:07:26" id="T18:07:26"><abbr title="2012-10-24T18:07:26+00:00">18:07:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>panto: that case is gone now, no?</q></li>
+<li class="message">[<a href="#T18:07:40" id="T18:07:40"><abbr title="2012-10-24T18:07:40+00:00">18:07:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>i mean hw mixing</q></li>
+<li class="message">[<a href="#T18:07:49" id="T18:07:49"><abbr title="2012-10-24T18:07:49+00:00">18:07:49</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>jackd interface -&gt;kernel</q></li>
+<li class="message">[<a href="#T18:07:51" id="T18:07:51"><abbr title="2012-10-24T18:07:51+00:00">18:07:51</abbr></a>] &lt;<cite>panto</cite>&gt; <q>av500, yes, for now</q></li>
+<li class="message">[<a href="#T18:07:55" id="T18:07:55"><abbr title="2012-10-24T18:07:55+00:00">18:07:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>forever</q></li>
+<li class="message">[<a href="#T18:07:58" id="T18:07:58"><abbr title="2012-10-24T18:07:58+00:00">18:07:58</abbr></a>] &lt;<cite>panto</cite>&gt; <q>but it's very cheap in silicon nowadays</q></li>
+<li class="message">[<a href="#T18:08:10" id="T18:08:10"><abbr title="2012-10-24T18:08:10+00:00">18:08:10</abbr></a>] &lt;<cite>panto</cite>&gt; <q>the wheel of re-incarnation will turn again</q></li>
+<li class="message">[<a href="#T18:08:27" id="T18:08:27"><abbr title="2012-10-24T18:08:27+00:00">18:08:27</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it's not going to be about performance, it's going to be about power-draw when playing a game</q></li>
+<li class="message">[<a href="#T18:08:32" id="T18:08:32"><abbr title="2012-10-24T18:08:32+00:00">18:08:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>with all apps going fullscreen, I dont see the need to mix at all :)</q></li>
+<li class="message">[<a href="#T18:08:40" id="T18:08:40"><abbr title="2012-10-24T18:08:40+00:00">18:08:40</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T18:08:50" id="T18:08:50"><abbr title="2012-10-24T18:08:50+00:00">18:08:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>panto: durign a game you have GPU and LCD</q></li>
+<li class="message">[<a href="#T18:08:58" id="T18:08:58"><abbr title="2012-10-24T18:08:58+00:00">18:08:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>audio is the least of your concerns :)</q></li>
+<li class="message">[<a href="#T18:09:05" id="T18:09:05"><abbr title="2012-10-24T18:09:05+00:00">18:09:05</abbr></a>] &lt;<cite>panto</cite>&gt; <q>oh I don't know</q></li>
+<li class="message">[<a href="#T18:09:19" id="T18:09:19"><abbr title="2012-10-24T18:09:19+00:00">18:09:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>unless its an audio only game :)</q></li>
+<li class="message">[<a href="#T18:09:23" id="T18:09:23"><abbr title="2012-10-24T18:09:23+00:00">18:09:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I do know</q></li>
+<li class="message">[<a href="#T18:09:31" id="T18:09:31"><abbr title="2012-10-24T18:09:31+00:00">18:09:31</abbr></a>] &lt;<cite>panto</cite>&gt; <q>av500, :)</q></li>
+<li class="message">[<a href="#T18:09:37" id="T18:09:37"><abbr title="2012-10-24T18:09:37+00:00">18:09:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>at least on our HW</q></li>
+<li class="message">[<a href="#T18:09:52" id="T18:09:52"><abbr title="2012-10-24T18:09:52+00:00">18:09:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it's all dependent on the kind of game</q></li>
+<li class="message">[<a href="#T18:10:08" id="T18:10:08"><abbr title="2012-10-24T18:10:08+00:00">18:10:08</abbr></a>] &lt;<cite>panto</cite>&gt; <q>perhaps someone will crunch the numbers differently</q></li>
+<li class="message">[<abbr title="2012-10-24T18:10:08+00:00">18:10:08</abbr>] &lt;<cite>av500</cite>&gt; <q>its why intel can make a x86 android phone and its not bad, it has to power the same LCD as the ARM one :)=</q></li>
+<li class="message">[<a href="#T18:10:16" id="T18:10:16"><abbr title="2012-10-24T18:10:16+00:00">18:10:16</abbr></a>] &lt;<cite>panto</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T18:10:38" id="T18:10:38"><abbr title="2012-10-24T18:10:38+00:00">18:10:38</abbr></a>] &lt;<cite>panto</cite>&gt; <q>anyway, dinner time</q></li>
+<li class="join">[<a href="#T18:10:40" id="T18:10:40"><abbr title="2012-10-24T18:10:40+00:00">18:10:40</abbr></a>] <span>* djlewis (~djelwis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:10:48" id="T18:10:48"><abbr title="2012-10-24T18:10:48+00:00">18:10:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>panto: souvlaki?</q></li>
+<li class="message">[<a href="#T18:10:59" id="T18:10:59"><abbr title="2012-10-24T18:10:59+00:00">18:10:59</abbr></a>] &lt;<cite>panto</cite>&gt; <q>that's very stereotypical</q></li>
+<li class="message">[<a href="#T18:11:01" id="T18:11:01"><abbr title="2012-10-24T18:11:01+00:00">18:11:01</abbr></a>] &lt;<cite>panto</cite>&gt; <q>so no :)</q></li>
+<li class="message">[<a href="#T18:11:15" id="T18:11:15"><abbr title="2012-10-24T18:11:15+00:00">18:11:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its also yummy, so yes :)</q></li>
+<li class="message">[<a href="#T18:11:40" id="T18:11:40"><abbr title="2012-10-24T18:11:40+00:00">18:11:40</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>av500: what is a bad android phone.. mine is 2.5 years old and still running fine..</q></li>
+<li class="message">[<a href="#T18:11:52" id="T18:11:52"><abbr title="2012-10-24T18:11:52+00:00">18:11:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T18:13:27" id="T18:13:27"><abbr title="2012-10-24T18:13:27+00:00">18:13:27</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>so it should be possible to get a android phone running arm that is close to 9 times as fast.. how much faster is the current arm/intel ?</q></li>
+<li class="message">[<a href="#T18:14:04" id="T18:14:04"><abbr title="2012-10-24T18:14:04+00:00">18:14:04</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>and why design a phone running LCD and not OLED</q></li>
+<li class="quit">[<a href="#T18:14:21" id="T18:14:21"><abbr title="2012-10-24T18:14:21+00:00">18:14:21</abbr></a>] <span>* C-o-r-E (~nash@modemcable123.117-82-70.mc.videotron.ca) Quit (Read error: Operation timed out)</span></li>
+<li class="message">[<a href="#T18:15:00" id="T18:15:00"><abbr title="2012-10-24T18:15:00+00:00">18:15:00</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>panto, you do know, you were part of the team educating some past customers on the "total bom" power draw and to quit worrying about just the cpu</q></li>
+<li class="action">[<a href="#T18:15:16" id="T18:15:16"><abbr title="2012-10-24T18:15:16+00:00">18:15:16</abbr></a>] <span>* unsolo needs to go change tires</span></li>
+<li class="message">[<a href="#T18:15:24" id="T18:15:24"><abbr title="2012-10-24T18:15:24+00:00">18:15:24</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>its dropping below 0 C here..</q></li>
+<li class="message">[<a href="#T18:15:33" id="T18:15:33"><abbr title="2012-10-24T18:15:33+00:00">18:15:33</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>panto, before android existed at google</q></li>
+<li class="message">[<a href="#T18:15:34" id="T18:15:34"><abbr title="2012-10-24T18:15:34+00:00">18:15:34</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ah, one of those countries</q></li>
+<li class="join">[<a href="#T18:15:44" id="T18:15:44"><abbr title="2012-10-24T18:15:44+00:00">18:15:44</abbr></a>] <span>* C-o-r-E (~nash@modemcable123.117-82-70.mc.videotron.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:15:49" id="T18:15:49"><abbr title="2012-10-24T18:15:49+00:00">18:15:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>unsolo: why 9x faster?</q></li>
+<li class="message">[<a href="#T18:15:54" id="T18:15:54"><abbr title="2012-10-24T18:15:54+00:00">18:15:54</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>or unsolo is in the burn-in chamber</q></li>
+<li class="message">[<a href="#T18:16:15" id="T18:16:15"><abbr title="2012-10-24T18:16:15+00:00">18:16:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>unsolo: and oled vs lcd is a price thing</q></li>
+<li class="message">[<a href="#T18:16:17" id="T18:16:17"><abbr title="2012-10-24T18:16:17+00:00">18:16:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and yield</q></li>
+<li class="message">[<a href="#T18:16:22" id="T18:16:22"><abbr title="2012-10-24T18:16:22+00:00">18:16:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well, same thing, price</q></li>
+<li class="message">[<a href="#T18:16:25" id="T18:16:25"><abbr title="2012-10-24T18:16:25+00:00">18:16:25</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>rough more's extrapolation..</q></li>
+<li class="message">[<a href="#T18:16:39" id="T18:16:39"><abbr title="2012-10-24T18:16:39+00:00">18:16:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>2x in 18month, no?</q></li>
+<li class="message">[<a href="#T18:16:43" id="T18:16:43"><abbr title="2012-10-24T18:16:43+00:00">18:16:43</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>av500: the apple lcd thingie is still more expensive..</q></li>
+<li class="message">[<a href="#T18:18:17" id="T18:18:17"><abbr title="2012-10-24T18:18:17+00:00">18:18:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T18:18:31" id="T18:18:31"><abbr title="2012-10-24T18:18:31+00:00">18:18:31</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>av500: so maybe 4x would be correct</q></li>
+<li class="message">[<a href="#T18:19:16" id="T18:19:16"><abbr title="2012-10-24T18:19:16+00:00">18:19:16</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>still the fact remains what is needed in hw and what is present tend to differ even in mobile phones</q></li>
+<li class="message">[<a href="#T18:19:47" id="T18:19:47"><abbr title="2012-10-24T18:19:47+00:00">18:19:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>4x is roughly the case</q></li>
+<li class="message">[<a href="#T18:21:15" id="T18:21:15"><abbr title="2012-10-24T18:21:15+00:00">18:21:15</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>Tartarus: have you tried configuring SPL for Y-modem?</q></li>
+<li class="message">[<a href="#T18:21:16" id="T18:21:16"><abbr title="2012-10-24T18:21:16+00:00">18:21:16</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>a quad A9 1,5 is a lot more powerful than my single 1ghz armv7 snapdragon</q></li>
+<li class="message">[<a href="#T18:21:21" id="T18:21:21"><abbr title="2012-10-24T18:21:21+00:00">18:21:21</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>Yeah</q></li>
+<li class="message">[<a href="#T18:21:25" id="T18:21:25"><abbr title="2012-10-24T18:21:25+00:00">18:21:25</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>it seems to be in the config, but I'm not getting any response back.</q></li>
+<li class="message">[<a href="#T18:21:27" id="T18:21:27"><abbr title="2012-10-24T18:21:27+00:00">18:21:27</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>Works fine, use it often :)</q></li>
+<li class="message">[<a href="#T18:21:31" id="T18:21:31"><abbr title="2012-10-24T18:21:31+00:00">18:21:31</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>k</q></li>
+<li class="message">[<a href="#T18:21:41" id="T18:21:41"><abbr title="2012-10-24T18:21:41+00:00">18:21:41</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>Did you load the first part via xmodem?</q></li>
+<li class="message">[<a href="#T18:21:42" id="T18:21:42"><abbr title="2012-10-24T18:21:42+00:00">18:21:42</abbr></a>] &lt;<cite>janne</cite>&gt; <q>av500: probably more if there were software which makes use of 4 cores</q></li>
+<li class="message">[<a href="#T18:21:45" id="T18:21:45"><abbr title="2012-10-24T18:21:45+00:00">18:21:45</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>mru: i continued looking at the MMU stuff today and performance is really bad.. ;(</q></li>
+<li class="message">[<a href="#T18:21:49" id="T18:21:49"><abbr title="2012-10-24T18:21:49+00:00">18:21:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>janne: indeed</q></li>
+<li class="message">[<a href="#T18:21:57" id="T18:21:57"><abbr title="2012-10-24T18:21:57+00:00">18:21:57</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I'm trying 'sx MLO &gt; /dev/ttyUSB0 &lt; /dev/ttyUSB0' and that seems to complete...</q></li>
+<li class="message">[<a href="#T18:22:07" id="T18:22:07"><abbr title="2012-10-24T18:22:07+00:00">18:22:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>that why the single core atom smokes all the manycory phones on webspider</q></li>
+<li class="message">[<a href="#T18:22:12" id="T18:22:12"><abbr title="2012-10-24T18:22:12+00:00">18:22:12</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>but, I don't see any output from the serial port after htat.</q></li>
+<li class="message">[<a href="#T18:22:21" id="T18:22:21"><abbr title="2012-10-24T18:22:21+00:00">18:22:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>unsolo: you must be holding it wrong</q></li>
+<li class="message">[<a href="#T18:22:22" id="T18:22:22"><abbr title="2012-10-24T18:22:22+00:00">18:22:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or sunspider</q></li>
+<li class="message">[<a href="#T18:22:28" id="T18:22:28"><abbr title="2012-10-24T18:22:28+00:00">18:22:28</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>mru: i think so</q></li>
+<li class="message">[<a href="#T18:22:43" id="T18:22:43"><abbr title="2012-10-24T18:22:43+00:00">18:22:43</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>but im having a few days off it to see if i can figure out how to hold it properly..</q></li>
+<li class="message">[<abbr title="2012-10-24T18:22:43+00:00">18:22:43</abbr>] &lt;<cite>av500</cite>&gt; <q>quadcore is just to write "more of something" on the box</q></li>
+<li class="message">[<a href="#T18:23:06" id="T18:23:06"><abbr title="2012-10-24T18:23:06+00:00">18:23:06</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>jkridner: OK, first use a real comm program like screen? :)</q></li>
+<li class="message">[<a href="#T18:23:08" id="T18:23:08"><abbr title="2012-10-24T18:23:08+00:00">18:23:08</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>I do..</q></li>
+<li class="message">[<a href="#T18:23:09" id="T18:23:09"><abbr title="2012-10-24T18:23:09+00:00">18:23:09</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>av500: people should write more "distributed" stuff</q></li>
+<li class="message">[<a href="#T18:23:19" id="T18:23:19"><abbr title="2012-10-24T18:23:19+00:00">18:23:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>people dont do anything</q></li>
+<li class="message">[<abbr title="2012-10-24T18:23:19+00:00">18:23:19</abbr>] &lt;<cite>Tartarus</cite>&gt; <q>## screen commands to load via UART, control-A then...</q></li>
+<li class="message">[<abbr title="2012-10-24T18:23:19+00:00">18:23:19</abbr>] &lt;<cite>Tartarus</cite>&gt; <q>:exec !! sx -kb /tmp/u-boot-spl.bin</q></li>
+<li class="message">[<abbr title="2012-10-24T18:23:19+00:00">18:23:19</abbr>] &lt;<cite>Tartarus</cite>&gt; <q>:exec !! sx -kb --ymodem /tmp/u-boot.img</q></li>
+<li class="message">[<a href="#T18:23:23" id="T18:23:23"><abbr title="2012-10-24T18:23:23+00:00">18:23:23</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>does scree...</q></li>
+<li class="message">[<a href="#T18:23:25" id="T18:23:25"><abbr title="2012-10-24T18:23:25+00:00">18:23:25</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>ah.</q></li>
+<li class="message">[<abbr title="2012-10-24T18:23:25+00:00">18:23:25</abbr>] &lt;<cite>av500</cite>&gt; <q>except complaining</q></li>
+<li class="message">[<abbr title="2012-10-24T18:23:25+00:00">18:23:25</abbr>] &lt;<cite>jkridner</cite>&gt; <q>k.</q></li>
+<li class="message">[<a href="#T18:23:36" id="T18:23:36"><abbr title="2012-10-24T18:23:36+00:00">18:23:36</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>And, ah</q></li>
+<li class="message">[<a href="#T18:23:38" id="T18:23:38"><abbr title="2012-10-24T18:23:38+00:00">18:23:38</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>yes, not MLO</q></li>
+<li class="message">[<a href="#T18:23:39" id="T18:23:39"><abbr title="2012-10-24T18:23:39+00:00">18:23:39</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>av500: :)</q></li>
+<li class="message">[<a href="#T18:23:40" id="T18:23:40"><abbr title="2012-10-24T18:23:40+00:00">18:23:40</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>u-boot-spl.bin</q></li>
+<li class="message">[<a href="#T18:23:53" id="T18:23:53"><abbr title="2012-10-24T18:23:53+00:00">18:23:53</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>oh? I didn't know they were different.</q></li>
+<li class="message">[<a href="#T18:24:04" id="T18:24:04"><abbr title="2012-10-24T18:24:04+00:00">18:24:04</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>new naming scheme right?</q></li>
+<li class="message">[<a href="#T18:24:21" id="T18:24:21"><abbr title="2012-10-24T18:24:21+00:00">18:24:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>new scheming</q></li>
+<li class="message">[<a href="#T18:25:46" id="T18:25:46"><abbr title="2012-10-24T18:25:46+00:00">18:25:46</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>Tartarus, s/screen/tmux/</q></li>
+<li class="message">[<a href="#T18:26:10" id="T18:26:10"><abbr title="2012-10-24T18:26:10+00:00">18:26:10</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>Tartarus, j/k..no tty handling in tmux ;)</q></li>
+<li class="message">[<a href="#T18:26:45" id="T18:26:45"><abbr title="2012-10-24T18:26:45+00:00">18:26:45</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>No, MLO has a header</q></li>
+<li class="message">[<a href="#T18:26:49" id="T18:26:49"><abbr title="2012-10-24T18:26:49+00:00">18:26:49</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>u-boot-spl.bin is the raw file</q></li>
+<li class="message">[<a href="#T18:26:55" id="T18:26:55"><abbr title="2012-10-24T18:26:55+00:00">18:26:55</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>ROM requires no header</q></li>
+<li class="message">[<a href="#T18:27:29" id="T18:27:29"><abbr title="2012-10-24T18:27:29+00:00">18:27:29</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>k.</q></li>
+<li class="message">[<a href="#T18:27:35" id="T18:27:35"><abbr title="2012-10-24T18:27:35+00:00">18:27:35</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>didn't seem to take</q></li>
+<li class="message">[<a href="#T18:27:52" id="T18:27:52"><abbr title="2012-10-24T18:27:52+00:00">18:27:52</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>Got the "Give...", but keep seeing "CCCC..."</q></li>
+<li class="message">[<a href="#T18:28:49" id="T18:28:49"><abbr title="2012-10-24T18:28:49+00:00">18:28:49</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>If you see no other output then the ROM didn't get the file :)</q></li>
+<li class="message">[<a href="#T18:29:29" id="T18:29:29"><abbr title="2012-10-24T18:29:29+00:00">18:29:29</abbr></a>] &lt;<cite>unsolo</cite>&gt; <q>.S :)</q></li>
+<li class="message">[<a href="#T18:29:55" id="T18:29:55"><abbr title="2012-10-24T18:29:55+00:00">18:29:55</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>hmmm... i wonder if I'm not understanding the 'exec !!'</q></li>
+<li class="message">[<a href="#T18:30:04" id="T18:30:04"><abbr title="2012-10-24T18:30:04+00:00">18:30:04</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>and the -kb</q></li>
+<li class="message">[<a href="#T18:30:37" id="T18:30:37"><abbr title="2012-10-24T18:30:37+00:00">18:30:37</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I guess -k would be faster.</q></li>
+<li class="message">[<a href="#T18:30:48" id="T18:30:48"><abbr title="2012-10-24T18:30:48+00:00">18:30:48</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>-b seems superfluous.</q></li>
+<li class="message">[<a href="#T18:32:49" id="T18:32:49"><abbr title="2012-10-24T18:32:49+00:00">18:32:49</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>So, that's the format for screen to exec a command and run it as a filter</q></li>
+<li class="message">[<a href="#T18:32:56" id="T18:32:56"><abbr title="2012-10-24T18:32:56+00:00">18:32:56</abbr></a>] &lt;<cite>panto</cite>&gt; <q>back</q></li>
+<li class="message">[<a href="#T18:33:01" id="T18:33:01"><abbr title="2012-10-24T18:33:01+00:00">18:33:01</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>I copy/paste those commands from my notes to screen quite often :)</q></li>
+<li class="message">[<a href="#T18:33:08" id="T18:33:08"><abbr title="2012-10-24T18:33:08+00:00">18:33:08</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>^A then the first line, then reset the board</q></li>
+<li class="message">[<a href="#T18:33:13" id="T18:33:13"><abbr title="2012-10-24T18:33:13+00:00">18:33:13</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>sends the first file to the ROM</q></li>
+<li class="message">[<a href="#T18:33:16" id="T18:33:16"><abbr title="2012-10-24T18:33:16+00:00">18:33:16</abbr></a>] &lt;<cite>panto</cite>&gt; <q>unsolo, all I can say is that the A15s are going to be a real game-changer</q></li>
+<li class="message">[<a href="#T18:33:19" id="T18:33:19"><abbr title="2012-10-24T18:33:19+00:00">18:33:19</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>^A then the second line sends U-Boot to SPL</q></li>
+<li class="message">[<a href="#T18:33:22" id="T18:33:22"><abbr title="2012-10-24T18:33:22+00:00">18:33:22</abbr></a>] &lt;<cite>panto</cite>&gt; <q>lots of power, lots of problem</q></li>
+<li class="message">[<a href="#T18:33:30" id="T18:33:30"><abbr title="2012-10-24T18:33:30+00:00">18:33:30</abbr></a>] &lt;<cite>panto</cite>&gt; <q>problems</q></li>
+<li class="message">[<a href="#T18:33:53" id="T18:33:53"><abbr title="2012-10-24T18:33:53+00:00">18:33:53</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>well, when I do it verbatim, I'm getting "NAK on sector"</q></li>
+<li class="join">[<a href="#T18:33:59" id="T18:33:59"><abbr title="2012-10-24T18:33:59+00:00">18:33:59</abbr></a>] <span>* gustavoz_ (~gustavoz@host68.190-31-2.telecom.net.ar) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:36:10" id="T18:36:10"><abbr title="2012-10-24T18:36:10+00:00">18:36:10</abbr></a>] <span>* gustavoz (~gustavoz@host139.190-230-127.telecom.net.ar) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="join">[<a href="#T18:36:38" id="T18:36:38"><abbr title="2012-10-24T18:36:38+00:00">18:36:38</abbr></a>] <span>* DJJazzyJosh1 (~Adium@adsl-068-016-138-242.sip.bix.bellsouth.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:39:04" id="T18:39:04"><abbr title="2012-10-24T18:39:04+00:00">18:39:04</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I think I finally understand <a href="http://www.gnu.org/software/screen/manual/html_node/Exec.html#Exec,">http://www.gnu.org/software/screen/manual/html_node/Exec.html#Exec,</a> but it is ugly!</q></li>
+<li class="message">[<a href="#T18:39:27" id="T18:39:27"><abbr title="2012-10-24T18:39:27+00:00">18:39:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why not use kermit? simplier and less cruft</q></li>
+<li class="quit">[<a href="#T18:39:32" id="T18:39:32"><abbr title="2012-10-24T18:39:32+00:00">18:39:32</abbr></a>] <span>* DJJazzyJosh (~Adium@207.7.126.2) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T18:39:55" id="T18:39:55"><abbr title="2012-10-24T18:39:55+00:00">18:39:55</abbr></a>] <span>* Venom_X (~phillyque@67-200-192-12.static.logixcom.net) Quit (Quit: Venom_X)</span></li>
+<li class="message">[<a href="#T18:41:24" id="T18:41:24"><abbr title="2012-10-24T18:41:24+00:00">18:41:24</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>ugly as javascript?</q></li>
+<li class="action">[<a href="#T18:41:26" id="T18:41:26"><abbr title="2012-10-24T18:41:26+00:00">18:41:26</abbr></a>] <span>* mranostay ducks</span></li>
+<li class="message">[<a href="#T18:41:55" id="T18:41:55"><abbr title="2012-10-24T18:41:55+00:00">18:41:55</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>ds2, to send via xmodem? :)</q></li>
+<li class="message">[<a href="#T18:41:59" id="T18:41:59"><abbr title="2012-10-24T18:41:59+00:00">18:41:59</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>ROM groks xmodem only</q></li>
+<li class="message">[<a href="#T18:42:07" id="T18:42:07"><abbr title="2012-10-24T18:42:07+00:00">18:42:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T18:42:16" id="T18:42:16"><abbr title="2012-10-24T18:42:16+00:00">18:42:16</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>javascript isn't really any uglier than C.  certainly not than C++. The DOM is grotesque.</q></li>
+<li class="message">[<a href="#T18:42:20" id="T18:42:20"><abbr title="2012-10-24T18:42:20+00:00">18:42:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>kermit is a terminal software not just protocol</q></li>
+<li class="message">[<a href="#T18:42:28" id="T18:42:28"><abbr title="2012-10-24T18:42:28+00:00">18:42:28</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>Ah, right</q></li>
+<li class="message">[<a href="#T18:42:30" id="T18:42:30"><abbr title="2012-10-24T18:42:30+00:00">18:42:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you can call sx to handle xmodem</q></li>
+<li class="message">[<a href="#T18:42:35" id="T18:42:35"><abbr title="2012-10-24T18:42:35+00:00">18:42:35</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>Yeah, sure, whichever terminal emulator you like :)</q></li>
+<li class="join">[<a href="#T18:42:38" id="T18:42:38"><abbr title="2012-10-24T18:42:38+00:00">18:42:38</abbr></a>] <span>* Venom_X (~phillyque@67-200-192-12.static.logixcom.net) has joined #beagle</span></li>
+<li class="message">[<abbr title="2012-10-24T18:42:38+00:00">18:42:38</abbr>] &lt;<cite>ds2</cite>&gt; <q>actually, for xmodem, why are you using -b?</q></li>
+<li class="message">[<a href="#T18:42:42" id="T18:42:42"><abbr title="2012-10-24T18:42:42+00:00">18:42:42</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>minicom has some crap you can configure too</q></li>
+<li class="message">[<a href="#T18:42:48" id="T18:42:48"><abbr title="2012-10-24T18:42:48+00:00">18:42:48</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>I just &lt;3 screen since I'm using it for everything else</q></li>
+<li class="message">[<a href="#T18:42:54" id="T18:42:54"><abbr title="2012-10-24T18:42:54+00:00">18:42:54</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>haven't been converted to tmux yet, sorry mdp</q></li>
+<li class="message">[<a href="#T18:43:47" id="T18:43:47"><abbr title="2012-10-24T18:43:47+00:00">18:43:47</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>ds2, clarity or copy/paste.  I found something that worked and I just copy/paste that when needed so a few more keystrokes doesn't hurt</q></li>
+<li class="message">[<a href="#T18:47:32" id="T18:47:32"><abbr title="2012-10-24T18:47:32+00:00">18:47:32</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>kermit didn't work either.</q></li>
+<li class="message">[<a href="#T18:47:52" id="T18:47:52"><abbr title="2012-10-24T18:47:52+00:00">18:47:52</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>at least from the command line, the transfer completes.</q></li>
+<li class="message">[<a href="#T18:50:36" id="T18:50:36"><abbr title="2012-10-24T18:50:36+00:00">18:50:36</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>is ROM 8N1?</q></li>
+<li class="message">[<a href="#T18:55:49" id="T18:55:49"><abbr title="2012-10-24T18:55:49+00:00">18:55:49</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>yup</q></li>
+<li class="message">[<a href="#T18:56:23" id="T18:56:23"><abbr title="2012-10-24T18:56:23+00:00">18:56:23</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>You aren't using any funny unreleased hardware, right? :)</q></li>
+<li class="message">[<a href="#T18:56:35" id="T18:56:35"><abbr title="2012-10-24T18:56:35+00:00">18:56:35</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I am, actually....</q></li>
+<li class="message">[<a href="#T18:56:48" id="T18:56:48"><abbr title="2012-10-24T18:56:48+00:00">18:56:48</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I will try other hardware, I suppose.</q></li>
+<li class="message">[<a href="#T18:56:56" id="T18:56:56"><abbr title="2012-10-24T18:56:56+00:00">18:56:56</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>Yeah, do that first</q></li>
+<li class="message">[<a href="#T18:57:05" id="T18:57:05"><abbr title="2012-10-24T18:57:05+00:00">18:57:05</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>Then go see what's setup wrong on that funny thing</q></li>
+<li class="message">[<a href="#T18:57:07" id="T18:57:07"><abbr title="2012-10-24T18:57:07+00:00">18:57:07</abbr></a>] &lt;<cite>Tartarus</cite>&gt; <q>:)</q></li>
