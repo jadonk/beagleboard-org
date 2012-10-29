@@ -212,3 +212,54 @@
 <li class="message">[<a href="#T06:56:51" id="T06:56:51"><abbr title="2012-10-29T06:56:51+00:00">06:56:51</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>what will?</q></li>
 <li class="message">[<a href="#T06:57:41" id="T06:57:41"><abbr title="2012-10-29T06:57:41+00:00">06:57:41</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>just accessing the device that ought to be there and hoping DT will turn it on automagically.</q></li>
 <li class="quit">[<a href="#T06:59:08" id="T06:59:08"><abbr title="2012-10-29T06:59:08+00:00">06:59:08</abbr></a>] <span>* kiilo (~kiilo@36-232-175-13.dynamic-ip.hinet.net) Quit (Quit: ciao)</span></li>
+<li class="message">[<a href="#T07:00:31" id="T07:00:31"><abbr title="2012-10-29T07:00:31+00:00">07:00:31</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>emeb_mac: you need to enable the bus in the DT</q></li>
+<li class="message">[<a href="#T07:00:55" id="T07:00:55"><abbr title="2012-10-29T07:00:55+00:00">07:00:55</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>it is a pin control cluster****</q></li>
+<li class="action">[<a href="#T07:01:07" id="T07:01:07"><abbr title="2012-10-29T07:01:07+00:00">07:01:07</abbr></a>] <span>* mranostay has a slide or two on this</span></li>
+<li class="message">[<a href="#T07:01:15" id="T07:01:15"><abbr title="2012-10-29T07:01:15+00:00">07:01:15</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>and that can be done from userspace?</q></li>
+<li class="message">[<a href="#T07:01:21" id="T07:01:21"><abbr title="2012-10-29T07:01:21+00:00">07:01:21</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T07:01:27" id="T07:01:27"><abbr title="2012-10-29T07:01:27+00:00">07:01:27</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>dang</q></li>
+<li class="message">[<a href="#T07:01:54" id="T07:01:54"><abbr title="2012-10-29T07:01:54+00:00">07:01:54</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>well with omap_pinmux maybe. but that is being stepped away from</q></li>
+<li class="message">[<a href="#T07:01:59" id="T07:01:59"><abbr title="2012-10-29T07:01:59+00:00">07:01:59</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>good</q></li>
+<li class="message">[<a href="#T07:02:15" id="T07:02:15"><abbr title="2012-10-29T07:02:15+00:00">07:02:15</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>so that's a boardfile thing, or a u-boot thing?</q></li>
+<li class="message">[<a href="#T07:02:32" id="T07:02:32"><abbr title="2012-10-29T07:02:32+00:00">07:02:32</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>that is userspace thing</q></li>
+<li class="message">[<a href="#T07:02:42" id="T07:02:42"><abbr title="2012-10-29T07:02:42+00:00">07:02:42</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>sysfs entries</q></li>
+<li class="message">[<a href="#T07:03:02" id="T07:03:02"><abbr title="2012-10-29T07:03:02+00:00">07:03:02</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>but but you just said nope to userspace above?</q></li>
+<li class="message">[<a href="#T07:03:19" id="T07:03:19"><abbr title="2012-10-29T07:03:19+00:00">07:03:19</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>depends on the kernel tree you pick</q></li>
+<li class="message">[<a href="#T07:03:26" id="T07:03:26"><abbr title="2012-10-29T07:03:26+00:00">07:03:26</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>yay</q></li>
+<li class="message">[<a href="#T07:03:31" id="T07:03:31"><abbr title="2012-10-29T07:03:31+00:00">07:03:31</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>3.2.28?</q></li>
+<li class="message">[<a href="#T07:03:41" id="T07:03:41"><abbr title="2012-10-29T07:03:41+00:00">07:03:41</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>i think the official beaglebone one is the boardfile stuff</q></li>
+<li class="message">[<a href="#T07:03:43" id="T07:03:43"><abbr title="2012-10-29T07:03:43+00:00">07:03:43</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T07:04:07" id="T07:04:07"><abbr title="2012-10-29T07:04:07+00:00">07:04:07</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>i'm using the Koen's unofficial tree</q></li>
+<li class="message">[<a href="#T07:04:13" id="T07:04:13"><abbr title="2012-10-29T07:04:13+00:00">07:04:13</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>so tweaky / recompiley for me</q></li>
+<li class="message">[<a href="#T07:05:22" id="T07:05:22"><abbr title="2012-10-29T07:05:22+00:00">07:05:22</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>unless I want  to use Koen's</q></li>
+<li class="message">[<a href="#T07:05:44" id="T07:05:44"><abbr title="2012-10-29T07:05:44+00:00">07:05:44</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>and then it's still recompiley (and probably tweaky too)</q></li>
+<li class="message">[<a href="#T07:05:56" id="T07:05:56"><abbr title="2012-10-29T07:05:56+00:00">07:05:56</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>sleepy  time for me</q></li>
+<li class="message">[<a href="#T07:06:38" id="T07:06:38"><abbr title="2012-10-29T07:06:38+00:00">07:06:38</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>thanks. looks like I've got some work to do.</q></li>
+<li class="message">[<a href="#T07:07:19" id="T07:07:19"><abbr title="2012-10-29T07:07:19+00:00">07:07:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>emeb_mac: is this your new FPGA board?</q></li>
+<li class="message">[<a href="#T07:07:44" id="T07:07:44"><abbr title="2012-10-29T07:07:44+00:00">07:07:44</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>ds2: yeah</q></li>
+<li class="message">[<a href="#T07:07:58" id="T07:07:58"><abbr title="2012-10-29T07:07:58+00:00">07:07:58</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>"new" being a somewhat loose term in this case.</q></li>
+<li class="message">[<a href="#T07:08:22" id="T07:08:22"><abbr title="2012-10-29T07:08:22+00:00">07:08:22</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>since I designed it almost a year ago but didn't get around to building it until a few weeks back.</q></li>
+<li class="message">[<a href="#T07:10:01" id="T07:10:01"><abbr title="2012-10-29T07:10:01+00:00">07:10:01</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>emeb_mac: what these won't pay the rent?!? :P</q></li>
+<li class="message">[<a href="#T07:11:32" id="T07:11:32"><abbr title="2012-10-29T07:11:32+00:00">07:11:32</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>mranostay: who knows. Right now it's just scratching an itch. No predictions on how much demand there'll be.</q></li>
+<li class="join">[<a href="#T07:13:31" id="T07:13:31"><abbr title="2012-10-29T07:13:31+00:00">07:13:31</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:14:12" id="T07:14:12"><abbr title="2012-10-29T07:14:12+00:00">07:14:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T07:14:18" id="T07:14:18"><abbr title="2012-10-29T07:14:18+00:00">07:14:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sounds like my sensor board</q></li>
+<li class="message">[<a href="#T07:15:08" id="T07:15:08"><abbr title="2012-10-29T07:15:08+00:00">07:15:08</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>probably.</q></li>
+<li class="message">[<a href="#T07:15:35" id="T07:15:35"><abbr title="2012-10-29T07:15:35+00:00">07:15:35</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>or geiger cape :)</q></li>
+<li class="message">[<a href="#T07:15:36" id="T07:15:36"><abbr title="2012-10-29T07:15:36+00:00">07:15:36</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>there's a lot of fun application-specific stuff one could do with bbone</q></li>
+<li class="message">[<a href="#T07:16:09" id="T07:16:09"><abbr title="2012-10-29T07:16:09+00:00">07:16:09</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>question is if any of them have relevance outside a small circle of folks.</q></li>
+<li class="message">[<a href="#T07:16:34" id="T07:16:34"><abbr title="2012-10-29T07:16:34+00:00">07:16:34</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>the answer is usually no :)</q></li>
+<li class="message">[<a href="#T07:16:44" id="T07:16:44"><abbr title="2012-10-29T07:16:44+00:00">07:16:44</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>*nod*</q></li>
+<li class="message">[<a href="#T07:17:11" id="T07:17:11"><abbr title="2012-10-29T07:17:11+00:00">07:17:11</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>so we build fun little personal projects, write them up and count it as experience.</q></li>
+<li class="message">[<a href="#T07:18:30" id="T07:18:30"><abbr title="2012-10-29T07:18:30+00:00">07:18:30</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>that is my plan :)</q></li>
+<li class="message">[<a href="#T07:19:33" id="T07:19:33"><abbr title="2012-10-29T07:19:33+00:00">07:19:33</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>I'm often amused by some folks who get on IRC with big plans to "take over the world" with some pet project.</q></li>
+<li class="message">[<a href="#T07:20:00" id="T07:20:00"><abbr title="2012-10-29T07:20:00+00:00">07:20:00</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>Met a lot of people like that off IRC too I suppose...</q></li>
+<li class="message">[<a href="#T07:21:16" id="T07:21:16"><abbr title="2012-10-29T07:21:16+00:00">07:21:16</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>heh that have been me at 16 :P</q></li>
+<li class="message">[<a href="#T07:21:32" id="T07:21:32"><abbr title="2012-10-29T07:21:32+00:00">07:21:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so you're the brain</q></li>
+<li class="message">[<a href="#T07:21:44" id="T07:21:44"><abbr title="2012-10-29T07:21:44+00:00">07:21:44</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>it's a fun phase to go through. Some don't seem to get over it though.</q></li>
+<li class="join">[<a href="#T07:21:53" id="T07:21:53"><abbr title="2012-10-29T07:21:53+00:00">07:21:53</abbr></a>] <span>* Guest82116 (~bleh1@80.65.240.23) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:21:54" id="T07:21:54"><abbr title="2012-10-29T07:21:54+00:00">07:21:54</abbr></a>] <span>* damir__ (~damir@217-72-91-162.ipv4.tusmobil.si) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:24:00" id="T07:24:00"><abbr title="2012-10-29T07:24:00+00:00">07:24:00</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>ds2: who is pinky?</q></li>
+<li class="message">[<a href="#T07:25:22" id="T07:25:22"><abbr title="2012-10-29T07:25:22+00:00">07:25:22</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>nitol. zzzzzz</q></li>
+<li class="quit">[<a href="#T07:25:29" id="T07:25:29"><abbr title="2012-10-29T07:25:29+00:00">07:25:29</abbr></a>] <span>* emeb_mac (~ericb@ip72-201-79-123.ph.ph.cox.net) Quit (Quit: emeb_mac)</span></li>
+<li class="quit">[<a href="#T07:41:09" id="T07:41:09"><abbr title="2012-10-29T07:41:09+00:00">07:41:09</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Ping timeout: 260 seconds)</span></li>
