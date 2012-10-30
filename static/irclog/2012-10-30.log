@@ -1,0 +1,135 @@
+<li class="message">[<a href="#T00:00:08" id="T00:00:08"><abbr title="2012-10-30T00:00:08+00:00">00:00:08</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>some print statements I put in set_gpio_trigger() get printed when I mess with the irq line (disconnect, reconenct to ground, etc)</q></li>
+<li class="message">[<a href="#T00:05:47" id="T00:05:47"><abbr title="2012-10-30T00:05:47+00:00">00:05:47</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>alan_o: works for me</q></li>
+<li class="join">[<a href="#T00:06:22" id="T00:06:22"><abbr title="2012-10-30T00:06:22+00:00">00:06:22</abbr></a>] <span>* dj_pi (~asd@c-107-5-25-243.hsd1.mi.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:07:26" id="T00:07:26"><abbr title="2012-10-30T00:07:26+00:00">00:07:26</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>turning on DYNAMIC_DEBUG</q></li>
+<li class="message">[<a href="#T00:07:28" id="T00:07:28"><abbr title="2012-10-30T00:07:28+00:00">00:07:28</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I have some of those too</q></li>
+<li class="message">[<a href="#T00:08:10" id="T00:08:10"><abbr title="2012-10-30T00:08:10+00:00">00:08:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>native gpios or via an expander/mux?</q></li>
+<li class="join">[<a href="#T00:08:23" id="T00:08:23"><abbr title="2012-10-30T00:08:23+00:00">00:08:23</abbr></a>] <span>* djerome (~djerome@ip68-2-20-108.ph.ph.cox.net) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T00:08:25" id="T00:08:25"><abbr title="2012-10-30T00:08:25+00:00">00:08:25</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>native gpio</q></li>
+<li class="message">[<a href="#T00:08:30" id="T00:08:30"><abbr title="2012-10-30T00:08:30+00:00">00:08:30</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>it's behind a mux though...</q></li>
+<li class="message">[<a href="#T00:08:36" id="T00:08:36"><abbr title="2012-10-30T00:08:36+00:00">00:08:36</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>1_21 on bone</q></li>
+<li class="message">[<a href="#T00:08:47" id="T00:08:47"><abbr title="2012-10-30T00:08:47+00:00">00:08:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah those...</q></li>
+<li class="message">[<a href="#T00:09:06" id="T00:09:06"><abbr title="2012-10-30T00:09:06+00:00">00:09:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>i was trying to figure out if you were using the gpio something like the 4030 or the i2c stuff or not</q></li>
+<li class="message">[<a href="#T00:09:28" id="T00:09:28"><abbr title="2012-10-30T00:09:28+00:00">00:09:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sure you printk level is enough to see the printk?</q></li>
+<li class="message">[<a href="#T00:09:31" id="T00:09:31"><abbr title="2012-10-30T00:09:31+00:00">00:09:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>i.e. does dmesg show it?</q></li>
+<li class="message">[<a href="#T00:09:56" id="T00:09:56"><abbr title="2012-10-30T00:09:56+00:00">00:09:56</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>nothing in dmesg about it</q></li>
+<li class="message">[<a href="#T00:10:24" id="T00:10:24"><abbr title="2012-10-30T00:10:24+00:00">00:10:24</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>from /proc/interrupts:      195:        118      GPIO  spi1.0</q></li>
+<li class="message">[<a href="#T00:10:32" id="T00:10:32"><abbr title="2012-10-30T00:10:32+00:00">00:10:32</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>118 increments as this thing runs</q></li>
+<li class="message">[<a href="#T00:10:52" id="T00:10:52"><abbr title="2012-10-30T00:10:52+00:00">00:10:52</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I see that 195 is the number I'm registering for in my probe()</q></li>
+<li class="message">[<a href="#T00:11:12" id="T00:11:12"><abbr title="2012-10-30T00:11:12+00:00">00:11:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>how are you requesting the interrupts?</q></li>
+<li class="message">[<abbr title="2012-10-30T00:11:12+00:00">00:11:12</abbr>] &lt;<cite>alan_o</cite>&gt; <q>printk(KERN_ERR "mrf24j40 isr\n");   is in my interrupt handler</q></li>
+<li class="message">[<a href="#T00:11:43" id="T00:11:43"><abbr title="2012-10-30T00:11:43+00:00">00:11:43</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q><a href="http://pastebin.com/Gt54EzsR">http://pastebin.com/Gt54EzsR</a></q></li>
+<li class="message">[<a href="#T00:11:51" id="T00:11:51"><abbr title="2012-10-30T00:11:51+00:00">00:11:51</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I mean it all worked before</q></li>
+<li class="message">[<a href="#T00:11:56" id="T00:11:56"><abbr title="2012-10-30T00:11:56+00:00">00:11:56</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>fairly stock stuff</q></li>
+<li class="message">[<a href="#T00:13:20" id="T00:13:20"><abbr title="2012-10-30T00:13:20+00:00">00:13:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what's the mrf24j40_isr() function like?</q></li>
+<li class="message">[<a href="#T00:13:22" id="T00:13:22"><abbr title="2012-10-30T00:13:22+00:00">00:13:22</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>like I said, I see set_gpio_trigger() called when the interrupts happen too</q></li>
+<li class="message">[<a href="#T00:13:47" id="T00:13:47"><abbr title="2012-10-30T00:13:47+00:00">00:13:47</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q><a href="http://pastebin.com/Z16WJAft">http://pastebin.com/Z16WJAft</a></q></li>
+<li class="message">[<a href="#T00:14:57" id="T00:14:57"><abbr title="2012-10-30T00:14:57+00:00">00:14:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>does it work if you remove the disable_irq_nosync()?</q></li>
+<li class="message">[<a href="#T00:15:17" id="T00:15:17"><abbr title="2012-10-30T00:15:17+00:00">00:15:17</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>good question. I'd assume I'd still see the printk though</q></li>
+<li class="message">[<a href="#T00:15:19" id="T00:15:19"><abbr title="2012-10-30T00:15:19+00:00">00:15:19</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>at least one of them</q></li>
+<li class="message">[<a href="#T00:15:39" id="T00:15:39"><abbr title="2012-10-30T00:15:39+00:00">00:15:39</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh... now I get the isr printout</q></li>
+<li class="message">[<a href="#T00:15:50" id="T00:15:50"><abbr title="2012-10-30T00:15:50+00:00">00:15:50</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>what the heck</q></li>
+<li class="message">[<a href="#T00:16:09" id="T00:16:09"><abbr title="2012-10-30T00:16:09+00:00">00:16:09</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>well, hmm... that was with a couple config options different</q></li>
+<li class="message">[<a href="#T00:16:15" id="T00:16:15"><abbr title="2012-10-30T00:16:15+00:00">00:16:15</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>DYNAMIC_DEBUG....</q></li>
+<li class="message">[<a href="#T00:16:28" id="T00:16:28"><abbr title="2012-10-30T00:16:28+00:00">00:16:28</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>but that's a printk(). that can't be surpressed</q></li>
+<li class="message">[<a href="#T00:16:38" id="T00:16:38"><abbr title="2012-10-30T00:16:38+00:00">00:16:38</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>(well, not if all the other printk stuff is working elsewhere)</q></li>
+<li class="message">[<a href="#T00:16:40" id="T00:16:40"><abbr title="2012-10-30T00:16:40+00:00">00:16:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it could be you are not being called</q></li>
+<li class="message">[<a href="#T00:16:50" id="T00:16:50"><abbr title="2012-10-30T00:16:50+00:00">00:16:50</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'm being called now....</q></li>
+<li class="message">[<a href="#T00:16:52" id="T00:16:52"><abbr title="2012-10-30T00:16:52+00:00">00:16:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that is being incremented but you have asked to not be called</q></li>
+<li class="message">[<a href="#T00:16:53" id="T00:16:53"><abbr title="2012-10-30T00:16:53+00:00">00:16:53</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>strange</q></li>
+<li class="message">[<a href="#T00:16:57" id="T00:16:57"><abbr title="2012-10-30T00:16:57+00:00">00:16:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no, I mean with the disable</q></li>
+<li class="message">[<a href="#T00:16:58" id="T00:16:58"><abbr title="2012-10-30T00:16:58+00:00">00:16:58</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T00:17:14" id="T00:17:14"><abbr title="2012-10-30T00:17:14+00:00">00:17:14</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh yeah, I see what you mean</q></li>
+<li class="message">[<a href="#T00:17:19" id="T00:17:19"><abbr title="2012-10-30T00:17:19+00:00">00:17:19</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, there's something messed up a bit still</q></li>
+<li class="message">[<a href="#T00:17:31" id="T00:17:31"><abbr title="2012-10-30T00:17:31+00:00">00:17:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>i.e. assumption of shared irqs</q></li>
+<li class="message">[<a href="#T00:18:11" id="T00:18:11"><abbr title="2012-10-30T00:18:11+00:00">00:18:11</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>seems like I'm getting timeouts waiting for the tx_complete</q></li>
+<li class="message">[<a href="#T00:18:20" id="T00:18:20"><abbr title="2012-10-30T00:18:20+00:00">00:18:20</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>then I get an interrupt right after</q></li>
+<li class="message">[<a href="#T00:18:21" id="T00:18:21"><abbr title="2012-10-30T00:18:21+00:00">00:18:21</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>strange</q></li>
+<li class="quit">[<abbr title="2012-10-30T00:18:21+00:00">00:18:21</abbr>] <span>* tema (~tema@c-76-103-139-164.hsd1.ca.comcast.net) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T00:18:32" id="T00:18:32"><abbr title="2012-10-30T00:18:32+00:00">00:18:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sure polarity is right?</q></li>
+<li class="message">[<a href="#T00:18:44" id="T00:18:44"><abbr title="2012-10-30T00:18:44+00:00">00:18:44</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>It's the same as it was in 3.6</q></li>
+<li class="message">[<a href="#T00:19:01" id="T00:19:01"><abbr title="2012-10-30T00:19:01+00:00">00:19:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>could be old bug or someone screwed with the HW setup code and broq things</q></li>
+<li class="message">[<a href="#T00:25:16" id="T00:25:16"><abbr title="2012-10-30T00:25:16+00:00">00:25:16</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>too many weird things</q></li>
+<li class="message">[<a href="#T00:25:22" id="T00:25:22"><abbr title="2012-10-30T00:25:22+00:00">00:25:22</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I wonder if I'm driving the SPI too fast</q></li>
+<li class="message">[<a href="#T00:25:28" id="T00:25:28"><abbr title="2012-10-30T00:25:28+00:00">00:25:28</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>the datasheet doesn't give a max speed</q></li>
+<li class="message">[<a href="#T00:25:37" id="T00:25:37"><abbr title="2012-10-30T00:25:37+00:00">00:25:37</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>and this is breadboard with wires</q></li>
+<li class="join">[<a href="#T00:27:22" id="T00:27:22"><abbr title="2012-10-30T00:27:22+00:00">00:27:22</abbr></a>] <span>* CMoH (~cipi@78.96.83.205) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:27:23" id="T00:27:23"><abbr title="2012-10-30T00:27:23+00:00">00:27:23</abbr></a>] <span>* CMoH (~cipi@78.96.83.205) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2012-10-30T00:27:23+00:00">00:27:23</abbr>] <span>* CMoH (~cipi@unaffiliated/c-moh) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:28:49" id="T00:28:49"><abbr title="2012-10-30T00:28:49+00:00">00:28:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>how fast areyou running it?</q></li>
+<li class="message">[<a href="#T00:29:55" id="T00:29:55"><abbr title="2012-10-30T00:29:55+00:00">00:29:55</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>was running at 12MHz</q></li>
+<li class="message">[<a href="#T00:30:03" id="T00:30:03"><abbr title="2012-10-30T00:30:03+00:00">00:30:03</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>but back on 3.6 I was running with spi-gpio</q></li>
+<li class="message">[<a href="#T00:30:04" id="T00:30:04"><abbr title="2012-10-30T00:30:04+00:00">00:30:04</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>so who knows</q></li>
+<li class="message">[<a href="#T00:30:10" id="T00:30:10"><abbr title="2012-10-30T00:30:10+00:00">00:30:10</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>docs say that usually fails to make 1M</q></li>
+<li class="message">[<a href="#T00:30:19" id="T00:30:19"><abbr title="2012-10-30T00:30:19+00:00">00:30:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>try 1MHz</q></li>
+<li class="message">[<a href="#T00:30:26" id="T00:30:26"><abbr title="2012-10-30T00:30:26+00:00">00:30:26</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>That's what I did</q></li>
+<li class="message">[<a href="#T00:30:32" id="T00:30:32"><abbr title="2012-10-30T00:30:32+00:00">00:30:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T00:30:33" id="T00:30:33"><abbr title="2012-10-30T00:30:33+00:00">00:30:33</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>still not getting rx interrupts</q></li>
+<li class="message">[<a href="#T00:30:50" id="T00:30:50"><abbr title="2012-10-30T00:30:50+00:00">00:30:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>is it toggling the interrupt line at all?</q></li>
+<li class="action">[<a href="#T00:30:54" id="T00:30:54"><abbr title="2012-10-30T00:30:54+00:00">00:30:54</abbr></a>] <span>* mranostay interrupts alan_o </span></li>
+<li class="message">[<a href="#T00:31:42" id="T00:31:42"><abbr title="2012-10-30T00:31:42+00:00">00:31:42</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, I'm getting the interrupts now</q></li>
+<li class="message">[<a href="#T00:31:51" id="T00:31:51"><abbr title="2012-10-30T00:31:51+00:00">00:31:51</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>sorry....</q></li>
+<li class="message">[<a href="#T00:31:56" id="T00:31:56"><abbr title="2012-10-30T00:31:56+00:00">00:31:56</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'm being unclear</q></li>
+<li class="message">[<a href="#T00:32:06" id="T00:32:06"><abbr title="2012-10-30T00:32:06+00:00">00:32:06</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'm getting the isr, but the flag doesn't seem to be set,</q></li>
+<li class="message">[<a href="#T00:32:14" id="T00:32:14"><abbr title="2012-10-30T00:32:14+00:00">00:32:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah... it never claimed to have received it?</q></li>
+<li class="message">[<a href="#T00:32:22" id="T00:32:22"><abbr title="2012-10-30T00:32:22+00:00">00:32:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>this is xbee, right?</q></li>
+<li class="message">[<a href="#T00:33:01" id="T00:33:01"><abbr title="2012-10-30T00:33:01+00:00">00:33:01</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>mrf24j40... Microchip's 802.15.4 transceiver</q></li>
+<li class="message">[<a href="#T00:33:18" id="T00:33:18"><abbr title="2012-10-30T00:33:18+00:00">00:33:18</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>Not sure what's up exactly....</q></li>
+<li class="message">[<a href="#T00:33:34" id="T00:33:34"><abbr title="2012-10-30T00:33:34+00:00">00:33:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sure it is receiving something valid?</q></li>
+<li class="message">[<a href="#T00:33:42" id="T00:33:42"><abbr title="2012-10-30T00:33:42+00:00">00:33:42</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'm sending it a ping</q></li>
+<li class="message">[<a href="#T00:33:48" id="T00:33:48"><abbr title="2012-10-30T00:33:48+00:00">00:33:48</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>ping is.... hmm....</q></li>
+<li class="message">[<a href="#T00:34:02" id="T00:34:02"><abbr title="2012-10-30T00:34:02+00:00">00:34:02</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>Well, wireshark shows the ping, but tha'ts on the sending computer so who knows</q></li>
+<li class="message">[<a href="#T00:34:05" id="T00:34:05"><abbr title="2012-10-30T00:34:05+00:00">00:34:05</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>that part is good I think</q></li>
+<li class="message">[<a href="#T00:34:21" id="T00:34:21"><abbr title="2012-10-30T00:34:21+00:00">00:34:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>i mean OTA</q></li>
+<li class="message">[<abbr title="2012-10-30T00:34:21+00:00">00:34:21</abbr>] &lt;<cite>alan_o</cite>&gt; <q>That's same kernel that always worked (3.5 or 3.6 on PC)</q></li>
+<li class="message">[<a href="#T00:34:30" id="T00:34:30"><abbr title="2012-10-30T00:34:30+00:00">00:34:30</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, the ota, who knows...</q></li>
+<li class="message">[<a href="#T00:34:39" id="T00:34:39"><abbr title="2012-10-30T00:34:39+00:00">00:34:39</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I can bust out the analyzer to be sure</q></li>
+<li class="message">[<a href="#T00:34:57" id="T00:34:57"><abbr title="2012-10-30T00:34:57+00:00">00:34:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>any spec an handy?</q></li>
+<li class="message">[<a href="#T00:35:09" id="T00:35:09"><abbr title="2012-10-30T00:35:09+00:00">00:35:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or what about put out a broadcast and have another node sniff it?</q></li>
+<li class="message">[<a href="#T00:35:34" id="T00:35:34"><abbr title="2012-10-30T00:35:34+00:00">00:35:34</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, that's what I'm gonna try</q></li>
+<li class="message">[<a href="#T00:36:03" id="T00:36:03"><abbr title="2012-10-30T00:36:03+00:00">00:36:03</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>of course right now I'm not seeing a printk.... either the spi is failing, or this isn't getting rebuilt right, or something</q></li>
+<li class="message">[<a href="#T00:36:32" id="T00:36:32"><abbr title="2012-10-30T00:36:32+00:00">00:36:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you did check if it is PP or OC, right?</q></li>
+<li class="message">[<a href="#T00:37:28" id="T00:37:28"><abbr title="2012-10-30T00:37:28+00:00">00:37:28</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>PP and OC?</q></li>
+<li class="message">[<a href="#T00:37:37" id="T00:37:37"><abbr title="2012-10-30T00:37:37+00:00">00:37:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yeah, on the interrupt pin</q></li>
+<li class="message">[<a href="#T00:38:20" id="T00:38:20"><abbr title="2012-10-30T00:38:20+00:00">00:38:20</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I don't know what those acronyms mean....</q></li>
+<li class="message">[<a href="#T00:38:27" id="T00:38:27"><abbr title="2012-10-30T00:38:27+00:00">00:38:27</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>but I think ti's not the interrupt pin</q></li>
+<li class="message">[<a href="#T00:38:30" id="T00:38:30"><abbr title="2012-10-30T00:38:30+00:00">00:38:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Oh, sorry</q></li>
+<li class="message">[<a href="#T00:38:32" id="T00:38:32"><abbr title="2012-10-30T00:38:32+00:00">00:38:32</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'm getting my ISR</q></li>
+<li class="message">[<a href="#T00:38:40" id="T00:38:40"><abbr title="2012-10-30T00:38:40+00:00">00:38:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Push Pull (i.e. actively driven high or low)</q></li>
+<li class="message">[<a href="#T00:38:52" id="T00:38:52"><abbr title="2012-10-30T00:38:52+00:00">00:38:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>vs Open Collector/Open Drain - actively driven low, needs a pull up</q></li>
+<li class="message">[<a href="#T00:39:10" id="T00:39:10"><abbr title="2012-10-30T00:39:10+00:00">00:39:10</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh...</q></li>
+<li class="message">[<a href="#T00:39:21" id="T00:39:21"><abbr title="2012-10-30T00:39:21+00:00">00:39:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so if it was OC, you could have funny business with that line if you didn't pull it up right</q></li>
+<li class="message">[<a href="#T00:39:34" id="T00:39:34"><abbr title="2012-10-30T00:39:34+00:00">00:39:34</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>It seems like I read that stuff before... the line is being pulled iirc, let me check......</q></li>
+<li class="join">[<a href="#T00:39:59" id="T00:39:59"><abbr title="2012-10-30T00:39:59+00:00">00:39:59</abbr></a>] <span>* JackQ (44307a55@gateway/web/freenode/ip.68.48.122.85) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:40:38" id="T00:40:38"><abbr title="2012-10-30T00:40:38+00:00">00:40:38</abbr></a>] <span>* CMoH (~cipi@unaffiliated/c-moh) Quit (Quit: Konversation terminated!)</span></li>
+<li class="message">[<abbr title="2012-10-30T00:40:38+00:00">00:40:38</abbr>] &lt;<cite>alan_o</cite>&gt; <q>actaully..... now I think my workqueue handler isn't getting called.</q></li>
+<li class="quit">[<a href="#T00:40:49" id="T00:40:49"><abbr title="2012-10-30T00:40:49+00:00">00:40:49</abbr></a>] <span>* Russ (~russ@pool-74-111-207-81.lsanca.fios.verizon.net) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T00:40:54" id="T00:40:54"><abbr title="2012-10-30T00:40:54+00:00">00:40:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>did you add things to the work queue?</q></li>
+<li class="quit">[<a href="#T00:42:10" id="T00:42:10"><abbr title="2012-10-30T00:42:10+00:00">00:42:10</abbr></a>] <span>* felipealmeida (~user@mvx-187-16-79-187.mundivox.com) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T00:42:59" id="T00:42:59"><abbr title="2012-10-30T00:42:59+00:00">00:42:59</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>Well, from the isr.....</q></li>
+<li class="message">[<a href="#T00:43:02" id="T00:43:02"><abbr title="2012-10-30T00:43:02+00:00">00:43:02</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T00:43:04" id="T00:43:04"><abbr title="2012-10-30T00:43:04+00:00">00:43:04</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>this all used to work</q></li>
+<li class="message">[<a href="#T00:43:10" id="T00:43:10"><abbr title="2012-10-30T00:43:10+00:00">00:43:10</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>It's in mainline :)</q></li>
+<li class="message">[<a href="#T00:43:23" id="T00:43:23"><abbr title="2012-10-30T00:43:23+00:00">00:43:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>blah ;)</q></li>
+<li class="quit">[<a href="#T00:43:44" id="T00:43:44"><abbr title="2012-10-30T00:43:44+00:00">00:43:44</abbr></a>] <span>* C-o-r-E (~nash@modemcable123.117-82-70.mc.videotron.ca) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T00:44:13" id="T00:44:13"><abbr title="2012-10-30T00:44:13+00:00">00:44:13</abbr></a>] <span>* JackQ (44307a55@gateway/web/freenode/ip.68.48.122.85) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<abbr title="2012-10-30T00:44:13+00:00">00:44:13</abbr>] <span>* rcranetx (~rcranetx@nat/ti/x-wkmpcxhkxgifyyfe) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:45:02" id="T00:45:02"><abbr title="2012-10-30T00:45:02+00:00">00:45:02</abbr></a>] <span>* Akuma (~Akuma@modemcable033.43-202-24.mc.videotron.ca) Quit (Read error: No route to host)</span></li>
+<li class="quit">[<a href="#T00:51:48" id="T00:51:48"><abbr title="2012-10-30T00:51:48+00:00">00:51:48</abbr></a>] <span>* UNTEngineer (48302f76@gateway/web/freenode/ip.72.48.47.118) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T00:52:55" id="T00:52:55"><abbr title="2012-10-30T00:52:55+00:00">00:52:55</abbr></a>] <span>* Russ (~russ@pool-74-111-207-81.lsanca.fios.verizon.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:53:23" id="T00:53:23"><abbr title="2012-10-30T00:53:23+00:00">00:53:23</abbr></a>] <span>* juvenal (~juvenal@177.176.103.210) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="message">[<a href="#T00:54:37" id="T00:54:37"><abbr title="2012-10-30T00:54:37+00:00">00:54:37</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>arrgh.... it's my stupid build script</q></li>
+<li class="message">[<a href="#T00:55:20" id="T00:55:20"><abbr title="2012-10-30T00:55:20+00:00">00:55:20</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>alan_o: how much hair have you lost? :)</q></li>
+<li class="message">[<a href="#T00:55:29" id="T00:55:29"><abbr title="2012-10-30T00:55:29+00:00">00:55:29</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>*sigh*</q></li>
+<li class="join">[<a href="#T00:55:34" id="T00:55:34"><abbr title="2012-10-30T00:55:34+00:00">00:55:34</abbr></a>] <span>* prpplague (~prpplague@107-206-64-184.lightspeed.rcsntx.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:56:15" id="T00:56:15"><abbr title="2012-10-30T00:56:15+00:00">00:56:15</abbr></a>] <span>* juvenal (~juvenal@187.57.94.202) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:56:37" id="T00:56:37"><abbr title="2012-10-30T00:56:37+00:00">00:56:37</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>prpplague: not at LC?</q></li>
+<li class="message">[<a href="#T00:57:22" id="T00:57:22"><abbr title="2012-10-30T00:57:22+00:00">00:57:22</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>mranostay: naw, too many things going on</q></li>
+<li class="message">[<a href="#T00:57:33" id="T00:57:33"><abbr title="2012-10-30T00:57:33+00:00">00:57:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what did the build script do?</q></li>
+<li class="message">[<a href="#T00:57:53" id="T00:57:53"><abbr title="2012-10-30T00:57:53+00:00">00:57:53</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>well, it was causing me to not be running the latest</q></li>
+<li class="quit">[<a href="#T00:57:55" id="T00:57:55"><abbr title="2012-10-30T00:57:55+00:00">00:57:55</abbr></a>] <span>* dj_pi (~asd@c-107-5-25-243.hsd1.mi.comcast.net) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="message">[<a href="#T00:57:59" id="T00:57:59"><abbr title="2012-10-30T00:57:59+00:00">00:57:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ohhhhh</q></li>
+<li class="message">[<a href="#T00:58:04" id="T00:58:04"><abbr title="2012-10-30T00:58:04+00:00">00:58:04</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>still not sure why</q></li>
+<li class="message">[<a href="#T00:58:18" id="T00:58:18"><abbr title="2012-10-30T00:58:18+00:00">00:58:18</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>all it does is build and copy</q></li>
+<li class="quit">[<a href="#T00:59:24" id="T00:59:24"><abbr title="2012-10-30T00:59:24+00:00">00:59:24</abbr></a>] <span>* cwillu (~cwillu@cwillu.com) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T00:59:27" id="T00:59:27"><abbr title="2012-10-30T00:59:27+00:00">00:59:27</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-wkmpcxhkxgifyyfe) Quit (Read error: Operation timed out)</span></li>
