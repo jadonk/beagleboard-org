@@ -3,6 +3,18 @@ function ownername_macro (param)
   return ("" + this.ownername);
  }
 
+function youtube_embed_macro (param)
+ {
+  var embed = ('' + this.youtube_url).match(/(youtu.be|youtube.com)\/.*\?v=(.*)$/);
+  if (!embed)
+   return ('' + this.youtube_url);
+  else if (embed.length == 3)
+   return ('<iframe width="640" height="360" src="http://www.youtube.com/embed/'
+    + embed[2] + '" frameborder="0" allowfullscreen></iframe>');
+  else
+   return ('<a href="' + this.youtube_url + '>' + this.youtube_url + '</a>');
+ }
+
 function edit_macro (param)
  {
   var uri = req.path.replace(/\/$/,"");
@@ -53,7 +65,7 @@ function edit_cape_action ()
   this.name = cleanField(this.name);
   this.email = cleanField(this.email);
   this.project_url = cleanField(this.project_url);
-  this.min = cleanField(this.min);
+  this.youtube_url = cleanField(this.youtube_url);
 
   if
    (
@@ -63,7 +75,6 @@ function edit_cape_action ()
     && req.data["name"]
     && req.data["email"]
     && req.data["project_url"]
-    && req.data["min"]
    )
    {
     this.user = "" + session.user["name"];
@@ -71,7 +82,7 @@ function edit_cape_action ()
     this.name = req.data["name"];
     this.email = req.data["email"];
     this.project_url = req.data["project_url"];
-    this.min = req.data["min"];
+    this.youtube_url = req.data["youtube_url"];
     this.updatetime = new Date();
     this.render_skin = "cape";
     this.edit_skin = "edit_cape";
@@ -97,7 +108,6 @@ function edit_cape_action ()
     if (!req.data["name"]) this.errmsg += "* Your name is a required field<br />\n";
     if (!req.data["email"]) this.errmsg += "* Your e-mail is a required field<br />\n";
     if (!req.data["project_url"]) this.errmsg += "* Project URL is a required field<br />\n";
-    if (!req.data["min"]) this.errmsg += "* Minimum requirements a required field<br />\n";
     if (!req.data["uri"]) this.errmsg += "* Cape name/URI is a required field<br />\n";
    }
   res.data.title = this.uri + " - edit_cape";
