@@ -92,6 +92,17 @@ function listBody ()
        + '</td>\n' 
        ;
       body += ' <td>' + collection[i].body + '</td>\n';
+      if (collection[i].youtube_url)
+       {
+        var embed = ('' + collection[i].youtube_url).match(/(youtu.be|youtube.com)\/.*\?v=(.*)$/);
+        if (embed && embed.length == 3)
+	 {
+          body += ' <td><iframe width="412" height="240" ';
+	  body += 'src="http://www.youtube.com/embed/'
+          body += embed[2];
+	  body += '" frameborder="0" allowfullscreen></iframe></td>\n';
+	 }
+       }
       body += '</tr>\n';
      }
     else if (collection[i].render_skin == "rss")
