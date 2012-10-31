@@ -147,7 +147,7 @@ function showCapeInfoTbl_macro (param)
   if ((("" + this.email) != "") && (("" + this.name) != ""))
    {
     str += "<tr>\n"
-     + "  <td valign=\"top\" class=\"tbl3\" align=\"right\">Author</td>\n"
+     + "  <td valign=\"top\" class=\"tbl3\" align=\"right\">Submitter</td>\n"
      + "  <td class=\"tbl5\"><a href=\"mailto:" + this.email + "\">"
      + this.name
      + "</a></td>\n"
