@@ -9,6 +9,8 @@ function set_action ()
    this.render_skin = req.data["render_skin"];
   if (req.data["edit_skin"])
    this.edit_skin = req.data["edit_skin"];
+  if (req.data["skin_is_outer"])
+   this.skin_is_outer = req.data["skin_is_outer"];
   if (req.data["list_children"])
    if (req.data["list_children"] == "delete")
     delete this.list_children;

@@ -8,7 +8,7 @@ function main_action ()
   res.data.title = this.uri;
   if (this.render_skin == "project" && this.pname)
    res.data.title = this.pname;
-  if (this.render_skin == "homepage" || this.render_skin == "bare")
+  if (this.render_skin == "homepage" || this.skin_is_outer)
    {
     res.data.body = this.body;
     renderSkin(this.render_skin);
