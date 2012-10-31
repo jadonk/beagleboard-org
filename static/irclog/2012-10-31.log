@@ -1050,3 +1050,118 @@
 <li class="message">[<a href="#T15:57:51" id="T15:57:51"><abbr title="2012-10-31T15:57:51+00:00">15:57:51</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I'm thinking I'll have to put something in the dt, but I still don't have a full understanding of what I'm looking at yet</q></li>
 <li class="message">[<a href="#T15:58:06" id="T15:58:06"><abbr title="2012-10-31T15:58:06+00:00">15:58:06</abbr></a>] &lt;<cite>panto</cite>&gt; <q>ok, gimme a minute to look at it</q></li>
 <li class="quit">[<a href="#T15:59:47" id="T15:59:47"><abbr title="2012-10-31T15:59:47+00:00">15:59:47</abbr></a>] <span>* janne (~janne@sianko.jannau.net) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T16:00:55" id="T16:00:55"><abbr title="2012-10-31T16:00:55+00:00">16:00:55</abbr></a>] &lt;<cite>panto</cite>&gt; <q>hmm, the driver is definitely not going to export in the same way that it used to</q></li>
+<li class="message">[<a href="#T16:01:00" id="T16:01:00"><abbr title="2012-10-31T16:01:00+00:00">16:01:00</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it's now an IIO ADC driver</q></li>
+<li class="message">[<a href="#T16:01:11" id="T16:01:11"><abbr title="2012-10-31T16:01:11+00:00">16:01:11</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T16:02:08" id="T16:02:08"><abbr title="2012-10-31T16:02:08+00:00">16:02:08</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>so I've not used iio before. Is there a dev/ioctl for that stuff? I suppose I can look it up</q></li>
+<li class="message">[<a href="#T16:02:43" id="T16:02:43"><abbr title="2012-10-31T16:02:43+00:00">16:02:43</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it's very new... drivers/staging/iio/Documentation</q></li>
+<li class="message">[<a href="#T16:03:05" id="T16:03:05"><abbr title="2012-10-31T16:03:05+00:00">16:03:05</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I definitely used the in-kernel client so I know it works</q></li>
+<li class="message">[<a href="#T16:03:12" id="T16:03:12"><abbr title="2012-10-31T16:03:12+00:00">16:03:12</abbr></a>] &lt;<cite>panto</cite>&gt; <q>the tsc driver doesn't yet</q></li>
+<li class="quit">[<a href="#T16:03:23" id="T16:03:23"><abbr title="2012-10-31T16:03:23+00:00">16:03:23</abbr></a>] <span>* JViz (~JViz@cpe-024-163-006-117.triad.res.rr.com) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T16:04:11" id="T16:04:11"><abbr title="2012-10-31T16:04:11+00:00">16:04:11</abbr></a>] &lt;<cite>panto</cite>&gt; <q>hmm, let me reboot once more to check</q></li>
+<li class="message">[<a href="#T16:04:50" id="T16:04:50"><abbr title="2012-10-31T16:04:50+00:00">16:04:50</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>hmm... I have nothing in /dev/iio*</q></li>
+<li class="message">[<a href="#T16:04:56" id="T16:04:56"><abbr title="2012-10-31T16:04:56+00:00">16:04:56</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>wonder if I need to turn that on</q></li>
+<li class="message">[<a href="#T16:05:19" id="T16:05:19"><abbr title="2012-10-31T16:05:19+00:00">16:05:19</abbr></a>] &lt;<cite>panto</cite>&gt; <q>well, if you don't have an activated cape node with a ti-tscadc-dt node you won't</q></li>
+<li class="message">[<a href="#T16:05:34" id="T16:05:34"><abbr title="2012-10-31T16:05:34+00:00">16:05:34</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh...</q></li>
+<li class="message">[<a href="#T16:05:45" id="T16:05:45"><abbr title="2012-10-31T16:05:45+00:00">16:05:45</abbr></a>] &lt;<cite>panto</cite>&gt; <q>what tree are you using?</q></li>
+<li class="message">[<a href="#T16:05:58" id="T16:05:58"><abbr title="2012-10-31T16:05:58+00:00">16:05:58</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q><a href="https://github.com/beagleboard/kernel/tree/3.7">https://github.com/beagleboard/kernel/tree/3.7</a></q></li>
+<li class="join">[<a href="#T16:06:43" id="T16:06:43"><abbr title="2012-10-31T16:06:43+00:00">16:06:43</abbr></a>] <span>* janne (~janne@sianko.jannau.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:08:47" id="T16:08:47"><abbr title="2012-10-31T16:08:47+00:00">16:08:47</abbr></a>] &lt;<cite>panto</cite>&gt; <q>alan_o, gimme a few minutes</q></li>
+<li class="message">[<a href="#T16:09:16" id="T16:09:16"><abbr title="2012-10-31T16:09:16+00:00">16:09:16</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>ok, no problem. I'm grateful for the help :)</q></li>
+<li class="message">[<a href="#T16:10:07" id="T16:10:07"><abbr title="2012-10-31T16:10:07+00:00">16:10:07</abbr></a>] &lt;<cite>panto</cite>&gt; <q>you're welcome... guinea pigs^W^Wusers are always welcome :)</q></li>
+<li class="join">[<a href="#T16:11:34" id="T16:11:34"><abbr title="2012-10-31T16:11:34+00:00">16:11:34</abbr></a>] <span>* kiilo (~kiilo@1-162-43-49.dynamic.hinet.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:12:24" id="T16:12:24"><abbr title="2012-10-31T16:12:24+00:00">16:12:24</abbr></a>] <span>* Vadtec (~Vadtec@unaffiliated/vadtec) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:12:53" id="T16:12:53"><abbr title="2012-10-31T16:12:53+00:00">16:12:53</abbr></a>] <span>* VadtecWk (~Vadtec@unaffiliated/vadtec) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:14:34" id="T16:14:34"><abbr title="2012-10-31T16:14:34+00:00">16:14:34</abbr></a>] &lt;<cite>panto</cite>&gt; <q>alan_o, hmm, IIO doesn't put out sysfs node for user-space usage automatically</q></li>
+<li class="message">[<a href="#T16:14:52" id="T16:14:52"><abbr title="2012-10-31T16:14:52+00:00">16:14:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>alan_o, good catch; I'll try to find out how to put them out (if possible)</q></li>
+<li class="message">[<a href="#T16:15:01" id="T16:15:01"><abbr title="2012-10-31T16:15:01+00:00">16:15:01</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I see IIO_SYSFS_TRIGGER in the menuconfig</q></li>
+<li class="message">[<a href="#T16:15:13" id="T16:15:13"><abbr title="2012-10-31T16:15:13+00:00">16:15:13</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>but  that's turned off</q></li>
+<li class="message">[<a href="#T16:15:46" id="T16:15:46"><abbr title="2012-10-31T16:15:46+00:00">16:15:46</abbr></a>] &lt;<cite>panto</cite>&gt; <q>try turning it on</q></li>
+<li class="message">[<abbr title="2012-10-31T16:15:46+00:00">16:15:46</abbr>] &lt;<cite>alan_o</cite>&gt; <q>also, I'm looking at the iio_event_monitor.c in staging/iio/Documentation</q></li>
+<li class="message">[<a href="#T16:15:48" id="T16:15:48"><abbr title="2012-10-31T16:15:48+00:00">16:15:48</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T16:16:39" id="T16:16:39"><abbr title="2012-10-31T16:16:39+00:00">16:16:39</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>but, I'm still going to need something in the dt, right/</q></li>
+<li class="message">[<a href="#T16:16:46" id="T16:16:46"><abbr title="2012-10-31T16:16:46+00:00">16:16:46</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T16:17:06" id="T16:17:06"><abbr title="2012-10-31T16:17:06+00:00">16:17:06</abbr></a>] &lt;<cite>panto</cite>&gt; <q>alan_o, yes</q></li>
+<li class="message">[<a href="#T16:17:39" id="T16:17:39"><abbr title="2012-10-31T16:17:39+00:00">16:17:39</abbr></a>] &lt;<cite>panto</cite>&gt; <q>        tscadc {</q></li>
+<li class="message">[<abbr title="2012-10-31T16:17:39+00:00">16:17:39</abbr>] &lt;<cite>panto</cite>&gt; <q>                compatible = "ti-tscadc-dt";</q></li>
+<li class="message">[<abbr title="2012-10-31T16:17:39+00:00">16:17:39</abbr>] &lt;<cite>panto</cite>&gt; <q>                ti,hwmods = "adc_tsc";</q></li>
+<li class="message">[<abbr title="2012-10-31T16:17:39+00:00">16:17:39</abbr>] &lt;<cite>panto</cite>&gt; <q>                adc-channels = &lt;8&gt;;</q></li>
+<li class="message">[<abbr title="2012-10-31T16:17:39+00:00">16:17:39</abbr>] &lt;<cite>panto</cite>&gt; <q>        };</q></li>
+<li class="message">[<a href="#T16:18:04" id="T16:18:04"><abbr title="2012-10-31T16:18:04+00:00">16:18:04</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>ok, I see that text under stuff like the geiger cape</q></li>
+<li class="message">[<a href="#T16:18:05" id="T16:18:05"><abbr title="2012-10-31T16:18:05+00:00">16:18:05</abbr></a>] &lt;<cite>panto</cite>&gt; <q>something like that in a cape definition</q></li>
+<li class="message">[<a href="#T16:18:22" id="T16:18:22"><abbr title="2012-10-31T16:18:22+00:00">16:18:22</abbr></a>] &lt;<cite>panto</cite>&gt; <q>iio is kinda rough</q></li>
+<li class="message">[<a href="#T16:18:25" id="T16:18:25"><abbr title="2012-10-31T16:18:25+00:00">16:18:25</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>and can I turn that cape on automatically?</q></li>
+<li class="message">[<a href="#T16:18:41" id="T16:18:41"><abbr title="2012-10-31T16:18:41+00:00">16:18:41</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>without eeprom, etc?</q></li>
+<li class="join">[<a href="#T16:18:54" id="T16:18:54"><abbr title="2012-10-31T16:18:54+00:00">16:18:54</abbr></a>] <span>* helmich (c26871f4@gateway/web/freenode/ip.194.104.113.244) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:20:18" id="T16:20:18"><abbr title="2012-10-31T16:20:18+00:00">16:20:18</abbr></a>] &lt;<cite>panto</cite>&gt; <q>yes, look at the override section</q></li>
+<li class="message">[<a href="#T16:20:35" id="T16:20:35"><abbr title="2012-10-31T16:20:35+00:00">16:20:35</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>overrides: no eeprom (proto)</q></li>
+<li class="message">[<a href="#T16:20:41" id="T16:20:41"><abbr title="2012-10-31T16:20:41+00:00">16:20:41</abbr></a>] &lt;<cite>panto</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T16:20:43" id="T16:20:43"><abbr title="2012-10-31T16:20:43+00:00">16:20:43</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh, nice</q></li>
+<li class="message">[<a href="#T16:20:52" id="T16:20:52"><abbr title="2012-10-31T16:20:52+00:00">16:20:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>recent capebus kernels can do that on runtime</q></li>
+<li class="message">[<a href="#T16:21:13" id="T16:21:13"><abbr title="2012-10-31T16:21:13+00:00">16:21:13</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, that's what I've heard/read... that's cool stuff.</q></li>
+<li class="message">[<a href="#T16:21:17" id="T16:21:17"><abbr title="2012-10-31T16:21:17+00:00">16:21:17</abbr></a>] &lt;<cite>panto</cite>&gt; <q>cd /sys/devices/capebus.10/ &amp;&amp; echo "0:Geiger Cape" &gt;slots</q></li>
+<li class="message">[<a href="#T16:21:33" id="T16:21:33"><abbr title="2012-10-31T16:21:33+00:00">16:21:33</abbr></a>] &lt;<cite>panto</cite>&gt; <q>override slot0 with geiger cape</q></li>
+<li class="message">[<a href="#T16:22:00" id="T16:22:00"><abbr title="2012-10-31T16:22:00+00:00">16:22:00</abbr></a>] &lt;<cite>panto</cite>&gt; <q>takes a little bit of effort at the beginning but it's quite nice when you get the hang of it</q></li>
+<li class="message">[<a href="#T16:23:51" id="T16:23:51"><abbr title="2012-10-31T16:23:51+00:00">16:23:51</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh....</q></li>
+<li class="message">[<a href="#T16:23:57" id="T16:23:57"><abbr title="2012-10-31T16:23:57+00:00">16:23:57</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>had to read that a couple time.</q></li>
+<li class="message">[<a href="#T16:24:05" id="T16:24:05"><abbr title="2012-10-31T16:24:05+00:00">16:24:05</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>no need to mod the dt, because I can override from sysfs</q></li>
+<li class="quit">[<a href="#T16:24:16" id="T16:24:16"><abbr title="2012-10-31T16:24:16+00:00">16:24:16</abbr></a>] <span>* jpirko (jirka@nat/redhat/x-ixwuicngkgtvgwgs) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T16:24:51" id="T16:24:51"><abbr title="2012-10-31T16:24:51+00:00">16:24:51</abbr></a>] &lt;<cite>panto</cite>&gt; <q>if you have a cape definition in the DT already</q></li>
+<li class="message">[<a href="#T16:25:00" id="T16:25:00"><abbr title="2012-10-31T16:25:00+00:00">16:25:00</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>the geiger cape is in there</q></li>
+<li class="message">[<a href="#T16:25:04" id="T16:25:04"><abbr title="2012-10-31T16:25:04+00:00">16:25:04</abbr></a>] &lt;<cite>panto</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T16:25:07" id="T16:25:07"><abbr title="2012-10-31T16:25:07+00:00">16:25:07</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I don't have slots</q></li>
+<li class="message">[<a href="#T16:25:14" id="T16:25:14"><abbr title="2012-10-31T16:25:14+00:00">16:25:14</abbr></a>] &lt;<cite>panto</cite>&gt; <q>you don't have to</q></li>
+<li class="message">[<a href="#T16:25:15" id="T16:25:15"><abbr title="2012-10-31T16:25:15+00:00">16:25:15</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>capebus.11 is what I show</q></li>
+<li class="message">[<a href="#T16:25:28" id="T16:25:28"><abbr title="2012-10-31T16:25:28+00:00">16:25:28</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I mean in /sys/devices/capebus.11</q></li>
+<li class="message">[<a href="#T16:25:37" id="T16:25:37"><abbr title="2012-10-31T16:25:37+00:00">16:25:37</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T16:25:52" id="T16:25:52"><abbr title="2012-10-31T16:25:52+00:00">16:25:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>git://github.com/pantoniou/linux-bbxm.git branch capebus-v3</q></li>
+<li class="message">[<a href="#T16:25:57" id="T16:25:57"><abbr title="2012-10-31T16:25:57+00:00">16:25:57</abbr></a>] &lt;<cite>panto</cite>&gt; <q>that's the latest as of now</q></li>
+<li class="message">[<a href="#T16:26:08" id="T16:26:08"><abbr title="2012-10-31T16:26:08+00:00">16:26:08</abbr></a>] &lt;<cite>panto</cite>&gt; <q>in a few minutes there's going to be a capebus-v4</q></li>
+<li class="message">[<a href="#T16:26:42" id="T16:26:42"><abbr title="2012-10-31T16:26:42+00:00">16:26:42</abbr></a>] &lt;<cite>panto</cite>&gt; <q>but it's not gone through koen's refinement; it's a bit experimental</q></li>
+<li class="message">[<a href="#T16:27:00" id="T16:27:00"><abbr title="2012-10-31T16:27:00+00:00">16:27:00</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>hmm, it's not letting me create that slots file</q></li>
+<li class="quit">[<a href="#T16:27:38" id="T16:27:38"><abbr title="2012-10-31T16:27:38+00:00">16:27:38</abbr></a>] <span>* ant_work (~ant@host6-80-static.42-85-b.business.telecomitalia.it) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T16:27:43" id="T16:27:43"><abbr title="2012-10-31T16:27:43+00:00">16:27:43</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I made sure of my sytnax in ~ . sysfs isn't letting me do it.</q></li>
+<li class="message">[<abbr title="2012-10-31T16:27:43+00:00">16:27:43</abbr>] &lt;<cite>panto</cite>&gt; <q>yeah, cause the tree you have a little bit older and doesn't have the runtime override</q></li>
+<li class="message">[<a href="#T16:27:56" id="T16:27:56"><abbr title="2012-10-31T16:27:56+00:00">16:27:56</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh...</q></li>
+<li class="message">[<a href="#T16:28:01" id="T16:28:01"><abbr title="2012-10-31T16:28:01+00:00">16:28:01</abbr></a>] &lt;<cite>panto</cite>&gt; <q>use either my kernel tree, or use the override</q></li>
+<li class="message">[<a href="#T16:28:05" id="T16:28:05"><abbr title="2012-10-31T16:28:05+00:00">16:28:05</abbr></a>] &lt;<cite>panto</cite>&gt; <q>(in the DT)</q></li>
+<li class="message">[<a href="#T16:28:13" id="T16:28:13"><abbr title="2012-10-31T16:28:13+00:00">16:28:13</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>ok, I'll do it in the DT. probably faster</q></li>
+<li class="message">[<a href="#T16:28:16" id="T16:28:16"><abbr title="2012-10-31T16:28:16+00:00">16:28:16</abbr></a>] &lt;<cite>helmich</cite>&gt; <q>anyone able to explain me the possibilities with the onboard ADC pins: howto setup the samplerate.</q></li>
+<li class="quit">[<a href="#T16:30:03" id="T16:30:03"><abbr title="2012-10-31T16:30:03+00:00">16:30:03</abbr></a>] <span>* vipcount (259da9c5@gateway/web/freenode/ip.37.157.169.197) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T16:32:30" id="T16:32:30"><abbr title="2012-10-31T16:32:30+00:00">16:32:30</abbr></a>] <span>* emeb (~ericb@ip72-201-79-123.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:33:21" id="T16:33:21"><abbr title="2012-10-31T16:33:21+00:00">16:33:21</abbr></a>] <span>* JViz (~JViz@rrcs-70-63-118-85.midsouth.biz.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:34:23" id="T16:34:23"><abbr title="2012-10-31T16:34:23+00:00">16:34:23</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>panto: /sys/devices/platform/ti_tscadc/tiadc/iio:device0</q></li>
+<li class="message">[<a href="#T16:34:50" id="T16:34:50"><abbr title="2012-10-31T16:34:50+00:00">16:34:50</abbr></a>] &lt;<cite>panto</cite>&gt; <q>yeah, but it doesn't have any sysfs channel nodes in there...</q></li>
+<li class="message">[<a href="#T16:34:59" id="T16:34:59"><abbr title="2012-10-31T16:34:59+00:00">16:34:59</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T16:35:03" id="T16:35:03"><abbr title="2012-10-31T16:35:03+00:00">16:35:03</abbr></a>] &lt;<cite>panto</cite>&gt; <q>still trying to figure out how :)</q></li>
+<li class="message">[<a href="#T16:35:07" id="T16:35:07"><abbr title="2012-10-31T16:35:07+00:00">16:35:07</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh!</q></li>
+<li class="message">[<a href="#T16:35:09" id="T16:35:09"><abbr title="2012-10-31T16:35:09+00:00">16:35:09</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T16:35:11" id="T16:35:11"><abbr title="2012-10-31T16:35:11+00:00">16:35:11</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>thanks, man</q></li>
+<li class="message">[<a href="#T16:35:14" id="T16:35:14"><abbr title="2012-10-31T16:35:14+00:00">16:35:14</abbr></a>] &lt;<cite>panto</cite>&gt; <q>np</q></li>
+<li class="message">[<a href="#T16:35:24" id="T16:35:24"><abbr title="2012-10-31T16:35:24+00:00">16:35:24</abbr></a>] &lt;<cite>panto</cite>&gt; <q>eventually we'll get it right</q></li>
+<li class="message">[<a href="#T16:36:00" id="T16:36:00"><abbr title="2012-10-31T16:36:00+00:00">16:36:00</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>definitely, I'm happy to be (very small) part of the process.</q></li>
+<li class="join">[<a href="#T16:38:39" id="T16:38:39"><abbr title="2012-10-31T16:38:39+00:00">16:38:39</abbr></a>] <span>* woglinde (~henning@f052066119.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="action">[<a href="#T16:39:13" id="T16:39:13"><abbr title="2012-10-31T16:39:13+00:00">16:39:13</abbr></a>] <span>* alan_o realizes he needs to make better use of the log levels...... ERR and DEBUG just don't cut it.</span></li>
+<li class="part">[<a href="#T16:39:29" id="T16:39:29"><abbr title="2012-10-31T16:39:29+00:00">16:39:29</abbr></a>] <span>* helmich (c26871f4@gateway/web/freenode/ip.194.104.113.244) has left #beagle</span></li>
+<li class="quit">[<a href="#T16:40:46" id="T16:40:46"><abbr title="2012-10-31T16:40:46+00:00">16:40:46</abbr></a>] <span>* kiilo (~kiilo@1-162-43-49.dynamic.hinet.net) Quit (Quit: ciao)</span></li>
+<li class="join">[<a href="#T16:43:14" id="T16:43:14"><abbr title="2012-10-31T16:43:14+00:00">16:43:14</abbr></a>] <span>* Venom_X_ (~phillyque@67-200-192-12.static.logixcom.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:43:34" id="T16:43:34"><abbr title="2012-10-31T16:43:34+00:00">16:43:34</abbr></a>] <span>* Venom_X (~phillyque@67-200-192-12.static.logixcom.net) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="nick-change">[<a href="#T16:43:35" id="T16:43:35"><abbr title="2012-10-31T16:43:35+00:00">16:43:35</abbr></a>] <span>* Venom_X_ is now known as Venom_X</span></li>
+<li class="join">[<a href="#T16:45:39" id="T16:45:39"><abbr title="2012-10-31T16:45:39+00:00">16:45:39</abbr></a>] <span>* staahl (~stahl@217-162-96-28.dynamic.hispeed.ch) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:45:53" id="T16:45:53"><abbr title="2012-10-31T16:45:53+00:00">16:45:53</abbr></a>] <span>* Pana (d4b53982@gateway/web/freenode/ip.212.181.57.130) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T16:47:25" id="T16:47:25"><abbr title="2012-10-31T16:47:25+00:00">16:47:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>alan_o info</q></li>
+<li class="quit">[<a href="#T16:47:30" id="T16:47:30"><abbr title="2012-10-31T16:47:30+00:00">16:47:30</abbr></a>] <span>* stahl (~stahl@217-162-96-28.dynamic.hispeed.ch) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T16:48:08" id="T16:48:08"><abbr title="2012-10-31T16:48:08+00:00">16:48:08</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ha, kids started trick or beating</q></li>
+<li class="message">[<a href="#T16:48:16" id="T16:48:16"><abbr title="2012-10-31T16:48:16+00:00">16:48:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>none chose beating</q></li>
+<li class="action">[<a href="#T16:49:05" id="T16:49:05"><abbr title="2012-10-31T16:49:05+00:00">16:49:05</abbr></a>] <span>* mdp readies his cane</span></li>
+<li class="message">[<a href="#T16:49:11" id="T16:49:11"><abbr title="2012-10-31T16:49:11+00:00">16:49:11</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>av500 the were afraid of you</q></li>
+<li class="message">[<a href="#T16:49:20" id="T16:49:20"><abbr title="2012-10-31T16:49:20+00:00">16:49:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>drac vla</q></li>
+<li class="message">[<a href="#T16:49:21" id="T16:49:21"><abbr title="2012-10-31T16:49:21+00:00">16:49:21</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>d</q></li>
+<li class="message">[<a href="#T16:49:25" id="T16:49:25"><abbr title="2012-10-31T16:49:25+00:00">16:49:25</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>*g*</q></li>
+<li class="message">[<a href="#T16:49:39" id="T16:49:39"><abbr title="2012-10-31T16:49:39+00:00">16:49:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>till later</q></li>
+<li class="join">[<a href="#T16:50:34" id="T16:50:34"><abbr title="2012-10-31T16:50:34+00:00">16:50:34</abbr></a>] <span>* djlewis (~djelwis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:53:05" id="T16:53:05"><abbr title="2012-10-31T16:53:05+00:00">16:53:05</abbr></a>] <span>* divine (~divine@2001:470:8247:1::42) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T16:53:33" id="T16:53:33"><abbr title="2012-10-31T16:53:33+00:00">16:53:33</abbr></a>] <span>* CMoH (~cipi@unaffiliated/c-moh) Quit (Quit: Konversation terminated!)</span></li>
+<li class="quit">[<a href="#T16:54:11" id="T16:54:11"><abbr title="2012-10-31T16:54:11+00:00">16:54:11</abbr></a>] <span>* woglinde (~henning@f052066119.adsl.alicedsl.de) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="quit">[<a href="#T16:54:32" id="T16:54:32"><abbr title="2012-10-31T16:54:32+00:00">16:54:32</abbr></a>] <span>* staahl (~stahl@217-162-96-28.dynamic.hispeed.ch) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="join">[<a href="#T16:58:28" id="T16:58:28"><abbr title="2012-10-31T16:58:28+00:00">16:58:28</abbr></a>] <span>* DaveK (c05b42ba@gateway/web/freenode/ip.192.91.66.186) has joined #beagle</span></li>
