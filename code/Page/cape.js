@@ -75,6 +75,7 @@ function edit_cape_action ()
     && req.data["name"]
     && req.data["email"]
     && req.data["project_url"]
+    && req.data["youtube_url"]
    )
    {
     this.user = "" + session.user["name"];
@@ -108,6 +109,7 @@ function edit_cape_action ()
     if (!req.data["name"]) this.errmsg += "* Your name is a required field<br />\n";
     if (!req.data["email"]) this.errmsg += "* Your e-mail is a required field<br />\n";
     if (!req.data["project_url"]) this.errmsg += "* Project URL is a required field<br />\n";
+    if (!req.data["youtube_url"]) this.errmsg += "* YouTube URL is a required field<br />\n";
     if (!req.data["uri"]) this.errmsg += "* Cape name/URI is a required field<br />\n";
    }
   res.data.title = this.uri + " - edit_cape";
