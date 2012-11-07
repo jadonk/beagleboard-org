@@ -94,7 +94,7 @@ function listBody ()
       body += ' <td>' + collection[i].body + '</td>\n';
       if (collection[i].youtube_url)
        {
-        var embed = ('' + collection[i].youtube_url).match(/(youtu.be|youtube.com)\/.*\?v=(.*)$/);
+        var embed = ('' + collection[i].youtube_url).match(/(youtu.be|youtube.com)\/(.*)$/);
         if (embed && embed.length == 3)
 	 {
           body += ' <td><iframe width="412" height="240" ';

@@ -53,9 +53,9 @@ function prompt_macro (param)
       var serverResponse = verifyResponse(requestURL, queryString);
       app.log("serverResponse=" + serverResponse);
      }
-    else if (req.isPost())
+    else if (req.isPost() && !session.user)
      {
-      app.log("Login attempt without openid");
+      app.log("Edit/login attempt without openid");
       var requestURL = req.getServletRequest().getRequestURL();
       res.redirect("/login?target=" + requestURL);
      }

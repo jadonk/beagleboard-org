@@ -5,9 +5,12 @@ function href_macro (param)
 
 function uri_macro (param)
  {
-  if (this.isTransient())
+  if (req.data["uri"])
+   return ("" + req.data["uri"]);
+  else if (this.uri)
+   return (this.uri);
+  else
    return ("");
-  return (this.uri);
  }
 
 function id_macro (param)
@@ -35,7 +38,7 @@ function body_macro (param)
 function lang_macro (param)
  {
   if (this.isTransient())
-   return ("");
+   return ("en-us");
   return ("" + this.lang);
  }
 

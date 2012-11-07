@@ -1,0 +1,24 @@
+<form action="edit" method="post">
+ URI: <input type="text" name="uri" value="<% this.uri %>" /><br />
+ News URL: <input type="text" name="news_url" value="<% this.news_url %>" /><br />
+ Image URL: <input type="text" name="image_url" value="<% this.image_url %>" /><br />
+ Description: 
+  <textarea rows="3" cols="40" name="headline"><% this.headline %></textarea>
+  <div id="editor" style="position: relative; height: 600px; width: 800px;">
+  </div><br />
+ Language: <input type="text" name="lang" value="<% this.lang %>" /><br />
+ <input type="submit" name="submit" value="Save" />
+</form>
+<script src="/static/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+ var textarea = $('textarea[name="headline"]');
+ textarea.hide();
+ $('#editor').show();
+ var editor = ace.edit("editor");
+ editor.setTheme("ace/theme/monokai");
+ editor.getSession().setMode("ace/mode/html");
+ editor.getSession().setValue(textarea.val());
+ editor.getSession().on('change', function() {
+  textarea.val(editor.getSession().getValue());
+ });
+</script>

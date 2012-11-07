@@ -5,12 +5,22 @@ function ownername_macro (param)
 
 function youtube_embed_macro (param)
  {
-  var embed = ('' + this.youtube_url).match(/(youtu.be|youtube.com)\/.*\?v=(.*)$/);
+  var embed = ('' + this.youtube_url).match(/(youtu.be|youtube.com)\/(.*)$/);
   if (!embed)
    return ('' + this.youtube_url);
   else if (embed.length == 3)
-   return ('<iframe width="640" height="360" src="http://www.youtube.com/embed/'
-    + embed[2] + '" frameborder="0" allowfullscreen></iframe>');
+   {
+    var eurl = 'http://www.youtube.com/embed/' + embed[2];
+    var url = 'http://www.youtube.com/watch?v=' + embed[2];
+    var turl = 'http://img.youtube.com/vi/' + embed[2] + '/default.jpg';
+    var estring = 
+     '<link itemprop="url" content="' + url + '" />\n'
+     + '<meta itemprop="image" content="' + turl + '" />\n'
+     + '<iframe width="640" height="360" src="'
+     + eurl 
+     + '" frameborder="0" allowfullscreen></iframe>\n'
+    return estring;
+   }
   else
    return ('<a href="' + this.youtube_url + '>' + this.youtube_url + '</a>');
  }
