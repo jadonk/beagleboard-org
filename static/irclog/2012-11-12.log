@@ -1211,3 +1211,172 @@
 <li class="message">[<a href="#T19:58:33" id="T19:58:33"><abbr title="2012-11-12T19:58:33+00:00">19:58:33</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>Look at the TRM, section 9.3.1.50</q></li>
 <li class="message">[<abbr title="2012-11-12T19:58:33+00:00">19:58:33</abbr>] &lt;<cite>mdp</cite>&gt; <q>they are named to induce confusion versus the TRM</q></li>
 <li class="message">[<a href="#T19:58:42" id="T19:58:42"><abbr title="2012-11-12T19:58:42+00:00">19:58:42</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>see if you are all paying attention</q></li>
+<li class="quit">[<a href="#T20:00:02" id="T20:00:02"><abbr title="2012-11-12T20:00:02+00:00">20:00:02</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-jtmkxixlcdpucenl) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T20:00:04" id="T20:00:04"><abbr title="2012-11-12T20:00:04+00:00">20:00:04</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: Mine are all set to 0x33</q></li>
+<li class="message">[<a href="#T20:00:08" id="T20:00:08"><abbr title="2012-11-12T20:00:08+00:00">20:00:08</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>(I'm using device tree)</q></li>
+<li class="quit">[<a href="#T20:00:15" id="T20:00:15"><abbr title="2012-11-12T20:00:15+00:00">20:00:15</abbr></a>] <span>* rcranetx1 (~rcranetx@192.91.75.29) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T20:00:25" id="T20:00:25"><abbr title="2012-11-12T20:00:25+00:00">20:00:25</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-lxlvehapkmgkvmvo) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:00:29" id="T20:00:29"><abbr title="2012-11-12T20:00:29+00:00">20:00:29</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>If I were you, I'd use what's already there, and just take off the pull</q></li>
+<li class="message">[<a href="#T20:00:43" id="T20:00:43"><abbr title="2012-11-12T20:00:43+00:00">20:00:43</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>also, pull is inverse logic</q></li>
+<li class="message">[<a href="#T20:00:47" id="T20:00:47"><abbr title="2012-11-12T20:00:47+00:00">20:00:47</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>0 is enable pull</q></li>
+<li class="message">[<a href="#T20:01:08" id="T20:01:08"><abbr title="2012-11-12T20:01:08+00:00">20:01:08</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>so taking pull off of there didn't change anything.</q></li>
+<li class="message">[<a href="#T20:01:32" id="T20:01:32"><abbr title="2012-11-12T20:01:32+00:00">20:01:32</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>swell</q></li>
+<li class="join">[<a href="#T20:01:43" id="T20:01:43"><abbr title="2012-11-12T20:01:43+00:00">20:01:43</abbr></a>] <span>* woglinde (~henning@f052017165.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:01:49" id="T20:01:49"><abbr title="2012-11-12T20:01:49+00:00">20:01:49</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yes. Read that section of the TRM</q></li>
+<li class="message">[<a href="#T20:01:53" id="T20:01:53"><abbr title="2012-11-12T20:01:53+00:00">20:01:53</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>does the pinmuxing prevent spidev from populating though?</q></li>
+<li class="message">[<a href="#T20:01:56" id="T20:01:56"><abbr title="2012-11-12T20:01:56+00:00">20:01:56</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>er</q></li>
+<li class="message">[<a href="#T20:01:58" id="T20:01:58"><abbr title="2012-11-12T20:01:58+00:00">20:01:58</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>bad pinmuxing?</q></li>
+<li class="message">[<a href="#T20:02:07" id="T20:02:07"><abbr title="2012-11-12T20:02:07+00:00">20:02:07</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>probably not</q></li>
+<li class="message">[<a href="#T20:02:11" id="T20:02:11"><abbr title="2012-11-12T20:02:11+00:00">20:02:11</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>it just prevents it from working</q></li>
+<li class="message">[<a href="#T20:03:03" id="T20:03:03"><abbr title="2012-11-12T20:03:03+00:00">20:03:03</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>so spidev not populating /dev/ is an unrelated problem?</q></li>
+<li class="message">[<a href="#T20:03:11" id="T20:03:11"><abbr title="2012-11-12T20:03:11+00:00">20:03:11</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>hah</q></li>
+<li class="message">[<a href="#T20:03:22" id="T20:03:22"><abbr title="2012-11-12T20:03:22+00:00">20:03:22</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh, well probably</q></li>
+<li class="quit">[<a href="#T20:03:25" id="T20:03:25"><abbr title="2012-11-12T20:03:25+00:00">20:03:25</abbr></a>] <span>* axMountain (~Daniel@spaceman.csbnet.se) Quit (Read error: Operation timed out)</span></li>
+<li class="message">[<a href="#T20:03:26" id="T20:03:26"><abbr title="2012-11-12T20:03:26+00:00">20:03:26</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T20:03:36" id="T20:03:36"><abbr title="2012-11-12T20:03:36+00:00">20:03:36</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>great</q></li>
+<li class="message">[<a href="#T20:03:45" id="T20:03:45"><abbr title="2012-11-12T20:03:45+00:00">20:03:45</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>look at the TowerCAN cape. Do everything it does</q></li>
+<li class="message">[<a href="#T20:03:52" id="T20:03:52"><abbr title="2012-11-12T20:03:52+00:00">20:03:52</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>except change the driver to spidev</q></li>
+<li class="message">[<a href="#T20:03:57" id="T20:03:57"><abbr title="2012-11-12T20:03:57+00:00">20:03:57</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>spidev not populating means you either 1) did not build in the module or have the module present that matches your current 2) did not register the spidev device in your board file (or dts)</q></li>
+<li class="message">[<a href="#T20:04:19" id="T20:04:19"><abbr title="2012-11-12T20:04:19+00:00">20:04:19</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh yeah, make sure it's built in :)</q></li>
+<li class="message">[<a href="#T20:04:27" id="T20:04:27"><abbr title="2012-11-12T20:04:27+00:00">20:04:27</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>s/current/current kernel/</q></li>
+<li class="message">[<a href="#T20:04:30" id="T20:04:30"><abbr title="2012-11-12T20:04:30+00:00">20:04:30</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>i have CONFIG_SPI_SPIDEV=y in my config</q></li>
+<li class="join">[<a href="#T20:04:31" id="T20:04:31"><abbr title="2012-11-12T20:04:31+00:00">20:04:31</abbr></a>] <span>* axMountain (~Daniel@spaceman.csbnet.se) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2012-11-12T20:04:31+00:00">20:04:31</abbr>] <span>* ogra-cb (~ogra@p5791F828.dip.t-dialin.net) Quit (Read error: No route to host)</span></li>
+<li class="message">[<a href="#T20:04:39" id="T20:04:39"><abbr title="2012-11-12T20:04:39+00:00">20:04:39</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>well, did you fulfill #2?</q></li>
+<li class="message">[<a href="#T20:04:41" id="T20:04:41"><abbr title="2012-11-12T20:04:41+00:00">20:04:41</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: ok, so it's number 2</q></li>
+<li class="message">[<a href="#T20:04:57" id="T20:04:57"><abbr title="2012-11-12T20:04:57+00:00">20:04:57</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>again, TowerCAN.... go!</q></li>
+<li class="message">[<a href="#T20:05:06" id="T20:05:06"><abbr title="2012-11-12T20:05:06+00:00">20:05:06</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>your patch shows no indication of the spidev device being registered</q></li>
+<li class="message">[<a href="#T20:05:15" id="T20:05:15"><abbr title="2012-11-12T20:05:15+00:00">20:05:15</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T20:05:24" id="T20:05:24"><abbr title="2012-11-12T20:05:24+00:00">20:05:24</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>it's right in koen's stock kernel board file too</q></li>
+<li class="quit">[<a href="#T20:05:28" id="T20:05:28"><abbr title="2012-11-12T20:05:28+00:00">20:05:28</abbr></a>] <span>* Odi (299788d9@gateway/web/freenode/ip.41.151.136.217) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T20:05:43" id="T20:05:43"><abbr title="2012-11-12T20:05:43+00:00">20:05:43</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I recall he made spidev work by default for some cases or two</q></li>
+<li class="message">[<a href="#T20:05:58" id="T20:05:58"><abbr title="2012-11-12T20:05:58+00:00">20:05:58</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>yeah, well, the line right under exporting the pinmux is registering the spidev board info</q></li>
+<li class="message">[<a href="#T20:06:10" id="T20:06:10"><abbr title="2012-11-12T20:06:10+00:00">20:06:10</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I was saying earlier that I didn't see it in there, but I thought he said that it was showing up. I apparently mis-read.</q></li>
+<li class="message">[<a href="#T20:06:29" id="T20:06:29"><abbr title="2012-11-12T20:06:29+00:00">20:06:29</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>so 1 and 2 should be being met</q></li>
+<li class="message">[<a href="#T20:06:35" id="T20:06:35"><abbr title="2012-11-12T20:06:35+00:00">20:06:35</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>does spidev2 match with SPI1 on that kernel?</q></li>
+<li class="message">[<a href="#T20:06:53" id="T20:06:53"><abbr title="2012-11-12T20:06:53+00:00">20:06:53</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>it's on bus 2</q></li>
+<li class="message">[<a href="#T20:07:28" id="T20:07:28"><abbr title="2012-11-12T20:07:28+00:00">20:07:28</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>the line under the pinmux does not register anything</q></li>
+<li class="message">[<a href="#T20:07:30" id="T20:07:30"><abbr title="2012-11-12T20:07:30+00:00">20:07:30</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>bus 2 is correct</q></li>
+<li class="message">[<a href="#T20:07:36" id="T20:07:36"><abbr title="2012-11-12T20:07:36+00:00">20:07:36</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>.bus_num       = 2,</q></li>
+<li class="message">[<a href="#T20:07:37" id="T20:07:37"><abbr title="2012-11-12T20:07:37+00:00">20:07:37</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>that's what I used anyway, with that kernel</q></li>
+<li class="message">[<a href="#T20:08:00" id="T20:08:00"><abbr title="2012-11-12T20:08:00+00:00">20:08:00</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>you have a structure...with spidev board info..did you check that it is actually used?</q></li>
+<li class="message">[<a href="#T20:08:36" id="T20:08:36"><abbr title="2012-11-12T20:08:36+00:00">20:08:36</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>do you see the difference?</q></li>
+<li class="message">[<a href="#T20:08:51" id="T20:08:51"><abbr title="2012-11-12T20:08:51+00:00">20:08:51</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>spi_register_board_info(bone_spidev2_info, ARRAY_SIZE(bone_spidev2_info));</q></li>
+<li class="message">[<a href="#T20:08:53" id="T20:08:53"><abbr title="2012-11-12T20:08:53+00:00">20:08:53</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>mdp: see the new linux foundation event schedule for 2013?</q></li>
+<li class="message">[<a href="#T20:09:02" id="T20:09:02"><abbr title="2012-11-12T20:09:02+00:00">20:09:02</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: Serious dude.... Look at what it does for TowerCAN. That's what I did. Everything it does, I did, and it works.</q></li>
+<li class="message">[<a href="#T20:09:22" id="T20:09:22"><abbr title="2012-11-12T20:09:22+00:00">20:09:22</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>JViz: did you confirm that executes?</q></li>
+<li class="message">[<a href="#T20:09:23" id="T20:09:23"><abbr title="2012-11-12T20:09:23+00:00">20:09:23</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>towerCAN uses spidev?</q></li>
+<li class="quit">[<abbr title="2012-11-12T20:09:23+00:00">20:09:23</abbr>] <span>* Hezel (~hezel@dyn113170.nbw.tue.nl) Quit (Quit: Nettalk6 - www.ntalk.de)</span></li>
+<li class="message">[<a href="#T20:09:32" id="T20:09:32"><abbr title="2012-11-12T20:09:32+00:00">20:09:32</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: no.....</q></li>
+<li class="message">[<a href="#T20:09:42" id="T20:09:42"><abbr title="2012-11-12T20:09:42+00:00">20:09:42</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>mdp it shows up in my dmesg with the rest of the process block</q></li>
+<li class="message">[<a href="#T20:09:56" id="T20:09:56"><abbr title="2012-11-12T20:09:56+00:00">20:09:56</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: Do everything that does, but use the spidev as the driver name instead</q></li>
+<li class="message">[<a href="#T20:10:10" id="T20:10:10"><abbr title="2012-11-12T20:10:10+00:00">20:10:10</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: it serves as an example of how to register an SPI device.</q></li>
+<li class="message">[<a href="#T20:10:29" id="T20:10:29"><abbr title="2012-11-12T20:10:29+00:00">20:10:29</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: but you're not registering an mcp2515, you're registering an spidev, but it's all the same stuff.</q></li>
+<li class="join">[<a href="#T20:10:35" id="T20:10:35"><abbr title="2012-11-12T20:10:35+00:00">20:10:35</abbr></a>] <span>* ogra-cb (~ogra@p5791F828.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:11:30" id="T20:11:30"><abbr title="2012-11-12T20:11:30+00:00">20:11:30</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>JViz: why don't you paste your dmesg</q></li>
+<li class="message">[<a href="#T20:11:57" id="T20:11:57"><abbr title="2012-11-12T20:11:57+00:00">20:11:57</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>i did</q></li>
+<li class="message">[<a href="#T20:12:40" id="T20:12:40"><abbr title="2012-11-12T20:12:40+00:00">20:12:40</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>[    1.325256] BeagleBone cape: exporting SPI pins as spidev</q></li>
+<li class="message">[<a href="#T20:12:55" id="T20:12:55"><abbr title="2012-11-12T20:12:55+00:00">20:12:55</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>or do you mean the whole thing?</q></li>
+<li class="message">[<a href="#T20:13:35" id="T20:13:35"><abbr title="2012-11-12T20:13:35+00:00">20:13:35</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>the towerCAN cape uses the default spi1 pinmux</q></li>
+<li class="message">[<a href="#T20:13:39" id="T20:13:39"><abbr title="2012-11-12T20:13:39+00:00">20:13:39</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>whole thing</q></li>
+<li class="message">[<a href="#T20:13:52" id="T20:13:52"><abbr title="2012-11-12T20:13:52+00:00">20:13:52</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>so that lines doesn't show me that you registered the board info</q></li>
+<li class="message">[<a href="#T20:14:14" id="T20:14:14"><abbr title="2012-11-12T20:14:14+00:00">20:14:14</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>well, actually, I take that back..had to look again at this old kernel ;)</q></li>
+<li class="message">[<a href="#T20:16:50" id="T20:16:50"><abbr title="2012-11-12T20:16:50+00:00">20:16:50</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>JViz: one more option 3) spidev probe() fails</q></li>
+<li class="message">[<a href="#T20:17:00" id="T20:17:00"><abbr title="2012-11-12T20:17:00+00:00">20:17:00</abbr></a>] &lt;<cite>JViz</cite>&gt; <q><a href="http://pastebin.com/fUiZTTwc">http://pastebin.com/fUiZTTwc</a></q></li>
+<li class="message">[<a href="#T20:18:43" id="T20:18:43"><abbr title="2012-11-12T20:18:43+00:00">20:18:43</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>3) is tough to manage for spidev as it would have to fail some trivial core device model stuff...</q></li>
+<li class="message">[<a href="#T20:19:00" id="T20:19:00"><abbr title="2012-11-12T20:19:00+00:00">20:19:00</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>interesting..sadly, it works fine stock for koen</q></li>
+<li class="message">[<a href="#T20:19:16" id="T20:19:16"><abbr title="2012-11-12T20:19:16+00:00">20:19:16</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: you're going to need to put some printk() in there and make sure it's doing what you want it to do.</q></li>
+<li class="message">[<a href="#T20:19:42" id="T20:19:42"><abbr title="2012-11-12T20:19:42+00:00">20:19:42</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: good old fashioned debugging and learning. You have all the tools, you have examples in the code that work. Now you just need to put it together.</q></li>
+<li class="message">[<a href="#T20:19:52" id="T20:19:52"><abbr title="2012-11-12T20:19:52+00:00">20:19:52</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>alan_o, can DT help here?</q></li>
+<li class="message">[<a href="#T20:20:14" id="T20:20:14"><abbr title="2012-11-12T20:20:14+00:00">20:20:14</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>mdp: yes, but then we'd be debugging his Device Tree :)</q></li>
+<li class="message">[<a href="#T20:20:29" id="T20:20:29"><abbr title="2012-11-12T20:20:29+00:00">20:20:29</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>JViz: you have mcspi enabled?</q></li>
+<li class="message">[<a href="#T20:21:08" id="T20:21:08"><abbr title="2012-11-12T20:21:08+00:00">20:21:08</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>all i did was that patch i showed you and add SPIDEV=y to the config</q></li>
+<li class="message">[<a href="#T20:21:36" id="T20:21:36"><abbr title="2012-11-12T20:21:36+00:00">20:21:36</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>i haven't read all of the code, it's all default</q></li>
+<li class="message">[<a href="#T20:22:11" id="T20:22:11"><abbr title="2012-11-12T20:22:11+00:00">20:22:11</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>check that CONFIG_SPI_OMAP24XX=y</q></li>
+<li class="quit">[<a href="#T20:23:28" id="T20:23:28"><abbr title="2012-11-12T20:23:28+00:00">20:23:28</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-lxlvehapkmgkvmvo) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T20:23:36" id="T20:23:36"><abbr title="2012-11-12T20:23:36+00:00">20:23:36</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>1586:CONFIG_SPI_OMAP24XX=y</q></li>
+<li class="message">[<a href="#T20:24:13" id="T20:24:13"><abbr title="2012-11-12T20:24:13+00:00">20:24:13</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>i noticed koen had code in there that was supposed to enable spidev2, so i thought i could just enable that</q></li>
+<li class="join">[<a href="#T20:24:24" id="T20:24:24"><abbr title="2012-11-12T20:24:24+00:00">20:24:24</abbr></a>] <span>* ericb2 (~X@unaffiliated/ericb2) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:24:34" id="T20:24:34"><abbr title="2012-11-12T20:24:34+00:00">20:24:34</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>the presence of the lcd7 is supposed to disable it</q></li>
+<li class="message">[<a href="#T20:24:44" id="T20:24:44"><abbr title="2012-11-12T20:24:44+00:00">20:24:44</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>i commented out that line</q></li>
+<li class="quit">[<a href="#T20:24:58" id="T20:24:58"><abbr title="2012-11-12T20:24:58+00:00">20:24:58</abbr></a>] <span>* unterhausen (~eric@130.203.212.186) Quit (Read error: Operation timed out)</span></li>
+<li class="message">[<a href="#T20:25:05" id="T20:25:05"><abbr title="2012-11-12T20:25:05+00:00">20:25:05</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>and i physically disconnected the button that was attached to gpio3_16</q></li>
+<li class="message">[<a href="#T20:25:35" id="T20:25:35"><abbr title="2012-11-12T20:25:35+00:00">20:25:35</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>nfc, there's a lot going on in that board file, unfortunately</q></li>
+<li class="message">[<a href="#T20:25:52" id="T20:25:52"><abbr title="2012-11-12T20:25:52+00:00">20:25:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>that's an understatement</q></li>
+<li class="message">[<a href="#T20:25:53" id="T20:25:53"><abbr title="2012-11-12T20:25:53+00:00">20:25:53</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>you ruled out all the common stuff now</q></li>
+<li class="message">[<a href="#T20:26:26" id="T20:26:26"><abbr title="2012-11-12T20:26:26+00:00">20:26:26</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, not sure how one board file for a bunch of different boards made sense.</q></li>
+<li class="message">[<a href="#T20:26:43" id="T20:26:43"><abbr title="2012-11-12T20:26:43+00:00">20:26:43</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>I thought that was the point of the board file, to pin down what's on this board.</q></li>
+<li class="message">[<a href="#T20:27:30" id="T20:27:30"><abbr title="2012-11-12T20:27:30+00:00">20:27:30</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>in the last kernel version, my edit worked</q></li>
+<li class="message">[<a href="#T20:27:38" id="T20:27:38"><abbr title="2012-11-12T20:27:38+00:00">20:27:38</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>spidev2 came on</q></li>
+<li class="message">[<a href="#T20:28:13" id="T20:28:13"><abbr title="2012-11-12T20:28:13+00:00">20:28:13</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>but the pullups were makiing it fail to function properly</q></li>
+<li class="message">[<a href="#T20:28:25" id="T20:28:25"><abbr title="2012-11-12T20:28:25+00:00">20:28:25</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>JViz: those pullups are still on</q></li>
+<li class="message">[<a href="#T20:28:35" id="T20:28:35"><abbr title="2012-11-12T20:28:35+00:00">20:28:35</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>alan_o, I was overruled on that one because this aligned us with DT ;)</q></li>
+<li class="message">[<a href="#T20:28:36" id="T20:28:36"><abbr title="2012-11-12T20:28:36+00:00">20:28:36</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>yeah, but now it's not even populating /dev</q></li>
+<li class="message">[<a href="#T20:28:53" id="T20:28:53"><abbr title="2012-11-12T20:28:53+00:00">20:28:53</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>mdp: what?</q></li>
+<li class="message">[<a href="#T20:28:55" id="T20:28:55"><abbr title="2012-11-12T20:28:55+00:00">20:28:55</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>s/overruled/shouted down/</q></li>
+<li class="message">[<a href="#T20:29:00" id="T20:29:00"><abbr title="2012-11-12T20:29:00+00:00">20:29:00</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>What does that have to do with DT?</q></li>
+<li class="message">[<a href="#T20:29:07" id="T20:29:07"><abbr title="2012-11-12T20:29:07+00:00">20:29:07</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>alan_o, nfc</q></li>
+<li class="message">[<a href="#T20:29:21" id="T20:29:21"><abbr title="2012-11-12T20:29:21+00:00">20:29:21</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T20:29:32" id="T20:29:32"><abbr title="2012-11-12T20:29:32+00:00">20:29:32</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I did correct that to "shouted down"</q></li>
+<li class="message">[<a href="#T20:29:54" id="T20:29:54"><abbr title="2012-11-12T20:29:54+00:00">20:29:54</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>yeah, someone really thinks that the beaglebone is just another EVM</q></li>
+<li class="message">[<a href="#T20:30:09" id="T20:30:09"><abbr title="2012-11-12T20:30:09+00:00">20:30:09</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>even though the marketing is completely different, and the support from TI is completely different</q></li>
+<li class="message">[<a href="#T20:30:15" id="T20:30:15"><abbr title="2012-11-12T20:30:15+00:00">20:30:15</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>it's just takes an eeprom</q></li>
+<li class="message">[<a href="#T20:30:21" id="T20:30:21"><abbr title="2012-11-12T20:30:21+00:00">20:30:21</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>or a village</q></li>
+<li class="message">[<a href="#T20:31:27" id="T20:31:27"><abbr title="2012-11-12T20:31:27+00:00">20:31:27</abbr></a>] &lt;<cite>panto</cite>&gt; <q>bed time is here</q></li>
+<li class="message">[<a href="#T20:31:45" id="T20:31:45"><abbr title="2012-11-12T20:31:45+00:00">20:31:45</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>panto, lucky, cya</q></li>
+<li class="message">[<a href="#T20:31:53" id="T20:31:53"><abbr title="2012-11-12T20:31:53+00:00">20:31:53</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>later panto !</q></li>
+<li class="message">[<abbr title="2012-11-12T20:31:53+00:00">20:31:53</abbr>] &lt;<cite>ds2</cite>&gt; <q>but from the way that is built, it is just another EVM</q></li>
+<li class="message">[<a href="#T20:32:08" id="T20:32:08"><abbr title="2012-11-12T20:32:08+00:00">20:32:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>supported by an approved vendor designated proxy</q></li>
+<li class="message">[<a href="#T20:32:16" id="T20:32:16"><abbr title="2012-11-12T20:32:16+00:00">20:32:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>third party interests are ignored.</q></li>
+<li class="quit">[<a href="#T20:32:30" id="T20:32:30"><abbr title="2012-11-12T20:32:30+00:00">20:32:30</abbr></a>] <span>* panto (~panto@195.97.110.117) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T20:32:33" id="T20:32:33"><abbr title="2012-11-12T20:32:33+00:00">20:32:33</abbr></a>] <span>* rcranetx (~rcranetx@192.91.75.29) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:33:04" id="T20:33:04"><abbr title="2012-11-12T20:33:04+00:00">20:33:04</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ds2, I was asked one day if we expect all customer boards to have an eeprom</q></li>
+<li class="message">[<a href="#T20:33:14" id="T20:33:14"><abbr title="2012-11-12T20:33:14+00:00">20:33:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>heheh</q></li>
+<li class="message">[<a href="#T20:33:18" id="T20:33:18"><abbr title="2012-11-12T20:33:18+00:00">20:33:18</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>can't say who...but it was humorous (to me)</q></li>
+<li class="message">[<a href="#T20:33:25" id="T20:33:25"><abbr title="2012-11-12T20:33:25+00:00">20:33:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but of course you do</q></li>
+<li class="message">[<a href="#T20:33:36" id="T20:33:36"><abbr title="2012-11-12T20:33:36+00:00">20:33:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>we all know you're staging things to acquire a EEPROM company ;)</q></li>
+<li class="message">[<a href="#T20:33:58" id="T20:33:58"><abbr title="2012-11-12T20:33:58+00:00">20:33:58</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ds2, yes, I said, "it depends..some people expect that...but they don't live in my world"</q></li>
+<li class="join">[<a href="#T20:34:10" id="T20:34:10"><abbr title="2012-11-12T20:34:10+00:00">20:34:10</abbr></a>] <span>* KotH (~attila@lou-outside.kinali.ch) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:34:14" id="T20:34:14"><abbr title="2012-11-12T20:34:14+00:00">20:34:14</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>'lo</q></li>
+<li class="message">[<a href="#T20:37:55" id="T20:37:55"><abbr title="2012-11-12T20:37:55+00:00">20:37:55</abbr></a>] &lt;<cite>JViz</cite>&gt; <q>time to experiement</q></li>
+<li class="join">[<a href="#T20:41:23" id="T20:41:23"><abbr title="2012-11-12T20:41:23+00:00">20:41:23</abbr></a>] <span>* DJWillis (~djwillis@cpc1-bath5-2-0-cust122.aztw.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T20:41:36" id="T20:41:36"><abbr title="2012-11-12T20:41:36+00:00">20:41:36</abbr></a>] <span>* unterhausen (~eric@130.203.212.186) has joined #beagle</span></li>
+<li class="quit">[<a href="#T20:42:54" id="T20:42:54"><abbr title="2012-11-12T20:42:54+00:00">20:42:54</abbr></a>] <span>* ericb2 (~X@unaffiliated/ericb2) Quit (Quit: Success !!)</span></li>
+<li class="message">[<a href="#T20:45:16" id="T20:45:16"><abbr title="2012-11-12T20:45:16+00:00">20:45:16</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>mdp, all boards don't have eeproms?</q></li>
+<li class="message">[<a href="#T20:45:36" id="T20:45:36"><abbr title="2012-11-12T20:45:36+00:00">20:45:36</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T20:45:59" id="T20:45:59"><abbr title="2012-11-12T20:45:59+00:00">20:45:59</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>really, I was surprised too</q></li>
+<li class="message">[<a href="#T20:46:17" id="T20:46:17"><abbr title="2012-11-12T20:46:17+00:00">20:46:17</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>bradfa, this would be an excellent rant^H^H^H^Hblog entry for you</q></li>
+<li class="quit">[<a href="#T20:49:49" id="T20:49:49"><abbr title="2012-11-12T20:49:49+00:00">20:49:49</abbr></a>] <span>* tema (~tema@178-16-155-142.obit.ru) Quit (Ping timeout: 268 seconds)</span></li>
+<li class="message">[<a href="#T20:51:35" id="T20:51:35"><abbr title="2012-11-12T20:51:35+00:00">20:51:35</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T20:53:16" id="T20:53:16"><abbr title="2012-11-12T20:53:16+00:00">20:53:16</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>on a lighter note, I have power button press and usb/ac gain/loss detection working on bone</q></li>
+<li class="message">[<a href="#T20:53:24" id="T20:53:24"><abbr title="2012-11-12T20:53:24+00:00">20:53:24</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>now just need to do something useful</q></li>
+<li class="message">[<a href="#T20:53:55" id="T20:53:55"><abbr title="2012-11-12T20:53:55+00:00">20:53:55</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>bradfa: power button like from USB HID?</q></li>
+<li class="join">[<a href="#T20:54:09" id="T20:54:09"><abbr title="2012-11-12T20:54:09+00:00">20:54:09</abbr></a>] <span>* orbarron1 (~a0271968@nat/ti/x-yjbflvovdleofksg) has joined #beagleboard</span></li>
+<li class="quit">[<a href="#T20:54:13" id="T20:54:13"><abbr title="2012-11-12T20:54:13+00:00">20:54:13</abbr></a>] <span>* df___ (6394b94a@gateway/web/freenode/ip.99.148.185.74) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<abbr title="2012-11-12T20:54:13+00:00">20:54:13</abbr>] <span>* arcanescu (925706ef@gateway/web/freenode/ip.146.87.6.239) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="part">[<a href="#T20:54:14" id="T20:54:14"><abbr title="2012-11-12T20:54:14+00:00">20:54:14</abbr></a>] <span>* orbarron1 (~a0271968@nat/ti/x-yjbflvovdleofksg) has left #beagleboard</span></li>
+<li class="join">[<a href="#T20:54:19" id="T20:54:19"><abbr title="2012-11-12T20:54:19+00:00">20:54:19</abbr></a>] <span>* orbarron1 (~a0271968@nat/ti/x-yjbflvovdleofksg) has joined #beagle</span></li>
+<li class="message">[<a href="#T20:54:27" id="T20:54:27"><abbr title="2012-11-12T20:54:27+00:00">20:54:27</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>alan_o, power button like the one on the bone header</q></li>
+<li class="message">[<a href="#T20:54:35" id="T20:54:35"><abbr title="2012-11-12T20:54:35+00:00">20:54:35</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>alan_o, I'm making tps65217 do my bidding</q></li>
+<li class="message">[<a href="#T20:54:37" id="T20:54:37"><abbr title="2012-11-12T20:54:37+00:00">20:54:37</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>finally!</q></li>
+<li class="action">[<a href="#T20:55:08" id="T20:55:08"><abbr title="2012-11-12T20:55:08+00:00">20:55:08</abbr></a>] <span>* mdp EOLs tps65217</span></li>
+<li class="message">[<abbr title="2012-11-12T20:55:08+00:00">20:55:08</abbr>] &lt;<cite>bradfa</cite>&gt; <q>now need to learn about input devices and turn the tps65217 into one</q></li>
+<li class="message">[<a href="#T20:55:09" id="T20:55:09"><abbr title="2012-11-12T20:55:09+00:00">20:55:09</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>bradfa: oh, I didn't look that closely at the pins apparently.</q></li>
+<li class="message">[<a href="#T20:55:26" id="T20:55:26"><abbr title="2012-11-12T20:55:26+00:00">20:55:26</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>mdp, tps65910 looks like similar</q></li>
+<li class="message">[<a href="#T20:55:33" id="T20:55:33"><abbr title="2012-11-12T20:55:33+00:00">20:55:33</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>is actually what I'm basing my driver off</q></li>
+<li class="message">[<a href="#T20:55:42" id="T20:55:42"><abbr title="2012-11-12T20:55:42+00:00">20:55:42</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>so I don't mind much if EOL 65217 happens :)</q></li>
+<li class="action">[<a href="#T20:55:52" id="T20:55:52"><abbr title="2012-11-12T20:55:52+00:00">20:55:52</abbr></a>] <span>* mdp delivers bradfa a tps65218 with a completely different register set</span></li>
+<li class="action">[<a href="#T20:55:59" id="T20:55:59"><abbr title="2012-11-12T20:55:59+00:00">20:55:59</abbr></a>] <span>* mdp EOLs 65910 too</span></li>
+<li class="message">[<a href="#T20:56:05" id="T20:56:05"><abbr title="2012-11-12T20:56:05+00:00">20:56:05</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>ha!</q></li>
+<li class="action">[<abbr title="2012-11-12T20:56:05+00:00">20:56:05</abbr>] <span>* mdp chases bradfa's designs</span></li>
+<li class="message">[<a href="#T20:56:06" id="T20:56:06"><abbr title="2012-11-12T20:56:06+00:00">20:56:06</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>:_</q></li>
+<li class="message">[<a href="#T20:56:07" id="T20:56:07"><abbr title="2012-11-12T20:56:07+00:00">20:56:07</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>)</q></li>
+<li class="message">[<a href="#T20:56:09" id="T20:56:09"><abbr title="2012-11-12T20:56:09+00:00">20:56:09</abbr></a>] &lt;<cite>koen</cite>&gt; <q>tps65217 2.0, different pinout</q></li>
+<li class="action">[<a href="#T20:56:29" id="T20:56:29"><abbr title="2012-11-12T20:56:29+00:00">20:56:29</abbr></a>] <span>* mdp leaves bradfa 600mil DIP packages only</span></li>
+<li class="message">[<a href="#T20:57:29" id="T20:57:29"><abbr title="2012-11-12T20:57:29+00:00">20:57:29</abbr></a>] &lt;<cite>bradfa</cite>&gt; <q>I used to hate the tps65217, but now I understand it, and it's not so bad</q></li>
+<li class="action">[<a href="#T20:57:58" id="T20:57:58"><abbr title="2012-11-12T20:57:58+00:00">20:57:58</abbr></a>] <span>* koen installs a new OTP on bradfas TPS chips </span></li>
+<li class="part">[<a href="#T20:58:03" id="T20:58:03"><abbr title="2012-11-12T20:58:03+00:00">20:58:03</abbr></a>] <span>* orbarron1 (~a0271968@nat/ti/x-yjbflvovdleofksg) has left #beagle</span></li>
+<li class="message">[<a href="#T20:58:09" id="T20:58:09"><abbr title="2012-11-12T20:58:09+00:00">20:58:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>he's been infected!</q></li>
+<li class="action">[<a href="#T20:58:33" id="T20:58:33"><abbr title="2012-11-12T20:58:33+00:00">20:58:33</abbr></a>] <span>* bradfa dies of tps infection</span></li>
+<li class="quit">[<a href="#T20:58:59" id="T20:58:59"><abbr title="2012-11-12T20:58:59+00:00">20:58:59</abbr></a>] <span>* fusion94 (~fusion94@pdpc/supporter/student/fusion94) Quit (Quit: Leaving...)</span></li>
+<li class="action">[<a href="#T21:00:02" id="T21:00:02"><abbr title="2012-11-12T21:00:02+00:00">21:00:02</abbr></a>] <span>* dm8tbr demands TPS reports! hands out cover sheets and memos about them</span></li>
