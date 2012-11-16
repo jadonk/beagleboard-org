@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="66" name="buy" prototype="Page" created="1203799153283" lastModified="1353077158285">
+  <hopobject id="66" name="buy" prototype="Page" created="1203799153283" lastModified="1353079210900">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,8 +9,8 @@
     <http_language>en-US,en;q=0.8</http_language>
     <uri>buy</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.94 Safari/537.4</http_browser>
-    <time type="date">16.11.2012 08:45:58 CST</time>
-    <hopsession>127.0.0.198.47.16.4ri078b6hhqs</hopsession>
+    <time type="date">16.11.2012 09:20:10 CST</time>
+    <hopsession>127.0.0.68.43.104.4adkkid7dhug</hopsession>
     <body>&lt;h3&gt;Choose board and distributor to buy&lt;/h3&gt;
  &lt;table&gt;
   &lt;tr&gt;
@@ -107,7 +107,8 @@ $(&apos;ul.dropdown&apos;).each(function(){
    $(&apos;&gt;option:selected&apos;, this).each(function(){
     var label = &quot;&quot; + $(this).text();
     var link = $(this).val();
-    _gat._trackEvent(&apos;exit&apos;, &apos;buy&apos;, label);
+    var pageTracker = _gat._getTracker(&quot;UA-3429714-1&quot;);
+    pageTracker._trackEvent(&apos;exit&apos;, &apos;buy&apos;, label);
     setTimeout(&apos;document.location = &quot;&apos; + link + &apos;&quot;&apos;, 100)
     //window.location.href=$(this).val();
     //window.open($(this).val());
