@@ -35,7 +35,8 @@ function listBody ()
   if (collection[0].render_skin == "cape")
    {
     body += "<table id='capes' border='1'>\n";
-    body += "<tr><th>Cape Name</th><th>Submitter Name</th><th>Description</th></tr>\n";
+    body += "<tr><th>Cape Name</th><th>Submitter Name</th><th>Description</th>";
+    body += "<th>Youtube Video</th><th>Twitter Handle</th></tr>\n";
    }
   else
    body += "<ul>\n";
