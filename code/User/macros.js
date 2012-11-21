@@ -19,7 +19,7 @@ function prompt_macro (param)
       if (false)
        {
         var name = "" + req.data["openid_url"];
-        name = name.replace(/^http\:\/\//, "").replace(/\/$/, "");
+        name = name.replace(/^http(s)*\:\/\//, "").replace(/\/$/, "");
         var user = app.getUser(name);
         if (!user)
          {
@@ -37,10 +37,7 @@ function prompt_macro (param)
       var returnToURL = req.getServletRequest().getRequestURL();
       if (req.data["target"])
        returnToURL = "http://beagleboard.org" + req.data["target"];
-      if (param["realm"])
-       var realm = param["realm"];
-      else
-       var realm = "http://*.beagleboard.org";
+      var realm = "http://beagleboard.org";
       app.log("Requesting authorization: openID=" + openID + ", returnToURL=" + returnToURL + 
        ", realm=" + realm);
       authRequest(openID, returnToURL, realm);
@@ -99,6 +96,11 @@ function prompt_macro (param)
       var manager = getManager();
       var warning = "";
       var openid_url = userSuppliedString;
+      if (openid_url == "" || (openid_url.match(/@/) && !openid_url.match(/^http/)))
+       {
+        warning += 'Attempting to use Google for provider of authentication".<br />\n';
+	openid_url = "https://www.google.com/accounts/o8/id";
+       }
       if (!openid_url.match(/^http/))
        {
         warning += '"http" not included at start of "' + openid_url + '".<br />\n';
@@ -113,11 +115,12 @@ function prompt_macro (param)
       var discoveries = manager.discover(openid_url);
       var discovered = manager.associate(discoveries);
       session.data["openid-disco"] = discovered;
-      var realmVerifier = new Packages.org.openid4java.server.RealmVerifier();
-      app.log("realmVerifier=" + realmVerifier);
-      realmVerifier.setEnforceRpId(false);
-      manager.setRealmVerifier(realmVerifier);
-      var authReq = manager.authenticate(discovered, returnToURL, realm);
+      //var realmVerifier = new Packages.org.openid4java.server.RealmVerifier();
+      //app.log("realmVerifier=" + realmVerifier);
+      //realmVerifier.setEnforceRpId(false);
+      //manager.setRealmVerifier(realmVerifier);
+      //var authReq = manager.authenticate(discovered, returnToURL, realm);
+      var authReq = manager.authenticate(discovered, returnToURL);
       app.log("authReq=" + authReq);
       var fetch = Packages.org.openid4java.message.ax.FetchRequest.createFetchRequest();
       fetch.addAttribute
@@ -166,7 +169,17 @@ function prompt_macro (param)
       if (verified != null)
        {
         var name = "" + verified;
-        name = name.replace(/^http\:\/\//, "").replace(/\/$/, "");
+        name = name.replace(/^http(s)*\:\/\//, "").replace(/\/$/, "");
+        authSuccess = verification.getAuthResponse();
+        if (authSuccess.hasExtension(Packages.org.openid4java.message.ax.AxMessage.OPENID_NS_AX))
+         {
+          var fetchResp = 
+           authSuccess.getExtension(Packages.org.openid4java.message.ax.AxMessage.OPENID_NS_AX);
+          var emails = fetchResp.getAttributeValues("email");
+          var email = emails.get(0);
+          if (name.match(/^www.google.com\/accounts/))
+           name = email;
+         }
         var user = app.getUser(name);
         if (!user)
          {
@@ -177,24 +190,15 @@ function prompt_macro (param)
           app.log("Logging in as " + name);
           session.login(user);
          }
-        authSuccess = verification.getAuthResponse();
-        if (authSuccess.hasExtension(Packages.org.openid4java.message.ax.AxMessage.OPENID_NS_AX))
-         {
-          var fetchResp = 
-           authSuccess.getExtension(Packages.org.openid4java.message.ax.AxMessage.OPENID_NS_AX);
-          var emails = fetchResp.getAttributeValues("email");
-          var email = emails.get(0);
-          return (email);
-         }
-        return (verified);
        }
+      return (verified);
      }
     catch (e)
      {
       app.log("Exception: " + e);
-      return (true);
+      return (null);
      }
-    return (false);
+    return (null);
    }
 
   updateUserState();
