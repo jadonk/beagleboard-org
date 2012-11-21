@@ -103,6 +103,10 @@ function listBody ()
 	  body += '" frameborder="0" allowfullscreen></iframe></td>\n';
 	 }
        }
+      if (collection[i].twitter)
+       body += ' <td>' + collection[i].twitter + '</td>\n';
+      else
+       body += ' <td></td>\n';
       body += '</tr>\n';
      }
     else if (collection[i].render_skin == "rss")
