@@ -41,6 +41,14 @@ function homepage_macro (param)
   return ("" + this.homepage);
  }
 
+function twitter_macro (param)
+ {
+  if(this.twitter)
+   return ("" + this.twitter);
+  else
+   return "";
+ }
+
 function updatetime_macro (param)
  {
   return ("" + this.updatetime);
