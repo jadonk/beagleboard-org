@@ -111,3 +111,66 @@
 <li class="message">[<a href="#T00:59:35" id="T00:59:35"><abbr title="2012-11-30T00:59:35+00:00">00:59:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>manual update displays require, er, manual update</q></li>
 <li class="message">[<a href="#T00:59:53" id="T00:59:53"><abbr title="2012-11-30T00:59:53+00:00">00:59:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you have to tell the kernel to do the update</q></li>
 <li class="message">[<a href="#T00:59:57" id="T00:59:57"><abbr title="2012-11-30T00:59:57+00:00">00:59:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>iirc there's an ioctl for that</q></li>
+<li class="message">[<a href="#T01:00:10" id="T01:00:10"><abbr title="2012-11-30T01:00:10+00:00">01:00:10</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>mru, so you're saying mmap wont work for this case</q></li>
+<li class="message">[<a href="#T01:00:24" id="T01:00:24"><abbr title="2012-11-30T01:00:24+00:00">01:00:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you can mmap a backing buffer and draw into that</q></li>
+<li class="message">[<a href="#T01:00:39" id="T01:00:39"><abbr title="2012-11-30T01:00:39+00:00">01:00:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but you have to explicitly push it out to the actual display</q></li>
+<li class="message">[<a href="#T01:01:35" id="T01:01:35"><abbr title="2012-11-30T01:01:35+00:00">01:01:35</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>mru, well the thing is mmap'ed pages that are written to will ultimately be flushed</q></li>
+<li class="message">[<a href="#T01:01:43" id="T01:01:43"><abbr title="2012-11-30T01:01:43+00:00">01:01:43</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>so why the need to make it explicit</q></li>
+<li class="message">[<a href="#T01:01:51" id="T01:01:51"><abbr title="2012-11-30T01:01:51+00:00">01:01:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>flushed?</q></li>
+<li class="message">[<a href="#T01:01:54" id="T01:01:54"><abbr title="2012-11-30T01:01:54+00:00">01:01:54</abbr></a>] &lt;<cite>mru</cite>&gt; <q>by what?</q></li>
+<li class="message">[<a href="#T01:01:57" id="T01:01:57"><abbr title="2012-11-30T01:01:57+00:00">01:01:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>triggered by what?</q></li>
+<li class="message">[<a href="#T01:02:00" id="T01:02:00"><abbr title="2012-11-30T01:02:00+00:00">01:02:00</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it isn't a natural memory mapped IO device</q></li>
+<li class="message">[<a href="#T01:02:27" id="T01:02:27"><abbr title="2012-11-30T01:02:27+00:00">01:02:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the kernel could be sending updates off a timer of course</q></li>
+<li class="message">[<a href="#T01:04:11" id="T01:04:11"><abbr title="2012-11-30T01:04:11+00:00">01:04:11</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>mru, i meant a writeback to mmap's backing device</q></li>
+<li class="message">[<a href="#T01:04:32" id="T01:04:32"><abbr title="2012-11-30T01:04:32+00:00">01:04:32</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>the normal way how writeback's happen , maybe i am missing something</q></li>
+<li class="message">[<a href="#T01:04:51" id="T01:04:51"><abbr title="2012-11-30T01:04:51+00:00">01:04:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you're thinking in terms of the block layer</q></li>
+<li class="message">[<a href="#T01:05:04" id="T01:05:04"><abbr title="2012-11-30T01:05:04+00:00">01:05:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>memory used for I/O work slightly different</q></li>
+<li class="message">[<a href="#T01:05:06" id="T01:05:06"><abbr title="2012-11-30T01:05:06+00:00">01:05:06</abbr></a>] &lt;<cite>mru</cite>&gt; <q>where memory pages can be backed by some storage medium</q></li>
+<li class="message">[<a href="#T01:05:17" id="T01:05:17"><abbr title="2012-11-30T01:05:17+00:00">01:05:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and paged in/out on demand</q></li>
+<li class="message">[<a href="#T01:05:22" id="T01:05:22"><abbr title="2012-11-30T01:05:22+00:00">01:05:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>this is different</q></li>
+<li class="message">[<a href="#T01:05:36" id="T01:05:36"><abbr title="2012-11-30T01:05:36+00:00">01:05:36</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>mru: there is a hack used for those serial fb devices :(</q></li>
+<li class="message">[<a href="#T01:06:28" id="T01:06:28"><abbr title="2012-11-30T01:06:28+00:00">01:06:28</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>mru, yeah that hack is what would probably require something like the block layer (?).</q></li>
+<li class="message">[<a href="#T01:06:49" id="T01:06:49"><abbr title="2012-11-30T01:06:49+00:00">01:06:49</abbr></a>] &lt;<cite>mru</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T01:06:52" id="T01:06:52"><abbr title="2012-11-30T01:06:52+00:00">01:06:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no, the blocklayer does other magic</q></li>
+<li class="message">[<a href="#T01:07:15" id="T01:07:15"><abbr title="2012-11-30T01:07:15+00:00">01:07:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the block layer is to service executeables</q></li>
+<li class="message">[<a href="#T01:07:21" id="T01:07:21"><abbr title="2012-11-30T01:07:21+00:00">01:07:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>there's an OMAPFB_UPDATE_WINDOW ioctl</q></li>
+<li class="message">[<a href="#T01:08:27" id="T01:08:27"><abbr title="2012-11-30T01:08:27+00:00">01:08:27</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or for the lazy, you can set automatic update</q></li>
+<li class="message">[<a href="#T01:08:42" id="T01:08:42"><abbr title="2012-11-30T01:08:42+00:00">01:08:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>which updates the entire framebuffer periodically</q></li>
+<li class="quit">[<a href="#T01:08:48" id="T01:08:48"><abbr title="2012-11-30T01:08:48+00:00">01:08:48</abbr></a>] <span>* berry_ (897063d3@gateway/web/freenode/ip.137.112.99.211) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T01:08:51" id="T01:08:51"><abbr title="2012-11-30T01:08:51+00:00">01:08:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>omapfb_start_auto_update()</q></li>
+<li class="message">[<a href="#T01:09:09" id="T01:09:09"><abbr title="2012-11-30T01:09:09+00:00">01:09:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>controlled by ioctl(OMAPFB_SET_UPDATE_MODE)</q></li>
+<li class="nick-change">[<a href="#T01:09:35" id="T01:09:35"><abbr title="2012-11-30T01:09:35+00:00">01:09:35</abbr></a>] <span>* prp^2 is now known as prpplague</span></li>
+<li class="message">[<a href="#T01:11:09" id="T01:11:09"><abbr title="2012-11-30T01:11:09+00:00">01:11:09</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>ds2, mru, ok thanks</q></li>
+<li class="quit">[<a href="#T01:12:13" id="T01:12:13"><abbr title="2012-11-30T01:12:13+00:00">01:12:13</abbr></a>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) Quit (Quit: mhaberler)</span></li>
+<li class="message">[<a href="#T01:12:18" id="T01:12:18"><abbr title="2012-11-30T01:12:18+00:00">01:12:18</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>I guess my original question was, since the mmap'ed memory would probably be page backed (which as mru mentioned - memory writes dont go through kernel obviously), how does the driver get notified of these writes</q></li>
+<li class="message">[<a href="#T01:12:35" id="T01:12:35"><abbr title="2012-11-30T01:12:35+00:00">01:12:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and the answer is that it doesn't</q></li>
+<li class="join">[<a href="#T01:12:49" id="T01:12:49"><abbr title="2012-11-30T01:12:49+00:00">01:12:49</abbr></a>] <span>* rcn-ee (~voodoo@thief-pool3-123-204.mncable.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:13:24" id="T01:13:24"><abbr title="2012-11-30T01:13:24+00:00">01:13:24</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>mru, you mean the explicit ioctl is what notifies it right</q></li>
+<li class="message">[<a href="#T01:15:28" id="T01:15:28"><abbr title="2012-11-30T01:15:28+00:00">01:15:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>joelagnel: look at fb_defio.c for the magic</q></li>
+<li class="message">[<a href="#T01:18:01" id="T01:18:01"><abbr title="2012-11-30T01:18:01+00:00">01:18:01</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>ds2, cool ok , nothing like looking at code. I see the workqueue thread doing it yes</q></li>
+<li class="message">[<a href="#T01:18:04" id="T01:18:04"><abbr title="2012-11-30T01:18:04+00:00">01:18:04</abbr></a>] &lt;<cite>joelagnel</cite>&gt; <q>thanks</q></li>
+<li class="message">[<a href="#T01:20:03" id="T01:20:03"><abbr title="2012-11-30T01:20:03+00:00">01:20:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's used by some fb drivers</q></li>
+<li class="message">[<a href="#T01:20:29" id="T01:20:29"><abbr title="2012-11-30T01:20:29+00:00">01:20:29</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not by omapfb though</q></li>
+<li class="message">[<a href="#T01:20:51" id="T01:20:51"><abbr title="2012-11-30T01:20:51+00:00">01:20:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yes, hence the comment about 'natural mmap' and the artifical ones</q></li>
+<li class="message">[<a href="#T01:21:02" id="T01:21:02"><abbr title="2012-11-30T01:21:02+00:00">01:21:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>omapfb is naturally mmap-able.</q></li>
+<li class="message">[<a href="#T01:21:12" id="T01:21:12"><abbr title="2012-11-30T01:21:12+00:00">01:21:12</abbr></a>] &lt;<cite>mru</cite>&gt; <q>depends</q></li>
+<li class="message">[<a href="#T01:21:30" id="T01:21:30"><abbr title="2012-11-30T01:21:30+00:00">01:21:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>omap dss supports remote framebuffer panels</q></li>
+<li class="quit">[<a href="#T01:22:04" id="T01:22:04"><abbr title="2012-11-30T01:22:04+00:00">01:22:04</abbr></a>] <span>* rcn-ee (~voodoo@thief-pool3-123-204.mncable.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T01:22:15" id="T01:22:15"><abbr title="2012-11-30T01:22:15+00:00">01:22:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>through dsi and the like</q></li>
+<li class="message">[<a href="#T01:22:16" id="T01:22:16"><abbr title="2012-11-30T01:22:16+00:00">01:22:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah yes, forgot about that</q></li>
+<li class="join">[<a href="#T01:22:39" id="T01:22:39"><abbr title="2012-11-30T01:22:39+00:00">01:22:39</abbr></a>] <span>* rcn-ee (~voodoo@thief-pool3-123-204.mncable.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:22:40" id="T01:22:40"><abbr title="2012-11-30T01:22:40+00:00">01:22:40</abbr></a>] &lt;<cite>mru</cite>&gt; <q>same concept though</q></li>
+<li class="action">[<a href="#T01:32:03" id="T01:32:03"><abbr title="2012-11-30T01:32:03+00:00">01:32:03</abbr></a>] <span>* Crofton is debuging by trashing ddr until linux crashes</span></li>
+<li class="message">[<a href="#T01:32:37" id="T01:32:37"><abbr title="2012-11-30T01:32:37+00:00">01:32:37</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>joelagnel, sorry I am not super helpful</q></li>
+<li class="message">[<a href="#T01:32:43" id="T01:32:43"><abbr title="2012-11-30T01:32:43+00:00">01:32:43</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>got my own war to fight</q></li>
+<li class="message">[<a href="#T01:34:06" id="T01:34:06"><abbr title="2012-11-30T01:34:06+00:00">01:34:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>war?!??? when will there ever be peace!</q></li>
+<li class="message">[<a href="#T01:34:15" id="T01:34:15"><abbr title="2012-11-30T01:34:15+00:00">01:34:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>'tis the season....</q></li>
+<li class="message">[<a href="#T01:34:17" id="T01:34:17"><abbr title="2012-11-30T01:34:17+00:00">01:34:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>when all the wars have been fought</q></li>
+<li class="quit">[<a href="#T01:41:02" id="T01:41:02"><abbr title="2012-11-30T01:41:02+00:00">01:41:02</abbr></a>] <span>* koen (~koen@ip4da2a5ae.direct-adsl.nl) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T01:41:43" id="T01:41:43"><abbr title="2012-11-30T01:41:43+00:00">01:41:43</abbr></a>] <span>* koen (~koen@ip4da2a5ae.direct-adsl.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:55:52" id="T01:55:52"><abbr title="2012-11-30T01:55:52+00:00">01:55:52</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>Crofton: that is debugging?</q></li>
+<li class="message">[<a href="#T01:56:23" id="T01:56:23"><abbr title="2012-11-30T01:56:23+00:00">01:56:23</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>mranostay: you guys debug?</q></li>
+<li class="message">[<a href="#T01:56:46" id="T01:56:46"><abbr title="2012-11-30T01:56:46+00:00">01:56:46</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>mranostay: I usually just code and commit. Haven't used a compiler in ages.</q></li>
+<li class="message">[<a href="#T01:56:58" id="T01:56:58"><abbr title="2012-11-30T01:56:58+00:00">01:56:58</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>mranostay, ys, this is a debugging technique</q></li>
+<li class="quit">[<a href="#T01:57:40" id="T01:57:40"><abbr title="2012-11-30T01:57:40+00:00">01:57:40</abbr></a>] <span>* mturquette (~mturquett@nat/ti/x-nbzxyhesztlbfliv) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T01:59:12" id="T01:59:12"><abbr title="2012-11-30T01:59:12+00:00">01:59:12</abbr></a>] &lt;<cite>alan_o</cite>&gt; <q>argh... right after you send something to a public mailing list (or three) is when you realize the mistake.....</q></li>
