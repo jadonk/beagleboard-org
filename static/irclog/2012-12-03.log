@@ -871,3 +871,78 @@
 <li class="join">[<a href="#T22:55:43" id="T22:55:43"><abbr title="2012-12-03T22:55:43+00:00">22:55:43</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-ssahkvbmjjumjoac) has joined #beagle</span></li>
 <li class="join">[<a href="#T22:55:47" id="T22:55:47"><abbr title="2012-12-03T22:55:47+00:00">22:55:47</abbr></a>] <span>* Desert (~quassel@192.100.196.71) has joined #beagle</span></li>
 <li class="quit">[<a href="#T22:57:06" id="T22:57:06"><abbr title="2012-12-03T22:57:06+00:00">22:57:06</abbr></a>] <span>* icota (~quassel@dh207-35-167.xnet.hr) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T23:02:44" id="T23:02:44"><abbr title="2012-12-03T23:02:44+00:00">23:02:44</abbr></a>] <span>* nextime (~nextime@unaffiliated/nextime) has joined #beagleboard</span></li>
+<li class="quit">[<a href="#T23:02:47" id="T23:02:47"><abbr title="2012-12-03T23:02:47+00:00">23:02:47</abbr></a>] <span>* mrcan_ (~mrcan@unaffiliated/mrcan) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T23:04:31" id="T23:04:31"><abbr title="2012-12-03T23:04:31+00:00">23:04:31</abbr></a>] <span>* nobdoor (041c6362@gateway/web/freenode/ip.4.28.99.98) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:05:20" id="T23:05:20"><abbr title="2012-12-03T23:05:20+00:00">23:05:20</abbr></a>] &lt;<cite>nextime</cite>&gt; <q>hello. Other than using the USB ports, is there any other way to add an hdd to the beagle-xm? i'm thinking about the usb interface on the auxiliary expansion header, but it seems that no cape has support for it, so i will need to build it myself. My goal is to have something more reliable that the standard microsd, the only alternative i can think is to use industrial microsd...</q></li>
+<li class="message">[<a href="#T23:05:52" id="T23:05:52"><abbr title="2012-12-03T23:05:52+00:00">23:05:52</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>Question: I want to use my db9 port for controlling a GPS timer, but there is interference because of my console using ttyS2</q></li>
+<li class="message">[<a href="#T23:06:18" id="T23:06:18"><abbr title="2012-12-03T23:06:18+00:00">23:06:18</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>I've disabled the getty for ttyS2, but it is still being designated to my console within Angstrom's bootargs</q></li>
+<li class="message">[<a href="#T23:06:36" id="T23:06:36"><abbr title="2012-12-03T23:06:36+00:00">23:06:36</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>cat /proc/cmdline reveals that ttyS2 gets taken by the console at boot</q></li>
+<li class="message">[<a href="#T23:06:39" id="T23:06:39"><abbr title="2012-12-03T23:06:39+00:00">23:06:39</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so change the boot args</q></li>
+<li class="message">[<a href="#T23:06:51" id="T23:06:51"><abbr title="2012-12-03T23:06:51+00:00">23:06:51</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>is there a way to do this without rebuilding the kernel?</q></li>
+<li class="message">[<a href="#T23:06:53" id="T23:06:53"><abbr title="2012-12-03T23:06:53+00:00">23:06:53</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>hi mru</q></li>
+<li class="message">[<a href="#T23:07:40" id="T23:07:40"><abbr title="2012-12-03T23:07:40+00:00">23:07:40</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>as far as I can tell, the bootargs are hard coded.  I've created uEnv.txt in my /boot directory as follows:</q></li>
+<li class="message">[<a href="#T23:07:47" id="T23:07:47"><abbr title="2012-12-03T23:07:47+00:00">23:07:47</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is ALWAYS a way of doing it w/o reuilding the kernel</q></li>
+<li class="message">[<a href="#T23:07:52" id="T23:07:52"><abbr title="2012-12-03T23:07:52+00:00">23:07:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it gets loaded into RAM :)</q></li>
+<li class="message">[<a href="#T23:07:56" id="T23:07:56"><abbr title="2012-12-03T23:07:56+00:00">23:07:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>or u-boot</q></li>
+<li class="message">[<a href="#T23:08:14" id="T23:08:14"><abbr title="2012-12-03T23:08:14+00:00">23:08:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if you like doing that way</q></li>
+<li class="message">[<a href="#T23:08:23" id="T23:08:23"><abbr title="2012-12-03T23:08:23+00:00">23:08:23</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>contents of /boot/uEnv.txt:  console=ttyS3,115200n8</q></li>
+<li class="message">[<a href="#T23:08:38" id="T23:08:38"><abbr title="2012-12-03T23:08:38+00:00">23:08:38</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>my u-boot files are binary</q></li>
+<li class="message">[<a href="#T23:08:48" id="T23:08:48"><abbr title="2012-12-03T23:08:48+00:00">23:08:48</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ever heard of a hex editor? :)</q></li>
+<li class="message">[<a href="#T23:08:50" id="T23:08:50"><abbr title="2012-12-03T23:08:50+00:00">23:08:50</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>(trying not to recompile)</q></li>
+<li class="message">[<a href="#T23:09:01" id="T23:09:01"><abbr title="2012-12-03T23:09:01+00:00">23:09:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>just build naked images</q></li>
+<li class="message">[<a href="#T23:09:12" id="T23:09:12"><abbr title="2012-12-03T23:09:12+00:00">23:09:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you can write a util to convert uImage to a naked image</q></li>
+<li class="message">[<a href="#T23:09:43" id="T23:09:43"><abbr title="2012-12-03T23:09:43+00:00">23:09:43</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>naked image.  hmm this requires more research</q></li>
+<li class="message">[<a href="#T23:09:54" id="T23:09:54"><abbr title="2012-12-03T23:09:54+00:00">23:09:54</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>sounds like dirty talk to me ;)</q></li>
+<li class="message">[<a href="#T23:10:04" id="T23:10:04"><abbr title="2012-12-03T23:10:04+00:00">23:10:04</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>nobdoor: you just won a free pass to trollcon 2013</q></li>
+<li class="message">[<a href="#T23:10:23" id="T23:10:23"><abbr title="2012-12-03T23:10:23+00:00">23:10:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or wire in some NOR and run xip's</q></li>
+<li class="message">[<a href="#T23:10:51" id="T23:10:51"><abbr title="2012-12-03T23:10:51+00:00">23:10:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>ds2: but xip can't be patched at runtime</q></li>
+<li class="message">[<a href="#T23:11:06" id="T23:11:06"><abbr title="2012-12-03T23:11:06+00:00">23:11:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why not?</q></li>
+<li class="message">[<a href="#T23:11:20" id="T23:11:20"><abbr title="2012-12-03T23:11:20+00:00">23:11:20</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is only NOR, not mask ROM</q></li>
+<li class="message">[<a href="#T23:11:35" id="T23:11:35"><abbr title="2012-12-03T23:11:35+00:00">23:11:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>patched non-destructively</q></li>
+<li class="message">[<a href="#T23:11:37" id="T23:11:37"><abbr title="2012-12-03T23:11:37+00:00">23:11:37</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>i'm suprised that there are so many hoops to jump through to use a serial port</q></li>
+<li class="message">[<a href="#T23:11:44" id="T23:11:44"><abbr title="2012-12-03T23:11:44+00:00">23:11:44</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>nobdoor: your question has been addressed here a lot in the past and more in the future.</q></li>
+<li class="message">[<a href="#T23:11:47" id="T23:11:47"><abbr title="2012-12-03T23:11:47+00:00">23:11:47</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>tried google?</q></li>
+<li class="message">[<a href="#T23:12:05" id="T23:12:05"><abbr title="2012-12-03T23:12:05+00:00">23:12:05</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T23:12:09" id="T23:12:09"><abbr title="2012-12-03T23:12:09+00:00">23:12:09</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>angstrom isn't really talked about</q></li>
+<li class="message">[<a href="#T23:12:14" id="T23:12:14"><abbr title="2012-12-03T23:12:14+00:00">23:12:14</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>mostly ubuntu solutions</q></li>
+<li class="message">[<abbr title="2012-12-03T23:12:14+00:00">23:12:14</abbr>] &lt;<cite>mranostay</cite>&gt; <q>really it isn't?</q></li>
+<li class="message">[<a href="#T23:12:16" id="T23:12:16"><abbr title="2012-12-03T23:12:16+00:00">23:12:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>tried reading source code?</q></li>
+<li class="message">[<a href="#T23:12:17" id="T23:12:17"><abbr title="2012-12-03T23:12:17+00:00">23:12:17</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>odd</q></li>
+<li class="message">[<a href="#T23:12:34" id="T23:12:34"><abbr title="2012-12-03T23:12:34+00:00">23:12:34</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>angstrom solutions reccomend creating /boot/uEnv.txt</q></li>
+<li class="message">[<a href="#T23:12:41" id="T23:12:41"><abbr title="2012-12-03T23:12:41+00:00">23:12:41</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>and killing the getty</q></li>
+<li class="message">[<a href="#T23:12:55" id="T23:12:55"><abbr title="2012-12-03T23:12:55+00:00">23:12:55</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>this is not working for me.  ubuntu solutions refer to different file trees</q></li>
+<li class="join">[<a href="#T23:12:57" id="T23:12:57"><abbr title="2012-12-03T23:12:57+00:00">23:12:57</abbr></a>] <span>* ogra-cb_ (~ogra@p4FDFB7D2.dip.t-dialin.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:13:27" id="T23:13:27"><abbr title="2012-12-03T23:13:27+00:00">23:13:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>upgrade</q></li>
+<li class="message">[<a href="#T23:13:31" id="T23:13:31"><abbr title="2012-12-03T23:13:31+00:00">23:13:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you must be using obsolete stuff</q></li>
+<li class="message">[<a href="#T23:13:37" id="T23:13:37"><abbr title="2012-12-03T23:13:37+00:00">23:13:37</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>ideally I'd like to keep my os and save my work</q></li>
+<li class="message">[<a href="#T23:13:59" id="T23:13:59"><abbr title="2012-12-03T23:13:59+00:00">23:13:59</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>get another SD card</q></li>
+<li class="message">[<a href="#T23:15:13" id="T23:15:13"><abbr title="2012-12-03T23:15:13+00:00">23:15:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that is the ideal case</q></li>
+<li class="message">[<a href="#T23:15:17" id="T23:15:17"><abbr title="2012-12-03T23:15:17+00:00">23:15:17</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>we don't live in an ideal world</q></li>
+<li class="message">[<a href="#T23:16:25" id="T23:16:25"><abbr title="2012-12-03T23:16:25+00:00">23:16:25</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>it would be insane for the beagleboard to be shipped without the ability to configure its serial port</q></li>
+<li class="message">[<a href="#T23:16:43" id="T23:16:43"><abbr title="2012-12-03T23:16:43+00:00">23:16:43</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>ideal is too strong of a word.  this should be common sense :P</q></li>
+<li class="quit">[<a href="#T23:16:46" id="T23:16:46"><abbr title="2012-12-03T23:16:46+00:00">23:16:46</abbr></a>] <span>* ogra-cb (~ogra@p4FDFB2B1.dip.t-dialin.net) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T23:18:16" id="T23:18:16"><abbr title="2012-12-03T23:18:16+00:00">23:18:16</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's perfectly possible</q></li>
+<li class="message">[<a href="#T23:18:36" id="T23:18:36"><abbr title="2012-12-03T23:18:36+00:00">23:18:36</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but I'm starting to doubt that you're capable</q></li>
+<li class="message">[<a href="#T23:19:10" id="T23:19:10"><abbr title="2012-12-03T23:19:10+00:00">23:19:10</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>that's kind of rude</q></li>
+<li class="message">[<a href="#T23:21:57" id="T23:21:57"><abbr title="2012-12-03T23:21:57+00:00">23:21:57</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>trools have been known to be thus</q></li>
+<li class="message">[<a href="#T23:22:01" id="T23:22:01"><abbr title="2012-12-03T23:22:01+00:00">23:22:01</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>trols?</q></li>
+<li class="message">[<a href="#T23:22:06" id="T23:22:06"><abbr title="2012-12-03T23:22:06+00:00">23:22:06</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>trolls :)</q></li>
+<li class="quit">[<a href="#T23:23:00" id="T23:23:00"><abbr title="2012-12-03T23:23:00+00:00">23:23:00</abbr></a>] <span>* felipealmeida (~user@mvx-187-16-79-187.mundivox.com) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T23:24:01" id="T23:24:01"><abbr title="2012-12-03T23:24:01+00:00">23:24:01</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>nobdoor: which BB do you have?</q></li>
+<li class="message">[<a href="#T23:24:04" id="T23:24:04"><abbr title="2012-12-03T23:24:04+00:00">23:24:04</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T23:24:21" id="T23:24:21"><abbr title="2012-12-03T23:24:21+00:00">23:24:21</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>beagleboard-xm rev C</q></li>
+<li class="message">[<a href="#T23:24:43" id="T23:24:43"><abbr title="2012-12-03T23:24:43+00:00">23:24:43</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>running 2.6.32</q></li>
+<li class="message">[<a href="#T23:25:37" id="T23:25:37"><abbr title="2012-12-03T23:25:37+00:00">23:25:37</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>I was thinking of the older pre XM models. Not related here.</q></li>
+<li class="join">[<a href="#T23:26:58" id="T23:26:58"><abbr title="2012-12-03T23:26:58+00:00">23:26:58</abbr></a>] <span>* kaio (~kaio@fedora/kaio) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:30:35" id="T23:30:35"><abbr title="2012-12-03T23:30:35+00:00">23:30:35</abbr></a>] &lt;<cite>djlewis</cite>&gt; <q>later guys, dolls  and trolls . . .</q></li>
+<li class="message">[<a href="#T23:30:57" id="T23:30:57"><abbr title="2012-12-03T23:30:57+00:00">23:30:57</abbr></a>] &lt;<cite>nobdoor</cite>&gt; <q>c u</q></li>
+<li class="quit">[<a href="#T23:31:22" id="T23:31:22"><abbr title="2012-12-03T23:31:22+00:00">23:31:22</abbr></a>] <span>* djlewis (~djelwis@65.64.30.13) Quit (Quit: Leaving.)</span></li>
+<li class="nick-change">[<a href="#T23:40:47" id="T23:40:47"><abbr title="2012-12-03T23:40:47+00:00">23:40:47</abbr></a>] <span>* prp^2 is now known as prpplague</span></li>
+<li class="quit">[<a href="#T23:42:38" id="T23:42:38"><abbr title="2012-12-03T23:42:38+00:00">23:42:38</abbr></a>] <span>* Gaston|Home (Gaston@ua-83-227-239-139.cust.bredbandsbolaget.se) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T23:43:27" id="T23:43:27"><abbr title="2012-12-03T23:43:27+00:00">23:43:27</abbr></a>] <span>* thurbad (~natesewel@cpe-70-124-86-209.austin.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:48:01" id="T23:48:01"><abbr title="2012-12-03T23:48:01+00:00">23:48:01</abbr></a>] <span>* emeb (~ericb@8.2.215.2) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:49:51" id="T23:49:51"><abbr title="2012-12-03T23:49:51+00:00">23:49:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>mdp: doesn't msp430 have usb already?</q></li>
+<li class="quit">[<a href="#T23:53:41" id="T23:53:41"><abbr title="2012-12-03T23:53:41+00:00">23:53:41</abbr></a>] <span>* rcranetx (~rcranetx@nat/ti/x-ssahkvbmjjumjoac) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="quit">[<a href="#T23:57:17" id="T23:57:17"><abbr title="2012-12-03T23:57:17+00:00">23:57:17</abbr></a>] <span>* koen (~koen@ip4da2a5ae.direct-adsl.nl) Quit (Read error: Operation timed out)</span></li>
+<li class="join">[<a href="#T23:57:29" id="T23:57:29"><abbr title="2012-12-03T23:57:29+00:00">23:57:29</abbr></a>] <span>* koen (~koen@ip4da2a5ae.direct-adsl.nl) has joined #beagle</span></li>
