@@ -96,9 +96,17 @@
   </script>
   <script type="text/javascript">
    (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    var po = document.createElement('script');
+    po.type = 'text/javascript';
+    po.async = true;
     po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    po.innerHtml = '{"parsetags": "explicit"}';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+    var rnav2 = document.createElement('script');
+    rnav2.type = 'text/javascript';
+    rnav2.innerHtml = 'gapi.plusone.go("nav2");';
+    s.parentNode.insertAfter(rnav2, s);
    })();
   </script>
   <iframe src='http://pixel.fetchback.com/serve/fb/pdc?cat=&name=landing&sid=1866' scrolling='no' width='1' height='1' marginheight='0' marginwidth='0' frameborder='0'></iframe>
