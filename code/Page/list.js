@@ -66,7 +66,7 @@ function listBody ()
 	 ;
        }
       body += '</small></td>';
-      body += '<td><div class="g-plusone" data-href="'
+      body += '<td><div class="wants-g-plusone" data-href="'
        + 'http://beagleboard.org' + collection[i].href()
        + '" data-size="small">'
        + '</div></td>';
