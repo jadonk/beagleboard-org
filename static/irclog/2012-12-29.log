@@ -335,3 +335,68 @@
 <li class="join">[<a href="#T22:26:53" id="T22:26:53"><abbr title="2012-12-29T22:26:53+00:00">22:26:53</abbr></a>] <span>* woglinde (~henning@g225006080.adsl.alicedsl.de) has joined #beagle</span></li>
 <li class="message">[<a href="#T22:33:51" id="T22:33:51"><abbr title="2012-12-29T22:33:51+00:00">22:33:51</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>cykon: just rename it as u-boot.bin</q></li>
 <li class="quit">[<a href="#T22:51:33" id="T22:51:33"><abbr title="2012-12-29T22:51:33+00:00">22:51:33</abbr></a>] <span>* cykon (~chatzilla@99-182-22-207.lightspeed.irvnca.sbcglobal.net) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T23:08:02" id="T23:08:02"><abbr title="2012-12-29T23:08:02+00:00">23:08:02</abbr></a>] <span>* woglinde (~henning@g225006080.adsl.alicedsl.de) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T23:13:38" id="T23:13:38"><abbr title="2012-12-29T23:13:38+00:00">23:13:38</abbr></a>] <span>* Matt_O (~MattOwnby@216.160.243.228) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:15:00" id="T23:15:00"><abbr title="2012-12-29T23:15:00+00:00">23:15:00</abbr></a>] <span>* Phosphate (~Phosphate@c-71-224-156-93.hsd1.pa.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T23:19:38" id="T23:19:38"><abbr title="2012-12-29T23:19:38+00:00">23:19:38</abbr></a>] <span>* cykon (~chatzilla@99-182-22-207.lightspeed.irvnca.sbcglobal.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:28:48" id="T23:28:48"><abbr title="2012-12-29T23:28:48+00:00">23:28:48</abbr></a>] &lt;<cite>cykon</cite>&gt; <q><a href="http://pastebin.com/87nuBALB">http://pastebin.com/87nuBALB</a></q></li>
+<li class="message">[<a href="#T23:29:41" id="T23:29:41"><abbr title="2012-12-29T23:29:41+00:00">23:29:41</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>where did you put uImage&gt;</q></li>
+<li class="message">[<a href="#T23:30:19" id="T23:30:19"><abbr title="2012-12-29T23:30:19+00:00">23:30:19</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>on the boot partition of my sd card</q></li>
+<li class="message">[<a href="#T23:31:38" id="T23:31:38"><abbr title="2012-12-29T23:31:38+00:00">23:31:38</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>newer u-boot expects it in the boot folder of your rootfs partition</q></li>
+<li class="message">[<a href="#T23:31:47" id="T23:31:47"><abbr title="2012-12-29T23:31:47+00:00">23:31:47</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>Oh?</q></li>
+<li class="message">[<a href="#T23:31:53" id="T23:31:53"><abbr title="2012-12-29T23:31:53+00:00">23:31:53</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>Well then lets try that</q></li>
+<li class="message">[<a href="#T23:33:19" id="T23:33:19"><abbr title="2012-12-29T23:33:19+00:00">23:33:19</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>hmm, there's already one in there, but it's sym-linked to another file, would that cause problems?</q></li>
+<li class="message">[<a href="#T23:33:34" id="T23:33:34"><abbr title="2012-12-29T23:33:34+00:00">23:33:34</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>depends on what it's symlinked to</q></li>
+<li class="message">[<a href="#T23:33:41" id="T23:33:41"><abbr title="2012-12-29T23:33:41+00:00">23:33:41</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>I mean it's symlinked to a uimage file</q></li>
+<li class="message">[<a href="#T23:33:47" id="T23:33:47"><abbr title="2012-12-29T23:33:47+00:00">23:33:47</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>it's just named with the version number at the end</q></li>
+<li class="message">[<a href="#T23:33:56" id="T23:33:56"><abbr title="2012-12-29T23:33:56+00:00">23:33:56</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>what version?</q></li>
+<li class="message">[<a href="#T23:34:01" id="T23:34:01"><abbr title="2012-12-29T23:34:01+00:00">23:34:01</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>2.6.32</q></li>
+<li class="join">[<a href="#T23:34:31" id="T23:34:31"><abbr title="2012-12-29T23:34:31+00:00">23:34:31</abbr></a>] <span>* woglinde (~henning@g225006080.adsl.alicedsl.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:34:47" id="T23:34:47"><abbr title="2012-12-29T23:34:47+00:00">23:34:47</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>kinda old, but /should /work</q></li>
+<li class="message">[<a href="#T23:35:08" id="T23:35:08"><abbr title="2012-12-29T23:35:08+00:00">23:35:08</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>=[ I think I have a newer copy somewhere</q></li>
+<li class="message">[<a href="#T23:35:24" id="T23:35:24"><abbr title="2012-12-29T23:35:24+00:00">23:35:24</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>can you pastebin you uboot environment</q></li>
+<li class="message">[<a href="#T23:35:40" id="T23:35:40"><abbr title="2012-12-29T23:35:40+00:00">23:35:40</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>yeah sure</q></li>
+<li class="message">[<a href="#T23:35:58" id="T23:35:58"><abbr title="2012-12-29T23:35:58+00:00">23:35:58</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>hit a key on the serial console before the timeout then use printenv</q></li>
+<li class="message">[<a href="#T23:36:08" id="T23:36:08"><abbr title="2012-12-29T23:36:08+00:00">23:36:08</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>yep yep</q></li>
+<li class="message">[<a href="#T23:36:52" id="T23:36:52"><abbr title="2012-12-29T23:36:52+00:00">23:36:52</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>could be there are a couple of commads that are deprecated in your uboot environment</q></li>
+<li class="message">[<a href="#T23:37:52" id="T23:37:52"><abbr title="2012-12-29T23:37:52+00:00">23:37:52</abbr></a>] &lt;<cite>cykon</cite>&gt; <q><a href="http://pastebin.com/rQtebuVC">http://pastebin.com/rQtebuVC</a></q></li>
+<li class="quit">[<a href="#T23:38:03" id="T23:38:03"><abbr title="2012-12-29T23:38:03+00:00">23:38:03</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T23:40:16" id="T23:40:16"><abbr title="2012-12-29T23:40:16+00:00">23:40:16</abbr></a>] <span>* Phosphate (~Phosphate@c-71-224-156-93.hsd1.pa.comcast.net) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T23:40:26" id="T23:40:26"><abbr title="2012-12-29T23:40:26+00:00">23:40:26</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>hmm, it's a little inconsistent with the kernel load address sometimes usues loadaddr at 802000000 sometimes it uses 803000000 directly</q></li>
+<li class="join">[<a href="#T23:40:30" id="T23:40:30"><abbr title="2012-12-29T23:40:30+00:00">23:40:30</abbr></a>] <span>* Phosphate (~Phosphate@c-71-224-156-93.hsd1.pa.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:41:28" id="T23:41:28"><abbr title="2012-12-29T23:41:28+00:00">23:41:28</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>so should I change bootcmd to use 80200000?</q></li>
+<li class="message">[<a href="#T23:41:38" id="T23:41:38"><abbr title="2012-12-29T23:41:38+00:00">23:41:38</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>since that's what loadaddr is</q></li>
+<li class="message">[<a href="#T23:42:42" id="T23:42:42"><abbr title="2012-12-29T23:42:42+00:00">23:42:42</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>I'd replace the 803000000 instandes with ${loadaddr} it's a bit more robust than hoping you typed the number correctly every time</q></li>
+<li class="message">[<a href="#T23:43:03" id="T23:43:03"><abbr title="2012-12-29T23:43:03+00:00">23:43:03</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>sounds good</q></li>
+<li class="message">[<a href="#T23:43:53" id="T23:43:53"><abbr title="2012-12-29T23:43:53+00:00">23:43:53</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>also while you're in the uboot console, check help</q></li>
+<li class="message">[<a href="#T23:44:12" id="T23:44:12"><abbr title="2012-12-29T23:44:12+00:00">23:44:12</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>I can't remember if mmcinit replaces mmc init or the other way around</q></li>
+<li class="message">[<a href="#T23:44:19" id="T23:44:19"><abbr title="2012-12-29T23:44:19+00:00">23:44:19</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>i think it is mmc init</q></li>
+<li class="message">[<a href="#T23:44:36" id="T23:44:36"><abbr title="2012-12-29T23:44:36+00:00">23:44:36</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>I was reading that it was mmcinit, but on the newer versions it has the space</q></li>
+<li class="message">[<a href="#T23:44:39" id="T23:44:39"><abbr title="2012-12-29T23:44:39+00:00">23:44:39</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>it has been each at various times</q></li>
+<li class="message">[<a href="#T23:44:47" id="T23:44:47"><abbr title="2012-12-29T23:44:47+00:00">23:44:47</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>oooh, ok then lemme check</q></li>
+<li class="message">[<a href="#T23:44:59" id="T23:44:59"><abbr title="2012-12-29T23:44:59+00:00">23:44:59</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>mmcinit it is</q></li>
+<li class="message">[<a href="#T23:46:31" id="T23:46:31"><abbr title="2012-12-29T23:46:31+00:00">23:46:31</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>ok saved the envs, lets see how this works</q></li>
+<li class="message">[<a href="#T23:46:39" id="T23:46:39"><abbr title="2012-12-29T23:46:39+00:00">23:46:39</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>I also changed it to mmcinit, since... well... that's what it is xD</q></li>
+<li class="quit">[<a href="#T23:48:12" id="T23:48:12"><abbr title="2012-12-29T23:48:12+00:00">23:48:12</abbr></a>] <span>* woglinde (~henning@g225006080.adsl.alicedsl.de) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T23:48:16" id="T23:48:16"><abbr title="2012-12-29T23:48:16+00:00">23:48:16</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>damn, same thing =/</q></li>
+<li class="message">[<a href="#T23:48:30" id="T23:48:30"><abbr title="2012-12-29T23:48:30+00:00">23:48:30</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>exactly the same?</q></li>
+<li class="message">[<a href="#T23:48:32" id="T23:48:32"><abbr title="2012-12-29T23:48:32+00:00">23:48:32</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>checked the environment variables and they are the changed ones</q></li>
+<li class="message">[<a href="#T23:48:34" id="T23:48:34"><abbr title="2012-12-29T23:48:34+00:00">23:48:34</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T23:49:20" id="T23:49:20"><abbr title="2012-12-29T23:49:20+00:00">23:49:20</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>Wait, I lied when I said it was mmcinit, it is indeed mmc init</q></li>
+<li class="message">[<a href="#T23:49:33" id="T23:49:33"><abbr title="2012-12-29T23:49:33+00:00">23:49:33</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>My reading skills are... lacking</q></li>
+<li class="message">[<a href="#T23:49:35" id="T23:49:35"><abbr title="2012-12-29T23:49:35+00:00">23:49:35</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>I read mmcinfo</q></li>
+<li class="message">[<a href="#T23:50:31" id="T23:50:31"><abbr title="2012-12-29T23:50:31+00:00">23:50:31</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T23:50:48" id="T23:50:48"><abbr title="2012-12-29T23:50:48+00:00">23:50:48</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>blergh, same thing still</q></li>
+<li class="message">[<a href="#T23:51:13" id="T23:51:13"><abbr title="2012-12-29T23:51:13+00:00">23:51:13</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>have you tried with the user button pressed?</q></li>
+<li class="message">[<a href="#T23:51:29" id="T23:51:29"><abbr title="2012-12-29T23:51:29+00:00">23:51:29</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>Negative</q></li>
+<li class="message">[<a href="#T23:52:43" id="T23:52:43"><abbr title="2012-12-29T23:52:43+00:00">23:52:43</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>oh -- now it expects u-boot.img to be there</q></li>
+<li class="message">[<a href="#T23:52:45" id="T23:52:45"><abbr title="2012-12-29T23:52:45+00:00">23:52:45</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>how interesting</q></li>
+<li class="message">[<a href="#T23:52:47" id="T23:52:47"><abbr title="2012-12-29T23:52:47+00:00">23:52:47</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>lets see</q></li>
+<li class="message">[<a href="#T23:54:20" id="T23:54:20"><abbr title="2012-12-29T23:54:20+00:00">23:54:20</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>names have changed from time to time ~.~</q></li>
+<li class="message">[<a href="#T23:55:04" id="T23:55:04"><abbr title="2012-12-29T23:55:04+00:00">23:55:04</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>~.~ I just wish the wiki was up to date with this stuff!</q></li>
+<li class="message">[<a href="#T23:55:09" id="T23:55:09"><abbr title="2012-12-29T23:55:09+00:00">23:55:09</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>That or i'm just doing it wrong</q></li>
+<li class="message">[<a href="#T23:55:51" id="T23:55:51"><abbr title="2012-12-29T23:55:51+00:00">23:55:51</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>nah, the wiki is probably out of date</q></li>
+<li class="message">[<a href="#T23:56:17" id="T23:56:17"><abbr title="2012-12-29T23:56:17+00:00">23:56:17</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>Yeah =[</q></li>
+<li class="message">[<a href="#T23:56:32" id="T23:56:32"><abbr title="2012-12-29T23:56:32+00:00">23:56:32</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>I can't seem to find any starter guides that aren't out of date</q></li>
+<li class="message">[<a href="#T23:57:25" id="T23:57:25"><abbr title="2012-12-29T23:57:25+00:00">23:57:25</abbr></a>] &lt;<cite>cykon</cite>&gt; <q>What does holding down the user button when booting accomplish anyway</q></li>
+<li class="message">[<a href="#T23:59:50" id="T23:59:50"><abbr title="2012-12-29T23:59:50+00:00">23:59:50</abbr></a>] &lt;<cite>thurbad</cite>&gt; <q>forces to read from the sd card</q></li>
