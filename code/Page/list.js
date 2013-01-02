@@ -88,10 +88,14 @@ function listBody ()
        + '</a>' 
        + ' by '
        + collection[i].name
-       + '<div class="wants-g-plusone" data-href="'
+       + '<br /><br /><div class="fb-like" data-send="false" data-width="40" data-layout="button_count" data-show-faces="false" href="'
+       + 'http://beagleboard.org' + collection[i].href()
+       + '">'
+       + '</div>'
+       + '<br /><br /><div class="wants-g-plusone" data-href="'
        + 'http://beagleboard.org' + collection[i].href()
        + '" data-size="small">'
-       + '</div>';
+       + '</div>'
        + '</td>\n' 
        ;
       body += ' <td width="300">' + collection[i].body + '</td>\n';
