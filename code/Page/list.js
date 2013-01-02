@@ -36,7 +36,7 @@ function listBody ()
    {
     body += "<table id='capes' border='1'>\n";
     body += "<tr><th>Cape Name</th><th>Submitter Name</th><th>Description</th>";
-    body += "<th>Youtube Video</th><th>Twitter Handle</th></tr>\n";
+    body += "<th>Youtube Video</th></tr>\n";
    }
   else
    body += "<ul>\n";
@@ -104,10 +104,6 @@ function listBody ()
 	  body += '" frameborder="0" allowfullscreen></iframe></td>\n';
 	 }
        }
-      if (collection[i].twitter)
-       body += ' <td>' + collection[i].twitter + '</td>\n';
-      else
-       body += ' <td></td>\n';
       body += '</tr>\n';
      }
     else if (collection[i].render_skin == "rss")
