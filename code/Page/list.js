@@ -35,7 +35,7 @@ function listBody ()
   if (collection[0].render_skin == "cape")
    {
     body += "<table id='capes' border='1'>\n";
-    body += "<tr><th>Cape Name</th><th>Submitter Name</th><th>Description</th>";
+    body += "<tr><th>Entry</th><th>Description</th>";
     body += "<th>Youtube Video</th></tr>\n";
    }
   else
@@ -85,14 +85,16 @@ function listBody ()
       body +=
        ' <td><a href="' + collection[i].href() + '">'
        + collection[i].uri
-       + '</a></td>\n' 
-       ;
-      body +=
-       ' <td>'
+       + '</a>' 
+       + ' by '
        + collection[i].name
+       + '<div class="wants-g-plusone" data-href="'
+       + 'http://beagleboard.org' + collection[i].href()
+       + '" data-size="small">'
+       + '</div>';
        + '</td>\n' 
        ;
-      body += ' <td>' + collection[i].body + '</td>\n';
+      body += ' <td width="300">' + collection[i].body + '</td>\n';
       if (collection[i].youtube_url)
        {
         var embed = ('' + collection[i].youtube_url).match(/(youtu.be|youtube.com)\/(.*)$/);
