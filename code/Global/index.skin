@@ -100,6 +100,32 @@
   <script type="text/javascript">
    gapi.plusone.render("nav-gplusone", {size:"small",annotation:"none"});
   </script>
+  <script type="text/javascript">
+   $(document).ready(
+    function() {
+     var indexID = 0;
+     $('.wants-g-plusone').each(function() {
+      $(this).attr('id', 'gp' + indexID);
+      var gp = document.createElement('script');
+      gp.type = 'text/javascript';
+      gp.async = true;
+      var args = {"size":"small"};
+      var href = $(this).attr('data-href');
+      if(href) args.href = href;
+      gp.text = 'setTimeout(function() {' +
+       'gapi.plusone.render(gp' + 
+       indexID +
+       ', ' +
+       JSON.stringify(args) +
+       ');}, ' +
+       (indexID * 800) +
+       ');';
+      $('#footer').append(gp);
+      indexID++;
+     });
+    }
+   );
+  </script>
   <iframe src='http://pixel.fetchback.com/serve/fb/pdc?cat=&name=landing&sid=1866' scrolling='no' width='1' height='1' marginheight='0' marginwidth='0' frameborder='0'></iframe>
  </body>
 </html>
