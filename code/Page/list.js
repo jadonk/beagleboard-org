@@ -12,7 +12,8 @@ function listBody ()
   var body = "";
   try
    {
-    var orderedByDate = this.getOrderedView("time desc");
+    var sort = "time desc";
+    var orderedByDate = this.getOrderedView(sort);
     var collection = orderedByDate.list();
    }
   catch (ex)
@@ -31,12 +32,17 @@ function listBody ()
    }
    
   if (collection[0].render_skin == "project")
-   body += "<table id='projects'>\n";
+   body += "<table id='projects'><tbody>\n";
   if (collection[0].render_skin == "cape")
    {
-    body += "<table id='capes' border='1'>\n";
-    body += "<tr><th>Entry</th><th>Description</th>";
-    body += "<th>Youtube Video</th></tr>\n";
+    body += "<table id='capes' class='cape-table' border='1'>\n";
+    body += "<thead>\n";
+    body += "<tr><th width='120px' class='cape-table-col1'>Entry</th>";
+    body += "<th width='300px' class='cape-table-col2'>Description</th>";
+    body += "<th width='425px' class='cape-table-col3'>Youtube Video</th></tr>\n";
+    body += "</thead>\n";
+    body += "<tbody>\n";
+    collection = collection.reverse();
    }
   else
    body += "<ul>\n";
@@ -96,9 +102,16 @@ function listBody ()
        + 'http://beagleboard.org' + collection[i].href()
        + '" data-size="small">'
        + '</div>'
+       + '<br /><br /><a href="https://twitter.com/share" '
+       + 'data-text="My favorite #BeagleBone #CapeContest entry is '
+       + collection[i].uri + '!" '
+       + 'class="twitter-share-button" data-size="small" data-lang="en" data-url="'
+       + 'http://beagleboard.org' + collection[i].href()
+       + '">Tweet'
+       + '</a>'
        + '</td>\n' 
        ;
-      body += ' <td width="300">' + collection[i].body + '</td>\n';
+      body += ' <td>' + collection[i].body + '</td>\n';
       if (collection[i].youtube_url)
        {
         var embed = ('' + collection[i].youtube_url).match(/(youtu.be|youtube.com)\/(.*)$/);
@@ -133,9 +146,9 @@ function listBody ()
      }
    }
   if (collection[0].render_skin == "project")
-   body += "</table>\n";
+   body += "</tbody></table>\n";
   else if (collection[0].render_skin == "cape")
-   body += "</table>\n";
+   body += "</tbody></table>\n";
   else
    body += "</ul>\n";
   return (body);
