@@ -1154,3 +1154,87 @@
 <li class="quit">[<a href="#T18:50:09" id="T18:50:09"><abbr title="2013-01-18T18:50:09+00:00">18:50:09</abbr></a>] <span>* jet (~jerome@mna75-8-82-234-66-158.fbx.proxad.net) Quit (Ping timeout: 276 seconds)</span></li>
 <li class="join">[<a href="#T18:51:12" id="T18:51:12"><abbr title="2013-01-18T18:51:12+00:00">18:51:12</abbr></a>] <span>* jet (~jerome@mna75-8-82-234-66-158.fbx.proxad.net) has joined #beaglebone</span></li>
 <li class="quit">[<a href="#T18:51:43" id="T18:51:43"><abbr title="2013-01-18T18:51:43+00:00">18:51:43</abbr></a>] <span>* arcanescu (925706ef@gateway/web/freenode/ip.146.87.6.239) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T19:03:46" id="T19:03:46"><abbr title="2013-01-18T19:03:46+00:00">19:03:46</abbr></a>] <span>* bizulk (~sli@195.6.193.205) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T19:09:59" id="T19:09:59"><abbr title="2013-01-18T19:09:59+00:00">19:09:59</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:11:20" id="T19:11:20"><abbr title="2013-01-18T19:11:20+00:00">19:11:20</abbr></a>] &lt;<cite>mrpacket_</cite>&gt; <q><a href="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn1/740104_10151362671472661_563056034_o.jpg">https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn1/740104_10151362671472661_563056034_o.jpg</a></q></li>
+<li class="message">[<a href="#T19:11:38" id="T19:11:38"><abbr title="2013-01-18T19:11:38+00:00">19:11:38</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>koen: what package has mkfs.ext4?</q></li>
+<li class="message">[<a href="#T19:12:07" id="T19:12:07"><abbr title="2013-01-18T19:12:07+00:00">19:12:07</abbr></a>] &lt;<cite>koen</cite>&gt; <q>e2fsprogs</q></li>
+<li class="message">[<a href="#T19:12:08" id="T19:12:08"><abbr title="2013-01-18T19:12:08+00:00">19:12:08</abbr></a>] &lt;<cite>mrpacket_</cite>&gt; <q>a few more hours</q></li>
+<li class="message">[<a href="#T19:12:26" id="T19:12:26"><abbr title="2013-01-18T19:12:26+00:00">19:12:26</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>hmmm.... doesn't seem to on current image.</q></li>
+<li class="message">[<a href="#T19:13:01" id="T19:13:01"><abbr title="2013-01-18T19:13:01+00:00">19:13:01</abbr></a>] &lt;<cite>koen</cite>&gt; <q>e2fsprogs-mke2fs</q></li>
+<li class="message">[<a href="#T19:13:13" id="T19:13:13"><abbr title="2013-01-18T19:13:13+00:00">19:13:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>e3,e4 are a symlink to the e2 one</q></li>
+<li class="message">[<a href="#T19:13:26" id="T19:13:26"><abbr title="2013-01-18T19:13:26+00:00">19:13:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>which is how you can end up with an e2 fs when issuing mkfs.e4</q></li>
+<li class="message">[<a href="#T19:13:50" id="T19:13:50"><abbr title="2013-01-18T19:13:50+00:00">19:13:50</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>k, I'll make sure to give --type, but I'm not finding the package in the feeds.</q></li>
+<li class="quit">[<a href="#T19:14:02" id="T19:14:02"><abbr title="2013-01-18T19:14:02+00:00">19:14:02</abbr></a>] <span>* hitlin37 (~chatzilla@145.107.10.2.mar.surfnet.utelisys.net) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T19:14:13" id="T19:14:13"><abbr title="2013-01-18T19:14:13+00:00">19:14:13</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>nm, feed update got it. :(</q></li>
+<li class="message">[<a href="#T19:14:15" id="T19:14:15"><abbr title="2013-01-18T19:14:15+00:00">19:14:15</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>sry</q></li>
+<li class="message">[<a href="#T19:14:18" id="T19:14:18"><abbr title="2013-01-18T19:14:18+00:00">19:14:18</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: I found it with 'opkg list', so it's most certainly in the feeds :)</q></li>
+<li class="message">[<a href="#T19:14:40" id="T19:14:40"><abbr title="2013-01-18T19:14:40+00:00">19:14:40</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: the code I used for the hexy pod is kinda emberassing</q></li>
+<li class="message">[<a href="#T19:14:43" id="T19:14:43"><abbr title="2013-01-18T19:14:43+00:00">19:14:43</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>I thought with the new image the feeds would be up-to-date, but opposite was true.</q></li>
+<li class="message">[<a href="#T19:14:48" id="T19:14:48"><abbr title="2013-01-18T19:14:48+00:00">19:14:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jkridner: it's the adafruit r-pi python lib</q></li>
+<li class="message">[<a href="#T19:15:02" id="T19:15:02"><abbr title="2013-01-18T19:15:02+00:00">19:15:02</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>k. i'm looking at giving a tutorial on PWMs at i3-Detroit next week.</q></li>
+<li class="action">[<a href="#T19:15:50" id="T19:15:50"><abbr title="2013-01-18T19:15:50+00:00">19:15:50</abbr></a>] <span>* koen notes down that 'cheap' means 'non-linear' in servo town</span></li>
+<li class="message">[<a href="#T19:18:18" id="T19:18:18"><abbr title="2013-01-18T19:18:18+00:00">19:18:18</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>probably also means other things that you'll find out about later.</q></li>
+<li class="message">[<a href="#T19:18:37" id="T19:18:37"><abbr title="2013-01-18T19:18:37+00:00">19:18:37</abbr></a>] &lt;<cite>koen</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T19:18:49" id="T19:18:49"><abbr title="2013-01-18T19:18:49+00:00">19:18:49</abbr></a>] &lt;<cite>koen</cite>&gt; <q>plastic gears glued onto a smooth axle</q></li>
+<li class="message">[<a href="#T19:19:22" id="T19:19:22"><abbr title="2013-01-18T19:19:22+00:00">19:19:22</abbr></a>] &lt;<cite>koen</cite>&gt; <q>already broke 2 of them</q></li>
+<li class="message">[<a href="#T19:20:39" id="T19:20:39"><abbr title="2013-01-18T19:20:39+00:00">19:20:39</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>yech</q></li>
+<li class="message">[<a href="#T19:22:41" id="T19:22:41"><abbr title="2013-01-18T19:22:41+00:00">19:22:41</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>koen: when do F18 fixes hit Angstrom?</q></li>
+<li class="message">[<a href="#T19:23:03" id="T19:23:03"><abbr title="2013-01-18T19:23:03+00:00">19:23:03</abbr></a>] &lt;<cite>koen</cite>&gt; <q>XorA: I sent them to oe-core, dunno when scott gets around to applying them</q></li>
+<li class="message">[<a href="#T19:23:17" id="T19:23:17"><abbr title="2013-01-18T19:23:17+00:00">19:23:17</abbr></a>] &lt;<cite>koen</cite>&gt; <q> v2012.12 is safe</q></li>
+<li class="message">[<a href="#T19:23:27" id="T19:23:27"><abbr title="2013-01-18T19:23:27+00:00">19:23:27</abbr></a>] &lt;<cite>koen</cite>&gt; <q>v2012.05 needs the 4 patches to F18</q></li>
+<li class="message">[<a href="#T19:23:35" id="T19:23:35"><abbr title="2013-01-18T19:23:35+00:00">19:23:35</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>might switch to that temp then</q></li>
+<li class="message">[<a href="#T19:23:44" id="T19:23:44"><abbr title="2013-01-18T19:23:44+00:00">19:23:44</abbr></a>] &lt;<cite>koen</cite>&gt; <q>my main build machine is F18 now :)</q></li>
+<li class="action">[<a href="#T19:24:23" id="T19:24:23"><abbr title="2013-01-18T19:24:23+00:00">19:24:23</abbr></a>] <span>* XorA is working ubuntu out of his system</span></li>
+<li class="message">[<a href="#T19:24:35" id="T19:24:35"><abbr title="2013-01-18T19:24:35+00:00">19:24:35</abbr></a>] &lt;<cite>koen</cite>&gt; <q><a href="http://patches.openembedded.org/project/oe-core/list/?q=fedora">http://patches.openembedded.org/project/oe-core/list/?q=fedora</a></q></li>
+<li class="message">[<a href="#T19:25:00" id="T19:25:00"><abbr title="2013-01-18T19:25:00+00:00">19:25:00</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>koen: I saw them, just not sure the timescales of applying these days</q></li>
+<li class="message">[<a href="#T19:25:39" id="T19:25:39"><abbr title="2013-01-18T19:25:39+00:00">19:25:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>me neither</q></li>
+<li class="message">[<a href="#T19:25:46" id="T19:25:46"><abbr title="2013-01-18T19:25:46+00:00">19:25:46</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>koen: I shall be at FOSDEM this year :-D\</q></li>
+<li class="message">[<a href="#T19:25:54" id="T19:25:54"><abbr title="2013-01-18T19:25:54+00:00">19:25:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>\o/</q></li>
+<li class="message">[<a href="#T19:25:56" id="T19:25:56"><abbr title="2013-01-18T19:25:56+00:00">19:25:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>me too</q></li>
+<li class="message">[<a href="#T19:26:11" id="T19:26:11"><abbr title="2013-01-18T19:26:11+00:00">19:26:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>trying to arrange for a waffle giveaway at the beagle booth</q></li>
+<li class="message">[<a href="#T19:26:23" id="T19:26:23"><abbr title="2013-01-18T19:26:23+00:00">19:26:23</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T19:26:30" id="T19:26:30"><abbr title="2013-01-18T19:26:30+00:00">19:26:30</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>bone waffle iron :-D</q></li>
+<li class="message">[<a href="#T19:26:46" id="T19:26:46"><abbr title="2013-01-18T19:26:46+00:00">19:26:46</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>we'll all get boned...</q></li>
+<li class="action">[<a href="#T19:26:56" id="T19:26:56"><abbr title="2013-01-18T19:26:56+00:00">19:26:56</abbr></a>] <span>* Crofton|work will also be at FOSDEM</span></li>
+<li class="message">[<a href="#T19:27:14" id="T19:27:14"><abbr title="2013-01-18T19:27:14+00:00">19:27:14</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>koen: bringing Ann so she gets an idea what we actually do :-D</q></li>
+<li class="message">[<a href="#T19:27:22" id="T19:27:22"><abbr title="2013-01-18T19:27:22+00:00">19:27:22</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>I need to update one of my old build machines to F18</q></li>
+<li class="message">[<a href="#T19:27:27" id="T19:27:27"><abbr title="2013-01-18T19:27:27+00:00">19:27:27</abbr></a>] &lt;<cite>koen</cite>&gt; <q>drink beer, eat waffles</q></li>
+<li class="message">[<a href="#T19:27:42" id="T19:27:42"><abbr title="2013-01-18T19:27:42+00:00">19:27:42</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>what else is there to do in Brussels</q></li>
+<li class="message">[<a href="#T19:27:43" id="T19:27:43"><abbr title="2013-01-18T19:27:43+00:00">19:27:43</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>I mean between beers :-D</q></li>
+<li class="message">[<a href="#T19:27:51" id="T19:27:51"><abbr title="2013-01-18T19:27:51+00:00">19:27:51</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>speak in tongues</q></li>
+<li class="message">[<a href="#T19:28:15" id="T19:28:15"><abbr title="2013-01-18T19:28:15+00:00">19:28:15</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>hehe</q></li>
+<li class="join">[<a href="#T19:29:21" id="T19:29:21"><abbr title="2013-01-18T19:29:21+00:00">19:29:21</abbr></a>] <span>* djlewis (~djelwis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:30:18" id="T19:30:18"><abbr title="2013-01-18T19:30:18+00:00">19:30:18</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>good to see some CentOS support as well</q></li>
+<li class="message">[<a href="#T19:32:07" id="T19:32:07"><abbr title="2013-01-18T19:32:07+00:00">19:32:07</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>XorA: you want to her to meet the freaks? :)</q></li>
+<li class="message">[<a href="#T19:32:44" id="T19:32:44"><abbr title="2013-01-18T19:32:44+00:00">19:32:44</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>you need to do what panto did.. only introduced his wife to a limited set :)</q></li>
+<li class="message">[<a href="#T19:32:52" id="T19:32:52"><abbr title="2013-01-18T19:32:52+00:00">19:32:52</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>mranostay: she already met koen and Crofton|work</q></li>
+<li class="join">[<a href="#T19:33:33" id="T19:33:33"><abbr title="2013-01-18T19:33:33+00:00">19:33:33</abbr></a>] <span>* tema (~tema@178-16-155-142.obit.ru) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:33:37" id="T19:33:37"><abbr title="2013-01-18T19:33:37+00:00">19:33:37</abbr></a>] &lt;<cite>panto</cite>&gt; <q>even that it's... difficult</q></li>
+<li class="message">[<a href="#T19:34:00" id="T19:34:00"><abbr title="2013-01-18T19:34:00+00:00">19:34:00</abbr></a>] &lt;<cite>panto</cite>&gt; <q>there's always the fear she'll bump into someone like RMS and run away screaming</q></li>
+<li class="join">[<a href="#T19:34:04" id="T19:34:04"><abbr title="2013-01-18T19:34:04+00:00">19:34:04</abbr></a>] <span>* hitlin37 (~chatzilla@145.107.10.2.mar.surfnet.utelisys.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:34:48" id="T19:34:48"><abbr title="2013-01-18T19:34:48+00:00">19:34:48</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>she would probably hold an idealogical discussion with RMS :-D</q></li>
+<li class="message">[<a href="#T19:35:06" id="T19:35:06"><abbr title="2013-01-18T19:35:06+00:00">19:35:06</abbr></a>] &lt;<cite>panto</cite>&gt; <q>what's the safe distance to do so?</q></li>
+<li class="message">[<a href="#T19:35:26" id="T19:35:26"><abbr title="2013-01-18T19:35:26+00:00">19:35:26</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>panto: anyone with an excessive beard is offlimits? right?</q></li>
+<li class="message">[<a href="#T19:35:54" id="T19:35:54"><abbr title="2013-01-18T19:35:54+00:00">19:35:54</abbr></a>] &lt;<cite>panto</cite>&gt; <q>two words, beard bugs</q></li>
+<li class="message">[<a href="#T19:36:02" id="T19:36:02"><abbr title="2013-01-18T19:36:02+00:00">19:36:02</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>free laser treatment for linux engineers!</q></li>
+<li class="join">[<a href="#T19:36:28" id="T19:36:28"><abbr title="2013-01-18T19:36:28+00:00">19:36:28</abbr></a>] <span>* fusion94 (~fusion94@pdpc/supporter/student/fusion94) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:36:38" id="T19:36:38"><abbr title="2013-01-18T19:36:38+00:00">19:36:38</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>panto: wow that is a real thing..</q></li>
+<li class="message">[<a href="#T19:37:00" id="T19:37:00"><abbr title="2013-01-18T19:37:00+00:00">19:37:00</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>panto, I know how to take care of beard bugs</q></li>
+<li class="message">[<a href="#T19:37:02" id="T19:37:02"><abbr title="2013-01-18T19:37:02+00:00">19:37:02</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>anting!</q></li>
+<li class="message">[<a href="#T19:37:04" id="T19:37:04"><abbr title="2013-01-18T19:37:04+00:00">19:37:04</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>crabs moving north?</q></li>
+<li class="message">[<a href="#T19:37:17" id="T19:37:17"><abbr title="2013-01-18T19:37:17+00:00">19:37:17</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>TMI!</q></li>
+<li class="message">[<a href="#T19:39:04" id="T19:39:04"><abbr title="2013-01-18T19:39:04+00:00">19:39:04</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>well its all the news in Bay Area that they are a dieing species!</q></li>
+<li class="message">[<a href="#T19:39:45" id="T19:39:45"><abbr title="2013-01-18T19:39:45+00:00">19:39:45</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>in the bay area, you can out source potty training</q></li>
+<li class="message">[<a href="#T19:40:01" id="T19:40:01"><abbr title="2013-01-18T19:40:01+00:00">19:40:01</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>to china?</q></li>
+<li class="message">[<a href="#T19:40:24" id="T19:40:24"><abbr title="2013-01-18T19:40:24+00:00">19:40:24</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>no, to a place on El Camino</q></li>
+<li class="message">[<a href="#T19:41:43" id="T19:41:43"><abbr title="2013-01-18T19:41:43+00:00">19:41:43</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>ah please tell me you are kidding</q></li>
+<li class="message">[<a href="#T19:41:53" id="T19:41:53"><abbr title="2013-01-18T19:41:53+00:00">19:41:53</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>no, I saw a sign</q></li>
+<li class="message">[<a href="#T19:43:02" id="T19:43:02"><abbr title="2013-01-18T19:43:02+00:00">19:43:02</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>creepiest thing i've learned today</q></li>
+<li class="quit">[<a href="#T19:52:35" id="T19:52:35"><abbr title="2013-01-18T19:52:35+00:00">19:52:35</abbr></a>] <span>* gustavoz (~gustavoz@host110.190-225-90.telecom.net.ar) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T19:52:45" id="T19:52:45"><abbr title="2013-01-18T19:52:45+00:00">19:52:45</abbr></a>] <span>* felipealmeida (~user@mvx-187-16-79-187.mundivox.com) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T19:55:16" id="T19:55:16"><abbr title="2013-01-18T19:55:16+00:00">19:55:16</abbr></a>] &lt;<cite>toneeee</cite>&gt; <q>Howdy folks</q></li>
+<li class="message">[<a href="#T19:56:07" id="T19:56:07"><abbr title="2013-01-18T19:56:07+00:00">19:56:07</abbr></a>] &lt;<cite>XorA</cite>&gt; <q>howdee doodlee doo, want some toast?</q></li>
+<li class="message">[<a href="#T19:57:18" id="T19:57:18"><abbr title="2013-01-18T19:57:18+00:00">19:57:18</abbr></a>] &lt;<cite>toneeee</cite>&gt; <q>Sometimes</q></li>
+<li class="message">[<a href="#T19:59:34" id="T19:59:34"><abbr title="2013-01-18T19:59:34+00:00">19:59:34</abbr></a>] &lt;<cite>panto</cite>&gt; <q>goodbye fellow trolls, beer beckons</q></li>
+<li class="quit">[<a href="#T19:59:38" id="T19:59:38"><abbr title="2013-01-18T19:59:38+00:00">19:59:38</abbr></a>] <span>* panto (~panto@195.97.110.117) Quit (Quit: Leaving)</span></li>
