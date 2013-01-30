@@ -394,3 +394,72 @@
 <li class="message">[<a href="#T10:52:39" id="T10:52:39"><abbr title="2013-01-30T10:52:39+00:00">10:52:39</abbr></a>] &lt;<cite>panto</cite>&gt; <q>african or european?</q></li>
 <li class="message">[<a href="#T10:52:47" id="T10:52:47"><abbr title="2013-01-30T10:52:47+00:00">10:52:47</abbr></a>] &lt;<cite>angs</cite>&gt; <q>eu</q></li>
 <li class="message">[<a href="#T10:53:18" id="T10:53:18"><abbr title="2013-01-30T10:53:18+00:00">10:53:18</abbr></a>] &lt;<cite>panto</cite>&gt; <q>no idea, what does the datasheet say?</q></li>
+<li class="message">[<a href="#T11:03:09" id="T11:03:09"><abbr title="2013-01-30T11:03:09+00:00">11:03:09</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>with DYANMIC_DEBUG enabled, and pr_debug being used in my module, no info is being spat out to dmesg, do I need anything else enabled? reading the control file correctly finds my debug statements</q></li>
+<li class="message">[<a href="#T11:04:27" id="T11:04:27"><abbr title="2013-01-30T11:04:27+00:00">11:04:27</abbr></a>] &lt;<cite>panto</cite>&gt; <q>jackmitchell, are you booting with the kernel command line enabling the debug log level?</q></li>
+<li class="join">[<a href="#T11:05:07" id="T11:05:07"><abbr title="2013-01-30T11:05:07+00:00">11:05:07</abbr></a>] <span>* Derzzle (~Derzzle@c-24-16-28-5.hsd1.wa.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:05:10" id="T11:05:10"><abbr title="2013-01-30T11:05:10+00:00">11:05:10</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-01-30T11:05:10+00:00">11:05:10</abbr>] &lt;<cite>jackmitchell</cite>&gt; <q>panto: no</q></li>
+<li class="message">[<a href="#T11:05:22" id="T11:05:22"><abbr title="2013-01-30T11:05:22+00:00">11:05:22</abbr></a>] &lt;<cite>panto</cite>&gt; <q>put a 'debug' there</q></li>
+<li class="message">[<a href="#T11:05:55" id="T11:05:55"><abbr title="2013-01-30T11:05:55+00:00">11:05:55</abbr></a>] &lt;<cite>panto</cite>&gt; <q>or write the kernel log level property on runtime</q></li>
+<li class="message">[<a href="#T11:06:08" id="T11:06:08"><abbr title="2013-01-30T11:06:08+00:00">11:06:08</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>yep, google just found me this: echo 7 &gt; /proc/sys/kernel/printk</q></li>
+<li class="message">[<a href="#T11:06:29" id="T11:06:29"><abbr title="2013-01-30T11:06:29+00:00">11:06:29</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>that enables all log levels?</q></li>
+<li class="message">[<a href="#T11:06:35" id="T11:06:35"><abbr title="2013-01-30T11:06:35+00:00">11:06:35</abbr></a>] &lt;<cite>panto</cite>&gt; <q>yeah</q></li>
+<li class="quit">[<a href="#T11:08:53" id="T11:08:53"><abbr title="2013-01-30T11:08:53+00:00">11:08:53</abbr></a>] <span>* Derzzle (~Derzzle@c-24-16-28-5.hsd1.wa.comcast.net) Quit (Quit: Buh-Bye, y'all!)</span></li>
+<li class="nick-change">[<a href="#T11:11:13" id="T11:11:13"><abbr title="2013-01-30T11:11:13+00:00">11:11:13</abbr></a>] <span>* mthalmei_away is now known as mthalmei</span></li>
+<li class="message">[<a href="#T11:11:27" id="T11:11:27"><abbr title="2013-01-30T11:11:27+00:00">11:11:27</abbr></a>] &lt;<cite>koen</cite>&gt; <q>dmesg -7</q></li>
+<li class="quit">[<a href="#T11:11:54" id="T11:11:54"><abbr title="2013-01-30T11:11:54+00:00">11:11:54</abbr></a>] <span>* DevBot (~supybot@2001:6f8:12e0::7) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T11:12:03" id="T11:12:03"><abbr title="2013-01-30T11:12:03+00:00">11:12:03</abbr></a>] <span>* DevBot (~supybot@2001:6f8:12e0::7) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:15:32" id="T11:15:32"><abbr title="2013-01-30T11:15:32+00:00">11:15:32</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>hmm, ok if I have a module, which prints debug on load, how I can enable the debug printouts for that module before it is loaded?</q></li>
+<li class="join">[<a href="#T11:15:47" id="T11:15:47"><abbr title="2013-01-30T11:15:47+00:00">11:15:47</abbr></a>] <span>* Zju (~abaddon@178.120.84.175) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:16:41" id="T11:16:41"><abbr title="2013-01-30T11:16:41+00:00">11:16:41</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>or is there a method to 'reload' a module in place, so that the dynamic_debug doesn't lose the enabled pr_debug lines when I unload then reload</q></li>
+<li class="message">[<a href="#T11:18:28" id="T11:18:28"><abbr title="2013-01-30T11:18:28+00:00">11:18:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cant you set the module debug on load? via parameters?</q></li>
+<li class="message">[<a href="#T11:21:09" id="T11:21:09"><abbr title="2013-01-30T11:21:09+00:00">11:21:09</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>from within the module?</q></li>
+<li class="message">[<a href="#T11:21:31" id="T11:21:31"><abbr title="2013-01-30T11:21:31+00:00">11:21:31</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>or when loading with insmod</q></li>
+<li class="message">[<a href="#T11:22:13" id="T11:22:13"><abbr title="2013-01-30T11:22:13+00:00">11:22:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>insmod</q></li>
+<li class="message">[<a href="#T11:22:16" id="T11:22:16"><abbr title="2013-01-30T11:22:16+00:00">11:22:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>modprobe</q></li>
+<li class="message">[<a href="#T11:24:31" id="T11:24:31"><abbr title="2013-01-30T11:24:31+00:00">11:24:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>module_param(debug, int, 0);</q></li>
+<li class="message">[<a href="#T11:25:00" id="T11:25:00"><abbr title="2013-01-30T11:25:00+00:00">11:25:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>modprobe foo debug=1</q></li>
+<li class="message">[<a href="#T11:25:23" id="T11:25:23"><abbr title="2013-01-30T11:25:23+00:00">11:25:23</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>my bad, RTFM</q></li>
+<li class="quit">[<a href="#T11:26:00" id="T11:26:00"><abbr title="2013-01-30T11:26:00+00:00">11:26:00</abbr></a>] <span>* shoragan (~jlu@debian/developer/shoragan) Quit (Quit: Leaving)</span></li>
+<li class="nick-change">[<a href="#T11:26:31" id="T11:26:31"><abbr title="2013-01-30T11:26:31+00:00">11:26:31</abbr></a>] <span>* mthalmei is now known as mthalmei_away</span></li>
+<li class="message">[<a href="#T11:27:49" id="T11:27:49"><abbr title="2013-01-30T11:27:49+00:00">11:27:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://www.tldp.org/LDP/lkmpg/2.6/html/x323.html">http://www.tldp.org/LDP/lkmpg/2.6/html/x323.html</a></q></li>
+<li class="message">[<a href="#T11:28:36" id="T11:28:36"><abbr title="2013-01-30T11:28:36+00:00">11:28:36</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>av500: insmod fpgaSPI.ko dyndbg</q></li>
+<li class="message">[<a href="#T11:28:40" id="T11:28:40"><abbr title="2013-01-30T11:28:40+00:00">11:28:40</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>did the trick, thanks</q></li>
+<li class="action">[<a href="#T11:29:44" id="T11:29:44"><abbr title="2013-01-30T11:29:44+00:00">11:29:44</abbr></a>] <span>* jackmitchell shall become a mildly competent kernel programmer</span></li>
+<li class="message">[<a href="#T11:30:23" id="T11:30:23"><abbr title="2013-01-30T11:30:23+00:00">11:30:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T11:35:26" id="T11:35:26"><abbr title="2013-01-30T11:35:26+00:00">11:35:26</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jackmitchell: so, you already know the ldd3 by heart?</q></li>
+<li class="message">[<a href="#T11:38:59" id="T11:38:59"><abbr title="2013-01-30T11:38:59+00:00">11:38:59</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>KotH: unfortunately not, take heed of the 'shall' in the previous comment ;)</q></li>
+<li class="quit">[<a href="#T11:43:39" id="T11:43:39"><abbr title="2013-01-30T11:43:39+00:00">11:43:39</abbr></a>] <span>* angs (~ubuntu@85.235.8.90) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T11:49:23" id="T11:49:23"><abbr title="2013-01-30T11:49:23+00:00">11:49:23</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>does anyone here have acrobat and can look at a pdf?</q></li>
+<li class="message">[<a href="#T11:49:28" id="T11:49:28"><abbr title="2013-01-30T11:49:28+00:00">11:49:28</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I think I have a rendering error</q></li>
+<li class="quit">[<a href="#T11:49:43" id="T11:49:43"><abbr title="2013-01-30T11:49:43+00:00">11:49:43</abbr></a>] <span>* mnt_real (~mnt_real@bas1-montreal43-2925385836.dsl.bell.ca) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T11:49:44" id="T11:49:44"><abbr title="2013-01-30T11:49:44+00:00">11:49:44</abbr></a>] &lt;<cite>Russ</cite>&gt; <q><a href="http://datasheets.maximintegrated.com/en/ds/MAX6643-MAX6645.pdf">http://datasheets.maximintegrated.com/en/ds/MAX6643-MAX6645.pdf</a></q></li>
+<li class="message">[<a href="#T11:49:56" id="T11:49:56"><abbr title="2013-01-30T11:49:56+00:00">11:49:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>renders fine here</q></li>
+<li class="message">[<a href="#T11:49:58" id="T11:49:58"><abbr title="2013-01-30T11:49:58+00:00">11:49:58</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>page 14, fullspd polarity column</q></li>
+<li class="message">[<a href="#T11:50:09" id="T11:50:09"><abbr title="2013-01-30T11:50:09+00:00">11:50:09</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>are both MAX6643 variants the same?</q></li>
+<li class="message">[<a href="#T11:50:16" id="T11:50:16"><abbr title="2013-01-30T11:50:16+00:00">11:50:16</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>or does one have a bar over FULLSPD</q></li>
+<li class="message">[<a href="#T11:50:25" id="T11:50:25"><abbr title="2013-01-30T11:50:25+00:00">11:50:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T11:50:35" id="T11:50:35"><abbr title="2013-01-30T11:50:35+00:00">11:50:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>6644 has "-"</q></li>
+<li class="message">[<a href="#T11:50:40" id="T11:50:40"><abbr title="2013-01-30T11:50:40+00:00">11:50:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and 6645</q></li>
+<li class="message">[<a href="#T11:50:45" id="T11:50:45"><abbr title="2013-01-30T11:50:45+00:00">11:50:45</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>well yes, I see that</q></li>
+<li class="message">[<a href="#T11:50:56" id="T11:50:56"><abbr title="2013-01-30T11:50:56+00:00">11:50:56</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>but they have two MAX6643 variants, but they look identical</q></li>
+<li class="join">[<a href="#T11:51:16" id="T11:51:16"><abbr title="2013-01-30T11:51:16+00:00">11:51:16</abbr></a>] <span>* angs (~ubuntu@85.235.8.90) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:51:20" id="T11:51:20"><abbr title="2013-01-30T11:51:20+00:00">11:51:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T11:51:28" id="T11:51:28"><abbr title="2013-01-30T11:51:28+00:00">11:51:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>one is 40, the other 30</q></li>
+<li class="message">[<a href="#T11:51:29" id="T11:51:29"><abbr title="2013-01-30T11:51:29+00:00">11:51:29</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>In the picture above, the have a (FULLSPD) with a bar over it, and in the note '() ARE FOR MAX6643_A ONLY.'</q></li>
+<li class="message">[<a href="#T11:51:36" id="T11:51:36"><abbr title="2013-01-30T11:51:36+00:00">11:51:36</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ah, right</q></li>
+<li class="message">[<a href="#T11:51:40" id="T11:51:40"><abbr title="2013-01-30T11:51:40+00:00">11:51:40</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>missed that</q></li>
+<li class="message">[<a href="#T11:51:52" id="T11:51:52"><abbr title="2013-01-30T11:51:52+00:00">11:51:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>unless that is a rendering error here</q></li>
+<li class="message">[<a href="#T11:51:55" id="T11:51:55"><abbr title="2013-01-30T11:51:55+00:00">11:51:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T11:52:07" id="T11:52:07"><abbr title="2013-01-30T11:52:07+00:00">11:52:07</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>but the mystical variant with an active low FULLSPD</q></li>
+<li class="message">[<a href="#T11:52:27" id="T11:52:27"><abbr title="2013-01-30T11:52:27+00:00">11:52:27</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I'm not even sure which one of those two variants MAX6643_A would be</q></li>
+<li class="message">[<a href="#T11:52:34" id="T11:52:34"><abbr title="2013-01-30T11:52:34+00:00">11:52:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T11:54:06" id="T11:54:06"><abbr title="2013-01-30T11:54:06+00:00">11:54:06</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I think the part doesn't exist anymore, but whoever edited it out of the datasheet did a crappy job</q></li>
+<li class="message">[<a href="#T11:54:30" id="T11:54:30"><abbr title="2013-01-30T11:54:30+00:00">11:54:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the demo schematic shows it active low</q></li>
+<li class="message">[<a href="#T11:54:43" id="T11:54:43"><abbr title="2013-01-30T11:54:43+00:00">11:54:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>which makes sense since OT is active low</q></li>
+<li class="message">[<a href="#T11:55:00" id="T11:55:00"><abbr title="2013-01-30T11:55:00+00:00">11:55:00</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I sent an email to them</q></li>
+<li class="message">[<a href="#T11:55:08" id="T11:55:08"><abbr title="2013-01-30T11:55:08+00:00">11:55:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>we'lll see what I get in the morning</q></li>
+<li class="message">[<a href="#T11:56:32" id="T11:56:32"><abbr title="2013-01-30T11:56:32+00:00">11:56:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>porridge</q></li>
+<li class="join">[<a href="#T11:57:48" id="T11:57:48"><abbr title="2013-01-30T11:57:48+00:00">11:57:48</abbr></a>] <span>* mrcan (~mrcan@unaffiliated/mrcan) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:57:49" id="T11:57:49"><abbr title="2013-01-30T11:57:49+00:00">11:57:49</abbr></a>] <span>* mrcan (~mrcan@unaffiliated/mrcan) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2013-01-30T11:57:49+00:00">11:57:49</abbr>] <span>* mrcan (~mrcan@unaffiliated/mrcan) has joined #beaglebone</span></li>
