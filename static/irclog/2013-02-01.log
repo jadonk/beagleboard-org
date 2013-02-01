@@ -1,0 +1,99 @@
+<li class="message">[<a href="#T00:00:39" id="T00:00:39"><abbr title="2013-02-01T00:00:39+00:00">00:00:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>besides you confirming my theory about OTG funny business? ;)</q></li>
+<li class="message">[<a href="#T00:00:53" id="T00:00:53"><abbr title="2013-02-01T00:00:53+00:00">00:00:53</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>Its the ID pin</q></li>
+<li class="message">[<a href="#T00:01:05" id="T00:01:05"><abbr title="2013-02-01T00:01:05+00:00">00:01:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>still funny business</q></li>
+<li class="message">[<a href="#T00:01:18" id="T00:01:18"><abbr title="2013-02-01T00:01:18+00:00">00:01:18</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I measure resistance from ID to VUSB, I get 66k</q></li>
+<li class="message">[<abbr title="2013-02-01T00:01:18+00:00">00:01:18</abbr>] &lt;<cite>ds2</cite>&gt; <q>the real question is - did you find a way to stop it?</q></li>
+<li class="message">[<a href="#T00:01:47" id="T00:01:47"><abbr title="2013-02-01T00:01:47+00:00">00:01:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>no way to stop it, I could mask that interrupt source</q></li>
+<li class="message">[<a href="#T00:02:11" id="T00:02:11"><abbr title="2013-02-01T00:02:11+00:00">00:02:11</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>every time it happens, the interrupt handler has to do some i2c transfers to find out the source, so its a bit of an annoyance</q></li>
+<li class="message">[<a href="#T00:02:16" id="T00:02:16"><abbr title="2013-02-01T00:02:16+00:00">00:02:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>isn't that MUSB behind it?</q></li>
+<li class="message">[<a href="#T00:02:22" id="T00:02:22"><abbr title="2013-02-01T00:02:22+00:00">00:02:22</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>yes, musb</q></li>
+<li class="message">[<a href="#T00:02:51" id="T00:02:51"><abbr title="2013-02-01T00:02:51+00:00">00:02:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I vaguely recall some setting to tweak that stuff</q></li>
+<li class="message">[<a href="#T00:03:08" id="T00:03:08"><abbr title="2013-02-01T00:03:08+00:00">00:03:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I could change the timer, but for OTG to work, it has to probe ID</q></li>
+<li class="message">[<a href="#T00:03:28" id="T00:03:28"><abbr title="2013-02-01T00:03:28+00:00">00:03:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but for your implementation, it doesn't require OTG, or am I wrong?</q></li>
+<li class="message">[<a href="#T00:03:40" id="T00:03:40"><abbr title="2013-02-01T00:03:40+00:00">00:03:40</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>It's generic code</q></li>
+<li class="message">[<a href="#T00:03:50" id="T00:03:50"><abbr title="2013-02-01T00:03:50+00:00">00:03:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>rewrite it</q></li>
+<li class="message">[<a href="#T00:03:54" id="T00:03:54"><abbr title="2013-02-01T00:03:54+00:00">00:03:54</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I'm trying to catch wakeup sources for RTC-only sleep</q></li>
+<li class="message">[<a href="#T00:03:57" id="T00:03:57"><abbr title="2013-02-01T00:03:57+00:00">00:03:57</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>Russ: 1$ how is that possible?</q></li>
+<li class="message">[<a href="#T00:04:04" id="T00:04:04"><abbr title="2013-02-01T00:04:04+00:00">00:04:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>no one will notice... it is only MUSB... :D</q></li>
+<li class="message">[<a href="#T00:04:14" id="T00:04:14"><abbr title="2013-02-01T00:04:14+00:00">00:04:14</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>so that if during the suspend process, a wakeup even occurs, I don't sleep</q></li>
+<li class="message">[<a href="#T00:04:18" id="T00:04:18"><abbr title="2013-02-01T00:04:18+00:00">00:04:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you can even have a chat with Felipe about it too ;)</q></li>
+<li class="message">[<a href="#T00:04:23" id="T00:04:23"><abbr title="2013-02-01T00:04:23+00:00">00:04:23</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>mranostay, you'd have to pay me to ride the bus</q></li>
+<li class="message">[<a href="#T00:04:30" id="T00:04:30"><abbr title="2013-02-01T00:04:30+00:00">00:04:30</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>ah that bad</q></li>
+<li class="message">[<a href="#T00:04:54" id="T00:04:54"><abbr title="2013-02-01T00:04:54+00:00">00:04:54</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>reminds me of bdale's rant on LWN wrt preinstalled windows</q></li>
+<li class="message">[<a href="#T00:05:07" id="T00:05:07"><abbr title="2013-02-01T00:05:07+00:00">00:05:07</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>it doesn't save a company money to leave out windows, it costs them money</q></li>
+<li class="message">[<a href="#T00:05:19" id="T00:05:19"><abbr title="2013-02-01T00:05:19+00:00">00:05:19</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>all the companies that pay them money to preload software</q></li>
+<li class="message">[<a href="#T00:06:38" id="T00:06:38"><abbr title="2013-02-01T00:06:38+00:00">00:06:38</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ds2, lets see...5V, 66k, 90uA sink</q></li>
+<li class="message">[<a href="#T00:09:11" id="T00:09:11"><abbr title="2013-02-01T00:09:11+00:00">00:09:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Russ: but it is the wake up</q></li>
+<li class="message">[<a href="#T00:09:22" id="T00:09:22"><abbr title="2013-02-01T00:09:22+00:00">00:09:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Russ: btw, how low of a power consumption ahve you gotten it?</q></li>
+<li class="message">[<a href="#T00:09:26" id="T00:09:26"><abbr title="2013-02-01T00:09:26+00:00">00:09:26</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>plugging in a usb cable will wake from RTC only sleep</q></li>
+<li class="message">[<a href="#T00:09:42" id="T00:09:42"><abbr title="2013-02-01T00:09:42+00:00">00:09:42</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>heh, beaglebone can do rtc only sleep, but it isn't designed for it</q></li>
+<li class="message">[<a href="#T00:09:53" id="T00:09:53"><abbr title="2013-02-01T00:09:53+00:00">00:09:53</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>you need a separate power rail for ddr vdd and vvdq</q></li>
+<li class="message">[<a href="#T00:09:57" id="T00:09:57"><abbr title="2013-02-01T00:09:57+00:00">00:09:57</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>er, vddq</q></li>
+<li class="message">[<a href="#T00:10:19" id="T00:10:19"><abbr title="2013-02-01T00:10:19+00:00">00:10:19</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>so it only goes down to 100mW</q></li>
+<li class="message">[<a href="#T00:10:34" id="T00:10:34"><abbr title="2013-02-01T00:10:34+00:00">00:10:34</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I can hibernate though</q></li>
+<li class="message">[<a href="#T00:10:37" id="T00:10:37"><abbr title="2013-02-01T00:10:37+00:00">00:10:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>doesn't the memory controller support self refresh?</q></li>
+<li class="message">[<a href="#T00:10:47" id="T00:10:47"><abbr title="2013-02-01T00:10:47+00:00">00:10:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>yes, I'm putting it in self refresh</q></li>
+<li class="message">[<a href="#T00:11:01" id="T00:11:01"><abbr title="2013-02-01T00:11:01+00:00">00:11:01</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>but the am335x ddr io rail is still powered, along with the ddr's io rail</q></li>
+<li class="message">[<a href="#T00:11:10" id="T00:11:10"><abbr title="2013-02-01T00:11:10+00:00">00:11:10</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Oh</q></li>
+<li class="message">[<a href="#T00:11:21" id="T00:11:21"><abbr title="2013-02-01T00:11:21+00:00">00:11:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that's still 30 or so mA measured</q></li>
+<li class="message">[<a href="#T00:11:33" id="T00:11:33"><abbr title="2013-02-01T00:11:33+00:00">00:11:33</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>100mW@5V</q></li>
+<li class="message">[<a href="#T00:11:45" id="T00:11:45"><abbr title="2013-02-01T00:11:45+00:00">00:11:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ok... so</q></li>
+<li class="message">[<a href="#T00:11:58" id="T00:11:58"><abbr title="2013-02-01T00:11:58+00:00">00:11:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I am looking at running the bone at ~3V</q></li>
+<li class="message">[<a href="#T00:12:03" id="T00:12:03"><abbr title="2013-02-01T00:12:03+00:00">00:12:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>seems to work ok</q></li>
+<li class="message">[<a href="#T00:12:52" id="T00:12:52"><abbr title="2013-02-01T00:12:52+00:00">00:12:52</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so you are suggesting that 20mA or so is from the regulator idling?</q></li>
+<li class="message">[<a href="#T00:13:07" id="T00:13:07"><abbr title="2013-02-01T00:13:07+00:00">00:13:07</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I haven't measured individual rails</q></li>
+<li class="message">[<a href="#T00:13:29" id="T00:13:29"><abbr title="2013-02-01T00:13:29+00:00">00:13:29</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>evmsk has better control over rails, but the pmic doesn't really support rtc only</q></li>
+<li class="message">[<a href="#T00:14:02" id="T00:14:02"><abbr title="2013-02-01T00:14:02+00:00">00:14:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>trying to understand if the burn is on the PMIC side or something else</q></li>
+<li class="message">[<a href="#T00:14:11" id="T00:14:11"><abbr title="2013-02-01T00:14:11+00:00">00:14:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>20mA seems to be quite a lot for it to be burning</q></li>
+<li class="quit">[<a href="#T00:14:22" id="T00:14:22"><abbr title="2013-02-01T00:14:22+00:00">00:14:22</abbr></a>] <span>* thurbad (~natesewel@64.132.24.36) Quit (Quit: thurbad)</span></li>
+<li class="message">[<a href="#T00:14:32" id="T00:14:32"><abbr title="2013-02-01T00:14:32+00:00">00:14:32</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>well I could configure it to turn off the ddr rail</q></li>
+<li class="join">[<a href="#T00:14:33" id="T00:14:33"><abbr title="2013-02-01T00:14:33+00:00">00:14:33</abbr></a>] <span>* bpetersen (440e88d6@gateway/web/freenode/ip.68.14.136.214) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:15:08" id="T00:15:08"><abbr title="2013-02-01T00:15:08+00:00">00:15:08</abbr></a>] &lt;<cite>bpetersen</cite>&gt; <q>Can I power the BeagleBone with a 5VDC power source supplied to pins 3 or 6 on Expansion Header P9?</q></li>
+<li class="message">[<a href="#T00:15:13" id="T00:15:13"><abbr title="2013-02-01T00:15:13+00:00">00:15:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the obvious stuff like LEDs are off, right?</q></li>
+<li class="message">[<a href="#T00:15:28" id="T00:15:28"><abbr title="2013-02-01T00:15:28+00:00">00:15:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>bpetersen: what does the SRM say about that?</q></li>
+<li class="message">[<a href="#T00:15:34" id="T00:15:34"><abbr title="2013-02-01T00:15:34+00:00">00:15:34</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ds2, yes</q></li>
+<li class="message">[<a href="#T00:15:39" id="T00:15:39"><abbr title="2013-02-01T00:15:39+00:00">00:15:39</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>here, I'll test w/o ddr2</q></li>
+<li class="message">[<a href="#T00:15:42" id="T00:15:42"><abbr title="2013-02-01T00:15:42+00:00">00:15:42</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>er ddr</q></li>
+<li class="join">[<a href="#T00:15:59" id="T00:15:59"><abbr title="2013-02-01T00:15:59+00:00">00:15:59</abbr></a>] <span>* thuttu77 (~thuttu77@cs181246145.pp.htv.fi) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-02-01T00:15:59+00:00">00:15:59</abbr>] &lt;<cite>bpetersen</cite>&gt; <q>I think it says I can. I've never done it before and I don't want to blow it up</q></li>
+<li class="message">[<a href="#T00:16:22" id="T00:16:22"><abbr title="2013-02-01T00:16:22+00:00">00:16:22</abbr></a>] &lt;<cite>bpetersen</cite>&gt; <q>I just wanted to double check</q></li>
+<li class="message">[<a href="#T00:16:40" id="T00:16:40"><abbr title="2013-02-01T00:16:40+00:00">00:16:40</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>do you have reasons to double the beagle gods? :D</q></li>
+<li class="message">[<a href="#T00:16:47" id="T00:16:47"><abbr title="2013-02-01T00:16:47+00:00">00:16:47</abbr></a>] &lt;<cite>bpetersen</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T00:17:14" id="T00:17:14"><abbr title="2013-02-01T00:17:14+00:00">00:17:14</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>whenever I doubt the beagle gods, I reference the schematic, and I am comforted</q></li>
+<li class="message">[<a href="#T00:17:41" id="T00:17:41"><abbr title="2013-02-01T00:17:41+00:00">00:17:41</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>powering it by those pins are relatively uninteresting</q></li>
+<li class="message">[<a href="#T00:18:02" id="T00:18:02"><abbr title="2013-02-01T00:18:02+00:00">00:18:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there are more interesting paths with power path management</q></li>
+<li class="message">[<a href="#T00:19:47" id="T00:19:47"><abbr title="2013-02-01T00:19:47+00:00">00:19:47</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>well that's not good, power consumption went up</q></li>
+<li class="message">[<a href="#T00:19:52" id="T00:19:52"><abbr title="2013-02-01T00:19:52+00:00">00:19:52</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I need to do some probing...</q></li>
+<li class="quit">[<a href="#T00:20:00" id="T00:20:00"><abbr title="2013-02-01T00:20:00+00:00">00:20:00</abbr></a>] <span>* n7segment (~drew@71.39.49.98) Quit (Quit: Lost terminal)</span></li>
+<li class="message">[<a href="#T00:20:27" id="T00:20:27"><abbr title="2013-02-01T00:20:27+00:00">00:20:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>hahahahahahah</q></li>
+<li class="message">[<a href="#T00:20:44" id="T00:20:44"><abbr title="2013-02-01T00:20:44+00:00">00:20:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>maybe you need to run cpuburn to bring the power down to sub 1mW @ 5V ;)</q></li>
+<li class="message">[<a href="#T00:20:52" id="T00:20:52"><abbr title="2013-02-01T00:20:52+00:00">00:20:52</abbr></a>] &lt;<cite>bpetersen</cite>&gt; <q>My friend wants to use a ribbon cable for the expansion header</q></li>
+<li class="message">[<a href="#T00:21:06" id="T00:21:06"><abbr title="2013-02-01T00:21:06+00:00">00:21:06</abbr></a>] &lt;<cite>bpetersen</cite>&gt; <q>thats why I needed to know if the pins will work</q></li>
+<li class="message">[<a href="#T00:21:07" id="T00:21:07"><abbr title="2013-02-01T00:21:07+00:00">00:21:07</abbr></a>] &lt;<cite>jsabeaudry</cite>&gt; <q>Can anyone confirm how many interrupts will be triggered by 2 linked slots that both have TCINTEN set?</q></li>
+<li class="action">[<a href="#T00:24:49" id="T00:24:49"><abbr title="2013-02-01T00:24:49+00:00">00:24:49</abbr></a>] <span>* Russ plays find that component</span></li>
+<li class="quit">[<a href="#T00:24:53" id="T00:24:53"><abbr title="2013-02-01T00:24:53+00:00">00:24:53</abbr></a>] <span>* Gaston|Home (Gaston@ua-83-227-239-139.cust.bredbandsbolaget.se) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T00:25:07" id="T00:25:07"><abbr title="2013-02-01T00:25:07+00:00">00:25:07</abbr></a>] <span>* Tartarus (trini@pixelshelf.com) Quit (Excess Flood)</span></li>
+<li class="join">[<a href="#T00:25:37" id="T00:25:37"><abbr title="2013-02-01T00:25:37+00:00">00:25:37</abbr></a>] <span>* Tartarus (trini@pixelshelf.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:28:10" id="T00:28:10"><abbr title="2013-02-01T00:28:10+00:00">00:28:10</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>that's a bad sign, 3V3A is at 1.35V</q></li>
+<li class="message">[<a href="#T00:30:12" id="T00:30:12"><abbr title="2013-02-01T00:30:12+00:00">00:30:12</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>whoa</q></li>
+<li class="message">[<a href="#T00:30:37" id="T00:30:37"><abbr title="2013-02-01T00:30:37+00:00">00:30:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>are you drawing several amps?</q></li>
+<li class="message">[<a href="#T00:30:50" id="T00:30:50"><abbr title="2013-02-01T00:30:50+00:00">00:30:50</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T00:31:07" id="T00:31:07"><abbr title="2013-02-01T00:31:07+00:00">00:31:07</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I think because of the weird configuration I have it in, some esd diodes are "leaking"</q></li>
+<li class="message">[<a href="#T00:31:45" id="T00:31:45"><abbr title="2013-02-01T00:31:45+00:00">00:31:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or maybe there the parasitic diodes in the PFETs are doing wierd things?</q></li>
+<li class="message">[<a href="#T00:31:56" id="T00:31:56"><abbr title="2013-02-01T00:31:56+00:00">00:31:56</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>something like that</q></li>
+<li class="message">[<a href="#T00:32:19" id="T00:32:19"><abbr title="2013-02-01T00:32:19+00:00">00:32:19</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I have another 3.3V ldo with 0.5V on it's output, it's enable pin is low though</q></li>
+<li class="message">[<a href="#T00:33:31" id="T00:33:31"><abbr title="2013-02-01T00:33:31+00:00">00:33:31</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>not all LDOs block</q></li>
+<li class="message">[<a href="#T00:34:08" id="T00:34:08"><abbr title="2013-02-01T00:34:08+00:00">00:34:08</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I think I need to move a couple zero ohm jumper</q></li>
+<li class="message">[<a href="#T00:34:09" id="T00:34:09"><abbr title="2013-02-01T00:34:09+00:00">00:34:09</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>s</q></li>
+<li class="quit">[<a href="#T00:34:24" id="T00:34:24"><abbr title="2013-02-01T00:34:24+00:00">00:34:24</abbr></a>] <span>* ska (~ska@unaffiliated/ska) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T00:36:33" id="T00:36:33"><abbr title="2013-02-01T00:36:33+00:00">00:36:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>uncape is in motion</q></li>
+<li class="message">[<a href="#T00:36:42" id="T00:36:42"><abbr title="2013-02-01T00:36:42+00:00">00:36:42</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>of course they are right between the ethernet jack and the dc jack</q></li>
+<li class="message">[<a href="#T00:38:25" id="T00:38:25"><abbr title="2013-02-01T00:38:25+00:00">00:38:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>like right where the battery expansion header is? ;)</q></li>
+<li class="join">[<a href="#T00:38:44" id="T00:38:44"><abbr title="2013-02-01T00:38:44+00:00">00:38:44</abbr></a>] <span>* thurbad (~natesewel@cpe-70-113-204-247.austin.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:39:07" id="T00:39:07"><abbr title="2013-02-01T00:39:07+00:00">00:39:07</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>um...</q></li>
+<li class="message">[<a href="#T00:39:09" id="T00:39:09"><abbr title="2013-02-01T00:39:09+00:00">00:39:09</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ya, sure</q></li>
+<li class="quit">[<a href="#T00:45:04" id="T00:45:04"><abbr title="2013-02-01T00:45:04+00:00">00:45:04</abbr></a>] <span>* slchen (~slchen@123-195-161-155.dynamic.kbronet.com.tw) Quit (Quit: slchen)</span></li>
+<li class="join">[<a href="#T00:46:53" id="T00:46:53"><abbr title="2013-02-01T00:46:53+00:00">00:46:53</abbr></a>] <span>* ska (~ska@cpe-24-27-47-58.austin.res.rr.com) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2013-02-01T00:46:53+00:00">00:46:53</abbr>] <span>* ska (~ska@cpe-24-27-47-58.austin.res.rr.com) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-02-01T00:46:53+00:00">00:46:53</abbr>] <span>* ska (~ska@unaffiliated/ska) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:54:06" id="T00:54:06"><abbr title="2013-02-01T00:54:06+00:00">00:54:06</abbr></a>] <span>* NishanthMenon (~nmenon@192.94.92.14) Quit (Quit: Good day for a change of scene.  Repapering the bedroom wall.)</span></li>
