@@ -343,3 +343,76 @@
 <li class="message">[<a href="#T12:54:46" id="T12:54:46"><abbr title="2013-02-06T12:54:46+00:00">12:54:46</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>duwn_: you can always steal FIQ from the kernel and run your GPIO code on that</q></li>
 <li class="message">[<a href="#T12:56:27" id="T12:56:27"><abbr title="2013-02-06T12:56:27+00:00">12:56:27</abbr></a>] &lt;<cite>duwn_</cite>&gt; <q>thanks a lot _av500_</q></li>
 <li class="message">[<a href="#T12:57:25" id="T12:57:25"><abbr title="2013-02-06T12:57:25+00:00">12:57:25</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>we did that in ye olde days to get 38khz IR output</q></li>
+<li class="join">[<a href="#T13:00:27" id="T13:00:27"><abbr title="2013-02-06T13:00:27+00:00">13:00:27</abbr></a>] <span>* tomeff (~effik@ip-78-45-50-94.net.upcbroadband.cz) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T13:01:26" id="T13:01:26"><abbr title="2013-02-06T13:01:26+00:00">13:01:26</abbr></a>] <span>* ynezz (ynezz@ibawizard.net) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T13:01:45" id="T13:01:45"><abbr title="2013-02-06T13:01:45+00:00">13:01:45</abbr></a>] &lt;<cite>duwn_</cite>&gt; <q>do you have that code on github or somewhere?</q></li>
+<li class="message">[<a href="#T13:01:54" id="T13:01:54"><abbr title="2013-02-06T13:01:54+00:00">13:01:54</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hrm</q></li>
+<li class="message">[<a href="#T13:02:13" id="T13:02:13"><abbr title="2013-02-06T13:02:13+00:00">13:02:13</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>it should be in the PMA400 GPL stuffz</q></li>
+<li class="join">[<a href="#T13:02:23" id="T13:02:23"><abbr title="2013-02-06T13:02:23+00:00">13:02:23</abbr></a>] <span>* ynezz (ynezz@ibawizard.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:04:19" id="T13:04:19"><abbr title="2013-02-06T13:04:19+00:00">13:04:19</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>_av500_, 16-bit word-width?</q></li>
+<li class="message">[<a href="#T13:04:28" id="T13:04:28"><abbr title="2013-02-06T13:04:28+00:00">13:04:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: ?</q></li>
+<li class="message">[<a href="#T13:04:41" id="T13:04:41"><abbr title="2013-02-06T13:04:41+00:00">13:04:41</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>two consecutive bytes</q></li>
+<li class="message">[<a href="#T13:04:56" id="T13:04:56"><abbr title="2013-02-06T13:04:56+00:00">13:04:56</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: I recall that on some silicon we could not reach full SPI speed because the TX register was not double buffered</q></li>
+<li class="message">[<a href="#T13:05:09" id="T13:05:09"><abbr title="2013-02-06T13:05:09+00:00">13:05:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>so after one byte there was always a delay</q></li>
+<li class="message">[<a href="#T13:05:16" id="T13:05:16"><abbr title="2013-02-06T13:05:16+00:00">13:05:16</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I see</q></li>
+<li class="message">[<a href="#T13:05:22" id="T13:05:22"><abbr title="2013-02-06T13:05:22+00:00">13:05:22</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hence no way to generate a waveform with SPI clock speed</q></li>
+<li class="message">[<a href="#T13:05:38" id="T13:05:38"><abbr title="2013-02-06T13:05:38+00:00">13:05:38</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>even with DMA</q></li>
+<li class="message">[<a href="#T13:05:52" id="T13:05:52"><abbr title="2013-02-06T13:05:52+00:00">13:05:52</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I can't say on older silicon *anything*</q></li>
+<li class="message">[<a href="#T13:06:17" id="T13:06:17"><abbr title="2013-02-06T13:06:17+00:00">13:06:17</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>sec, asking</q></li>
+<li class="message">[<a href="#T13:06:24" id="T13:06:24"><abbr title="2013-02-06T13:06:24+00:00">13:06:24</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>however, on am33xx I've logged the st7735fb driver dumping 40kb buffers via dma with no gap</q></li>
+<li class="message">[<a href="#T13:06:32" id="T13:06:32"><abbr title="2013-02-06T13:06:32+00:00">13:06:32</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>full spi clock b/w</q></li>
+<li class="message">[<a href="#T13:06:40" id="T13:06:40"><abbr title="2013-02-06T13:06:40+00:00">13:06:40</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>with an 8-bit word size</q></li>
+<li class="message">[<a href="#T13:07:03" id="T13:07:03"><abbr title="2013-02-06T13:07:03+00:00">13:07:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T13:07:09" id="T13:07:09"><abbr title="2013-02-06T13:07:09+00:00">13:07:09</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>coworker says it was DM644x</q></li>
+<li class="message">[<a href="#T13:07:13" id="T13:07:13"><abbr title="2013-02-06T13:07:13+00:00">13:07:13</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T13:07:20" id="T13:07:20"><abbr title="2013-02-06T13:07:20+00:00">13:07:20</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>so that kinda makes sense, actually</q></li>
+<li class="message">[<a href="#T13:07:22" id="T13:07:22"><abbr title="2013-02-06T13:07:22+00:00">13:07:22</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>not sure about O3 then</q></li>
+<li class="message">[<a href="#T13:07:47" id="T13:07:47"><abbr title="2013-02-06T13:07:47+00:00">13:07:47</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: is there cheap netra hw I could get?</q></li>
+<li class="message">[<a href="#T13:07:53" id="T13:07:53"><abbr title="2013-02-06T13:07:53+00:00">13:07:53</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>the DM644x stuff has issues like that on all peripherals as it seems to be designed to run a deterministic OS like it was made by DSP designers ;)</q></li>
+<li class="message">[<a href="#T13:08:01" id="T13:08:01"><abbr title="2013-02-06T13:08:01+00:00">13:08:01</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>if you know what I mean</q></li>
+<li class="message">[<a href="#T13:08:07" id="T13:08:07"><abbr title="2013-02-06T13:08:07+00:00">13:08:07</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T13:08:08" id="T13:08:08"><abbr title="2013-02-06T13:08:08+00:00">13:08:08</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>the mcasp design on DM644x also has no FIFO</q></li>
+<li class="quit">[<a href="#T13:08:23" id="T13:08:23"><abbr title="2013-02-06T13:08:23+00:00">13:08:23</abbr></a>] <span>* phantoxeD (~destroy@a89-155-23-52.cpe.netcabo.pt) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T13:08:26" id="T13:08:26"><abbr title="2013-02-06T13:08:26+00:00">13:08:26</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ic</q></li>
+<li class="message">[<a href="#T13:08:38" id="T13:08:38"><abbr title="2013-02-06T13:08:38+00:00">13:08:38</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>but they add one on da850 and then it works sanely without sram-based ping pong buffering</q></li>
+<li class="join">[<a href="#T13:08:46" id="T13:08:46"><abbr title="2013-02-06T13:08:46+00:00">13:08:46</abbr></a>] <span>* phantoxeD (~destroy@a89-155-23-52.cpe.netcabo.pt) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:08:56" id="T13:08:56"><abbr title="2013-02-06T13:08:56+00:00">13:08:56</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>anyway, I think there's a theme there with those older DM parts and the design focus</q></li>
+<li class="message">[<a href="#T13:09:21" id="T13:09:21"><abbr title="2013-02-06T13:09:21+00:00">13:09:21</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>_av500_: hrm, I know I saw somebody with a 3rd party Ne or Ce board</q></li>
+<li class="message">[<a href="#T13:11:03" id="T13:11:03"><abbr title="2013-02-06T13:11:03+00:00">13:11:03</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: something that fell off the lab table  would do too</q></li>
+<li class="message">[<a href="#T13:11:33" id="T13:11:33"><abbr title="2013-02-06T13:11:33+00:00">13:11:33</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>hrm, let me check</q></li>
+<li class="message">[<a href="#T13:11:51" id="T13:11:51"><abbr title="2013-02-06T13:11:51+00:00">13:11:51</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I know I had to beg for a second matching 8148-evm to do my pcie slave boot devel</q></li>
+<li class="message">[<a href="#T13:11:58" id="T13:11:58"><abbr title="2013-02-06T13:11:58+00:00">13:11:58</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>so I don't have a spare ;)</q></li>
+<li class="message">[<a href="#T13:12:15" id="T13:12:15"><abbr title="2013-02-06T13:12:15+00:00">13:12:15</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>1.5k people fired should leave some HW around, no?</q></li>
+<li class="message">[<a href="#T13:12:21" id="T13:12:21"><abbr title="2013-02-06T13:12:21+00:00">13:12:21</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>but I have this feeling that there are plenty</q></li>
+<li class="quit">[<a href="#T13:12:25" id="T13:12:25"><abbr title="2013-02-06T13:12:25+00:00">13:12:25</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) Quit (Quit: No Ping reply in 180 seconds.)</span></li>
+<li class="join">[<a href="#T13:12:39" id="T13:12:39"><abbr title="2013-02-06T13:12:39+00:00">13:12:39</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:12:40" id="T13:12:40"><abbr title="2013-02-06T13:12:40+00:00">13:12:40</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>i'll trade you some DM310 EVMs</q></li>
+<li class="message">[<a href="#T13:12:50" id="T13:12:50"><abbr title="2013-02-06T13:12:50+00:00">13:12:50</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>_av500_: yeah, but I found I had to dig deep into my contacts to find an old docsis3 puma5 evm for some other devel work ;)</q></li>
+<li class="message">[<a href="#T13:12:53" id="T13:12:53"><abbr title="2013-02-06T13:12:53+00:00">13:12:53</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T13:13:19" id="T13:13:19"><abbr title="2013-02-06T13:13:19+00:00">13:13:19</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>we need a white cargo van parked in an alley at the next conf to trade in obsolete evms</q></li>
+<li class="message">[<a href="#T13:13:32" id="T13:13:32"><abbr title="2013-02-06T13:13:32+00:00">13:13:32</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>see my flickr :)</q></li>
+<li class="message">[<a href="#T13:13:57" id="T13:13:57"><abbr title="2013-02-06T13:13:57+00:00">13:13:57</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>XDS510PP anybody?</q></li>
+<li class="message">[<a href="#T13:14:14" id="T13:14:14"><abbr title="2013-02-06T13:14:14+00:00">13:14:14</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>would that work over usb2printer?</q></li>
+<li class="message">[<a href="#T13:14:15" id="T13:14:15"><abbr title="2013-02-06T13:14:15+00:00">13:14:15</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I'll lug my "mac clone killer" starmax G3 there to see if I can get enough to retire for it</q></li>
+<li class="message">[<a href="#T13:14:36" id="T13:14:36"><abbr title="2013-02-06T13:14:36+00:00">13:14:36</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>does usb2printer support 8 bit in both directions?</q></li>
+<li class="message">[<a href="#T13:14:44" id="T13:14:44"><abbr title="2013-02-06T13:14:44+00:00">13:14:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>just asking</q></li>
+<li class="join">[<a href="#T13:16:29" id="T13:16:29"><abbr title="2013-02-06T13:16:29+00:00">13:16:29</abbr></a>] <span>* jvcleave_ (~jvcleave@WS1-DSL-208-102-254-80.fuse.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:16:31" id="T13:16:31"><abbr title="2013-02-06T13:16:31+00:00">13:16:31</abbr></a>] &lt;<cite>tsjsieb</cite>&gt; <q>retire? thats something I've heard about in history lessons isn't it?</q></li>
+<li class="message">[<a href="#T13:17:24" id="T13:17:24"><abbr title="2013-02-06T13:17:24+00:00">13:17:24</abbr></a>] &lt;<cite>panto</cite>&gt; <q>back</q></li>
+<li class="quit">[<a href="#T13:19:35" id="T13:19:35"><abbr title="2013-02-06T13:19:35+00:00">13:19:35</abbr></a>] <span>* jvcleave (~jvcleave@WS1-DSL-208-102-254-80.fuse.net) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="nick-change">[<abbr title="2013-02-06T13:19:35+00:00">13:19:35</abbr>] <span>* jvcleave_ is now known as jvcleave</span></li>
+<li class="quit">[<a href="#T13:23:44" id="T13:23:44"><abbr title="2013-02-06T13:23:44+00:00">13:23:44</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) Quit (Quit: No Ping reply in 180 seconds.)</span></li>
+<li class="join">[<a href="#T13:24:00" id="T13:24:00"><abbr title="2013-02-06T13:24:00+00:00">13:24:00</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:30:53" id="T13:30:53"><abbr title="2013-02-06T13:30:53+00:00">13:30:53</abbr></a>] <span>* arcanescu (925706ef@gateway/web/freenode/ip.146.87.6.239) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:31:26" id="T13:31:26"><abbr title="2013-02-06T13:31:26+00:00">13:31:26</abbr></a>] <span>* alan_o (~alan@c-68-62-254-211.hsd1.fl.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:35:16" id="T13:35:16"><abbr title="2013-02-06T13:35:16+00:00">13:35:16</abbr></a>] <span>* duwn_ (2eec6d0a@gateway/web/freenode/ip.46.236.109.10) Quit (Quit: Page closed)</span></li>
+<li class="quit">[<a href="#T13:41:23" id="T13:41:23"><abbr title="2013-02-06T13:41:23+00:00">13:41:23</abbr></a>] <span>* eikeon (~eikeon@pool-108-56-43-45.washdc.east.verizon.net) Quit (Quit: eikeon)</span></li>
+<li class="join">[<a href="#T13:43:20" id="T13:43:20"><abbr title="2013-02-06T13:43:20+00:00">13:43:20</abbr></a>] <span>* SilicaGel (~quassel@leavenworth78.main.ad.rit.edu) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:43:46" id="T13:43:46"><abbr title="2013-02-06T13:43:46+00:00">13:43:46</abbr></a>] <span>* wgrant (~wgrant@ubuntu/member/wgrant) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T13:45:01" id="T13:45:01"><abbr title="2013-02-06T13:45:01+00:00">13:45:01</abbr></a>] <span>* mrcan_ (~mrcan@unaffiliated/mrcan) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T13:45:33" id="T13:45:33"><abbr title="2013-02-06T13:45:33+00:00">13:45:33</abbr></a>] <span>* Hoolxi (~Openfree@120.204.129.76) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:53:43" id="T13:53:43"><abbr title="2013-02-06T13:53:43+00:00">13:53:43</abbr></a>] <span>* mrcan (~mrcan@unaffiliated/mrcan) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:53:44" id="T13:53:44"><abbr title="2013-02-06T13:53:44+00:00">13:53:44</abbr></a>] <span>* mrcan (~mrcan@unaffiliated/mrcan) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2013-02-06T13:53:44+00:00">13:53:44</abbr>] <span>* mrcan (~mrcan@unaffiliated/mrcan) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T13:59:28" id="T13:59:28"><abbr title="2013-02-06T13:59:28+00:00">13:59:28</abbr></a>] <span>* pfefferz (~pfefferz@cpe-70-112-138-163.austin.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-02-06T13:59:28+00:00">13:59:28</abbr>] <span>* pfefferz (~pfefferz@cpe-70-112-138-163.austin.res.rr.com) has joined #beagleboard</span></li>
