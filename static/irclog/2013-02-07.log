@@ -1668,3 +1668,57 @@
 <li class="message">[<a href="#T20:59:44" id="T20:59:44"><abbr title="2013-02-07T20:59:44+00:00">20:59:44</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>not sure</q></li>
 <li class="message">[<a href="#T20:59:49" id="T20:59:49"><abbr title="2013-02-07T20:59:49+00:00">20:59:49</abbr></a>] &lt;<cite>Crofton|work</cite>&gt; <q>he is a mechanical engineer</q></li>
 <li class="message">[<a href="#T21:00:06" id="T21:00:06"><abbr title="2013-02-07T21:00:06+00:00">21:00:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oh</q></li>
+<li class="quit">[<a href="#T21:01:38" id="T21:01:38"><abbr title="2013-02-07T21:01:38+00:00">21:01:38</abbr></a>] <span>* davest (Adium@nat/intel/x-qigxllgeaojdifqp) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T21:02:23" id="T21:02:23"><abbr title="2013-02-07T21:02:23+00:00">21:02:23</abbr></a>] <span>* davest (~Adium@134.134.137.73) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:02:36" id="T21:02:36"><abbr title="2013-02-07T21:02:36+00:00">21:02:36</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:04:49" id="T21:04:49"><abbr title="2013-02-07T21:04:49+00:00">21:04:49</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>for a thermocouple, you'll need a cape for the silicon temp sensor</q></li>
+<li class="message">[<a href="#T21:05:23" id="T21:05:23"><abbr title="2013-02-07T21:05:23+00:00">21:05:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or you can toss in an op-amp</q></li>
+<li class="message">[<a href="#T21:05:25" id="T21:05:25"><abbr title="2013-02-07T21:05:25+00:00">21:05:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>and use the AD</q></li>
+<li class="message">[<a href="#T21:05:34" id="T21:05:34"><abbr title="2013-02-07T21:05:34+00:00">21:05:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the thermocouple chip datasheet makes me believe that it's unpossible to measure accurately</q></li>
+<li class="quit">[<a href="#T21:05:39" id="T21:05:39"><abbr title="2013-02-07T21:05:39+00:00">21:05:39</abbr></a>] <span>* jluisn (~quassel@187.115.172.24) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:05:43" id="T21:05:43"><abbr title="2013-02-07T21:05:43+00:00">21:05:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>even with cold junction compensation</q></li>
+<li class="message">[<a href="#T21:05:46" id="T21:05:46"><abbr title="2013-02-07T21:05:46+00:00">21:05:46</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ds2, you need to know the temp of the cold junction</q></li>
+<li class="message">[<a href="#T21:07:32" id="T21:07:32"><abbr title="2013-02-07T21:07:32+00:00">21:07:32</abbr></a>] &lt;<cite>panto</cite>&gt; <q>g'night people of the beagle</q></li>
+<li class="quit">[<a href="#T21:07:42" id="T21:07:42"><abbr title="2013-02-07T21:07:42+00:00">21:07:42</abbr></a>] <span>* panto (~panto@195.97.110.117) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:08:30" id="T21:08:30"><abbr title="2013-02-07T21:08:30+00:00">21:08:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>has anyone seen multichannel thermocouple ampllifiers?</q></li>
+<li class="message">[<a href="#T21:08:43" id="T21:08:43"><abbr title="2013-02-07T21:08:43+00:00">21:08:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I can only find single channel ones, and those are all SPI</q></li>
+<li class="message">[<a href="#T21:08:56" id="T21:08:56"><abbr title="2013-02-07T21:08:56+00:00">21:08:56</abbr></a>] &lt;<cite>koen</cite>&gt; <q>which costs me a CS for each probe</q></li>
+<li class="message">[<a href="#T21:09:24" id="T21:09:24"><abbr title="2013-02-07T21:09:24+00:00">21:09:24</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>or a gpio for each probe</q></li>
+<li class="message">[<a href="#T21:09:33" id="T21:09:33"><abbr title="2013-02-07T21:09:33+00:00">21:09:33</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>time for an spi to gpio chip?</q></li>
+<li class="message">[<a href="#T21:09:49" id="T21:09:49"><abbr title="2013-02-07T21:09:49+00:00">21:09:49</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>spi to gpio to spi to gpio to spi</q></li>
+<li class="message">[<a href="#T21:09:56" id="T21:09:56"><abbr title="2013-02-07T21:09:56+00:00">21:09:56</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>why not just use an analog mux</q></li>
+<li class="message">[<a href="#T21:09:59" id="T21:09:59"><abbr title="2013-02-07T21:09:59+00:00">21:09:59</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>an unexpected journey</q></li>
+<li class="message">[<a href="#T21:10:23" id="T21:10:23"><abbr title="2013-02-07T21:10:23+00:00">21:10:23</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>do you really need to measure all of them constantly?</q></li>
+<li class="message">[<a href="#T21:13:28" id="T21:13:28"><abbr title="2013-02-07T21:13:28+00:00">21:13:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Russ: yes. isn't there a temp sensor on the 335x?</q></li>
+<li class="message">[<a href="#T21:13:53" id="T21:13:53"><abbr title="2013-02-07T21:13:53+00:00">21:13:53</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>koen: what about using a MSP430?</q></li>
+<li class="message">[<a href="#T21:15:04" id="T21:15:04"><abbr title="2013-02-07T21:15:04+00:00">21:15:04</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ds2, temp on the am335x would probably differ from temp at the cold junction</q></li>
+<li class="message">[<a href="#T21:15:28" id="T21:15:28"><abbr title="2013-02-07T21:15:28+00:00">21:15:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>Russ: yes, but you don't think the difference is mostly fixed?</q></li>
+<li class="quit">[<a href="#T21:16:41" id="T21:16:41"><abbr title="2013-02-07T21:16:41+00:00">21:16:41</abbr></a>] <span>* angs (~ubuntu@85.235.8.59) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:16:53" id="T21:16:53"><abbr title="2013-02-07T21:16:53+00:00">21:16:53</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>I guess it depends on how accurate you want it to be</q></li>
+<li class="message">[<a href="#T21:18:01" id="T21:18:01"><abbr title="2013-02-07T21:18:01+00:00">21:18:01</abbr></a>] &lt;<cite>jet</cite>&gt; <q>I'm doing a program in c++ using mmap to set or read gpio. Is there a way to enable pull-up resistors directly in memory?</q></li>
+<li class="message">[<a href="#T21:18:03" id="T21:18:03"><abbr title="2013-02-07T21:18:03+00:00">21:18:03</abbr></a>] &lt;<cite>koen</cite>&gt; <q>read the datasheets of a thermocouple amplifier</q></li>
+<li class="message">[<a href="#T21:18:30" id="T21:18:30"><abbr title="2013-02-07T21:18:30+00:00">21:18:30</abbr></a>] &lt;<cite>koen</cite>&gt; <q>it has notes on how far away it can be from the connection</q></li>
+<li class="message">[<abbr title="2013-02-07T21:18:30+00:00">21:18:30</abbr>] &lt;<cite>jet</cite>&gt; <q>I can't see anything in the AM335x arm doc</q></li>
+<li class="message">[<a href="#T21:18:34" id="T21:18:34"><abbr title="2013-02-07T21:18:34+00:00">21:18:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>koen: I think there was an appnote on MSP430's as a TC input</q></li>
+<li class="message">[<a href="#T21:18:39" id="T21:18:39"><abbr title="2013-02-07T21:18:39+00:00">21:18:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and what kind of connection is allowed</q></li>
+<li class="quit">[<a href="#T21:18:43" id="T21:18:43"><abbr title="2013-02-07T21:18:43+00:00">21:18:43</abbr></a>] <span>* awozniak (~awozniak@74.82.132.35) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T21:19:09" id="T21:19:09"><abbr title="2013-02-07T21:19:09+00:00">21:19:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it can be traded off for accuracy</q></li>
+<li class="message">[<a href="#T21:19:30" id="T21:19:30"><abbr title="2013-02-07T21:19:30+00:00">21:19:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if the trade off is less then 1LSB of the ADC...</q></li>
+<li class="join">[<a href="#T21:20:01" id="T21:20:01"><abbr title="2013-02-07T21:20:01+00:00">21:20:01</abbr></a>] <span>* awozniak (~awozniak@74.82.132.35) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:24:17" id="T21:24:17"><abbr title="2013-02-07T21:24:17+00:00">21:24:17</abbr></a>] <span>* jevin (~jevin@72.12.217.220) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:29:47" id="T21:29:47"><abbr title="2013-02-07T21:29:47+00:00">21:29:47</abbr></a>] <span>* Guest41940 (~bleh1@80.65.240.84) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T21:30:34" id="T21:30:34"><abbr title="2013-02-07T21:30:34+00:00">21:30:34</abbr></a>] <span>* thurbad (~natesewel@64.132.24.36) Quit (Quit: thurbad)</span></li>
+<li class="join">[<a href="#T21:32:14" id="T21:32:14"><abbr title="2013-02-07T21:32:14+00:00">21:32:14</abbr></a>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:32:15" id="T21:32:15"><abbr title="2013-02-07T21:32:15+00:00">21:32:15</abbr></a>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T21:33:26" id="T21:33:26"><abbr title="2013-02-07T21:33:26+00:00">21:33:26</abbr></a>] <span>* damir__1 (~damir@cpe-212-85-175-204.cable.telemach.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:35:01" id="T21:35:01"><abbr title="2013-02-07T21:35:01+00:00">21:35:01</abbr></a>] <span>* damir__ (~damir@cpe-212-85-175-204.cable.telemach.net) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T21:36:08" id="T21:36:08"><abbr title="2013-02-07T21:36:08+00:00">21:36:08</abbr></a>] <span>* krajo1 (~krajo1@ip4-83-240-125-22.cust.nbox.cz) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:42:28" id="T21:42:28"><abbr title="2013-02-07T21:42:28+00:00">21:42:28</abbr></a>] <span>* thurbad (~natesewel@64.132.24.36) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:52:40" id="T21:52:40"><abbr title="2013-02-07T21:52:40+00:00">21:52:40</abbr></a>] <span>* mnt_real (~mnt_real@bas1-montreal19-1177820656.dsl.bell.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:53:15" id="T21:53:15"><abbr title="2013-02-07T21:53:15+00:00">21:53:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>@#$@#@#$@#$ bone SRM requires one to run SQL in their heads to sort out pin muxes :(</q></li>
+<li class="message">[<a href="#T21:54:34" id="T21:54:34"><abbr title="2013-02-07T21:54:34+00:00">21:54:34</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>So write something better.</q></li>
+<li class="message">[<a href="#T21:55:43" id="T21:55:43"><abbr title="2013-02-07T21:55:43+00:00">21:55:43</abbr></a>] &lt;<cite>mru</cite>&gt; <q>paste it into the console of your favourite db</q></li>
+<li class="message">[<a href="#T21:56:08" id="T21:56:08"><abbr title="2013-02-07T21:56:08+00:00">21:56:08</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I am</q></li>
+<li class="message">[<a href="#T21:56:22" id="T21:56:22"><abbr title="2013-02-07T21:56:22+00:00">21:56:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>problem is the names they are choosing is arbritrary</q></li>
+<li class="message">[<a href="#T21:56:42" id="T21:56:42"><abbr title="2013-02-07T21:56:42+00:00">21:56:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so that needs to be cross referenced with the real name which inturn needs to be cross referenced back to find the mode</q></li>
+<li class="quit">[<a href="#T21:57:46" id="T21:57:46"><abbr title="2013-02-07T21:57:46+00:00">21:57:46</abbr></a>] <span>* thurbad (~natesewel@64.132.24.36) Quit (Quit: thurbad)</span></li>
