@@ -490,3 +490,25 @@
 <li class="join">[<a href="#T04:57:02" id="T04:57:02"><abbr title="2013-02-08T04:57:02+00:00">04:57:02</abbr></a>] <span>* mnt_real (~mnt_real@bas1-montreal19-1177820656.dsl.bell.ca) has joined #beagle</span></li>
 <li class="message">[<a href="#T04:58:25" id="T04:58:25"><abbr title="2013-02-08T04:58:25+00:00">04:58:25</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>Russ: who reads the docs?</q></li>
 <li class="message">[<a href="#T04:58:48" id="T04:58:48"><abbr title="2013-02-08T04:58:48+00:00">04:58:48</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>when all else fails....</q></li>
+<li class="message">[<a href="#T05:00:11" id="T05:00:11"><abbr title="2013-02-08T05:00:11+00:00">05:00:11</abbr></a>] &lt;<cite>swjh</cite>&gt; <q>I read it, I read it again</q></li>
+<li class="message">[<a href="#T05:01:12" id="T05:01:12"><abbr title="2013-02-08T05:01:12+00:00">05:01:12</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>read all the things!</q></li>
+<li class="message">[<a href="#T05:02:24" id="T05:02:24"><abbr title="2013-02-08T05:02:24+00:00">05:02:24</abbr></a>] &lt;<cite>swjh</cite>&gt; <q>I am doing it, it would help if the man pages have good examples as well.</q></li>
+<li class="join">[<a href="#T05:17:15" id="T05:17:15"><abbr title="2013-02-08T05:17:15+00:00">05:17:15</abbr></a>] <span>* tema (~tema@ppp91-122-94-42.pppoe.avangarddsl.ru) has joined #beagle</span></li>
+<li class="message">[<a href="#T05:24:21" id="T05:24:21"><abbr title="2013-02-08T05:24:21+00:00">05:24:21</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>heh never noticed the bear on my CA drivers license</q></li>
+<li class="message">[<a href="#T05:25:15" id="T05:25:15"><abbr title="2013-02-08T05:25:15+00:00">05:25:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>are you making private copies?</q></li>
+<li class="message">[<a href="#T05:25:35" id="T05:25:35"><abbr title="2013-02-08T05:25:35+00:00">05:25:35</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>bearwithme</q></li>
+<li class="message">[<a href="#T05:25:42" id="T05:25:42"><abbr title="2013-02-08T05:25:42+00:00">05:25:42</abbr></a>] &lt;<cite>emeb_mac</cite>&gt; <q>as it were...</q></li>
+<li class="quit">[<a href="#T05:34:12" id="T05:34:12"><abbr title="2013-02-08T05:34:12+00:00">05:34:12</abbr></a>] <span>* tema (~tema@ppp91-122-94-42.pppoe.avangarddsl.ru) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="quit">[<a href="#T05:36:25" id="T05:36:25"><abbr title="2013-02-08T05:36:25+00:00">05:36:25</abbr></a>] <span>* 15SAAYICR (~dlan@120.204.177.192) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T05:39:39" id="T05:39:39"><abbr title="2013-02-08T05:39:39+00:00">05:39:39</abbr></a>] <span>* Dunearhp (~Dunearhp_@203.63.134.61) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T05:41:04" id="T05:41:04"><abbr title="2013-02-08T05:41:04+00:00">05:41:04</abbr></a>] &lt;<cite>swjh</cite>&gt; <q>Russ: clock_getres outputs the resolution time is 1 nsec, I could not find any clue to use it on clock_nanosleep(). what am I doing wrong on my code?</q></li>
+<li class="message">[<a href="#T05:51:03" id="T05:51:03"><abbr title="2013-02-08T05:51:03+00:00">05:51:03</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>clock_getres just tells you what to expect from a specific clock</q></li>
+<li class="message">[<a href="#T05:51:15" id="T05:51:15"><abbr title="2013-02-08T05:51:15+00:00">05:51:15</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>strange you asked about CLOCK_REALTIME, but then used CLOCK_MONOTONIC</q></li>
+<li class="message">[<a href="#T05:51:24" id="T05:51:24"><abbr title="2013-02-08T05:51:24+00:00">05:51:24</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>you also have to look at timer slack though</q></li>
+<li class="message">[<a href="#T05:52:06" id="T05:52:06"><abbr title="2013-02-08T05:52:06+00:00">05:52:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>stop the userland madness!</q></li>
+<li class="message">[<a href="#T05:53:55" id="T05:53:55"><abbr title="2013-02-08T05:53:55+00:00">05:53:55</abbr></a>] &lt;<cite>swjh</cite>&gt; <q>Russ: I corrected CLOCK_REALTIME. how can I look at timer slack?</q></li>
+<li class="message">[<a href="#T05:55:40" id="T05:55:40"><abbr title="2013-02-08T05:55:40+00:00">05:55:40</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>did you ream man 7 time</q></li>
+<li class="message">[<a href="#T05:55:56" id="T05:55:56"><abbr title="2013-02-08T05:55:56+00:00">05:55:56</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>ds2, I'm in a reckless mood</q></li>
+<li class="message">[<a href="#T05:59:14" id="T05:59:14"><abbr title="2013-02-08T05:59:14+00:00">05:59:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>admitting to CUI?</q></li>
+<li class="join">[<a href="#T05:59:27" id="T05:59:27"><abbr title="2013-02-08T05:59:27+00:00">05:59:27</abbr></a>] <span>* KeatonT (~textual@unaffiliated/keatont) has joined #beagle</span></li>
+<li class="message">[<a href="#T05:59:51" id="T05:59:51"><abbr title="2013-02-08T05:59:51+00:00">05:59:51</abbr></a>] &lt;<cite>Russ</cite>&gt; <q>no, no performance enhancing substances</q></li>
