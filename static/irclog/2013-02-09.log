@@ -239,3 +239,30 @@
 <li class="message">[<a href="#T12:53:14" id="T12:53:14"><abbr title="2013-02-09T12:53:14+00:00">12:53:14</abbr></a>] &lt;<cite>vij</cite>&gt; <q>&lt;koen&gt; I was following this <a href="http://processors.wiki.ti.com/index.php/AMSDK_Linux_User%27s_Guide">http://processors.wiki.ti.com/index.php/AMSDK_Linux_User%27s_Guide</a></q></li>
 <li class="message">[<a href="#T12:53:28" id="T12:53:28"><abbr title="2013-02-09T12:53:28+00:00">12:53:28</abbr></a>] &lt;<cite>vij</cite>&gt; <q>lemme try the beaglebone_defconfig</q></li>
 <li class="message">[<a href="#T12:55:11" id="T12:55:11"><abbr title="2013-02-09T12:55:11+00:00">12:55:11</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>Hamed_: I'd expect this to be possible.</q></li>
+<li class="quit">[<a href="#T13:03:40" id="T13:03:40"><abbr title="2013-02-09T13:03:40+00:00">13:03:40</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T13:05:39" id="T13:05:39"><abbr title="2013-02-09T13:05:39+00:00">13:05:39</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:34:00" id="T13:34:00"><abbr title="2013-02-09T13:34:00+00:00">13:34:00</abbr></a>] &lt;<cite>vij</cite>&gt; <q>Koen: I tried the beaglebone_defconfig and got this error while building the kernel :</q></li>
+<li class="message">[<a href="#T13:34:32" id="T13:34:32"><abbr title="2013-02-09T13:34:32+00:00">13:34:32</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>hint: android is kinda linux</q></li>
+<li class="quit">[<a href="#T13:34:35" id="T13:34:35"><abbr title="2013-02-09T13:34:35+00:00">13:34:35</abbr></a>] <span>* vij (75da3403@gateway/web/freenode/ip.117.218.52.3) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T13:34:37" id="T13:34:37"><abbr title="2013-02-09T13:34:37+00:00">13:34:37</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's about time someone killed the concept of defconfig</q></li>
+<li class="join">[<a href="#T13:35:13" id="T13:35:13"><abbr title="2013-02-09T13:35:13+00:00">13:35:13</abbr></a>] <span>* vij (75da3403@gateway/web/freenode/ip.117.218.52.3) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:35:23" id="T13:35:23"><abbr title="2013-02-09T13:35:23+00:00">13:35:23</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>configd maybe?</q></li>
+<li class="message">[<a href="#T13:35:44" id="T13:35:44"><abbr title="2013-02-09T13:35:44+00:00">13:35:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>kernelconfigdbus</q></li>
+<li class="message">[<a href="#T13:35:48" id="T13:35:48"><abbr title="2013-02-09T13:35:48+00:00">13:35:48</abbr></a>] &lt;<cite>vij</cite>&gt; <q>Koen: I built the kernel using beaglebone_defconfig and got this error:</q></li>
+<li class="message">[<a href="#T13:36:18" id="T13:36:18"><abbr title="2013-02-09T13:36:18+00:00">13:36:18</abbr></a>] &lt;<cite>vij</cite>&gt; <q>undefined reference to `edma_free_channel' make: *** [.tmp_vmlinux1] Error 1</q></li>
+<li class="message">[<a href="#T13:36:41" id="T13:36:41"><abbr title="2013-02-09T13:36:41+00:00">13:36:41</abbr></a>] &lt;<cite>vij</cite>&gt; <q>kernel_3.2/kernel/kernel/sound/soc/davinci/davinci-pcm.c:544:</q></li>
+<li class="message">[<a href="#T13:36:42" id="T13:36:42"><abbr title="2013-02-09T13:36:42+00:00">13:36:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>someone forgot to enable the edma driver...</q></li>
+<li class="quit">[<a href="#T13:38:23" id="T13:38:23"><abbr title="2013-02-09T13:38:23+00:00">13:38:23</abbr></a>] <span>* Hamed_ (b2834088@gateway/web/freenode/ip.178.131.64.136) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T13:39:40" id="T13:39:40"><abbr title="2013-02-09T13:39:40+00:00">13:39:40</abbr></a>] &lt;<cite>vij</cite>&gt; <q>mru : the EDMA drivers are enabled</q></li>
+<li class="message">[<a href="#T13:40:00" id="T13:40:00"><abbr title="2013-02-09T13:40:00+00:00">13:40:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the error message disagrees</q></li>
+<li class="message">[<a href="#T13:40:16" id="T13:40:16"><abbr title="2013-02-09T13:40:16+00:00">13:40:16</abbr></a>] &lt;<cite>vij</cite>&gt; <q>CONFIG_TI_EDMA=y</q></li>
+<li class="message">[<a href="#T13:40:35" id="T13:40:35"><abbr title="2013-02-09T13:40:35+00:00">13:40:35</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so find where that missing symbols is defined</q></li>
+<li class="message">[<a href="#T13:40:47" id="T13:40:47"><abbr title="2013-02-09T13:40:47+00:00">13:40:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>then look up what config option enables it</q></li>
+<li class="message">[<a href="#T13:40:50" id="T13:40:50"><abbr title="2013-02-09T13:40:50+00:00">13:40:50</abbr></a>] &lt;<cite>vij</cite>&gt; <q>CONFIG_TI_PRIV_EDMA=y</q></li>
+<li class="message">[<a href="#T13:40:55" id="T13:40:55"><abbr title="2013-02-09T13:40:55+00:00">13:40:55</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and turn on that config option</q></li>
+<li class="message">[<a href="#T13:41:00" id="T13:41:00"><abbr title="2013-02-09T13:41:00+00:00">13:41:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's really very easy</q></li>
+<li class="message">[<a href="#T13:41:33" id="T13:41:33"><abbr title="2013-02-09T13:41:33+00:00">13:41:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>alternatively, turn off whatever is trying to use it</q></li>
+<li class="message">[<a href="#T13:47:57" id="T13:47:57"><abbr title="2013-02-09T13:47:57+00:00">13:47:57</abbr></a>] &lt;<cite>Kristina</cite>&gt; <q>Oh man, that's so slow.</q></li>
+<li class="message">[<a href="#T13:47:58" id="T13:47:58"><abbr title="2013-02-09T13:47:58+00:00">13:47:58</abbr></a>] &lt;<cite>Kristina</cite>&gt; <q>&gt; load_image /BinaryCache/Boot/LLB_OMAP3.MLO 0x40200000</q></li>
+<li class="message">[<a href="#T13:47:59" id="T13:47:59"><abbr title="2013-02-09T13:47:59+00:00">13:47:59</abbr></a>] &lt;<cite>Kristina</cite>&gt; <q>downloaded 26776 bytes in 2.567988s (10.182 KiB/s)</q></li>
+<li class="message">[<a href="#T13:56:20" id="T13:56:20"><abbr title="2013-02-09T13:56:20+00:00">13:56:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>boot from usb</q></li>
