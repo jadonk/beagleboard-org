@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="1738" name="Page" prototype="Page" created="1321318779526" lastModified="1360614638694">
+  <hopobject id="1738" name="Page" prototype="Page" created="1321318779526" lastModified="1360614670538">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,7 +9,7 @@
     <http_language>en-US,en;q=0.8</http_language>
     <uri>linux</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17</http_browser>
-    <time type="date">11.02.2013 14:30:38 CST</time>
+    <time type="date">11.02.2013 14:31:10 CST</time>
     <hopsession>127.0.0.198.47.16.16107nwo4k6lb</hopsession>
     <body> &lt;h1&gt;Linux and u-boot sources&lt;/h1&gt;
  &lt;p&gt;
@@ -22,22 +22,22 @@
   convenience for those familiar with the git version control system.&lt;/p&gt;
  &lt;h3&gt;Example build procedure for BeagleBone 3.8-rcX kernel&lt;/h3&gt;
  &lt;pre&gt;
-    ~$ wget http://www.angstrom-distribution.org/toolchains/angstrom-2011.03-x86_64-linux-armv7a-linux-gnueabi-toolchain-qte-4.6.3.tar.bz2
-    ~$ sudo tar -C / -xjf angstrom-2011.03-x86_64-linux-armv7a-linux-gnueabi-toolchain-qte-4.6.3.tar.bz2
-    ~$ export PATH=/usr/local/angstrom/arm/bin:$PATH
-    ~$ git clone git://github.com/beagleboard/kernel.git &amp;&amp; cd kernel
-    ~/kernel$ git checkout 3.8
-    ~/kernel$ ./patch.sh
-    ~/kernel$ cp configs/beaglebone kernel/arch/arm/configs/beaglebone_defconfig
-    ~/kernel$ wget http://arago-project.org/git/projects/?p=am33x-cm3.git\;a=blob_plain\;f=bin/am335x-pm-firmware.bin\;hb=HEAD -O kernel/firmware/am335x-pm-firmware.bin
-    ~/kernel$ cd kernel
-    ~/kernel/kernel$ mkdir rootfs
-    ~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- beaglebone_defconfig
-    ~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- -j4 uImage dtbs
-    ~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- -j4 modules
-    ~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- INSTALL_MOD_PATH=$HOME/kernel/kernel/rootfs modules_install
-    ~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- uImage-dtb.am335x-bone
-    ~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- uImage-dtb.am335x-bonelt
+~$ wget http://www.angstrom-distribution.org/toolchains/angstrom-2011.03-x86_64-linux-armv7a-linux-gnueabi-toolchain-qte-4.6.3.tar.bz2
+~$ sudo tar -C / -xjf angstrom-2011.03-x86_64-linux-armv7a-linux-gnueabi-toolchain-qte-4.6.3.tar.bz2
+~$ export PATH=/usr/local/angstrom/arm/bin:$PATH
+~$ git clone git://github.com/beagleboard/kernel.git &amp;&amp; cd kernel
+~/kernel$ git checkout 3.8
+~/kernel$ ./patch.sh
+~/kernel$ cp configs/beaglebone kernel/arch/arm/configs/beaglebone_defconfig
+~/kernel$ wget http://arago-project.org/git/projects/?p=am33x-cm3.git\;a=blob_plain\;f=bin/am335x-pm-firmware.bin\;hb=HEAD -O kernel/firmware/am335x-pm-firmware.bin
+~/kernel$ cd kernel
+~/kernel/kernel$ mkdir rootfs
+~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- beaglebone_defconfig
+~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- -j4 uImage dtbs
+~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- -j4 modules
+~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- INSTALL_MOD_PATH=$HOME/kernel/kernel/rootfs modules_install
+~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- uImage-dtb.am335x-bone
+~/kernel/kernel$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- uImage-dtb.am335x-bonelt
  &lt;/pre&gt;
  &lt;h3&gt;Building a kernel module&lt;/h3&gt;
  &lt;h4&gt;~/kernel/kernel/hello/hello.c&lt;/h4&gt;
@@ -72,8 +72,8 @@ default:
     make -C $(KDIR) SUBDIRS=$(PWD) modules
  &lt;/pre&gt;
  &lt;pre&gt;
-    ~/kernel/kernel$ cd hello
-    ~/kernel/kernel/hello$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- 
+~/kernel/kernel$ cd hello
+~/kernel/kernel/hello$ make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi- 
  &lt;/pre&gt;
 </body>
     <pseudoparent idref="0" prototyperef="Root"/>
