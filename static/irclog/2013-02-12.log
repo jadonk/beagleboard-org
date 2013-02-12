@@ -1656,3 +1656,168 @@
 <li class="message">[<a href="#T18:59:29" id="T18:59:29"><abbr title="2013-02-12T18:59:29+00:00">18:59:29</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>well, script can parse the raw logic stream output</q></li>
 <li class="message">[<a href="#T18:59:40" id="T18:59:40"><abbr title="2013-02-12T18:59:40+00:00">18:59:40</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>mdp: well the first version of the board is off to pcb house, should have them back on friday - <a href="https://docs.google.com/file/d/1lf0rNrMx_fzGXDRGWZ_v1UhGh61t1tc8evsvgDfNcw406F-oJep-rcTPOvB5/edit?usp=sharing">https://docs.google.com/file/d/1lf0rNrMx_fzGXDRGWZ_v1UhGh61t1tc8evsvgDfNcw406F-oJep-rcTPOvB5/edit?usp=sharing</a></q></li>
 <li class="message">[<a href="#T19:00:00" id="T19:00:00"><abbr title="2013-02-12T19:00:00+00:00">19:00:00</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>mdp: no fpga on this version, but you could easily use it with a good 100MHz LA</q></li>
+<li class="message">[<a href="#T19:00:27" id="T19:00:27"><abbr title="2013-02-12T19:00:27+00:00">19:00:27</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>yep, that's the key, as long as those signals are exposed like that..just the LA works</q></li>
+<li class="message">[<a href="#T19:00:40" id="T19:00:40"><abbr title="2013-02-12T19:00:40+00:00">19:00:40</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>even the $50 OLS works at that range with proper probes</q></li>
+<li class="quit">[<a href="#T19:00:55" id="T19:00:55"><abbr title="2013-02-12T19:00:55+00:00">19:00:55</abbr></a>] <span>* divine__ (~divine@2001:470:8247:1::42) Quit (Quit: leaving)</span></li>
+<li class="message">[<a href="#T19:01:23" id="T19:01:23"><abbr title="2013-02-12T19:01:23+00:00">19:01:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>haha nice</q></li>
+<li class="message">[<a href="#T19:01:27" id="T19:01:27"><abbr title="2013-02-12T19:01:27+00:00">19:01:27</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>zombie hack</q></li>
+<li class="message">[<a href="#T19:02:29" id="T19:02:29"><abbr title="2013-02-12T19:02:29+00:00">19:02:29</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>prpplague: yeah, if you had a nice buffer and data gathering front end it would be nice as a native sigrok input</q></li>
+<li class="message">[<a href="#T19:03:07" id="T19:03:07"><abbr title="2013-02-12T19:03:07+00:00">19:03:07</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>the cheap LAs don't have enough buffer for serious work at these frequencies</q></li>
+<li class="message">[<a href="#T19:04:19" id="T19:04:19"><abbr title="2013-02-12T19:04:19+00:00">19:04:19</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>mdp: i was thinking of just having it report the values, i.e. vsw,vbp,vfp,hsw,hfp,hbp, refresh rate, pixel clock</q></li>
+<li class="join">[<a href="#T19:04:40" id="T19:04:40"><abbr title="2013-02-12T19:04:40+00:00">19:04:40</abbr></a>] <span>* divine (~divine@2001:470:8247:1::42) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T19:05:11" id="T19:05:11"><abbr title="2013-02-12T19:05:11+00:00">19:05:11</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>prpplague: what eda software did you use?</q></li>
+<li class="message">[<a href="#T19:05:33" id="T19:05:33"><abbr title="2013-02-12T19:05:33+00:00">19:05:33</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>KotH: orcad + pads</q></li>
+<li class="message">[<a href="#T19:05:46" id="T19:05:46"><abbr title="2013-02-12T19:05:46+00:00">19:05:46</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>^^'</q></li>
+<li class="message">[<a href="#T19:05:49" id="T19:05:49"><abbr title="2013-02-12T19:05:49+00:00">19:05:49</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>yappari</q></li>
+<li class="action">[<a href="#T19:06:17" id="T19:06:17"><abbr title="2013-02-12T19:06:17+00:00">19:06:17</abbr></a>] <span>* KotH finds the lack of good oss eda solutions disturbing</span></li>
+<li class="message">[<a href="#T19:06:58" id="T19:06:58"><abbr title="2013-02-12T19:06:58+00:00">19:06:58</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>KotH: i've been moving most of my projects to KiCad</q></li>
+<li class="message">[<a href="#T19:07:12" id="T19:07:12"><abbr title="2013-02-12T19:07:12+00:00">19:07:12</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>KotH: but i just started playing around with a 30day eval of diptrace</q></li>
+<li class="message">[<a href="#T19:08:19" id="T19:08:19"><abbr title="2013-02-12T19:08:19+00:00">19:08:19</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>prpplague: i find kicad nicer than geda, but it looks like being written by someone who only knew eagle... and thus it feels very clumsy, even for simple stuff</q></li>
+<li class="message">[<a href="#T19:08:32" id="T19:08:32"><abbr title="2013-02-12T19:08:32+00:00">19:08:32</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>KotH: yea, same here</q></li>
+<li class="message">[<a href="#T19:09:05" id="T19:09:05"><abbr title="2013-02-12T19:09:05+00:00">19:09:05</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>prpplague: what disturbs me most is, that writing a eda package isnt too dificult these days.. just a lot of work...</q></li>
+<li class="message">[<a href="#T19:09:11" id="T19:09:11"><abbr title="2013-02-12T19:09:11+00:00">19:09:11</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>prpplague: and yet we are stuck with kicad and geda</q></li>
+<li class="action">[<a href="#T19:15:25" id="T19:15:25"><abbr title="2013-02-12T19:15:25+00:00">19:15:25</abbr></a>] <span>* emeb uses geda/PCB but has tried kicad on a few projects.</span></li>
+<li class="join">[<a href="#T19:15:49" id="T19:15:49"><abbr title="2013-02-12T19:15:49+00:00">19:15:49</abbr></a>] <span>* Wipster (~Wip@cpc2-rdng23-2-0-cust135.15-3.cable.virginmedia.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:16:07" id="T19:16:07"><abbr title="2013-02-12T19:16:07+00:00">19:16:07</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>neither really excite me, but most of my designs are in geda, so that's my biggest library of "trusted" symbols/footprints.</q></li>
+<li class="message">[<a href="#T19:16:34" id="T19:16:34"><abbr title="2013-02-12T19:16:34+00:00">19:16:34</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>I have heard good things about diptrace from two different sources though.</q></li>
+<li class="message">[<a href="#T19:18:12" id="T19:18:12"><abbr title="2013-02-12T19:18:12+00:00">19:18:12</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>emeb: i tried it out with a small board that had a couple 555's and a serial shift register. was able to do a schematic and layout within an hour without much of tutorial</q></li>
+<li class="message">[<a href="#T19:18:26" id="T19:18:26"><abbr title="2013-02-12T19:18:26+00:00">19:18:26</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>prpplague: nice.</q></li>
+<li class="message">[<a href="#T19:20:55" id="T19:20:55"><abbr title="2013-02-12T19:20:55+00:00">19:20:55</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>prpplague: what OS did you run it on - they claim it runs under Win/Linux(Wine)/MacOS</q></li>
+<li class="quit">[<abbr title="2013-02-12T19:20:55+00:00">19:20:55</abbr>] <span>* awozniak (~awozniak@74.82.132.35) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T19:21:12" id="T19:21:12"><abbr title="2013-02-12T19:21:12+00:00">19:21:12</abbr></a>] <span>* awozniak (~awozniak@74.82.132.35) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:22:02" id="T19:22:02"><abbr title="2013-02-12T19:22:02+00:00">19:22:02</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>emeb: windows xp in a vmware</q></li>
+<li class="message">[<a href="#T19:23:30" id="T19:23:30"><abbr title="2013-02-12T19:23:30+00:00">19:23:30</abbr></a>] &lt;<cite>emeb</cite>&gt; <q>prpplague: cool. Never been very happy with Wine. I've got a machine dedicated to Win7 tho, so might try it there.</q></li>
+<li class="quit">[<a href="#T19:24:54" id="T19:24:54"><abbr title="2013-02-12T19:24:54+00:00">19:24:54</abbr></a>] <span>* PavillonNoir (~PavillonN@134.117.39.62.rev.sfr.net) Quit (*.net *.split)</span></li>
+<li class="message">[<a href="#T19:24:58" id="T19:24:58"><abbr title="2013-02-12T19:24:58+00:00">19:24:58</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>i said vmware , but i ment virtualbox</q></li>
+<li class="message">[<a href="#T19:25:33" id="T19:25:33"><abbr title="2013-02-12T19:25:33+00:00">19:25:33</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>prpplague: for email?</q></li>
+<li class="message">[<a href="#T19:25:46" id="T19:25:46"><abbr title="2013-02-12T19:25:46+00:00">19:25:46</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>mranostay: for orcad+pads</q></li>
+<li class="quit">[<a href="#T19:29:24" id="T19:29:24"><abbr title="2013-02-12T19:29:24+00:00">19:29:24</abbr></a>] <span>* Guest34794 (c05e5c0b@gateway/web/freenode/ip.192.94.92.11) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T19:29:29" id="T19:29:29"><abbr title="2013-02-12T19:29:29+00:00">19:29:29</abbr></a>] <span>* tema (~tema@178-16-155-142.obit.ru) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:29:42" id="T19:29:42"><abbr title="2013-02-12T19:29:42+00:00">19:29:42</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>....The downside of this tech is that battery life of all the devices involved will be affected as data traffic increases???....</q></li>
+<li class="message">[<a href="#T19:29:54" id="T19:29:54"><abbr title="2013-02-12T19:29:54+00:00">19:29:54</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>(mesh network for emergency use)</q></li>
+<li class="message">[<a href="#T19:30:00" id="T19:30:00"><abbr title="2013-02-12T19:30:00+00:00">19:30:00</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>doh</q></li>
+<li class="message">[<a href="#T19:30:31" id="T19:30:31"><abbr title="2013-02-12T19:30:31+00:00">19:30:31</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_av500_: what kind of brain fart are you reading?</q></li>
+<li class="message">[<a href="#T19:30:37" id="T19:30:37"><abbr title="2013-02-12T19:30:37+00:00">19:30:37</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>what part of "there is an emergency, the network is down" did they not get???</q></li>
+<li class="message">[<a href="#T19:31:41" id="T19:31:41"><abbr title="2013-02-12T19:31:41+00:00">19:31:41</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>_av500_: this for?</q></li>
+<li class="join">[<a href="#T19:32:27" id="T19:32:27"><abbr title="2013-02-12T19:32:27+00:00">19:32:27</abbr></a>] <span>* PavillonNoir (~PavillonN@134.117.39.62.rev.sfr.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:33:36" id="T19:33:36"><abbr title="2013-02-12T19:33:36+00:00">19:33:36</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_av500_: source?</q></li>
+<li class="message">[<a href="#T19:33:39" id="T19:33:39"><abbr title="2013-02-12T19:33:39+00:00">19:33:39</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>sec</q></li>
+<li class="message">[<a href="#T19:33:50" id="T19:33:50"><abbr title="2013-02-12T19:33:50+00:00">19:33:50</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q><a href="https://plus.google.com/u/0/100647702320088380533/posts/EvvnkeFbbcD">https://plus.google.com/u/0/100647702320088380533/posts/EvvnkeFbbcD</a></q></li>
+<li class="quit">[<a href="#T19:34:32" id="T19:34:32"><abbr title="2013-02-12T19:34:32+00:00">19:34:32</abbr></a>] <span>* davidh_ (~quassel@87.68.19.184.cable.012.net.il) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T19:34:48" id="T19:34:48"><abbr title="2013-02-12T19:34:48+00:00">19:34:48</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>150 meters that is barely useful</q></li>
+<li class="message">[<a href="#T19:35:05" id="T19:35:05"><abbr title="2013-02-12T19:35:05+00:00">19:35:05</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>_av500_: yea saw that</q></li>
+<li class="message">[<a href="#T19:35:19" id="T19:35:19"><abbr title="2013-02-12T19:35:19+00:00">19:35:19</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>_av500_: i was thinking some of Crofton 's products would be better suited</q></li>
+<li class="message">[<a href="#T19:35:27" id="T19:35:27"><abbr title="2013-02-12T19:35:27+00:00">19:35:27</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>i hope the cops are 150 meters away</q></li>
+<li class="message">[<a href="#T19:35:36" id="T19:35:36"><abbr title="2013-02-12T19:35:36+00:00">19:35:36</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>and that point i can just yell for them :)</q></li>
+<li class="message">[<a href="#T19:35:42" id="T19:35:42"><abbr title="2013-02-12T19:35:42+00:00">19:35:42</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>maybe if you fall down a 100 meter hole?</q></li>
+<li class="message">[<a href="#T19:35:48" id="T19:35:48"><abbr title="2013-02-12T19:35:48+00:00">19:35:48</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>scratch that</q></li>
+<li class="join">[<a href="#T19:36:08" id="T19:36:08"><abbr title="2013-02-12T19:36:08+00:00">19:36:08</abbr></a>] <span>* kiilo (~kiilo@xdsl-188-155-92-160.adslplus.ch) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-02-12T19:36:08+00:00">19:36:08</abbr>] &lt;<cite>Crofton</cite>&gt; <q>are you guys talking about stingrays</q></li>
+<li class="message">[<a href="#T19:36:16" id="T19:36:16"><abbr title="2013-02-12T19:36:16+00:00">19:36:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: with people falling into the same hole 30m apart?</q></li>
+<li class="message">[<a href="#T19:36:24" id="T19:36:24"><abbr title="2013-02-12T19:36:24+00:00">19:36:24</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>_av500_: yes!</q></li>
+<li class="message">[<a href="#T19:36:27" id="T19:36:27"><abbr title="2013-02-12T19:36:27+00:00">19:36:27</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T19:36:30" id="T19:36:30"><abbr title="2013-02-12T19:36:30+00:00">19:36:30</abbr></a>] &lt;<cite>Crofton</cite>&gt; <q>heh</q></li>
+<li class="join">[<a href="#T19:36:31" id="T19:36:31"><abbr title="2013-02-12T19:36:31+00:00">19:36:31</abbr></a>] <span>* davidh_ (~quassel@87.68.19.184.cable.012.net.il) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:36:32" id="T19:36:32"><abbr title="2013-02-12T19:36:32+00:00">19:36:32</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>"it's better than nothing!"</q></li>
+<li class="message">[<abbr title="2013-02-12T19:36:32+00:00">19:36:32</abbr>] &lt;<cite>_av500_</cite>&gt; <q>gotta be prepared</q></li>
+<li class="message">[<abbr title="2013-02-12T19:36:32+00:00">19:36:32</abbr>] &lt;<cite>Crofton</cite>&gt; <q>bad cops</q></li>
+<li class="message">[<a href="#T19:36:41" id="T19:36:41"><abbr title="2013-02-12T19:36:41+00:00">19:36:41</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: yes, one can always throw it</q></li>
+<li class="action">[<a href="#T19:37:02" id="T19:37:02"><abbr title="2013-02-12T19:37:02+00:00">19:37:02</abbr></a>] <span>* emeb somehow doubts wifi would work well underground</span></li>
+<li class="message">[<a href="#T19:37:03" id="T19:37:03"><abbr title="2013-02-12T19:37:03+00:00">19:37:03</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>mdp: with people that fell down at different levels?</q></li>
+<li class="action">[<a href="#T19:37:22" id="T19:37:22"><abbr title="2013-02-12T19:37:22+00:00">19:37:22</abbr></a>] <span>* KotH has tried BATMAN in an office with 5 nodes... it sucked badly</span></li>
+<li class="message">[<a href="#T19:37:31" id="T19:37:31"><abbr title="2013-02-12T19:37:31+00:00">19:37:31</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>RTTs in the range of 2s</q></li>
+<li class="message">[<a href="#T19:37:37" id="T19:37:37"><abbr title="2013-02-12T19:37:37+00:00">19:37:37</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>a hole in a large paper constructed dwelling? with good propagation characteristics</q></li>
+<li class="message">[<a href="#T19:37:41" id="T19:37:41"><abbr title="2013-02-12T19:37:41+00:00">19:37:41</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>it's better than nothing!</q></li>
+<li class="message">[<a href="#T19:37:46" id="T19:37:46"><abbr title="2013-02-12T19:37:46+00:00">19:37:46</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>join and leave times in the 10min range... etc pp</q></li>
+<li class="message">[<a href="#T19:37:52" id="T19:37:52"><abbr title="2013-02-12T19:37:52+00:00">19:37:52</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>anyway, one needs it only to bridge the distance to the next starbucks...</q></li>
+<li class="message">[<a href="#T19:37:54" id="T19:37:54"><abbr title="2013-02-12T19:37:54+00:00">19:37:54</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>solved</q></li>
+<li class="message">[<a href="#T19:37:58" id="T19:37:58"><abbr title="2013-02-12T19:37:58+00:00">19:37:58</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>agreed</q></li>
+<li class="message">[<a href="#T19:38:05" id="T19:38:05"><abbr title="2013-02-12T19:38:05+00:00">19:38:05</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>50 meters to each starbucks</q></li>
+<li class="message">[<a href="#T19:38:15" id="T19:38:15"><abbr title="2013-02-12T19:38:15+00:00">19:38:15</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>somehow i bet you are better off doing CW with that signal</q></li>
+<li class="message">[<a href="#T19:38:16" id="T19:38:16"><abbr title="2013-02-12T19:38:16+00:00">19:38:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>in downton NY, we are saved</q></li>
+<li class="join">[<a href="#T19:38:17" id="T19:38:17"><abbr title="2013-02-12T19:38:17+00:00">19:38:17</abbr></a>] <span>* DarthExpeditor (~IceChat9@rrcs-71-43-76-226.se.biz.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:38:23" id="T19:38:23"><abbr title="2013-02-12T19:38:23+00:00">19:38:23</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>or in munich ;)</q></li>
+<li class="message">[<a href="#T19:38:30" id="T19:38:30"><abbr title="2013-02-12T19:38:30+00:00">19:38:30</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>nah</q></li>
+<li class="message">[<a href="#T19:38:45" id="T19:38:45"><abbr title="2013-02-12T19:38:45+00:00">19:38:45</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>zoning laws</q></li>
+<li class="message">[<a href="#T19:38:51" id="T19:38:51"><abbr title="2013-02-12T19:38:51+00:00">19:38:51</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>all the way from the hauptbahnhof to the altstadt seemed like ;)</q></li>
+<li class="message">[<a href="#T19:39:03" id="T19:39:03"><abbr title="2013-02-12T19:39:03+00:00">19:39:03</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_av500_: i find it disturbing that people dont look at what is actually possible with current emergency communication systems</q></li>
+<li class="message">[<a href="#T19:39:05" id="T19:39:05"><abbr title="2013-02-12T19:39:05+00:00">19:39:05</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: that is only 50m</q></li>
+<li class="message">[<a href="#T19:39:09" id="T19:39:09"><abbr title="2013-02-12T19:39:09+00:00">19:39:09</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>see!</q></li>
+<li class="message">[<a href="#T19:39:24" id="T19:39:24"><abbr title="2013-02-12T19:39:24+00:00">19:39:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>KotH: they dont care</q></li>
+<li class="message">[<a href="#T19:39:27" id="T19:39:27"><abbr title="2013-02-12T19:39:27+00:00">19:39:27</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>its free</q></li>
+<li class="message">[<a href="#T19:39:29" id="T19:39:29"><abbr title="2013-02-12T19:39:29+00:00">19:39:29</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>its ad hoc</q></li>
+<li class="message">[<a href="#T19:39:32" id="T19:39:32"><abbr title="2013-02-12T19:39:32+00:00">19:39:32</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>its awesome</q></li>
+<li class="message">[<a href="#T19:39:42" id="T19:39:42"><abbr title="2013-02-12T19:39:42+00:00">19:39:42</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>wires want to be free</q></li>
+<li class="message">[<a href="#T19:39:43" id="T19:39:43"><abbr title="2013-02-12T19:39:43+00:00">19:39:43</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>it sticks it to the man!</q></li>
+<li class="message">[<a href="#T19:39:56" id="T19:39:56"><abbr title="2013-02-12T19:39:56+00:00">19:39:56</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>man-free wireless</q></li>
+<li class="message">[<a href="#T19:39:57" id="T19:39:57"><abbr title="2013-02-12T19:39:57+00:00">19:39:57</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_av500_: even the uhf military radios we use in .ch suck badly in urban regions... getting more than a couple of 100m out of them, with 200W output power is pure luck</q></li>
+<li class="message">[<a href="#T19:40:18" id="T19:40:18"><abbr title="2013-02-12T19:40:18+00:00">19:40:18</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>KotH: because your military does not have no androids...</q></li>
+<li class="message">[<a href="#T19:40:24" id="T19:40:24"><abbr title="2013-02-12T19:40:24+00:00">19:40:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>only natels</q></li>
+<li class="message">[<a href="#T19:40:25" id="T19:40:25"><abbr title="2013-02-12T19:40:25+00:00">19:40:25</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>definitly</q></li>
+<li class="message">[<a href="#T19:40:32" id="T19:40:32"><abbr title="2013-02-12T19:40:32+00:00">19:40:32</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>imagine if you had DT in those radios</q></li>
+<li class="message">[<a href="#T19:40:34" id="T19:40:34"><abbr title="2013-02-12T19:40:34+00:00">19:40:34</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>KotH: that is a lot of power for a radio</q></li>
+<li class="message">[<a href="#T19:40:35" id="T19:40:35"><abbr title="2013-02-12T19:40:35+00:00">19:40:35</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>*bliss*</q></li>
+<li class="message">[<a href="#T19:40:44" id="T19:40:44"><abbr title="2013-02-12T19:40:44+00:00">19:40:44</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_av500_: it's called SE079 in military context ;)</q></li>
+<li class="message">[<a href="#T19:40:46" id="T19:40:46"><abbr title="2013-02-12T19:40:46+00:00">19:40:46</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>mdp: i was thinking nodejs</q></li>
+<li class="message">[<a href="#T19:40:51" id="T19:40:51"><abbr title="2013-02-12T19:40:51+00:00">19:40:51</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>both</q></li>
+<li class="join">[<a href="#T19:40:52" id="T19:40:52"><abbr title="2013-02-12T19:40:52+00:00">19:40:52</abbr></a>] <span>* davest (~Adium@134.134.139.76) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:40:59" id="T19:40:59"><abbr title="2013-02-12T19:40:59+00:00">19:40:59</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: it's military radio :)</q></li>
+<li class="message">[<a href="#T19:41:15" id="T19:41:15"><abbr title="2013-02-12T19:41:15+00:00">19:41:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: the handhelds have only 10 or 20W iirc</q></li>
+<li class="message">[<abbr title="2013-02-12T19:41:15+00:00">19:41:15</abbr>] &lt;<cite>_av500_</cite>&gt; <q>power and net were down, but my phone kept serving big dat from systemd powered node.js</q></li>
+<li class="message">[<a href="#T19:41:20" id="T19:41:20"><abbr title="2013-02-12T19:41:20+00:00">19:41:20</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>data*</q></li>
+<li class="message">[<a href="#T19:42:00" id="T19:42:00"><abbr title="2013-02-12T19:42:00+00:00">19:42:00</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>let's just agree that it's best not to be in an urban environment in such a situation..unless you can make it into starbucks</q></li>
+<li class="message">[<a href="#T19:42:24" id="T19:42:24"><abbr title="2013-02-12T19:42:24+00:00">19:42:24</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and have a shotgun or axe with you</q></li>
+<li class="action">[<a href="#T19:42:28" id="T19:42:28"><abbr title="2013-02-12T19:42:28+00:00">19:42:28</abbr></a>] <span>* KotH actually considers buying a couple 144MHz handhelds</span></li>
+<li class="message">[<a href="#T19:42:36" id="T19:42:36"><abbr title="2013-02-12T19:42:36+00:00">19:42:36</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>just in case everything else fails</q></li>
+<li class="message">[<a href="#T19:42:49" id="T19:42:49"><abbr title="2013-02-12T19:42:49+00:00">19:42:49</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>KotH: who will you talk to?</q></li>
+<li class="message">[<a href="#T19:42:50" id="T19:42:50"><abbr title="2013-02-12T19:42:50+00:00">19:42:50</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>now, is the scenario a zombie type apocalypse?</q></li>
+<li class="message">[<a href="#T19:43:01" id="T19:43:01"><abbr title="2013-02-12T19:43:01+00:00">19:43:01</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_av500_: if noone else, my family :)</q></li>
+<li class="message">[<abbr title="2013-02-12T19:43:01+00:00">19:43:01</abbr>] &lt;<cite>_av500_</cite>&gt; <q>mdp: always</q></li>
+<li class="message">[<a href="#T19:43:02" id="T19:43:02"><abbr title="2013-02-12T19:43:02+00:00">19:43:02</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>do I need a cleaver to avoid making noise and attracting others?</q></li>
+<li class="message">[<abbr title="2013-02-12T19:43:02+00:00">19:43:02</abbr>] &lt;<cite>mranostay</cite>&gt; <q>_av500_: how about both?</q></li>
+<li class="message">[<a href="#T19:43:10" id="T19:43:10"><abbr title="2013-02-12T19:43:10+00:00">19:43:10</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_av500_: there are still a lot of radio amateurs in .ch</q></li>
+<li class="message">[<a href="#T19:43:27" id="T19:43:27"><abbr title="2013-02-12T19:43:27+00:00">19:43:27</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>KotH: there's probably a lot of s/w amateurs in .ch too</q></li>
+<li class="join">[<a href="#T19:43:31" id="T19:43:31"><abbr title="2013-02-12T19:43:31+00:00">19:43:31</abbr></a>] <span>* rbarraud__ (~rbarraud@125-239-32-133.jetstream.xtra.co.nz) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:43:34" id="T19:43:34"><abbr title="2013-02-12T19:43:34+00:00">19:43:34</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>"the dead are rising"   "yeah, here too"  "ah, ok then"</q></li>
+<li class="message">[<a href="#T19:43:41" id="T19:43:41"><abbr title="2013-02-12T19:43:41+00:00">19:43:41</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>mdp: be nice  :)</q></li>
+<li class="message">[<a href="#T19:43:54" id="T19:43:54"><abbr title="2013-02-12T19:43:54+00:00">19:43:54</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: strike!</q></li>
+<li class="message">[<a href="#T19:43:55" id="T19:43:55"><abbr title="2013-02-12T19:43:55+00:00">19:43:55</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>cq cq deadbeef rising</q></li>
+<li class="message">[<a href="#T19:44:28" id="T19:44:28"><abbr title="2013-02-12T19:44:28+00:00">19:44:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>"nom nom nom"</q></li>
+<li class="message">[<a href="#T19:44:30" id="T19:44:30"><abbr title="2013-02-12T19:44:30+00:00">19:44:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: yes.. but s/w sucks in .ch... groundwave gets sucked up by hills and mountains quickly (ie max radius is a couple km) and the distances are too short for space wave</q></li>
+<li class="quit">[<a href="#T19:44:39" id="T19:44:39"><abbr title="2013-02-12T19:44:39+00:00">19:44:39</abbr></a>] <span>* davest (~Adium@134.134.139.76) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T19:44:42" id="T19:44:42"><abbr title="2013-02-12T19:44:42+00:00">19:44:42</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>wrong s/w ;)</q></li>
+<li class="message">[<a href="#T19:44:53" id="T19:44:53"><abbr title="2013-02-12T19:44:53+00:00">19:44:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>try micro wave</q></li>
+<li class="message">[<a href="#T19:44:57" id="T19:44:57"><abbr title="2013-02-12T19:44:57+00:00">19:44:57</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: what other s/w? :)</q></li>
+<li class="message">[<a href="#T19:45:02" id="T19:45:02"><abbr title="2013-02-12T19:45:02+00:00">19:45:02</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>software :)</q></li>
+<li class="message">[<a href="#T19:45:04" id="T19:45:04"><abbr title="2013-02-12T19:45:04+00:00">19:45:04</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>macrowaves</q></li>
+<li class="message">[<a href="#T19:45:10" id="T19:45:10"><abbr title="2013-02-12T19:45:10+00:00">19:45:10</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mranowaves</q></li>
+<li class="action">[<a href="#T19:45:26" id="T19:45:26"><abbr title="2013-02-12T19:45:26+00:00">19:45:26</abbr></a>] <span>* mranostay looks for a beer bottle</span></li>
+<li class="message">[<a href="#T19:45:39" id="T19:45:39"><abbr title="2013-02-12T19:45:39+00:00">19:45:39</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>beer waves</q></li>
+<li class="message">[<a href="#T19:45:45" id="T19:45:45"><abbr title="2013-02-12T19:45:45+00:00">19:45:45</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>muy bien</q></li>
+<li class="message">[<a href="#T19:46:03" id="T19:46:03"><abbr title="2013-02-12T19:46:03+00:00">19:46:03</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: in the army, i'm in a shortwave radio company</q></li>
+<li class="message">[<a href="#T19:46:15" id="T19:46:15"><abbr title="2013-02-12T19:46:15+00:00">19:46:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: and our biggest problem is distance ^^'</q></li>
+<li class="join">[<a href="#T19:46:22" id="T19:46:22"><abbr title="2013-02-12T19:46:22+00:00">19:46:22</abbr></a>] <span>* mrpackethead (~mrpacketh@123-2-192-170.static.dsl.dodo.com.au) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:46:27" id="T19:46:27"><abbr title="2013-02-12T19:46:27+00:00">19:46:27</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>KotH: just use more radio people</q></li>
+<li class="message">[<a href="#T19:46:30" id="T19:46:30"><abbr title="2013-02-12T19:46:30+00:00">19:46:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>we usually get better reception of usian and chinese stations then our own ^^'</q></li>
+<li class="message">[<a href="#T19:46:32" id="T19:46:32"><abbr title="2013-02-12T19:46:32+00:00">19:46:32</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>space them closer together</q></li>
+<li class="message">[<a href="#T19:46:46" id="T19:46:46"><abbr title="2013-02-12T19:46:46+00:00">19:46:46</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>KotH: have a radio every 100 ft :)</q></li>
+<li class="message">[<a href="#T19:46:47" id="T19:46:47"><abbr title="2013-02-12T19:46:47+00:00">19:46:47</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>try shouting distance</q></li>
+<li class="message">[<a href="#T19:46:54" id="T19:46:54"><abbr title="2013-02-12T19:46:54+00:00">19:46:54</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>use wifi mesh</q></li>
+<li class="message">[<a href="#T19:47:00" id="T19:47:00"><abbr title="2013-02-12T19:47:00+00:00">19:47:00</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>solved, next</q></li>
+<li class="message">[<a href="#T19:47:04" id="T19:47:04"><abbr title="2013-02-12T19:47:04+00:00">19:47:04</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>!</q></li>
+<li class="message">[<a href="#T19:47:11" id="T19:47:11"><abbr title="2013-02-12T19:47:11+00:00">19:47:11</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>actually, switzerland uses the cloud!</q></li>
+<li class="message">[<a href="#T19:47:31" id="T19:47:31"><abbr title="2013-02-12T19:47:31+00:00">19:47:31</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>big data!</q></li>
+<li class="message">[<a href="#T19:47:44" id="T19:47:44"><abbr title="2013-02-12T19:47:44+00:00">19:47:44</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>barefoot runners with a onetime pad</q></li>
+<li class="join">[<a href="#T19:47:51" id="T19:47:51"><abbr title="2013-02-12T19:47:51+00:00">19:47:51</abbr></a>] <span>* krajo1 (~krajo1@ip4-83-240-125-22.cust.nbox.cz) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:48:35" id="T19:48:35"><abbr title="2013-02-12T19:48:35+00:00">19:48:35</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: message tatooed on the shaved head...and letting hair grow again :)</q></li>
+<li class="message">[<a href="#T19:48:55" id="T19:48:55"><abbr title="2013-02-12T19:48:55+00:00">19:48:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>latency?</q></li>
+<li class="message">[<a href="#T19:49:02" id="T19:49:02"><abbr title="2013-02-12T19:49:02+00:00">19:49:02</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>unimportant</q></li>
+<li class="message">[<a href="#T19:49:11" id="T19:49:11"><abbr title="2013-02-12T19:49:11+00:00">19:49:11</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>must you always be in a hurry?</q></li>
+<li class="message">[<a href="#T19:49:25" id="T19:49:25"><abbr title="2013-02-12T19:49:25+00:00">19:49:25</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>by the time anyone in .ch picks up their rifle, the bombers are already back at their airfields</q></li>
+<li class="quit">[<a href="#T19:53:05" id="T19:53:05"><abbr title="2013-02-12T19:53:05+00:00">19:53:05</abbr></a>] <span>* DarthExpeditor (~IceChat9@rrcs-71-43-76-226.se.biz.rr.com) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T19:54:05" id="T19:54:05"><abbr title="2013-02-12T19:54:05+00:00">19:54:05</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>oh oh routing with mesh routers</q></li>
+<li class="message">[<a href="#T19:54:35" id="T19:54:35"><abbr title="2013-02-12T19:54:35+00:00">19:54:35</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>juup, we expect a working and tested implementation by next year</q></li>
+<li class="message">[<a href="#T19:54:36" id="T19:54:36"><abbr title="2013-02-12T19:54:36+00:00">19:54:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>nothing beats adov</q></li>
+<li class="message">[<abbr title="2013-02-12T19:54:36+00:00">19:54:36</abbr>] &lt;<cite>woglinde</cite>&gt; <q>haha</q></li>
+<li class="message">[<a href="#T19:55:24" id="T19:55:24"><abbr title="2013-02-12T19:55:24+00:00">19:55:24</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>yet another broadcast based network</q></li>
+<li class="message">[<abbr title="2013-02-12T19:55:24+00:00">19:55:24</abbr>] &lt;<cite>woglinde</cite>&gt; <q>hm javafx on ios and android</q></li>
