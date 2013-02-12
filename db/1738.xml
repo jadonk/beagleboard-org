@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="1738" name="Page" prototype="Page" created="1321318779526" lastModified="1360631945402">
+  <hopobject id="1738" name="Page" prototype="Page" created="1321318779526" lastModified="1360632053599">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -9,7 +9,7 @@
     <http_language>en-US,en;q=0.8</http_language>
     <uri>linux</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17</http_browser>
-    <time type="date">11.02.2013 19:19:05 CST</time>
+    <time type="date">11.02.2013 19:20:53 CST</time>
     <hopsession>127.0.0.198.47.16.16107nwo4k6lb</hopsession>
     <body> &lt;h1&gt;Linux and u-boot sources&lt;/h1&gt;
  &lt;p&gt;
@@ -42,9 +42,9 @@
  &lt;h3&gt;Building a kernel module&lt;/h3&gt;
  &lt;h4&gt;~/kernel/kernel/hello/hello.c&lt;/h4&gt;
  &lt;pre&gt;
-#include &amp;lt;linux/module.h&gt;       /* Needed by all modules */
-#include &amp;lt;linux/kernel.h&gt;       /* Needed for KERN_INFO */
-#include &amp;lt;linux/init.h&gt;         /* Needed for the macros */
+#include &lt;linux/module.h&gt;       /* Needed by all modules */
+#include &lt;linux/kernel.h&gt;       /* Needed for KERN_INFO */
+#include &lt;linux/init.h&gt;         /* Needed for the macros */
 
 static int __init hello_start(void)
 {
@@ -65,8 +65,8 @@ module_exit(hello_end);
  &lt;pre&gt;
 obj-m := hello.o
 
-KDIR  := ${HOME}/kernel/rootfs/lib/modules/3.8.0-rc7-00360-g2c22b1e/build
-PWD   := ${HOME}/hello
+KDIR  := ${HOME}/kernel/kernel/rootfs/lib/modules/3.8.0-rc7-00360-g2c22b1e/build
+PWD   := ${HOME}/kernel/kernel/hello
 
 default:
     make -C $(KDIR) SUBDIRS=$(PWD) modules
