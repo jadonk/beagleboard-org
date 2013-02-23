@@ -29,3 +29,23 @@
 <li class="quit">[<a href="#T00:57:09" id="T00:57:09"><abbr title="2013-02-23T00:57:09+00:00">00:57:09</abbr></a>] <span>* cwillu (~cwillu@cwillu.com) Quit (Quit: cwillu)</span></li>
 <li class="message">[<a href="#T00:57:15" id="T00:57:15"><abbr title="2013-02-23T00:57:15+00:00">00:57:15</abbr></a>] &lt;<cite>gabrbedd</cite>&gt; <q>prpplague: is there a way to get i2cget to send a 16-bit address?</q></li>
 <li class="join">[<a href="#T00:58:19" id="T00:58:19"><abbr title="2013-02-23T00:58:19+00:00">00:58:19</abbr></a>] <span>* cwillu (~cwillu@cwillu.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:00:36" id="T01:00:36"><abbr title="2013-02-23T01:00:36+00:00">01:00:36</abbr></a>] <span>* prpplague (~danders@69.38.217.2) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="message">[<a href="#T01:10:01" id="T01:10:01"><abbr title="2013-02-23T01:10:01+00:00">01:10:01</abbr></a>] &lt;<cite>joel_</cite>&gt; <q>gabrbedd: pass w as last argument to i2cget</q></li>
+<li class="message">[<a href="#T01:11:02" id="T01:11:02"><abbr title="2013-02-23T01:11:02+00:00">01:11:02</abbr></a>] &lt;<cite>Russ|mobile</cite>&gt; <q>Do you mean register address</q></li>
+<li class="quit">[<a href="#T01:11:10" id="T01:11:10"><abbr title="2013-02-23T01:11:10+00:00">01:11:10</abbr></a>] <span>* Russ (~russ@69.38.217.222) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="message">[<a href="#T01:12:11" id="T01:12:11"><abbr title="2013-02-23T01:12:11+00:00">01:12:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>16bit?</q></li>
+<li class="message">[<a href="#T01:12:34" id="T01:12:34"><abbr title="2013-02-23T01:12:34+00:00">01:12:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>who's extension is that?</q></li>
+<li class="message">[<a href="#T01:14:21" id="T01:14:21"><abbr title="2013-02-23T01:14:21+00:00">01:14:21</abbr></a>] &lt;<cite>gabrbedd</cite>&gt; <q>Russ|mobile: yes, register address</q></li>
+<li class="message">[<a href="#T01:16:12" id="T01:16:12"><abbr title="2013-02-23T01:16:12+00:00">01:16:12</abbr></a>] &lt;<cite>Russ|mobile</cite>&gt; <q>You don't need an i2c extension for 16 bit register addresses</q></li>
+<li class="message">[<a href="#T01:16:37" id="T01:16:37"><abbr title="2013-02-23T01:16:37+00:00">01:16:37</abbr></a>] &lt;<cite>Russ|mobile</cite>&gt; <q>You might need to use the ioctl, which isn't hard</q></li>
+<li class="message">[<a href="#T01:21:14" id="T01:21:14"><abbr title="2013-02-23T01:21:14+00:00">01:21:14</abbr></a>] &lt;<cite>gabrbedd</cite>&gt; <q>Russ|mobile: i.e. i2cget won't do it without hacking on it?  (which is fair enough :-))</q></li>
+<li class="join">[<a href="#T01:21:28" id="T01:21:28"><abbr title="2013-02-23T01:21:28+00:00">01:21:28</abbr></a>] <span>* tema (~tema@12.216.212.50) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:21:29" id="T01:21:29"><abbr title="2013-02-23T01:21:29+00:00">01:21:29</abbr></a>] <span>* guanucoluis (~luis@181.164.132.167) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T01:22:31" id="T01:22:31"><abbr title="2013-02-23T01:22:31+00:00">01:22:31</abbr></a>] &lt;<cite>Russ|mobile</cite>&gt; <q>I don't think so, but like I said, the char device is easy to use</q></li>
+<li class="message">[<a href="#T01:22:51" id="T01:22:51"><abbr title="2013-02-23T01:22:51+00:00">01:22:51</abbr></a>] &lt;<cite>gabrbedd</cite>&gt; <q>Actually, looks like my problem isn't 16-bit addressing -- but that it splits up the address and read steps (doesn't do a "repeated start")</q></li>
+<li class="join">[<a href="#T01:33:05" id="T01:33:05"><abbr title="2013-02-23T01:33:05+00:00">01:33:05</abbr></a>] <span>* prpplague (~danders@69.38.217.2) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:40:36" id="T01:40:36"><abbr title="2013-02-23T01:40:36+00:00">01:40:36</abbr></a>] <span>* prpplague (~danders@69.38.217.2) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="quit">[<a href="#T01:42:48" id="T01:42:48"><abbr title="2013-02-23T01:42:48+00:00">01:42:48</abbr></a>] <span>* Russ|mobile (~Russ@69.38.217.222) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T01:43:16" id="T01:43:16"><abbr title="2013-02-23T01:43:16+00:00">01:43:16</abbr></a>] <span>* Russ|mobile (~Russ@69.38.217.222) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:49:42" id="T01:49:42"><abbr title="2013-02-23T01:49:42+00:00">01:49:42</abbr></a>] <span>* emeb_mac (~ericb@ip72-223-89-10.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:54:16" id="T01:54:16"><abbr title="2013-02-23T01:54:16+00:00">01:54:16</abbr></a>] <span>* Russ|mobile (~Russ@69.38.217.222) Quit (Ping timeout: 246 seconds)</span></li>
