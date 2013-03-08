@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2391" name="Page" prototype="Page" created="1360274332526" lastModified="1362693840424">
+  <hopobject id="2391" name="Page" prototype="Page" created="1360274332526" lastModified="1362705477263">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>unzipped</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.99 Safari/537.22</http_browser>
-    <time type="date">07.03.2013 16:04:00 CST</time>
+    <time type="date">07.03.2013 19:17:57 CST</time>
     <hopsession>127.0.0.198.47.16.1q7oym80goyox</hopsession>
     <body>&lt;h1&gt;The Next BeagleBone&lt;br&gt;
 Better &amp; Faster for Less!&lt;/h1&gt;
@@ -41,6 +41,7 @@ Better &amp; Faster for Less!&lt;/h1&gt;
                 order it. Initial quantities are limited and demand is high! So don&apos;t delay, 
                 sign up today!&lt;/p&gt;
             &lt;h2&gt;Sign-up with:&lt;/h2&gt;
+            &lt;div id=&quot;distributors&quot;&gt;
             &lt;p&gt;
                 &lt;a href=&quot;http://downloads.element14.com/beaglebone/&quot;&gt;
                 &lt;img alt=&quot;Element14&quot; src=&quot;http://farm9.staticflickr.com/8104/8490509428_1eb117a62d_n.jpg&quot; width=&quot;320&quot; height=&quot;49&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -59,9 +60,26 @@ Better &amp; Faster for Less!&lt;/h1&gt;
             &lt;p&gt;&lt;a href=&quot;http://www.tigal.com/product/3406&quot;&gt;
                 &lt;img alt=&quot;Tigal&quot; src=&quot;/static/images/Tigal.png&quot; width=&quot;320px&quot; /&gt;
             &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;
             &lt;/td&gt;
     &lt;/tr&gt;
 &lt;/table&gt;
+
+&lt;script&gt;
+function unzipDistributor(distributor, href) {
+    _gaq.push([&apos;_trackEvent&apos;, &apos;exit&apos;, &apos;unzip&apos;, distributor]);
+    setTimeout(&apos;document.location = &quot;&apos; + href + &apos;&quot;&apos;, 100);    
+}
+
+$(&apos;#distributors&apos;).each(function(){
+    $(&apos;a&apos;, this).each(function(){
+        var href=$(this).attr(&apos;href&apos;);
+        var distributor=$(&apos;img&apos;, this)[0].attr(&apos;alt&apos;);
+        $(this).attr(&apos;href&apos;) = &apos;#&apos;;
+        $(this).attr(&apos;onclick&apos;) = &apos;unzipDistributor(&apos;+distributor+&apos;,&apos;+href+&apos;);&apos;;
+    })
+});
+&lt;/script&gt;
 </body>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_referer>http://beagleboard.org/unzipped/edit</http_referer>
