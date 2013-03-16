@@ -106,3 +106,11 @@ function registrar_macro (param)
    }
  }
 
+function alt_macro (param)
+ {
+  var alt = req.data["use_alt"];
+  if (alt && this.alt && this.alt[alt])
+   return ("" + alt);
+  else
+   return ("[default]");
+ }
