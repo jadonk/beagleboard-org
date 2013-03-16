@@ -14,7 +14,11 @@ function main_action ()
    {
     var x = root.get("default");
     res.data.title = "" + x.uri;
-    res.data.body = "" + x.body;
+    var alt = req.data["use_alt"];
+    if (alt && x.alt && x.alt[alt])
+     res.data.body = "" + x.alt[alt].body;
+    else
+     res.data.body = "" + x.body;
    }
   catch(e)
    {
