@@ -5,6 +5,17 @@ function set_action ()
   if (!session.user || !session.user["name"])
    res.redirect(this.href());
   this.user = session.user["name"];
+  if (req.data["alt"])
+   {
+    if (typeof this.alt == 'undefined')
+     this.alt = {};
+    var alt_name = req.data["alt"];
+    var alt = root.get("alternates");
+    var x = { "body": this.body, "lang": this.lang };
+    this.alt[req.data["alt"]] = x;
+    res.redirect(this.href());
+    return;
+   }
   if (req.data["render_skin"])
    this.render_skin = req.data["render_skin"];
   if (req.data["edit_skin"])

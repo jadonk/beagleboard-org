@@ -32,6 +32,9 @@ function body_macro (param)
  {
   if (this.isTransient())
    return ("");
+  var alt = req.data["use_alt"];
+  if (alt && this.alt && this.alt[alt])
+   return ("" + this.alt[alt].body);
   return ("" + this.body);
  }
 
@@ -39,6 +42,9 @@ function lang_macro (param)
  {
   if (this.isTransient())
    return ("en-us");
+  var alt = req.data["use_alt"];
+  if (alt && this.alt && this.alt[alt])
+   return ("" + this.alt[alt].lang);
   return ("" + this.lang);
  }
 

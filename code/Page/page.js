@@ -1,5 +1,9 @@
+app.addRepository('modules/core/JSON.js');
+
 function main_action ()
  {
+  var alt = req.data["use_alt"];
+
   if (this.isTransient())
    {
     return (this.notfound_action());
@@ -10,7 +14,10 @@ function main_action ()
    res.data.title = this.pname;
   if (this.render_skin == "homepage" || this.skin_is_outer)
    {
-    res.data.body = this.body;
+    if (alt && this.alt && this.alt[alt])
+     res.data.body = this.alt[alt].body;
+    else
+     res.data.body = this.body;
     renderSkin(this.render_skin);
     return;
    }
@@ -62,12 +69,26 @@ function edit_action ()
       uri: true,
       submit: true,
       user: true,
-      time: true
+      time: true,
+      body: true,
+      lang: true,
+      use_alt: true
      };
     for (var x in req.data)
      {
       if (!blocked_attribute[x])
        this[x] = req.data[x];
+     }
+    var alt = req.data["use_alt"];
+    if (alt && this.alt && this.alt[alt])
+     {
+      this.alt[alt].body = req.data.body;
+      this.alt[alt].lang = req.data.lang;
+     }
+    else
+     {
+      this.body = req.data.body;
+      this.lang = req.data.lang;
      }
     if (saveEdit)
      {
@@ -127,6 +148,7 @@ function info_action ()
   res.data.body += "<br>this.body = " + this.body;
   res.data.body += "<br>this.user = " + this.user;
   res.data.body += "<br>this.time = " + this.time;
+  if (this.alt) res.data.body += "<br>this.alt = " + this.alt.toJSON();
   res.handlers["User"] = User();
   renderSkin("index");
  }
@@ -152,7 +174,7 @@ function cleanBody()
     req.data["body"] = "" + x..body.div;
     req.data["body"] = req.data["body"]
      .replace(/^<div id="body">/, "")
-     .replace(/<\/div>$/, "")
+     .replace(/<\/div>$/, "");
     return (true);
    }
   catch (ex)
