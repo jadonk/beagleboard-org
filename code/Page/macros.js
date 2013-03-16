@@ -68,7 +68,13 @@ function breadcrumb_macro (param)
 
 function list_macro (param)
  {
-  if (this.list && this.list_children)
+  var alt = req.data["use_alt"];
+  if (alt && this.alt && this.alt[alt])
+   {
+    if (this.list && this.alt[alt].list_children)
+     return (this.listBody());
+   }
+  else if (this.list && this.list_children)
    return (this.listBody());
  }
 
