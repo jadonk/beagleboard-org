@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1364486245256">
+  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1364486380058">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -11,7 +11,7 @@
     <http_language>en-US,en;q=0.8</http_language>
     <uri>default</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.43 Safari/537.31</http_browser>
-    <time type="date">28.03.2013 10:57:25 CDT</time>
+    <time type="date">28.03.2013 10:59:40 CDT</time>
     <hopsession>127.0.0.198.47.16.lgri896k1krc</hopsession>
     <body>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
@@ -43,12 +43,12 @@ function handleResponse(resp) {
             &apos;&lt;li class=&quot;results_item&quot; id=&quot;results_&apos; + index + &apos;&quot; class=&quot;arrow&quot;&gt;&lt;/li&gt;&apos;);
         $(&apos;#results_&apos; + index).append(&apos;&lt;h4&gt;&lt;a href=&quot;&apos; + 
             resp.items[item].url + &apos;&quot;&gt;&apos; + resp.items[item].title + &apos;&lt;/a&gt;&lt;/h4&gt;&apos;);
-        $(&apos;#results_&apos; + index).append(&apos;&lt;a href=&quot;&apos; + resp.items[item].url + &apos;&quot;&gt; more&lt;/a&gt;&apos;);
+        $(&apos;#results_&apos; + index).append(&apos;&lt;a href=&quot;&apos; + resp.items[item].url + &apos;&quot;&gt; ...more&lt;/a&gt;&apos;);
         try {
             for(i in resp.items[item].object.attachments) {
                 if(resp.items[item].object.attachments[i].image) {
                     $(&apos;#results_&apos; + index).prepend(&apos;&apos; +
-                    &apos;&lt;img class=&quot;results_image&quot; width=&quot;60px&quot; height=&quot;60px&quot; &apos; +
+                    &apos;&lt;img width=&quot;60px&quot; height=&quot;60px&quot; &apos; +
                     &apos;id=&quot;results_image_&apos; +
                     index + &apos;&quot; src=&quot;&apos; +
                     resp.items[item].object.attachments[i].image.url + &apos;&quot; /&gt;&apos;);
