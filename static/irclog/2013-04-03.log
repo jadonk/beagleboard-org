@@ -955,3 +955,141 @@
 <li class="message">[<a href="#T18:58:16" id="T18:58:16"><abbr title="2013-04-03T18:58:16+00:00">18:58:16</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>supply voltage of 3.3</q></li>
 <li class="join">[<a href="#T18:59:10" id="T18:59:10"><abbr title="2013-04-03T18:59:10+00:00">18:59:10</abbr></a>] <span>* flo_lap (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
 <li class="nick-change">[<a href="#T18:59:28" id="T18:59:28"><abbr title="2013-04-03T18:59:28+00:00">18:59:28</abbr></a>] <span>* flo_lap is now known as florian</span></li>
+<li class="message">[<a href="#T19:02:19" id="T19:02:19"><abbr title="2013-04-03T19:02:19+00:00">19:02:19</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>mranostay: are you familar with RFC6921.</q></li>
+<li class="message">[<a href="#T19:02:30" id="T19:02:30"><abbr title="2013-04-03T19:02:30+00:00">19:02:30</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>it might help you with your buffering problem</q></li>
+<li class="message">[<a href="#T19:03:00" id="T19:03:00"><abbr title="2013-04-03T19:03:00+00:00">19:03:00</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>I'm assuming your sticking your buffer on the PRU</q></li>
+<li class="message">[<a href="#T19:03:07" id="T19:03:07"><abbr title="2013-04-03T19:03:07+00:00">19:03:07</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T19:04:35" id="T19:04:35"><abbr title="2013-04-03T19:04:35+00:00">19:04:35</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>faster than light comm RFC?</q></li>
+<li class="quit">[<a href="#T19:04:45" id="T19:04:45"><abbr title="2013-04-03T19:04:45+00:00">19:04:45</abbr></a>] <span>* mnt_real (~sinan@95.5.23.191) Quit (Quit: Ex-Chat)</span></li>
+<li class="message">[<a href="#T19:05:53" id="T19:05:53"><abbr title="2013-04-03T19:05:53+00:00">19:05:53</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>can you power the buffer from 5V rather than 3.3V</q></li>
+<li class="message">[<a href="#T19:05:56" id="T19:05:56"><abbr title="2013-04-03T19:05:56+00:00">19:05:56</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>that will help no need</q></li>
+<li class="message">[<a href="#T19:06:20" id="T19:06:20"><abbr title="2013-04-03T19:06:20+00:00">19:06:20</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>PRU inputs are only 3.3v</q></li>
+<li class="message">[<a href="#T19:06:54" id="T19:06:54"><abbr title="2013-04-03T19:06:54+00:00">19:06:54</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>yeah. but can you power the buffer from 5V</q></li>
+<li class="message">[<a href="#T19:07:16" id="T19:07:16"><abbr title="2013-04-03T19:07:16+00:00">19:07:16</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>then voltage divided the output?</q></li>
+<li class="message">[<a href="#T19:07:26" id="T19:07:26"><abbr title="2013-04-03T19:07:26+00:00">19:07:26</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>*divide</q></li>
+<li class="message">[<a href="#T19:07:46" id="T19:07:46"><abbr title="2013-04-03T19:07:46+00:00">19:07:46</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: what kind of singals do you want to buffer?</q></li>
+<li class="message">[<a href="#T19:07:58" id="T19:07:58"><abbr title="2013-04-03T19:07:58+00:00">19:07:58</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>all kinds</q></li>
+<li class="message">[<a href="#T19:08:01" id="T19:08:01"><abbr title="2013-04-03T19:08:01+00:00">19:08:01</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: logic? some protocol?</q></li>
+<li class="message">[<a href="#T19:08:04" id="T19:08:04"><abbr title="2013-04-03T19:08:04+00:00">19:08:04</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>logic</q></li>
+<li class="message">[<a href="#T19:08:07" id="T19:08:07"><abbr title="2013-04-03T19:08:07+00:00">19:08:07</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>input or output?</q></li>
+<li class="message">[<a href="#T19:08:11" id="T19:08:11"><abbr title="2013-04-03T19:08:11+00:00">19:08:11</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>input</q></li>
+<li class="message">[<a href="#T19:08:12" id="T19:08:12"><abbr title="2013-04-03T19:08:12+00:00">19:08:12</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>any raise time constraints?</q></li>
+<li class="message">[<a href="#T19:08:18" id="T19:08:18"><abbr title="2013-04-03T19:08:18+00:00">19:08:18</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>cheese-faster-then-light protocol</q></li>
+<li class="message">[<a href="#T19:08:25" id="T19:08:25"><abbr title="2013-04-03T19:08:25+00:00">19:08:25</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>synchronous, async?</q></li>
+<li class="message">[<a href="#T19:08:39" id="T19:08:39"><abbr title="2013-04-03T19:08:39+00:00">19:08:39</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>logic analyzer is the application</q></li>
+<li class="message">[<a href="#T19:08:41" id="T19:08:41"><abbr title="2013-04-03T19:08:41+00:00">19:08:41</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>and what's wrong with using some 74lv* ?</q></li>
+<li class="message">[<a href="#T19:09:10" id="T19:09:10"><abbr title="2013-04-03T19:09:10+00:00">19:09:10</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>who does the sampling? fpga or the buffer?</q></li>
+<li class="message">[<a href="#T19:09:54" id="T19:09:54"><abbr title="2013-04-03T19:09:54+00:00">19:09:54</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>PRU</q></li>
+<li class="message">[<a href="#T19:10:06" id="T19:10:06"><abbr title="2013-04-03T19:10:06+00:00">19:10:06</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>hmm.. i wouldnt do that</q></li>
+<li class="message">[<a href="#T19:10:28" id="T19:10:28"><abbr title="2013-04-03T19:10:28+00:00">19:10:28</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>i would use some external latch for the sampling</q></li>
+<li class="message">[<a href="#T19:12:06" id="T19:12:06"><abbr title="2013-04-03T19:12:06+00:00">19:12:06</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>KotH: example?</q></li>
+<li class="message">[<a href="#T19:12:29" id="T19:12:29"><abbr title="2013-04-03T19:12:29+00:00">19:12:29</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>mranostay: HC logic, typicaly i about 10-12nS</q></li>
+<li class="message">[<a href="#T19:13:31" id="T19:13:31"><abbr title="2013-04-03T19:13:31+00:00">19:13:31</abbr></a>] &lt;<cite>KotH</cite>&gt; <q><a href="http://www.onsemi.com/PowerSolutions/product.do?id=MC74VHC373">http://www.onsemi.com/PowerSolutions/product.do?id=MC74VHC373</a></q></li>
+<li class="quit">[<a href="#T19:13:35" id="T19:13:35"><abbr title="2013-04-03T19:13:35+00:00">19:13:35</abbr></a>] <span>* DevBot (~supybot@2001:6f8:12e0:0:2de:adff:febe:ef08) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T19:13:39" id="T19:13:39"><abbr title="2013-04-03T19:13:39+00:00">19:13:39</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>nearly fits the bill</q></li>
+<li class="join">[<a href="#T19:13:43" id="T19:13:43"><abbr title="2013-04-03T19:13:43+00:00">19:13:43</abbr></a>] <span>* DevBot (~supybot@2001:6f8:12e0:0:2de:adff:febe:ef08) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:15:09" id="T19:15:09"><abbr title="2013-04-03T19:15:09+00:00">19:15:09</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>wo, give or take 100Mhz, so not fast enough</q></li>
+<li class="message">[<a href="#T19:15:42" id="T19:15:42"><abbr title="2013-04-03T19:15:42+00:00">19:15:42</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>doesn't  it need to be under 5ns rise/fall time? :)</q></li>
+<li class="message">[<a href="#T19:15:49" id="T19:15:49"><abbr title="2013-04-03T19:15:49+00:00">19:15:49</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>yup</q></li>
+<li class="message">[<a href="#T19:15:53" id="T19:15:53"><abbr title="2013-04-03T19:15:53+00:00">19:15:53</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>AHC</q></li>
+<li class="message">[<a href="#T19:15:59" id="T19:15:59"><abbr title="2013-04-03T19:15:59+00:00">19:15:59</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>is faster</q></li>
+<li class="message">[<a href="#T19:16:12" id="T19:16:12"><abbr title="2013-04-03T19:16:12+00:00">19:16:12</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>ALVC is faster again</q></li>
+<li class="message">[<a href="#T19:16:27" id="T19:16:27"><abbr title="2013-04-03T19:16:27+00:00">19:16:27</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>i think its about 2ns if i my brain is connecing properly</q></li>
+<li class="message">[<a href="#T19:18:16" id="T19:18:16"><abbr title="2013-04-03T19:18:16+00:00">19:18:16</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: <a href="http://www.fairchildsemi.com/pf/74/74LVTH16646.html">http://www.fairchildsemi.com/pf/74/74LVTH16646.html</a> (goes up to 150MHz)</q></li>
+<li class="message">[<a href="#T19:22:27" id="T19:22:27"><abbr title="2013-04-03T19:22:27+00:00">19:22:27</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>getting closer</q></li>
+<li class="message">[<a href="#T19:22:30" id="T19:22:30"><abbr title="2013-04-03T19:22:30+00:00">19:22:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>hmm.. looks like all the common logic familiy registers and latches go only up to 100-150MHz</q></li>
+<li class="message">[<a href="#T19:22:41" id="T19:22:41"><abbr title="2013-04-03T19:22:41+00:00">19:22:41</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>and i doubt you want to go PECL</q></li>
+<li class="quit">[<a href="#T19:22:58" id="T19:22:58"><abbr title="2013-04-03T19:22:58+00:00">19:22:58</abbr></a>] <span>* arcanescu (925706ef@gateway/web/freenode/ip.146.87.6.239) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T19:23:16" id="T19:23:16"><abbr title="2013-04-03T19:23:16+00:00">19:23:16</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: <a href="http://www.onsemi.com/PowerSolutions/product.do?id=MC74VHC244">http://www.onsemi.com/PowerSolutions/product.do?id=MC74VHC244</a></q></li>
+<li class="message">[<a href="#T19:23:21" id="T19:23:21"><abbr title="2013-04-03T19:23:21+00:00">19:23:21</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>wow those are pricey</q></li>
+<li class="message">[<abbr title="2013-04-03T19:23:21+00:00">19:23:21</abbr>] &lt;<cite>KotH</cite>&gt; <q>mranostay: that buffer would do</q></li>
+<li class="message">[<a href="#T19:23:36" id="T19:23:36"><abbr title="2013-04-03T19:23:36+00:00">19:23:36</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>you wouldnt care about pricey</q></li>
+<li class="message">[<a href="#T19:23:43" id="T19:23:43"><abbr title="2013-04-03T19:23:43+00:00">19:23:43</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>PECL is a beast to get working correctly</q></li>
+<li class="message">[<a href="#T19:23:50" id="T19:23:50"><abbr title="2013-04-03T19:23:50+00:00">19:23:50</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>why is that?</q></li>
+<li class="message">[<a href="#T19:23:51" id="T19:23:51"><abbr title="2013-04-03T19:23:51+00:00">19:23:51</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>noise?</q></li>
+<li class="message">[<abbr title="2013-04-03T19:23:51+00:00">19:23:51</abbr>] &lt;<cite>KotH</cite>&gt; <q>they are litterally too fast for their own good :)</q></li>
+<li class="message">[<a href="#T19:23:57" id="T19:23:57"><abbr title="2013-04-03T19:23:57+00:00">19:23:57</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>nice..</q></li>
+<li class="message">[<a href="#T19:24:15" id="T19:24:15"><abbr title="2013-04-03T19:24:15+00:00">19:24:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>*ECL goes usually up to 1GHz</q></li>
+<li class="message">[<a href="#T19:24:59" id="T19:24:59"><abbr title="2013-04-03T19:24:59+00:00">19:24:59</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>but that comes with the price of very high V/us -&gt; high EMI emitance</q></li>
+<li class="message">[<a href="#T19:25:25" id="T19:25:25"><abbr title="2013-04-03T19:25:25+00:00">19:25:25</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>which requires a design for GHz electronics.. always</q></li>
+<li class="message">[<a href="#T19:25:43" id="T19:25:43"><abbr title="2013-04-03T19:25:43+00:00">19:25:43</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>KotH: how would that buffer do?</q></li>
+<li class="message">[<a href="#T19:26:40" id="T19:26:40"><abbr title="2013-04-03T19:26:40+00:00">19:26:40</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>the skew is less than 1ns, so it should be fine</q></li>
+<li class="message">[<a href="#T19:27:07" id="T19:27:07"><abbr title="2013-04-03T19:27:07+00:00">19:27:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>havent seen any data on the rise/fall times (still looking for the family datasheet)</q></li>
+<li class="message">[<a href="#T19:27:20" id="T19:27:20"><abbr title="2013-04-03T19:27:20+00:00">19:27:20</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>jkridner: ping</q></li>
+<li class="message">[<a href="#T19:27:26" id="T19:27:26"><abbr title="2013-04-03T19:27:26+00:00">19:27:26</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>pong</q></li>
+<li class="message">[<a href="#T19:27:29" id="T19:27:29"><abbr title="2013-04-03T19:27:29+00:00">19:27:29</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T19:27:38" id="T19:27:38"><abbr title="2013-04-03T19:27:38+00:00">19:27:38</abbr></a>] &lt;<cite>jkridner</cite>&gt; <q>bacon! :-)</q></li>
+<li class="message">[<a href="#T19:27:48" id="T19:27:48"><abbr title="2013-04-03T19:27:48+00:00">19:27:48</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>KotH: at 5v supply i assume</q></li>
+<li class="message">[<a href="#T19:28:20" id="T19:28:20"><abbr title="2013-04-03T19:28:20+00:00">19:28:20</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>jkridner: order in?</q></li>
+<li class="message">[<a href="#T19:28:21" id="T19:28:21"><abbr title="2013-04-03T19:28:21+00:00">19:28:21</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>er.. right</q></li>
+<li class="message">[<a href="#T19:28:25" id="T19:28:25"><abbr title="2013-04-03T19:28:25+00:00">19:28:25</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: 1.5ns at 3.3</q></li>
+<li class="message">[<a href="#T19:28:30" id="T19:28:30"><abbr title="2013-04-03T19:28:30+00:00">19:28:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: you do want to run it at 3.3</q></li>
+<li class="message">[<a href="#T19:28:43" id="T19:28:43"><abbr title="2013-04-03T19:28:43+00:00">19:28:43</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T19:28:47" id="T19:28:47"><abbr title="2013-04-03T19:28:47+00:00">19:28:47</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: the thing has 5v tolerant inputs and is esd protected</q></li>
+<li class="message">[<a href="#T19:29:00" id="T19:29:00"><abbr title="2013-04-03T19:29:00+00:00">19:29:00</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: two _very_ important things for a logic analyzer</q></li>
+<li class="action">[<a href="#T19:29:11" id="T19:29:11"><abbr title="2013-04-03T19:29:11+00:00">19:29:11</abbr></a>] <span>* mranostay marks KotH for a free sample</span></li>
+<li class="join">[<a href="#T19:31:13" id="T19:31:13"><abbr title="2013-04-03T19:31:13+00:00">19:31:13</abbr></a>] <span>* mnt_real (~sinan@95.5.23.191) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2013-04-03T19:31:13+00:00">19:31:13</abbr>] <span>* mnt_real (~sinan@95.5.23.191) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:35:45" id="T19:35:45"><abbr title="2013-04-03T19:35:45+00:00">19:35:45</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: found one!</q></li>
+<li class="message">[<a href="#T19:35:47" id="T19:35:47"><abbr title="2013-04-03T19:35:47+00:00">19:35:47</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: <a href="http://www.nxp.com/documents/data_sheet/74ALVT16374.pdf">http://www.nxp.com/documents/data_sheet/74ALVT16374.pdf</a></q></li>
+<li class="message">[<a href="#T19:35:54" id="T19:35:54"><abbr title="2013-04-03T19:35:54+00:00">19:35:54</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: 250MHz 16bit register</q></li>
+<li class="action">[<a href="#T19:36:34" id="T19:36:34"><abbr title="2013-04-03T19:36:34+00:00">19:36:34</abbr></a>] <span>* ka6sox uses XC9536XL for "buffer"</span></li>
+<li class="message">[<a href="#T19:36:38" id="T19:36:38"><abbr title="2013-04-03T19:36:38+00:00">19:36:38</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>goes 323mhz</q></li>
+<li class="message">[<a href="#T19:36:41" id="T19:36:41"><abbr title="2013-04-03T19:36:41+00:00">19:36:41</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: and digikey has them on stock</q></li>
+<li class="message">[<a href="#T19:37:13" id="T19:37:13"><abbr title="2013-04-03T19:37:13+00:00">19:37:13</abbr></a>] &lt;<cite>panto</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T19:37:14" id="T19:37:14"><abbr title="2013-04-03T19:37:14+00:00">19:37:14</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: that would be another possibility.. but then you can do some fancy "buffering" and getting the speed beyond 200MHz :)</q></li>
+<li class="message">[<a href="#T19:37:40" id="T19:37:40"><abbr title="2013-04-03T19:37:40+00:00">19:37:40</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>KotH, ya, thats what I use them for in this case...</q></li>
+<li class="message">[<a href="#T19:38:07" id="T19:38:07"><abbr title="2013-04-03T19:38:07+00:00">19:38:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: i somehow think, mranostay wants to use the PRU...</q></li>
+<li class="message">[<a href="#T19:38:23" id="T19:38:23"><abbr title="2013-04-03T19:38:23+00:00">19:38:23</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: otherwise, i'd recomend one of the smaller virtex-6 :-)</q></li>
+<li class="message">[<a href="#T19:38:37" id="T19:38:37"><abbr title="2013-04-03T19:38:37+00:00">19:38:37</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>V6 isn't 5v tolerant (last I checked)</q></li>
+<li class="message">[<a href="#T19:38:40" id="T19:38:40"><abbr title="2013-04-03T19:38:40+00:00">19:38:40</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>the XL's are.</q></li>
+<li class="quit">[<a href="#T19:38:58" id="T19:38:58"><abbr title="2013-04-03T19:38:58+00:00">19:38:58</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T19:39:11" id="T19:39:11"><abbr title="2013-04-03T19:39:11+00:00">19:39:11</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>add some vhc buffers in front :)</q></li>
+<li class="message">[<a href="#T19:39:22" id="T19:39:22"><abbr title="2013-04-03T19:39:22+00:00">19:39:22</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>--complication</q></li>
+<li class="join">[<a href="#T19:39:26" id="T19:39:26"><abbr title="2013-04-03T19:39:26+00:00">19:39:26</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:39:29" id="T19:39:29"><abbr title="2013-04-03T19:39:29+00:00">19:39:29</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>the CPLD is very KISS&gt;</q></li>
+<li class="message">[<a href="#T19:39:31" id="T19:39:31"><abbr title="2013-04-03T19:39:31+00:00">19:39:31</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>although they have some t_pd, they have nice rise/fall times</q></li>
+<li class="message">[<a href="#T19:39:35" id="T19:39:35"><abbr title="2013-04-03T19:39:35+00:00">19:39:35</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>the V6 is complicated</q></li>
+<li class="message">[<a href="#T19:39:36" id="T19:39:36"><abbr title="2013-04-03T19:39:36+00:00">19:39:36</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>true that</q></li>
+<li class="message">[<a href="#T19:40:02" id="T19:40:02"><abbr title="2013-04-03T19:40:02+00:00">19:40:02</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>CPLD is 44pin VQFP that can be hand soldered.</q></li>
+<li class="message">[<a href="#T19:40:28" id="T19:40:28"><abbr title="2013-04-03T19:40:28+00:00">19:40:28</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>the small v6 come also in qfp</q></li>
+<li class="join">[<a href="#T19:40:32" id="T19:40:32"><abbr title="2013-04-03T19:40:32+00:00">19:40:32</abbr></a>] <span>* felipealmeida (~user@mvx-187-16-79-187.mundivox.com) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T19:40:34" id="T19:40:34"><abbr title="2013-04-03T19:40:34+00:00">19:40:34</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>(they seem to have learned something)</q></li>
+<li class="message">[<a href="#T19:40:37" id="T19:40:37"><abbr title="2013-04-03T19:40:37+00:00">19:40:37</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>but with .5mm pitch</q></li>
+<li class="message">[<a href="#T19:40:43" id="T19:40:43"><abbr title="2013-04-03T19:40:43+00:00">19:40:43</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>this is 1.0 pitch</q></li>
+<li class="message">[<a href="#T19:40:51" id="T19:40:51"><abbr title="2013-04-03T19:40:51+00:00">19:40:51</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>0_o</q></li>
+<li class="join">[<a href="#T19:40:59" id="T19:40:59"><abbr title="2013-04-03T19:40:59+00:00">19:40:59</abbr></a>] <span>* felipealmeida (~user@mvx-187-16-79-187.mundivox.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:41:00" id="T19:41:00"><abbr title="2013-04-03T19:41:00+00:00">19:41:00</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>thats... like... BIG!</q></li>
+<li class="message">[<a href="#T19:41:15" id="T19:41:15"><abbr title="2013-04-03T19:41:15+00:00">19:41:15</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>its "human sized"</q></li>
+<li class="message">[<a href="#T19:41:18" id="T19:41:18"><abbr title="2013-04-03T19:41:18+00:00">19:41:18</abbr></a>] &lt;<cite>Shadyman</cite>&gt; <q>KotH: That's what she said.</q></li>
+<li class="message">[<a href="#T19:41:23" id="T19:41:23"><abbr title="2013-04-03T19:41:23+00:00">19:41:23</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>iirc its still a 10mm package</q></li>
+<li class="message">[<a href="#T19:41:33" id="T19:41:33"><abbr title="2013-04-03T19:41:33+00:00">19:41:33</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>(can't be...must be 13mm</q></li>
+<li class="message">[<abbr title="2013-04-03T19:41:33+00:00">19:41:33</abbr>] &lt;<cite>ka6sox</cite>&gt; <q>)</q></li>
+<li class="message">[<a href="#T19:41:59" id="T19:41:59"><abbr title="2013-04-03T19:41:59+00:00">19:41:59</abbr></a>] &lt;<cite>Shadyman</cite>&gt; <q>snap</q></li>
+<li class="message">[<a href="#T19:42:35" id="T19:42:35"><abbr title="2013-04-03T19:42:35+00:00">19:42:35</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>Shadyman, Mind &gt;&gt; Gutter</q></li>
+<li class="message">[<a href="#T19:42:51" id="T19:42:51"><abbr title="2013-04-03T19:42:51+00:00">19:42:51</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>snape?</q></li>
+<li class="message">[<a href="#T19:42:59" id="T19:42:59"><abbr title="2013-04-03T19:42:59+00:00">19:42:59</abbr></a>] &lt;<cite>Shadyman</cite>&gt; <q>ka6sox: Truth.</q></li>
+<li class="quit">[<a href="#T19:44:30" id="T19:44:30"><abbr title="2013-04-03T19:44:30+00:00">19:44:30</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T19:46:28" id="T19:46:28"><abbr title="2013-04-03T19:46:28+00:00">19:46:28</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>whoa nelly!</q></li>
+<li class="message">[<a href="#T19:47:01" id="T19:47:01"><abbr title="2013-04-03T19:47:01+00:00">19:47:01</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: the ALVC family has rise times of &lt;2ns into a load of 50pF, &lt;6ns into 300pF</q></li>
+<li class="message">[<a href="#T19:47:46" id="T19:47:46"><abbr title="2013-04-03T19:47:46+00:00">19:47:46</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: if you use them, you want to make sure you have your signal and ground paths right and good, high freq capable power supplies</q></li>
+<li class="message">[<a href="#T19:49:02" id="T19:49:02"><abbr title="2013-04-03T19:49:02+00:00">19:49:02</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: ie, keep lines short, straight and probably terminate them</q></li>
+<li class="quit">[<a href="#T19:51:35" id="T19:51:35"><abbr title="2013-04-03T19:51:35+00:00">19:51:35</abbr></a>] <span>* felipealmeida (~user@mvx-187-16-79-187.mundivox.com) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T19:54:14" id="T19:54:14"><abbr title="2013-04-03T19:54:14+00:00">19:54:14</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="message">[<a href="#T19:55:20" id="T19:55:20"><abbr title="2013-04-03T19:55:20+00:00">19:55:20</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>the power supply could be an issue</q></li>
+<li class="message">[<a href="#T19:56:08" id="T19:56:08"><abbr title="2013-04-03T19:56:08+00:00">19:56:08</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>the supply itself is not a prob</q></li>
+<li class="message">[<a href="#T19:56:37" id="T19:56:37"><abbr title="2013-04-03T19:56:37+00:00">19:56:37</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>the bone supply is already designed for a high frequency device (the cpu runs faster)</q></li>
+<li class="message">[<a href="#T19:56:51" id="T19:56:51"><abbr title="2013-04-03T19:56:51+00:00">19:56:51</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>but you have to use care to keep the ground around the latch from bouncing</q></li>
+<li class="message">[<a href="#T19:57:04" id="T19:57:04"><abbr title="2013-04-03T19:57:04+00:00">19:57:04</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ie, use plenty of high freq caps</q></li>
+<li class="message">[<a href="#T19:57:14" id="T19:57:14"><abbr title="2013-04-03T19:57:14+00:00">19:57:14</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>on the VCC?</q></li>
+<li class="message">[<a href="#T19:57:24" id="T19:57:24"><abbr title="2013-04-03T19:57:24+00:00">19:57:24</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>to the ALVC</q></li>
+<li class="message">[<a href="#T19:57:33" id="T19:57:33"><abbr title="2013-04-03T19:57:33+00:00">19:57:33</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>broad planes and keep the gnd plane close to the chip and its signals</q></li>
+<li class="message">[<a href="#T19:57:39" id="T19:57:39"><abbr title="2013-04-03T19:57:39+00:00">19:57:39</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>yes, the vcc to the alvc</q></li>
+<li class="message">[<a href="#T19:57:48" id="T19:57:48"><abbr title="2013-04-03T19:57:48+00:00">19:57:48</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>what you buidlign that goes that fast mranostay?</q></li>
+<li class="message">[<a href="#T19:58:10" id="T19:58:10"><abbr title="2013-04-03T19:58:10+00:00">19:58:10</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>logic analyzer + jtag cape</q></li>
+<li class="message">[<a href="#T19:58:16" id="T19:58:16"><abbr title="2013-04-03T19:58:16+00:00">19:58:16</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>ahh</q></li>
+<li class="message">[<a href="#T19:58:26" id="T19:58:26"><abbr title="2013-04-03T19:58:26+00:00">19:58:26</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>just for fun?</q></li>
+<li class="message">[<a href="#T19:58:49" id="T19:58:49"><abbr title="2013-04-03T19:58:49+00:00">19:58:49</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T19:59:10" id="T19:59:10"><abbr title="2013-04-03T19:59:10+00:00">19:59:10</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mrpackethead: it's the one LA-cape to rule them all!</q></li>
+<li class="message">[<a href="#T19:59:16" id="T19:59:16"><abbr title="2013-04-03T19:59:16+00:00">19:59:16</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>yeah something like that</q></li>
+<li class="message">[<a href="#T19:59:40" id="T19:59:40"><abbr title="2013-04-03T19:59:40+00:00">19:59:40</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>channel number could be an issue with the pinmux available on the header</q></li>
