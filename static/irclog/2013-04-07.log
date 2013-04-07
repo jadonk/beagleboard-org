@@ -14,3 +14,72 @@
 <li class="join">[<a href="#T06:57:13" id="T06:57:13"><abbr title="2013-04-07T06:57:13+00:00">06:57:13</abbr></a>] <span>* NulL (~bleh1@217.28.5.209) has joined #beagle</span></li>
 <li class="nick-change">[<a href="#T06:57:38" id="T06:57:38"><abbr title="2013-04-07T06:57:38+00:00">06:57:38</abbr></a>] <span>* NulL is now known as Guest81236</span></li>
 <li class="quit">[<a href="#T06:59:30" id="T06:59:30"><abbr title="2013-04-07T06:59:30+00:00">06:59:30</abbr></a>] <span>* emeb_mac (~ericb@ip72-223-89-10.ph.ph.cox.net) Quit (Quit: emeb_mac)</span></li>
+<li class="message">[<a href="#T07:02:51" id="T07:02:51"><abbr title="2013-04-07T07:02:51+00:00">07:02:51</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>Can I reset the beaglebone from the command line (over the fdti usb)? I am currently using CCS just for that purose</q></li>
+<li class="message">[<a href="#T07:03:26" id="T07:03:26"><abbr title="2013-04-07T07:03:26+00:00">07:03:26</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>linux?</q></li>
+<li class="message">[<a href="#T07:03:28" id="T07:03:28"><abbr title="2013-04-07T07:03:28+00:00">07:03:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>or minix?</q></li>
+<li class="message">[<a href="#T07:04:46" id="T07:04:46"><abbr title="2013-04-07T07:04:46+00:00">07:04:46</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>I am currently running Linux (on my development system), MINIX doesn't have usb ftdi support</q></li>
+<li class="message">[<a href="#T07:05:10" id="T07:05:10"><abbr title="2013-04-07T07:05:10+00:00">07:05:10</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>but I am porting MINIX 3 to the bone</q></li>
+<li class="message">[<a href="#T07:05:37" id="T07:05:37"><abbr title="2013-04-07T07:05:37+00:00">07:05:37</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>you could do something like: <a href="http://arduino.cc/forum/index.php?topic=152919.0">http://arduino.cc/forum/index.php?topic=152919.0</a></q></li>
+<li class="message">[<a href="#T07:05:38" id="T07:05:38"><abbr title="2013-04-07T07:05:38+00:00">07:05:38</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>as it will allow us to have networking :P</q></li>
+<li class="message">[<a href="#T07:05:49" id="T07:05:49"><abbr title="2013-04-07T07:05:49+00:00">07:05:49</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>use RTS or DTS on the FTDI to reset the bone</q></li>
+<li class="message">[<a href="#T07:07:31" id="T07:07:31"><abbr title="2013-04-07T07:07:31+00:00">07:07:31</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>yes, I also (already have a similar setup) where I connect to the arduino over serial and enter "reset" but it'snot a portable setup</q></li>
+<li class="message">[<a href="#T07:07:50" id="T07:07:50"><abbr title="2013-04-07T07:07:50+00:00">07:07:50</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T07:08:20" id="T07:08:20"><abbr title="2013-04-07T07:08:20+00:00">07:08:20</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>I like the bone as it's just a one or two wire setup and I move from home/work a lot</q></li>
+<li class="message">[<a href="#T07:08:33" id="T07:08:33"><abbr title="2013-04-07T07:08:33+00:00">07:08:33</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and one wire is not serial?</q></li>
+<li class="message">[<a href="#T07:09:16" id="T07:09:16"><abbr title="2013-04-07T07:09:16+00:00">07:09:16</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>well, since you are on bone white, you can also use openOCD to reset</q></li>
+<li class="message">[<abbr title="2013-04-07T07:09:16+00:00">07:09:16</abbr>] &lt;<cite>keesj</cite>&gt; <q>it's usb on the bone</q></li>
+<li class="message">[<a href="#T07:09:27" id="T07:09:27"><abbr title="2013-04-07T07:09:27+00:00">07:09:27</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T07:09:30" id="T07:09:30"><abbr title="2013-04-07T07:09:30+00:00">07:09:30</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>and?</q></li>
+<li class="message">[<a href="#T07:09:57" id="T07:09:57"><abbr title="2013-04-07T07:09:57+00:00">07:09:57</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>your laptoip  has no usb?</q></li>
+<li class="message">[<a href="#T07:11:26" id="T07:11:26"><abbr title="2013-04-07T07:11:26+00:00">07:11:26</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>"and one wire is not serial?" -&gt; no , it's usb. My laptop does has usb. I will try openocd. usually it fails badly</q></li>
+<li class="message">[<a href="#T07:12:12" id="T07:12:12"><abbr title="2013-04-07T07:12:12+00:00">07:12:12</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>BTW I did some of the initial work on getting openocd to support the TI hardware(getting the scan chain discovered)</q></li>
+<li class="message">[<a href="#T07:14:19" id="T07:14:19"><abbr title="2013-04-07T07:14:19+00:00">07:14:19</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>well yes, usb serial</q></li>
+<li class="quit">[<abbr title="2013-04-07T07:14:19+00:00">07:14:19</abbr>] <span>* Splats (~splats@unaffiliated/splats) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T07:14:28" id="T07:14:28"><abbr title="2013-04-07T07:14:28+00:00">07:14:28</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>is what I meant</q></li>
+<li class="quit">[<a href="#T07:14:46" id="T07:14:46"><abbr title="2013-04-07T07:14:46+00:00">07:14:46</abbr></a>] <span>* DevBot (~supybot@2001:6f8:12e0:0:2de:adff:febe:ef08) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T07:14:54" id="T07:14:54"><abbr title="2013-04-07T07:14:54+00:00">07:14:54</abbr></a>] <span>* DevBot (~supybot@2001:6f8:12e0:0:2de:adff:febe:ef08) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:17:06" id="T07:17:06"><abbr title="2013-04-07T07:17:06+00:00">07:17:06</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>ok, there is something hooked up to SYSWARMRESET on the bone</q></li>
+<li class="message">[<a href="#T07:17:08" id="T07:17:08"><abbr title="2013-04-07T07:17:08+00:00">07:17:08</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>from the FTDI</q></li>
+<li class="message">[<a href="#T07:17:32" id="T07:17:32"><abbr title="2013-04-07T07:17:32+00:00">07:17:32</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>so using FTDI on bitbang mode should get you to toggle that pin</q></li>
+<li class="message">[<a href="#T07:17:44" id="T07:17:44"><abbr title="2013-04-07T07:17:44+00:00">07:17:44</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>since DTS is not broguht out</q></li>
+<li class="message">[<a href="#T07:20:18" id="T07:20:18"><abbr title="2013-04-07T07:20:18+00:00">07:20:18</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>DTS all things!</q></li>
+<li class="join">[<a href="#T07:20:43" id="T07:20:43"><abbr title="2013-04-07T07:20:43+00:00">07:20:43</abbr></a>] <span>* Splats (~splats@c-50-136-218-98.hsd1.ca.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2013-04-07T07:20:43+00:00">07:20:43</abbr>] <span>* Splats (~splats@c-50-136-218-98.hsd1.ca.comcast.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-04-07T07:20:43+00:00">07:20:43</abbr>] <span>* Splats (~splats@unaffiliated/splats) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:22:46" id="T07:22:46"><abbr title="2013-04-07T07:22:46+00:00">07:22:46</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>there is also S(ystem)RST on the jtag header</q></li>
+<li class="message">[<a href="#T07:23:14" id="T07:23:14"><abbr title="2013-04-07T07:23:14+00:00">07:23:14</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>hmm. I don't use that.</q></li>
+<li class="message">[<a href="#T07:24:18" id="T07:24:18"><abbr title="2013-04-07T07:24:18+00:00">07:24:18</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>that is optional</q></li>
+<li class="message">[<a href="#T07:24:43" id="T07:24:43"><abbr title="2013-04-07T07:24:43+00:00">07:24:43</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>arf, reset is on ACBUS0</q></li>
+<li class="message">[<a href="#T07:24:53" id="T07:24:53"><abbr title="2013-04-07T07:24:53+00:00">07:24:53</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>which is not a bitbang gpio</q></li>
+<li class="message">[<a href="#T07:25:08" id="T07:25:08"><abbr title="2013-04-07T07:25:08+00:00">07:25:08</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>what is this MPSSE?</q></li>
+<li class="message">[<a href="#T07:25:24" id="T07:25:24"><abbr title="2013-04-07T07:25:24+00:00">07:25:24</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>Thanks I have enough to work on !</q></li>
+<li class="message">[<a href="#T07:27:19" id="T07:27:19"><abbr title="2013-04-07T07:27:19+00:00">07:27:19</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>did someone say bitbang?</q></li>
+<li class="message">[<a href="#T07:27:28" id="T07:27:28"><abbr title="2013-04-07T07:27:28+00:00">07:27:28</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>inverse bit bang</q></li>
+<li class="message">[<a href="#T07:27:30" id="T07:27:30"><abbr title="2013-04-07T07:27:30+00:00">07:27:30</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>sucks</q></li>
+<li class="message">[<a href="#T07:27:38" id="T07:27:38"><abbr title="2013-04-07T07:27:38+00:00">07:27:38</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>cycles</q></li>
+<li class="message">[<a href="#T07:28:33" id="T07:28:33"><abbr title="2013-04-07T07:28:33+00:00">07:28:33</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>is that legal there?</q></li>
+<li class="message">[<a href="#T07:28:53" id="T07:28:53"><abbr title="2013-04-07T07:28:53+00:00">07:28:53</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>is it legal anywhere?</q></li>
+<li class="message">[<a href="#T07:31:10" id="T07:31:10"><abbr title="2013-04-07T07:31:10+00:00">07:31:10</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T07:31:35" id="T07:31:35"><abbr title="2013-04-07T07:31:35+00:00">07:31:35</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>mrpackethead: why not run it through it a inverting hex buffer?</q></li>
+<li class="message">[<a href="#T07:31:41" id="T07:31:41"><abbr title="2013-04-07T07:31:41+00:00">07:31:41</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>or the prop delay a problem?</q></li>
+<li class="message">[<a href="#T07:32:29" id="T07:32:29"><abbr title="2013-04-07T07:32:29+00:00">07:32:29</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>inverting hex buffer waht?</q></li>
+<li class="message">[<a href="#T07:33:42" id="T07:33:42"><abbr title="2013-04-07T07:33:42+00:00">07:33:42</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>mrpackethead: what you need that is a 'inverse' bit bang?</q></li>
+<li class="message">[<a href="#T07:34:14" id="T07:34:14"><abbr title="2013-04-07T07:34:14+00:00">07:34:14</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>the inverse of bit baning is receiving a data stream without a uart</q></li>
+<li class="quit">[<a href="#T07:37:19" id="T07:37:19"><abbr title="2013-04-07T07:37:19+00:00">07:37:19</abbr></a>] <span>* Splats (~splats@unaffiliated/splats) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T07:37:52" id="T07:37:52"><abbr title="2013-04-07T07:37:52+00:00">07:37:52</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>was pretty happy about the phone thing.</q></li>
+<li class="message">[<a href="#T07:38:00" id="T07:38:00"><abbr title="2013-04-07T07:38:00+00:00">07:38:00</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>i lost my phoen last night</q></li>
+<li class="message">[<a href="#T07:38:08" id="T07:38:08"><abbr title="2013-04-07T07:38:08+00:00">07:38:08</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>even with GPS tracking.. coud'tn find it</q></li>
+<li class="message">[<a href="#T07:38:41" id="T07:38:41"><abbr title="2013-04-07T07:38:41+00:00">07:38:41</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>out by the sheep barn?</q></li>
+<li class="message">[<a href="#T07:38:47" id="T07:38:47"><abbr title="2013-04-07T07:38:47+00:00">07:38:47</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>at the beach</q></li>
+<li class="join">[<a href="#T07:42:09" id="T07:42:09"><abbr title="2013-04-07T07:42:09+00:00">07:42:09</abbr></a>] <span>* Splats (~splats@c-50-136-218-98.hsd1.ca.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T07:42:10" id="T07:42:10"><abbr title="2013-04-07T07:42:10+00:00">07:42:10</abbr></a>] <span>* Splats (~splats@c-50-136-218-98.hsd1.ca.comcast.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-04-07T07:42:10+00:00">07:42:10</abbr>] <span>* Splats (~splats@unaffiliated/splats) has joined #beagle</span></li>
+<li class="message">[<a href="#T07:42:25" id="T07:42:25"><abbr title="2013-04-07T07:42:25+00:00">07:42:25</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>mranostay: are there any uarts on teh AM3559? or is it all vai the USB?</q></li>
+<li class="message">[<a href="#T07:44:56" id="T07:44:56"><abbr title="2013-04-07T07:44:56+00:00">07:44:56</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>there are</q></li>
+<li class="message">[<a href="#T07:45:07" id="T07:45:07"><abbr title="2013-04-07T07:45:07+00:00">07:45:07</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>TTL though</q></li>
+<li class="message">[<a href="#T07:47:35" id="T07:47:35"><abbr title="2013-04-07T07:47:35+00:00">07:47:35</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>yeah, that might be the way i need to do things</q></li>
+<li class="message">[<a href="#T07:47:53" id="T07:47:53"><abbr title="2013-04-07T07:47:53+00:00">07:47:53</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>if i can get a 250k clocking rate</q></li>
+<li class="message">[<a href="#T07:47:59" id="T07:47:59"><abbr title="2013-04-07T07:47:59+00:00">07:47:59</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>which might be problematic.</q></li>
+<li class="quit">[<a href="#T07:52:05" id="T07:52:05"><abbr title="2013-04-07T07:52:05+00:00">07:52:05</abbr></a>] <span>* parasciidic (~null@5.254.139.39) Quit (Quit: Quit:)</span></li>
+<li class="join">[<a href="#T07:53:21" id="T07:53:21"><abbr title="2013-04-07T07:53:21+00:00">07:53:21</abbr></a>] <span>* ssvb (~ssvb@212.16.98.80) has joined #beagle</span></li>
+<li class="action">[<a href="#T07:58:46" id="T07:58:46"><abbr title="2013-04-07T07:58:46+00:00">07:58:46</abbr></a>] <span>* mranostay sleeps</span></li>
