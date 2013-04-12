@@ -540,3 +540,84 @@
 <li class="message">[<a href="#T13:59:11" id="T13:59:11"><abbr title="2013-04-12T13:59:11+00:00">13:59:11</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mru, signal handling</q></li>
 <li class="message">[<a href="#T13:59:45" id="T13:59:45"><abbr title="2013-04-12T13:59:45+00:00">13:59:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>why would that need executing code on the stack?</q></li>
 <li class="quit">[<a href="#T13:59:54" id="T13:59:54"><abbr title="2013-04-12T13:59:54+00:00">13:59:54</abbr></a>] <span>* hitlin37 (~chatzilla@145.107.10.2.mar.surfnet.utelisys.net) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="nick-change">[<a href="#T14:00:09" id="T14:00:09"><abbr title="2013-04-12T14:00:09+00:00">14:00:09</abbr></a>] <span>* hitlin37_ is now known as hitlin37</span></li>
+<li class="message">[<a href="#T14:03:15" id="T14:03:15"><abbr title="2013-04-12T14:03:15+00:00">14:03:15</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>right , that's all weird. and the content of the stack at that address (a viewed using jtag) is an argument used just before and is the ttbr0 phys address to use</q></li>
+<li class="message">[<a href="#T14:04:31" id="T14:04:31"><abbr title="2013-04-12T14:04:31+00:00">14:04:31</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>enabling i_cache only does work btw</q></li>
+<li class="message">[<a href="#T14:04:55" id="T14:04:55"><abbr title="2013-04-12T14:04:55+00:00">14:04:55</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mru, cause it's needed, due to the way signal delivery is handled</q></li>
+<li class="nick-change">[<a href="#T14:05:08" id="T14:05:08"><abbr title="2013-04-12T14:05:08+00:00">14:05:08</abbr></a>] <span>* rsalveti is now known as Rsalveti_</span></li>
+<li class="nick-change">[<a href="#T14:05:21" id="T14:05:21"><abbr title="2013-04-12T14:05:21+00:00">14:05:21</abbr></a>] <span>* Rsalveti_ is now known as rsalveti</span></li>
+<li class="message">[<a href="#T14:06:15" id="T14:06:15"><abbr title="2013-04-12T14:06:15+00:00">14:06:15</abbr></a>] &lt;<cite>mru</cite>&gt; <q>panto: on what system?</q></li>
+<li class="message">[<a href="#T14:06:25" id="T14:06:25"><abbr title="2013-04-12T14:06:25+00:00">14:06:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>MINUX</q></li>
+<li class="message">[<a href="#T14:06:59" id="T14:06:59"><abbr title="2013-04-12T14:06:59+00:00">14:06:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>panto: btw, I shoved it in the mail today, lets see how fast it goes</q></li>
+<li class="message">[<a href="#T14:07:07" id="T14:07:07"><abbr title="2013-04-12T14:07:07+00:00">14:07:07</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mru, everyone - or at least it used to be</q></li>
+<li class="message">[<a href="#T14:07:18" id="T14:07:18"><abbr title="2013-04-12T14:07:18+00:00">14:07:18</abbr></a>] &lt;<cite>panto</cite>&gt; <q>dunno if they do it differently lately</q></li>
+<li class="message">[<a href="#T14:07:55" id="T14:07:55"><abbr title="2013-04-12T14:07:55+00:00">14:07:55</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it's due to the fact that the return of the signal handler must go back to the kernel in order for the signal mask to be restored</q></li>
+<li class="message">[<a href="#T14:07:56" id="T14:07:56"><abbr title="2013-04-12T14:07:56+00:00">14:07:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>stacks aren't generally executable these days</q></li>
+<li class="message">[<a href="#T14:08:15" id="T14:08:15"><abbr title="2013-04-12T14:08:15+00:00">14:08:15</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mru, it might be a different memory area nowadays</q></li>
+<li class="message">[<a href="#T14:09:25" id="T14:09:25"><abbr title="2013-04-12T14:09:25+00:00">14:09:25</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>it can also be an access problem</q></li>
+<li class="join">[<a href="#T14:10:45" id="T14:10:45"><abbr title="2013-04-12T14:10:45+00:00">14:10:45</abbr></a>] <span>* ruchika (~ruchika@192.91.66.186) has joined #beagle</span></li>
+<li class="join">[<a href="#T14:12:30" id="T14:12:30"><abbr title="2013-04-12T14:12:30+00:00">14:12:30</abbr></a>] <span>* NishanthMenon (~nmenon@192.91.66.186) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:13:38" id="T14:13:38"><abbr title="2013-04-12T14:13:38+00:00">14:13:38</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I still don't see why a static trampoline wouldn't be enough</q></li>
+<li class="message">[<a href="#T14:14:24" id="T14:14:24"><abbr title="2013-04-12T14:14:24+00:00">14:14:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>call the sig handler with the return address pointing to a static bit of code doing some kind of sigreturn syscall</q></li>
+<li class="message">[<a href="#T14:14:28" id="T14:14:28"><abbr title="2013-04-12T14:14:28+00:00">14:14:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>maybe its stack-tic</q></li>
+<li class="message">[<a href="#T14:14:46" id="T14:14:46"><abbr title="2013-04-12T14:14:46+00:00">14:14:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>of course it would need to keep some context somewhere</q></li>
+<li class="message">[<a href="#T14:14:57" id="T14:14:57"><abbr title="2013-04-12T14:14:57+00:00">14:14:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>like where to finally return</q></li>
+<li class="message">[<a href="#T14:15:00" id="T14:15:00"><abbr title="2013-04-12T14:15:00+00:00">14:15:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>but that's not code</q></li>
+<li class="join">[<a href="#T14:16:24" id="T14:16:24"><abbr title="2013-04-12T14:16:24+00:00">14:16:24</abbr></a>] <span>* Aleks (~Aleks@unaffiliated/aleks) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T14:16:35" id="T14:16:35"><abbr title="2013-04-12T14:16:35+00:00">14:16:35</abbr></a>] <span>* Aleks (~Aleks@unaffiliated/aleks) has joined #beaglebone</span></li>
+<li class="part">[<a href="#T14:16:38" id="T14:16:38"><abbr title="2013-04-12T14:16:38+00:00">14:16:38</abbr></a>] <span>* Aleks (~Aleks@unaffiliated/aleks) has left #beaglebone</span></li>
+<li class="part">[<a href="#T14:16:40" id="T14:16:40"><abbr title="2013-04-12T14:16:40+00:00">14:16:40</abbr></a>] <span>* Aleks (~Aleks@unaffiliated/aleks) has left #beagleboard</span></li>
+<li class="join">[<a href="#T14:16:55" id="T14:16:55"><abbr title="2013-04-12T14:16:55+00:00">14:16:55</abbr></a>] <span>* Aleks (~Aleks@unaffiliated/aleks) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:17:40" id="T14:17:40"><abbr title="2013-04-12T14:17:40+00:00">14:17:40</abbr></a>] <span>* egarcia (~ezequiel@112.222.3.200.ros.express.com.ar) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T14:22:59" id="T14:22:59"><abbr title="2013-04-12T14:22:59+00:00">14:22:59</abbr></a>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T14:24:30" id="T14:24:30"><abbr title="2013-04-12T14:24:30+00:00">14:24:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://starlogs.net/#beagleboard/kernel">http://starlogs.net/#beagleboard/kernel</a></q></li>
+<li class="message">[<a href="#T14:27:34" id="T14:27:34"><abbr title="2013-04-12T14:27:34+00:00">14:27:34</abbr></a>] &lt;<cite>Aleks</cite>&gt; <q>Hello guys, I've tried to post in beagleboard-gsoc on googlegroups, regarding GSoC 2013, but I don't see my post anywhere, should it be aproved, and posted afterwards ?</q></li>
+<li class="message">[<a href="#T14:27:54" id="T14:27:54"><abbr title="2013-04-12T14:27:54+00:00">14:27:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T14:27:59" id="T14:27:59"><abbr title="2013-04-12T14:27:59+00:00">14:27:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jkridner: ^^^</q></li>
+<li class="message">[<a href="#T14:28:11" id="T14:28:11"><abbr title="2013-04-12T14:28:11+00:00">14:28:11</abbr></a>] &lt;<cite>Aleks</cite>&gt; <q>:-)</q></li>
+<li class="quit">[<a href="#T14:28:53" id="T14:28:53"><abbr title="2013-04-12T14:28:53+00:00">14:28:53</abbr></a>] <span>* Akuma (~Akuma@modemcable180.167-22-96.mc.videotron.ca) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T14:29:38" id="T14:29:38"><abbr title="2013-04-12T14:29:38+00:00">14:29:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I see a post from jkridner from yesterday on that list</q></li>
+<li class="message">[<a href="#T14:29:47" id="T14:29:47"><abbr title="2013-04-12T14:29:47+00:00">14:29:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>nothing from you</q></li>
+<li class="message">[<a href="#T14:29:54" id="T14:29:54"><abbr title="2013-04-12T14:29:54+00:00">14:29:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so most likely in moderation hell</q></li>
+<li class="message">[<a href="#T14:29:57" id="T14:29:57"><abbr title="2013-04-12T14:29:57+00:00">14:29:57</abbr></a>] &lt;<cite>Aleks</cite>&gt; <q>That's the same post that I see at the top</q></li>
+<li class="quit">[<a href="#T14:30:03" id="T14:30:03"><abbr title="2013-04-12T14:30:03+00:00">14:30:03</abbr></a>] <span>* Carnarvaro (c42b86b7@gateway/web/freenode/ip.196.43.134.183) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<abbr title="2013-04-12T14:30:03+00:00">14:30:03</abbr>] &lt;<cite>Aleks</cite>&gt; <q>probably, yeah :)</q></li>
+<li class="message">[<a href="#T14:30:23" id="T14:30:23"><abbr title="2013-04-12T14:30:23+00:00">14:30:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>lets wait for jkridner to wake up</q></li>
+<li class="message">[<a href="#T14:30:39" id="T14:30:39"><abbr title="2013-04-12T14:30:39+00:00">14:30:39</abbr></a>] &lt;<cite>Aleks</cite>&gt; <q>not a problem</q></li>
+<li class="message">[<a href="#T14:30:42" id="T14:30:42"><abbr title="2013-04-12T14:30:42+00:00">14:30:42</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: why don't you shout real loud and wake him?</q></li>
+<li class="message">[<a href="#T14:33:00" id="T14:33:00"><abbr title="2013-04-12T14:33:00+00:00">14:33:00</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mru, it depends on the arch</q></li>
+<li class="join">[<a href="#T14:33:08" id="T14:33:08"><abbr title="2013-04-12T14:33:08+00:00">14:33:08</abbr></a>] <span>* asion (~asion@2-225-195-218.ip177.fastwebnet.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T14:33:24" id="T14:33:24"><abbr title="2013-04-12T14:33:24+00:00">14:33:24</abbr></a>] &lt;<cite>panto</cite>&gt; <q>non-risc use the stack to pop a return address</q></li>
+<li class="message">[<a href="#T14:33:31" id="T14:33:31"><abbr title="2013-04-12T14:33:31+00:00">14:33:31</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, so?</q></li>
+<li class="message">[<a href="#T14:33:45" id="T14:33:45"><abbr title="2013-04-12T14:33:45+00:00">14:33:45</abbr></a>] &lt;<cite>mru</cite>&gt; <q>let the kernel put the proper one there</q></li>
+<li class="quit">[<a href="#T14:33:53" id="T14:33:53"><abbr title="2013-04-12T14:33:53+00:00">14:33:53</abbr></a>] <span>* calculus (~calculus@gentoo/user/calculus) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T14:33:57" id="T14:33:57"><abbr title="2013-04-12T14:33:57+00:00">14:33:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it's still just an address</q></li>
+<li class="message">[<a href="#T14:34:00" id="T14:34:00"><abbr title="2013-04-12T14:34:00+00:00">14:34:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>not code</q></li>
+<li class="message">[<a href="#T14:34:25" id="T14:34:25"><abbr title="2013-04-12T14:34:25+00:00">14:34:25</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it's been many years since I've looked at that low level signal handling</q></li>
+<li class="message">[<a href="#T14:34:42" id="T14:34:42"><abbr title="2013-04-12T14:34:42+00:00">14:34:42</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I remember there had to be trampoline</q></li>
+<li class="message">[<a href="#T14:35:09" id="T14:35:09"><abbr title="2013-04-12T14:35:09+00:00">14:35:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that much I can understand</q></li>
+<li class="message">[<a href="#T14:35:19" id="T14:35:19"><abbr title="2013-04-12T14:35:19+00:00">14:35:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>I just don't see the need for a dynamically generated one</q></li>
+<li class="join">[<a href="#T14:35:48" id="T14:35:48"><abbr title="2013-04-12T14:35:48+00:00">14:35:48</abbr></a>] <span>* calculus (~calculus@adsl-99-27-131-83.dsl.pltn13.sbcglobal.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2013-04-12T14:35:48+00:00">14:35:48</abbr>] <span>* calculus (~calculus@adsl-99-27-131-83.dsl.pltn13.sbcglobal.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-04-12T14:35:48+00:00">14:35:48</abbr>] <span>* calculus (~calculus@gentoo/user/calculus) has joined #beagle</span></li>
+<li class="action">[<a href="#T14:37:03" id="T14:37:03"><abbr title="2013-04-12T14:37:03+00:00">14:37:03</abbr></a>] <span>* mdp bounces on the trampoline</span></li>
+<li class="message">[<a href="#T14:38:40" id="T14:38:40"><abbr title="2013-04-12T14:38:40+00:00">14:38:40</abbr></a>] &lt;<cite>panto</cite>&gt; <q>IIRC it was mostly a micro optimization</q></li>
+<li class="message">[<a href="#T14:39:18" id="T14:39:18"><abbr title="2013-04-12T14:39:18+00:00">14:39:18</abbr></a>] &lt;<cite>panto</cite>&gt; <q>since you knew the signal disposition to set upon exit, you generated pretty compact code for it</q></li>
+<li class="message">[<a href="#T14:39:58" id="T14:39:58"><abbr title="2013-04-12T14:39:58+00:00">14:39:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>these days that would require a potentially costly cache sync dance</q></li>
+<li class="message">[<a href="#T14:40:16" id="T14:40:16"><abbr title="2013-04-12T14:40:16+00:00">14:40:16</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I bet</q></li>
+<li class="message">[<a href="#T14:40:26" id="T14:40:26"><abbr title="2013-04-12T14:40:26+00:00">14:40:26</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I did all that on a 68K :)</q></li>
+<li class="action">[<a href="#T14:42:37" id="T14:42:37"><abbr title="2013-04-12T14:42:37+00:00">14:42:37</abbr></a>] <span>* keesj watched the full *40* minutes of Amiga 500 Retro Computer Teardown yesteday. <a href="http://www.youtube.com/watch?v=HKNVIgsbYrA">http://www.youtube.com/watch?v=HKNVIgsbYrA</a></span></li>
+<li class="action">[<a href="#T14:45:23" id="T14:45:23"><abbr title="2013-04-12T14:45:23+00:00">14:45:23</abbr></a>] <span>* KotH hands keesj a cookie and a cane</span></li>
+<li class="message">[<a href="#T14:48:03" id="T14:48:03"><abbr title="2013-04-12T14:48:03+00:00">14:48:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so if I take apart that osborne 1 and make a movie, you will watch it?</q></li>
+<li class="message">[<a href="#T14:49:28" id="T14:49:28"><abbr title="2013-04-12T14:49:28+00:00">14:49:28</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>let's find out</q></li>
+<li class="action">[<a href="#T14:51:50" id="T14:51:50"><abbr title="2013-04-12T14:51:50+00:00">14:51:50</abbr></a>] <span>* ogra_ will !</span></li>
+<li class="action">[<a href="#T14:52:04" id="T14:52:04"><abbr title="2013-04-12T14:52:04+00:00">14:52:04</abbr></a>] <span>* KotH would rather take it apart himself</span></li>
+<li class="message">[<a href="#T14:52:22" id="T14:52:22"><abbr title="2013-04-12T14:52:22+00:00">14:52:22</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>it looks like it needs spring cleaning ;)</q></li>
+<li class="nick-change">[<a href="#T14:53:32" id="T14:53:32"><abbr title="2013-04-12T14:53:32+00:00">14:53:32</abbr></a>] <span>* ka6sox-away is now known as ka6sox</span></li>
+<li class="message">[<a href="#T14:54:27" id="T14:54:27"><abbr title="2013-04-12T14:54:27+00:00">14:54:27</abbr></a>] &lt;<cite>keesj</cite>&gt; <q>av500: that osborne 1 looks juicy</q></li>
+<li class="join">[<a href="#T14:54:44" id="T14:54:44"><abbr title="2013-04-12T14:54:44+00:00">14:54:44</abbr></a>] <span>* prpplague (~danders@adsl-68-88-77-171.dsl.rcsntx.swbell.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T14:56:54" id="T14:56:54"><abbr title="2013-04-12T14:56:54+00:00">14:56:54</abbr></a>] <span>* calculus (~calculus@gentoo/user/calculus) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T14:57:02" id="T14:57:02"><abbr title="2013-04-12T14:57:02+00:00">14:57:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>nice, hail</q></li>
+<li class="message">[<a href="#T14:57:25" id="T14:57:25"><abbr title="2013-04-12T14:57:25+00:00">14:57:25</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>av500: finally some april weather? ;)</q></li>
+<li class="message">[<a href="#T14:57:40" id="T14:57:40"><abbr title="2013-04-12T14:57:40+00:00">14:57:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="quit">[<a href="#T14:59:35" id="T14:59:35"><abbr title="2013-04-12T14:59:35+00:00">14:59:35</abbr></a>] <span>* jpirko (jirka@nat/redhat/x-pwkjdapozkaygzox) Quit (Quit: Leaving)</span></li>
