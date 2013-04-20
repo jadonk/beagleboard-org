@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="20" name="project" prototype="Page" created="1202836452756" lastModified="1366427973537">
+  <hopobject id="20" name="project" prototype="Page" created="1202836452756" lastModified="1366428069055">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
@@ -10,15 +10,98 @@
     <http_language>en-US,en;q=0.8</http_language>
     <uri>project</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31</http_browser>
-    <time type="date">19.04.2013 22:19:33 CDT</time>
+    <time type="date">19.04.2013 22:21:09 CDT</time>
     <hopsession>127.0.0.198.47.16.6rtsmlet7d0o</hopsession>
-    <body> &lt;h1 id=&quot;registered&quot;&gt;Registered Projects&lt;/h1&gt;
+    <body>&lt;h1 id=&quot;registered&quot;&gt;Registered Projects&lt;/h1&gt;
 &lt;p&gt;Explore the ever-expanding list of registered projects to stir your own project ideas. Whether you’re new to Beagle or an experienced Beagle enthusiast, this list has something inspirational for you. Start your own and change the world, one Beagle project at a time.&lt;/p&gt;
 &lt;br&gt;
 &lt;script src=&quot;/static/jquery.qtip.js&quot;&gt;&lt;/script&gt;
 &lt;div id:&quot;proj-search&quot;&gt; 
  &lt;h2&gt;Search for Projects&lt;/h2&gt;
  &lt;h2 id=&quot;registered&quot;&gt;List of registered projects&lt;/h2&gt;
+ &lt;div align=&quot;letft&quot; style=&quot;float: right;&quot;&gt;
+ &lt;form action=&quot;http://beagleboard.org/project/new/edit_project&quot; method=&quot;get&quot;&gt;
+  &lt;input name=&quot;open&quot; type=&quot;submit&quot; value=&quot;Register Project »&quot; style=&quot;border:1px solid #B4A279; border-radius:5px 5px 5px 5px; float:left; margin-bottom:20px; margin-left:25px; padding:10px; width:260px; background-color:#de7224; text-align:center; color:#fff; font-weight:bold; height:3em;&quot; /&gt;
+ &lt;/form&gt;
+ &lt;/div&gt;
+&lt;/div&gt; 
+ &lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;
+ &lt;script language=&quot;javascript&quot;&gt;
+var update_count = function () {
+ var visible = 0;
+ var total = 0;
+ $(&quot;#projects tbody tr:hidden&quot;).each(function () {
+  total++;
+ });
+ $(&quot;#projects tbody tr:visible&quot;).each(function () {
+  visible++;
+  total++;
+ });
+ $(&apos;#visible_count&apos;).html(visible);
+ $(&apos;#total_count&apos;).html(total);
+};
+
+$(document).ready(
+ function() {
+  $(&apos;#hosting&apos;).hide(&apos;fast&apos;);
+  $(&apos;#search_links&apos;).hide(&apos;fast&apos;);
+  var visible_count = document.createElement(&quot;span&quot;);
+  visible_count.style.cssFloat=&quot;none&quot;;
+  $(visible_count).attr(&quot;id&quot;, &quot;visible_count&quot;);
+  var total_count = document.createElement(&quot;span&quot;);
+  total_count.style.cssFloat=&quot;none&quot;;
+  var show_more = document.createElement(&quot;span&quot;);
+  show_more.style.cssFloat=&quot;none&quot;;
+  $(total_count).attr(&quot;id&quot;, &quot;total_count&quot;);
+  $(&apos;#registered&apos;).append(&apos; (showing &apos;);
+  $(&apos;#registered&apos;).append(visible_count);
+  $(&apos;#registered&apos;).append(&apos; of &apos;);
+  $(&apos;#registered&apos;).append(total_count);
+  $(&apos;#registered&apos;).append(&apos;) &apos;);
+  $(&apos;#registered&apos;).append(show_more);
+  update_count();
+  var proj_filter = document.createElement(&quot;input&quot;);
+  $(proj_filter).attr(&quot;id&quot;, &quot;proj_filter&quot;);
+  $(proj_filter).attr(&quot;name&quot;, &quot;proj_filter&quot;);
+  $(proj_filter).attr(&quot;size&quot;, &quot;40&quot;);  
+  $(&apos;#registered&apos;).append(proj_filter);
+  var doFilter = function() {
+   var filter = $(&apos;#proj_filter&apos;).val();
+   var visible = 0;
+   var offset = 0;
+   var matches = 0;
+   $(&quot;#projects tbody tr&quot;).each(function () {
+    if ($(this).text().search(new RegExp(filter, &quot;i&quot;)) &gt;= 0 ) {
+     if (offset &lt;= matches)
+     //&amp;&amp; visible &lt; 10)
+     {
+      $(this).show();
+      visible++;
+     } else {
+      $(this).hide();
+     }
+     matches++;
+    } else {
+     $(this).hide();
+    }
+   });
+   addedIDs = true;
+   $(&apos;#visible_count&apos;).html(visible);
+  };
+  doFilter();
+  $(&apos;#proj_filter&apos;).keyup(doFilter);
+ }
+);
+&lt;/script&gt;
+
+
+&lt;!--
+&lt;h1 id=&quot;registered&quot;&gt;Registered Projects&lt;/h1&gt;
+&lt;p&gt;Explore the ever-expanding list of registered projects to stir your own project ideas. Whether you’re new to Beagle or an experienced Beagle enthusiast, this list has something inspirational for you. Start your own and change the world, one Beagle project at a time.&lt;/p&gt;
+&lt;br&gt;
+&lt;script src=&quot;/static/jquery.qtip.js&quot;&gt;&lt;/script&gt;
+&lt;div id:&quot;proj-search&quot;&gt; 
+ &lt;h2&gt;Search for Projects&lt;/h2&gt;
  &lt;div align=&quot;letft&quot; style=&quot;float: right;&quot;&gt;
  &lt;form action=&quot;http://beagleboard.org/project/new/edit_project&quot; method=&quot;get&quot;&gt;
   &lt;input name=&quot;open&quot; type=&quot;submit&quot; value=&quot;Register Project »&quot; style=&quot;border:1px solid #B4A279; border-radius:5px 5px 5px 5px; float:left; margin-bottom:20px; margin-left:25px; padding:10px; width:260px; background-color:#de7224; text-align:center; color:#fff; font-weight:bold; height:3em;&quot; /&gt;
@@ -92,6 +175,7 @@ $(document).ready(
  }
 );
 &lt;/script&gt;
+--&gt;
 </body>
     <list_children>true</list_children>
     <http_referer>http://beagleboard.org/project/edit</http_referer>
