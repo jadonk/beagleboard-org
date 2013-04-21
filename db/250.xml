@@ -12,14 +12,23 @@
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31</http_browser>
     <time type="date">19.04.2013 22:11:28 CDT</time>
     <hopsession>127.0.0.198.47.16.6rtsmlet7d0o</hopsession>
-    <body> &lt;h1&gt;Return Merchandise Application&lt;/h1&gt;
- &lt;form action=&quot;mailto:rma@beagleboard.org?subject=BeagleBoard RMA request for serial number SERIAL_NUM_HERE_TOO&quot; method=&quot;post&quot; enctype=&quot;text/plain&quot;&gt;
+    <body> &lt;script&gt;
+    $('#serial_num').change(function(){
+        $('#rma_action').attr('action',
+            &quot;mailto:rma@beagleboard.org?subject=BeagleBoard RMA request for serial number &quot; +
+            $('#serial_num').val()
+        );
+    });
+&lt;/script&gt;
+
+&lt;h1&gt;Return Merchandise Application&lt;/h1&gt;
+ &lt;form id=&quot;rma_action&quot; action=&quot;mailto:rma@beagleboard.org?subject=BeagleBoard RMA request for serial number SERIAL_NUM_HERE_TOO&quot; method=&quot;post&quot; enctype=&quot;text/plain&quot;&gt;
   &lt;table width=&quot;750&quot;&gt;
    &lt;tbody&gt;
     &lt;tr&gt;
      &lt;td&gt;Serial #&lt;/td&gt;
      &lt;td&gt;
-      &lt;input name=&quot;serial_num&quot; type=&quot;text&quot;/&gt;
+      &lt;input id=&quot;serial_num&quot; name=&quot;serial_num&quot; type=&quot;text&quot;/&gt;
      &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -66,22 +75,8 @@
     &lt;/tr&gt;
     &lt;tr&gt;
      &lt;td valign=&quot;top&quot;&gt;Description of Issue&lt;/td&gt;
-     &lt;td&gt;
-     
-      &lt;textarea name=&quot;issue&quot; cols=&quot;20&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;
-     &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-     &lt;td&gt;Return Method&lt;/td&gt;
-     &lt;td&gt;
-      &lt;input name=&quot;ship_method&quot; type=&quot;radio&quot; value=&quot;USPS Mail&quot;/&gt;
-      USPS Mail
-      &lt;input name=&quot;ship_method&quot; type=&quot;radio&quot; value=&quot;UPS&quot;/&gt;
-      UPS
-      &lt;input name=&quot;ship_method&quot; type=&quot;radio&quot; value=&quot;DHL&quot;/&gt;
-      DHL
-      &lt;input name=&quot;ship_method&quot; type=&quot;radio&quot; value=&quot;FedEX&quot;/&gt;
-      FedEX
+     &lt;td&gt;     
+      &lt;textarea id=&quot;rmata&quot; name=&quot;issue&quot; cols=&quot;20&quot; rows=&quot;5&quot; style=&quot;width:400px;&quot;&gt;&lt;/textarea&gt;
      &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -100,7 +95,6 @@
  &lt;/p&gt;
  &lt;h2&gt;Return Address&lt;/h2&gt;
  &lt;p&gt;Address will be provided once the return merchandise authorization (RMA) is given.&lt;/p&gt;
-
 </body>
     <pseudoparent idref="121" prototyperef="Page"/>
     <http_referer>http://beagleboard.org/support/RMA/edit</http_referer>
