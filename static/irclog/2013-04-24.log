@@ -582,3 +582,178 @@
 <li class="message">[<a href="#T10:59:55" id="T10:59:55"><abbr title="2013-04-24T10:59:55+00:00">10:59:55</abbr></a>] &lt;<cite>koen</cite>&gt; <q>defio</q></li>
 <li class="message">[<a href="#T10:59:58" id="T10:59:58"><abbr title="2013-04-24T10:59:58+00:00">10:59:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the chain I have has 0 = low for 250ns and 1 = low for 3x 250ns</q></li>
 <li class="part">[<a href="#T11:00:01" id="T11:00:01"><abbr title="2013-04-24T11:00:01+00:00">11:00:01</abbr></a>] <span>* asion (~asion@2-225-195-218.ip177.fastwebnet.it) has left #beagle</span></li>
+<li class="message">[<a href="#T11:00:13" id="T11:00:13"><abbr title="2013-04-24T11:00:13+00:00">11:00:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and contant bit time</q></li>
+<li class="message">[<a href="#T11:00:32" id="T11:00:32"><abbr title="2013-04-24T11:00:32+00:00">11:00:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so I have 4 slots, either send 0111 or 0001</q></li>
+<li class="message">[<a href="#T11:00:45" id="T11:00:45"><abbr title="2013-04-24T11:00:45+00:00">11:00:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>ws2811 should be similar</q></li>
+<li class="message">[<a href="#T11:00:52" id="T11:00:52"><abbr title="2013-04-24T11:00:52+00:00">11:00:52</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so yes, 4.x the mem needed</q></li>
+<li class="message">[<a href="#T11:00:55" id="T11:00:55"><abbr title="2013-04-24T11:00:55+00:00">11:00:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>4x</q></li>
+<li class="message">[<a href="#T11:00:56" id="T11:00:56"><abbr title="2013-04-24T11:00:56+00:00">11:00:56</abbr></a>] &lt;<cite>keso_</cite>&gt; <q>yeah, that might work</q></li>
+<li class="message">[<a href="#T11:01:11" id="T11:01:11"><abbr title="2013-04-24T11:01:11+00:00">11:01:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but there the PRU is only pumping out data, nothing else</q></li>
+<li class="message">[<a href="#T11:01:51" id="T11:01:51"><abbr title="2013-04-24T11:01:51+00:00">11:01:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then use the 2nd PRU to read from mem and do the bit pattern</q></li>
+<li class="message">[<a href="#T11:03:33" id="T11:03:33"><abbr title="2013-04-24T11:03:33+00:00">11:03:33</abbr></a>] &lt;<cite>keso_</cite>&gt; <q>if i can, i want to use the second PRU to drive even more strips! :D</q></li>
+<li class="message">[<a href="#T11:03:41" id="T11:03:41"><abbr title="2013-04-24T11:03:41+00:00">11:03:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or that</q></li>
+<li class="message">[<a href="#T11:03:49" id="T11:03:49"><abbr title="2013-04-24T11:03:49+00:00">11:03:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then prepare the patterns from the ARM</q></li>
+<li class="join">[<a href="#T11:07:58" id="T11:07:58"><abbr title="2013-04-24T11:07:58+00:00">11:07:58</abbr></a>] <span>* Dave77 (~Dave77@host-2-99-253-94.as13285.net) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T11:08:11" id="T11:08:11"><abbr title="2013-04-24T11:08:11+00:00">11:08:11</abbr></a>] <span>* Dave77 (~Dave77@host-2-99-253-94.as13285.net) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T11:08:20" id="T11:08:20"><abbr title="2013-04-24T11:08:20+00:00">11:08:20</abbr></a>] <span>* Dave77 (~Dave77@host-2-99-253-94.as13285.net) has joined #beagle</span></li>
+<li class="part">[<a href="#T11:08:25" id="T11:08:25"><abbr title="2013-04-24T11:08:25+00:00">11:08:25</abbr></a>] <span>* Dave77 (~Dave77@host-2-99-253-94.as13285.net) has left #beaglebone</span></li>
+<li class="part">[<a href="#T11:08:29" id="T11:08:29"><abbr title="2013-04-24T11:08:29+00:00">11:08:29</abbr></a>] <span>* Dave77 (~Dave77@host-2-99-253-94.as13285.net) has left #beagleboard</span></li>
+<li class="join">[<a href="#T11:09:46" id="T11:09:46"><abbr title="2013-04-24T11:09:46+00:00">11:09:46</abbr></a>] <span>* vvu|Mobile (~vvu_mobil@212.201.44.245) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:10:04" id="T11:10:04"><abbr title="2013-04-24T11:10:04+00:00">11:10:04</abbr></a>] <span>* kiilo (~kiilo@84-73-25-17.dclient.hispeed.ch) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:11:38" id="T11:11:38"><abbr title="2013-04-24T11:11:38+00:00">11:11:38</abbr></a>] &lt;<cite>Dave77</cite>&gt; <q>to get audio out of beagle NG do I need a cape or do I connect audio jack to header pins?</q></li>
+<li class="message">[<a href="#T11:11:54" id="T11:11:54"><abbr title="2013-04-24T11:11:54+00:00">11:11:54</abbr></a>] &lt;<cite>panto</cite>&gt; <q>HDMI has audio</q></li>
+<li class="quit">[<a href="#T11:12:02" id="T11:12:02"><abbr title="2013-04-24T11:12:02+00:00">11:12:02</abbr></a>] <span>* mranostay (~mranostay@pdpc/supporter/active/mranostay) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<abbr title="2013-04-24T11:12:02+00:00">11:12:02</abbr>] &lt;<cite>panto</cite>&gt; <q>if you need analog audio you have to get a cape</q></li>
+<li class="message">[<a href="#T11:12:18" id="T11:12:18"><abbr title="2013-04-24T11:12:18+00:00">11:12:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or a metal plate in your head</q></li>
+<li class="join">[<a href="#T11:12:20" id="T11:12:20"><abbr title="2013-04-24T11:12:20+00:00">11:12:20</abbr></a>] <span>* mranostay (~mranostay@pdpc/supporter/active/mranostay) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:12:22" id="T11:12:22"><abbr title="2013-04-24T11:12:22+00:00">11:12:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and the right PRU SW</q></li>
+<li class="quit">[<a href="#T11:14:34" id="T11:14:34"><abbr title="2013-04-24T11:14:34+00:00">11:14:34</abbr></a>] <span>* vvu|Mobile (~vvu_mobil@212.201.44.245) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T11:15:42" id="T11:15:42"><abbr title="2013-04-24T11:15:42+00:00">11:15:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>keso_: if you look at the 2811 timing, its split in 3 parts, common high, low for 0 or 1, common low</q></li>
+<li class="message">[<a href="#T11:16:02" id="T11:16:02"><abbr title="2013-04-24T11:16:02+00:00">11:16:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>part 1 and 3 are fixed, and the middle part depends just on your bit pattern for 1 bit</q></li>
+<li class="message">[<a href="#T11:16:15" id="T11:16:15"><abbr title="2013-04-24T11:16:15+00:00">11:16:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but it can be easily written to several GPIOs at once</q></li>
+<li class="join">[<a href="#T11:17:19" id="T11:17:19"><abbr title="2013-04-24T11:17:19+00:00">11:17:19</abbr></a>] <span>* vvu|Mobile (~vvu_mobil@212.201.44.245) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:18:43" id="T11:18:43"><abbr title="2013-04-24T11:18:43+00:00">11:18:43</abbr></a>] <span>* nikem (4e8fd4bf@gateway/web/freenode/ip.78.143.212.191) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:19:06" id="T11:19:06"><abbr title="2013-04-24T11:19:06+00:00">11:19:06</abbr></a>] &lt;<cite>keso_</cite>&gt; <q>av500: yeah, the more I'm thinking about it, the more it seems that's the way to go</q></li>
+<li class="quit">[<a href="#T11:19:56" id="T11:19:56"><abbr title="2013-04-24T11:19:56+00:00">11:19:56</abbr></a>] <span>* Dave77 (~Dave77@host-2-99-253-94.as13285.net) Quit ()</span></li>
+<li class="message">[<a href="#T11:24:52" id="T11:24:52"><abbr title="2013-04-24T11:24:52+00:00">11:24:52</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>any tips how to create a wireless router using bb?</q></li>
+<li class="message">[<a href="#T11:25:00" id="T11:25:00"><abbr title="2013-04-24T11:25:00+00:00">11:25:00</abbr></a>] &lt;<cite>mru</cite>&gt; <q>yes, don't</q></li>
+<li class="message">[<a href="#T11:25:51" id="T11:25:51"><abbr title="2013-04-24T11:25:51+00:00">11:25:51</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>why not?</q></li>
+<li class="message">[<a href="#T11:26:45" id="T11:26:45"><abbr title="2013-04-24T11:26:45+00:00">11:26:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>add a wifi cape</q></li>
+<li class="message">[<a href="#T11:26:49" id="T11:26:49"><abbr title="2013-04-24T11:26:49+00:00">11:26:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>run ddwrt or so</q></li>
+<li class="message">[<a href="#T11:26:52" id="T11:26:52"><abbr title="2013-04-24T11:26:52+00:00">11:26:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>there are other cheaper options, plus you only get a single real h/w ethernet interface</q></li>
+<li class="message">[<a href="#T11:27:05" id="T11:27:05"><abbr title="2013-04-24T11:27:05+00:00">11:27:05</abbr></a>] &lt;<cite>panto</cite>&gt; <q>but sure, go knock yourself out if it's for you</q></li>
+<li class="message">[<a href="#T11:27:11" id="T11:27:11"><abbr title="2013-04-24T11:27:11+00:00">11:27:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>get a TPlink 703 and run openwrt</q></li>
+<li class="message">[<a href="#T11:27:20" id="T11:27:20"><abbr title="2013-04-24T11:27:20+00:00">11:27:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>$20</q></li>
+<li class="message">[<a href="#T11:28:57" id="T11:28:57"><abbr title="2013-04-24T11:28:57+00:00">11:28:57</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>thanks but i want full linux</q></li>
+<li class="message">[<a href="#T11:29:22" id="T11:29:22"><abbr title="2013-04-24T11:29:22+00:00">11:29:22</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for a router all you need is a kernel and a handful of userspace tools</q></li>
+<li class="message">[<a href="#T11:29:33" id="T11:29:33"><abbr title="2013-04-24T11:29:33+00:00">11:29:33</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>search the raspberry Pi forums. its done the same way on BB</q></li>
+<li class="message">[<a href="#T11:30:12" id="T11:30:12"><abbr title="2013-04-24T11:30:12+00:00">11:30:12</abbr></a>] &lt;<cite>panto</cite>&gt; <q>ahem, IIRC there's an recipe in angstrom to generate a router image</q></li>
+<li class="message">[<a href="#T11:30:30" id="T11:30:30"><abbr title="2013-04-24T11:30:30+00:00">11:30:30</abbr></a>] &lt;<cite>mru</cite>&gt; <q>you make it sound so complicated</q></li>
+<li class="action">[<a href="#T11:30:58" id="T11:30:58"><abbr title="2013-04-24T11:30:58+00:00">11:30:58</abbr></a>] <span>* panto used to do routers on another life </span></li>
+<li class="message">[<a href="#T11:31:05" id="T11:31:05"><abbr title="2013-04-24T11:31:05+00:00">11:31:05</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T11:31:45" id="T11:31:45"><abbr title="2013-04-24T11:31:45+00:00">11:31:45</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>thanks. ill look on pi and angstrom</q></li>
+<li class="message">[<a href="#T11:31:48" id="T11:31:48"><abbr title="2013-04-24T11:31:48+00:00">11:31:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>what is a full linux?</q></li>
+<li class="message">[<a href="#T11:32:08" id="T11:32:08"><abbr title="2013-04-24T11:32:08+00:00">11:32:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>for a wifi "router" all you need is a properly configured kernel, iproute2, and hostapd</q></li>
+<li class="quit">[<a href="#T11:32:30" id="T11:32:30"><abbr title="2013-04-24T11:32:30+00:00">11:32:30</abbr></a>] <span>* keesj (~keesj@dellpc132.few.vu.nl) Quit (Quit: Changing server)</span></li>
+<li class="message">[<a href="#T11:32:38" id="T11:32:38"><abbr title="2013-04-24T11:32:38+00:00">11:32:38</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>i want to run all kinds of things in the router ... perhaps I wasnt clear</q></li>
+<li class="quit">[<a href="#T11:32:53" id="T11:32:53"><abbr title="2013-04-24T11:32:53+00:00">11:32:53</abbr></a>] <span>* fiola (~fiola@2001:8b0:898:6610::201) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T11:32:54" id="T11:32:54"><abbr title="2013-04-24T11:32:54+00:00">11:32:54</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>u were clear. just wrong audience</q></li>
+<li class="message">[<a href="#T11:32:56" id="T11:32:56"><abbr title="2013-04-24T11:32:56+00:00">11:32:56</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>:P</q></li>
+<li class="message">[<a href="#T11:32:58" id="T11:32:58"><abbr title="2013-04-24T11:32:58+00:00">11:32:58</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>o.O</q></li>
+<li class="message">[<a href="#T11:33:28" id="T11:33:28"><abbr title="2013-04-24T11:33:28+00:00">11:33:28</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>buy a x86 computer</q></li>
+<li class="message">[<a href="#T11:33:46" id="T11:33:46"><abbr title="2013-04-24T11:33:46+00:00">11:33:46</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>srsly RPi forums have good instrunctions on it</q></li>
+<li class="message">[<a href="#T11:33:56" id="T11:33:56"><abbr title="2013-04-24T11:33:56+00:00">11:33:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T11:33:58" id="T11:33:58"><abbr title="2013-04-24T11:33:58+00:00">11:33:58</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>along with recommendations of which wifi dongle to use</q></li>
+<li class="message">[<a href="#T11:34:03" id="T11:34:03"><abbr title="2013-04-24T11:34:03+00:00">11:34:03</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>x86 too expensive to run</q></li>
+<li class="message">[<a href="#T11:34:09" id="T11:34:09"><abbr title="2013-04-24T11:34:09+00:00">11:34:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>why would you go there for instructions on running "ip addr add ...; ip route add ..."?</q></li>
+<li class="message">[<a href="#T11:34:11" id="T11:34:11"><abbr title="2013-04-24T11:34:11+00:00">11:34:11</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>thats cool crash thanks</q></li>
+<li class="message">[<a href="#T11:34:44" id="T11:34:44"><abbr title="2013-04-24T11:34:44+00:00">11:34:44</abbr></a>] &lt;<cite>panto</cite>&gt; <q>crashovrd, I guarantee you that a wifi router run on RPi with a USB dongle it will suck</q></li>
+<li class="message">[<a href="#T11:35:00" id="T11:35:00"><abbr title="2013-04-24T11:35:00+00:00">11:35:00</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>panto why? *g*</q></li>
+<li class="message">[<a href="#T11:35:01" id="T11:35:01"><abbr title="2013-04-24T11:35:01+00:00">11:35:01</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>omg, i didnt tell him to use a PI</q></li>
+<li class="message">[<a href="#T11:35:11" id="T11:35:11"><abbr title="2013-04-24T11:35:11+00:00">11:35:11</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>i told him that the instructions for doing it were the same</q></li>
+<li class="message">[<a href="#T11:35:16" id="T11:35:16"><abbr title="2013-04-24T11:35:16+00:00">11:35:16</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>pi isnt suitable I heard</q></li>
+<li class="message">[<a href="#T11:35:22" id="T11:35:22"><abbr title="2013-04-24T11:35:22+00:00">11:35:22</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>and implied there was additional helpful info</q></li>
+<li class="message">[<a href="#T11:35:32" id="T11:35:32"><abbr title="2013-04-24T11:35:32+00:00">11:35:32</abbr></a>] &lt;<cite>panto</cite>&gt; <q>cause when you pump packets you need a certain amount of horsepower</q></li>
+<li class="message">[<a href="#T11:35:43" id="T11:35:43"><abbr title="2013-04-24T11:35:43+00:00">11:35:43</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>other than 1) compile a kernel 2) make a distro 3) hack xyz</q></li>
+<li class="message">[<a href="#T11:35:56" id="T11:35:56"><abbr title="2013-04-24T11:35:56+00:00">11:35:56</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T11:36:05" id="T11:36:05"><abbr title="2013-04-24T11:36:05+00:00">11:36:05</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and because the rpi drops usb frames</q></li>
+<li class="message">[<a href="#T11:36:12" id="T11:36:12"><abbr title="2013-04-24T11:36:12+00:00">11:36:12</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>bb sounds better for "full linux" wifi router I have in mind</q></li>
+<li class="message">[<a href="#T11:36:15" id="T11:36:15"><abbr title="2013-04-24T11:36:15+00:00">11:36:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>jsut a few</q></li>
+<li class="message">[<a href="#T11:36:48" id="T11:36:48"><abbr title="2013-04-24T11:36:48+00:00">11:36:48</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>cant it turn them into video frames  and process them through the decoder instead ?</q></li>
+<li class="message">[<a href="#T11:36:55" id="T11:36:55"><abbr title="2013-04-24T11:36:55+00:00">11:36:55</abbr></a>] &lt;<cite>panto</cite>&gt; <q>having to go through usb for said packets, and correct me if I'm wrong, isn't the RPi ethernet on USB too</q></li>
+<li class="message">[<a href="#T11:37:04" id="T11:37:04"><abbr title="2013-04-24T11:37:04+00:00">11:37:04</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it is</q></li>
+<li class="message">[<a href="#T11:37:05" id="T11:37:05"><abbr title="2013-04-24T11:37:05+00:00">11:37:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T11:37:14" id="T11:37:14"><abbr title="2013-04-24T11:37:14+00:00">11:37:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so you have to make sure it loses packets in sync</q></li>
+<li class="message">[<a href="#T11:37:24" id="T11:37:24"><abbr title="2013-04-24T11:37:24+00:00">11:37:24</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I friggin guarantee then, you will suffer</q></li>
+<li class="message">[<a href="#T11:37:26" id="T11:37:26"><abbr title="2013-04-24T11:37:26+00:00">11:37:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>on eth and wlan</q></li>
+<li class="message">[<a href="#T11:37:30" id="T11:37:30"><abbr title="2013-04-24T11:37:30+00:00">11:37:30</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>yes pi ether IS on usb</q></li>
+<li class="message">[<a href="#T11:37:56" id="T11:37:56"><abbr title="2013-04-24T11:37:56+00:00">11:37:56</abbr></a>] &lt;<cite>panto</cite>&gt; <q>unless you're still on dial-up, which in that case it's good enough</q></li>
+<li class="message">[<a href="#T11:38:22" id="T11:38:22"><abbr title="2013-04-24T11:38:22+00:00">11:38:22</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>lol no. adsl</q></li>
+<li class="message">[<a href="#T11:38:37" id="T11:38:37"><abbr title="2013-04-24T11:38:37+00:00">11:38:37</abbr></a>] &lt;<cite>panto</cite>&gt; <q>hope you like waiting</q></li>
+<li class="message">[<a href="#T11:39:19" id="T11:39:19"><abbr title="2013-04-24T11:39:19+00:00">11:39:19</abbr></a>] &lt;<cite>panto</cite>&gt; <q>so in a nutshell, yeah bb would make a better router that rpi, but it would still be retarded compared to just getting another router and putting ddwrt on it</q></li>
+<li class="message">[<a href="#T11:39:37" id="T11:39:37"><abbr title="2013-04-24T11:39:37+00:00">11:39:37</abbr></a>] &lt;<cite>panto</cite>&gt; <q>however, if you want to do some other stuff too, on top of being a router, the bb would be better</q></li>
+<li class="message">[<a href="#T11:39:56" id="T11:39:56"><abbr title="2013-04-24T11:39:56+00:00">11:39:56</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>in the time it took to have this 'debate' it would be already done, up and running on RPi</q></li>
+<li class="message">[<a href="#T11:39:58" id="T11:39:58"><abbr title="2013-04-24T11:39:58+00:00">11:39:58</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>:P</q></li>
+<li class="message">[<a href="#T11:40:07" id="T11:40:07"><abbr title="2013-04-24T11:40:07+00:00">11:40:07</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>im not confident using ddwrt ... would prefer to invest in something I know like deb/rh even freebsd</q></li>
+<li class="message">[<a href="#T11:40:14" id="T11:40:14"><abbr title="2013-04-24T11:40:14+00:00">11:40:14</abbr></a>] &lt;<cite>panto</cite>&gt; <q>done poorly, yes</q></li>
+<li class="message">[<a href="#T11:40:22" id="T11:40:22"><abbr title="2013-04-24T11:40:22+00:00">11:40:22</abbr></a>] &lt;<cite>panto</cite>&gt; <q>but half-assing it, that's the RPi way :)</q></li>
+<li class="message">[<a href="#T11:40:42" id="T11:40:42"><abbr title="2013-04-24T11:40:42+00:00">11:40:42</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>rpi isnt designed for real work I think</q></li>
+<li class="message">[<a href="#T11:40:43" id="T11:40:43"><abbr title="2013-04-24T11:40:43+00:00">11:40:43</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>ah right we had it yesterday with the usb</q></li>
+<li class="message">[<a href="#T11:41:09" id="T11:41:09"><abbr title="2013-04-24T11:41:09+00:00">11:41:09</abbr></a>] &lt;<cite>mru</cite>&gt; <q>rpi is designed to get rid of old chip stock without losing money</q></li>
+<li class="message">[<a href="#T11:41:15" id="T11:41:15"><abbr title="2013-04-24T11:41:15+00:00">11:41:15</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mru, +1</q></li>
+<li class="message">[<a href="#T11:41:36" id="T11:41:36"><abbr title="2013-04-24T11:41:36+00:00">11:41:36</abbr></a>] &lt;<cite>panto</cite>&gt; <q>that's going to be fun when the old stock dries up</q></li>
+<li class="message">[<a href="#T11:41:37" id="T11:41:37"><abbr title="2013-04-24T11:41:37+00:00">11:41:37</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>well, i guess broadcom makes some money actually ...</q></li>
+<li class="message">[<a href="#T11:41:40" id="T11:41:40"><abbr title="2013-04-24T11:41:40+00:00">11:41:40</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>but it lead the way in cost</q></li>
+<li class="message">[<a href="#T11:41:46" id="T11:41:46"><abbr title="2013-04-24T11:41:46+00:00">11:41:46</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>on the video decoder side</q></li>
+<li class="message">[<a href="#T11:41:48" id="T11:41:48"><abbr title="2013-04-24T11:41:48+00:00">11:41:48</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>led</q></li>
+<li class="message">[<a href="#T11:41:56" id="T11:41:56"><abbr title="2013-04-24T11:41:56+00:00">11:41:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>one might even call the way they're funneling it through this "charity" foundation a scam</q></li>
+<li class="message">[<a href="#T11:42:16" id="T11:42:16"><abbr title="2013-04-24T11:42:16+00:00">11:42:16</abbr></a>] &lt;<cite>crashovrd</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T11:42:27" id="T11:42:27"><abbr title="2013-04-24T11:42:27+00:00">11:42:27</abbr></a>] &lt;<cite>panto</cite>&gt; <q>dunno, this 'foundation' looks like to have deep connections to UK</q></li>
+<li class="message">[<a href="#T11:42:41" id="T11:42:41"><abbr title="2013-04-24T11:42:41+00:00">11:42:41</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it has deeper ties to bcm</q></li>
+<li class="message">[<a href="#T11:42:47" id="T11:42:47"><abbr title="2013-04-24T11:42:47+00:00">11:42:47</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T11:42:52" id="T11:42:52"><abbr title="2013-04-24T11:42:52+00:00">11:42:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>smells like a desperate attempt to restart the old british home computer industry</q></li>
+<li class="message">[<a href="#T11:43:02" id="T11:43:02"><abbr title="2013-04-24T11:43:02+00:00">11:43:02</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>yes panto</q></li>
+<li class="message">[<a href="#T11:43:03" id="T11:43:03"><abbr title="2013-04-24T11:43:03+00:00">11:43:03</abbr></a>] &lt;<cite>mru</cite>&gt; <q>desperate?</q></li>
+<li class="message">[<a href="#T11:43:08" id="T11:43:08"><abbr title="2013-04-24T11:43:08+00:00">11:43:08</abbr></a>] &lt;<cite>mru</cite>&gt; <q>arm is going strong these days</q></li>
+<li class="message">[<a href="#T11:43:17" id="T11:43:17"><abbr title="2013-04-24T11:43:17+00:00">11:43:17</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and it's as british as ever</q></li>
+<li class="message">[<abbr title="2013-04-24T11:43:17+00:00">11:43:17</abbr>] &lt;<cite>nikem</cite>&gt; <q>but not exactly desperate</q></li>
+<li class="message">[<a href="#T11:43:18" id="T11:43:18"><abbr title="2013-04-24T11:43:18+00:00">11:43:18</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mru, not talking about arm</q></li>
+<li class="message">[<a href="#T11:43:39" id="T11:43:39"><abbr title="2013-04-24T11:43:39+00:00">11:43:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>mru but its nothing besides intel or samsung</q></li>
+<li class="message">[<a href="#T11:43:47" id="T11:43:47"><abbr title="2013-04-24T11:43:47+00:00">11:43:47</abbr></a>] &lt;<cite>panto</cite>&gt; <q>arm is doing great, but there's no manufacturing done in the .uk</q></li>
+<li class="message">[<a href="#T11:43:48" id="T11:43:48"><abbr title="2013-04-24T11:43:48+00:00">11:43:48</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>looking at the ebid</q></li>
+<li class="message">[<a href="#T11:43:57" id="T11:43:57"><abbr title="2013-04-24T11:43:57+00:00">11:43:57</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>i wasnt hear to talk about pi tho ;)</q></li>
+<li class="message">[<a href="#T11:44:01" id="T11:44:01"><abbr title="2013-04-24T11:44:01+00:00">11:44:01</abbr></a>] &lt;<cite>mru</cite>&gt; <q>samsung is a different kind of beast</q></li>
+<li class="message">[<a href="#T11:44:04" id="T11:44:04"><abbr title="2013-04-24T11:44:04+00:00">11:44:04</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>here</q></li>
+<li class="quit">[<a href="#T11:44:18" id="T11:44:18"><abbr title="2013-04-24T11:44:18+00:00">11:44:18</abbr></a>] <span>* beachbum_Bob (~chatzilla@71-218-19-1.hlrn.qwest.net) Quit (Quit: ChatZilla 0.9.90 [Firefox 20.0.1/20130409194949])</span></li>
+<li class="message">[<abbr title="2013-04-24T11:44:18+00:00">11:44:18</abbr>] &lt;<cite>av500</cite>&gt; <q>nikem: we will do the talking</q></li>
+<li class="message">[<a href="#T11:44:47" id="T11:44:47"><abbr title="2013-04-24T11:44:47+00:00">11:44:47</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>tiny arm boards must have a very bright future</q></li>
+<li class="message">[<a href="#T11:44:56" id="T11:44:56"><abbr title="2013-04-24T11:44:56+00:00">11:44:56</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>o.O</q></li>
+<li class="message">[<abbr title="2013-04-24T11:44:56+00:00">11:44:56</abbr>] &lt;<cite>nikem</cite>&gt; <q>VERY bright</q></li>
+<li class="message">[<a href="#T11:45:13" id="T11:45:13"><abbr title="2013-04-24T11:45:13+00:00">11:45:13</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>they have a very bright past in your phone already</q></li>
+<li class="message">[<a href="#T11:45:14" id="T11:45:14"><abbr title="2013-04-24T11:45:14+00:00">11:45:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>they have the future since 4 5 years</q></li>
+<li class="message">[<a href="#T11:45:18" id="T11:45:18"><abbr title="2013-04-24T11:45:18+00:00">11:45:18</abbr></a>] &lt;<cite>mru</cite>&gt; <q>tiny arm boards, aka phones</q></li>
+<li class="message">[<a href="#T11:45:44" id="T11:45:44"><abbr title="2013-04-24T11:45:44+00:00">11:45:44</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>i mean tiny arm boards that can be used by ppl like me</q></li>
+<li class="message">[<a href="#T11:45:54" id="T11:45:54"><abbr title="2013-04-24T11:45:54+00:00">11:45:54</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>you cant use your phone ?</q></li>
+<li class="message">[<a href="#T11:46:06" id="T11:46:06"><abbr title="2013-04-24T11:46:06+00:00">11:46:06</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>then your manufacturer surely sucks</q></li>
+<li class="message">[<a href="#T11:46:10" id="T11:46:10"><abbr title="2013-04-24T11:46:10+00:00">11:46:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you can't use a phone, the beagle is not for you</q></li>
+<li class="message">[<a href="#T11:46:16" id="T11:46:16"><abbr title="2013-04-24T11:46:16+00:00">11:46:16</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>i mean for building things</q></li>
+<li class="message">[<a href="#T11:46:47" id="T11:46:47"><abbr title="2013-04-24T11:46:47+00:00">11:46:47</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>instead of using x86 boxes</q></li>
+<li class="message">[<a href="#T11:46:49" id="T11:46:49"><abbr title="2013-04-24T11:46:49+00:00">11:46:49</abbr></a>] &lt;<cite>panto</cite>&gt; <q>nikem, ahem, there are people in this channel have been using tiny arm boards to build things for close to two decades :)</q></li>
+<li class="join">[<a href="#T11:46:57" id="T11:46:57"><abbr title="2013-04-24T11:46:57+00:00">11:46:57</abbr></a>] <span>* keso__ (~acet@173.228.39.9) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:47:10" id="T11:47:10"><abbr title="2013-04-24T11:47:10+00:00">11:47:10</abbr></a>] &lt;<cite>ogra_</cite>&gt; <q>or even phones (or phone boards)</q></li>
+<li class="message">[<a href="#T11:47:28" id="T11:47:28"><abbr title="2013-04-24T11:47:28+00:00">11:47:28</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>ok panto maybe I steps into a nest of aces :)</q></li>
+<li class="message">[<a href="#T11:47:37" id="T11:47:37"><abbr title="2013-04-24T11:47:37+00:00">11:47:37</abbr></a>] &lt;<cite>nikem</cite>&gt; <q>stepped</q></li>
+<li class="message">[<a href="#T11:47:55" id="T11:47:55"><abbr title="2013-04-24T11:47:55+00:00">11:47:55</abbr></a>] &lt;<cite>panto</cite>&gt; <q>the only difference is that you can do it now too as a hobbyist</q></li>
+<li class="message">[<a href="#T11:48:04" id="T11:48:04"><abbr title="2013-04-24T11:48:04+00:00">11:48:04</abbr></a>] &lt;<cite>panto</cite>&gt; <q>instead of having to be employed by a company to do it</q></li>
+<li class="message">[<a href="#T11:49:51" id="T11:49:51"><abbr title="2013-04-24T11:49:51+00:00">11:49:51</abbr></a>] &lt;<cite>keso__</cite>&gt; <q>anybody know how reliable the cycle timings are for reading host memory from the PRU?  I see a mentioned of 'stalled PRU cycles' in the datasheet.  Are there some circumstances where reading host memory takes longer than others?</q></li>
+<li class="message">[<a href="#T11:50:11" id="T11:50:11"><abbr title="2013-04-24T11:50:11+00:00">11:50:11</abbr></a>] &lt;<cite>mru</cite>&gt; <q>contention</q></li>
+<li class="quit">[<a href="#T11:50:27" id="T11:50:27"><abbr title="2013-04-24T11:50:27+00:00">11:50:27</abbr></a>] <span>* keso_ (ade42709@gateway/web/freenode/ip.173.228.39.9) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T11:50:31" id="T11:50:31"><abbr title="2013-04-24T11:50:31+00:00">11:50:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>constipation</q></li>
+<li class="message">[<a href="#T11:50:55" id="T11:50:55"><abbr title="2013-04-24T11:50:55+00:00">11:50:55</abbr></a>] &lt;<cite>panto</cite>&gt; <q>confirmation</q></li>
+<li class="message">[<a href="#T11:53:10" id="T11:53:10"><abbr title="2013-04-24T11:53:10+00:00">11:53:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q><a href="http://www.theregister.co.uk/2013/04/24/beagleboard_launches_black_board_computer/">http://www.theregister.co.uk/2013/04/24/beagleboard_launches_black_board_computer/</a></q></li>
+<li class="message">[<a href="#T11:53:19" id="T11:53:19"><abbr title="2013-04-24T11:53:19+00:00">11:53:19</abbr></a>] &lt;<cite>mru</cite>&gt; <q>"Black-eyed Pies"</q></li>
+<li class="message">[<a href="#T11:53:34" id="T11:53:34"><abbr title="2013-04-24T11:53:34+00:00">11:53:34</abbr></a>] &lt;<cite>koen</cite>&gt; <q>2 shades of grey</q></li>
+<li class="message">[<a href="#T11:54:20" id="T11:54:20"><abbr title="2013-04-24T11:54:20+00:00">11:54:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>blackbeard</q></li>
+<li class="message">[<a href="#T11:54:31" id="T11:54:31"><abbr title="2013-04-24T11:54:31+00:00">11:54:31</abbr></a>] &lt;<cite>panto</cite>&gt; <q>lol, @1st comment</q></li>
+<li class="message">[<a href="#T11:54:37" id="T11:54:37"><abbr title="2013-04-24T11:54:37+00:00">11:54:37</abbr></a>] &lt;<cite>panto</cite>&gt; <q>"The board has rounded corners</q></li>
+<li class="message">[<abbr title="2013-04-24T11:54:37+00:00">11:54:37</abbr>] &lt;<cite>panto</cite>&gt; <q>Surely that's just asking for a lawsuit."</q></li>
+<li class="message">[<a href="#T11:54:48" id="T11:54:48"><abbr title="2013-04-24T11:54:48+00:00">11:54:48</abbr></a>] &lt;<cite>koen</cite>&gt; <q>heh</q></li>
+<li class="message">[<a href="#T11:55:07" id="T11:55:07"><abbr title="2013-04-24T11:55:07+00:00">11:55:07</abbr></a>] &lt;<cite>mru</cite>&gt; <q>the comments on that article should make it clear there's no winning over rpi lies</q></li>
+<li class="message">[<a href="#T11:55:17" id="T11:55:17"><abbr title="2013-04-24T11:55:17+00:00">11:55:17</abbr></a>] &lt;<cite>koen</cite>&gt; <q>". And at the end of the day Cortex-A8 isn't *that* much faster than ARM1"</q></li>
+<li class="message">[<a href="#T11:55:24" id="T11:55:24"><abbr title="2013-04-24T11:55:24+00:00">11:55:24</abbr></a>] &lt;<cite>av500</cite>&gt; <q>...So you upgrade from ARM11 to Cortex-A8, lose about 15% of the clock speed and lose the GPU?...</q></li>
+<li class="message">[<a href="#T11:55:42" id="T11:55:42"><abbr title="2013-04-24T11:55:42+00:00">11:55:42</abbr></a>] &lt;<cite>panto</cite>&gt; <q>wtf</q></li>
+<li class="message">[<abbr title="2013-04-24T11:55:42+00:00">11:55:42</abbr>] &lt;<cite>mru</cite>&gt; <q>so 1GHz is 15% less than 700MHz?</q></li>
+<li class="message">[<a href="#T11:56:14" id="T11:56:14"><abbr title="2013-04-24T11:56:14+00:00">11:56:14</abbr></a>] &lt;<cite>teralaser</cite>&gt; <q>hehe</q></li>
+<li class="quit">[<a href="#T11:57:18" id="T11:57:18"><abbr title="2013-04-24T11:57:18+00:00">11:57:18</abbr></a>] <span>* babudec04 (cbbbfd72@gateway/web/freenode/ip.203.187.253.114) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T11:58:00" id="T11:58:00"><abbr title="2013-04-24T11:58:00+00:00">11:58:00</abbr></a>] &lt;<cite>koen</cite>&gt; <q>one comment even says the black has no video out</q></li>
+<li class="action">[<a href="#T11:58:17" id="T11:58:17"><abbr title="2013-04-24T11:58:17+00:00">11:58:17</abbr></a>] <span>* koen proposes to bitbang s-video</span></li>
+<li class="quit">[<a href="#T11:58:21" id="T11:58:21"><abbr title="2013-04-24T11:58:21+00:00">11:58:21</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T11:58:25" id="T11:58:25"><abbr title="2013-04-24T11:58:25+00:00">11:58:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>koen: can be done</q></li>
+<li class="message">[<a href="#T11:58:30" id="T11:58:30"><abbr title="2013-04-24T11:58:30+00:00">11:58:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>koen: svideo out is essential</q></li>
+<li class="message">[<a href="#T11:58:31" id="T11:58:31"><abbr title="2013-04-24T11:58:31+00:00">11:58:31</abbr></a>] &lt;<cite>panto</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T11:58:35" id="T11:58:35"><abbr title="2013-04-24T11:58:35+00:00">11:58:35</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>koen: s-video? why not go all the way to fbas?</q></li>
+<li class="message">[<a href="#T11:58:36" id="T11:58:36"><abbr title="2013-04-24T11:58:36+00:00">11:58:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>for poor uk kids to use the spare TV</q></li>
+<li class="message">[<a href="#T11:58:43" id="T11:58:43"><abbr title="2013-04-24T11:58:43+00:00">11:58:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and learn computering</q></li>
+<li class="join">[<a href="#T11:58:48" id="T11:58:48"><abbr title="2013-04-24T11:58:48+00:00">11:58:48</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:58:49" id="T11:58:49"><abbr title="2013-04-24T11:58:49+00:00">11:58:49</abbr></a>] &lt;<cite>panto</cite>&gt; <q>pfst, use the RF aerial input</q></li>
+<li class="message">[<a href="#T11:58:58" id="T11:58:58"><abbr title="2013-04-24T11:58:58+00:00">11:58:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
