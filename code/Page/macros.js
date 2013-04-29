@@ -25,7 +25,7 @@ function page_macro (param)
 
 function user_macro (param)
  {
-  return ("" + this.user);
+  return (("" + this.user).replace(/\@.*$/, ""));
  }
 
 function body_macro (param)
