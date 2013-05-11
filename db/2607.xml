@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2607" name="demo_readEDID" prototype="Page" created="1368238005879" lastModified="1368248374508">
+  <hopobject id="2607" name="demo_readEDID" prototype="Page" created="1368238005879" lastModified="1368248818971">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>demo_readEDID</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31</http_browser>
-    <time type="date">10.05.2013 23:59:34 CDT</time>
+    <time type="date">11.05.2013 00:06:58 CDT</time>
     <hopsession>127.0.0.68.40.243.douhpk9jwx4p</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
@@ -28,7 +28,7 @@
 &lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:300px;&quot;&gt;
 var b = require(&apos;bonescript&apos;);
 b.readTextFile(&apos;/proc/cmdline&apos;, printCmdline);
-b.shell(&apos;xxd /sys/class/drm/card0/card0-HDMI-A-1/edid &gt; /tmp/edid&apos;);
+b.shell(&apos;xxd /sys/class/drm/card0/card0-HDMI-A-1/edid &amp;gt; /tmp/edid&apos;);
 setTimeout(readEdid, 2000);
 function readEdid() {
     b.readTextFile(&apos;/tmp/edid&apos;, printEdid);
@@ -41,7 +41,15 @@ function printCmdline(x) {
 function printEdid(x) {
     console.log(&apos;EDID data:&apos;);
     if(x.err) console.log(&apos;Error: &apos; + x.err);
-    var mydata = x.data.replace(/^.*\:/g, &quot;&quot;).replace(/........$/g, &quot;&quot;);
+    var lines = x.data.split(&apos;\n&apos;);
+    var mydata = [];
+    for(var i = 0; i &amp;lt; lines.length; i++) {
+        var y = lines[i].split(&apos; &apos;);
+        for(var j = 1; j &amp;lt; y.length &amp;&amp; j &amp;lt; 9; j++) {
+            mydata.push(&apos;0x&apos; + y[j].substr(0,2));
+            mydata.push(&apos;0x&apos; + y[j].substr(2,2));
+        }
+    }
     console.log(mydata);
 }&lt;/pre&gt;
 
