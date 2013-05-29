@@ -1301,3 +1301,108 @@
 <li class="quit">[<a href="#T11:54:29" id="T11:54:29"><abbr title="2013-05-29T11:54:29+00:00">11:54:29</abbr></a>] <span>* javos (be88b3a1@gateway/web/freenode/ip.190.136.179.161) Quit (Quit: Page closed)</span></li>
 <li class="nick-change">[<a href="#T11:54:40" id="T11:54:40"><abbr title="2013-05-29T11:54:40+00:00">11:54:40</abbr></a>] <span>* Fusty|Away is now known as Fusty</span></li>
 <li class="quit">[<a href="#T11:55:13" id="T11:55:13"><abbr title="2013-05-29T11:55:13+00:00">11:55:13</abbr></a>] <span>* Crofton (~balister@pool-96-240-170-171.ronkva.east.verizon.net) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="message">[<a href="#T12:01:21" id="T12:01:21"><abbr title="2013-05-29T12:01:21+00:00">12:01:21</abbr></a>] &lt;<cite>mastiff_</cite>&gt; <q>cellardoor, try powering down and booting with the USB stick and see if it's recognized.</q></li>
+<li class="quit">[<a href="#T12:02:05" id="T12:02:05"><abbr title="2013-05-29T12:02:05+00:00">12:02:05</abbr></a>] <span>* babak (~babak@2.177.151.72) Quit (Quit: Nettalk6 - www.ntalk.de)</span></li>
+<li class="quit">[<a href="#T12:03:03" id="T12:03:03"><abbr title="2013-05-29T12:03:03+00:00">12:03:03</abbr></a>] <span>* tasslehoff (~tasslehof@145.79-161-31.customer.lyse.net) Quit (Quit: tasslehoff)</span></li>
+<li class="join">[<a href="#T12:04:20" id="T12:04:20"><abbr title="2013-05-29T12:04:20+00:00">12:04:20</abbr></a>] <span>* tasslehoff (~tasslehof@145.79-161-31.customer.lyse.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:06:14" id="T12:06:14"><abbr title="2013-05-29T12:06:14+00:00">12:06:14</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>in order to skip xloader and boot from u=boot, does it need to be named something diffeerent?</q></li>
+<li class="message">[<a href="#T12:06:25" id="T12:06:25"><abbr title="2013-05-29T12:06:25+00:00">12:06:25</abbr></a>] &lt;<cite>mru</cite>&gt; <q>hm?</q></li>
+<li class="message">[<a href="#T12:06:26" id="T12:06:26"><abbr title="2013-05-29T12:06:26+00:00">12:06:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>???</q></li>
+<li class="message">[<a href="#T12:06:34" id="T12:06:34"><abbr title="2013-05-29T12:06:34+00:00">12:06:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>name it MLO</q></li>
+<li class="message">[<a href="#T12:06:40" id="T12:06:40"><abbr title="2013-05-29T12:06:40+00:00">12:06:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>rom code boots nothing else</q></li>
+<li class="message">[<a href="#T12:06:43" id="T12:06:43"><abbr title="2013-05-29T12:06:43+00:00">12:06:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>from FAT</q></li>
+<li class="message">[<a href="#T12:06:46" id="T12:06:46"><abbr title="2013-05-29T12:06:46+00:00">12:06:46</abbr></a>] &lt;<cite>mru</cite>&gt; <q>it has to meet the size constraints though</q></li>
+<li class="message">[<a href="#T12:06:58" id="T12:06:58"><abbr title="2013-05-29T12:06:58+00:00">12:06:58</abbr></a>] &lt;<cite>mru</cite>&gt; <q>that's why the two-stage thing is there in the first place</q></li>
+<li class="message">[<a href="#T12:07:45" id="T12:07:45"><abbr title="2013-05-29T12:07:45+00:00">12:07:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if I ever write ROM code, I will only make it boot files called "something different"</q></li>
+<li class="message">[<a href="#T12:07:46" id="T12:07:46"><abbr title="2013-05-29T12:07:46+00:00">12:07:46</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>hmm, koen was suggesting I do that last night..what is the size constraint?</q></li>
+<li class="message">[<a href="#T12:08:01" id="T12:08:01"><abbr title="2013-05-29T12:08:01+00:00">12:08:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>54</q></li>
+<li class="message">[<a href="#T12:08:10" id="T12:08:10"><abbr title="2013-05-29T12:08:10+00:00">12:08:10</abbr></a>] &lt;<cite>mru</cite>&gt; <q>if you don't need all the bells and whistles of u-boot, you can build it in "falcon mode"</q></li>
+<li class="message">[<a href="#T12:08:11" id="T12:08:11"><abbr title="2013-05-29T12:08:11+00:00">12:08:11</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T12:08:25" id="T12:08:25"><abbr title="2013-05-29T12:08:25+00:00">12:08:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>not sure what base though</q></li>
+<li class="message">[<a href="#T12:08:26" id="T12:08:26"><abbr title="2013-05-29T12:08:26+00:00">12:08:26</abbr></a>] &lt;<cite>mru</cite>&gt; <q>this loads the kernel directly from spl (mlo)</q></li>
+<li class="message">[<a href="#T12:08:45" id="T12:08:45"><abbr title="2013-05-29T12:08:45+00:00">12:08:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and finishes the Kessel run first</q></li>
+<li class="message">[<a href="#T12:10:13" id="T12:10:13"><abbr title="2013-05-29T12:10:13+00:00">12:10:13</abbr></a>] &lt;<cite>koen</cite>&gt; <q>32k or something</q></li>
+<li class="action">[<a href="#T12:10:15" id="T12:10:15"><abbr title="2013-05-29T12:10:15+00:00">12:10:15</abbr></a>] <span>* koen forgets</span></li>
+<li class="message">[<a href="#T12:10:21" id="T12:10:21"><abbr title="2013-05-29T12:10:21+00:00">12:10:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>every TI socs changes sram size</q></li>
+<li class="message">[<a href="#T12:10:24" id="T12:10:24"><abbr title="2013-05-29T12:10:24+00:00">12:10:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>sounds likely</q></li>
+<li class="message">[<a href="#T12:10:39" id="T12:10:39"><abbr title="2013-05-29T12:10:39+00:00">12:10:39</abbr></a>] &lt;<cite>koen</cite>&gt; <q>some of them have 64k available</q></li>
+<li class="message">[<a href="#T12:10:51" id="T12:10:51"><abbr title="2013-05-29T12:10:51+00:00">12:10:51</abbr></a>] &lt;<cite>mru</cite>&gt; <q>mlo still needs some working space</q></li>
+<li class="message">[<a href="#T12:10:57" id="T12:10:57"><abbr title="2013-05-29T12:10:57+00:00">12:10:57</abbr></a>] &lt;<cite>mru</cite>&gt; <q>so you can't use it all for the code</q></li>
+<li class="message">[<a href="#T12:11:06" id="T12:11:06"><abbr title="2013-05-29T12:11:06+00:00">12:11:06</abbr></a>] &lt;<cite>koen</cite>&gt; <q>you can have a much larger "MLO" if you use if you use the config header</q></li>
+<li class="message">[<a href="#T12:11:10" id="T12:11:10"><abbr title="2013-05-29T12:11:10+00:00">12:11:10</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but that's cheating</q></li>
+<li class="message">[<a href="#T12:11:13" id="T12:11:13"><abbr title="2013-05-29T12:11:13+00:00">12:11:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: you can</q></li>
+<li class="message">[<a href="#T12:11:20" id="T12:11:20"><abbr title="2013-05-29T12:11:20+00:00">12:11:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if you make it enable sdram first</q></li>
+<li class="message">[<a href="#T12:11:25" id="T12:11:25"><abbr title="2013-05-29T12:11:25+00:00">12:11:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then copy itself there</q></li>
+<li class="action">[<a href="#T12:11:28" id="T12:11:28"><abbr title="2013-05-29T12:11:28+00:00">12:11:28</abbr></a>] <span>* koen can't write a normal sentence today</span></li>
+<li class="message">[<a href="#T12:11:33" id="T12:11:33"><abbr title="2013-05-29T12:11:33+00:00">12:11:33</abbr></a>] &lt;<cite>mru</cite>&gt; <q>av500: does u-boot spl do that?</q></li>
+<li class="message">[<a href="#T12:11:36" id="T12:11:36"><abbr title="2013-05-29T12:11:36+00:00">12:11:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>should work with only register access</q></li>
+<li class="message">[<a href="#T12:11:44" id="T12:11:44"><abbr title="2013-05-29T12:11:44+00:00">12:11:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: no, but you said MLO</q></li>
+<li class="message">[<a href="#T12:11:53" id="T12:11:53"><abbr title="2013-05-29T12:11:53+00:00">12:11:53</abbr></a>] &lt;<cite>mru</cite>&gt; <q>gah</q></li>
+<li class="message">[<a href="#T12:11:56" id="T12:11:56"><abbr title="2013-05-29T12:11:56+00:00">12:11:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T12:12:35" id="T12:12:35"><abbr title="2013-05-29T12:12:35+00:00">12:12:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I??m talking about the HRM, the hypothetical reference MLO</q></li>
+<li class="message">[<a href="#T12:12:38" id="T12:12:38"><abbr title="2013-05-29T12:12:38+00:00">12:12:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I'm</q></li>
+<li class="join">[<a href="#T12:12:45" id="T12:12:45"><abbr title="2013-05-29T12:12:45+00:00">12:12:45</abbr></a>] <span>* emilepetrone (~emilepetr@c-76-105-221-23.hsd1.or.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:13:00" id="T12:13:00"><abbr title="2013-05-29T12:13:00+00:00">12:13:00</abbr></a>] <span>* anujdeshpande (~anuj@59.99.244.28) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:13:34" id="T12:13:34"><abbr title="2013-05-29T12:13:34+00:00">12:13:34</abbr></a>] <span>* bradfa (~bradfa@173.225.52.244) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:14:00" id="T12:14:00"><abbr title="2013-05-29T12:14:00+00:00">12:14:00</abbr></a>] <span>* jrawson (~nameless@oubliette.cat.pdx.edu) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T12:14:11" id="T12:14:11"><abbr title="2013-05-29T12:14:11+00:00">12:14:11</abbr></a>] <span>* Crofton (~balister@63.164.30.17) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-05-29T12:14:11+00:00">12:14:11</abbr>] &lt;<cite>av500</cite>&gt; <q>koen: we dont talk about config headers here</q></li>
+<li class="join">[<a href="#T12:14:39" id="T12:14:39"><abbr title="2013-05-29T12:14:39+00:00">12:14:39</abbr></a>] <span>* quad0 (~quad0@bas1-montreal23-1096601783.dsl.bell.ca) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:15:15" id="T12:15:15"><abbr title="2013-05-29T12:15:15+00:00">12:15:15</abbr></a>] <span>* emilepetrone (~emilepetr@c-76-105-221-23.hsd1.or.comcast.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T12:17:40" id="T12:17:40"><abbr title="2013-05-29T12:17:40+00:00">12:17:40</abbr></a>] <span>* emilepetrone (~emilepetr@c-76-105-221-23.hsd1.or.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:18:03" id="T12:18:03"><abbr title="2013-05-29T12:18:03+00:00">12:18:03</abbr></a>] <span>* rawsonj (~nameless@oubliette.cat.pdx.edu) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:19:01" id="T12:19:01"><abbr title="2013-05-29T12:19:01+00:00">12:19:01</abbr></a>] <span>* Nemo_ (b210967a@gateway/web/freenode/ip.178.16.150.122) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="join">[<a href="#T12:22:04" id="T12:22:04"><abbr title="2013-05-29T12:22:04+00:00">12:22:04</abbr></a>] <span>* kfoltman (~kfoltman@gate.corvil.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:25:58" id="T12:25:58"><abbr title="2013-05-29T12:25:58+00:00">12:25:58</abbr></a>] <span>* MrMobius (~Joey@91.192.67.228) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:28:46" id="T12:28:46"><abbr title="2013-05-29T12:28:46+00:00">12:28:46</abbr></a>] <span>* MrM0bius (~Joey@91.192.67.228) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T12:31:35" id="T12:31:35"><abbr title="2013-05-29T12:31:35+00:00">12:31:35</abbr></a>] &lt;<cite>georgem</cite>&gt; <q>Kernel Oops isn't a good way to start the day. What have I screwed up now...</q></li>
+<li class="message">[<a href="#T12:32:14" id="T12:32:14"><abbr title="2013-05-29T12:32:14+00:00">12:32:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>all of it</q></li>
+<li class="message">[<a href="#T12:32:27" id="T12:32:27"><abbr title="2013-05-29T12:32:27+00:00">12:32:27</abbr></a>] &lt;<cite>georgem</cite>&gt; <q>yes, probably</q></li>
+<li class="message">[<a href="#T12:32:37" id="T12:32:37"><abbr title="2013-05-29T12:32:37+00:00">12:32:37</abbr></a>] &lt;<cite>georgem</cite>&gt; <q>delete it and start over with Windows CE instead</q></li>
+<li class="message">[<a href="#T12:32:44" id="T12:32:44"><abbr title="2013-05-29T12:32:44+00:00">12:32:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T12:33:08" id="T12:33:08"><abbr title="2013-05-29T12:33:08+00:00">12:33:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it will run your c# apps much better</q></li>
+<li class="message">[<a href="#T12:33:27" id="T12:33:27"><abbr title="2013-05-29T12:33:27+00:00">12:33:27</abbr></a>] &lt;<cite>av500</cite>&gt; <q>also, did you consider using ubuntu?</q></li>
+<li class="message">[<a href="#T12:33:37" id="T12:33:37"><abbr title="2013-05-29T12:33:37+00:00">12:33:37</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I heard unity is excellent</q></li>
+<li class="message">[<a href="#T12:33:48" id="T12:33:48"><abbr title="2013-05-29T12:33:48+00:00">12:33:48</abbr></a>] &lt;<cite>panto</cite>&gt; <q>not heavy at all</q></li>
+<li class="message">[<a href="#T12:33:53" id="T12:33:53"><abbr title="2013-05-29T12:33:53+00:00">12:33:53</abbr></a>] &lt;<cite>panto</cite>&gt; <q>just a tad</q></li>
+<li class="message">[<a href="#T12:33:56" id="T12:33:56"><abbr title="2013-05-29T12:33:56+00:00">12:33:56</abbr></a>] &lt;<cite>mru</cite>&gt; <q>trolls are out in full force today</q></li>
+<li class="message">[<a href="#T12:34:43" id="T12:34:43"><abbr title="2013-05-29T12:34:43+00:00">12:34:43</abbr></a>] &lt;<cite>georgem</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T12:35:05" id="T12:35:05"><abbr title="2013-05-29T12:35:05+00:00">12:35:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>mru: with the holiday tomorrow, we need to work twice as hard today</q></li>
+<li class="message">[<a href="#T12:35:21" id="T12:35:21"><abbr title="2013-05-29T12:35:21+00:00">12:35:21</abbr></a>] &lt;<cite>mru</cite>&gt; <q>holiday tomorrow?</q></li>
+<li class="quit">[<a href="#T12:35:23" id="T12:35:23"><abbr title="2013-05-29T12:35:23+00:00">12:35:23</abbr></a>] <span>* Amnience (~someone@89-212-51-216.static.t-2.net) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T12:35:24" id="T12:35:24"><abbr title="2013-05-29T12:35:24+00:00">12:35:24</abbr></a>] &lt;<cite>mru</cite>&gt; <q>trolliday?</q></li>
+<li class="message">[<a href="#T12:35:26" id="T12:35:26"><abbr title="2013-05-29T12:35:26+00:00">12:35:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="quit">[<a href="#T12:35:39" id="T12:35:39"><abbr title="2013-05-29T12:35:39+00:00">12:35:39</abbr></a>] <span>* tasslehoff (~tasslehof@145.79-161-31.customer.lyse.net) Quit (Quit: tasslehoff)</span></li>
+<li class="message">[<a href="#T12:35:48" id="T12:35:48"><abbr title="2013-05-29T12:35:48+00:00">12:35:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>"dead man on the cross meets the tooth fairy day" or so</q></li>
+<li class="message">[<a href="#T12:36:52" id="T12:36:52"><abbr title="2013-05-29T12:36:52+00:00">12:36:52</abbr></a>] &lt;<cite>georgem</cite>&gt; <q>must be systemd and all this new high high fahlootin' linux stuff. Lets port AT&amp;T unix to ARM instead :P</q></li>
+<li class="message">[<a href="#T12:37:06" id="T12:37:06"><abbr title="2013-05-29T12:37:06+00:00">12:37:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>+1</q></li>
+<li class="message">[<a href="#T12:37:22" id="T12:37:22"><abbr title="2013-05-29T12:37:22+00:00">12:37:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or the original klingon version</q></li>
+<li class="message">[<a href="#T12:37:43" id="T12:37:43"><abbr title="2013-05-29T12:37:43+00:00">12:37:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>where the only signal available was "kill"</q></li>
+<li class="message">[<a href="#T12:37:53" id="T12:37:53"><abbr title="2013-05-29T12:37:53+00:00">12:37:53</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>with shakespeare citations as error messages.</q></li>
+<li class="message">[<a href="#T12:38:37" id="T12:38:37"><abbr title="2013-05-29T12:38:37+00:00">12:38:37</abbr></a>] &lt;<cite>georgem</cite>&gt; <q>maybe the klingon version introduced killall?</q></li>
+<li class="message">[<a href="#T12:38:47" id="T12:38:47"><abbr title="2013-05-29T12:38:47+00:00">12:38:47</abbr></a>] &lt;<cite>mru</cite>&gt; <q>LetoThe2nd: EHORSE?</q></li>
+<li class="message">[<a href="#T12:39:07" id="T12:39:07"><abbr title="2013-05-29T12:39:07+00:00">12:39:07</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>ENOTTOBE</q></li>
+<li class="join">[<a href="#T12:39:33" id="T12:39:33"><abbr title="2013-05-29T12:39:33+00:00">12:39:33</abbr></a>] <span>* Nemo_ (b210967a@gateway/web/freenode/ip.178.16.150.122) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-05-29T12:39:33+00:00">12:39:33</abbr>] &lt;<cite>mru</cite>&gt; <q>ESPOT</q></li>
+<li class="message">[<a href="#T12:40:02" id="T12:40:02"><abbr title="2013-05-29T12:40:02+00:00">12:40:02</abbr></a>] &lt;<cite>mru</cite>&gt; <q>and of course, ECAULDRON</q></li>
+<li class="message">[<a href="#T12:40:05" id="T12:40:05"><abbr title="2013-05-29T12:40:05+00:00">12:40:05</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>EMACBETH :)</q></li>
+<li class="quit">[<a href="#T12:40:07" id="T12:40:07"><abbr title="2013-05-29T12:40:07+00:00">12:40:07</abbr></a>] <span>* cbrake (~cbrake@oh-67-76-203-50.sta.embarqhsd.net) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T12:41:26" id="T12:41:26"><abbr title="2013-05-29T12:41:26+00:00">12:41:26</abbr></a>] &lt;<cite>panto</cite>&gt; <q>-ENOKINGDOMORHORSE?</q></li>
+<li class="quit">[<a href="#T12:42:32" id="T12:42:32"><abbr title="2013-05-29T12:42:32+00:00">12:42:32</abbr></a>] <span>* thurgood (~thurgood@cpe-70-113-204-247.austin.res.rr.com) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T12:45:55" id="T12:45:55"><abbr title="2013-05-29T12:45:55+00:00">12:45:55</abbr></a>] <span>* cbrake (~cbrake@oh-67-76-203-50.sta.embarqhsd.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:46:42" id="T12:46:42"><abbr title="2013-05-29T12:46:42+00:00">12:46:42</abbr></a>] &lt;<cite>SpeedEvil</cite>&gt; <q>-EMOREPOWERFULTHANYOUCOULDPOSSIBLYIMAGINE</q></li>
+<li class="message">[<a href="#T12:46:45" id="T12:46:45"><abbr title="2013-05-29T12:46:45+00:00">12:46:45</abbr></a>] &lt;<cite>Guser</cite>&gt; <q>fiola, you there?</q></li>
+<li class="message">[<a href="#T12:47:50" id="T12:47:50"><abbr title="2013-05-29T12:47:50+00:00">12:47:50</abbr></a>] &lt;<cite>fiola</cite>&gt; <q>Yup.</q></li>
+<li class="message">[<a href="#T12:48:18" id="T12:48:18"><abbr title="2013-05-29T12:48:18+00:00">12:48:18</abbr></a>] &lt;<cite>georgem</cite>&gt; <q>Anyone happen to notice new versions of polkit require mozilla javascript libjs. *sigh*</q></li>
+<li class="message">[<a href="#T12:48:27" id="T12:48:27"><abbr title="2013-05-29T12:48:27+00:00">12:48:27</abbr></a>] &lt;<cite>Guser</cite>&gt; <q>did you write up about those kernel modules needed for the USB network? I think I'll do that now if you havn't</q></li>
+<li class="message">[<a href="#T12:49:07" id="T12:49:07"><abbr title="2013-05-29T12:49:07+00:00">12:49:07</abbr></a>] &lt;<cite>fiola</cite>&gt; <q>Not had a chance, no.  It was just the 3 I listed I think, unless you found more</q></li>
+<li class="message">[<a href="#T12:49:59" id="T12:49:59"><abbr title="2013-05-29T12:49:59+00:00">12:49:59</abbr></a>] &lt;<cite>Guser</cite>&gt; <q>I found one more I needed. quite tricky too. I added to many modules at the beggining and they can colide. I'll write a short wiki</q></li>
+<li class="message">[<a href="#T12:50:06" id="T12:50:06"><abbr title="2013-05-29T12:50:06+00:00">12:50:06</abbr></a>] &lt;<cite>Guser</cite>&gt; <q>*too</q></li>
+<li class="join">[<a href="#T12:50:38" id="T12:50:38"><abbr title="2013-05-29T12:50:38+00:00">12:50:38</abbr></a>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-05-29T12:50:38+00:00">12:50:38</abbr>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T12:50:41" id="T12:50:41"><abbr title="2013-05-29T12:50:41+00:00">12:50:41</abbr></a>] &lt;<cite>fiola</cite>&gt; <q>Oh, not come across any such issues.  Yeah, you'd better do it then.</q></li>
+<li class="quit">[<a href="#T12:51:55" id="T12:51:55"><abbr title="2013-05-29T12:51:55+00:00">12:51:55</abbr></a>] <span>* cellardoor (~cellardoo@unaffiliated/cellardoor) Quit (Quit: leaving)</span></li>
+<li class="join">[<a href="#T12:52:19" id="T12:52:19"><abbr title="2013-05-29T12:52:19+00:00">12:52:19</abbr></a>] <span>* hitlin37 (~hitlin37@145.107.10.2.mar.surfnet.utelisys.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T12:55:25" id="T12:55:25"><abbr title="2013-05-29T12:55:25+00:00">12:55:25</abbr></a>] <span>* thurgood (~thurgood@64.132.24.36) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:57:56" id="T12:57:56"><abbr title="2013-05-29T12:57:56+00:00">12:57:56</abbr></a>] &lt;<cite>panto</cite>&gt; <q>lunch</q></li>
+<li class="nick-change">[<a href="#T12:59:12" id="T12:59:12"><abbr title="2013-05-29T12:59:12+00:00">12:59:12</abbr></a>] <span>* rawsonj is now known as jrawson</span></li>
