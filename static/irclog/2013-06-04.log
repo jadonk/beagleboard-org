@@ -765,3 +765,231 @@
 <li class="message">[<a href="#T05:58:57" id="T05:58:57"><abbr title="2013-06-04T05:58:57+00:00">05:58:57</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>ill worry about the finer details later</q></li>
 <li class="action">[<abbr title="2013-06-04T05:58:57+00:00">05:58:57</abbr>] <span>* mranostay gets back to x86'ing all things</span></li>
 <li class="message">[<a href="#T05:59:03" id="T05:59:03"><abbr title="2013-06-04T05:59:03+00:00">05:59:03</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>kind of wingin' it here.</q></li>
+<li class="message">[<a href="#T06:00:32" id="T06:00:32"><abbr title="2013-06-04T06:00:32+00:00">06:00:32</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>I've got AIN and GPIO working with c/c++ in eclipse, so either going to move onto I2C, or get  see if I can get ubertooth working on BBB</q></li>
+<li class="message">[<a href="#T06:01:01" id="T06:01:01"><abbr title="2013-06-04T06:01:01+00:00">06:01:01</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>ive looked at the basic blinky stuff someone wrote a blog on it it all looks pretty simple</q></li>
+<li class="message">[<a href="#T06:01:10" id="T06:01:10"><abbr title="2013-06-04T06:01:10+00:00">06:01:10</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>using C and SYSFS</q></li>
+<li class="message">[<a href="#T06:01:17" id="T06:01:17"><abbr title="2013-06-04T06:01:17+00:00">06:01:17</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>simple unless it doesn't work hehe</q></li>
+<li class="message">[<a href="#T06:01:27" id="T06:01:27"><abbr title="2013-06-04T06:01:27+00:00">06:01:27</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>ive little doubt it'll work</q></li>
+<li class="message">[<a href="#T06:01:35" id="T06:01:35"><abbr title="2013-06-04T06:01:35+00:00">06:01:35</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>ive little doubt it wont work*</q></li>
+<li class="message">[<a href="#T06:01:38" id="T06:01:38"><abbr title="2013-06-04T06:01:38+00:00">06:01:38</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>double negative ;0</q></li>
+<li class="message">[<a href="#T06:02:16" id="T06:02:16"><abbr title="2013-06-04T06:02:16+00:00">06:02:16</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>it's all easy once you understand it</q></li>
+<li class="message">[<a href="#T06:04:07" id="T06:04:07"><abbr title="2013-06-04T06:04:07+00:00">06:04:07</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>well it worked</q></li>
+<li class="message">[<a href="#T06:04:42" id="T06:04:42"><abbr title="2013-06-04T06:04:42+00:00">06:04:42</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>root@arm:/home/william# cat /sys/devices/bone_capemgr*/slots</q></li>
+<li class="message">[<abbr title="2013-06-04T06:04:42+00:00">06:04:42</abbr>] &lt;<cite>m_billybob</cite>&gt; <q>...</q></li>
+<li class="message">[<a href="#T06:04:45" id="T06:04:45"><abbr title="2013-06-04T06:04:45+00:00">06:04:45</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q> 7: ff:P-O-L Override Board Name,00A0,Override Manuf,bone_pwm_P8_13</q></li>
+<li class="message">[<a href="#T06:05:16" id="T06:05:16"><abbr title="2013-06-04T06:05:16+00:00">06:05:16</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>so now, i need to figure out how to modify this to PWM one of the user leds</q></li>
+<li class="message">[<a href="#T06:05:27" id="T06:05:27"><abbr title="2013-06-04T06:05:27+00:00">06:05:27</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>assuming its possible</q></li>
+<li class="message">[<a href="#T06:05:40" id="T06:05:40"><abbr title="2013-06-04T06:05:40+00:00">06:05:40</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>i think it is but not exactly sure</q></li>
+<li class="message">[<a href="#T06:05:50" id="T06:05:50"><abbr title="2013-06-04T06:05:50+00:00">06:05:50</abbr></a>] &lt;<cite>kelvinji</cite>&gt; <q>On customize board , if the EMMC does not conncet the Reset Pin,   will it make no-booting ?</q></li>
+<li class="message">[<a href="#T06:06:32" id="T06:06:32"><abbr title="2013-06-04T06:06:32+00:00">06:06:32</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>soudns liek a question best left to either Gerald or teh TRM</q></li>
+<li class="message">[<a href="#T06:06:58" id="T06:06:58"><abbr title="2013-06-04T06:06:58+00:00">06:06:58</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>Check out the schematics, it might make sense from that.</q></li>
+<li class="message">[<a href="#T06:07:17" id="T06:07:17"><abbr title="2013-06-04T06:07:17+00:00">06:07:17</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>mranostay, an APK can contain native ARM code..</q></li>
+<li class="message">[<a href="#T06:07:38" id="T06:07:38"><abbr title="2013-06-04T06:07:38+00:00">06:07:38</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>rbarris: yes i know now</q></li>
+<li class="message">[<a href="#T06:07:44" id="T06:07:44"><abbr title="2013-06-04T06:07:44+00:00">06:07:44</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>oh cool</q></li>
+<li class="message">[<a href="#T06:07:49" id="T06:07:49"><abbr title="2013-06-04T06:07:49+00:00">06:07:49</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>just catching up on the scrollback</q></li>
+<li class="message">[<a href="#T06:07:51" id="T06:07:51"><abbr title="2013-06-04T06:07:51+00:00">06:07:51</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>forgot about the whole jni crazyness</q></li>
+<li class="message">[<a href="#T06:07:54" id="T06:07:54"><abbr title="2013-06-04T06:07:54+00:00">06:07:54</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>nuff said</q></li>
+<li class="message">[<a href="#T06:08:01" id="T06:08:01"><abbr title="2013-06-04T06:08:01+00:00">06:08:01</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>yeah NDK based apps etc</q></li>
+<li class="message">[<a href="#T06:08:22" id="T06:08:22"><abbr title="2013-06-04T06:08:22+00:00">06:08:22</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>point of the original question is how does atom handle the native arm code</q></li>
+<li class="message">[<a href="#T06:08:33" id="T06:08:33"><abbr title="2013-06-04T06:08:33+00:00">06:08:33</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>it doesnt.</q></li>
+<li class="message">[<abbr title="2013-06-04T06:08:33+00:00">06:08:33</abbr>] &lt;<cite>mranostay</cite>&gt; <q>it doesn't :)</q></li>
+<li class="message">[<a href="#T06:08:55" id="T06:08:55"><abbr title="2013-06-04T06:08:55+00:00">06:08:55</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>maybe the atom chip cannot, but Intel has the resources to do an ARM vm</q></li>
+<li class="message">[<a href="#T06:09:03" id="T06:09:03"><abbr title="2013-06-04T06:09:03+00:00">06:09:03</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>there is no way we are going to write an emulator for ARM :)</q></li>
+<li class="message">[<a href="#T06:09:06" id="T06:09:06"><abbr title="2013-06-04T06:09:06+00:00">06:09:06</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>qemu ?</q></li>
+<li class="quit">[<a href="#T06:09:09" id="T06:09:09"><abbr title="2013-06-04T06:09:09+00:00">06:09:09</abbr></a>] <span>* ruchika (~ruchika@192.91.66.186) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T06:09:15" id="T06:09:15"><abbr title="2013-06-04T06:09:15+00:00">06:09:15</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>oh is that the royal we</q></li>
+<li class="message">[<a href="#T06:09:20" id="T06:09:20"><abbr title="2013-06-04T06:09:20+00:00">06:09:20</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>i'm behind</q></li>
+<li class="message">[<a href="#T06:09:44" id="T06:09:44"><abbr title="2013-06-04T06:09:44+00:00">06:09:44</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>someones proud of his job</q></li>
+<li class="message">[<a href="#T06:09:47" id="T06:09:47"><abbr title="2013-06-04T06:09:47+00:00">06:09:47</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>id probably be too</q></li>
+<li class="message">[<a href="#T06:10:13" id="T06:10:13"><abbr title="2013-06-04T06:10:13+00:00">06:10:13</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>heh no i'm just saying</q></li>
+<li class="message">[<a href="#T06:10:17" id="T06:10:17"><abbr title="2013-06-04T06:10:17+00:00">06:10:17</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>except i cant stand to be confined in an office for long.</q></li>
+<li class="message">[<a href="#T06:10:23" id="T06:10:23"><abbr title="2013-06-04T06:10:23+00:00">06:10:23</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>hopefully APK will handle fat binaries gracefully..</q></li>
+<li class="message">[<a href="#T06:10:37" id="T06:10:37"><abbr title="2013-06-04T06:10:37+00:00">06:10:37</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>Molloy's vids are great instruction but the guy's an fing hypnontist, puts me to sleep every time.</q></li>
+<li class="message">[<a href="#T06:10:39" id="T06:10:39"><abbr title="2013-06-04T06:10:39+00:00">06:10:39</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>rbarris: that would be one way</q></li>
+<li class="message">[<a href="#T06:11:00" id="T06:11:00"><abbr title="2013-06-04T06:11:00+00:00">06:11:00</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mastiff: you need more good swiss chocolate</q></li>
+<li class="message">[<a href="#T06:11:13" id="T06:11:13"><abbr title="2013-06-04T06:11:13+00:00">06:11:13</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>or good swiss coffee ;)</q></li>
+<li class="message">[<a href="#T06:11:20" id="T06:11:20"><abbr title="2013-06-04T06:11:20+00:00">06:11:20</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>or a good nights JIHAD !</q></li>
+<li class="message">[<a href="#T06:11:22" id="T06:11:22"><abbr title="2013-06-04T06:11:22+00:00">06:11:22</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mastiff: especially the military stuff we call "notration" :)</q></li>
+<li class="action">[<a href="#T06:11:25" id="T06:11:25"><abbr title="2013-06-04T06:11:25+00:00">06:11:25</abbr></a>] <span>* m_billybob rolls eyes.</span></li>
+<li class="message">[<a href="#T06:11:39" id="T06:11:39"><abbr title="2013-06-04T06:11:39+00:00">06:11:39</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>there aint no good swiss coffee...</q></li>
+<li class="message">[<a href="#T06:11:45" id="T06:11:45"><abbr title="2013-06-04T06:11:45+00:00">06:11:45</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>no ?</q></li>
+<li class="message">[<a href="#T06:11:50" id="T06:11:50"><abbr title="2013-06-04T06:11:50+00:00">06:11:50</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>only good swiss coffee surugate</q></li>
+<li class="message">[<a href="#T06:11:59" id="T06:11:59"><abbr title="2013-06-04T06:11:59+00:00">06:11:59</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>tea ?</q></li>
+<li class="message">[<a href="#T06:12:10" id="T06:12:10"><abbr title="2013-06-04T06:12:10+00:00">06:12:10</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>my point is it easier to have apps have multiple 'versions' in the app store</q></li>
+<li class="message">[<a href="#T06:12:13" id="T06:12:13"><abbr title="2013-06-04T06:12:13+00:00">06:12:13</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>maybe I should change my allocation to only wine for soldering, and coffee for coding</q></li>
+<li class="message">[<a href="#T06:12:24" id="T06:12:24"><abbr title="2013-06-04T06:12:24+00:00">06:12:24</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>at the recent Google IO session on game development, their presenter asked the crowd how many of them wanted to use NDK (native code) for their games... they were amazed how many hands went up</q></li>
+<li class="message">[<a href="#T06:12:30" id="T06:12:30"><abbr title="2013-06-04T06:12:30+00:00">06:12:30</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>versus having an emulator translating instruction sets</q></li>
+<li class="message">[<a href="#T06:12:46" id="T06:12:46"><abbr title="2013-06-04T06:12:46+00:00">06:12:46</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>Ok so DT experts, will a dtbo load, if it somehow bad ?</q></li>
+<li class="join">[<a href="#T06:12:52" id="T06:12:52"><abbr title="2013-06-04T06:12:52+00:00">06:12:52</abbr></a>] <span>* _Sy_ (1f3494f1@gateway/web/freenode/ip.31.52.148.241) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:12:53" id="T06:12:53"><abbr title="2013-06-04T06:12:53+00:00">06:12:53</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>you lose any plus of having native code if you emulate</q></li>
+<li class="message">[<a href="#T06:12:56" id="T06:12:56"><abbr title="2013-06-04T06:12:56+00:00">06:12:56</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>if it is somehow bad*</q></li>
+<li class="message">[<a href="#T06:12:59" id="T06:12:59"><abbr title="2013-06-04T06:12:59+00:00">06:12:59</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mastiff: wine for coding is fine too...think of the ballmer peak</q></li>
+<li class="message">[<a href="#T06:13:02" id="T06:13:02"><abbr title="2013-06-04T06:13:02+00:00">06:13:02</abbr></a>] &lt;<cite>rbarris</cite>&gt; <q>since they had just finished rolling out their Java visual development suite, this particular crowd wasn't all thrilled with it.</q></li>
+<li class="message">[<a href="#T06:13:23" id="T06:13:23"><abbr title="2013-06-04T06:13:23+00:00">06:13:23</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>KotH: need a beer to enter that :P</q></li>
+<li class="message">[<a href="#T06:13:40" id="T06:13:40"><abbr title="2013-06-04T06:13:40+00:00">06:13:40</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: nah... ethanol, IV is good enough ;)</q></li>
+<li class="message">[<a href="#T06:13:50" id="T06:13:50"><abbr title="2013-06-04T06:13:50+00:00">06:13:50</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>Morning</q></li>
+<li class="message">[<a href="#T06:13:57" id="T06:13:57"><abbr title="2013-06-04T06:13:57+00:00">06:13:57</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>Another lovely day.</q></li>
+<li class="message">[<a href="#T06:14:03" id="T06:14:03"><abbr title="2013-06-04T06:14:03+00:00">06:14:03</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mranostay: and you can ensure that you do not pass the peak and create windows me ;)</q></li>
+<li class="message">[<a href="#T06:14:14" id="T06:14:14"><abbr title="2013-06-04T06:14:14+00:00">06:14:14</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>anyone tried bluetooth yet with BBB?</q></li>
+<li class="message">[<a href="#T06:14:15" id="T06:14:15"><abbr title="2013-06-04T06:14:15+00:00">06:14:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>a wonderfull JIHAD morning to you too, _Sy_</q></li>
+<li class="message">[<a href="#T06:14:27" id="T06:14:27"><abbr title="2013-06-04T06:14:27+00:00">06:14:27</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>i coudln't get my cheap ebay dongle working</q></li>
+<li class="message">[<a href="#T06:14:32" id="T06:14:32"><abbr title="2013-06-04T06:14:32+00:00">06:14:32</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>And to u :)</q></li>
+<li class="quit">[<a href="#T06:14:36" id="T06:14:36"><abbr title="2013-06-04T06:14:36+00:00">06:14:36</abbr></a>] <span>* sergiodj (~sergiodj@unaffiliated/sergiodj) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T06:15:11" id="T06:15:11"><abbr title="2013-06-04T06:15:11+00:00">06:15:11</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>switching to ubertooth</q></li>
+<li class="join">[<a href="#T06:15:16" id="T06:15:16"><abbr title="2013-06-04T06:15:16+00:00">06:15:16</abbr></a>] <span>* sergiodj (~sergiodj@unaffiliated/sergiodj) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T06:15:21" id="T06:15:21"><abbr title="2013-06-04T06:15:21+00:00">06:15:21</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>KotH: can you make bombs of chocolate?</q></li>
+<li class="message">[<a href="#T06:15:34" id="T06:15:34"><abbr title="2013-06-04T06:15:34+00:00">06:15:34</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>chocolate bombs !</q></li>
+<li class="message">[<a href="#T06:15:42" id="T06:15:42"><abbr title="2013-06-04T06:15:42+00:00">06:15:42</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>sure, nd they can be lethal too !</q></li>
+<li class="message">[<a href="#T06:16:02" id="T06:16:02"><abbr title="2013-06-04T06:16:02+00:00">06:16:02</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>just add dime sized ballbearings, and a 1/2 lb of C4</q></li>
+<li class="message">[<a href="#T06:16:29" id="T06:16:29"><abbr title="2013-06-04T06:16:29+00:00">06:16:29</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>chocolate ball bearings!</q></li>
+<li class="message">[<a href="#T06:17:02" id="T06:17:02"><abbr title="2013-06-04T06:17:02+00:00">06:17:02</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>you may laught lol i am but claymores thats essentially what they are. not dime sized ballbearings though smaller.</q></li>
+<li class="message">[<a href="#T06:17:20" id="T06:17:20"><abbr title="2013-06-04T06:17:20+00:00">06:17:20</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>1/4 lb C4 too</q></li>
+<li class="message">[<a href="#T06:17:25" id="T06:17:25"><abbr title="2013-06-04T06:17:25+00:00">06:17:25</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>Some system somewhere in the CIA is doing cartwheels picking up on all this chat on bombs and JIHAD...</q></li>
+<li class="message">[<a href="#T06:17:34" id="T06:17:34"><abbr title="2013-06-04T06:17:34+00:00">06:17:34</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T06:17:36" id="T06:17:36"><abbr title="2013-06-04T06:17:36+00:00">06:17:36</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>i wouldn't laugh if those went off near me :P</q></li>
+<li class="message">[<a href="#T06:17:51" id="T06:17:51"><abbr title="2013-06-04T06:17:51+00:00">06:17:51</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>mranostay, i dont think anyone would</q></li>
+<li class="join">[<a href="#T06:18:07" id="T06:18:07"><abbr title="2013-06-04T06:18:07+00:00">06:18:07</abbr></a>] <span>* koen (~koen@ip4da2a5ae.direct-adsl.nl) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-06-04T06:18:07+00:00">06:18:07</abbr>] &lt;<cite>mastiff</cite>&gt; <q>*inserted ubertooth into BBB</q></li>
+<li class="action">[<a href="#T06:18:16" id="T06:18:16"><abbr title="2013-06-04T06:18:16+00:00">06:18:16</abbr></a>] <span>* mranostay blames the dutch</span></li>
+<li class="message">[<a href="#T06:19:00" id="T06:19:00"><abbr title="2013-06-04T06:19:00+00:00">06:19:00</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>_Sy_, yeah you're probably right time to tone it down lol</q></li>
+<li class="join">[<a href="#T06:19:02" id="T06:19:02"><abbr title="2013-06-04T06:19:02+00:00">06:19:02</abbr></a>] <span>* rob_w (~bob@unaffiliated/rob-w/x-1112029) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:19:21" id="T06:19:21"><abbr title="2013-06-04T06:19:21+00:00">06:19:21</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>Device 002 appears</q></li>
+<li class="message">[<a href="#T06:20:12" id="T06:20:12"><abbr title="2013-06-04T06:20:12+00:00">06:20:12</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>KotH is the one going to gitmo</q></li>
+<li class="message">[<a href="#T06:20:13" id="T06:20:13"><abbr title="2013-06-04T06:20:13+00:00">06:20:13</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>I have plans for making automatic weapons for sale.  Please buy them.</q></li>
+<li class="message">[<a href="#T06:20:27" id="T06:20:27"><abbr title="2013-06-04T06:20:27+00:00">06:20:27</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>You can find them for free on the interweb.</q></li>
+<li class="message">[<a href="#T06:20:29" id="T06:20:29"><abbr title="2013-06-04T06:20:29+00:00">06:20:29</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>don't! IT IS A TRAP!</q></li>
+<li class="message">[<a href="#T06:20:36" id="T06:20:36"><abbr title="2013-06-04T06:20:36+00:00">06:20:36</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>But I will sell them to you if you want.</q></li>
+<li class="message">[<a href="#T06:21:16" id="T06:21:16"><abbr title="2013-06-04T06:21:16+00:00">06:21:16</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>only asking nicely if you do ok</q></li>
+<li class="message">[<a href="#T06:21:24" id="T06:21:24"><abbr title="2013-06-04T06:21:24+00:00">06:21:24</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>lol maybe</q></li>
+<li class="message">[<a href="#T06:21:26" id="T06:21:26"><abbr title="2013-06-04T06:21:26+00:00">06:21:26</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>really what would i do with an automatic weapon ?</q></li>
+<li class="message">[<a href="#T06:21:37" id="T06:21:37"><abbr title="2013-06-04T06:21:37+00:00">06:21:37</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>auto is dumbe</q></li>
+<li class="message">[<a href="#T06:21:40" id="T06:21:40"><abbr title="2013-06-04T06:21:40+00:00">06:21:40</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>semi yay</q></li>
+<li class="message">[<a href="#T06:21:57" id="T06:21:57"><abbr title="2013-06-04T06:21:57+00:00">06:21:57</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>ive fired enough in the military to know they only serve one purpose.</q></li>
+<li class="message">[<a href="#T06:22:05" id="T06:22:05"><abbr title="2013-06-04T06:22:05+00:00">06:22:05</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>anyways you don't need it until you do</q></li>
+<li class="message">[<a href="#T06:22:15" id="T06:22:15"><abbr title="2013-06-04T06:22:15+00:00">06:22:15</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>like a lot of software</q></li>
+<li class="message">[<a href="#T06:22:17" id="T06:22:17"><abbr title="2013-06-04T06:22:17+00:00">06:22:17</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>they're used to cut trees in half at teh firering range ;)</q></li>
+<li class="message">[<a href="#T06:22:24" id="T06:22:24"><abbr title="2013-06-04T06:22:24+00:00">06:22:24</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>better to have in case you need</q></li>
+<li class="action">[<a href="#T06:22:31" id="T06:22:31"><abbr title="2013-06-04T06:22:31+00:00">06:22:31</abbr></a>] <span>* m_billybob was a 60 gunner at one point</span></li>
+<li class="message">[<a href="#T06:22:39" id="T06:22:39"><abbr title="2013-06-04T06:22:39+00:00">06:22:39</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>m_billybob: 3 round burst on the other hand is useful :P</q></li>
+<li class="message">[<a href="#T06:22:49" id="T06:22:49"><abbr title="2013-06-04T06:22:49+00:00">06:22:49</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>full auto is good for SAW</q></li>
+<li class="message">[<a href="#T06:23:00" id="T06:23:00"><abbr title="2013-06-04T06:23:00+00:00">06:23:00</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>full auto only good for zombies</q></li>
+<li class="join">[<a href="#T06:23:01" id="T06:23:01"><abbr title="2013-06-04T06:23:01+00:00">06:23:01</abbr></a>] <span>* NulL (~bleh1@46.226.186.151) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:23:18" id="T06:23:18"><abbr title="2013-06-04T06:23:18+00:00">06:23:18</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>same dittio</q></li>
+<li class="message">[<a href="#T06:23:23" id="T06:23:23"><abbr title="2013-06-04T06:23:23+00:00">06:23:23</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>full only for video games :)</q></li>
+<li class="nick-change">[<a href="#T06:23:25" id="T06:23:25"><abbr title="2013-06-04T06:23:25+00:00">06:23:25</abbr></a>] <span>* NulL is now known as Guest55063</span></li>
+<li class="message">[<a href="#T06:23:37" id="T06:23:37"><abbr title="2013-06-04T06:23:37+00:00">06:23:37</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>mranostay 2 round is better.</q></li>
+<li class="message">[<a href="#T06:23:42" id="T06:23:42"><abbr title="2013-06-04T06:23:42+00:00">06:23:42</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>full auto only if you don't carry your own ammo</q></li>
+<li class="message">[<a href="#T06:23:53" id="T06:23:53"><abbr title="2013-06-04T06:23:53+00:00">06:23:53</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>3 rd rond spread is almost always too far off</q></li>
+<li class="message">[<a href="#T06:24:02" id="T06:24:02"><abbr title="2013-06-04T06:24:02+00:00">06:24:02</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>round*</q></li>
+<li class="message">[<a href="#T06:24:19" id="T06:24:19"><abbr title="2013-06-04T06:24:19+00:00">06:24:19</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>now if you are the tail gunner on a train, now full auto would be appropriate</q></li>
+<li class="message">[<a href="#T06:24:22" id="T06:24:22"><abbr title="2013-06-04T06:24:22+00:00">06:24:22</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>anyhow. nuff of that</q></li>
+<li class="message">[<a href="#T06:24:48" id="T06:24:48"><abbr title="2013-06-04T06:24:48+00:00">06:24:48</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>Breakfast time....then pick up son and long drive home...</q></li>
+<li class="message">[<a href="#T06:25:37" id="T06:25:37"><abbr title="2013-06-04T06:25:37+00:00">06:25:37</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>mastiff or full auto is necessity for water guns ;)</q></li>
+<li class="message">[<a href="#T06:26:10" id="T06:26:10"><abbr title="2013-06-04T06:26:10+00:00">06:26:10</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>lol, I always favored water ballons over water guns</q></li>
+<li class="quit">[<a href="#T06:26:20" id="T06:26:20"><abbr title="2013-06-04T06:26:20+00:00">06:26:20</abbr></a>] <span>* _Sy_ (1f3494f1@gateway/web/freenode/ip.31.52.148.241) Quit (Quit: cya)</span></li>
+<li class="message">[<a href="#T06:26:29" id="T06:26:29"><abbr title="2013-06-04T06:26:29+00:00">06:26:29</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>brings a new meaning to the phrase "spray your target"</q></li>
+<li class="message">[<a href="#T06:27:24" id="T06:27:24"><abbr title="2013-06-04T06:27:24+00:00">06:27:24</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>random question, how many people have been arrested for hacking China???</q></li>
+<li class="message">[<abbr title="2013-06-04T06:27:24+00:00">06:27:24</abbr>] &lt;<cite>m_billybob</cite>&gt; <q>ah man now i actually have to read a pin out chart</q></li>
+<li class="message">[<a href="#T06:27:27" id="T06:27:27"><abbr title="2013-06-04T06:27:27+00:00">06:27:27</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>zero?</q></li>
+<li class="message">[<a href="#T06:27:34" id="T06:27:34"><abbr title="2013-06-04T06:27:34+00:00">06:27:34</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>was having so much fun messing with code</q></li>
+<li class="message">[<a href="#T06:28:43" id="T06:28:43"><abbr title="2013-06-04T06:28:43+00:00">06:28:43</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>testing pins with their default function has been easier than messing with DT</q></li>
+<li class="message">[<a href="#T06:29:29" id="T06:29:29"><abbr title="2013-06-04T06:29:29+00:00">06:29:29</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>I have to eventually write an overlay that configures every_single_pin on the bbb</q></li>
+<li class="join">[<a href="#T06:29:50" id="T06:29:50"><abbr title="2013-06-04T06:29:50+00:00">06:29:50</abbr></a>] <span>* eFfeM (c0c6972c@gateway/web/freenode/ip.192.198.151.44) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:29:52" id="T06:29:52"><abbr title="2013-06-04T06:29:52+00:00">06:29:52</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>well minus emmc</q></li>
+<li class="message">[<a href="#T06:30:24" id="T06:30:24"><abbr title="2013-06-04T06:30:24+00:00">06:30:24</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>just want to verify workin uart, i2c and spi next, then start integrating the sensors I have working with arduinos, or have arduions send bluetooth data after I get BT working on BBB</q></li>
+<li class="message">[<a href="#T06:30:34" id="T06:30:34"><abbr title="2013-06-04T06:30:34+00:00">06:30:34</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>we're suing every possible pin out though, and may even have to do some external muxing</q></li>
+<li class="message">[<a href="#T06:30:38" id="T06:30:38"><abbr title="2013-06-04T06:30:38+00:00">06:30:38</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>using*</q></li>
+<li class="join">[<a href="#T06:30:40" id="T06:30:40"><abbr title="2013-06-04T06:30:40+00:00">06:30:40</abbr></a>] <span>* Russ (~russ@ip70-190-155-1.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="part">[<a href="#T06:31:22" id="T06:31:22"><abbr title="2013-06-04T06:31:22+00:00">06:31:22</abbr></a>] <span>* eFfeM (c0c6972c@gateway/web/freenode/ip.192.198.151.44) has left #beagle</span></li>
+<li class="quit">[<a href="#T06:31:53" id="T06:31:53"><abbr title="2013-06-04T06:31:53+00:00">06:31:53</abbr></a>] <span>* emilepetrone (~emilepetr@c-76-105-221-23.hsd1.or.comcast.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T06:32:20" id="T06:32:20"><abbr title="2013-06-04T06:32:20+00:00">06:32:20</abbr></a>] &lt;<cite>panto</cite>&gt; <q>morning</q></li>
+<li class="message">[<a href="#T06:32:34" id="T06:32:34"><abbr title="2013-06-04T06:32:34+00:00">06:32:34</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>was reading a blog last night someone testing PWM though it was kind of funny, the text went something like "ok 1Khz signal good, so now im moving on to 10Mhz . . . wow signal all over the place, PWM on the bbb may need work . . .</q></li>
+<li class="message">[<a href="#T06:33:22" id="T06:33:22"><abbr title="2013-06-04T06:33:22+00:00">06:33:22</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>10Mhz PWM . . . yeah id be very surprise if the bbb could deal with 2Mhz</q></li>
+<li class="message">[<a href="#T06:35:15" id="T06:35:15"><abbr title="2013-06-04T06:35:15+00:00">06:35:15</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>the Picolo c2000 with dedicated CLA can barely deal with 8bit 2Mhz PWM</q></li>
+<li class="message">[<a href="#T06:35:38" id="T06:35:38"><abbr title="2013-06-04T06:35:38+00:00">06:35:38</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>oh, so TI hypes overly&gt;</q></li>
+<li class="message">[<a href="#T06:35:47" id="T06:35:47"><abbr title="2013-06-04T06:35:47+00:00">06:35:47</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T06:36:07" id="T06:36:07"><abbr title="2013-06-04T06:36:07+00:00">06:36:07</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>what is the PWM supposed to be much better ?</q></li>
+<li class="message">[<a href="#T06:36:08" id="T06:36:08"><abbr title="2013-06-04T06:36:08+00:00">06:36:08</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>non specific question</q></li>
+<li class="message">[<a href="#T06:36:21" id="T06:36:21"><abbr title="2013-06-04T06:36:21+00:00">06:36:21</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>no i have no idea on the bbb's PWM specs</q></li>
+<li class="message">[<a href="#T06:36:22" id="T06:36:22"><abbr title="2013-06-04T06:36:22+00:00">06:36:22</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it depends on the clock you feed it</q></li>
+<li class="message">[<a href="#T06:36:31" id="T06:36:31"><abbr title="2013-06-04T06:36:31+00:00">06:36:31</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I'm sure it could do MHz</q></li>
+<li class="message">[<a href="#T06:36:39" id="T06:36:39"><abbr title="2013-06-04T06:36:39+00:00">06:36:39</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>external clocking ablity is good</q></li>
+<li class="message">[<a href="#T06:36:40" id="T06:36:40"><abbr title="2013-06-04T06:36:40+00:00">06:36:40</abbr></a>] &lt;<cite>panto</cite>&gt; <q>but there are two different PWM blocks</q></li>
+<li class="message">[<a href="#T06:36:55" id="T06:36:55"><abbr title="2013-06-04T06:36:55+00:00">06:36:55</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>just saying 10Mhz PWM is pretty insane i would not expect the bbb to be able to cope with a PWM that fast</q></li>
+<li class="message">[<a href="#T06:36:58" id="T06:36:58"><abbr title="2013-06-04T06:36:58+00:00">06:36:58</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>panto, the ehrpwm?</q></li>
+<li class="message">[<a href="#T06:37:06" id="T06:37:06"><abbr title="2013-06-04T06:37:06+00:00">06:37:06</abbr></a>] &lt;<cite>panto</cite>&gt; <q>yes</q></li>
+<li class="join">[<a href="#T06:37:14" id="T06:37:14"><abbr title="2013-06-04T06:37:14+00:00">06:37:14</abbr></a>] <span>* vvu|Mobile (~AndChat43@89.122.118.140) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:37:16" id="T06:37:16"><abbr title="2013-06-04T06:37:16+00:00">06:37:16</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>panto, I've used it at 1 MHz to drive the 6502 cpu</q></li>
+<li class="message">[<a href="#T06:37:24" id="T06:37:24"><abbr title="2013-06-04T06:37:24+00:00">06:37:24</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T06:37:25" id="T06:37:25"><abbr title="2013-06-04T06:37:25+00:00">06:37:25</abbr></a>] &lt;<cite>panto</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T06:37:27" id="T06:37:27"><abbr title="2013-06-04T06:37:27+00:00">06:37:27</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>and higher, though I forget exactly where</q></li>
+<li class="message">[<a href="#T06:37:36" id="T06:37:36"><abbr title="2013-06-04T06:37:36+00:00">06:37:36</abbr></a>] &lt;<cite>panto</cite>&gt; <q>dunno 10MHz maybe is pushing it</q></li>
+<li class="message">[<a href="#T06:37:59" id="T06:37:59"><abbr title="2013-06-04T06:37:59+00:00">06:37:59</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I think I tried 4 or so, can't recall if I tried to max my WDC 6502 to the full speed</q></li>
+<li class="message">[<a href="#T06:38:02" id="T06:38:02"><abbr title="2013-06-04T06:38:02+00:00">06:38:02</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>panto: greek dude</q></li>
+<li class="message">[<a href="#T06:38:09" id="T06:38:09"><abbr title="2013-06-04T06:38:09+00:00">06:38:09</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>yeah well, I wanna plug a hackRF into the BBB for marine radio use and hackRF has 20MS/s,</q></li>
+<li class="message">[<a href="#T06:38:14" id="T06:38:14"><abbr title="2013-06-04T06:38:14+00:00">06:38:14</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>wasn't really my objective since I couldn't decode bus cycles that fast with the pru anyway</q></li>
+<li class="message">[<a href="#T06:38:24" id="T06:38:24"><abbr title="2013-06-04T06:38:24+00:00">06:38:24</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>usb high speed?</q></li>
+<li class="message">[<a href="#T06:38:29" id="T06:38:29"><abbr title="2013-06-04T06:38:29+00:00">06:38:29</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>anyway, off to bed...crazy left coast time :(</q></li>
+<li class="message">[<a href="#T06:38:34" id="T06:38:34"><abbr title="2013-06-04T06:38:34+00:00">06:38:34</abbr></a>] &lt;<cite>panto</cite>&gt; <q>cya mdp</q></li>
+<li class="message">[<a href="#T06:38:49" id="T06:38:49"><abbr title="2013-06-04T06:38:49+00:00">06:38:49</abbr></a>] &lt;<cite>panto</cite>&gt; <q>hi intel selloff</q></li>
+<li class="message">[<a href="#T06:39:01" id="T06:39:01"><abbr title="2013-06-04T06:39:01+00:00">06:39:01</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>now with PRU i wonder how fast that could go with PWM</q></li>
+<li class="message">[<a href="#T06:39:03" id="T06:39:03"><abbr title="2013-06-04T06:39:03+00:00">06:39:03</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>samsung buy intel yay</q></li>
+<li class="message">[<a href="#T06:39:20" id="T06:39:20"><abbr title="2013-06-04T06:39:20+00:00">06:39:20</abbr></a>] &lt;<cite>panto</cite>&gt; <q>m_billybob, you could do 10MHz</q></li>
+<li class="message">[<a href="#T06:39:27" id="T06:39:27"><abbr title="2013-06-04T06:39:27+00:00">06:39:27</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I don't know what the accuracy would be</q></li>
+<li class="message">[<a href="#T06:39:50" id="T06:39:50"><abbr title="2013-06-04T06:39:50+00:00">06:39:50</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>as oin resolution ?</q></li>
+<li class="message">[<a href="#T06:39:52" id="T06:39:52"><abbr title="2013-06-04T06:39:52+00:00">06:39:52</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>in*</q></li>
+<li class="message">[<a href="#T06:39:55" id="T06:39:55"><abbr title="2013-06-04T06:39:55+00:00">06:39:55</abbr></a>] &lt;<cite>panto</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T06:39:59" id="T06:39:59"><abbr title="2013-06-04T06:39:59+00:00">06:39:59</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>i forget the math on PWM</q></li>
+<li class="message">[<a href="#T06:40:09" id="T06:40:09"><abbr title="2013-06-04T06:40:09+00:00">06:40:09</abbr></a>] &lt;<cite>panto</cite>&gt; <q>you might do even higher for fixed ratios</q></li>
+<li class="message">[<a href="#T06:40:20" id="T06:40:20"><abbr title="2013-06-04T06:40:20+00:00">06:40:20</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>panto: it is sellout thank you</q></li>
+<li class="message">[<a href="#T06:40:24" id="T06:40:24"><abbr title="2013-06-04T06:40:24+00:00">06:40:24</abbr></a>] &lt;<cite>panto</cite>&gt; <q>i.e. only 0,25,50,75% etc</q></li>
+<li class="message">[<a href="#T06:40:36" id="T06:40:36"><abbr title="2013-06-04T06:40:36+00:00">06:40:36</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T06:40:37" id="T06:40:37"><abbr title="2013-06-04T06:40:37+00:00">06:40:37</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mranostay, sell-off, cause you were a bargain</q></li>
+<li class="message">[<a href="#T06:40:43" id="T06:40:43"><abbr title="2013-06-04T06:40:43+00:00">06:40:43</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>is USB the fastest way to get data into the BB&gt;</q></li>
+<li class="message">[<a href="#T06:40:54" id="T06:40:54"><abbr title="2013-06-04T06:40:54+00:00">06:40:54</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mastiff, err, no</q></li>
+<li class="message">[<a href="#T06:41:18" id="T06:41:18"><abbr title="2013-06-04T06:41:18+00:00">06:41:18</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>cant be ethernet is it ?</q></li>
+<li class="message">[<abbr title="2013-06-04T06:41:18+00:00">06:41:18</abbr>] &lt;<cite>mastiff</cite>&gt; <q>say you have a fast peripheral</q></li>
+<li class="message">[<a href="#T06:41:21" id="T06:41:21"><abbr title="2013-06-04T06:41:21+00:00">06:41:21</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>panto: ouch</q></li>
+<li class="message">[<a href="#T06:41:28" id="T06:41:28"><abbr title="2013-06-04T06:41:28+00:00">06:41:28</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>like usb scope</q></li>
+<li class="message">[<a href="#T06:41:36" id="T06:41:36"><abbr title="2013-06-04T06:41:36+00:00">06:41:36</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>well as it stands</q></li>
+<li class="message">[<a href="#T06:42:10" id="T06:42:10"><abbr title="2013-06-04T06:42:10+00:00">06:42:10</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>sorry if dumb question.....</q></li>
+<li class="message">[<a href="#T06:42:17" id="T06:42:17"><abbr title="2013-06-04T06:42:17+00:00">06:42:17</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>mastiff, SPI can be pretty quick, dont know if it could cocmpare to USB though</q></li>
+<li class="message">[<a href="#T06:42:44" id="T06:42:44"><abbr title="2013-06-04T06:42:44+00:00">06:42:44</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>well bbb says specs say hi speed usb</q></li>
+<li class="message">[<a href="#T06:43:41" id="T06:43:41"><abbr title="2013-06-04T06:43:41+00:00">06:43:41</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>yeah that doesnt always mean much</q></li>
+<li class="message">[<a href="#T06:43:48" id="T06:43:48"><abbr title="2013-06-04T06:43:48+00:00">06:43:48</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>it for sure can't</q></li>
+<li class="message">[<a href="#T06:44:11" id="T06:44:11"><abbr title="2013-06-04T06:44:11+00:00">06:44:11</abbr></a>] &lt;<cite>mranostay</cite>&gt; <q>USB is differential signaling</q></li>
+<li class="message">[<a href="#T06:44:29" id="T06:44:29"><abbr title="2013-06-04T06:44:29+00:00">06:44:29</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>with what ? 8/10 bit encoding ??</q></li>
+<li class="message">[<a href="#T06:45:43" id="T06:45:43"><abbr title="2013-06-04T06:45:43+00:00">06:45:43</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>not sure, hi speed usb specs are fast though</q></li>
+<li class="message">[<a href="#T06:46:04" id="T06:46:04"><abbr title="2013-06-04T06:46:04+00:00">06:46:04</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>usb 3.0 is uberspeeeeeed</q></li>
+<li class="message">[<a href="#T06:46:31" id="T06:46:31"><abbr title="2013-06-04T06:46:31+00:00">06:46:31</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>its ok but i bet firewireb would blow it out of the water.</q></li>
+<li class="message">[<a href="#T06:47:20" id="T06:47:20"><abbr title="2013-06-04T06:47:20+00:00">06:47:20</abbr></a>] &lt;<cite>panto</cite>&gt; <q>usb physical layer may be fast, but the s/w overhead is pretty bad</q></li>
+<li class="message">[<a href="#T06:47:35" id="T06:47:35"><abbr title="2013-06-04T06:47:35+00:00">06:47:35</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>I have usb 3.0 here now and an external drive. its pretty fast, but still seems somewhat lacking</q></li>
+<li class="quit">[<a href="#T06:47:43" id="T06:47:43"><abbr title="2013-06-04T06:47:43+00:00">06:47:43</abbr></a>] <span>* vvu|Mobile (~AndChat43@89.122.118.140) Quit (Quit: Bye)</span></li>
+<li class="message">[<a href="#T06:47:45" id="T06:47:45"><abbr title="2013-06-04T06:47:45+00:00">06:47:45</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>all sorts of different apps though</q></li>
+<li class="join">[<a href="#T06:48:01" id="T06:48:01"><abbr title="2013-06-04T06:48:01+00:00">06:48:01</abbr></a>] <span>* vvu|Mobile (~AndChat43@89.122.118.140) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:48:27" id="T06:48:27"><abbr title="2013-06-04T06:48:27+00:00">06:48:27</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>mastiff, when it comes down to it, my usb3.0 drive is actually faster when accessed over our network using GbE</q></li>
+<li class="message">[<a href="#T06:48:41" id="T06:48:41"><abbr title="2013-06-04T06:48:41+00:00">06:48:41</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>i believe it</q></li>
+<li class="message">[<a href="#T06:48:59" id="T06:48:59"><abbr title="2013-06-04T06:48:59+00:00">06:48:59</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>meaning the machine its plugged into cant access it as fast as another machine that can see it shared</q></li>
+<li class="message">[<a href="#T06:49:04" id="T06:49:04"><abbr title="2013-06-04T06:49:04+00:00">06:49:04</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>my usb 3.0 hd is faster, but not to claimed specs</q></li>
+<li class="message">[<a href="#T06:49:38" id="T06:49:38"><abbr title="2013-06-04T06:49:38+00:00">06:49:38</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>whats teh average speed it gives you ?</q></li>
+<li class="message">[<a href="#T06:49:47" id="T06:49:47"><abbr title="2013-06-04T06:49:47+00:00">06:49:47</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>i average around 60MB/s usually</q></li>
+<li class="message">[<a href="#T06:49:57" id="T06:49:57"><abbr title="2013-06-04T06:49:57+00:00">06:49:57</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>85MB/s over the network at times</q></li>
+<li class="message">[<a href="#T06:50:07" id="T06:50:07"><abbr title="2013-06-04T06:50:07+00:00">06:50:07</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>that's not bad</q></li>
+<li class="message">[<a href="#T06:50:29" id="T06:50:29"><abbr title="2013-06-04T06:50:29+00:00">06:50:29</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>way better than USB2</q></li>
+<li class="message">[<a href="#T06:50:37" id="T06:50:37"><abbr title="2013-06-04T06:50:37+00:00">06:50:37</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>times bits you got almost 1/2 gig</q></li>
+<li class="message">[<a href="#T06:50:50" id="T06:50:50"><abbr title="2013-06-04T06:50:50+00:00">06:50:50</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>eh ?</q></li>
+<li class="message">[<a href="#T06:51:03" id="T06:51:03"><abbr title="2013-06-04T06:51:03+00:00">06:51:03</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>times biits ?</q></li>
+<li class="join">[<a href="#T06:51:21" id="T06:51:21"><abbr title="2013-06-04T06:51:21+00:00">06:51:21</abbr></a>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-04T06:51:21+00:00">06:51:21</abbr>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) has joined #beaglebone</span></li>
+<li class="message">[<abbr title="2013-06-04T06:51:21+00:00">06:51:21</abbr>] &lt;<cite>mastiff</cite>&gt; <q>oh sorry you're getting 60 mega bYtes</q></li>
+<li class="message">[<a href="#T06:51:57" id="T06:51:57"><abbr title="2013-06-04T06:51:57+00:00">06:51:57</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>yeah i abbreviate megabits as Mbit</q></li>
+<li class="message">[<a href="#T06:52:00" id="T06:52:00"><abbr title="2013-06-04T06:52:00+00:00">06:52:00</abbr></a>] &lt;<cite>m_billybob</cite>&gt; <q>always.</q></li>
+<li class="message">[<a href="#T06:52:10" id="T06:52:10"><abbr title="2013-06-04T06:52:10+00:00">06:52:10</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>bit bytes maybe too much wine on this end............</q></li>
+<li class="join">[<a href="#T06:55:56" id="T06:55:56"><abbr title="2013-06-04T06:55:56+00:00">06:55:56</abbr></a>] <span>* vvu (~AndChat43@89.122.118.140) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2013-06-04T06:55:56+00:00">06:55:56</abbr>] <span>* vvu|Mobile (~AndChat43@89.122.118.140) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T06:58:07" id="T06:58:07"><abbr title="2013-06-04T06:58:07+00:00">06:58:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mastiff: i dont need no cheap automatic weapons</q></li>
+<li class="message">[<a href="#T06:58:15" id="T06:58:15"><abbr title="2013-06-04T06:58:15+00:00">06:58:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mastiff: i'm a swiss... and thus heavily armed!</q></li>
+<li class="message">[<a href="#T06:58:17" id="T06:58:17"><abbr title="2013-06-04T06:58:17+00:00">06:58:17</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>:)</q></li>
+<li class="join">[<a href="#T06:58:44" id="T06:58:44"><abbr title="2013-06-04T06:58:44+00:00">06:58:44</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="message">[<a href="#T06:58:55" id="T06:58:55"><abbr title="2013-06-04T06:58:55+00:00">06:58:55</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>very well, Swiss people are HQ</q></li>
+<li class="message">[<a href="#T06:59:33" id="T06:59:33"><abbr title="2013-06-04T06:59:33+00:00">06:59:33</abbr></a>] &lt;<cite>mastiff</cite>&gt; <q>I might move to swiss mountains if sailing isn't as nice as it is.</q></li>
