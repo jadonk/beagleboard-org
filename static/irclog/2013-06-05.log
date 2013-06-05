@@ -1071,3 +1071,150 @@
 <li class="join">[<abbr title="2013-06-05T08:54:20+00:00">08:54:20</abbr>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) has joined #beaglebone</span></li>
 <li class="message">[<a href="#T08:56:58" id="T08:56:58"><abbr title="2013-06-05T08:56:58+00:00">08:56:58</abbr></a>] &lt;<cite>windu</cite>&gt; <q>I'm running beaglebone A6 on windows 8 (Putty) and i get these messages <a href="http://pastebin.com/snG5nMLK">http://pastebin.com/snG5nMLK</a> after dmesg command, any advices ?</q></li>
 <li class="join">[<a href="#T08:59:16" id="T08:59:16"><abbr title="2013-06-05T08:59:16+00:00">08:59:16</abbr></a>] <span>* vvu (~vvu@78.97.104.166) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:01:23" id="T09:01:23"><abbr title="2013-06-05T09:01:23+00:00">09:01:23</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>koen: could you pull <a href="https://github.com/torvalds/linux/commit/b9e8c37220c80e78289a1e87b50c09418eb59a7e">https://github.com/torvalds/linux/commit/b9e8c37220c80e78289a1e87b50c09418eb59a7e</a> into the cc-3.8 tree please</q></li>
+<li class="message">[<a href="#T09:01:50" id="T09:01:50"><abbr title="2013-06-05T09:01:50+00:00">09:01:50</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>it will fix bitbake complaining about using host includes with perf, and also as a bonus maybe fix some perf issues</q></li>
+<li class="quit">[<a href="#T09:06:42" id="T09:06:42"><abbr title="2013-06-05T09:06:42+00:00">09:06:42</abbr></a>] <span>* ssi (~ssi@app2.prototechnical.com) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T09:07:26" id="T09:07:26"><abbr title="2013-06-05T09:07:26+00:00">09:07:26</abbr></a>] &lt;<cite>BeagleGithub</cite>&gt; <q>[kernel] koenkooi pushed 1 new commit to 3.8: <a href="http://git.io/F-eoCg">http://git.io/F-eoCg</a></q></li>
+<li class="message">[<a href="#T09:07:27" id="T09:07:27"><abbr title="2013-06-05T09:07:27+00:00">09:07:27</abbr></a>] &lt;<cite>BeagleGithub</cite>&gt; <q>kernel/3.8 b9f0832 Koen Kooi: 3.8: remove hardcoded -I/usr/local/include from libtraceevent...</q></li>
+<li class="message">[<a href="#T09:08:26" id="T09:08:26"><abbr title="2013-06-05T09:08:26+00:00">09:08:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>jackmitchell: there you go</q></li>
+<li class="message">[<a href="#T09:08:36" id="T09:08:36"><abbr title="2013-06-05T09:08:36+00:00">09:08:36</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>koen: thanks</q></li>
+<li class="join">[<a href="#T09:08:49" id="T09:08:49"><abbr title="2013-06-05T09:08:49+00:00">09:08:49</abbr></a>] <span>* droogie (~torkel@c51009ECC.inet.catch.no) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:11:32" id="T09:11:32"><abbr title="2013-06-05T09:11:32+00:00">09:11:32</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>hi koen, can I talk to you about the openembedded documentation please?</q></li>
+<li class="message">[<a href="#T09:12:33" id="T09:12:33"><abbr title="2013-06-05T09:12:33+00:00">09:12:33</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>are there any problems with the interrupt stuff in DT at kernel 3.8.5? in DT, i used "interrupt-parent = &lt;&amp;gpio2&gt;; interrupts = &lt;29 1&gt;;" so set an interrupt at a rising edge (as said in Documentation/devicetree/bindings/interrupt-controller/interrupts.txt) but it seems the interrupt is generated at the falling edge</q></li>
+<li class="message">[<a href="#T09:12:37" id="T09:12:37"><abbr title="2013-06-05T09:12:37+00:00">09:12:37</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>heh, _Sy_ the most recent documentation is mainly handled by Yocto Project employees; which documentation are you looking at?</q></li>
+<li class="message">[<a href="#T09:13:26" id="T09:13:26"><abbr title="2013-06-05T09:13:26+00:00">09:13:26</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>I started reading it last night and quickly got into examples I couldn't understand, mainly because I think they are taking for granted some knowledge that hasn't been documented.</q></li>
+<li class="message">[<a href="#T09:14:15" id="T09:14:15"><abbr title="2013-06-05T09:14:15+00:00">09:14:15</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>_Sy_: which documentation?</q></li>
+<li class="message">[<a href="#T09:14:52" id="T09:14:52"><abbr title="2013-06-05T09:14:52+00:00">09:14:52</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>I'm trying to find it now....I think it was the user manual</q></li>
+<li class="message">[<a href="#T09:15:19" id="T09:15:19"><abbr title="2013-06-05T09:15:19+00:00">09:15:19</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Rotti: interupt-cells is set to '1' iirc, not sure if it's possible to set it to '2'</q></li>
+<li class="message">[<a href="#T09:15:26" id="T09:15:26"><abbr title="2013-06-05T09:15:26+00:00">09:15:26</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>If you mean the BitBake user manual, while still relevant that's a difficult place to start; it's also dated in places</q></li>
+<li class="action">[<a href="#T09:15:29" id="T09:15:29"><abbr title="2013-06-05T09:15:29+00:00">09:15:29</abbr></a>] <span>* koen looks at panto for INTC knowledge</span></li>
+<li class="message">[<a href="#T09:15:51" id="T09:15:51"><abbr title="2013-06-05T09:15:51+00:00">09:15:51</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q><a href="http://docs.openembedded.org/bitbake/html/">http://docs.openembedded.org/bitbake/html/</a></q></li>
+<li class="message">[<a href="#T09:16:05" id="T09:16:05"><abbr title="2013-06-05T09:16:05+00:00">09:16:05</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>I would advise looking here: <a href="https://www.yoctoproject.org/documentation/current,">https://www.yoctoproject.org/documentation/current,</a> but make sure you are fully away of what the Yocto Project is and how it ties in with Angstrom, etc..</q></li>
+<li class="message">[<a href="#T09:16:17" id="T09:16:17"><abbr title="2013-06-05T09:16:17+00:00">09:16:17</abbr></a>] &lt;<cite>kelvinji_</cite>&gt; <q>Does BBB support USB Mass Storage?</q></li>
+<li class="message">[<a href="#T09:16:25" id="T09:16:25"><abbr title="2013-06-05T09:16:25+00:00">09:16:25</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>ok, this was the bit where I started getting lost: <a href="http://docs.openembedded.org/bitbake/html/ch02.html#id439023">http://docs.openembedded.org/bitbake/html/ch02.html#id439023</a></q></li>
+<li class="message">[<a href="#T09:16:42" id="T09:16:42"><abbr title="2013-06-05T09:16:42+00:00">09:16:42</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>yeah, I really wouldn't start with the Bitbake manual</q></li>
+<li class="message">[<a href="#T09:17:07" id="T09:17:07"><abbr title="2013-06-05T09:17:07+00:00">09:17:07</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>while useful, I would start with the basics</q></li>
+<li class="message">[<a href="#T09:17:16" id="T09:17:16"><abbr title="2013-06-05T09:17:16+00:00">09:17:16</abbr></a>] &lt;<cite>_Sy_</cite>&gt; <q>ok, I'll start over with the link you posted.</q></li>
+<li class="message">[<a href="#T09:19:17" id="T09:19:17"><abbr title="2013-06-05T09:19:17+00:00">09:19:17</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>koen: oh, that might explain my problem.... if it is 1, what is the default setting for a generated interrupt?</q></li>
+<li class="message">[<a href="#T09:20:35" id="T09:20:35"><abbr title="2013-06-05T09:20:35+00:00">09:20:35</abbr></a>] &lt;<cite>panto</cite>&gt; <q>koen, ugh it's a bit involved</q></li>
+<li class="quit">[<a href="#T09:21:11" id="T09:21:11"><abbr title="2013-06-05T09:21:11+00:00">09:21:11</abbr></a>] <span>* vvu (~vvu@78.97.104.166) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T09:21:18" id="T09:21:18"><abbr title="2013-06-05T09:21:18+00:00">09:21:18</abbr></a>] <span>* DigiDaz_ (~quassel@82-68-115-62.dsl.in-addr.zen.co.uk) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:21:23" id="T09:21:23"><abbr title="2013-06-05T09:21:23+00:00">09:21:23</abbr></a>] &lt;<cite>panto</cite>&gt; <q>Rotti, the request irq call might now honour the edges bit</q></li>
+<li class="join">[<a href="#T09:21:34" id="T09:21:34"><abbr title="2013-06-05T09:21:34+00:00">09:21:34</abbr></a>] <span>* insurgent (~quassel@142.196.2.146) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:23:15" id="T09:23:15"><abbr title="2013-06-05T09:23:15+00:00">09:23:15</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I looked at it for the MXT touchscreen, but I couldn't get it to work</q></li>
+<li class="message">[<a href="#T09:23:36" id="T09:23:36"><abbr title="2013-06-05T09:23:36+00:00">09:23:36</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>panto: you mean the one from the kernel module (request_irq(spi-&gt;irq, at86rf230_isr, IRQF_SHARED | IRQF_TRIGGER_RISING, dev_name(&amp;spi-&gt;dev), lp);?</q></li>
+<li class="message">[<a href="#T09:24:20" id="T09:24:20"><abbr title="2013-06-05T09:24:20+00:00">09:24:20</abbr></a>] &lt;<cite>panto</cite>&gt; <q>Rotti, yes</q></li>
+<li class="message">[<a href="#T09:24:43" id="T09:24:43"><abbr title="2013-06-05T09:24:43+00:00">09:24:43</abbr></a>] &lt;<cite>panto</cite>&gt; <q>IIRC if you do the request_irq call you have to parse the irq flags</q></li>
+<li class="join">[<a href="#T09:24:47" id="T09:24:47"><abbr title="2013-06-05T09:24:47+00:00">09:24:47</abbr></a>] <span>* Kristina_ (~christina@crna.cc) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:28:55" id="T09:28:55"><abbr title="2013-06-05T09:28:55+00:00">09:28:55</abbr></a>] <span>* _grantsmith (~grantsmit@vcc.marathon-man.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:30:10" id="T09:30:10"><abbr title="2013-06-05T09:30:10+00:00">09:30:10</abbr></a>] <span>* Tartarus (trini@pixelshelf.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:11" id="T09:30:11"><abbr title="2013-06-05T09:30:11+00:00">09:30:11</abbr></a>] <span>* bfederau (~quassel@share.basyskom.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:12" id="T09:30:12"><abbr title="2013-06-05T09:30:12+00:00">09:30:12</abbr></a>] <span>* clockman (~clockman@host-198-131-111-24-static.midco.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:12+00:00">09:30:12</abbr>] <span>* nashpa (~nashpa@dliviu.plus.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:14" id="T09:30:14"><abbr title="2013-06-05T09:30:14+00:00">09:30:14</abbr></a>] <span>* SoCo_cpp_ (~soco@64.127.84.62) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:14+00:00">09:30:14</abbr>] <span>* insurgent_ (~quassel@142.196.2.146) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:14+00:00">09:30:14</abbr>] <span>* Bryanstein (~Bryanstei@shellium/admin/bryanstein) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:14+00:00">09:30:14</abbr>] <span>* erbo (~erik@host.62.65.125.245.bitcom.se) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:15" id="T09:30:15"><abbr title="2013-06-05T09:30:15+00:00">09:30:15</abbr></a>] <span>* mru (~troll@78-86-244-147.zone2.bethere.co.uk) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:15+00:00">09:30:15</abbr>] <span>* hark (~hark@w.v89.eu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:15+00:00">09:30:15</abbr>] <span>* grantsmith (~grantsmit@unaffiliated/grantsmith) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:15+00:00">09:30:15</abbr>] <span>* DigiDaz (~quassel@82-68-115-62.dsl.in-addr.zen.co.uk) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:16" id="T09:30:16"><abbr title="2013-06-05T09:30:16+00:00">09:30:16</abbr></a>] <span>* Kristina (~christina@crna.cc) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:16+00:00">09:30:16</abbr>] <span>* fishhead2567 (~fishhead2@76.72.92.37) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:18" id="T09:30:18"><abbr title="2013-06-05T09:30:18+00:00">09:30:18</abbr></a>] <span>* Fusty|Away (~Fusty@ks4002544.ip-198-100-148.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:19" id="T09:30:19"><abbr title="2013-06-05T09:30:19+00:00">09:30:19</abbr></a>] <span>* legov (~jonathan@friedpancakes.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:19+00:00">09:30:19</abbr>] <span>* sh1v (~sh1v@confluxhost.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:20" id="T09:30:20"><abbr title="2013-06-05T09:30:20+00:00">09:30:20</abbr></a>] <span>* jah_ (jarih@kapsi.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:21" id="T09:30:21"><abbr title="2013-06-05T09:30:21+00:00">09:30:21</abbr></a>] <span>* riotz (riotz@gateway/shell/sh3lls.net/x-ytdoffodhcyuqboy) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:21+00:00">09:30:21</abbr>] <span>* vvu|Log (~root@188.26.116.4) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:21+00:00">09:30:21</abbr>] <span>* wmat (wmat@wallace.mixdown.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:22" id="T09:30:22"><abbr title="2013-06-05T09:30:22+00:00">09:30:22</abbr></a>] <span>* riddle (riddle@us.yunix.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:23" id="T09:30:23"><abbr title="2013-06-05T09:30:23+00:00">09:30:23</abbr></a>] <span>* RagBal (~RagBal@541F370E.cm-5-8a.dynamic.ziggo.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:23+00:00">09:30:23</abbr>] <span>* pfefferz` (~pfefferz@ec2-50-19-223-142.compute-1.amazonaws.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:23+00:00">09:30:23</abbr>] <span>* Guest71298 (~khem@99-57-140-209.lightspeed.sntcca.sbcglobal.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:23+00:00">09:30:23</abbr>] <span>* bearshen (~quassel@adsl-245-48-fixip.datacomm.ch) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:24" id="T09:30:24"><abbr title="2013-06-05T09:30:24+00:00">09:30:24</abbr></a>] <span>* jvdm (~jvdm@187.106.29.1) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:24+00:00">09:30:24</abbr>] <span>* TLoFP1 (~gothed@rubin.pha.jhu.edu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:24+00:00">09:30:24</abbr>] <span>* bizulk (~sli@195.6.193.205) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T09:30:25" id="T09:30:25"><abbr title="2013-06-05T09:30:25+00:00">09:30:25</abbr></a>] <span>* isbric (~isbric@c-ba5ae255.036-12-6875761.cust.bredbandsbolaget.se) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-06-05T09:30:25+00:00">09:30:25</abbr>] <span>* ogra (~ogra_@p5098ed03.dip0.t-ipconnect.de) Quit (*.net *.split)</span></li>
+<li class="message">[<a href="#T09:30:27" id="T09:30:27"><abbr title="2013-06-05T09:30:27+00:00">09:30:27</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>panto: how could this be done... or, what mechanism is generating the interrupt at the moment?</q></li>
+<li class="message">[<a href="#T09:30:41" id="T09:30:41"><abbr title="2013-06-05T09:30:41+00:00">09:30:41</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>it seems to be generated ~50ms after the rising edge</q></li>
+<li class="join">[<a href="#T09:30:49" id="T09:30:49"><abbr title="2013-06-05T09:30:49+00:00">09:30:49</abbr></a>] <span>* riddle (riddle@us.yunix.net) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:49+00:00">09:30:49</abbr>] <span>* pfefferz` (~pfefferz@ec2-50-19-223-142.compute-1.amazonaws.com) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:49+00:00">09:30:49</abbr>] <span>* bizulk (~sli@195.6.193.205) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:49+00:00">09:30:49</abbr>] <span>* nashpa (~nashpa@dliviu.plus.com) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:49+00:00">09:30:49</abbr>] <span>* Bryanstein (~Bryanstei@shellium/admin/bryanstein) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T09:30:52" id="T09:30:52"><abbr title="2013-06-05T09:30:52+00:00">09:30:52</abbr></a>] <span>* jackmitchell (~Thunderbi@195.171.99.130) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T09:30:53" id="T09:30:53"><abbr title="2013-06-05T09:30:53+00:00">09:30:53</abbr></a>] &lt;<cite>panto</cite>&gt; <q>Rotti, debounce settings?</q></li>
+<li class="join">[<a href="#T09:30:56" id="T09:30:56"><abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr></a>] <span>* legov (~jonathan@friedpancakes.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* jah_ (jarih@kapsi.fi) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* riotz (riotz@gateway/shell/sh3lls.net/x-ytdoffodhcyuqboy) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* vvu|Log (~root@188.26.116.4) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* wmat (wmat@wallace.mixdown.ca) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* riddle (riddle@us.yunix.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* RagBal (~RagBal@541F370E.cm-5-8a.dynamic.ziggo.nl) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* pfefferz` (~pfefferz@ec2-50-19-223-142.compute-1.amazonaws.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* Guest71298 (~khem@99-57-140-209.lightspeed.sntcca.sbcglobal.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* bearshen (~quassel@adsl-245-48-fixip.datacomm.ch) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* jvdm (~jvdm@187.106.29.1) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* TLoFP1 (~gothed@rubin.pha.jhu.edu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* bizulk (~sli@195.6.193.205) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* Tartarus (trini@pixelshelf.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* bfederau (~quassel@share.basyskom.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* isbric (~isbric@c-ba5ae255.036-12-6875761.cust.bredbandsbolaget.se) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* sh1v (~sh1v@confluxhost.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* ogra (~ogra_@p5098ed03.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* clockman (~clockman@host-198-131-111-24-static.midco.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* nashpa (~nashpa@dliviu.plus.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* Bryanstein (~Bryanstei@shellium/admin/bryanstein) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* erbo (~erik@host.62.65.125.245.bitcom.se) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* mru (~troll@78-86-244-147.zone2.bethere.co.uk) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* hark (~hark@w.v89.eu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* fishhead2567 (~fishhead2@76.72.92.37) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-06-05T09:30:56+00:00">09:30:56</abbr>] <span>* Fusty|Away (~Fusty@ks4002544.ip-198-100-148.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:31:08" id="T09:31:08"><abbr title="2013-06-05T09:31:08+00:00">09:31:08</abbr></a>] <span>* SoCo_cpp_ (~soco@64.127.84.62) has joined #beaglebone</span></li>
+<li class="message">[<abbr title="2013-06-05T09:31:08+00:00">09:31:08</abbr>] &lt;<cite>panto</cite>&gt; <q>Rotti, it's not a dedicated interrupt line</q></li>
+<li class="join">[<a href="#T09:31:09" id="T09:31:09"><abbr title="2013-06-05T09:31:09+00:00">09:31:09</abbr></a>] <span>* jackmitchell (~Thunderbi@195.171.99.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:31:12" id="T09:31:12"><abbr title="2013-06-05T09:31:12+00:00">09:31:12</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it's gpio</q></li>
+<li class="message">[<a href="#T09:31:39" id="T09:31:39"><abbr title="2013-06-05T09:31:39+00:00">09:31:39</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>ah, i see...</q></li>
+<li class="message">[<a href="#T09:33:43" id="T09:33:43"><abbr title="2013-06-05T09:33:43+00:00">09:33:43</abbr></a>] &lt;<cite>panto</cite>&gt; <q>GPIO_DEBOUNCENABLE</q></li>
+<li class="message">[<a href="#T09:34:11" id="T09:34:11"><abbr title="2013-06-05T09:34:11+00:00">09:34:11</abbr></a>] &lt;<cite>panto</cite>&gt; <q>I have no clue what the driver does with the debounce on an interrupt line</q></li>
+<li class="message">[<a href="#T09:34:29" id="T09:34:29"><abbr title="2013-06-05T09:34:29+00:00">09:34:29</abbr></a>] &lt;<cite>panto</cite>&gt; <q>GPIO_DEBOUNCINGTIME</q></li>
+<li class="message">[<a href="#T09:34:47" id="T09:34:47"><abbr title="2013-06-05T09:34:47+00:00">09:34:47</abbr></a>] &lt;<cite>panto</cite>&gt; <q>"Input Debouncing Value in 31 microsecond steps"</q></li>
+<li class="quit">[<a href="#T09:35:07" id="T09:35:07"><abbr title="2013-06-05T09:35:07+00:00">09:35:07</abbr></a>] <span>* ogra (~ogra_@p5098ed03.dip0.t-ipconnect.de) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-06-05T09:35:07+00:00">09:35:07</abbr>] <span>* ogra (~ogra_@ubuntu/member/ogra) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:35:11" id="T09:35:11"><abbr title="2013-06-05T09:35:11+00:00">09:35:11</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>where is this option set? in .config?</q></li>
+<li class="message">[<abbr title="2013-06-05T09:35:11+00:00">09:35:11</abbr>] &lt;<cite>panto</cite>&gt; <q>and int gpio_set_debounce(unsigned gpio, unsigned debounce)</q></li>
+<li class="message">[<a href="#T09:35:19" id="T09:35:19"><abbr title="2013-06-05T09:35:19+00:00">09:35:19</abbr></a>] &lt;<cite>panto</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T09:35:35" id="T09:35:35"><abbr title="2013-06-05T09:35:35+00:00">09:35:35</abbr></a>] &lt;<cite>panto</cite>&gt; <q>the gpio driver is the same as in omap</q></li>
+<li class="message">[<a href="#T09:36:43" id="T09:36:43"><abbr title="2013-06-05T09:36:43+00:00">09:36:43</abbr></a>] &lt;<cite>panto</cite>&gt; <q>if you need gpio interrupts, I'd do the following steps:</q></li>
+<li class="message">[<a href="#T09:37:13" id="T09:37:13"><abbr title="2013-06-05T09:37:13+00:00">09:37:13</abbr></a>] &lt;<cite>panto</cite>&gt; <q>use the gpio DT form, i.e. gpios = &lt;&amp;gpioX NR 0&gt;;</q></li>
+<li class="message">[<a href="#T09:37:36" id="T09:37:36"><abbr title="2013-06-05T09:37:36+00:00">09:37:36</abbr></a>] &lt;<cite>panto</cite>&gt; <q>use gpio_to_irq</q></li>
+<li class="message">[<a href="#T09:37:45" id="T09:37:45"><abbr title="2013-06-05T09:37:45+00:00">09:37:45</abbr></a>] &lt;<cite>panto</cite>&gt; <q>call gpio_set_debounce</q></li>
+<li class="message">[<a href="#T09:37:53" id="T09:37:53"><abbr title="2013-06-05T09:37:53+00:00">09:37:53</abbr></a>] &lt;<cite>panto</cite>&gt; <q>request irq</q></li>
+<li class="message">[<a href="#T09:37:58" id="T09:37:58"><abbr title="2013-06-05T09:37:58+00:00">09:37:58</abbr></a>] &lt;<cite>panto</cite>&gt; <q>(profit)</q></li>
+<li class="message">[<a href="#T09:38:00" id="T09:38:00"><abbr title="2013-06-05T09:38:00+00:00">09:38:00</abbr></a>] &lt;<cite>panto</cite>&gt; <q>ok, really out now</q></li>
+<li class="message">[<a href="#T09:38:02" id="T09:38:02"><abbr title="2013-06-05T09:38:02+00:00">09:38:02</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>that's what I do in my driver (minus the debouce)</q></li>
+<li class="quit">[<a href="#T09:38:16" id="T09:38:16"><abbr title="2013-06-05T09:38:16+00:00">09:38:16</abbr></a>] <span>* _Sy_ (50b1775a@gateway/web/freenode/ip.80.177.119.90) Quit (Quit: be back l8r)</span></li>
+<li class="message">[<a href="#T09:38:22" id="T09:38:22"><abbr title="2013-06-05T09:38:22+00:00">09:38:22</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>thanks for the help, i'll give it a try</q></li>
+<li class="message">[<a href="#T09:38:33" id="T09:38:33"><abbr title="2013-06-05T09:38:33+00:00">09:38:33</abbr></a>] &lt;<cite>panto</cite>&gt; <q>Rotti, remember, no guarantees it will work</q></li>
+<li class="message">[<a href="#T09:38:42" id="T09:38:42"><abbr title="2013-06-05T09:38:42+00:00">09:38:42</abbr></a>] &lt;<cite>RagBal</cite>&gt; <q>Where can I find the canbus pins on the beaglebone black?</q></li>
+<li class="message">[<a href="#T09:38:52" id="T09:38:52"><abbr title="2013-06-05T09:38:52+00:00">09:38:52</abbr></a>] &lt;<cite>panto</cite>&gt; <q>the manual?</q></li>
+<li class="message">[<a href="#T09:38:54" id="T09:38:54"><abbr title="2013-06-05T09:38:54+00:00">09:38:54</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>panto: it can't be much worse than now ;)</q></li>
+<li class="message">[<a href="#T09:39:06" id="T09:39:06"><abbr title="2013-06-05T09:39:06+00:00">09:39:06</abbr></a>] &lt;<cite>panto</cite>&gt; <q>it can always get worse</q></li>
+<li class="message">[<a href="#T09:39:10" id="T09:39:10"><abbr title="2013-06-05T09:39:10+00:00">09:39:10</abbr></a>] &lt;<cite>panto</cite>&gt; <q>:P</q></li>
+<li class="message">[<a href="#T09:39:15" id="T09:39:15"><abbr title="2013-06-05T09:39:15+00:00">09:39:15</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>rotti: my flow goes something like this</q></li>
+<li class="message">[<a href="#T09:39:24" id="T09:39:24"><abbr title="2013-06-05T09:39:24+00:00">09:39:24</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>drv_data-&gt;card-&gt;interrupt = of_get_named_gpio(child_node, "fpga-int", 0);</q></li>
+<li class="message">[<a href="#T09:39:33" id="T09:39:33"><abbr title="2013-06-05T09:39:33+00:00">09:39:33</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>  status = gpio_request_one(drv_data-&gt;card-&gt;interrupt, GPIOF_IN, "interrupt");</q></li>
+<li class="message">[<a href="#T09:39:44" id="T09:39:44"><abbr title="2013-06-05T09:39:44+00:00">09:39:44</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>  status = gpio_direction_input(drv_data-&gt;card-&gt;interrupt);</q></li>
+<li class="message">[<a href="#T09:39:51" id="T09:39:51"><abbr title="2013-06-05T09:39:51+00:00">09:39:51</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>  irq_num = gpio_to_irq(drv_data-&gt;card-&gt;interrupt);</q></li>
+<li class="message">[<a href="#T09:39:59" id="T09:39:59"><abbr title="2013-06-05T09:39:59+00:00">09:39:59</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>  if (request_irq(irq_num, r0005spi_irq_handler, IRQF_SHARED | IRQF_TRIGGER_FALLING, "irq", (void*) drv_data))</q></li>
+<li class="message">[<a href="#T09:42:12" id="T09:42:12"><abbr title="2013-06-05T09:42:12+00:00">09:42:12</abbr></a>] &lt;<cite>Rotti</cite>&gt; <q>that looks fine, i'll try to implement this after lunch</q></li>
+<li class="quit">[<a href="#T09:47:55" id="T09:47:55"><abbr title="2013-06-05T09:47:55+00:00">09:47:55</abbr></a>] <span>* hatguy_ (~parav@217.237.167.249) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T09:48:38" id="T09:48:38"><abbr title="2013-06-05T09:48:38+00:00">09:48:38</abbr></a>] <span>* Gaston|Home (Gaston@ua-83-227-239-139.cust.bredbandsbolaget.se) has joined #beagle</span></li>
+<li class="message">[<a href="#T09:51:56" id="T09:51:56"><abbr title="2013-06-05T09:51:56+00:00">09:51:56</abbr></a>] &lt;<cite>RagBal</cite>&gt; <q>panto, yes I found that the for the canbus to work I need to switch the corresponding pin mode, I have no clue about how does works</q></li>
+<li class="join">[<a href="#T09:52:19" id="T09:52:19"><abbr title="2013-06-05T09:52:19+00:00">09:52:19</abbr></a>] <span>* vvu (~vvu@188.26.116.4) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:56:00" id="T09:56:00"><abbr title="2013-06-05T09:56:00+00:00">09:56:00</abbr></a>] <span>* tzafrir_laptop (~tzafrir@local.xorcom.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:56:58" id="T09:56:58"><abbr title="2013-06-05T09:56:58+00:00">09:56:58</abbr></a>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) Quit (Quit: mhaberler)</span></li>
+<li class="join">[<a href="#T09:58:33" id="T09:58:33"><abbr title="2013-06-05T09:58:33+00:00">09:58:33</abbr></a>] <span>* jpirko (jirka@nat/redhat/x-mughtcsfohzdodgt) has joined #beagle</span></li>
