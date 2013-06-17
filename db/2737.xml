@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2737" name="demo_blinkled" prototype="Page" created="1370881904612" lastModified="1370882682198">
+  <hopobject id="2737" name="demo_blinkled" prototype="Page" created="1370881904612" lastModified="1371439853115">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>demo_blinkled</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36</http_browser>
-    <time type="date">10.06.2013 11:44:42 CDT</time>
-    <hopsession>127.0.0.68.40.243.1i00m0qte4prv</hopsession>
+    <time type="date">16.06.2013 22:30:53 CDT</time>
+    <hopsession>127.0.0.98.250.142.a696dvi8yre1</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
     &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
@@ -24,22 +24,99 @@
 &lt;/h2&gt;
 &lt;pre style=&quot;height: 280px;&quot; id=&quot;code&quot; class=&quot;use-editor&quot;&gt;
 var b = require(&apos;bonescript&apos;);
-var led = &quot;USR3&quot;;
-var state = 0;
 
-b.pinMode(led, &apos;out&apos;);
-toggleLED = function() {
- state = state ? 0 : 1;
- b.digitalWrite(led, state);
-};
+b.setDate(Date().toString(), doEcho);
 
-timer = setInterval(toggleLED, 100);
+function doEcho(x) {
+    if(x.stdout != null) throw(&apos;setDate returned &apos; + JSON.stringify(x));
+    b.echo(&apos;test&apos;, doGetPlatform);
+}
 
-stopTimer = function() {
- clearInterval(timer);
-};
+function doGetPlatform(x) {
+    if(x.data != &apos;test&apos;) throw(&apos;doEcho returned &apos; + JSON.stringify(x));
+    b.getPlatform(onGetPlatform);
+}
 
-setTimeout(stopTimer, 3000);&lt;/pre&gt;
+function onGetPlatform(x) {
+    if(!x.name || !x.serialNumber || !x.version || (x.bonescript != &apos;0.2.2&apos;))
+        throw(&apos;getPlatform returned &apos; + JSON.stringify(x));
+    console.log(&apos;Name = &apos; + x.name);
+    console.log(&apos;S/N = &apos; + x.serialNumber);
+    console.log(&apos;Version = &apos; + x.version);
+    console.log(&apos;BoneScript version = &apos; + x.bonescript);
+    b.getPinMode(&apos;P9_20&apos;, onGetPinMode);
+}
+
+function onGetPinMode(x) {
+    if(x.mux != 3) throw(&apos;getPinMode returned &apos; + JSON.stringify(x));
+    b.pinMode(&apos;P9_24&apos;, b.INPUT, 7, &apos;disabled&apos;, &apos;fast&apos;, onPinModeInput);
+}
+
+function onPinModeInput(x) {
+    if(x.value != true) throw(&apos;pinMode(input) returned &apos; + JSON.stringify(x));
+    b.pinMode(&apos;P9_23&apos;, b.OUTPUT, 7, &apos;disabled&apos;, &apos;fast&apos;, onPinModeOutput);
+}
+
+function onPinModeOutput(x) {
+    if(x.value != true) throw(&apos;pinMode(output) returned &apos; + JSON.stringify(x));
+    b.digitalWrite(&apos;P9_23&apos;, b.LOW, onDigitalWriteLow);
+}
+
+function onDigitalWriteLow(x) {
+    if(x.data != null) throw(&apos;digitalWrite(low) returned &apos; + JSON.stringify(x));
+    b.digitalRead(&apos;P9_24&apos;, onDigitalReadLow);
+}
+
+function onDigitalReadLow(x) {
+    if(x.value != b.LOW) throw(&apos;digitalRead(low) returned &apos; + JSON.stringify(x));
+    b.digitalWrite(&apos;P9_23&apos;, b.HIGH, onDigitalWriteHigh);
+}
+
+function onDigitalWriteHigh(x) {
+    if(x.data != null) throw(&apos;digitalWrite(high) returned &apos; + JSON.stringify(x));
+    b.digitalRead(&apos;P9_24&apos;, onDigitalReadHigh);
+}
+
+function onDigitalReadHigh(x) {
+    if(x.value != b.HIGH) throw(&apos;digitalRead(high) returned &apos; + JSON.stringify(x));
+    b.analogWrite(&apos;P9_21&apos;, 0.25, 2000.0, onAnalogWrite);
+}
+
+function onAnalogWrite(x) {
+    if(x.value != true) throw(&apos;analogWrite returned &apos; + JSON.stringify(x));
+    setTimeout(doAnalogRead, 1000);
+}
+
+function doAnalogRead(x) {
+    b.analogRead(&apos;P9_35&apos;, onAnalogRead);
+}
+
+function onAnalogRead(x) {
+    if(x.value &amp;gt; 0.6 || x.value &amp;lt; 0.4)
+        throw(&apos;analogRead returned &apos; + JSON.stringify(x));
+    b.writeTextFile(&apos;/tmp/basic_test&apos;, &apos;So far so good&apos;, onWriteTextFile);
+}
+
+function onWriteTextFile(x) {
+    if(x.err != null) throw(&apos;writeTextFile returned &apos; + JSON.stringify(x));
+    b.readTextFile(&apos;/tmp/basic_test&apos;, onReadTextFile);
+}
+
+function onReadTextFile(x) {
+    if(x.err != null) throw(&apos;readTextFile returned &apos; + JSON.stringify(x));
+    if(x.data != &apos;So far so good&apos;)
+        throw(&apos;onReadTextFile returned &apos; + JSON.stringify(x));
+    complete();
+}
+
+function complete() {
+    console.log(&apos;***PASS***&apos;);
+    process.exit(0);
+}
+
+function printJSON(x) {
+    console.log(&apos;x = &apos; + JSON.stringify(x));
+}&lt;/pre&gt;
 &lt;div readonly id=&apos;console-output&apos; style=&quot;height: 80px;&quot;&gt;&lt;/div&gt;
 &lt;h2&gt;Build and execute instructions&lt;/h2&gt;
 &lt;img align=&quot;right&quot; width=&quot;50%&quot; src=&quot;/static/images/bone-usr3-led.png&quot; /&gt;
@@ -66,7 +143,7 @@ setTimeout(stopTimer, 3000);&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</body>
     <pseudoparent idref="2471" prototyperef="Page"/>
-    <http_referer>http://beagleboard.org/support/BoneScript/demo_blinkled/edit</http_referer>
+    <http_referer>http://beagleboard.org/Support/BoneScript/demo_blinkled/edit</http_referer>
     <http_host>beagleboard.org</http_host>
     <user>blog.hangerhead.com</user>
     <lang>en-us</lang>
