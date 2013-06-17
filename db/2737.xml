@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2737" name="demo_blinkled" prototype="Page" created="1370881904612" lastModified="1371439853115">
+  <hopobject id="2737" name="demo_blinkled" prototype="Page" created="1370881904612" lastModified="1371440178375">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>demo_blinkled</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36</http_browser>
-    <time type="date">16.06.2013 22:30:53 CDT</time>
+    <time type="date">16.06.2013 22:36:18 CDT</time>
     <hopsession>127.0.0.98.250.142.a696dvi8yre1</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
@@ -17,7 +17,7 @@
     &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
-&lt;h1&gt;Demo: Blink an on-board LED&lt;/h1&gt;
+&lt;h1&gt;Demo: Wired basic test&lt;/h1&gt;
 &lt;h2&gt;Code
  &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
  &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
@@ -28,7 +28,7 @@ var b = require(&apos;bonescript&apos;);
 b.setDate(Date().toString(), doEcho);
 
 function doEcho(x) {
-    if(x.stdout != null) throw(&apos;setDate returned &apos; + JSON.stringify(x));
+    if(x.stdout !== null) throw(&apos;setDate returned &apos; + JSON.stringify(x));
     b.echo(&apos;test&apos;, doGetPlatform);
 }
 
@@ -53,17 +53,17 @@ function onGetPinMode(x) {
 }
 
 function onPinModeInput(x) {
-    if(x.value != true) throw(&apos;pinMode(input) returned &apos; + JSON.stringify(x));
+    if(x.value !== true) throw(&apos;pinMode(input) returned &apos; + JSON.stringify(x));
     b.pinMode(&apos;P9_23&apos;, b.OUTPUT, 7, &apos;disabled&apos;, &apos;fast&apos;, onPinModeOutput);
 }
 
 function onPinModeOutput(x) {
-    if(x.value != true) throw(&apos;pinMode(output) returned &apos; + JSON.stringify(x));
+    if(x.value !== true) throw(&apos;pinMode(output) returned &apos; + JSON.stringify(x));
     b.digitalWrite(&apos;P9_23&apos;, b.LOW, onDigitalWriteLow);
 }
 
 function onDigitalWriteLow(x) {
-    if(x.data != null) throw(&apos;digitalWrite(low) returned &apos; + JSON.stringify(x));
+    if(x.data !== null) throw(&apos;digitalWrite(low) returned &apos; + JSON.stringify(x));
     b.digitalRead(&apos;P9_24&apos;, onDigitalReadLow);
 }
 
@@ -73,7 +73,7 @@ function onDigitalReadLow(x) {
 }
 
 function onDigitalWriteHigh(x) {
-    if(x.data != null) throw(&apos;digitalWrite(high) returned &apos; + JSON.stringify(x));
+    if(x.data !== null) throw(&apos;digitalWrite(high) returned &apos; + JSON.stringify(x));
     b.digitalRead(&apos;P9_24&apos;, onDigitalReadHigh);
 }
 
@@ -83,7 +83,7 @@ function onDigitalReadHigh(x) {
 }
 
 function onAnalogWrite(x) {
-    if(x.value != true) throw(&apos;analogWrite returned &apos; + JSON.stringify(x));
+    if(x.value !== true) throw(&apos;analogWrite returned &apos; + JSON.stringify(x));
     setTimeout(doAnalogRead, 1000);
 }
 
@@ -98,12 +98,12 @@ function onAnalogRead(x) {
 }
 
 function onWriteTextFile(x) {
-    if(x.err != null) throw(&apos;writeTextFile returned &apos; + JSON.stringify(x));
+    if(x.err !== null) throw(&apos;writeTextFile returned &apos; + JSON.stringify(x));
     b.readTextFile(&apos;/tmp/basic_test&apos;, onReadTextFile);
 }
 
 function onReadTextFile(x) {
-    if(x.err != null) throw(&apos;readTextFile returned &apos; + JSON.stringify(x));
+    if(x.err !== null) throw(&apos;readTextFile returned &apos; + JSON.stringify(x));
     if(x.data != &apos;So far so good&apos;)
         throw(&apos;onReadTextFile returned &apos; + JSON.stringify(x));
     complete();
@@ -119,31 +119,14 @@ function printJSON(x) {
 }&lt;/pre&gt;
 &lt;div readonly id=&apos;console-output&apos; style=&quot;height: 80px;&quot;&gt;&lt;/div&gt;
 &lt;h2&gt;Build and execute instructions&lt;/h2&gt;
-&lt;img align=&quot;right&quot; width=&quot;50%&quot; src=&quot;/static/images/bone-usr3-led.png&quot; /&gt;
 &lt;ul&gt;
-    &lt;li&gt;Run the example code and observe USR3 blinking.&lt;/li&gt;
-    &lt;li&gt;Alter the frequency and re-run the example.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;See also&lt;/h2&gt;
-&lt;h3&gt;Topics&lt;/h3&gt;
-&lt;ul&gt;
- &lt;li&gt;&lt;a href=&quot;bonescript.html#headers&quot;&gt;BeagleBone expansion headers&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href=&quot;bonescript.html#digitalio&quot;&gt;Digital I/O&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href=&quot;bonescript.html#timers&quot;&gt;Timers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Related functions&lt;/h3&gt;
-&lt;ul&gt;
- &lt;li&gt;&lt;a href=&quot;bonescript.html#require&quot;&gt;require&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href=&quot;pinMode.html&quot;&gt;pinMode&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href=&quot;digitalWrite.html&quot;&gt;digitalWrite&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Examples&lt;/h3&gt;
-&lt;ul&gt;
- &lt;li&gt;&lt;a href=&quot;demo_blinkled_external.html&quot;&gt;Blink an external LED&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Connect P9_23 to P9_24 through a 1kohm resistor.&lt;/li&gt;
+    &lt;li&gt;Connect P9_21 to P9_35 through a 1kohm resistor.&lt;/li&gt;
+    &lt;li&gt;Connect a 0.1uF capacitor to P9_35 with the other end tied to ground.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</body>
     <pseudoparent idref="2471" prototyperef="Page"/>
-    <http_referer>http://beagleboard.org/Support/BoneScript/demo_blinkled/edit</http_referer>
+    <http_referer>http://beagleboard.org/support/BoneScript/demo_blinkled/edit</http_referer>
     <http_host>beagleboard.org</http_host>
     <user>blog.hangerhead.com</user>
     <lang>en-us</lang>
