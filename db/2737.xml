@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2737" name="wired_basic_test" prototype="Page" created="1370881904612" lastModified="1371578028805">
+  <hopobject id="2737" name="wired_basic_test" prototype="Page" created="1370881904612" lastModified="1371579118304">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>wired_basic_test</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36</http_browser>
-    <time type="date">18.06.2013 12:53:48 CDT</time>
+    <time type="date">18.06.2013 13:11:58 CDT</time>
     <hopsession>127.0.0.192.94.94.v0t9mbs3laj4</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
@@ -34,7 +34,19 @@
 &lt;pre style=&quot;height: 1800px;&quot; id=&quot;code&quot; class=&quot;use-editor&quot;&gt;
 var b = require(&apos;bonescript&apos;);
 
-b.setDate(Date().toString(), onSetDate);
+b.getPlatform(onGetPlatform);
+
+function onGetPlatform(x) {
+    if(!x.name || !x.serialNumber || !x.version)
+        err(&apos;getPlatform returned &apos; + JSON.stringify(x));
+    console.log(&apos;Name = &apos; + x.name);
+    console.log(&apos;S/N = &apos; + x.serialNumber);
+    console.log(&apos;Version = &apos; + x.version);
+    console.log(&apos;BoneScript version = &apos; + x.bonescript);
+    if(x.bonescript != &apos;0.2.2&apos;))
+        err(&apos;BoneScript 0.2.2 required&apos;);
+    b.setDate(Date().toString(), onSetDate);
+}
 
 function onSetDate(x) {
     if(x.stdout !== null) {
@@ -45,16 +57,6 @@ function onSetDate(x) {
 
 function onEcho(x) {
     if(x.data != &apos;test&apos;) err(&apos;doEcho returned &apos; + JSON.stringify(x));
-    b.getPlatform(onGetPlatform);
-}
-
-function onGetPlatform(x) {
-    if(!x.name || !x.serialNumber || !x.version || (x.bonescript != &apos;0.2.2&apos;))
-        err(&apos;getPlatform returned &apos; + JSON.stringify(x));
-    console.log(&apos;Name = &apos; + x.name);
-    console.log(&apos;S/N = &apos; + x.serialNumber);
-    console.log(&apos;Version = &apos; + x.version);
-    console.log(&apos;BoneScript version = &apos; + x.bonescript);
     b.getPinMode(&apos;P9_20&apos;, onGetPinMode);
 }
 
@@ -117,11 +119,6 @@ function onReadTextFile(x) {
     if(x.err !== null) err(&apos;readTextFile returned &apos; + JSON.stringify(x));
     if(x.data != &apos;So far so good&apos;)
         err(&apos;onReadTextFile returned &apos; + JSON.stringify(x));
-    b.readTextFile(&apos;/etc/dogtag&apos;, onReadDogTag);
-}
-
-function onReadDogTag(x) {
-    console.log(&apos;dogtag = &apos; + x.data);
     complete();
 }
 
