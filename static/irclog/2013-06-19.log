@@ -600,3 +600,66 @@
 <li class="message">[<a href="#T07:59:48" id="T07:59:48"><abbr title="2013-06-19T07:59:48+00:00">07:59:48</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>ka6sox: that's what i have feared</q></li>
 <li class="quit">[<a href="#T07:59:51" id="T07:59:51"><abbr title="2013-06-19T07:59:51+00:00">07:59:51</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Quit: Leaving)</span></li>
 <li class="message">[<a href="#T07:59:59" id="T07:59:59"><abbr title="2013-06-19T07:59:59+00:00">07:59:59</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>except for card detect</q></li>
+<li class="message">[<a href="#T08:00:09" id="T08:00:09"><abbr title="2013-06-19T08:00:09+00:00">08:00:09</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>which is not working in linux</q></li>
+<li class="message">[<a href="#T08:00:12" id="T08:00:12"><abbr title="2013-06-19T08:00:12+00:00">08:00:12</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>card detect is broken</q></li>
+<li class="message">[<a href="#T08:00:13" id="T08:00:13"><abbr title="2013-06-19T08:00:13+00:00">08:00:13</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T08:00:18" id="T08:00:18"><abbr title="2013-06-19T08:00:18+00:00">08:00:18</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>its bork3n</q></li>
+<li class="message">[<a href="#T08:01:13" id="T08:01:13"><abbr title="2013-06-19T08:01:13+00:00">08:01:13</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>the right way to do it is via dt, afaik?</q></li>
+<li class="message">[<a href="#T08:01:27" id="T08:01:27"><abbr title="2013-06-19T08:01:27+00:00">08:01:27</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:01:41" id="T08:01:41"><abbr title="2013-06-19T08:01:41+00:00">08:01:41</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>but its possible its being handled in u-boot sources</q></li>
+<li class="message">[<a href="#T08:01:58" id="T08:01:58"><abbr title="2013-06-19T08:01:58+00:00">08:01:58</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I don't rightly know as I've not worked with that subsystem</q></li>
+<li class="message">[<a href="#T08:02:21" id="T08:02:21"><abbr title="2013-06-19T08:02:21+00:00">08:02:21</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ka6sox: even with 'broken-cd' in the DT (poll mode) the sd slot doesn't work</q></li>
+<li class="message">[<a href="#T08:02:47" id="T08:02:47"><abbr title="2013-06-19T08:02:47+00:00">08:02:47</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>huh? thats seriously broken</q></li>
+<li class="message">[<a href="#T08:02:58" id="T08:02:58"><abbr title="2013-06-19T08:02:58+00:00">08:02:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ka6sox: I strongly suspect somethign like hwmod is powering down the controller</q></li>
+<li class="message">[<a href="#T08:03:04" id="T08:03:04"><abbr title="2013-06-19T08:03:04+00:00">08:03:04</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>ugh</q></li>
+<li class="message">[<a href="#T08:03:20" id="T08:03:20"><abbr title="2013-06-19T08:03:20+00:00">08:03:20</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>if I knew uboot better I might look into that.</q></li>
+<li class="message">[<a href="#T08:03:26" id="T08:03:26"><abbr title="2013-06-19T08:03:26+00:00">08:03:26</abbr></a>] &lt;<cite>koen</cite>&gt; <q>ka6sox: add 'broken-cd;' to the DT for mmc0 and try</q></li>
+<li class="message">[<a href="#T08:03:36" id="T08:03:36"><abbr title="2013-06-19T08:03:36+00:00">08:03:36</abbr></a>] &lt;<cite>koen</cite>&gt; <q>I'd love to be wrong on this :)</q></li>
+<li class="message">[<abbr title="2013-06-19T08:03:36+00:00">08:03:36</abbr>] &lt;<cite>ka6sox</cite>&gt; <q>kk</q></li>
+<li class="message">[<a href="#T08:03:48" id="T08:03:48"><abbr title="2013-06-19T08:03:48+00:00">08:03:48</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>makes 2 of us who hope you are wrong</q></li>
+<li class="message">[<a href="#T08:04:41" id="T08:04:41"><abbr title="2013-06-19T08:04:41+00:00">08:04:41</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>1am here and I've been "partying" too much today...sugar crash.</q></li>
+<li class="message">[<a href="#T08:04:59" id="T08:04:59"><abbr title="2013-06-19T08:04:59+00:00">08:04:59</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>koen I might take a look at that in the morning.</q></li>
+<li class="message">[<a href="#T08:05:04" id="T08:05:04"><abbr title="2013-06-19T08:05:04+00:00">08:05:04</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>thanks for the heads up</q></li>
+<li class="message">[<a href="#T08:05:33" id="T08:05:33"><abbr title="2013-06-19T08:05:33+00:00">08:05:33</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>maybe we can poke uboot to keep the controller powered up</q></li>
+<li class="message">[<a href="#T08:05:51" id="T08:05:51"><abbr title="2013-06-19T08:05:51+00:00">08:05:51</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>oh wait</q></li>
+<li class="message">[<a href="#T08:06:00" id="T08:06:00"><abbr title="2013-06-19T08:06:00+00:00">08:06:00</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>this is after boot if hwmod is doing this</q></li>
+<li class="message">[<a href="#T08:06:06" id="T08:06:06"><abbr title="2013-06-19T08:06:06+00:00">08:06:06</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>see..it *is* too late</q></li>
+<li class="quit">[<a href="#T08:12:43" id="T08:12:43"><abbr title="2013-06-19T08:12:43+00:00">08:12:43</abbr></a>] <span>* _Sy_ (~SPlatten@193.34.187.227) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T08:13:17" id="T08:13:17"><abbr title="2013-06-19T08:13:17+00:00">08:13:17</abbr></a>] <span>* creemj (~mjc@60-234-221-162.bitstream.orcon.net.nz) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T08:14:11" id="T08:14:11"><abbr title="2013-06-19T08:14:11+00:00">08:14:11</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>a wonderfull summer JIHAD!</q></li>
+<li class="message">[<a href="#T08:14:51" id="T08:14:51"><abbr title="2013-06-19T08:14:51+00:00">08:14:51</abbr></a>] &lt;<cite>panto</cite>&gt; <q>KotH, let's jihad the nudist beaches!</q></li>
+<li class="message">[<a href="#T08:15:28" id="T08:15:28"><abbr title="2013-06-19T08:15:28+00:00">08:15:28</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>yeah!</q></li>
+<li class="message">[<a href="#T08:16:28" id="T08:16:28"><abbr title="2013-06-19T08:16:28+00:00">08:16:28</abbr></a>] &lt;<cite>panto</cite>&gt; <q>but wait, isn't that against most religions?</q></li>
+<li class="message">[<a href="#T08:17:32" id="T08:17:32"><abbr title="2013-06-19T08:17:32+00:00">08:17:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>beaches are allowed</q></li>
+<li class="message">[<a href="#T08:18:03" id="T08:18:03"><abbr title="2013-06-19T08:18:03+00:00">08:18:03</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>as long as you're eating a hotdog and it's friday</q></li>
+<li class="part">[<a href="#T08:24:06" id="T08:24:06"><abbr title="2013-06-19T08:24:06+00:00">08:24:06</abbr></a>] <span>* dgriffi (~dave@lists.feedle.net) has left #beagle</span></li>
+<li class="join">[<a href="#T08:25:51" id="T08:25:51"><abbr title="2013-06-19T08:25:51+00:00">08:25:51</abbr></a>] <span>* creemj (~mjc@60-234-221-162.bitstream.orcon.net.nz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:29:22" id="T08:29:22"><abbr title="2013-06-19T08:29:22+00:00">08:29:22</abbr></a>] <span>* emocakes (~emocakes@110-174-10-23.static.tpgi.com.au) Quit (Quit: emocakes)</span></li>
+<li class="join">[<a href="#T08:31:14" id="T08:31:14"><abbr title="2013-06-19T08:31:14+00:00">08:31:14</abbr></a>] <span>* kfoltman (~kfoltman@gate.corvil.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:31:57" id="T08:31:57"><abbr title="2013-06-19T08:31:57+00:00">08:31:57</abbr></a>] &lt;<cite>kfoltman</cite>&gt; <q>um, <a href="http://cubiestore.com/blogs/news/8136505-cubieboard2-is-here">http://cubiestore.com/blogs/news/8136505-cubieboard2-is-here</a></q></li>
+<li class="join">[<a href="#T08:37:13" id="T08:37:13"><abbr title="2013-06-19T08:37:13+00:00">08:37:13</abbr></a>] <span>* backjlack (~quassel@unaffiliated/backjlack) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:40:51" id="T08:40:51"><abbr title="2013-06-19T08:40:51+00:00">08:40:51</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>koen: broken-cd doesn't fix it</q></li>
+<li class="message">[<a href="#T08:41:11" id="T08:41:11"><abbr title="2013-06-19T08:41:11+00:00">08:41:11</abbr></a>] &lt;<cite>koen</cite>&gt; <q>philenotfound: thanks for the confirmation</q></li>
+<li class="message">[<a href="#T08:42:32" id="T08:42:32"><abbr title="2013-06-19T08:42:32+00:00">08:42:32</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>koen: i'm not a dt expert, is setting up the correct pins via dt enough?</q></li>
+<li class="message">[<a href="#T08:42:51" id="T08:42:51"><abbr title="2013-06-19T08:42:51+00:00">08:42:51</abbr></a>] &lt;<cite>koen</cite>&gt; <q>for what?</q></li>
+<li class="message">[<a href="#T08:43:07" id="T08:43:07"><abbr title="2013-06-19T08:43:07+00:00">08:43:07</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>for a working usd</q></li>
+<li class="message">[<a href="#T08:43:58" id="T08:43:58"><abbr title="2013-06-19T08:43:58+00:00">08:43:58</abbr></a>] &lt;<cite>koen</cite>&gt; <q>the stock kernel sets everything up correctly, which is why it works if you boot from uSD</q></li>
+<li class="message">[<a href="#T08:44:16" id="T08:44:16"><abbr title="2013-06-19T08:44:16+00:00">08:44:16</abbr></a>] &lt;<cite>koen</cite>&gt; <q>but for some reason booting it with the slot empty breaks horribly</q></li>
+<li class="message">[<a href="#T08:45:08" id="T08:45:08"><abbr title="2013-06-19T08:45:08+00:00">08:45:08</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>koen: stock kernel?</q></li>
+<li class="message">[<a href="#T08:45:43" id="T08:45:43"><abbr title="2013-06-19T08:45:43+00:00">08:45:43</abbr></a>] &lt;<cite>koen</cite>&gt; <q><a href="https://github.com/beagleboard/kernel/tree/3.8">https://github.com/beagleboard/kernel/tree/3.8</a></q></li>
+<li class="message">[<a href="#T08:46:15" id="T08:46:15"><abbr title="2013-06-19T08:46:15+00:00">08:46:15</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>okay, so we are talking about the same kernel tree, good</q></li>
+<li class="message">[<a href="#T08:46:17" id="T08:46:17"><abbr title="2013-06-19T08:46:17+00:00">08:46:17</abbr></a>] &lt;<cite>philenotfound</cite>&gt; <q>:-)</q></li>
+<li class="message">[<a href="#T08:48:04" id="T08:48:04"><abbr title="2013-06-19T08:48:04+00:00">08:48:04</abbr></a>] &lt;<cite>Stanto</cite>&gt; <q>Does anyone know if the AM335x on the beaglebone black is Rev 1.x or Rev 2.x please ?</q></li>
+<li class="message">[<a href="#T08:48:21" id="T08:48:21"><abbr title="2013-06-19T08:48:21+00:00">08:48:21</abbr></a>] &lt;<cite>panto</cite>&gt; <q>Rev2</q></li>
+<li class="message">[<a href="#T08:48:26" id="T08:48:26"><abbr title="2013-06-19T08:48:26+00:00">08:48:26</abbr></a>] &lt;<cite>Stanto</cite>&gt; <q>Thanks</q></li>
+<li class="message">[<a href="#T08:48:51" id="T08:48:51"><abbr title="2013-06-19T08:48:51+00:00">08:48:51</abbr></a>] &lt;<cite>Stanto</cite>&gt; <q>Does anyone know the package type of the chip?</q></li>
+<li class="quit">[<a href="#T08:48:54" id="T08:48:54"><abbr title="2013-06-19T08:48:54+00:00">08:48:54</abbr></a>] <span>* anshu3 (~arivendu@rrcs-50-84-168-74.sw.biz.rr.com) Quit (Quit: Nettalk6 - www.ntalk.de)</span></li>
+<li class="message">[<a href="#T08:49:03" id="T08:49:03"><abbr title="2013-06-19T08:49:03+00:00">08:49:03</abbr></a>] &lt;<cite>Stanto</cite>&gt; <q>ZCE/ZCZ ?</q></li>
+<li class="join">[<a href="#T08:49:23" id="T08:49:23"><abbr title="2013-06-19T08:49:23+00:00">08:49:23</abbr></a>] <span>* Criztian (~criztian@cust.static.46-14-52-173.swisscomdata.ch) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:51:13" id="T08:51:13"><abbr title="2013-06-19T08:51:13+00:00">08:51:13</abbr></a>] &lt;<cite>Jacmet</cite>&gt; <q>Stanto: zcz</q></li>
+<li class="message">[<a href="#T08:51:54" id="T08:51:54"><abbr title="2013-06-19T08:51:54+00:00">08:51:54</abbr></a>] &lt;<cite>koen</cite>&gt; <q>Stanto: 2.0 to be exact since 2.1 is not available</q></li>
+<li class="message">[<a href="#T08:52:01" id="T08:52:01"><abbr title="2013-06-19T08:52:01+00:00">08:52:01</abbr></a>] &lt;<cite>Stanto</cite>&gt; <q>Excellent, cheers :)</q></li>
+<li class="message">[<a href="#T08:52:05" id="T08:52:05"><abbr title="2013-06-19T08:52:05+00:00">08:52:05</abbr></a>] &lt;<cite>koen</cite>&gt; <q>and yes, 2.0 was never supposed to ship to customers</q></li>
+<li class="message">[<a href="#T08:52:11" id="T08:52:11"><abbr title="2013-06-19T08:52:11+00:00">08:52:11</abbr></a>] &lt;<cite>Jacmet</cite>&gt; <q>Stanto: most of the info is here: <a href="http://circuitco.com/support/index.php?title=BeagleBoneBlack">http://circuitco.com/support/index.php?title=BeagleBoneBlack</a></q></li>
+<li class="message">[<a href="#T08:52:36" id="T08:52:36"><abbr title="2013-06-19T08:52:36+00:00">08:52:36</abbr></a>] &lt;<cite>Stanto</cite>&gt; <q>Thanks</q></li>
+<li class="quit">[<a href="#T08:57:22" id="T08:57:22"><abbr title="2013-06-19T08:57:22+00:00">08:57:22</abbr></a>] <span>* mrpackethead (~mrpacketh@202.46.118.170) Quit (Remote host closed the connection)</span></li>
