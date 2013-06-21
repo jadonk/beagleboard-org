@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2785" name="demo_bmp085_graphing" prototype="Page" created="1371825837321" lastModified="1371828186470">
+  <hopobject id="2785" name="demo_bmp085_graphing" prototype="Page" created="1371825837321" lastModified="1371828669624">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>demo_bmp085_graphing</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36</http_browser>
-    <time type="date">21.06.2013 10:23:06 CDT</time>
+    <time type="date">21.06.2013 10:31:09 CDT</time>
     <hopsession>127.0.0.192.94.94.1gt3tkhldpwq</hopsession>
     <body>&lt;script src=&quot;/static/processing.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
@@ -38,6 +38,7 @@ var graphDataSize = 50;
 window.graphData = new Array(graphDataSize);
 var canvas = document.getElementById(&quot;canvas1&quot;);
 var processing = new Processing(canvas, sketchProc);
+updateGraph({data:0.5});
 
 function readTemp() {
     b.readTextFile(i2c + &apos;1-0077/temp0_input&apos;, updateGraph);    
@@ -45,6 +46,7 @@ function readTemp() {
 
 function updateGraph(x) {
     for(var i=0; i &lt; graphDataSize-1; i++) {
+        if(!window.graphData[i+1]) window.graphData[i+1] = 0;
         window.graphData[i] = window.graphData[i+1];
     }
     window.graphData[i] = (parseInt(x.data, 10)/200.0)-0.7;
