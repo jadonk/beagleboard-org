@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2780" name="attachInterrupt" prototype="Page" created="1371825331945" lastModified="1371825383493">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>attachInterrupt</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36</http_browser>
+    <time type="date">21.06.2013 09:36:23 CDT</time>
+    <hopsession>127.0.0.192.94.94.z5cudt01kfu3</hopsession>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;h2&gt;BoneScript&lt;/h2&gt;
+
+    &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+     &lt;ul class=&quot;left-menu&quot;&gt;
+      &lt;strong&gt;Navigation&lt;/strong&gt;
+      &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/menu/&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+     &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;t3_content_1&quot;&gt;
+     &lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;
+     &lt;div id=&quot;content_child&quot;&gt;
+     &lt;!--- START CONTENT --&gt;
+
+&lt;h1&gt;attachInterrupt(pin, handler, mode, [callback])&lt;/h1&gt;
+&lt;p&gt;Detect changes on a digital input line&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;&lt;em&gt;Note:&lt;/em&gt; This function is still undergoing development and debug.&lt;/i&gt;&lt;/p&gt;
+&lt;h2&gt;Arguments&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;em&gt;pin&lt;/em&gt;: the &lt;a href=&quot;/Support/BoneScript/#pin&quot;&gt;BeagleBone pin&lt;/a&gt; identifier&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;handler&lt;/em&gt;: 
+  &lt;ul&gt;
+   &lt;li&gt;true: always call the callback upon interrupt event&lt;/li&gt;
+   &lt;li&gt;string: evaluated upon interrupt, passed an object with &apos;value&apos; having
+    the state of the input pin and will call callback if evaluates to true&lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;mode&lt;/em&gt;: RISING, FALLING or CHANGE&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;callback&lt;/em&gt;: called when handler returns true or other events&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Return value&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#true&quot;&gt;true&lt;/a&gt; if successful&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#false&quot;&gt;false&lt;/a&gt; on failure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;callback(x)&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;em&gt;x.pin&lt;/em&gt;: pin that generated event&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;x.output&lt;/em&gt;: result of handler function&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;x.value&lt;/em&gt;: input state of the pin generating the interrupt&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;x.attached&lt;/em&gt;: handler successfully attached&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;x.configured&lt;/em&gt;: interrupt handler previously configured&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Example
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height: 240px;&quot;&gt;
+var b = require(&apos;bonescript&apos;);
+var inputPin = &apos;P8_19&apos;;
+b.pinMode(inputPin, b.INPUT);
+b.attachInterrupt(inputPin, true, b.CHANGE, interruptCallback);
+setTimeout(detach, 12000);
+
+function interruptCallback(x) {
+    console.log(JSON.stringify(x));
+}
+
+function detach() {
+    b.detachInterrupt(inputPin);
+    console.log(&apos;Interrupt detached&apos;);
+}&lt;/pre&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&apos;height: 280px;&apos;&gt;&lt;/div&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;Toggle the state of P8_19 within 12 seconds of starting script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;h3&gt;Topics&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/bone101/#headers&quot;&gt;BeagleBone expansion headers&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#digitalio&quot;&gt;Digital I/O&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Related functions&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#require&quot;&gt;require&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/pinMode/&quot;&gt;pinMode&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/detachInterrupt/&quot;&gt;detachInterrupt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Examples&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/cape_bacon/&quot;&gt;Bacon Cape&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+     &lt;!--- START FOOTER --&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/support/BoneScript/attachInterrupt/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <lang>en-us</lang>
+    <user>blog.hangerhead.com</user>
+  </hopobject>
+</xmlroot>
