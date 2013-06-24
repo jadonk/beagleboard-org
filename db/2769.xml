@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2769" name="accelerometer" prototype="Page" created="1371678639296" lastModified="1372083008735">
+  <hopobject id="2769" name="accelerometer" prototype="Page" created="1371678639296" lastModified="1372083039245">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>accelerometer</uri>
     <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36</http_browser>
-    <time type="date">24.06.2013 09:10:08 CDT</time>
+    <time type="date">24.06.2013 09:10:39 CDT</time>
     <hopsession>127.0.0.192.91.66.1exv52vtkfjvl</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
@@ -35,8 +35,43 @@ We need to do simple math before we continue. Ultimately, we want to know the va
 &lt;/h2&gt;
 &lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:60px;&quot;&gt;
 var b = require(&apos;bonescript&apos;);
-b.pinMode(&apos;USR0&apos;, b.OUTPUT);
-b.digitalWrite(&apos;USR0&apos;, b.HIGH);&lt;/pre&gt;
+zero_off  = 1877.33;
+CF = 375.46;
+
+function callADC(){
+b.analogRead(&apos;P9_36&apos;, printX);
+b.analogRead(&apos;P9_38&apos;, printY);
+b.analogRead(&apos;P9_40&apos;, printZ);
+}
+
+function printX(x) {
+    value1 = (x.value * 4095);    //the function, found in index.js, divides the scale out. We want to //multiply it back for all three of the reads for our math.    
+    value1 = (value1 - zero_off)/CF;
+    console.log(&apos;Analog Read Value x: &apos; +value1);    // when the ADXL335 resting flat on a table or //board, then readings should be x:0
+}
+
+function printY(x) {
+    value2 = (x.value * 4095);    //the function, found in index.js, divides the scale out. We want to //multiply it back for all three of the reads for our math.    
+    value2 = (value2 - zero_off)/CF;
+    console.log(&apos;Analog Read Value y: &apos; +value2);    // when the ADXL335 resting flat on a table or //board, then readings should be x:0
+}
+
+function printZ(x) {
+    value3 = (x.value * 4095);    //the function, found in index.js, divides the scale out. We want to //multiply it back for all three of the reads for our math.    
+    value3 = (value3 - zero_off)/CF;
+    console.log(&apos;Analog Read Value z: &apos; +value3);    // when the ADXL335 resting flat on a table or //board, then readings should be x:0
+    console.log(&apos;&apos;);
+
+}
+
+var loop = setInterval(callADC, 50);          //callADC will be invoked 20 times a sec or once every 50 ms
+
+function clear(){
+    clearInterval(loop);
+}
+
+setTimeout(clear,1000);                                //after 1 second, the interval will clear and the function will no longer be called.
+&lt;/pre&gt;
 &lt;div readonly id=&apos;console-output&apos; style=&quot;height:80px;&quot;&gt;&lt;/div&gt;
 &lt;h2&gt;Build and execute instructions&lt;/h2&gt;
 &lt;img align=&quot;right&quot; width=&quot;50%&quot; src=&quot;/static/images/bone-usr3-led.png&quot; /&gt;
