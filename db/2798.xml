@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2798" name="educationalBoosterPack" prototype="Page" created="1372101647469" lastModified="1372104089014">
+  <hopobject id="2798" name="educationalBoosterPack" prototype="Page" created="1372101647469" lastModified="1372104174465">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>educationalBoosterPack</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36</http_browser>
-    <time type="date">24.06.2013 15:01:29 CDT</time>
+    <time type="date">24.06.2013 15:02:54 CDT</time>
     <hopsession>127.0.0.74.174.50.czaf3qal895f</hopsession>
     <body>&lt;script src=&apos;/static/bonescript-demo.js&apos;&gt;&lt;/script&gt;
 &lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;
@@ -29,11 +29,17 @@
 var b=require(&apos;bonescript&apos;);
 var LED_RED=&apos;P9_24&apos;;
 var LED_GREEN=&apos;&apos;;
-b.digitalWrite(LED_RED, b.LOW, onRedLow);
+doRedLow();
+function doRedLow() {
+    console.log(&apos;Setting LED_RED low&apos;);
+    b.digitalWrite(LED_RED, b.LOW, onRedLow);
+}
 function onRedLow(x) {
+    console.log(&apos;Waiting 1 second&apos;);
     setTimeout(onRedTimeout, 1000);
 }
 function onRedTimeout() {
+    console.log(&apos;Setting LED_RED high&apos;);
     b.digitalWrite(LED_RED, b.HIGH, onRedHigh);
 }
 function onRedHigh() {
