@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2809" name="potentiometer" prototype="Page" created="1372343637376" lastModified="1372360417735">
+  <hopobject id="2809" name="potentiometer" prototype="Page" created="1372343637376" lastModified="1372360541725">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>potentiometer</uri>
     <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36</http_browser>
-    <time type="date">27.06.2013 14:13:37 CDT</time>
+    <time type="date">27.06.2013 14:15:41 CDT</time>
     <hopsession>127.0.0.192.91.66.p4l69d1o7s56</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
@@ -19,12 +19,14 @@
 &lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
 &lt;h1&gt;Potentiometer&lt;/h1&gt;
 &lt;p&gt; Using a potentiometer, we will be able to send a specified voltage to the ADC1
-channel. Since each one of the ADC pins can only handle 1.8V Max as specified 
-&lt;a href=&quot;&quot;http://circuitco.com/support/index.php?title=BeagleBoneBlack#Expansion_Header_Usage&quot;&gt;here,&lt;/a&gt; 
+channel. Since each one of the ADC pins can only handle 1.8V &lt;b&gt;Max&lt;/&gt; as specified 
+&lt;a href=&quot;http://circuitco.com/support/index.php?title=BeagleBoneBlack#Expansion_Header_Usage&quot;&gt;here,&lt;/a&gt; 
 we will use a voltage divider to set the maximum voltage right under 1.8V. 
 &lt;/p&gt;
-&lt;p&gt;&lt;i&gt;NOTE: Due to output impedance of the ADXL335 being ~32kOhms, a low resistor
-value for the voltage divider is recommended (between 500 Ohms- 1k Ohms).&lt;/i&gt;
+&lt;p&gt;&lt;i&gt;NOTE: In this example, we will use 2 10k ohm resistors as a voltage divider. Theoretically, 
+the maximum voltage that the potentiometer will output is 1.65V, but it is better to be under 1.8V than be
+    above, which can damage the processor.
+&lt;/i&gt;
 &lt;/p&gt;
 &lt;p&gt;
     
