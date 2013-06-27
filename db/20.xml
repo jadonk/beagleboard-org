@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="20" name="project" prototype="Page" created="1202836452756" lastModified="1361879154591">
+  <hopobject id="20" name="project" prototype="Page" created="1202836452756" lastModified="1372202077174">
   <hop:parent idref="0" prototyperef="Root"/>
-    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.101 Safari/537.11</http_browser>
+    <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31</http_browser>
     <lang>en-us</lang>
     <uri>project</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">02.01.2013 13:49:13 CST</time>
+    <time type="date">15.05.2013 13:48:08 CDT</time>
     <http_remotehost>127.0.0.1</http_remotehost>
-    <hopsession>127.0.0.98.250.187.1pfxk25hbm38a</hopsession>
-    <user>blog.hangerhead.com</user>
+    <hopsession>127.0.0.198.47.16.1vegfzemqnyly</hopsession>
+    <user>dbutler@flomedia.com</user>
     <oauth2-token></oauth2-token>
-    <body>&lt;script src=&quot;/static/jquery.qtip.js&quot;&gt;&lt;/script&gt;
- &lt;div align=&quot;right&quot; style=&quot;float: right;&quot;&gt;
+    <body>&lt;h1&gt;Registered Projects&lt;/h1&gt;
+&lt;p&gt;Explore the ever-expanding list of registered projects to stir your own project ideas. Whether you’re new to Beagle or an experienced Beagle enthusiast, this list has something inspirational for you. Start your own and change the world, one Beagle project at a time.&lt;/p&gt;
+
+&lt;div style=&quot;background-color: #F1F1F1; border: 1px solid #F1F1F1; border-radius: 5px 5px 5px 5px; float: left; height: auto; padding: 10px; width: 425px;&quot;&gt; 
+ &lt;h2 id=&quot;registered&quot;&gt;Search for Projects&lt;br&gt;&lt;/h2&gt;
+&lt;/div&gt; 
+&lt;div align=&quot;right&quot; style=&quot;float: right; padding-top:23px;&quot;&gt;
  &lt;form action=&quot;http://beagleboard.org/project/new/edit_project&quot; method=&quot;get&quot;&gt;
-  &lt;input name=&quot;open&quot; type=&quot;submit&quot; value=&quot;Register Project&quot; style=&quot;width:30em; height:5em; text-align:center&quot; /&gt;
+  &lt;input name=&quot;open&quot; type=&quot;submit&quot; value=&quot;Register Project »&quot; style=&quot;border:1px solid #B4A279; border-radius:5px 5px 5px 5px; float:left; margin-bottom:20px; margin-left:25px; padding:10px; width:260px; background-color:#de7224; text-align:center; color:#fff; font-weight:bold; height:3em; cursor:pointer;&quot; /&gt;
  &lt;/form&gt;
- &lt;/div&gt;
- &lt;h2 id=&quot;registered&quot;&gt;List of registered projects&lt;/h2&gt;
+&lt;/div&gt;
+ &lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;&lt;br&gt;
  &lt;script language=&quot;javascript&quot;&gt;
+ var proj_filter = document.createElement(&quot;input&quot;);
+  $(proj_filter).attr(&quot;id&quot;, &quot;proj_filter&quot;);
+  $(proj_filter).attr(&quot;name&quot;, &quot;proj_filter&quot;);
+  $(proj_filter).attr(&quot;size&quot;, &quot;40&quot; );
+  $(&apos;#registered&apos;).append(proj_filter);
+
 var update_count = function () {
  var visible = 0;
  var total = 0;
@@ -35,29 +46,27 @@ var update_count = function () {
 };
 
 $(document).ready(
+
  function() {
   $(&apos;#hosting&apos;).hide(&apos;fast&apos;);
   $(&apos;#search_links&apos;).hide(&apos;fast&apos;);
   var visible_count = document.createElement(&quot;span&quot;);
+  visible_count.style.color=&quot;#DE7224&quot;;
   visible_count.style.cssFloat=&quot;none&quot;;
   $(visible_count).attr(&quot;id&quot;, &quot;visible_count&quot;);
   var total_count = document.createElement(&quot;span&quot;);
+  total_count.style.color=&quot;#DE7224&quot;;
   total_count.style.cssFloat=&quot;none&quot;;
   var show_more = document.createElement(&quot;span&quot;);
   show_more.style.cssFloat=&quot;none&quot;;
   $(total_count).attr(&quot;id&quot;, &quot;total_count&quot;);
-  $(&apos;#registered&apos;).append(&apos; (showing &apos;);
+  $(&apos;#registered&apos;).append(&apos;&lt;br/&gt;showing &apos;);
   $(&apos;#registered&apos;).append(visible_count);
   $(&apos;#registered&apos;).append(&apos; of &apos;);
   $(&apos;#registered&apos;).append(total_count);
-  $(&apos;#registered&apos;).append(&apos;) &apos;);
+  $(&apos;#registered&apos;).append(&apos; &apos;);
   $(&apos;#registered&apos;).append(show_more);
   update_count();
-  var proj_filter = document.createElement(&quot;input&quot;);
-  $(proj_filter).attr(&quot;id&quot;, &quot;proj_filter&quot;);
-  $(proj_filter).attr(&quot;name&quot;, &quot;proj_filter&quot;);
-  $(proj_filter).attr(&quot;size&quot;, &quot;40&quot;);  
-  $(&apos;#registered&apos;).append(proj_filter);
   var doFilter = function() {
    var filter = $(&apos;#proj_filter&apos;).val();
    var visible = 0;
@@ -396,5 +405,35 @@ $(document).ready(
     <hop:child idref="2400" prototyperef="Page"/>
     <hop:child idref="2401" prototyperef="Page"/>
     <hop:child idref="2409" prototyperef="Page"/>
+    <hop:child idref="2436" prototyperef="Page"/>
+    <hop:child idref="2443" prototyperef="Page"/>
+    <hop:child idref="2451" prototyperef="Page"/>
+    <hop:child idref="2461" prototyperef="Page"/>
+    <hop:child idref="2487" prototyperef="Page"/>
+    <hop:child idref="2503" prototyperef="Page"/>
+    <hop:child idref="2546" prototyperef="Page"/>
+    <hop:child idref="2550" prototyperef="Page"/>
+    <hop:child idref="2558" prototyperef="Page"/>
+    <hop:child idref="2561" prototyperef="Page"/>
+    <hop:child idref="2584" prototyperef="Page"/>
+    <hop:child idref="2627" prototyperef="Page"/>
+    <hop:child idref="2639" prototyperef="Page"/>
+    <hop:child idref="2643" prototyperef="Page"/>
+    <hop:child idref="2674" prototyperef="Page"/>
+    <hop:child idref="2678" prototyperef="Page"/>
+    <hop:child idref="2681" prototyperef="Page"/>
+    <hop:child idref="2684" prototyperef="Page"/>
+    <hop:child idref="2690" prototyperef="Page"/>
+    <hop:child idref="2694" prototyperef="Page"/>
+    <hop:child idref="2698" prototyperef="Page"/>
+    <hop:child idref="2703" prototyperef="Page"/>
+    <hop:child idref="2713" prototyperef="Page"/>
+    <hop:child idref="2716" prototyperef="Page"/>
+    <hop:child idref="2749" prototyperef="Page"/>
+    <hop:child idref="2752" prototyperef="Page"/>
+    <hop:child idref="2760" prototyperef="Page"/>
+    <hop:child idref="2773" prototyperef="Page"/>
+    <hop:child idref="2800" prototyperef="Page"/>
+    <hop:child idref="2803" prototyperef="Page"/>
   </hopobject>
 </xmlroot>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2471" name="BoneScript" prototype="Page" created="1366427239709" lastModified="1372343637377">
+  <hop:parent idref="121" prototyperef="Page"/>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36</http_browser>
+    <lang>en-us</lang>
+    <uri>BoneScript</uri>
+    <http_host>beagleboard.org</http_host>
+    <time type="date">26.06.2013 10:31:13 CDT</time>
+    <pseudoparent idref="121" prototyperef="Page"/>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <hopsession>127.0.0.192.94.94.16y4dhn3hk151</hopsession>
+    <user>jkridner@gmail.com</user>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;/br&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+    &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
+        &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/menu/&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
+&lt;h1&gt;Bonescript Library&lt;/h1&gt;
+&lt;p&gt;BoneScript is a node.js-based language specifically optimized for the Beagle family and featuring familiar Arduino function calls, exported to the browser. Get started exploring the BoneScript Library to discover the great simplicity that is made possible by utilizing Linux in BoneScript.&lt;/p&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;h3&gt;Web-based learning&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.nodejs.org/docs/v0.8.22/api/&quot; class=&quot;external&quot;&gt;Node.JS API reference&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.w3schools.com/js/default.asp&quot; class=&quot;external&quot;&gt;W3Schools JavaScript tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Books&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/bad-to-the-bone&quot;&gt;Bad to the Bone: Crafting Electronics Systems 
+with BeagleBone and BeagleBone Black&lt;/a&gt; (&lt;a 
+href=&quot;http://www.amazon.com/dp/1627051376/?tag=bloghanerhead-20&quot; Class=&quot;external&quot;&gt;Amazon&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/dp/1449345379/?tag=bloghanerhead-20&quot; 
+Class=&quot;external&quot;&gt;Getting Started with BeagleBone&lt;/a&gt;&lt;/li&gt; 
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/dp/1449398588/?tag=bloghanerhead-20&quot; 
+Class=&quot;external&quot;&gt;Node: Up and Running&lt;/a&gt;&lt;/li&gt; 
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;functions&quot;&gt;Functions&lt;/h2&gt;
+ &lt;p&gt;The Bonescript library provides several functions useful for interacting with your hardware. Browse the menu to the left for examples to get you started.&lt;/p&gt;
+
+ &lt;h2 id=&quot;javascript&quot;&gt;JavaScript&lt;/h2&gt;
+ &lt;p&gt;Performing physical computing tasks in JavaScript is a rather different than C on microcontrollers.  JavaScript and the
+  Node.JS interpreter like to do everything asynchronously using callbacks.  An event loop runs waiting on whatever the next
+  system-blocking event is, such as waiting for a keypress or a file load to complete.  The callbacks are then executed
+  to completion before other event handlers are run.
+  &lt;/p&gt;
+  &lt;h3 id=&quot;timers&quot;&gt;Timers&lt;/h3&gt;
+  &lt;p&gt;Timing operations in JavaScript are provided by setting timers with callback event handlers.  A nice overview of
+  JavaScript timers can be found on &lt;a href=&quot;http://www.w3schools.com/js/js_timing.asp&quot; target=&quot;_blank&quot; class=&quot;external&quot;&gt;www.w3schools.com&lt;/a&gt;.&lt;/p&gt;
+  &lt;ul&gt;
+   &lt;li&gt;var timer = setTimeout(callback, milliseconds)&lt;/li&gt;
+   &lt;li&gt;clearTimeout(timer)&lt;/li&gt;
+   &lt;li&gt;var timer = setInterval(callback, milliseconds)&lt;/li&gt;
+   &lt;li&gt;clearInterval(timer)&lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;h3 id=&quot;libraries&quot;&gt;Libraries&lt;/h3&gt;
+ &lt;p&gt;The BoneScript Library runs in Node.JS.  You can run it
+ directly on the board using the &apos;node&apos; interpreter or the Cloud9 IDE that invokes the &apos;node&apos; interpreter.  You can
+ also run it using the &lt;a href=&quot;/bonescript.js&quot;&gt;bonescript.js&lt;/a&gt; script within your browser via remote procedure calls
+ using Socket.io and served up by the web server running on your Beagle.&lt;/p&gt;
+ &lt;p id=&quot;require&quot;&gt;Access to the library functions is provided through the &quot;require(&apos;bonescript&apos;)&quot; function call.  The
+ call returns an object containing all of the functions and constants exported by the library.  The Node.JS API documentation
+ on &lt;a href=&quot;http://www.nodejs.org/docs/v0.8.22/api/modules.html&quot; target=&quot;_blank&quot;&gt;modules&lt;/a&gt; provides more information on the usage
+ of &apos;require&apos; within the &apos;node&apos; interpreter.&lt;/p&gt;
+  &lt;h3&gt;Other JavaScript topics&lt;/h3&gt;
+  &lt;p id=&quot;console&quot;&gt;The Chrome browser has a rather nice JavaScript debugger you can use to examine your code.  You might
+  also get good benefit out of &apos;console.log()&apos;.&lt;/p&gt;
+  &lt;p id=&quot;typeof&quot;&gt;Because JavaScript is dynamically typed, you might find the &apos;typeof operator&apos; rather useful to determine
+  the type of a variable at run-time.  A nice overview of the JavaScript typeof operator can be found at 
+  &lt;a target=&quot;_blank&quot; href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/typeof&quot; class=&quot;external&quot;&gt;
+      developer.mozilla.org&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;h3&gt;Resources&lt;/h3&gt;
+&lt;a id=&quot;console&quot;&gt;&lt;/a&gt;
+&lt;a id=&quot;typeof&quot;&gt;&lt;/a&gt;
+&lt;p&gt;To learn more about Cloud9 IDE and to synchronize the software on your board with cloud-hosted services, see
+  &lt;a target=&quot;_blank&quot; href=&quot;http://c9.io&quot;&gt;www.c9.io&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For more information on Node.JS, the JavaScript interpreter, see &lt;a target=&quot;_blank&quot; href=&quot;http://nodejs.org&quot; class=&quot;external&quot;&gt;www.nodejs.org&lt;/a&gt;.
+  You can find the api documentation
+  at &lt;a target=&quot;_blank&quot; href=&quot;http://nodejs.org/docs/v0.8.22/api&quot; class=&quot;external&quot;&gt;www.nodejs.org/docs/v0.8.22/api&lt;/a&gt;.
+&lt;/p&gt;
+ 
+&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</body>
+    <http_language>en-US,en;q=0.8</http_language>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_referer>http://beagleboard.org/Support/BoneScript/edit</http_referer>
+    <hop:child idref="2477" prototyperef="Page"/>
+    <hop:child idref="2478" prototyperef="Page"/>
+    <hop:child idref="2479" prototyperef="Page"/>
+    <hop:child idref="2563" prototyperef="Page"/>
+    <hop:child idref="2564" prototyperef="Page"/>
+    <hop:child idref="2607" prototyperef="Page"/>
+    <hop:child idref="2640" prototyperef="Page"/>
+    <hop:child idref="2737" prototyperef="Page"/>
+    <hop:child idref="2738" prototyperef="Page"/>
+    <hop:child idref="2768" prototyperef="Page"/>
+    <hop:child idref="2769" prototyperef="Page"/>
+    <hop:child idref="2779" prototyperef="Page"/>
+    <hop:child idref="2780" prototyperef="Page"/>
+    <hop:child idref="2781" prototyperef="Page"/>
+    <hop:child idref="2782" prototyperef="Page"/>
+    <hop:child idref="2783" prototyperef="Page"/>
+    <hop:child idref="2784" prototyperef="Page"/>
+    <hop:child idref="2785" prototyperef="Page"/>
+    <hop:child idref="2798" prototyperef="Page"/>
+    <hop:child idref="2805" prototyperef="Page"/>
+    <hop:child idref="2806" prototyperef="Page"/>
+    <hop:child idref="2808" prototyperef="Page"/>
+    <hop:child idref="2809" prototyperef="Page"/>
+  </hopobject>
+</xmlroot>

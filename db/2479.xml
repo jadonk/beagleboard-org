@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2479" name="pinMode" prototype="Page" created="1366437568700" lastModified="1372252982458">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>pinMode</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36</http_browser>
+    <time type="date">26.06.2013 08:23:02 CDT</time>
+    <hopsession>127.0.0.12.7.236.1tmoumlyxjrzy</hopsession>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- side-menu --&gt;
+&lt;h2&gt;Bonescript&lt;/h2&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+    &lt;ul class=&quot;left-menu&quot;&gt;
+        &lt;strong&gt;Navigation&lt;/strong&gt;
+        &lt;li&gt;&lt;a href=&quot;/static/side-menu.html&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;t3_content_1&quot;&gt;
+&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;
+&lt;div id=&quot;content_child&quot;&gt;
+&lt;!--- START CONTENT --&gt;
+
+&lt;h1&gt;pinMode(pin, direction, [mux], [pullup], [slew], [callback])&lt;/h1&gt;
+&lt;p&gt;This function configures the mode of a digital I/O pin.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;: This function is not fully implemented the 3.8 kernel
+    that ships with the BeagleBone Black.
+&lt;/p&gt;
+&lt;h2&gt;Arguments&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;em&gt;pin&lt;/em&gt;: the &lt;a href=&quot;/support/bonescript#pin&quot;&gt;BeagleBone pin&lt;/a&gt; identifier&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;direction&lt;/em&gt;: &lt;a href=&quot;/support/bonescript#input&quot;&gt;INPUT&lt;/a&gt;,
+    &lt;a href=&quot;/support/bonescript#input_pullup&quot;&gt;INPUT_PULLUP&lt;/a&gt; (under development on 3.8 kernel) or 
+    &lt;a href=&quot;/support/bonescript#output&quot;&gt;OUTPUT&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;mux&lt;/em&gt;: index to mux mode (under development on 3.8 kernel)&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;pullup&lt;/em&gt;: &apos;pullup&apos;, &apos;pulldown&apos; or &apos;disabled&apos; (under development on 3.8 kernel)&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;slew&lt;/em&gt;: &apos;fast&apos; or &apos;slow&apos; (under development on 3.8 kernel)&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;callback&lt;/em&gt;: called upon completion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Return value&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#true&quot;&gt;true&lt;/a&gt; if successful&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#false&quot;&gt;false&lt;/a&gt; on failure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;callback(x)&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;em&gt;x.value&lt;/em&gt;: return value&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;x.err&lt;/em&gt;: error status message&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Example
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height: 250px;&quot;&gt;
+var b = require(&apos;bonescript&apos;);
+b.pinMode(&quot;P8_13&quot;, b.OUTPUT, 7, &apos;pullup&apos;, 
+ &apos;fast&apos;, printStatus);
+b.getPinMode(&quot;P8_13&quot;, printPinMux);
+function printStatus(x) {
+    console.log(&apos;value = &apos; + x.value);
+    console.log(&apos;err = &apos; + x.err);
+}
+function printPinMux(x) {
+    console.log(&apos;mux = &apos; + x.mux);
+    console.log(&apos;pullup = &apos; + x.pullup);
+    console.log(&apos;slew = &apos; + x.slew);
+    console.log(&apos;options = &apos; + x.options.join(&apos;,&apos;));
+    console.log(&apos;err = &apos; + x.err);
+}&lt;/pre&gt;
+&lt;div id=&apos;console-output&apos; style=&quot;height: 160px;&quot;&gt;&lt;/div&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Check out some of the other examples to see and verify pinMode functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;h3&gt;Topics&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/support/bonescript/#headers&quot;&gt;BeagleBone expansion headers&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/support/bonescript/#digitalio&quot;&gt;Digital I/O&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Related functions&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/getPinMode&quot;&gt;getPinMode&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/support/BoneScript/pinMode/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <user>jkridner@gmail.com</user>
+    <lang>en-us</lang>
+  </hopobject>
+</xmlroot>

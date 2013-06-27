@@ -1,21 +1,39 @@
+app.addRepository('modules/core/JSON.js');
+
 function main_action ()
  {
   if (this.isTransient())
    {
     return (this.notfound_action());
    }
+
+  var alt = req.data["use_alt"];
+  var body, render_skin, skin_is_outer;
+  if (alt && this.alt && this.alt[alt])
+   {
+    body = this.alt[alt].body;
+    render_skin = this.alt[alt].render_skin;
+    skin_is_outer = this.alt[alt].skin_is_outer;
+   }
+  else
+   {
+    body = this.body;
+    render_skin = this.render_skin;
+    skin_is_outer = this.skin_is_outer;
+   }
+
   res.handlers["User"] = User();
   res.data.title = this.uri;
-  if (this.render_skin == "project" && this.pname)
+  if (render_skin == "project" && this.pname)
    res.data.title = this.pname;
-  if (this.render_skin == "homepage" || this.skin_is_outer)
+  if (render_skin == "homepage" || skin_is_outer)
    {
-    res.data.body = this.body;
-    renderSkin(this.render_skin);
+    res.data.body = body;
+    renderSkin(render_skin);
     return;
    }
-  if (this.render_skin)
-   res.data.body = this.renderSkinAsString(this.render_skin);
+  if (render_skin)
+   res.data.body = this.renderSkinAsString(render_skin);
   else
    res.data.body = this.renderSkinAsString("page");
   renderSkin("index");
@@ -62,12 +80,26 @@ function edit_action ()
       uri: true,
       submit: true,
       user: true,
-      time: true
+      time: true,
+      body: true,
+      lang: true,
+      use_alt: true
      };
     for (var x in req.data)
      {
       if (!blocked_attribute[x])
        this[x] = req.data[x];
+     }
+    var alt = req.data["use_alt"];
+    if (alt && this.alt && this.alt[alt])
+     {
+      this.alt[alt].body = req.data.body;
+      this.alt[alt].lang = req.data.lang;
+     }
+    else
+     {
+      this.body = req.data.body;
+      this.lang = req.data.lang;
      }
     if (saveEdit)
      {
@@ -123,10 +155,7 @@ function info_action ()
  {
   res.data.title = "Page information";
   res.data.body = "<h1>Page information</h1>";
-  res.data.body += "this.uri = " + this.uri;
-  res.data.body += "<br>this.body = " + this.body;
-  res.data.body += "<br>this.user = " + this.user;
-  res.data.body += "<br>this.time = " + this.time;
+  res.data.body += this.toJSON();
   res.handlers["User"] = User();
   renderSkin("index");
  }
@@ -152,7 +181,7 @@ function cleanBody()
     req.data["body"] = "" + x..body.div;
     req.data["body"] = req.data["body"]
      .replace(/^<div id="body">/, "")
-     .replace(/<\/div>$/, "")
+     .replace(/<\/div>$/, "");
     return (true);
    }
   catch (ex)

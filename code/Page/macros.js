@@ -25,13 +25,16 @@ function page_macro (param)
 
 function user_macro (param)
  {
-  return ("" + this.user);
+  return (("" + this.user).replace(/\@.*$/, ""));
  }
 
 function body_macro (param)
  {
   if (this.isTransient())
    return ("");
+  var alt = req.data["use_alt"];
+  if (alt && this.alt && this.alt[alt])
+   return ("" + this.alt[alt].body);
   return ("" + this.body);
  }
 
@@ -39,6 +42,9 @@ function lang_macro (param)
  {
   if (this.isTransient())
    return ("en-us");
+  var alt = req.data["use_alt"];
+  if (alt && this.alt && this.alt[alt])
+   return ("" + this.alt[alt].lang);
   return ("" + this.lang);
  }
 
@@ -62,7 +68,13 @@ function breadcrumb_macro (param)
 
 function list_macro (param)
  {
-  if (this.list && this.list_children)
+  var alt = req.data["use_alt"];
+  if (alt && this.alt && this.alt[alt])
+   {
+    if (this.list && this.alt[alt].list_children)
+     return (this.listBody());
+   }
+  else if (this.list && this.list_children)
    return (this.listBody());
  }
 
@@ -94,3 +106,11 @@ function registrar_macro (param)
    }
  }
 
+function alt_macro (param)
+ {
+  var alt = req.data["use_alt"];
+  if (alt && this.alt && this.alt[alt])
+   return ("" + alt);
+  else
+   return ("[default]");
+ }

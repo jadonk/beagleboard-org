@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2737" name="wired_basic_test" prototype="Page" created="1370881904612" lastModified="1372265022864">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>wired_basic_test</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36</http_browser>
+    <time type="date">26.06.2013 11:43:42 CDT</time>
+    <hopsession>127.0.0.192.94.94.16y4dhn3hk151</hopsession>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+    &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
+        &lt;li&gt;&lt;a href=&quot;/static/side-menu.html&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
+&lt;h1&gt;Demo: Wired basic test&lt;/h1&gt;
+&lt;p&gt;This is a  test to verify the basic functionality of BoneScript. It requires
+    that you perform a small bit of external wiring to make sure output is valid
+    at the expansion header pins. If this test does not pass, it is recommended
+    that you update BoneScript. If after updating BoneScript this test still
+    does not pass, please report the issue on the &lt;a href=&quot;/discuss&quot;&gt;mailing
+        list
+    &lt;/a&gt;.
+&lt;/p&gt;
+&lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&quot;height: 200px;&quot;&gt;&lt;/div&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;img src=&quot;/static/uploads/wired_basic_test_bb.png&quot; align=&quot;right&quot; width=&quot;300px&quot; /&gt;
+&lt;ul&gt;
+    &lt;li&gt;Connect P9_23 to P9_24 through a 1kohm resistor.&lt;/li&gt;
+    &lt;li&gt;Connect P9_21 to P9_35 through a 1kohm resistor.&lt;/li&gt;
+    &lt;li&gt;Connect a 10uF (35V) capacitor to P9_35 with the other end tied to ground.&lt;/li&gt;
+    &lt;li&gt;Run the code and observe &apos;***PASS***&apos; at the end of the log.&lt;/li&gt;
+    &lt;li&gt;If you do not see &apos;***PASS***&apos;, look for exceptions in the run code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+&lt;h2&gt;Code&lt;/h2&gt;
+&lt;pre style=&quot;height: 1800px;&quot; id=&quot;code&quot; class=&quot;use-editor&quot;&gt;
+var b = require(&apos;bonescript&apos;);
+
+b.getPlatform(onGetPlatform);
+
+function onGetPlatform(x) {
+    if(!x.name || !x.serialNumber || !x.version)
+        err(&apos;getPlatform returned &apos; + JSON.stringify(x));
+    console.log(&apos;Name = &apos; + x.name);
+    console.log(&apos;S/N = &apos; + x.serialNumber);
+    console.log(&apos;Version = &apos; + x.version);
+    console.log(&apos;BoneScript version = &apos; + x.bonescript);
+    if(x.bonescript != &apos;0.2.2&apos;)
+        err(&apos;BoneScript 0.2.2 required&apos;);
+    b.setDate(Date().toString(), onSetDate);
+}
+
+function onSetDate(x) {
+    if(x.stdout !== null) {
+        err(&apos;setDate returned &apos; + JSON.stringify(x));
+    }
+    b.echo(&apos;test&apos;, onEcho);
+}
+
+function onEcho(x) {
+    if(x.data != &apos;test&apos;) err(&apos;doEcho returned &apos; + JSON.stringify(x));
+    b.getPinMode(&apos;P9_20&apos;, onGetPinMode);
+}
+
+function onGetPinMode(x) {
+    if(x.mux != 3) err(&apos;getPinMode returned &apos; + JSON.stringify(x));
+    b.pinMode(&apos;P9_24&apos;, b.INPUT, 7, &apos;disabled&apos;, &apos;fast&apos;, onPinModeInput);
+}
+
+function onPinModeInput(x) {
+    if(x.value !== true) err(&apos;pinMode(input) returned &apos; + JSON.stringify(x));
+    b.pinMode(&apos;P9_23&apos;, b.OUTPUT, 7, &apos;disabled&apos;, &apos;fast&apos;, onPinModeOutput);
+}
+
+function onPinModeOutput(x) {
+    if(x.value !== true) err(&apos;pinMode(output) returned &apos; + JSON.stringify(x));
+    b.digitalWrite(&apos;P9_23&apos;, b.LOW, onDigitalWriteLow);
+}
+
+function onDigitalWriteLow(x) {
+    if(x.data !== null) err(&apos;digitalWrite(low) returned &apos; + JSON.stringify(x));
+    b.digitalRead(&apos;P9_24&apos;, onDigitalReadLow);
+}
+
+function onDigitalReadLow(x) {
+    if(x.value != b.LOW) err(&apos;digitalRead(low) returned &apos; + JSON.stringify(x));
+    b.digitalWrite(&apos;P9_23&apos;, b.HIGH, onDigitalWriteHigh);
+}
+
+function onDigitalWriteHigh(x) {
+    if(x.data !== null) err(&apos;digitalWrite(high) returned &apos; + JSON.stringify(x));
+    b.digitalRead(&apos;P9_24&apos;, onDigitalReadHigh);
+}
+
+function onDigitalReadHigh(x) {
+    if(x.value != b.HIGH) err(&apos;digitalRead(high) returned &apos; + JSON.stringify(x));
+    b.analogWrite(&apos;P9_21&apos;, 0.27, 2000.0, onAnalogWrite);
+}
+
+function onAnalogWrite(x) {
+    if(x.value !== true) err(&apos;analogWrite returned &apos; + JSON.stringify(x));
+    setTimeout(doAnalogRead, 1000);
+}
+
+function doAnalogRead() {
+    b.analogRead(&apos;P9_35&apos;, onAnalogRead);
+}
+
+function onAnalogRead(x) {
+    if(x.value &gt; 0.55 || x.value &lt; 0.45)
+        err(&apos;analogRead returned &apos; + JSON.stringify(x));
+    b.writeTextFile(&apos;/tmp/basic_test&apos;, &apos;So far so good&apos;, onWriteTextFile);
+}
+
+function onWriteTextFile(x) {
+    if(x.err !== null) err(&apos;writeTextFile returned &apos; + JSON.stringify(x));
+    b.readTextFile(&apos;/tmp/basic_test&apos;, onReadTextFile);
+}
+
+function onReadTextFile(x) {
+    if(x.err !== null) err(&apos;readTextFile returned &apos; + JSON.stringify(x));
+    if(x.data != &apos;So far so good&apos;)
+        err(&apos;onReadTextFile returned &apos; + JSON.stringify(x));
+    complete();
+}
+
+function complete() {
+    console.log(&apos;***PASS***&apos;);
+    process.exit(0);
+}
+
+function err(x) {
+    console.log(&apos;***FAIL*** &apos; + x);
+    throw(x);
+}
+
+function printJSON(x) {
+    console.log(&apos;x = &apos; + JSON.stringify(x));
+}&lt;/pre&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/support/BoneScript/wired_basic_test/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <user>jkridner@gmail.com</user>
+    <lang>en-us</lang>
+  </hopobject>
+</xmlroot>

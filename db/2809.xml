@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2809" name="potentiometer" prototype="Page" created="1372343637376" lastModified="1372343789598">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>potentiometer</uri>
+    <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36</http_browser>
+    <time type="date">27.06.2013 09:36:29 CDT</time>
+    <hopsession>127.0.0.192.94.94.znsiccyzfvow</hopsession>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+    &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
+        &lt;li&gt;&lt;a href=&quot;/static/side-menu.html&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
+&lt;h1&gt;Potentiometer&lt;/h1&gt;
+&lt;p&gt;This example reads values from &lt;a 
+    href=&quot;https://www.sparkfun.com/products/9269&quot;&gt;Sparkfun’s ADXL335 3-axis
+    accelerometer&lt;/a&gt;. Because the output of the ADXL335 is between 0-3.3V 
+    and because BeagleBone&apos;s analogRead pins are 1.8V tolerant, we used a 
+    hardware (resistor) voltage divider on each of the accelerometer outputs. 
+    This provides a range of 0-1.65V to be read on BeagleBone analogRead pins.
+&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;NOTE: Due to output impedance of the ADXL335 being ~32kOhms, a low resistor
+value for the voltage divider is recommended (between 500 Ohms- 1k Ohms).&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    
+    We need to do simple math before we continue. Ultimately, we want to know the 
+    value in G’s being exerted on the accelerometer. The output of the
+    accelerometer is in volts. The first thing we need to do is calculate a
+    formula that will convert volts to Gs for us in our software. This formula
+    for us is:
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;center&gt;&lt;i&gt;(axisRead - zeroOffset) / (conversionFactor) = acceleration&lt;/center&gt;&lt;br /&gt;
+    &lt;center&gt;Where: zeroOffset = 0.0917 and conversionFactor = 0.4584&lt;/i&gt;&lt;/center&gt;
+&lt;/p&gt;
+&lt;h2&gt;Example
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:700px;&quot;&gt;
+var b = require(&apos;bonescript&apos;);
+var zeroOffset  = 0.4584;
+var conversionFactor = 0.0917;
+
+function callADC(){
+    b.analogRead(&apos;P9_36&apos;, printX);
+    b.analogRead(&apos;P9_38&apos;, printY);
+    b.analogRead(&apos;P9_40&apos;, printZ);
+}
+
+function printX(x) {
+    var value = (x.value - zeroOffset)/conversionFactor;
+    console.log(&apos;Analog Read Value x: &apos; +value);    
+    // when the ADXL335 resting flat on a table or
+    //board, then readings should be x:0
+}
+
+function printY(x) {
+    var value = (x.value - zeroOffset)/conversionFactor;
+    console.log(&apos;Analog Read Value y: &apos; +value);
+    // when the ADXL335 resting flat on a table or
+    //board, then readings should be y:0
+}
+
+function printZ(x) {
+    var value = (x.value - zeroOffset)/conversionFactor;
+    console.log(&apos;Analog Read Value z: &apos; +value);    
+    // when the ADXL335 resting flat on a table or 
+    //board, then readings should be z:1
+    console.log(&apos;&apos;);
+}
+
+//callADC will be invoked 20 times a sec or once every 50 ms
+var loop = setInterval(callADC, 50);          
+
+function clear(){
+    clearInterval(loop);
+}
+
+//after 1 second (1000ms), the interval
+setTimeout(clear, 1000);                                
+&lt;/pre&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&quot;height:250px;&quot;&gt;&lt;/div&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;img align=&quot;center&quot; width=&quot;90%&quot; src=&quot;/static/uploads/bbb_accelerometer_image.png&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;Hook up BeagleBone to the breadboard as shown in the diagram (above).&lt;/li&gt;
+ &lt;li&gt;After clicking ‘run’, notice the console output above for the accelerometer
+    data.&lt;/li&gt;
+ &lt;li&gt;Experiment by altering the second argument in ‘setTimeout(clear, x) to 
+    another number where x is a value in milliseconds (this value determines how
+    long the example will run).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;h3&gt;Related functions&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#require&quot;&gt;require&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/analogRead/&quot;&gt;analogRead&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/support/BoneScript/potentiometer/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <user>rachelballdesign@gmail.com</user>
+    <lang>en-us</lang>
+  </hopobject>
+</xmlroot>
