@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2814" name="new" prototype="Page" created="1372444995090" lastModified="1372446744278">
+  <hopobject id="2814" name="new" prototype="Page" created="1372444995090" lastModified="1372450310124">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>new</uri>
     <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.63 Safari/537.36</http_browser>
-    <time type="date">28.06.2013 14:12:24 CDT</time>
-    <hopsession>127.0.0.192.94.94.10fyu5cx3kzfi</hopsession>
+    <time type="date">28.06.2013 15:11:50 CDT</time>
+    <hopsession>127.0.0.192.94.94.1fx4utgy75uek</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
     &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
@@ -17,10 +17,23 @@
     &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
-&lt;h1&gt;Demo: Potentiometer&lt;/h1&gt;
-&lt;p&gt; A specific voltage can be sent to the ADC1 channel using a potentiometer. Please keep in mind that each one of the ADC pins can only 
-handle &lt;b&gt;1.8V maximum.&lt;/b&gt; 
+&lt;h1&gt;Demo: Maxbotic Ultrasonic Sensor&lt;/h1&gt;
+&lt;p&gt;  The LV-MaxSonar-EZ2 High Performance Sonar Range Finder provides very short
+to long-range detection and ranging, in an incredibly small package. The sonar
+detects objects from 0-254 inches and provides sonar range information from 6-inches
+out to 254-inches with 1-inch resolution.
 &lt;/p&gt;
+&lt;i&gt;Note: Each time after the Sonar is powered up, it will calibrate
+during it&apos;s first read cycle. The sensor uses this stored 
+information to range a close object. It is important that objects
+not be close to the sensor during this calibration cycle. The
+best sensitivity is obtained when it is clear for fourteen 
+inches, but good results are common when clear for at least
+seven inches. If an object is too close during the calibration
+cycle, the sensor may then ignore the objects at that distance.
+To calibrate the LV-MAX Sonar, cycle power, then command a read
+cycle.&lt;/i&gt;
+
 
 
 
@@ -32,20 +45,34 @@ handle &lt;b&gt;1.8V maximum.&lt;/b&gt;
 var b = require(&apos;bonescript&apos;);
 var i =0;
 
-setInterval(read, 3000);
+/* Check the sensor values every 3 seconds*/
+setInterval(read, 5000);
 
 function read(){
 b.analogRead(&apos;P9_40&apos;, printStatus);
-//console.log(i + &apos; Hello&apos;);
 }
 function printStatus(x) {
     console.log(&apos;x.value = &apos; + x.value);
     distance(x.value);
 }
 
+
+
+/* Theoretical Values
+Analog: (Vcc/512) / inch
+5V: ~9.8mV / inch
+3.3V: ~6.4mV/in */
 function distance(i){
-    console.log(i+ &quot; inches away&quot;);
-}                 
+    var array = [0.0098,0.0196,0.0294,0.0392,0.049,0.0588,0.0686,
+    0.0784, 0.0882, 0.098, 0.107, 0.117];
+    var j;
+    for(j=0; j&lt;array.length;j++){
+     if(array[j] &gt; i){
+         break;
+      }
+    }
+    console.log(&quot;There is an object&quot; + j + &quot; inches away.&quot;);
+}
 &lt;/pre&gt;
 &lt;div readonly id=&apos;console-output&apos; style=&quot;height:100px;&quot;&gt;&lt;/div&gt;
 &lt;br&gt;&lt;/br&gt;
