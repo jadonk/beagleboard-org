@@ -108,6 +108,17 @@ function demoRun(id) {
     myeval(myScript);
 }
 
+function onShell(x) {
+    console.log(x);
+}
+
+function shellRun(id) {
+    var myScript = document.getElementById(id).innerHTML;
+    var b = require('bonescript');
+    b.socket.on('shell', onShell);
+    b.socket.emit('shell', myScript);
+}
+
 function demoRestore(id) {
     if(typeof editor[id] == 'undefined') return;
     editor[id].editor.setValue(editor[id].original);
