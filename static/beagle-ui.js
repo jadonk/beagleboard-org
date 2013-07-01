@@ -30,7 +30,7 @@ $(function() {
 
 $(document).ready(function(){
     if($('#side-menu').length) {
-        $.get('/static/side-menu.html', function(data){
+        $.get('/Support/BoneScript/menu', function(data){
             $('#side-menu').replaceWith(data);
         });
     }
@@ -203,6 +203,13 @@ function _onSocketIOLoaded_workaround() {
                 _bonescript.modules[m.module][m.data[x].name] = m.data[x].value;
             }
         }
-        _bonescript.on.initialized();
+
+	// Work-around to add shell command
+	_bonescript.modules[m.module]["shell"] = function(command) {
+	    socket.emit('shell', command);
+	}
+        
+	// Call-back initialized function
+	_bonescript.on.initialized();
     }
 }
