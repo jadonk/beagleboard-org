@@ -82,7 +82,7 @@ function registrant_macro (param)
  {
   if (this.registrant)
    {
-    return ("" + this.registrant);
+    return (("" + this.registrant).replace(/\@.*$/, ""));
    }
   else
    {
@@ -94,11 +94,11 @@ function registrar_macro (param)
  {
   if (this.registrant)
    {
-    return ("" + this.registrant);
+    return (("" + this.registrant).replace(/\@.*$/, ""));
    }
   else if (session.user && session.user["name"])
    {
-    return ("" + session.user["name"]);
+    return (("" + session.user["name"]).replace(/\@.*$/, ""));
    }
   else
    {
