@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1372735831440">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>cape_bacon</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36</http_browser>
+    <time type="date">01.07.2013 22:30:31 CDT</time>
+    <hopsession>127.0.0.192.94.94.fgob895lwuwo</hopsession>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;h2&gt;BoneScript&lt;/h2&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+    &lt;ul class=&quot;left-menu&quot;&gt;
+        &lt;strong&gt;Navigation&lt;/strong&gt;
+        &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/menu/&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;t3_content_1&quot;&gt;
+&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;
+&lt;div id=&quot;content_child&quot;&gt;
+
+&lt;h1&gt;Bacon Cape&lt;/h1&gt;
+&lt;p&gt;The Bacon Cape is an add-on board meant to give you access to some
+ hardware to help build your understanding of doing basic embedded I/O on
+ BeagleBone.
+&lt;/p&gt;
+&lt;h2&gt;Board activity&lt;/h2&gt;
+&lt;div style=&quot;display: table;&quot;&gt;
+ &lt;div style=&quot;display: table-row; width=500px;&quot;&gt;
+  &lt;div id=&quot;led1&quot; style=&quot;display: table-cell; height:50px;&quot;&gt;&lt;/div&gt;
+  &lt;div style=&quot;display: table-cell; height:50px&quot;&gt;
+   &lt;div id=&quot;slider1&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
+   &lt;div id=&quot;slider2&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
+   &lt;div id=&quot;slider3&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Components&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;em&gt;S1&lt;/em&gt;: a simple push button provides a digital input
+  &lt;ul&gt;
+   &lt;li&gt;&lt;em&gt;P8_19&lt;/em&gt;: digital I/O connection to BeagleBone&lt;/li&gt;
+   &lt;li&gt;Configured as active-low (low when pressed) and uses and external pull-up&lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;D1&lt;/em&gt;: an RGB LED provides an indicator for digital output
+  &lt;ul&gt;
+   &lt;li&gt;&lt;em&gt;P9_16&lt;/em&gt;: digital I/O connection for &lt;em&gt;&lt;font color=&quot;blue&quot;&gt;BLUE&lt;/font&gt;&lt;/em&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;em&gt;P9_14&lt;/em&gt;: digital I/O connection for &lt;em&gt;&lt;font color=&quot;green&quot;&gt;GREEN&lt;/font&gt;&lt;/em&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;em&gt;P9_42&lt;/em&gt;: digital I/O connection for &lt;em&gt;&lt;font color=&quot;red&quot;&gt;RED&lt;/font&gt;&lt;/em&gt;&lt;/li&gt;
+   &lt;li&gt;Configured as active-high (lit when high)&lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;R10&lt;/em&gt;: a slide potentiometer provides an analog input
+  &lt;ul&gt;
+   &lt;li&gt;&lt;em&gt;P9_36&lt;/em&gt;: analog input connection to BeagleBone&lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;U1&lt;/em&gt;: shift register feeding a 7 segment display
+  &lt;img src=&quot;/static/images/cape-bacon-seg7.png&quot; align=&quot;right&quot; /&gt;
+  &lt;ul&gt;
+   &lt;li&gt;&lt;em&gt;P9_22&lt;/em&gt;: CLOCK&lt;/li&gt;
+   &lt;li&gt;&lt;em&gt;P9_17&lt;/em&gt;: LATCH&lt;/li&gt;
+   &lt;li&gt;&lt;em&gt;P9_18&lt;/em&gt;: DATA&lt;/li&gt;
+   &lt;li&gt;&lt;em&gt;LED1&lt;/em&gt;: connected to shift register output in common anode (active-low) configuration&lt;/li&gt;
+   &lt;li&gt;&lt;em&gt;a&lt;/em&gt;: last bit shifted out&lt;/li&gt;
+   &lt;li&gt;&lt;em&gt;h&lt;/em&gt;: first bit shifted out&lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;li&gt;&lt;em&gt;U2&lt;/em&gt;: I2C EEPROM connected to I2C2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+&lt;h2&gt;Currently running code example&lt;/h2&gt;
+&lt;script&gt;
+    onbonescriptinit = function() {
+        $(document).ready(function(){demoRun(&apos;code&apos;);});
+    };
+&lt;/script&gt;
+--&gt;
+&lt;h2&gt;Demo
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height: 1500px;&quot;&gt;
+console.log(&apos;Starting Bacon Cape demo&apos;);
+var b = require(&apos;bonescript&apos;);
+var s = b.LOW;
+var LED_RED = &apos;P9_42&apos;;
+var LED_GREEN = &apos;P9_14&apos;;
+var LED_BLUE = &apos;P9_16&apos;;
+var BUTTON = &apos;P8_19&apos;;
+var POT = &apos;P9_36&apos;;
+
+try {
+    $(&apos;#slider1&apos;).slider();
+    $(&apos;#slider2&apos;).slider();
+    $(&apos;#slider3&apos;).slider();
+    $(&apos;#led1&apos;).css(&apos;width&apos;, &apos;50px&apos;);
+    $(&apos;#led1&apos;).css(&apos;height&apos;, &apos;50px&apos;);
+    $(&apos;#led1&apos;).css(&apos;background-color&apos;, &apos;rgb(0,0,0)&apos;);
+} catch(ex) {}
+b.pinMode(&apos;USR0&apos;, b.OUTPUT);
+b.pinMode(&apos;USR1&apos;, b.OUTPUT);
+b.pinMode(&apos;USR2&apos;, b.OUTPUT);
+b.pinMode(&apos;USR3&apos;, b.OUTPUT);
+b.pinMode(LED_RED, b.OUTPUT);
+b.pinMode(LED_GREEN, b.OUTPUT);
+b.pinMode(LED_BLUE, b.OUTPUT);
+b.pinMode(BUTTON, b.INPUT);
+b.digitalWrite(&apos;USR0&apos;, b.LOW);
+b.digitalWrite(&apos;USR1&apos;, b.LOW);
+b.digitalWrite(&apos;USR2&apos;, b.LOW);
+b.digitalWrite(&apos;USR3&apos;, b.LOW);
+b.analogWrite(LED_RED, 0);
+b.analogWrite(LED_GREEN, 0);
+b.analogWrite(LED_BLUE, 0);
+//b.attachInterrupt(BUTTON, true, b.CHANGE, handleButton);
+blink();
+$(&quot;#slider3&quot;).bind(&quot;slidechange&quot;, function(event, ui) {
+    updateRed({value:(ui.value/100.0)});
+});
+
+function blink(x) {
+    s = (s == b.LOW) ? b.HIGH : b.LOW;
+    b.digitalWrite(&apos;USR0&apos;, s, doAnalogRead);
+}
+
+function doAnalogRead() {
+    b.digitalRead(BUTTON, updateBlue);
+    b.analogRead(POT, updateGreen);
+    setTimeout(blink, 100);
+}
+
+function updateBlue(x) {
+    if(typeof x.value == &apos;undefined&apos;) return;
+    updateLED({blue:1-x.value});
+}
+
+function updateGreen(x) {
+    if(typeof x.value == &apos;undefined&apos;) return;
+    updateLED({green:1-x.value});
+}
+
+function updateRed(x) {
+    if(typeof x.value == &apos;undefined&apos;) return;
+    updateLED({red:x.value});
+}
+
+function updateLED(led) {
+    if(typeof led.red == &apos;number&apos;) {
+        b.analogWrite(LED_RED, led.red);
+        this.red = led.red;
+    }
+    if(typeof led.green == &apos;number&apos;) {
+        b.analogWrite(LED_GREEN, led.green);
+        this.green = led.green;
+    }
+    if(typeof led.blue == &apos;number&apos;) {
+        b.analogWrite(LED_BLUE, led.blue);
+        this.blue = led.blue;
+    }
+    try {
+        if(typeof this.red == &apos;undefined&apos;) this.red = 0;
+        if(typeof this.green == &apos;undefined&apos;) this.green = 0;
+        if(typeof this.blue == &apos;undefined&apos;) this.blue = 0;
+        var rgb = &apos;rgb(&apos; + Math.round(this.red*255) + &apos;,&apos; + 
+            Math.round(this.green*255) + &apos;,&apos; +
+            Math.round(this.blue*255) + &apos;)&apos;;
+        $(&apos;#led1&apos;).css(&apos;background-color&apos;, rgb);
+        $(&quot;#slider1&quot;).slider(&quot;option&quot;, &quot;value&quot;, this.blue*100);
+        $(&quot;#slider2&quot;).slider(&quot;option&quot;, &quot;value&quot;, this.green*100);
+    } catch(ex) {}
+}&lt;/pre&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&apos;height: 80px;&apos;&gt;&lt;/div&gt;
+&lt;script&gt;
+window.onbeforeunload = restore;
+function restore() {
+    var b = require(&apos;bonescript&apos;);
+    var p = &apos;/sys/class/leds/beaglebone:green:usr&apos;;
+    b.digitalWrite(&apos;USR0&apos;, b.LOW);
+    b.digitalWrite(&apos;USR1&apos;, b.LOW);
+    b.digitalWrite(&apos;USR2&apos;, b.LOW);
+    b.digitalWrite(&apos;USR3&apos;, b.LOW);
+    b.writeTextFile(p+&apos;0/trigger&apos;, &apos;heartbeat&apos;);
+    b.writeTextFile(p+&apos;1/trigger&apos;, &apos;mmc0&apos;);
+    b.writeTextFile(p+&apos;2/trigger&apos;, &apos;cpu0&apos;);
+    b.writeTextFile(p+&apos;3/trigger&apos;, &apos;mmc1&apos;);
+    b.detachInterrupt(&apos;P8_19&apos;);
+}
+&lt;/script&gt;
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;h3&gt;Topics&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/bone101/#headers&quot;&gt;BeagleBone expansion headers&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#analogio&quot;&gt;Analog I/O&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Related functions&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#require&quot;&gt;require&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/pinMode/&quot;&gt;pinMode&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/analogWrite/&quot;&gt;analogWrite&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/analogRead/&quot;&gt;analogRead&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/digitalWrite/&quot;&gt;digitalWrite&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/digitalRead/&quot;&gt;digitalRead&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/support/BoneScript/cape_bacon/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <lang>en-us</lang>
+    <user>blog.hangerhead.com</user>
+  </hopobject>
+</xmlroot>
