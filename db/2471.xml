@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2471" name="BoneScript" prototype="Page" created="1366427239709" lastModified="1372773331364">
+  <hopobject id="2471" name="BoneScript" prototype="Page" created="1366427239709" lastModified="1372773599396">
   <hop:parent idref="121" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>BoneScript</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36</http_browser>
-    <time type="date">02.07.2013 08:55:31 CDT</time>
+    <time type="date">02.07.2013 08:59:59 CDT</time>
     <hopsession>127.0.0.192.94.94.197na3umofx00</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;/br&gt;
@@ -42,17 +42,25 @@ Class=&quot;external&quot;&gt;Node: Up and Running&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;functions&quot;&gt;Functions&lt;/h2&gt;
- &lt;p&gt;The Bonescript library provides several functions useful for interacting with your hardware. Browse the menu to the left for examples to get you started.&lt;/p&gt;
+ &lt;p&gt;The BoneScript library provides several functions useful for interacting
+ with your hardware. Browse the menu to the left for examples to get you 
+ started.&lt;/p&gt;
 
  &lt;h2 id=&quot;javascript&quot;&gt;JavaScript&lt;/h2&gt;
- &lt;p&gt;Performing physical computing tasks in JavaScript is a rather different than C on microcontrollers.  JavaScript and the
-  Node.JS interpreter like to do everything asynchronously using callbacks.  An event loop runs waiting on whatever the next
-  system-blocking event is, such as waiting for a keypress or a file load to complete.  The callbacks are then executed
+ &lt;p&gt;Performing physical computing tasks in JavaScript is a rather different than
+    C on microcontrollers.  JavaScript and the
+  Node.JS interpreter like to do everything asynchronously using callbacks.  
+  An event loop runs waiting on whatever the next
+  system-blocking event is, such as waiting for a keypress or a file 
+  load to complete.  The callbacks are then executed
   to completion before other event handlers are run.
   &lt;/p&gt;
   &lt;h3 id=&quot;timers&quot;&gt;Timers&lt;/h3&gt;
-  &lt;p&gt;Timing operations in JavaScript are provided by setting timers with callback event handlers.  A nice overview of
-  JavaScript timers can be found on &lt;a href=&quot;http://www.w3schools.com/js/js_timing.asp&quot; target=&quot;_blank&quot; class=&quot;external&quot;&gt;www.w3schools.com&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;Timing operations in JavaScript are provided by setting timers with 
+  callback event handlers.  A nice overview of
+  JavaScript timers can be found on &lt;a 
+  href=&quot;http://www.w3schools.com/js/js_timing.asp&quot; target=&quot;_blank&quot; 
+  class=&quot;external&quot;&gt;www.w3schools.com&lt;/a&gt;.&lt;/p&gt;
   &lt;ul&gt;
    &lt;li&gt;var timer = setTimeout(callback, milliseconds)&lt;/li&gt;
    &lt;li&gt;clearTimeout(timer)&lt;/li&gt;
@@ -61,35 +69,48 @@ Class=&quot;external&quot;&gt;Node: Up and Running&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
  &lt;h3 id=&quot;libraries&quot;&gt;Libraries&lt;/h3&gt;
  &lt;p&gt;The BoneScript Library runs in Node.JS.  You can run it
- directly on the board using the &apos;node&apos; interpreter or the Cloud9 IDE that invokes the &apos;node&apos; interpreter.  You can
- also run it using the &lt;a href=&quot;/bonescript.js&quot;&gt;bonescript.js&lt;/a&gt; script within your browser via remote procedure calls
+ directly on the board using the &apos;node&apos; interpreter or the Cloud9 IDE that 
+ invokes the &apos;node&apos; interpreter.  You can
+ also run it using the &lt;a href=&quot;/bonescript.js&quot;&gt;bonescript.js&lt;/a&gt; script 
+ within your browser via remote procedure calls
  using Socket.io and served up by the web server running on your Beagle.&lt;/p&gt;
- &lt;p id=&quot;require&quot;&gt;Access to the library functions is provided through the &quot;require(&apos;bonescript&apos;)&quot; function call.  The
- call returns an object containing all of the functions and constants exported by the library.  The Node.JS API documentation
- on &lt;a href=&quot;http://www.nodejs.org/docs/v0.8.22/api/modules.html&quot; target=&quot;_blank&quot;&gt;modules&lt;/a&gt; provides more information on the usage
+ &lt;p id=&quot;require&quot;&gt;Access to the library functions is provided through the 
+ &quot;require(&apos;bonescript&apos;)&quot; function call.  The
+ call returns an object containing all of the functions and constants 
+ exported by the library.  The Node.JS API documentation
+ on &lt;a href=&quot;http://www.nodejs.org/docs/v0.8.22/api/modules.html&quot; 
+ target=&quot;_blank&quot; class=&quot;External&quot;&gt;modules&lt;/a&gt; provides more information on the usage
  of &apos;require&apos; within the &apos;node&apos; interpreter.&lt;/p&gt;
   &lt;h3&gt;Other JavaScript topics&lt;/h3&gt;
-  &lt;p id=&quot;console&quot;&gt;The Chrome browser has a rather nice JavaScript debugger you can use to examine your code.  You might
+  &lt;p id=&quot;console&quot;&gt;The Chrome browser has a rather nice JavaScript debugger you 
+  can use to examine your code.  You might
   also get good benefit out of &apos;console.log()&apos;.&lt;/p&gt;
-  &lt;p id=&quot;typeof&quot;&gt;Because JavaScript is dynamically typed, you might find the &apos;typeof operator&apos; rather useful to determine
-  the type of a variable at run-time.  A nice overview of the JavaScript typeof operator can be found at 
-  &lt;a target=&quot;_blank&quot; href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/typeof&quot; class=&quot;external&quot;&gt;
+  &lt;p id=&quot;typeof&quot;&gt;Because JavaScript is dynamically typed, you might find the 
+  &apos;typeof operator&apos; rather useful to determine
+  the type of a variable at run-time.  A nice overview of the JavaScript typeof 
+  operator can be found at 
+  &lt;a target=&quot;_blank&quot; 
+  href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/typeof&quot; 
+  class=&quot;external&quot;&gt;
       developer.mozilla.org&lt;/a&gt;.&lt;/p&gt;
 
 
 &lt;h3&gt;Resources&lt;/h3&gt;
 &lt;a id=&quot;console&quot;&gt;&lt;/a&gt;
 &lt;a id=&quot;typeof&quot;&gt;&lt;/a&gt;
-&lt;p&gt;To learn more about Cloud9 IDE and to synchronize the software on your board with cloud-hosted services, see
+&lt;p&gt;To learn more about Cloud9 IDE and to synchronize the software on your board 
+with cloud-hosted services, see
   &lt;a target=&quot;_blank&quot; href=&quot;http://c9.io&quot;&gt;www.c9.io&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;For more information on Node.JS, the JavaScript interpreter, see &lt;a target=&quot;_blank&quot; href=&quot;http://nodejs.org&quot; class=&quot;external&quot;&gt;www.nodejs.org&lt;/a&gt;.
+&lt;p&gt;For more information on Node.JS, the JavaScript interpreter, see &lt;a 
+target=&quot;_blank&quot; href=&quot;http://nodejs.org&quot; class=&quot;external&quot;&gt;www.nodejs.org&lt;/a&gt;.
   You can find the api documentation
-  at &lt;a target=&quot;_blank&quot; href=&quot;http://nodejs.org/docs/v0.8.22/api&quot; class=&quot;external&quot;&gt;www.nodejs.org/docs/v0.8.22/api&lt;/a&gt;.
+  at &lt;a target=&quot;_blank&quot; href=&quot;http://nodejs.org/docs/v0.8.22/api&quot; 
+  class=&quot;external&quot;&gt;www.nodejs.org/docs/v0.8.22/api&lt;/a&gt;.
 &lt;/p&gt;
  
 &lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</body>
     <pseudoparent idref="121" prototyperef="Page"/>
-    <http_referer>http://beagleboard.org/support/BoneScript/edit</http_referer>
+    <http_referer>http://beagleboard.org/Support/BoneScript/edit</http_referer>
     <http_host>beagleboard.org</http_host>
     <user>blog.hangerhead.com</user>
     <lang>en-us</lang>
