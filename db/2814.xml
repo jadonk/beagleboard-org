@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2814" name="new" prototype="Page" created="1372444995090" lastModified="1372873992743">
+  <hopobject id="2814" name="new" prototype="Page" created="1372444995090" lastModified="1372884837380">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>new</uri>
     <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.63 Safari/537.36</http_browser>
-    <time type="date">03.07.2013 12:53:12 CDT</time>
-    <hopsession>127.0.0.192.91.66.1cvgmum6lz0o2</hopsession>
+    <time type="date">03.07.2013 15:53:57 CDT</time>
+    <hopsession>127.0.0.192.91.66.1x7rqngqdh2kb</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
     &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
@@ -30,21 +30,20 @@ joystick also includes an extra digital input that will let you read the switch.
  &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
  &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
 &lt;/h2&gt;
-&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:225px;&quot;&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:200px;&quot;&gt;
 var b = require(&apos;bonescript&apos;);
-var count=0;
+var pos = {};
 
-b.analogRead(&apos;P9_36&apos;, printStatus);
+b.analogRead(&apos;P9_36&apos;, onX);
 
-setTimeout(function(){
-    b.analogRead(&apos;P9_38&apos;, printStatus);
-    count++;
-},200);
+function onX(x) {
+    pos.x = parseFloat(x.value * 100).toFixed(2);
+    b.analogRead(&apos;P9_38&apos;, onY);
+}
 
-function printStatus(x) {
-    console.log(count%2 !== 0  ? 
-    &apos;y.axis: = &apos; + parseFloat(x.value*100).toFixed(2): 
-    &apos;x.axis: = &apos; + parseFloat(x.value*100).toFixed(2));
+function onY(x) {
+	pos.y = parseFloat(x.value * 100).toFixed(2);
+	console.log(JSON.stringify(pos));
 }
 &lt;/pre&gt;
 &lt;div readonly id=&apos;console-output&apos; style=&quot;height:100px;&quot;&gt;&lt;/div&gt;
