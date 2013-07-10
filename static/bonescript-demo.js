@@ -83,7 +83,9 @@ function initClient() {
         editor[this.id].original = this.innerHTML;
         editor[this.id].editor = ace.edit(this.id);
         editor[this.id].editor.setTheme("ace/theme/textmate");
-        editor[this.id].editor.getSession().setMode("ace/mode/javascript");
+        if($(this).attr('syntax') == 'bash') 
+            editor[this.id].editor.getSession().setMode("ace/mode/bash");
+        else editor[this.id].editor.getSession().setMode("ace/mode/javascript");
         var originalDemoRun = demoRun;
         demoRun = function(myid) {
             if(typeof editor[myid].editor != 'undefined') {
