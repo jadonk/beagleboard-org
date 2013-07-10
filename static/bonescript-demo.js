@@ -83,8 +83,8 @@ function initClient() {
         editor[this.id].original = this.innerHTML;
         editor[this.id].editor = ace.edit(this.id);
         editor[this.id].editor.setTheme("ace/theme/textmate");
-        if($(this).attr('syntax') == 'bash') 
-            editor[this.id].editor.getSession().setMode("ace/mode/bash");
+        if($(this).attr('syntax') == 'sh') 
+            editor[this.id].editor.getSession().setMode("ace/mode/sh");
         else editor[this.id].editor.getSession().setMode("ace/mode/javascript");
         var originalDemoRun = demoRun;
         demoRun = function(myid) {
