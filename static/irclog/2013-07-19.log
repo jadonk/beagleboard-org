@@ -988,3 +988,255 @@
 <li class="join">[<a href="#T14:56:37" id="T14:56:37"><abbr title="2013-07-19T14:56:37+00:00">14:56:37</abbr></a>] <span>* gui_ (80ae72e4@gateway/web/freenode/ip.128.174.114.228) has joined #beagle</span></li>
 <li class="message">[<a href="#T14:57:50" id="T14:57:50"><abbr title="2013-07-19T14:57:50+00:00">14:57:50</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>g'morning</q></li>
 <li class="quit">[<a href="#T14:58:38" id="T14:58:38"><abbr title="2013-07-19T14:58:38+00:00">14:58:38</abbr></a>] <span>* Guest2859 (81617c4c@gateway/web/freenode/ip.129.97.124.76) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T15:00:22" id="T15:00:22"><abbr title="2013-07-19T15:00:22+00:00">15:00:22</abbr></a>] <span>* emocakes_ (~emocakes@110-174-10-23.static.tpgi.com.au) Quit (Quit: emocakes_)</span></li>
+<li class="quit">[<a href="#T15:00:45" id="T15:00:45"><abbr title="2013-07-19T15:00:45+00:00">15:00:45</abbr></a>] <span>* signal11 (esteban@abq.quaddro.net) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="join">[<a href="#T15:01:56" id="T15:01:56"><abbr title="2013-07-19T15:01:56+00:00">15:01:56</abbr></a>] <span>* JD (43d97201@gateway/web/freenode/ip.67.217.114.1) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T15:02:20" id="T15:02:20"><abbr title="2013-07-19T15:02:20+00:00">15:02:20</abbr></a>] <span>* JD is now known as Guest58070</span></li>
+<li class="message">[<a href="#T15:02:36" id="T15:02:36"><abbr title="2013-07-19T15:02:36+00:00">15:02:36</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>Can anyone here answer a question formatting the Micro SD for the beaglebone black?</q></li>
+<li class="message">[<a href="#T15:03:23" id="T15:03:23"><abbr title="2013-07-19T15:03:23+00:00">15:03:23</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>I formatted using both the android image AND the beaglesnes image and each time it leaves unallocated space on the card that I cannot use.  Can i format that into more storage space?</q></li>
+<li class="message">[<a href="#T15:04:28" id="T15:04:28"><abbr title="2013-07-19T15:04:28+00:00">15:04:28</abbr></a>] &lt;<cite>phoohb</cite>&gt; <q>fdisk, mkfs, or parted.. why not copy the image (dd)?</q></li>
+<li class="message">[<a href="#T15:06:12" id="T15:06:12"><abbr title="2013-07-19T15:06:12+00:00">15:06:12</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>Copy the image where? I have the stock OS on the EMMC and the beaglesnes on the SD card.  im afraid if i try and format it I'll ruin the partition as is</q></li>
+<li class="message">[<a href="#T15:06:42" id="T15:06:42"><abbr title="2013-07-19T15:06:42+00:00">15:06:42</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>basically i was looking to add space to the beaglesnes partition so I can store more roms on it</q></li>
+<li class="message">[<a href="#T15:07:30" id="T15:07:30"><abbr title="2013-07-19T15:07:30+00:00">15:07:30</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>sure, just resize it with the tool of choice</q></li>
+<li class="message">[<a href="#T15:07:43" id="T15:07:43"><abbr title="2013-07-19T15:07:43+00:00">15:07:43</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>gparted, parted, fdisk+resize2fs, ...</q></li>
+<li class="message">[<a href="#T15:07:45" id="T15:07:45"><abbr title="2013-07-19T15:07:45+00:00">15:07:45</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>Can I use parted magic to do it?</q></li>
+<li class="message">[<a href="#T15:08:15" id="T15:08:15"><abbr title="2013-07-19T15:08:15+00:00">15:08:15</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>I don't see why not</q></li>
+<li class="message">[<a href="#T15:08:43" id="T15:08:43"><abbr title="2013-07-19T15:08:43+00:00">15:08:43</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>so i should resize the partition with the home folder into the unallocated space? will that allow it access?</q></li>
+<li class="message">[<a href="#T15:09:03" id="T15:09:03"><abbr title="2013-07-19T15:09:03+00:00">15:09:03</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>I'm just not sure how beagle/beagesnes will react.</q></li>
+<li class="message">[<a href="#T15:09:39" id="T15:09:39"><abbr title="2013-07-19T15:09:39+00:00">15:09:39</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>as long as you don't touch the FAT partition, it should just work???</q></li>
+<li class="quit">[<a href="#T15:09:51" id="T15:09:51"><abbr title="2013-07-19T15:09:51+00:00">15:09:51</abbr></a>] <span>* groglogic (~groglogic@ip-64-134-157-206.public.wayport.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T15:10:29" id="T15:10:29"><abbr title="2013-07-19T15:10:29+00:00">15:10:29</abbr></a>] <span>* groglogic (~groglogic@ip-64-134-157-206.public.wayport.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:10:34" id="T15:10:34"><abbr title="2013-07-19T15:10:34+00:00">15:10:34</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>Sweet. Is it possible to dual boot the SD card and the EMMC? Or do I need to just pull the SD before power up each time?</q></li>
+<li class="message">[<a href="#T15:13:22" id="T15:13:22"><abbr title="2013-07-19T15:13:22+00:00">15:13:22</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>LOL.  Just formatted and resized into the unallocated space... It worked, but now it says its using 6.28gb and has 1.18gb free.  Ironic, because it had 1.18gb before too</q></li>
+<li class="join">[<a href="#T15:13:26" id="T15:13:26"><abbr title="2013-07-19T15:13:26+00:00">15:13:26</abbr></a>] <span>* Timarius (ba004257@gateway/web/freenode/ip.186.0.66.87) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:14:23" id="T15:14:23"><abbr title="2013-07-19T15:14:23+00:00">15:14:23</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>So basically the whole "free" bit is gone, and it's just dead space.  Perfect!</q></li>
+<li class="join">[<a href="#T15:15:06" id="T15:15:06"><abbr title="2013-07-19T15:15:06+00:00">15:15:06</abbr></a>] <span>* Timarius_ (ba004257@gateway/web/freenode/ip.186.0.66.87) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:17:35" id="T15:17:35"><abbr title="2013-07-19T15:17:35+00:00">15:17:35</abbr></a>] <span>* Timarius (ba004257@gateway/web/freenode/ip.186.0.66.87) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<abbr title="2013-07-19T15:17:35+00:00">15:17:35</abbr>] &lt;<cite>Timarius_</cite>&gt; <q>Hi, im brand new with the beagle</q></li>
+<li class="message">[<a href="#T15:17:49" id="T15:17:49"><abbr title="2013-07-19T15:17:49+00:00">15:17:49</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>hi</q></li>
+<li class="message">[<a href="#T15:18:20" id="T15:18:20"><abbr title="2013-07-19T15:18:20+00:00">15:18:20</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Guest58070: have you resized the filesystem itself as well?</q></li>
+<li class="message">[<a href="#T15:18:44" id="T15:18:44"><abbr title="2013-07-19T15:18:44+00:00">15:18:44</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Guest58070: resizing the partition is only step #1 of n</q></li>
+<li class="quit">[<a href="#T15:18:45" id="T15:18:45"><abbr title="2013-07-19T15:18:45+00:00">15:18:45</abbr></a>] <span>* ohama (ohama@cicolina.org) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T15:20:07" id="T15:20:07"><abbr title="2013-07-19T15:20:07+00:00">15:20:07</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>and i dont know how to program in the terminal with anstromg os</q></li>
+<li class="message">[<a href="#T15:20:33" id="T15:20:33"><abbr title="2013-07-19T15:20:33+00:00">15:20:33</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>some one can explain me what is the list of command</q></li>
+<li class="message">[<a href="#T15:20:34" id="T15:20:34"><abbr title="2013-07-19T15:20:34+00:00">15:20:34</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Timarius_: then learn it?</q></li>
+<li class="message">[<a href="#T15:20:54" id="T15:20:54"><abbr title="2013-07-19T15:20:54+00:00">15:20:54</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>yes i want to learn but dont find any example</q></li>
+<li class="message">[<a href="#T15:21:05" id="T15:21:05"><abbr title="2013-07-19T15:21:05+00:00">15:21:05</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>all what i find is about the beagle bone</q></li>
+<li class="message">[<a href="#T15:21:22" id="T15:21:22"><abbr title="2013-07-19T15:21:22+00:00">15:21:22</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>and i have is a beagleboard xm rev c</q></li>
+<li class="message">[<a href="#T15:21:30" id="T15:21:30"><abbr title="2013-07-19T15:21:30+00:00">15:21:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Timarius_: you run a linux on your bbb, look for any good linux beginners book</q></li>
+<li class="message">[<a href="#T15:21:31" id="T15:21:31"><abbr title="2013-07-19T15:21:31+00:00">15:21:31</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Timarius_: the rest will follow</q></li>
+<li class="message">[<a href="#T15:21:54" id="T15:21:54"><abbr title="2013-07-19T15:21:54+00:00">15:21:54</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>so you suggest me to install ubuntu</q></li>
+<li class="message">[<a href="#T15:21:57" id="T15:21:57"><abbr title="2013-07-19T15:21:57+00:00">15:21:57</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>in my beagle</q></li>
+<li class="message">[<a href="#T15:22:07" id="T15:22:07"><abbr title="2013-07-19T15:22:07+00:00">15:22:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T15:22:08" id="T15:22:08"><abbr title="2013-07-19T15:22:08+00:00">15:22:08</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T15:22:09" id="T15:22:09"><abbr title="2013-07-19T15:22:09+00:00">15:22:09</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>i dont</q></li>
+<li class="message">[<a href="#T15:22:16" id="T15:22:16"><abbr title="2013-07-19T15:22:16+00:00">15:22:16</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>angstr?m is as much a linux as ubuntu is</q></li>
+<li class="message">[<a href="#T15:22:25" id="T15:22:25"><abbr title="2013-07-19T15:22:25+00:00">15:22:25</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ubuntu is just one of many linux distributions</q></li>
+<li class="message">[<a href="#T15:22:31" id="T15:22:31"><abbr title="2013-07-19T15:22:31+00:00">15:22:31</abbr></a>] &lt;<cite>_troll_</cite>&gt; <q>barely</q></li>
+<li class="message">[<a href="#T15:22:32" id="T15:22:32"><abbr title="2013-07-19T15:22:32+00:00">15:22:32</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>and probably not well suited for the bbxm</q></li>
+<li class="join">[<a href="#T15:22:36" id="T15:22:36"><abbr title="2013-07-19T15:22:36+00:00">15:22:36</abbr></a>] <span>* ohama (ohama@cicolina.org) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T15:23:06" id="T15:23:06"><abbr title="2013-07-19T15:23:06+00:00">15:23:06</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>.o0(this channel needs more _troll_)</q></li>
+<li class="message">[<a href="#T15:23:22" id="T15:23:22"><abbr title="2013-07-19T15:23:22+00:00">15:23:22</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>But when i test for example</q></li>
+<li class="message">[<a href="#T15:23:37" id="T15:23:37"><abbr title="2013-07-19T15:23:37+00:00">15:23:37</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>sudo shutdown on the terminal, that simply dont works</q></li>
+<li class="message">[<a href="#T15:23:50" id="T15:23:50"><abbr title="2013-07-19T15:23:50+00:00">15:23:50</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>and thats an linux command</q></li>
+<li class="message">[<a href="#T15:23:54" id="T15:23:54"><abbr title="2013-07-19T15:23:54+00:00">15:23:54</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>do you know what "sudo shutdown" does?</q></li>
+<li class="message">[<a href="#T15:23:55" id="T15:23:55"><abbr title="2013-07-19T15:23:55+00:00">15:23:55</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>so i dont understand</q></li>
+<li class="message">[<a href="#T15:24:06" id="T15:24:06"><abbr title="2013-07-19T15:24:06+00:00">15:24:06</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>sudo is for the super user</q></li>
+<li class="message">[<a href="#T15:24:07" id="T15:24:07"><abbr title="2013-07-19T15:24:07+00:00">15:24:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>do you know what "sudo" and "shutdown" mean?</q></li>
+<li class="message">[<a href="#T15:24:18" id="T15:24:18"><abbr title="2013-07-19T15:24:18+00:00">15:24:18</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>and shutdown is like turn off the pc</q></li>
+<li class="message">[<a href="#T15:24:23" id="T15:24:23"><abbr title="2013-07-19T15:24:23+00:00">15:24:23</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>and... have you read the error mesage?</q></li>
+<li class="message">[<a href="#T15:24:39" id="T15:24:39"><abbr title="2013-07-19T15:24:39+00:00">15:24:39</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>i dont remmeber the message</q></li>
+<li class="message">[<a href="#T15:24:49" id="T15:24:49"><abbr title="2013-07-19T15:24:49+00:00">15:24:49</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>but is something like the command doesnt exist</q></li>
+<li class="message">[<a href="#T15:24:52" id="T15:24:52"><abbr title="2013-07-19T15:24:52+00:00">15:24:52</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>but not sure</q></li>
+<li class="message">[<a href="#T15:25:56" id="T15:25:56"><abbr title="2013-07-19T15:25:56+00:00">15:25:56</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>you do understand that "sudo" is a command to run things as root while you are logged in as a mere mortal user?</q></li>
+<li class="message">[<a href="#T15:26:08" id="T15:26:08"><abbr title="2013-07-19T15:26:08+00:00">15:26:08</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>if this is new to you, get a book on linux</q></li>
+<li class="message">[<a href="#T15:26:23" id="T15:26:23"><abbr title="2013-07-19T15:26:23+00:00">15:26:23</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>do you mean that</q></li>
+<li class="message">[<a href="#T15:26:30" id="T15:26:30"><abbr title="2013-07-19T15:26:30+00:00">15:26:30</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>reading a linux book</q></li>
+<li class="message">[<a href="#T15:26:34" id="T15:26:34"><abbr title="2013-07-19T15:26:34+00:00">15:26:34</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:26:36" id="T15:26:36"><abbr title="2013-07-19T15:26:36+00:00">15:26:36</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>will be enough</q></li>
+<li class="message">[<a href="#T15:26:42" id="T15:26:42"><abbr title="2013-07-19T15:26:42+00:00">15:26:42</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T15:26:43" id="T15:26:43"><abbr title="2013-07-19T15:26:43+00:00">15:26:43</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>no, you have to understand it too ;-)</q></li>
+<li class="message">[<a href="#T15:26:45" id="T15:26:45"><abbr title="2013-07-19T15:26:45+00:00">15:26:45</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>but</q></li>
+<li class="message">[<a href="#T15:26:59" id="T15:26:59"><abbr title="2013-07-19T15:26:59+00:00">15:26:59</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>jaja</q></li>
+<li class="message">[<a href="#T15:27:04" id="T15:27:04"><abbr title="2013-07-19T15:27:04+00:00">15:27:04</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>off course my friend</q></li>
+<li class="message">[<a href="#T15:27:10" id="T15:27:10"><abbr title="2013-07-19T15:27:10+00:00">15:27:10</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>was heisst hier ja ja?</q></li>
+<li class="message">[<a href="#T15:27:15" id="T15:27:15"><abbr title="2013-07-19T15:27:15+00:00">15:27:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>;)</q></li>
+<li class="message">[<a href="#T15:27:24" id="T15:27:24"><abbr title="2013-07-19T15:27:24+00:00">15:27:24</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>laught</q></li>
+<li class="message">[<a href="#T15:27:51" id="T15:27:51"><abbr title="2013-07-19T15:27:51+00:00">15:27:51</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>what about the ports management</q></li>
+<li class="message">[<a href="#T15:27:52" id="T15:27:52"><abbr title="2013-07-19T15:27:52+00:00">15:27:52</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>well, you have to understand linux quite well to be successfull with embedded linux</q></li>
+<li class="message">[<a href="#T15:27:54" id="T15:27:54"><abbr title="2013-07-19T15:27:54+00:00">15:27:54</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>do you have a link</q></li>
+<li class="message">[<a href="#T15:27:58" id="T15:27:58"><abbr title="2013-07-19T15:27:58+00:00">15:27:58</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>you will be exposed to a lot of lowlevel stuff</q></li>
+<li class="message">[<a href="#T15:28:00" id="T15:28:00"><abbr title="2013-07-19T15:28:00+00:00">15:28:00</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>or information</q></li>
+<li class="message">[<a href="#T15:28:18" id="T15:28:18"><abbr title="2013-07-19T15:28:18+00:00">15:28:18</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>if you dont have a good foundation of the basics, there will be lots of pain at every step you take</q></li>
+<li class="message">[<a href="#T15:28:32" id="T15:28:32"><abbr title="2013-07-19T15:28:32+00:00">15:28:32</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>what do you mean by "ports"?</q></li>
+<li class="message">[<a href="#T15:28:40" id="T15:28:40"><abbr title="2013-07-19T15:28:40+00:00">15:28:40</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>gpio? spi/i2c and the like?</q></li>
+<li class="message">[<a href="#T15:28:46" id="T15:28:46"><abbr title="2013-07-19T15:28:46+00:00">15:28:46</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T15:28:53" id="T15:28:53"><abbr title="2013-07-19T15:28:53+00:00">15:28:53</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>which one of those? :)</q></li>
+<li class="message">[<a href="#T15:29:16" id="T15:29:16"><abbr title="2013-07-19T15:29:16+00:00">15:29:16</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>well how to addres information from the beagle to outside of her</q></li>
+<li class="message">[<a href="#T15:29:23" id="T15:29:23"><abbr title="2013-07-19T15:29:23+00:00">15:29:23</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>oh..</q></li>
+<li class="message">[<a href="#T15:29:25" id="T15:29:25"><abbr title="2013-07-19T15:29:25+00:00">15:29:25</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>not in specific</q></li>
+<li class="message">[<a href="#T15:29:33" id="T15:29:33"><abbr title="2013-07-19T15:29:33+00:00">15:29:33</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>for example turnning on a led</q></li>
+<li class="message">[<a href="#T15:29:34" id="T15:29:34"><abbr title="2013-07-19T15:29:34+00:00">15:29:34</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>get the "linux embedded primer"</q></li>
+<li class="message">[<a href="#T15:29:40" id="T15:29:40"><abbr title="2013-07-19T15:29:40+00:00">15:29:40</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>that explains these things</q></li>
+<li class="message">[<a href="#T15:29:54" id="T15:29:54"><abbr title="2013-07-19T15:29:54+00:00">15:29:54</abbr></a>] &lt;<cite>_troll_</cite>&gt; <q>embezzled linux</q></li>
+<li class="message">[<a href="#T15:30:53" id="T15:30:53"><abbr title="2013-07-19T15:30:53+00:00">15:30:53</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>another question</q></li>
+<li class="message">[<a href="#T15:31:04" id="T15:31:04"><abbr title="2013-07-19T15:31:04+00:00">15:31:04</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>the heat in the processor</q></li>
+<li class="message">[<a href="#T15:31:08" id="T15:31:08"><abbr title="2013-07-19T15:31:08+00:00">15:31:08</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>im afraid about it</q></li>
+<li class="message">[<a href="#T15:31:19" id="T15:31:19"><abbr title="2013-07-19T15:31:19+00:00">15:31:19</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>how much you run the beagle without stop</q></li>
+<li class="message">[<a href="#T15:31:44" id="T15:31:44"><abbr title="2013-07-19T15:31:44+00:00">15:31:44</abbr></a>] &lt;<cite>_troll_</cite>&gt; <q>what makes you think it would overheat?</q></li>
+<li class="message">[<a href="#T15:32:26" id="T15:32:26"><abbr title="2013-07-19T15:32:26+00:00">15:32:26</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>because normally</q></li>
+<li class="message">[<a href="#T15:32:38" id="T15:32:38"><abbr title="2013-07-19T15:32:38+00:00">15:32:38</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>the microprocessors</q></li>
+<li class="message">[<a href="#T15:32:52" id="T15:32:52"><abbr title="2013-07-19T15:32:52+00:00">15:32:52</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>have any heat dissipator</q></li>
+<li class="message">[<a href="#T15:33:06" id="T15:33:06"><abbr title="2013-07-19T15:33:06+00:00">15:33:06</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>it does not need one</q></li>
+<li class="message">[<a href="#T15:33:26" id="T15:33:26"><abbr title="2013-07-19T15:33:26+00:00">15:33:26</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>it's not an intel processor ;)</q></li>
+<li class="message">[<a href="#T15:33:29" id="T15:33:29"><abbr title="2013-07-19T15:33:29+00:00">15:33:29</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>Any idea how to reclaim that space if the resizing went bonkers on my MicroSD? Love to have that 4gb back... haha</q></li>
+<li class="quit">[<a href="#T15:33:41" id="T15:33:41"><abbr title="2013-07-19T15:33:41+00:00">15:33:41</abbr></a>] <span>* teralaser (~teralaser@unaffiliated/teralaser) Quit (Quit: CYAL8RALIg4t0r)</span></li>
+<li class="message">[<a href="#T15:33:48" id="T15:33:48"><abbr title="2013-07-19T15:33:48+00:00">15:33:48</abbr></a>] &lt;<cite>_troll_</cite>&gt; <q>there are arm chips you most definitely want a heatsink on</q></li>
+<li class="message">[<a href="#T15:34:08" id="T15:34:08"><abbr title="2013-07-19T15:34:08+00:00">15:34:08</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>but do you have one?</q></li>
+<li class="message">[<a href="#T15:34:09" id="T15:34:09"><abbr title="2013-07-19T15:34:09+00:00">15:34:09</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_troll_: juup, but they are not on the bbxm</q></li>
+<li class="message">[<a href="#T15:34:22" id="T15:34:22"><abbr title="2013-07-19T15:34:22+00:00">15:34:22</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>well</q></li>
+<li class="message">[<a href="#T15:34:27" id="T15:34:27"><abbr title="2013-07-19T15:34:27+00:00">15:34:27</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_troll_: and is it your intention to confuse a n00b? :)</q></li>
+<li class="message">[<a href="#T15:34:28" id="T15:34:28"><abbr title="2013-07-19T15:34:28+00:00">15:34:28</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>the command for turning off</q></li>
+<li class="message">[<a href="#T15:34:32" id="T15:34:32"><abbr title="2013-07-19T15:34:32+00:00">15:34:32</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>the beagle</q></li>
+<li class="message">[<a href="#T15:34:33" id="T15:34:33"><abbr title="2013-07-19T15:34:33+00:00">15:34:33</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>is</q></li>
+<li class="message">[<a href="#T15:34:35" id="T15:34:35"><abbr title="2013-07-19T15:34:35+00:00">15:34:35</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>power off?</q></li>
+<li class="message">[<a href="#T15:34:44" id="T15:34:44"><abbr title="2013-07-19T15:34:44+00:00">15:34:44</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>dunno</q></li>
+<li class="message">[<a href="#T15:34:50" id="T15:34:50"><abbr title="2013-07-19T15:34:50+00:00">15:34:50</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>i dont use angstr?m</q></li>
+<li class="message">[<a href="#T15:34:51" id="T15:34:51"><abbr title="2013-07-19T15:34:51+00:00">15:34:51</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>so</q></li>
+<li class="quit">[<a href="#T15:34:53" id="T15:34:53"><abbr title="2013-07-19T15:34:53+00:00">15:34:53</abbr></a>] <span>* tema (~tema@4.234.241.83.in-addr.dgcsystems.net) Quit (Ping timeout: 268 seconds)</span></li>
+<li class="message">[<a href="#T15:35:00" id="T15:35:00"><abbr title="2013-07-19T15:35:00+00:00">15:35:00</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>su to root</q></li>
+<li class="message">[<a href="#T15:35:01" id="T15:35:01"><abbr title="2013-07-19T15:35:01+00:00">15:35:01</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>try it</q></li>
+<li class="message">[<a href="#T15:35:11" id="T15:35:11"><abbr title="2013-07-19T15:35:11+00:00">15:35:11</abbr></a>] &lt;<cite>_troll_</cite>&gt; <q><a href="http://26-26-54.hardwarebug.org/196">http://26-26-54.hardwarebug.org/196</a></q></li>
+<li class="message">[<a href="#T15:35:40" id="T15:35:40"><abbr title="2013-07-19T15:35:40+00:00">15:35:40</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>if it works, it's the one you want to use</q></li>
+<li class="message">[<a href="#T15:35:47" id="T15:35:47"><abbr title="2013-07-19T15:35:47+00:00">15:35:47</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>hey!</q></li>
+<li class="message">[<a href="#T15:35:53" id="T15:35:53"><abbr title="2013-07-19T15:35:53+00:00">15:35:53</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>uhmm</q></li>
+<li class="message">[<a href="#T15:35:57" id="T15:35:57"><abbr title="2013-07-19T15:35:57+00:00">15:35:57</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>i dont get it</q></li>
+<li class="message">[<a href="#T15:35:59" id="T15:35:59"><abbr title="2013-07-19T15:35:59+00:00">15:35:59</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>su to root</q></li>
+<li class="message">[<a href="#T15:36:01" id="T15:36:01"><abbr title="2013-07-19T15:36:01+00:00">15:36:01</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_troll_: hehe.. i saw that one comming :)</q></li>
+<li class="message">[<a href="#T15:36:08" id="T15:36:08"><abbr title="2013-07-19T15:36:08+00:00">15:36:08</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: it's not copyrighted!</q></li>
+<li class="message">[<abbr title="2013-07-19T15:36:08+00:00">15:36:08</abbr>] &lt;<cite>Timarius_</cite>&gt; <q>you mean</q></li>
+<li class="message">[<a href="#T15:36:19" id="T15:36:19"><abbr title="2013-07-19T15:36:19+00:00">15:36:19</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Timarius_: get a book with linux basics</q></li>
+<li class="message">[<a href="#T15:36:32" id="T15:36:32"><abbr title="2013-07-19T15:36:32+00:00">15:36:32</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>your local library will have one or two</q></li>
+<li class="action">[<a href="#T15:36:42" id="T15:36:42"><abbr title="2013-07-19T15:36:42+00:00">15:36:42</abbr></a>] <span>* KotH recommends the one by michael koffler</span></li>
+<li class="message">[<a href="#T15:36:43" id="T15:36:43"><abbr title="2013-07-19T15:36:43+00:00">15:36:43</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I see we are "on the mark" today</q></li>
+<li class="quit">[<a href="#T15:36:46" id="T15:36:46"><abbr title="2013-07-19T15:36:46+00:00">15:36:46</abbr></a>] <span>* ant_work (~ant@host54-128-static.10-188-b.business.telecomitalia.it) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T15:37:12" id="T15:37:12"><abbr title="2013-07-19T15:37:12+00:00">15:37:12</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>_troll_</q></li>
+<li class="message">[<a href="#T15:37:16" id="T15:37:16"><abbr title="2013-07-19T15:37:16+00:00">15:37:16</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>what do you mean</q></li>
+<li class="message">[<a href="#T15:37:29" id="T15:37:29"><abbr title="2013-07-19T15:37:29+00:00">15:37:29</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>i saw that one coming</q></li>
+<li class="message">[<a href="#T15:37:48" id="T15:37:48"><abbr title="2013-07-19T15:37:48+00:00">15:37:48</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_troll_: you were successful :)</q></li>
+<li class="message">[<a href="#T15:38:07" id="T15:38:07"><abbr title="2013-07-19T15:38:07+00:00">15:38:07</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T15:38:20" id="T15:38:20"><abbr title="2013-07-19T15:38:20+00:00">15:38:20</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Timarius_: exactly that! :-D</q></li>
+<li class="join">[<a href="#T15:38:26" id="T15:38:26"><abbr title="2013-07-19T15:38:26+00:00">15:38:26</abbr></a>] <span>* krajo1 (~krajo1@ip4-83-240-125-22.cust.nbox.cz) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:38:34" id="T15:38:34"><abbr title="2013-07-19T15:38:34+00:00">15:38:34</abbr></a>] &lt;<cite>Timarius_</cite>&gt; <q>exactly what</q></li>
+<li class="message">[<a href="#T15:38:45" id="T15:38:45"><abbr title="2013-07-19T15:38:45+00:00">15:38:45</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>your confusion</q></li>
+<li class="action">[<abbr title="2013-07-19T15:38:45+00:00">15:38:45</abbr>] <span>* gui_ just observes and laughs</span></li>
+<li class="message">[<abbr title="2013-07-19T15:38:45+00:00">15:38:45</abbr>] &lt;<cite>das</cite>&gt; <q>confuception</q></li>
+<li class="join">[<a href="#T15:39:06" id="T15:39:06"><abbr title="2013-07-19T15:39:06+00:00">15:39:06</abbr></a>] <span>* Mode-M (~Null@2001:a60:232f:3b01:226:82ff:fe31:c934) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:39:17" id="T15:39:17"><abbr title="2013-07-19T15:39:17+00:00">15:39:17</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>Hey just an thanks, I did a simple unmount and a checkdisk and all the space that was on that SD card that formatted into a black hole, came back.</q></li>
+<li class="message">[<a href="#T15:39:52" id="T15:39:52"><abbr title="2013-07-19T15:39:52+00:00">15:39:52</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>So instead of a 4gb hole in the SD card reading as 1.18gb, its now reading as 5.26! woot! thanks guys</q></li>
+<li class="message">[<a href="#T15:40:32" id="T15:40:32"><abbr title="2013-07-19T15:40:32+00:00">15:40:32</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Guest58070: please send 1kg of good swiss chocolate to ka6sox's wife as payment</q></li>
+<li class="message">[<a href="#T15:40:42" id="T15:40:42"><abbr title="2013-07-19T15:40:42+00:00">15:40:42</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>hehe</q></li>
+<li class="join">[<a href="#T15:40:51" id="T15:40:51"><abbr title="2013-07-19T15:40:51+00:00">15:40:51</abbr></a>] <span>* rob_w (~rob@unaffiliated/rob-w/x-1112029) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:41:02" id="T15:41:02"><abbr title="2013-07-19T15:41:02+00:00">15:41:02</abbr></a>] <span>* kiilo (~kiilo@89-201-144-77.dsl.optinet.hr) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T15:42:18" id="T15:42:18"><abbr title="2013-07-19T15:42:18+00:00">15:42:18</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>KotH, Thanks!</q></li>
+<li class="message">[<a href="#T15:42:33" id="T15:42:33"><abbr title="2013-07-19T15:42:33+00:00">15:42:33</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: np. always trying to make the world a better place</q></li>
+<li class="message">[<a href="#T15:42:44" id="T15:42:44"><abbr title="2013-07-19T15:42:44+00:00">15:42:44</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>Guest58070, send to 679 S. state street, Pacific Plate</q></li>
+<li class="quit">[<a href="#T15:43:09" id="T15:43:09"><abbr title="2013-07-19T15:43:09+00:00">15:43:09</abbr></a>] <span>* Timarius_ (ba004257@gateway/web/freenode/ip.186.0.66.87) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="action">[<a href="#T15:43:24" id="T15:43:24"><abbr title="2013-07-19T15:43:24+00:00">15:43:24</abbr></a>] <span>* mdp converts 1kg to Amuricun, has a rounding error, and sends the wrong amount...upsetting mrs ka6sox</span></li>
+<li class="message">[<a href="#T15:44:27" id="T15:44:27"><abbr title="2013-07-19T15:44:27+00:00">15:44:27</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>KotH, unfortunately mrs ka6sox and I will NOT be coming to ELCE....we were OBE</q></li>
+<li class="message">[<a href="#T15:44:28" id="T15:44:28"><abbr title="2013-07-19T15:44:28+00:00">15:44:28</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: as long as the rounding error is into the "right" direction ;)</q></li>
+<li class="message">[<a href="#T15:44:47" id="T15:44:47"><abbr title="2013-07-19T15:44:47+00:00">15:44:47</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ka6sox, whuh?!?</q></li>
+<li class="join">[<a href="#T15:44:54" id="T15:44:54"><abbr title="2013-07-19T15:44:54+00:00">15:44:54</abbr></a>] <span>* gui__ (80ae72e4@gateway/web/freenode/ip.128.174.114.228) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:45:07" id="T15:45:07"><abbr title="2013-07-19T15:45:07+00:00">15:45:07</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>Overtaken By Events</q></li>
+<li class="quit">[<a href="#T15:45:19" id="T15:45:19"><abbr title="2013-07-19T15:45:19+00:00">15:45:19</abbr></a>] <span>* gui_ (80ae72e4@gateway/web/freenode/ip.128.174.114.228) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T15:45:23" id="T15:45:23"><abbr title="2013-07-19T15:45:23+00:00">15:45:23</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>prpplague has been claiming that ELCE will be an attendance bust</q></li>
+<li class="message">[<a href="#T15:45:38" id="T15:45:38"><abbr title="2013-07-19T15:45:38+00:00">15:45:38</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: OBE?</q></li>
+<li class="message">[<abbr title="2013-07-19T15:45:38+00:00">15:45:38</abbr>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: ????</q></li>
+<li class="message">[<abbr title="2013-07-19T15:45:38+00:00">15:45:38</abbr>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: anything serious?</q></li>
+<li class="message">[<a href="#T15:45:42" id="T15:45:42"><abbr title="2013-07-19T15:45:42+00:00">15:45:42</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>What do you define as "Good swiss chocolate"?  Lindt? Toblerone?</q></li>
+<li class="message">[<a href="#T15:45:54" id="T15:45:54"><abbr title="2013-07-19T15:45:54+00:00">15:45:54</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>1kg... Thats a heafy serving.</q></li>
+<li class="message">[<a href="#T15:46:01" id="T15:46:01"><abbr title="2013-07-19T15:46:01+00:00">15:46:01</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Guest58070: ugh.. definitly not toblereone!</q></li>
+<li class="message">[<a href="#T15:46:09" id="T15:46:09"><abbr title="2013-07-19T15:46:09+00:00">15:46:09</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Guest58070: i'm talking about teuscher, or l?derach</q></li>
+<li class="quit">[<a href="#T15:46:14" id="T15:46:14"><abbr title="2013-07-19T15:46:14+00:00">15:46:14</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T15:46:24" id="T15:46:24"><abbr title="2013-07-19T15:46:24+00:00">15:46:24</abbr></a>] &lt;<cite>dm8tbr</cite>&gt; <q>hehe</q></li>
+<li class="join">[<a href="#T15:46:46" id="T15:46:46"><abbr title="2013-07-19T15:46:46+00:00">15:46:46</abbr></a>] <span>* gui_ (80ae72e4@gateway/web/freenode/ip.128.174.114.228) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:47:04" id="T15:47:04"><abbr title="2013-07-19T15:47:04+00:00">15:47:04</abbr></a>] &lt;<cite>Guest58070</cite>&gt; <q>Good lord those are some expensive chocolates.</q></li>
+<li class="message">[<a href="#T15:47:12" id="T15:47:12"><abbr title="2013-07-19T15:47:12+00:00">15:47:12</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>KotH, no, it just means too many things before/after it that cause it to be not the right time (although she wanted a 20th anniversary trip and this was to be it)</q></li>
+<li class="message">[<a href="#T15:47:20" id="T15:47:20"><abbr title="2013-07-19T15:47:20+00:00">15:47:20</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>KotH, :)</q></li>
+<li class="message">[<abbr title="2013-07-19T15:47:20+00:00">15:47:20</abbr>] &lt;<cite>gui_</cite>&gt; <q>Guest58070, imo Lindt is the minimum you should consider</q></li>
+<li class="message">[<a href="#T15:47:22" id="T15:47:22"><abbr title="2013-07-19T15:47:22+00:00">15:47:22</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Guest58070: not really.. that's the usual stuff i take with me when i go anywhere</q></li>
+<li class="message">[<a href="#T15:47:32" id="T15:47:32"><abbr title="2013-07-19T15:47:32+00:00">15:47:32</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: meh..</q></li>
+<li class="message">[<a href="#T15:47:37" id="T15:47:37"><abbr title="2013-07-19T15:47:37+00:00">15:47:37</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>KotH, at least I can't crash a satellite or equivalent with this rounding error ;)</q></li>
+<li class="message">[<a href="#T15:47:41" id="T15:47:41"><abbr title="2013-07-19T15:47:41+00:00">15:47:41</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: tell her that she is going to miss some good chocolate :)</q></li>
+<li class="message">[<a href="#T15:48:06" id="T15:48:06"><abbr title="2013-07-19T15:48:06+00:00">15:48:06</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>belgium chocolate should always be considered aswell</q></li>
+<li class="message">[<a href="#T15:48:15" id="T15:48:15"><abbr title="2013-07-19T15:48:15+00:00">15:48:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>NO!</q></li>
+<li class="message">[<a href="#T15:48:19" id="T15:48:19"><abbr title="2013-07-19T15:48:19+00:00">15:48:19</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>KotH, ya, we were lookign forward to this</q></li>
+<li class="message">[<a href="#T15:48:37" id="T15:48:37"><abbr title="2013-07-19T15:48:37+00:00">15:48:37</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>gui_: pralines, maybe, if you are desperate. but not their chocolate</q></li>
+<li class="message">[<a href="#T15:48:54" id="T15:48:54"><abbr title="2013-07-19T15:48:54+00:00">15:48:54</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>KotH, it doesn't help that I can get to Bora Bora cheaper than Edinburgh.</q></li>
+<li class="message">[<a href="#T15:49:01" id="T15:49:01"><abbr title="2013-07-19T15:49:01+00:00">15:49:01</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T15:49:12" id="T15:49:12"><abbr title="2013-07-19T15:49:12+00:00">15:49:12</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: come to .ch, i'll treat you with some chocolate overhere</q></li>
+<li class="quit">[<a href="#T15:49:13" id="T15:49:13"><abbr title="2013-07-19T15:49:13+00:00">15:49:13</abbr></a>] <span>* gui__ (80ae72e4@gateway/web/freenode/ip.128.174.114.228) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T15:49:42" id="T15:49:42"><abbr title="2013-07-19T15:49:42+00:00">15:49:42</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>what's pralines?</q></li>
+<li class="message">[<a href="#T15:49:46" id="T15:49:46"><abbr title="2013-07-19T15:49:46+00:00">15:49:46</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>KotH, the problem is that I am *already* on the Pacific plate.</q></li>
+<li class="message">[<a href="#T15:49:57" id="T15:49:57"><abbr title="2013-07-19T15:49:57+00:00">15:49:57</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>sugar coated pecans?</q></li>
+<li class="message">[<a href="#T15:50:13" id="T15:50:13"><abbr title="2013-07-19T15:50:13+00:00">15:50:13</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: i will probably be in japan next year, you can meet me there :)</q></li>
+<li class="message">[<a href="#T15:50:32" id="T15:50:32"><abbr title="2013-07-19T15:50:32+00:00">15:50:32</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>okay I'd love to go there.</q></li>
+<li class="message">[<a href="#T15:50:43" id="T15:50:43"><abbr title="2013-07-19T15:50:43+00:00">15:50:43</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>you're saying belgium chocolate aint good?</q></li>
+<li class="message">[<a href="#T15:50:54" id="T15:50:54"><abbr title="2013-07-19T15:50:54+00:00">15:50:54</abbr></a>] &lt;<cite>_troll_</cite>&gt; <q>he does</q></li>
+<li class="message">[<a href="#T15:50:58" id="T15:50:58"><abbr title="2013-07-19T15:50:58+00:00">15:50:58</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>gui_: german choclate is better</q></li>
+<li class="message">[<a href="#T15:51:40" id="T15:51:40"><abbr title="2013-07-19T15:51:40+00:00">15:51:40</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>KotH, so you are saying the further east you go the better the chocolate?</q></li>
+<li class="message">[<a href="#T15:51:57" id="T15:51:57"><abbr title="2013-07-19T15:51:57+00:00">15:51:57</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: uhmm... no</q></li>
+<li class="message">[<a href="#T15:52:14" id="T15:52:14"><abbr title="2013-07-19T15:52:14+00:00">15:52:14</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ka6sox: the further in direction of .ch you go, the better the chocolate</q></li>
+<li class="message">[<a href="#T15:52:19" id="T15:52:19"><abbr title="2013-07-19T15:52:19+00:00">15:52:19</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>even because if you go too far, you come back to the same place</q></li>
+<li class="message">[<a href="#T15:52:34" id="T15:52:34"><abbr title="2013-07-19T15:52:34+00:00">15:52:34</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>anyways..</q></li>
+<li class="message">[<a href="#T15:52:35" id="T15:52:35"><abbr title="2013-07-19T15:52:35+00:00">15:52:35</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>gtg</q></li>
+<li class="message">[<a href="#T15:52:42" id="T15:52:42"><abbr title="2013-07-19T15:52:42+00:00">15:52:42</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>Beer:30?</q></li>
+<li class="message">[<a href="#T15:52:43" id="T15:52:43"><abbr title="2013-07-19T15:52:43+00:00">15:52:43</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>need to buy a kg or two of chocolate</q></li>
+<li class="message">[<a href="#T15:52:54" id="T15:52:54"><abbr title="2013-07-19T15:52:54+00:00">15:52:54</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>just 2?</q></li>
+<li class="message">[<a href="#T15:52:56" id="T15:52:56"><abbr title="2013-07-19T15:52:56+00:00">15:52:56</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>KotH, can you share a google map with a pushpin showing me the optimum location of the best chocolate?</q></li>
+<li class="message">[<a href="#T15:52:58" id="T15:52:58"><abbr title="2013-07-19T15:52:58+00:00">15:52:58</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>Chocolate Beer...</q></li>
+<li class="message">[<a href="#T15:53:01" id="T15:53:01"><abbr title="2013-07-19T15:53:01+00:00">15:53:01</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>in Brazil we have 5kg bars</q></li>
+<li class="message">[<a href="#T15:53:10" id="T15:53:10"><abbr title="2013-07-19T15:53:10+00:00">15:53:10</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: there aint one optimum location</q></li>
+<li class="message">[<a href="#T15:53:15" id="T15:53:15"><abbr title="2013-07-19T15:53:15+00:00">15:53:15</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>KotH, I need to know for whenever we do the full family .eu vacation</q></li>
+<li class="message">[<a href="#T15:53:19" id="T15:53:19"><abbr title="2013-07-19T15:53:19+00:00">15:53:19</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: there are quite a few good swiss chocolatiers</q></li>
+<li class="message">[<a href="#T15:53:26" id="T15:53:26"><abbr title="2013-07-19T15:53:26+00:00">15:53:26</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: spread over the whole country</q></li>
+<li class="message">[<a href="#T15:53:30" id="T15:53:30"><abbr title="2013-07-19T15:53:30+00:00">15:53:30</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>KotH, whuh? you mean there's no one correct answer?</q></li>
+<li class="message">[<a href="#T15:53:33" id="T15:53:33"><abbr title="2013-07-19T15:53:33+00:00">15:53:33</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>;)</q></li>
+<li class="message">[<a href="#T15:53:38" id="T15:53:38"><abbr title="2013-07-19T15:53:38+00:00">15:53:38</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>shades of gray!</q></li>
+<li class="message">[<a href="#T15:53:45" id="T15:53:45"><abbr title="2013-07-19T15:53:45+00:00">15:53:45</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mdp: come to .ch and you will have chocolate</q></li>
+<li class="message">[<a href="#T15:53:46" id="T15:53:46"><abbr title="2013-07-19T15:53:46+00:00">15:53:46</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T15:53:47" id="T15:53:47"><abbr title="2013-07-19T15:53:47+00:00">15:53:47</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>I need #exactlocations</q></li>
+<li class="join">[<a href="#T15:53:49" id="T15:53:49"><abbr title="2013-07-19T15:53:49+00:00">15:53:49</abbr></a>] <span>* emeb (~ericb@71-220-233-98.eugn.qwest.net) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-07-19T15:53:49+00:00">15:53:49</abbr>] &lt;<cite>panto</cite>&gt; <q>50 shades?</q></li>
+<li class="message">[<a href="#T15:53:51" id="T15:53:51"><abbr title="2013-07-19T15:53:51+00:00">15:53:51</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>there we go</q></li>
+<li class="message">[<a href="#T15:53:54" id="T15:53:54"><abbr title="2013-07-19T15:53:54+00:00">15:53:54</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ka6sox, +1</q></li>
+<li class="quit">[<a href="#T15:54:13" id="T15:54:13"><abbr title="2013-07-19T15:54:13+00:00">15:54:13</abbr></a>] <span>* groglogic (~groglogic@ip-64-134-157-206.public.wayport.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<abbr title="2013-07-19T15:54:13+00:00">15:54:13</abbr>] &lt;<cite>KotH</cite>&gt; <q>come to .ch and i will lead you to chocolate ;)</q></li>
+<li class="message">[<a href="#T15:54:17" id="T15:54:17"><abbr title="2013-07-19T15:54:17+00:00">15:54:17</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>mdp, to pinpoint a locations (mentally), it is a cabin in the austrian alps, having fondue with swiss chocolate</q></li>
+<li class="message">[<a href="#T15:54:28" id="T15:54:28"><abbr title="2013-07-19T15:54:28+00:00">15:54:28</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>.ch stands for chocolate? :P</q></li>
+<li class="message">[<a href="#T15:54:31" id="T15:54:31"><abbr title="2013-07-19T15:54:31+00:00">15:54:31</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>panto, mrs mdp has insisted that as nice as you are, I must take her elsewhere next time ;)</q></li>
+<li class="message">[<a href="#T15:54:33" id="T15:54:33"><abbr title="2013-07-19T15:54:33+00:00">15:54:33</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>what a waste of good chocolate</q></li>
+<li class="quit">[<a href="#T15:55:04" id="T15:55:04"><abbr title="2013-07-19T15:55:04+00:00">15:55:04</abbr></a>] <span>* jackmitchell (~Thunderbi@host217-34-104-101.in-addr.btopenworld.com) Quit (Quit: jackmitchell)</span></li>
+<li class="quit">[<a href="#T15:55:06" id="T15:55:06"><abbr title="2013-07-19T15:55:06+00:00">15:55:06</abbr></a>] <span>* ezequielgarcia (~elezegarc@190.2.109.47) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T15:55:08" id="T15:55:08"><abbr title="2013-07-19T15:55:08+00:00">15:55:08</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>gui_, mmm..and I'm imagining a burnt orange color 1970s style .usian fondue pot in this commercial ;)</q></li>
+<li class="message">[<a href="#T15:55:15" id="T15:55:15"><abbr title="2013-07-19T15:55:15+00:00">15:55:15</abbr></a>] &lt;<cite>panto</cite>&gt; <q>mdp, :)</q></li>
+<li class="quit">[<a href="#T15:55:39" id="T15:55:39"><abbr title="2013-07-19T15:55:39+00:00">15:55:39</abbr></a>] <span>* eballetbo (~eballetbo@43.Red-2-139-180.staticIP.rima-tde.net) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T15:55:41" id="T15:55:41"><abbr title="2013-07-19T15:55:41+00:00">15:55:41</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>mdp, isnt' that caramel?</q></li>
+<li class="message">[<a href="#T15:55:58" id="T15:55:58"><abbr title="2013-07-19T15:55:58+00:00">15:55:58</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>mdp, not sure about 70's, but definitely some rustic place</q></li>
+<li class="message">[<a href="#T15:56:12" id="T15:56:12"><abbr title="2013-07-19T15:56:12+00:00">15:56:12</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>#beagle is especially FRIDAY! today..</q></li>
+<li class="message">[<a href="#T15:57:12" id="T15:57:12"><abbr title="2013-07-19T15:57:12+00:00">15:57:12</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>now all I want to do is go home and devour my last Lindt bar :(</q></li>
+<li class="join">[<a href="#T15:57:25" id="T15:57:25"><abbr title="2013-07-19T15:57:25+00:00">15:57:25</abbr></a>] <span>* jmoyerman (~josh@67.8.74.134) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:57:26" id="T15:57:26"><abbr title="2013-07-19T15:57:26+00:00">15:57:26</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>instead, I have to work 6+ hours</q></li>
+<li class="action">[<a href="#T15:57:35" id="T15:57:35"><abbr title="2013-07-19T15:57:35+00:00">15:57:35</abbr></a>] <span>* ka6sox hides his last lindt bar from his wife</span></li>
+<li class="message">[<a href="#T15:57:36" id="T15:57:36"><abbr title="2013-07-19T15:57:36+00:00">15:57:36</abbr></a>] &lt;<cite>_troll_</cite>&gt; <q>work is overrated</q></li>
+<li class="message">[<a href="#T15:57:45" id="T15:57:45"><abbr title="2013-07-19T15:57:45+00:00">15:57:45</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>i know...</q></li>
+<li class="message">[<a href="#T15:57:55" id="T15:57:55"><abbr title="2013-07-19T15:57:55+00:00">15:57:55</abbr></a>] &lt;<cite>mdp</cite>&gt; <q><a href="http://www.sheknows.com/home-and-gardening/articles/954005/etsy-roundup-retro-kitchen-decor">http://www.sheknows.com/home-and-gardening/articles/954005/etsy-roundup-retro-kitchen-decor</a></q></li>
+<li class="message">[<abbr title="2013-07-19T15:57:55+00:00">15:57:55</abbr>] &lt;<cite>gui_</cite>&gt; <q>but I need money, and I don't want to sell my body</q></li>
+<li class="join">[<a href="#T15:58:19" id="T15:58:19"><abbr title="2013-07-19T15:58:19+00:00">15:58:19</abbr></a>] <span>* bkearns (~bkearns@216-75-239-130.static.wiline.com) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-07-19T15:58:19+00:00">15:58:19</abbr>] &lt;<cite>mdp</cite>&gt; <q>the "retro orange fondue set" is exactly what I grew up with and mom still has in the box at their house ;)</q></li>
+<li class="message">[<a href="#T15:59:00" id="T15:59:00"><abbr title="2013-07-19T15:59:00+00:00">15:59:00</abbr></a>] &lt;<cite>jmoyerman</cite>&gt; <q>Anybody here work with the DVI-D/Audio board for the Beaglebone?</q></li>
+<li class="action">[<a href="#T15:59:01" id="T15:59:01"><abbr title="2013-07-19T15:59:01+00:00">15:59:01</abbr></a>] <span>* ka6sox has bad memories of this fondue set...</span></li>
+<li class="message">[<a href="#T15:59:02" id="T15:59:02"><abbr title="2013-07-19T15:59:02+00:00">15:59:02</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>#exactfonduepot</q></li>
+<li class="message">[<a href="#T15:59:06" id="T15:59:06"><abbr title="2013-07-19T15:59:06+00:00">15:59:06</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>uh oh</q></li>
+<li class="message">[<a href="#T15:59:35" id="T15:59:35"><abbr title="2013-07-19T15:59:35+00:00">15:59:35</abbr></a>] &lt;<cite>ka6sox</cite>&gt; <q>this is the one that uses STERNO for fuel right?</q></li>
+<li class="message">[<a href="#T15:59:55" id="T15:59:55"><abbr title="2013-07-19T15:59:55+00:00">15:59:55</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>ka6sox, yeah, that was high-tech for then</q></li>
