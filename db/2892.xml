@@ -1,167 +1,74 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2892" name="processingjs" prototype="Page" created="1374308047101" lastModified="1374355213652">
+  <hopobject id="2892" name="processingjs" prototype="Page" created="1374308047101" lastModified="1374357103095">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>processingjs</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.71 Safari/537.36</http_browser>
-    <time type="date">20.07.2013 16:20:13 CDT</time>
+    <time type="date">20.07.2013 16:51:43 CDT</time>
     <hopsession>127.0.0.13.7.64.jzdxkm1pger2</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    setTargetAddress(&apos;192.168.7.2&apos;, {initialized: startLED});
-&lt;/script&gt;
 &lt;script src=&quot;/static/processing.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;application/processing&quot; target=&quot;mysketch&quot;&gt;
-  //var b = require(&apos;bonescript&apos;);
-  function startLED() {
-      alert(&apos;got here&apos;);
-  }
-  var LED_RED = &apos;P9_42&apos;;
-  var LED_GREEN = &apos;P9_14&apos;;
-  var LED_BLUE = &apos;P9_16&apos;;
+&lt;script&gt;
+var canvas = document.getElementById(&apos;mysketch&apos;);
+var pjs = new Processing(canvas);
 
-  function led(x) {
-    var intensity = x/200;
-    //b.analogWrite(LED_BLUE, intensity);
-  }
+// Global variables
+var radius = 50.0;
+var X, Y;
+var nX, nY;
+var delay = 16;
+var LED_RED = &apos;P9_42&apos;;
+var LED_GREEN = &apos;P9_14&apos;;
+var LED_BLUE = &apos;P9_16&apos;;
+var BUTTON = &apos;P8_19&apos;;
+var POT = &apos;P9_36&apos;;
+
+// Get the BoneScript library and begin updating the canvas
+setTargetAddress(&apos;192.168.7.2&apos;, {initialized: run});
+function run() {
+    var b = require(&apos;bonescript&apos;);
+    function led(x) {
+        var intensity = x/200;
+        b.analogWrite(LED_BLUE, intensity);
+    }
+    pjs.setup();
+}
+
+// Setup the Processing Canvas
+pjs.setup = function() {
+    pjs.size( 200, 200 );
+    pjs.strokeWeight( 10 );
+    pjs.frameRate( 15 );
+    X = width / 2;
+    Y = height / 2;
+    nX = X;
+    nY = Y;  
+}
+
+// Main draw loop
+pjs.draw = function() {
+    radius = radius + sin( pjs.frameCount / 4 );
   
-  Bouncer[] bouncer = new Bouncer[3];
-
-  void setup() {
-    size(200,200);
-    frameRate(24);
-    stroke(#003300);
-    fill(#0000FF);
-    bouncer[0] = new Ball(width/3-20,20,20);
-    bouncer[1] = new Box(width/2-10,20,20,20);
-    bouncer[2] = new Ball((2*width/3)+20,20,20);
-  }
-
-  void draw() {
-    for(int b=0, end=bouncer.length; b&lt;end;b++) {
-      bouncer[b].computeNextStep(width, height, frameRate);
-    }
-    background(#FFFFEE);
-    for(int b=0, end=bouncer.length; b&lt;end;b++) {
-      bouncer[b].draw();
-    }
-  }
-
-  void mousePressed() {
-    for(int b=0, end=bouncer.length; b&lt;end;b++) {
-      if(bouncer[b].mouseOver(mouseX, mouseY)) {
-        bouncer[b].mousePressed();
-      }
-    }
-  }
-
-  void mouseReleased() {
-    for(int b=0, end=bouncer.length; b&lt;end;b++) {
-      bouncer[b].mouseReleased();
-    }
-  }
-
-  void mouseDragged() {
-    for(int b=0, end=bouncer.length; b&lt;end;b++) {
-      bouncer[b].mouseDragged(mouseX, mouseY);
-    }
-  }
-
-  abstract class Bouncer
-  {
-    int x, y;
-    boolean canmove = true;
-    int step = 0;
-    int xoffset = 0;
-    int yoffset = 0;
-
-    void computeNextStep(int width, int height, float framerate) {
-      if(canmove) {
-        reallyComputeNextStep(width, height, framerate);
-      }
-    }
-
-    abstract void reallyComputeNextStep(int width, int height, float framerate);
-
-    abstract void draw();
-
-    abstract boolean mouseOver(int mx, int my);
-
-    void mousePressed() {
-      canmove = false;
-    }
-
-    void mouseReleased() {
-      canmove = true;
-      x += xoffset;
-      y += yoffset;
-      xoffset = 0;
-      yoffset = 0;
-    }
-
-    void mouseDragged(int mx, int my) {
-      if(!canmove) {
-        xoffset = mx-x;
-        yoffset = my-y;
-      }
-    }
-  }
-
-  class Ball extends Bouncer
-  {
-    int radius;
-
-    Ball(int x, int y, int r) {
-      this.x = x;
-      this.y = y;
-      this.radius = r;
-    }
-
-    void reallyComputeNextStep(int sketch_width, int sketch_height, float frame_rate) {
-      step = (int)((step+1) % frame_rate);
-      float sin_value = abs(sin(PI*step/(float)frame_rate));
-      float bounce_height = sketch_height/2 * sin_value;
-      float ball_height = sketch_height - (bounce_height + radius);
-      y = (int) (ball_height);
-    }
-
-    void draw() { ellipse(x+xoffset,y+yoffset,radius,radius); led(xoffset); }
-
-    boolean mouseOver(int mx, int my) {
-      return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) &lt;= radius;
-    }
-  }
-
-  class Box extends Bouncer
-  {
-    int w,h;
-    int step=0;
-
-    Box(int x, int y, int w, int h) {
-      this.x = x;
-      this.y = y;
-      this.w = w;
-      this.h = h;
-    }
-
-    void reallyComputeNextStep(int sketch_width, int sketch_height, float frame_rate) {
-      step = (int)((step+1) % frame_rate);
-      float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
-      float bounce_height = sketch_height/2 * sin_value;
-      float ball_height = sketch_height - (bounce_height + h);
-      y = (int) (ball_height);
-    }
-
-    void draw() { rect(x+xoffset,(y-h/2)+yoffset,w,h); }
-
-    boolean mouseOver(int mx, int my) {
-      return x&lt;=mx &amp;&amp; mx&lt;=x+w &amp;&amp; (y-h/2)&lt;=my &amp;&amp; my&lt;=(y+h/2);
-    }
-  }
+    // Track circle to new destination
+    X+=(nX-X)/delay;
+    Y+=(nY-Y)/delay;
+  
+    // Fill canvas grey
+    pjs.background( 100 );
+  
+    // Set fill-color to blue
+    pjs.fill( 0, 121, 184 );
+  
+    // Set stroke-color white
+    pjs.stroke(255); 
+  
+    // Draw circle
+    pjs.ellipse( X, Y, radius, radius );                  
+}
 &lt;/script&gt;
 &lt;canvas id=&quot;mysketch&quot;&gt;&lt;/canvas&gt;
 &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</body>
