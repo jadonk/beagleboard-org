@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2892" name="processingjs" prototype="Page" created="1374308047101" lastModified="1374308328920">
+  <hopobject id="2892" name="processingjs" prototype="Page" created="1374308047101" lastModified="1374355048155">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>processingjs</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.71 Safari/537.36</http_browser>
-    <time type="date">20.07.2013 03:18:48 CDT</time>
-    <hopsession>127.0.0.12.0.200.sdmkpcmoc75l</hopsession>
+    <time type="date">20.07.2013 16:17:28 CDT</time>
+    <hopsession>127.0.0.13.7.64.jzdxkm1pger2</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     setTargetAddress(&apos;192.168.7.2&apos;, {});
 &lt;/script&gt;
 &lt;script src=&quot;/static/processing.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;application/processing&quot; target=&quot;mysketch&quot;&gt;
-    Bouncer[] bouncer = new Bouncer[3];
+  var b = require(&apos;bonescript&apos;);
+  var LED_RED = &apos;P9_42&apos;;
+  var LED_GREEN = &apos;P9_14&apos;;
+  var LED_BLUE = &apos;P9_16&apos;;
+
+  function led(x) {
+    var intensity = x/200;
+    b.analogWrite(LED_BLUE, intensity);
+  }
+  
+  Bouncer[] bouncer = new Bouncer[3];
 
   void setup() {
     size(200,200);
@@ -116,7 +126,7 @@
       y = (int) (ball_height);
     }
 
-    void draw() { ellipse(x+xoffset,y+yoffset,radius,radius); }
+    void draw() { ellipse(x+xoffset,y+yoffset,radius,radius); led(xoffset); }
 
     boolean mouseOver(int mx, int my) {
       return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) &lt;= radius;
@@ -155,7 +165,7 @@
     <pseudoparent idref="2471" prototyperef="Page"/>
     <http_referer>http://beagleboard.org/support/BoneScript/processingjs/edit</http_referer>
     <http_host>beagleboard.org</http_host>
-    <lang>en-us</lang>
     <user>jkridner@gmail.com</user>
+    <lang>en-us</lang>
   </hopobject>
 </xmlroot>
