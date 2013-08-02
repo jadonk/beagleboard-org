@@ -95,6 +95,15 @@ function initClient() {
                 originalDemoRun(myid);
             }
         }
+        var originalShellRun = shellRun;
+        shellRun = function(myid) {
+            if(typeof editor[myid].editor != 'undefined') {
+                var code = editor[myid].editor.getValue();
+                myShell(code);
+            } else {
+                originalShellRun(myid);
+            }
+        }
     }
 }
 
@@ -114,11 +123,15 @@ function onShell(x) {
     console.log(x);
 }
 
-function shellRun(id) {
-    var myScript = document.getElementById(id).innerHTML;
+function myShell(code) {
     var b = require('bonescript');
     b.socket.on('shell', onShell);
-    b.socket.emit('shell', myScript);
+    b.socket.emit('shell', code);
+}
+
+function shellRun(id) {
+    var myScript = document.getElementById(id).innerHTML;
+    myShell(myScript);
 }
 
 function demoRestore(id) {
