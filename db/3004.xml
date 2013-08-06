@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3004" name="ServoMotor" prototype="Page" created="1375818694413" lastModified="1375818778774">
+  <hopobject id="3004" name="ServoMotor" prototype="Page" created="1375818694413" lastModified="1375819801380">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>ServoMotor</uri>
     <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">06.08.2013 14:52:58 CDT</time>
+    <time type="date">06.08.2013 15:10:01 CDT</time>
     <hopsession>127.0.0.192.94.94.1jc20gkl23vz</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
@@ -17,15 +17,18 @@
     &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
-&lt;h1&gt;Demo: Adafruit 2-Axis Thumb Joystick&lt;/h1&gt;
+&lt;h1&gt;Demo: Micro Servo Motor&lt;/h1&gt;
 &lt;p&gt;Output a pulse width modulated signal on a Servor Motor.&lt;/p&gt;
-&lt;p&gt;The name &apos;analogWrite&apos; comes from other open source libraries with
-    recognition that a PWM tied to a low-pass filter will produce an analog
-    voltage level.  A PWM can also be used to control some types of motors.
-    Read more about PWMs on the &lt;a href=&quot;https://en.wikipedia.org/wiki/Pulse-width_modulation&quot;&gt;
-        Wikipedia pulse-width modulation page
-        analogWrite(pin, value, [freq], [callback])
-    &lt;/a&gt;.
+&lt;p&gt;The Micro Servo Motor can rotate 180 degrees back and forth and can be used to move apparati, such as 
+a wheel or robotics. The position of the servo motor is set by the length of a pulse. In this program,
+the frequency is set at 60Hz, wich means that the servo receives a pulse every 16.66ms. The length
+of the pulse, or the duty cycle, can be changed from 3% to 14.5% which will rotate the Servo Motor. In the
+following code, we will be using &apos;analogWrite.&apos; The &apos;analogWrite&apos; function comes from other open
+source libraries with recognition that a PWM tied to a low-pass filter will produce an analog voltage level. 
+Through the use of this function, it will allow it to control the Servo Motor. Read more about PWMs on the &lt;a href=&quot;https://en.wikipedia.org/wiki/Pulse-width_modulation&quot;&gt;
+        Wikipedia pulse-width modulation page.&lt;/a&gt;
+&lt;b&gt;analogWrite(pin, value, [freq], [callback])&lt;/b&gt;
+   
 &lt;/p&gt;
 &lt;p&gt;Valid pins are highlighted in 
 yellow with &quot;PWM&quot; in their names (timers not yet supported):&lt;br /&gt;
@@ -77,7 +80,7 @@ b.analogWrite(&apos;P9_14&apos;, 0.7);&lt;/pre&gt;
     <pseudoparent idref="2471" prototyperef="Page"/>
     <http_referer>http://beagleboard.org/support/BoneScript/ServoMotor/edit</http_referer>
     <http_host>beagleboard.org</http_host>
-    <lang>en-us</lang>
     <user>juan_cortez@utexas.edu</user>
+    <lang>en-us</lang>
   </hopobject>
 </xmlroot>
