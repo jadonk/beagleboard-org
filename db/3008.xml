@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3008" name="accelerometer" prototype="Page" created="1375888514900" lastModified="1375891340266">
+  <hopobject id="3008" name="accelerometer" prototype="Page" created="1375888514900" lastModified="1375907835054">
   <hop:parent idref="2892" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>accelerometer</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">07.08.2013 11:02:20 CDT</time>
+    <time type="date">07.08.2013 15:37:15 CDT</time>
     <hopsession>127.0.0.192.94.94.1r02ohpk32194</hopsession>
     <body>&lt;h1&gt;&lt;a href=&quot;http://processingjs.org/&quot; class=&quot;external&quot;&gt;Processing.JS&lt;/a&gt;&lt;/h1&gt;
 &lt;canvas id=&quot;mysketch&quot;&gt;&lt;/canvas&gt;
@@ -92,7 +92,7 @@ function run() {
         
         // Fetch slider location for next time
         //b.analogRead(POT, onAnalogRead);
-        b.i2cWriteByte(port, 0, onWriteByte);
+        b.i2cReadBytes(port, 1, 6, onReadBytes);
         
         // Fetch button status
         b.digitalRead(BUTTON, onDigitalRead);
@@ -107,14 +107,14 @@ function run() {
     
     function onWriteByte(x) {
         if(x.event == &apos;callback&apos;) {
-            b.i2cReadBytes(port, null, 7, onReadBytes);
+            b.i2cReadBytes(port, 1, 6, onReadBytes);
         }
     }
     
     function onReadBytes(x) {
         if(x.event == &apos;callback&apos;) {
-            nX = x.res[1];
-            nY = x.res[3];
+            nX = x.res[0];
+            nY = x.res[2];
             $(&apos;#nX&apos;).html(nX);
             $(&apos;#nY&apos;).html(nY);
         }
@@ -136,7 +136,7 @@ function run() {
     <pseudoparent idref="2892" prototyperef="Page"/>
     <http_referer>http://beagleboard.org/support/BoneScript/processingjs/accelerometer/edit</http_referer>
     <http_host>beagleboard.org</http_host>
-    <user>blog.hangerhead.com</user>
+    <user>jkridner@gmail.com</user>
     <lang>en-us</lang>
   </hopobject>
 </xmlroot>
