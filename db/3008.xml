@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3008" name="accelerometer" prototype="Page" created="1375888514900" lastModified="1376358503404">
+  <hopobject id="3008" name="accelerometer" prototype="Page" created="1375888514900" lastModified="1376533002392">
   <hop:parent idref="2892" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>38.115.166.202</http_remotehost>
+    <http_remotehost>192.91.75.30</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>accelerometer</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">12.08.2013 20:48:23 CDT</time>
-    <hopsession>38.115.166.1ep5r1l264tyn</hopsession>
+    <time type="date">14.08.2013 21:16:42 CDT</time>
+    <hopsession>192.91.75.172.24.1.1bhb5f5zqxec1</hopsession>
     <body>&lt;h1&gt;&lt;a href=&quot;http://processingjs.org/&quot; class=&quot;external&quot;&gt;Processing.JS&lt;/a&gt;&lt;/h1&gt;
 &lt;canvas id=&quot;mysketch&quot;&gt;&lt;/canvas&gt;
 &lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
@@ -32,6 +32,12 @@ var LED_GREEN = &apos;P9_14&apos;;
 var LED_BLUE = &apos;P9_16&apos;;
 var BUTTON = &apos;P8_19&apos;;
 var POT = &apos;P9_36&apos;;
+var S_DATA = &apos;P9_18&apos;;
+var S_CLOCK = &apos;P9_22&apos;;
+var S_LATCH = &apos;P9_17&apos;;
+var S_CLEAR = &apos;P9_15&apos;;
+
+var segDigits = [ 0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90 ];
 
 // Get the BoneScript library and begin updating the canvas
 setTargetAddress(&apos;192.168.7.2&apos;, {initialized: run});
@@ -43,6 +49,14 @@ function run() {
     b.pinMode(LED_GREEN, b.OUTPUT);
     b.pinMode(LED_BLUE, b.OUTPUT);
     b.pinMode(BUTTON, b.INPUT);
+    b.pinMode(S_DATA, b.OUTPUT);
+    b.pinMode(S_CLOCK, b.OUTPUT);
+    b.pinMode(S_LATCH, b.OUTPUT);
+    b.pinMode(S_CLEAR, b.OUTPUT);
+    b.digitalWrite(S_DATA, b.LOW);
+    b.digitalWrite(S_CLOCK, b.LOW);
+    b.digitalWrite(S_LATCH, b.LOW);
+    b.digitalWrite(S_CLEAR, b.HIGH);
     b.i2cOpen(port, address, {}, onI2C);
     
     function onI2C() {
@@ -71,7 +85,7 @@ function run() {
     // Main draw loop
     pjs.draw = function() {
         // Calculate some fading values based on the frame count
-        radius = 50.0 + sliderStatus*pjs.sin(pjs.frameCount / 4);
+        radius = 50.0 + (15-sliderStatus)*pjs.sin(pjs.frameCount / 4);
         brightness = (radius - 40.0) / 20.0;
         
         // Set the RGB LED color based on the status of the button
@@ -114,7 +128,7 @@ function run() {
     function onAnalogRead(x) {
         if(!x.err &amp;&amp; (x.value &gt;= 0) &amp;&amp; (x.value &lt;= 1)) {
             //sliderStatus = parseInt(x.value * pjs.height, 10);
-            sliderStatus = (15-x.value*10).toFixed(1);
+            sliderStatus = (x.value*10).toFixed(0);
             $(&apos;#sliderStatus&apos;).html(sliderStatus);
         }
     }
