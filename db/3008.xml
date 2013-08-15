@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3008" name="accelerometer" prototype="Page" created="1375888514900" lastModified="1376534714910">
+  <hopobject id="3008" name="accelerometer" prototype="Page" created="1375888514900" lastModified="1376534808725">
   <hop:parent idref="2892" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>192.91.75.29</http_remotehost>
+    <http_remotehost>192.91.75.30</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>accelerometer</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">14.08.2013 21:45:14 CDT</time>
+    <time type="date">14.08.2013 21:46:48 CDT</time>
     <hopsession>192.91.75.172.24.1.wcnxmhecdmmh</hopsession>
     <body>&lt;h1&gt;&lt;a href=&quot;http://processingjs.org/&quot; class=&quot;external&quot;&gt;Processing.JS&lt;/a&gt;&lt;/h1&gt;
 &lt;canvas id=&quot;mysketch&quot;&gt;&lt;/canvas&gt;
@@ -131,7 +131,8 @@ function run() {
             if(Math.abs(x.value - lastSliderValue) &gt; 0.05) {
                 lastSliderValue = x.value;
                 sliderStatus = parseInt(x.value*10, 10);
-                $(&apos;#sliderStatus&apos;).html(sliderStatus + &apos;:&apos; + segDigits[x%10]);
+                var c = (segDigits[sliderStatus%10]).toString(2);
+                $(&apos;#sliderStatus&apos;).html(sliderStatus + &apos;: &apos; + c);
                 write7Seg(sliderStatus);            
             }
         }
