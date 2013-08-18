@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3004" name="ServoMotor" prototype="Page" created="1375818694413" lastModified="1375890464608">
+  <hopobject id="3004" name="ServoMotor" prototype="Page" created="1375818694413" lastModified="1376868498337">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>127.0.0.1</http_remotehost>
+    <http_remotehost>12.10.246.4</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>ServoMotor</uri>
-    <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">07.08.2013 10:47:44 CDT</time>
-    <hopsession>127.0.0.192.94.94.1jc20gkl23vz</hopsession>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
+    <time type="date">18.08.2013 18:28:18 CDT</time>
+    <hopsession>12.10.246.byc8667px1kp</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
     &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
@@ -19,45 +19,57 @@
 &lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
 &lt;h1&gt;Demo: Micro Servo Motor&lt;/h1&gt;
 &lt;p&gt;&lt;i&gt;Output a pulse width modulated signal on a Servo Motor.&lt;/i&gt; &lt;/p&gt;
-&lt;p&gt;The &lt;a href=&quot;http://www.adafruit.com/products/169&quot;&gt;Micro Servo Motor&lt;/a&gt; can rotate 180 degrees and is usually used in applications
-such as robotics, CNC machinery, or automated manufacturing. By using the &apos;analogWrite&apos; function [analogWrite(pin, value, [freq], [callback]), 
+&lt;p&gt;The &lt;a href=&quot;http://www.adafruit.com/products/169&quot;&gt;Micro Servo Motor&lt;/a&gt; 
+can rotate 180 degrees and is usually used in applications
+such as robotics, CNC machinery, or automated manufacturing. By using the &apos;analogWrite&apos;
+function [analogWrite(pin, value, [freq], [callback]), 
 the BeagleBone will send Pulse Width Modulated
-Signals to control the Servo Motor. The position of the servo motor is set by the length of a pulse. In the following
-program, the frequency is set at 60Hz, which means that the servo receives a pulse every 16.66ms. 
-The length of the pulse, or the duty cycle, can be changed from 3% to 14.5% and can be changed to rotate
-the servo motor.  &lt;br&gt;
-More information regarding PWMs can be found on the&lt;a href=&quot;https://en.wikipedia.org/wiki/Pulse-width_modulation&quot;&gt;
-        Wikipedia pulse-width modulation page.&lt;/a&gt;
-
+Signals to control the Servo Motor. The position of the servo motor is set 
+by the length of a pulse. In the following
+program, the frequency is set at 60Hz, which means that the servo receives a 
+pulse every 16.66ms. 
+The length of the pulse, or the duty cycle, can be changed from 3% to 14.5% and 
+can be changed to rotate
+the servo motor.&lt;/p&gt;
+&lt;p&gt;
+    The example below, when run, will adjust the position of the servo motor
+    between its two extremes repeatitively.
 &lt;/p&gt;
-&lt;h2&gt;Arguments&lt;/h2&gt;
-&lt;ul&gt;
- &lt;li&gt;&lt;em&gt;pin&lt;/em&gt;: the &lt;a href=&quot;/Support/BoneScript/#pin&quot;&gt;BeagleBone pin&lt;/a&gt; identifier&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;value&lt;/em&gt;: duty cycle of the PWM as a value between 0 and 1&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;freq&lt;/em&gt;: frequency of the PWM in Hz (60Hz)&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;callback&lt;/em&gt;: called upon completion&lt;/li&gt;
-&lt;/ul&gt;
-
-
+&lt;p&gt;
+More information regarding PWMs can be found on the&lt;a href=&quot;https://en.wikipedia.org/wiki/Pulse-width_modulation&quot;&gt;
+Wikipedia pulse-width modulation page.&lt;/a&gt;
+&lt;/p&gt;
 &lt;h2&gt;Example
  &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
  &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
 &lt;/h2&gt;
-&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:200px;&quot;&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:260px;&quot;&gt;
 var b = require(&apos;bonescript&apos;);
 b.pinMode(&apos;P9_14&apos;, b.OUTPUT);
 
 var duty_min = 0.03;
-var pulseLength = prompt(&quot;Please enter a number from 0-100.&quot;);
-var dutyCycle = (pulseLength*0.00115) + duty_min; 
-b.analogWrite(&apos;P9_14&apos;, dutyCycle, 60, printDuty(dutyCycle));
+var pulseLength = 0;
+var pulseIncrement = 0.1;
 
-function printDuty(x){
-   console.log(&quot;Duty Cycle: &quot; +  
-   parseFloat(x).toFixed(3) + &quot; %&quot;);   
+function updateDuty() {
+    var dutyCycle = (pulseLength*0.115) + duty_min;
+    b.analogWrite(&apos;P9_14&apos;, dutyCycle, 60, scheduleNextUpdate);
+    console.log(&quot;Duty Cycle: &quot; + parseFloat(dutyCycle).toFixed(3) + &quot; %&quot;);   
+}
+
+function scheduleNextUpdate() {
+    pulseLength = pulseLength + pulseIncrement;
+    if(pulseLength &lt; 0) {
+        pulseLength = 0;
+        pulseIncrement = -pulseIncrement;
+    } else if(pulseLength &gt; 1) {
+        pulseLength = 1;
+        pulseIncrement = -pulseIncrement;
+    }
+    setTimeout(updateDuty, 200);
 }
 &lt;/pre&gt;
-&lt;div readonly id=&apos;console-output&apos; style=&quot;height:80px;&quot;&gt;&lt;/div&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&quot;height:120px;&quot;&gt;&lt;/div&gt;
 &lt;br&gt;&lt;br&gt;
 
 &lt;img align=&quot;right&quot; width=&quot;60%&quot; src=&quot;http://beagleboard.org/static/uploads/Servo%20Motor.PNG&quot;/&gt;
@@ -93,7 +105,7 @@ function printDuty(x){
     <pseudoparent idref="2471" prototyperef="Page"/>
     <http_referer>http://beagleboard.org/support/BoneScript/ServoMotor/edit</http_referer>
     <http_host>beagleboard.org</http_host>
-    <user>juan_cortez@utexas.edu</user>
+    <user>jkridner@gmail.com</user>
     <lang>en-us</lang>
   </hopobject>
 </xmlroot>
