@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3004" name="ServoMotor" prototype="Page" created="1375818694413" lastModified="1376868883983">
+  <hopobject id="3004" name="ServoMotor" prototype="Page" created="1375818694413" lastModified="1376869042252">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>12.10.246.4</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>ServoMotor</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">18.08.2013 18:34:43 CDT</time>
+    <time type="date">18.08.2013 18:37:22 CDT</time>
     <hopsession>12.10.246.byc8667px1kp</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
@@ -55,11 +55,12 @@ updateDuty();
 
 function updateDuty() {
     var duty_cycle = (position*0.115) + duty_min;
-    b.analogWrite(SERVO, duty_cytle, 60, scheduleNextUpdate);
+    b.analogWrite(SERVO, duty_cycle, 60, scheduleNextUpdate);
     console.log(&quot;Duty Cycle: &quot; + parseFloat(duty_cycle).toFixed(3)*100 + &quot; %&quot;);   
 }
 
 function scheduleNextUpdate() {
+    // adjust position by increment and reverse if it exceeds range of 0..1
     position = position + increment;
     if(position &lt; 0) {
         position = 0;
@@ -68,6 +69,8 @@ function scheduleNextUpdate() {
         position = 1;
         increment = -increment;
     }
+    
+    // call updateDuty after 200ms
     setTimeout(updateDuty, 200);
 }
 &lt;/pre&gt;
@@ -81,8 +84,8 @@ function scheduleNextUpdate() {
  &lt;li&gt;Connect the &quot;GND&quot; pin from the Servo Motor to P9_1 of the board&lt;/li&gt;
  &lt;li&gt;Connect the &quot;V+&quot; pin from the Servo Motor to P9_3 of the board&lt;/li&gt;
  &lt;li&gt;Connect a 1kohm resistor to the &quot;PWM&quot; pin of the Servo Motor and to P9_14 of the board.&lt;/li&gt;
- &lt;li&gt;Click &quot;Run&quot; on the code and type in a value from 0-100 in the prompt. A value of 100 will turn the servo motor
-     a complete 180 degrees.
+ &lt;li&gt;Click &quot;Run&quot; on the code. The value of &apos;position&apos; will go between 0 and 1
+    changing by &apos;increment&apos; amount with updates every 200ms.
  &lt;/li&gt;
 &lt;/ul&gt;
 
