@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1376932621845">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1376941832429">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>192.91.75.30</http_remotehost>
+    <http_remotehost>192.91.75.29</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bacon</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">19.08.2013 12:17:01 CDT</time>
-    <hopsession>192.91.75.172.24.115.1ws2wi3h70h3e</hopsession>
+    <time type="date">19.08.2013 14:50:32 CDT</time>
+    <hopsession>192.91.75.172.24.115.187qi48n8ux94</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
 &lt;h2&gt;BoneScript&lt;/h2&gt;
@@ -99,7 +99,7 @@
  &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
  &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
 &lt;/h2&gt;
-&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:1500px;&quot;&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:2500px;&quot;&gt;
 console.log(&apos;Starting Bacon Cape demo&apos;);
 
 // read in BoneScript library
@@ -196,18 +196,19 @@ function doLatchLow() {
 }
 
 function doAnalogRead() {
-    b.digitalRead(BUTTON, updateBlue, scheduleUpdate);
-    b.analogRead(POT, updateGreen);
+    b.digitalRead(BUTTON, updateBlue);
 }
 
 function updateBlue(x) {
     if(typeof x.value == &apos;undefined&apos;) return;
     updateLED({blue:1-x.value});
+    b.analogRead(POT, updateGreen);
 }
 
 function updateGreen(x) {
     if(typeof x.value == &apos;undefined&apos;) return;
     updateLED({green:1-x.value});
+    scheduleUpdate();
 }
 
 function updateRed(x) {
@@ -254,7 +255,7 @@ function restore() {
     b.writeTextFile(p+&apos;1/trigger&apos;, &apos;mmc0&apos;);
     b.writeTextFile(p+&apos;2/trigger&apos;, &apos;cpu0&apos;);
     b.writeTextFile(p+&apos;3/trigger&apos;, &apos;mmc1&apos;);
-    b.detachInterrupt(&apos;P8_19&apos;);
+    //b.detachInterrupt(&apos;P8_19&apos;);
 }
 &lt;/script&gt;
 &lt;h2&gt;See also&lt;/h2&gt;
@@ -281,7 +282,7 @@ function restore() {
 &lt;/div&gt;&lt;/div&gt;
 &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</body>
     <pseudoparent idref="2471" prototyperef="Page"/>
-    <http_referer>http://beagleboard.org/support/BoneScript/cape_bacon/edit</http_referer>
+    <http_referer>http://beagleboard.org/Support/BoneScript/cape_bacon/edit</http_referer>
     <http_host>beagleboard.org</http_host>
     <user>jkridner@gmail.com</user>
     <lang>en-us</lang>
