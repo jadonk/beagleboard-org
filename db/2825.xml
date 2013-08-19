@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1376931275033">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1376932583350">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>192.91.75.29</http_remotehost>
+    <http_remotehost>192.91.75.30</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bacon</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">19.08.2013 11:54:35 CDT</time>
-    <hopsession>192.91.75.172.24.115.hq1eygbpmjxr</hopsession>
+    <time type="date">19.08.2013 12:16:23 CDT</time>
+    <hopsession>192.91.75.172.24.115.1ws2wi3h70h3e</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
 &lt;h2&gt;BoneScript&lt;/h2&gt;
@@ -172,6 +172,11 @@ function update() {
     b.digitalWrite(&apos;USR0&apos;, s, do7SegUpdate);
 }
 
+function scheduleUpdate() {
+    // update again in another 100ms
+    setTimeout(update, 100);
+}
+
 function do7SegUpdate(x) {
     // update 7segment LED
     digit = (digit + 1) % 10;
@@ -187,18 +192,12 @@ function doLatch() {
 }
 
 function doLatchLow() {
-    b.digitalWrite(S_LATCH, b.LOW, scheduleUpdate);
-}
-
-function scheduleUpdate() {
-    // update again in another 100ms
-    setTimeout(doUpdate, 100);
+    b.digitalWrite(S_LATCH, b.LOW, doAnalogRead);
 }
 
 function doAnalogRead() {
     b.digitalRead(BUTTON, updateBlue);
-    b.analogRead(POT, updateGreen);
-    setTimeout(blink, 100);
+    b.analogRead(POT, updateGreen, scheduleUpdate);
 }
 
 function updateBlue(x) {
