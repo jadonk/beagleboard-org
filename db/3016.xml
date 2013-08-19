@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3016" name="shiftOut" prototype="Page" created="1376879636644" lastModified="1376879636698">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>192.91.75.29</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>shiftOut</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
+    <time type="date">18.08.2013 21:33:56 CDT</time>
+    <hopsession>192.91.75.172.24.112.15sh3k2lg02pz</hopsession>
+    <body>&lt;pre&gt;
+//
+// Demonstrate shiftOut with a 7 segment display
+//
+
+// read in the BoneScript library
+var b = require(&apos;bonescript&apos;);
+
+// define used pins
+var sData  = &quot;P9_18&quot;;
+var sClock = &quot;P9_22&quot;;
+var sLatch = &quot;P9_17&quot;;
+var sClear = &quot;P9_15&quot;;
+
+// define other global variables
+var digit = 0;
+var segments = [ 0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90 ];
+
+// configure pins as outputs
+b.pinMode(sData,  b.OUTPUT);
+b.pinMode(sClock, b.OUTPUT);
+b.pinMode(sLatch, b.OUTPUT);
+b.pinMode(sClear, b.OUTPUT);
+
+// initial states
+b.digitalWrite(sData,  b.LOW);
+b.digitalWrite(sClock, b.LOW);
+b.digitalWrite(sLatch, b.LOW);
+b.digitalWrite(sClear, b.HIGH);
+
+// call function to start updating the LED shift register
+doUpdate();
+
+// function to update the LED shift register
+function doUpdate() {
+    // shift out the character LED pattern
+    b.shiftOut(sData, sClock, b.MSBFIRST, segments[digit], doLatch);
+
+    // update the digit for next time
+    digit = (digit + 1) % 10;
+}
+
+function doLatch() {
+    // latch in the value
+    b.digitalWrite(sLatch, b.HIGH, doLatchLow);
+}
+
+function doLatchLow() {
+    b.digitalWrite(sLatch, b.LOW, scheduleUpdate);
+}
+
+function scheduleUpdate() {
+    // update again in another 25ms
+    setTimeout(doUpdate, 25);
+}
+&lt;/pre&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/Support/BoneScript/shiftOut/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <lang>en-us</lang>
+    <user>jkridner@gmail.com</user>
+  </hopobject>
+</xmlroot>
