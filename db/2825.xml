@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1376930912130">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1376931064368">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>192.94.94.105</http_remotehost>
+    <http_remotehost>192.91.75.30</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bacon</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">19.08.2013 11:48:32 CDT</time>
-    <hopsession>192.94.94.172.24.115.cyh8t9lhgjre</hopsession>
+    <time type="date">19.08.2013 11:51:04 CDT</time>
+    <hopsession>192.91.75.172.24.115.1enkqn3t1yrij</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
 &lt;h2&gt;BoneScript&lt;/h2&gt;
@@ -122,30 +122,7 @@ var digit = 0;
 var segments = [ 0xC0, 0xF9, 0xA4, 0xB0, 0x99,
                  0x92, 0x82, 0xF8, 0x80, 0x90 ];
 
-// function to update the LED shift register
-function doUpdate() {
-    // shift out the character LED pattern
-    b.shiftOut(S_DATA, S_CLOCK, b.MSBFIRST, 
-        segments[digit], doLatch);
-
-    // update the digit for next time
-    digit = (digit + 1) % 10;
-}
-
-function doLatch() {
-    // latch in the value
-    b.digitalWrite(S_LATCH, b.HIGH, doLatchLow);
-}
-
-function doLatchLow() {
-    b.digitalWrite(S_LATCH, b.LOW, scheduleUpdate);
-}
-
-function scheduleUpdate() {
-    // update again in another 100ms
-    setTimeout(doUpdate, 100);
-}
-
+// attach jQuery elements
 try {
     $(&apos;#slider1&apos;).slider();
     $(&apos;#slider2&apos;).slider();
@@ -153,6 +130,9 @@ try {
     $(&apos;#led1&apos;).css(&apos;width&apos;, &apos;50px&apos;);
     $(&apos;#led1&apos;).css(&apos;height&apos;, &apos;50px&apos;);
     $(&apos;#led1&apos;).css(&apos;background-color&apos;, &apos;rgb(0,0,0)&apos;);
+    $(&quot;#slider3&quot;).bind(&quot;slidechange&quot;, function(event, ui) {
+        updateRed({value:(ui.value/100.0)});
+    });
 } catch(ex) {}
 
 // configure pins as inputs/outputs
@@ -181,16 +161,34 @@ b.digitalWrite(S_DATA,  b.LOW);
 b.digitalWrite(S_CLOCK, b.LOW);
 b.digitalWrite(S_LATCH, b.LOW);
 b.digitalWrite(S_CLEAR, b.HIGH);
-
 //b.attachInterrupt(BUTTON, true, b.CHANGE, handleButton);
-blink();
 
-// call function to start updating the LED shift register
+// call function to read status and perform updates
 doUpdate();
 
-$(&quot;#slider3&quot;).bind(&quot;slidechange&quot;, function(event, ui) {
-    updateRed({value:(ui.value/100.0)});
-});
+// function to update the LED shift register
+function update() {
+    // shift out the character LED pattern
+    b.shiftOut(S_DATA, S_CLOCK, b.MSBFIRST, 
+        segments[digit], doLatch);
+
+    // update the digit for next time
+    digit = (digit + 1) % 10;
+}
+
+function doLatch() {
+    // latch in the value
+    b.digitalWrite(S_LATCH, b.HIGH, doLatchLow);
+}
+
+function doLatchLow() {
+    b.digitalWrite(S_LATCH, b.LOW, scheduleUpdate);
+}
+
+function scheduleUpdate() {
+    // update again in another 100ms
+    setTimeout(doUpdate, 100);
+}
 
 function blink(x) {
     s = (s == b.LOW) ? b.HIGH : b.LOW;
