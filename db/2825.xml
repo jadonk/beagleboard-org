@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1376942004115">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1376942215761">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>192.91.75.29</http_remotehost>
+    <http_remotehost>192.91.75.30</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bacon</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">19.08.2013 14:53:24 CDT</time>
+    <time type="date">19.08.2013 14:56:55 CDT</time>
     <hopsession>192.91.75.172.24.115.187qi48n8ux94</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
@@ -164,17 +164,17 @@ b.digitalWrite(S_CLEAR, b.HIGH);
 //b.attachInterrupt(BUTTON, true, b.CHANGE, handleButton);
 
 // call function to read status and perform updates
-update();
+scheduleUpdate();
+
+function scheduleUpdate() {
+    // update again in another 50ms
+    setTimeout(update, 50);
+}
 
 function update() {
     // toggle USR0 LED
     s = (s == b.LOW) ? b.HIGH : b.LOW;
     b.digitalWrite(&apos;USR0&apos;, s, do7SegUpdate);
-}
-
-function scheduleUpdate() {
-    // update again in another 100ms
-    setTimeout(update, 100);
 }
 
 function do7SegUpdate(x) {
