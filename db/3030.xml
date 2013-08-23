@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3030" name="x11vnc" prototype="Page" created="1377267053377" lastModified="1377267053492">
+  <hopobject id="3030" name="x11vnc" prototype="Page" created="1377267053377" lastModified="1377267190443">
   <hop:parent idref="2765" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>192.91.75.29</http_remotehost>
+    <http_remotehost>192.94.94.105</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>x11vnc</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">23.08.2013 09:10:53 CDT</time>
-    <hopsession>192.91.75.172.24.0.16ym6vl7xbx4q</hopsession>
+    <time type="date">23.08.2013 09:13:10 CDT</time>
+    <hopsession>192.94.94.172.24.0.6ogxptwqr6kz</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
     &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
@@ -17,66 +17,15 @@
     &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
-&lt;h1&gt;XRandR&lt;/h1&gt; 
-&lt;h2&gt;&lt;a href=&quot;http://www.x.org/wiki/Projects/XRandR/&quot;&gt;
-    http://www.x.org/wiki/Projects/XRandR  
+&lt;h1&gt;x11vnc&lt;/h1&gt; 
+&lt;h2&gt;&lt;a href=&quot;http://www.karlrunge.com/x11vnc/&quot;&gt;
+    http://www.karlrunge.com/x11vnc/  
 &lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;xrandr is a command-line interface to the XRandR X11 resize, rotate and 
-reflection extension&lt;/p&gt;
-&lt;pre&gt;
-usage: xrandr [options]
-  where options are:
-  -display &lt;display&gt; or -d &lt;display&gt;
-  -help
-  -o &lt;normal,inverted,left,right,0,1,2,3&gt;
-            or --orientation &lt;normal,inverted,left,right,0,1,2,3&gt;
-  -q        or --query
-  -s &lt;size&gt;/&lt;width&gt;x&lt;height&gt; or --size &lt;size&gt;/&lt;width&gt;x&lt;height&gt;
-  -r &lt;rate&gt; or --rate &lt;rate&gt; or --refresh &lt;rate&gt;
-  -v        or --version
-  -x        (reflect in x)
-  -y        (reflect in y)
-  --screen &lt;screen&gt;
-  --verbose
-  --current
-  --dryrun
-  --nograb
-  --prop or --properties
-  --fb &lt;width&gt;x&lt;height&gt;
-  --fbmm &lt;width&gt;x&lt;height&gt;
-  --dpi &lt;dpi&gt;/&lt;output&gt;
-  --output &lt;output&gt;
-      --auto
-      --mode &lt;mode&gt;
-      --preferred
-      --pos &lt;x&gt;x&lt;y&gt;
-      --rate &lt;rate&gt; or --refresh &lt;rate&gt;
-      --reflect normal,x,y,xy
-      --rotate normal,inverted,left,right
-      --left-of &lt;output&gt;
-      --right-of &lt;output&gt;
-      --above &lt;output&gt;
-      --below &lt;output&gt;
-      --same-as &lt;output&gt;
-      --set &lt;property&gt; &lt;value&gt;
-      --scale &lt;x&gt;x&lt;y&gt;
-      --transform &lt;a&gt;,&lt;b&gt;,&lt;c&gt;,&lt;d&gt;,&lt;e&gt;,&lt;f&gt;,&lt;g&gt;,&lt;h&gt;,&lt;i&gt;
-      --off
-      --crtc &lt;rtc&gt;
-      --panning &lt;w&gt;x&lt;h&gt;[+&lt;x&gt;+&lt;y&gt;[/&lt;track:w&gt;x&lt;h&gt;+&lt;x&gt;+&lt;y&gt;[/&lt;border:l&gt;/&lt;t&gt;/&lt;r&gt;/&lt;b&gt;] ] ]
-      --gamma &lt;r&gt;:&lt;g&gt;:&lt;b&gt;
-      --primary
-  --noprimary
-  --newmode &lt;name&gt; &lt;clock MHz&gt;
-            &lt;hdisp&gt; &lt;hsync-start&gt; &lt;hsync-end&gt; &lt;htotal&gt;
-            &lt;vdisp&gt; &lt;vsync-start&gt; &lt;vsync-end&gt; &lt;vtotal&gt;
-            [+HSync] [-HSync] [+VSync] [-VSync]
-  --rmmode &lt;name&gt;
-  --addmode &lt;output&gt; &lt;name&gt;
-  --delmode &lt;output&gt; &lt;name&gt;
-&lt;/pre&gt;
+&lt;p&gt;x11vnc provides a mechanism for viewing your BeagleBone&apos;s desktop over
+    a network connection
+&lt;/p&gt;
 &lt;h2&gt;Shell script&lt;/h2&gt;
-&lt;p&gt;This script sets the BeagleBone Black HDMI resolution to 1024x768&lt;/p&gt;
+&lt;p&gt;This script starts the X11VNC server&lt;/p&gt;
 &lt;button class=&quot;dynlink&quot; onclick=&quot;shellRun(&apos;code&apos;);&quot;&gt;Run&lt;/button&gt;
 &lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; syntax=&quot;sh&quot; style=&quot;height:60px;&quot;&gt;
 export XAUTHORITY=`ls /var/run/gdm/auth-for-root-*/database`
@@ -88,7 +37,7 @@ x11vnc&lt;/pre&gt;
     <pseudoparent idref="2765" prototyperef="Page"/>
     <http_referer>http://beagleboard.org/support/bone101/x11vnc/edit</http_referer>
     <http_host>beagleboard.org</http_host>
-    <lang>en-us</lang>
     <user>jkridner@gmail.com</user>
+    <lang>en-us</lang>
   </hopobject>
 </xmlroot>
