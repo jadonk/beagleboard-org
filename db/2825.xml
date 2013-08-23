@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1377297279123">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1377297687292">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.142.42</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bacon</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">23.08.2013 17:34:39 CDT</time>
+    <time type="date">23.08.2013 17:41:27 CDT</time>
     <hopsession>98.250.142.umt8ps2jxwvi</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
@@ -135,6 +135,9 @@ try {
     $(&quot;#slider3&quot;).bind(&quot;slidechange&quot;, function(event, ui) {
         updateRed({value:(ui.value/100.0)});
     });
+    $(&apos;#runbutton&apos;).removeAttr(&apos;onclick&apos;);
+    $(&apos;#runbutton&apos;).click(buttonClick);
+    $(&apos;#runbutton&apos;).html(&apos;stop&apos;);
 } catch(ex) {}
 
 // configure pins as inputs/outputs
@@ -170,28 +173,22 @@ start();
 // call function to read status and perform updates
 function start() {
     b.getPlatform(onGetPlatform);
-    $(&apos;#runbutton&apos;).removeAttr(&apos;onclick&apos;);
-    $(&apos;#runbutton&apos;).click(stop);
-    $(&apos;#runbutton&apos;).html(&apos;stop&apos;);
 }
 
-function stop() {
-    dostop = 1;
-    var p = &apos;/sys/class/leds/beaglebone:green:usr&apos;;
-    b.digitalWrite(&apos;USR0&apos;, b.LOW);
-    b.digitalWrite(&apos;USR1&apos;, b.LOW);
-    b.digitalWrite(&apos;USR2&apos;, b.LOW);
-    b.digitalWrite(&apos;USR3&apos;, b.LOW);
-    b.writeTextFile(p+&apos;0/trigger&apos;, &apos;heartbeat&apos;);
-    b.writeTextFile(p+&apos;1/trigger&apos;, &apos;mmc0&apos;);
-    b.writeTextFile(p+&apos;2/trigger&apos;, &apos;cpu0&apos;);
-    b.writeTextFile(p+&apos;3/trigger&apos;, &apos;mmc1&apos;);
-    $(&apos;#runbutton&apos;).click(restart);
-    $(&apos;#runbutton&apos;).html(&apos;run&apos;);
-}
-
-function restart() {
-    demoRun(&apos;code&apos;);
+function buttonClick() {
+    if(!dostop) {
+        dostop = 1;
+        var p = &apos;/sys/class/leds/beaglebone:green:usr&apos;;
+        b.digitalWrite(&apos;USR0&apos;, b.LOW);
+        b.digitalWrite(&apos;USR1&apos;, b.LOW);
+        b.digitalWrite(&apos;USR2&apos;, b.LOW);
+        b.digitalWrite(&apos;USR3&apos;, b.LOW);
+        b.writeTextFile(p+&apos;0/trigger&apos;, &apos;heartbeat&apos;);
+        b.writeTextFile(p+&apos;1/trigger&apos;, &apos;mmc0&apos;);
+        b.writeTextFile(p+&apos;2/trigger&apos;, &apos;cpu0&apos;);
+        b.writeTextFile(p+&apos;3/trigger&apos;, &apos;mmc1&apos;);
+        $(&apos;#runbutton&apos;).html(&apos;run&apos;);
+    }
 }
 
 function onGetPlatform(x) {
