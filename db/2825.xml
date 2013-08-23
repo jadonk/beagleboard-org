@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1377295739297">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1377295802667">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.142.42</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bacon</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">23.08.2013 17:08:59 CDT</time>
+    <time type="date">23.08.2013 17:10:02 CDT</time>
     <hopsession>98.250.142.umt8ps2jxwvi</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
@@ -171,7 +171,7 @@ start();
 // call function to read status and perform updates
 function start() {
     b.getPlatform(onGetPlatform);
-    $(&apos;#runbutton&apos;).onclick = &apos;stop();&apos;;
+    $(&apos;#runbutton&apos;)[0].onclick = &apos;stop();&apos;;
     $(&apos;#runbutton&apos;).html(&apos;stop&apos;);
 }
 
@@ -187,7 +187,7 @@ stop = function() {
     b.writeTextFile(p+&apos;1/trigger&apos;, &apos;mmc0&apos;);
     b.writeTextFile(p+&apos;2/trigger&apos;, &apos;cpu0&apos;);
     b.writeTextFile(p+&apos;3/trigger&apos;, &apos;mmc1&apos;);
-    $(&apos;#runbutton&apos;).onclick = &apos;demoRun(&quot;code&quot;);&apos;;
+    $(&apos;#runbutton&apos;)[0].onclick = &apos;demoRun(&quot;code&quot;);&apos;;
     $(&apos;#runbutton&apos;).html(&apos;stop&apos;);
 }
 
