@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1377296698336">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1377297203971">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.142.42</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bacon</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">23.08.2013 17:24:58 CDT</time>
+    <time type="date">23.08.2013 17:33:23 CDT</time>
     <hopsession>98.250.142.umt8ps2jxwvi</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
@@ -121,7 +121,7 @@ var s = b.LOW;
 var digit = 0;
 var segments = [ 0xC0, 0xF9, 0xA4, 0xB0, 0x99,
                  0x92, 0x82, 0xF8, 0x80, 0x90 ];
-var task = 0;
+var stop = 0;
 var platform = {};
 
 // attach jQuery elements
@@ -176,8 +176,7 @@ function start() {
 }
 
 function stop() {
-    clearTimeout(task);
-    task = 0;
+    stop = 1;
     var p = &apos;/sys/class/leds/beaglebone:green:usr&apos;;
     b.digitalWrite(&apos;USR0&apos;, b.LOW);
     b.digitalWrite(&apos;USR1&apos;, b.LOW);
@@ -197,7 +196,14 @@ function restart() {
 
 function onGetPlatform(x) {
     platform = x;
-    task = setTimeout(update, 50);
+    scheduleNextUpdate();
+}
+
+function scheduleNextUpdate() {    
+    // test for stop and then schedule next update for 50ms
+    if(!stop) {
+        setTimeout(update, 50);
+    }
 }
 
 function update() {
@@ -241,9 +247,7 @@ function updateBlue(x) {
 function updateGreen(x) {
     if(typeof x.value == &apos;undefined&apos;) return;
     updateLED({green:1-x.value});
-    
-    // schedule next update for 50ms
-    task = setTimeout(update, 50);
+    scheduleNextUpdate();
 }
 
 function updateRed(x) {
