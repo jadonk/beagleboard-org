@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1377316525979">
+  <hopobject id="2825" name="cape_bacon" prototype="Page" created="1372735831412" lastModified="1377317049314">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.142.42</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bacon</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</http_browser>
-    <time type="date">23.08.2013 22:55:25 CDT</time>
+    <time type="date">23.08.2013 23:04:09 CDT</time>
     <hopsession>98.250.142.umt8ps2jxwvi</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
@@ -42,16 +42,6 @@
 &lt;p&gt;More information about the cape can be found at &lt;a href=&quot;http://elinux.org/Bacon_Cape&quot;&gt;
     the eLinux.org Bacon Cape page.
 &lt;/a&gt;&lt;/p&gt;
-&lt;div style=&quot;display: table;&quot;&gt;
- &lt;div style=&quot;display: table-row; width=500px;&quot;&gt;
-  &lt;div id=&quot;led1&quot; style=&quot;display: table-cell; height:50px;&quot;&gt;&lt;/div&gt;
-  &lt;div style=&quot;display: table-cell; height:50px&quot;&gt;
-   &lt;div id=&quot;slider1&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
-   &lt;div id=&quot;slider2&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
-   &lt;div id=&quot;slider3&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
 &lt;h2&gt;Components&lt;/h2&gt;
 &lt;p&gt;
     These are the major components of the Bacon Cape.
@@ -99,6 +89,16 @@
 &lt;h2&gt;Demo code
  &lt;button class=&quot;dynlink&quot; id=&quot;runbutton&quot; onclick=&quot;demoRun(&apos;code&apos;);&quot;&gt;run&lt;/button&gt;
 &lt;/h2&gt;
+&lt;div style=&quot;display: table;&quot;&gt;
+ &lt;div style=&quot;display: table-row; width=500px;&quot;&gt;
+  &lt;div id=&quot;led1&quot; style=&quot;display: table-cell; height:50px;&quot;&gt;&lt;/div&gt;
+  &lt;div style=&quot;display: table-cell; height:50px&quot;&gt;
+   &lt;div id=&quot;slider1&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
+   &lt;div id=&quot;slider2&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
+   &lt;div id=&quot;slider3&quot; style=&quot;width:400px; vertical-align:center;&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
 &lt;div readonly id=&apos;console-output&apos; style=&apos;height:80px;width:600px;&apos;&gt;&lt;/div&gt;
 &lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:2500px;width:600px;&quot;&gt;
 // read in BoneScript library
@@ -172,7 +172,7 @@ start();
 
 // call function to read status and perform updates
 function start() {
-    if(!started) {
+    if(!started &amp;&amp; !stopped) {
         console.log(&apos;Starting Bacon Cape demo&apos;);
         b.getPlatform(onGetPlatform);
         started = 1;
