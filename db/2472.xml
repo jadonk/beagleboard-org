@@ -1,54 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2472" name="Community" prototype="Page" created="1366427550947" lastModified="1377718634918">
+  <hopobject id="2472" name="Community" prototype="Page" created="1366427550947" lastModified="1377718695190">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>192.94.94.106</http_remotehost>
+    <http_remotehost>192.91.75.30</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>Community</uri>
     <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.57 Safari/537.36</http_browser>
-    <time type="date">28.08.2013 14:37:14 CDT</time>
-    <hopsession>192.94.94.10.247.21.b3jrv31afel0</hopsession>
+    <time type="date">28.08.2013 14:38:15 CDT</time>
+    <hopsession>192.91.75.10.247.21.b3dfbmzzeb9j</hopsession>
     <body>&lt;h1&gt;Community&lt;/h1&gt;
-&lt;div id=&quot;hp-c2&quot; style=&quot;background-color: #f1f1f1; padding: 10px; width: 250px; border-radius: 5px 5px 5px 5px;&quot;&gt;&lt;h1 style=&quot;margin-top: 0px&quot;&gt;Community Activity&lt;/h1&gt;
-&lt;script&gt;
-var ne = 0;
-function handleResponse(resp) {
-    for(item in resp.items) {
-        var index = parseInt(ne) + parseInt(item);
-        var entry = &apos;&apos; +
-            &apos;&lt;p&gt;&lt;strong id=&quot;results_&apos; + index + &apos;&quot;&gt;&apos; + 
-            &apos;&lt;a href=&quot;&apos; + 
-            resp.items[item].url + &apos;&quot;&gt;&apos; + resp.items[item].title.substr(0,100) + 
-            &apos;&lt;/a&gt;&lt;/strong&gt;&lt;br /&gt;&apos; +
-            &apos;&lt;a href=&quot;&apos; + resp.items[item].url + &apos;&quot;&gt;...more&lt;/a&gt;&lt;/p&gt;&apos;;
-        $(&apos;#plus&apos;).append(entry);
-    }
-    ne += resp.items.length;
-}
-
-function makeRequest() {
-    gapi.client.plus.activities.list({
-        &apos;userId&apos;: &apos;109587204186717390991&apos;,
-        &apos;collection&apos;: &apos;public&apos;, 
-        &apos;maxResults&apos;: 4
-    }).execute(handleResponse);
-    console.log(&quot;Made request to Google&quot;);
-}
-
-function onGoogleLoad() {
-    gapi.client.setApiKey(&apos;AIzaSyDB9-M-HaJ1GtB8j8EppCLsdpzLwW5Y4IE&apos;);
-    gapi.client.load(&apos;plus&apos;, &apos;v1&apos;, makeRequest);
-    console.log(&quot;Loaded Google API&quot;);
-}
-&lt;/script&gt;
-&lt;script src=&quot;https://apis.google.com/js/client.js?onload=onGoogleLoad&quot;&gt;&lt;/script&gt;
-
-&lt;div id=&quot;plus&quot;&gt;&lt;/div&gt;&lt;br/&gt;
-&lt;a href=&quot;https://plus.google.com/communities/104960311812236799231&quot; class=&quot;external&quot;&gt;More Community Activity&lt;/a&gt;
-
-&lt;/div&gt;
 &lt;p&gt;Get questions answered or show off your latest Beagle project in the Beagle communities. Tinkering, hacking, making, developing, or simple interest in going where no one’s gone before with the help of powerful, open, embedded computers is welcome here.&lt;/p&gt;
 &lt;br&gt;&lt;/br&gt;
 &lt;h2&gt;&lt;a href=&quot;/Community/Forums&quot;&gt;Forums&lt;/a&gt;&lt;/h2&gt;
