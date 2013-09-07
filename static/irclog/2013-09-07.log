@@ -583,3 +583,38 @@
 <li class="message">[<a href="#T15:57:16" id="T15:57:16"><abbr title="2013-09-07T15:57:16+00:00">15:57:16</abbr></a>] &lt;<cite>Jonnyw2k</cite>&gt; <q>but in 3.8 it got flattened to 0xFFFFFFFF for generic omap devices</q></li>
 <li class="message">[<a href="#T15:58:03" id="T15:58:03"><abbr title="2013-09-07T15:58:03+00:00">15:58:03</abbr></a>] &lt;<cite>prpplague</cite>&gt; <q>that is because 3.8 uses device tree</q></li>
 <li class="message">[<a href="#T15:58:39" id="T15:58:39"><abbr title="2013-09-07T15:58:39+00:00">15:58:39</abbr></a>] &lt;<cite>Jonnyw2k</cite>&gt; <q>so DTB files should work?</q></li>
+<li class="quit">[<a href="#T16:02:23" id="T16:02:23"><abbr title="2013-09-07T16:02:23+00:00">16:02:23</abbr></a>] <span>* prpplague (~danders@12.130.127.97) Quit (Quit: Leaving)</span></li>
+<li class="nick-change">[<a href="#T16:14:56" id="T16:14:56"><abbr title="2013-09-07T16:14:56+00:00">16:14:56</abbr></a>] <span>* vvu|Log_away is now known as vvu|Log</span></li>
+<li class="join">[<a href="#T16:23:32" id="T16:23:32"><abbr title="2013-09-07T16:23:32+00:00">16:23:32</abbr></a>] <span>* Peuc (~Peuc@199.102.99.129) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:25:51" id="T16:25:51"><abbr title="2013-09-07T16:25:51+00:00">16:25:51</abbr></a>] <span>* emeb_mac (~ericb@ip72-223-90-58.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T16:27:52" id="T16:27:52"><abbr title="2013-09-07T16:27:52+00:00">16:27:52</abbr></a>] &lt;<cite>Jonnyw2k</cite>&gt; <q>what does an MLO file do?</q></li>
+<li class="message">[<a href="#T16:30:36" id="T16:30:36"><abbr title="2013-09-07T16:30:36+00:00">16:30:36</abbr></a>] &lt;<cite>vvu|Log</cite>&gt; <q>MLO is a first stage bootloader</q></li>
+<li class="message">[<a href="#T16:30:52" id="T16:30:52"><abbr title="2013-09-07T16:30:52+00:00">16:30:52</abbr></a>] &lt;<cite>Jonnyw2k</cite>&gt; <q>ahh fair enough</q></li>
+<li class="message">[<a href="#T16:31:08" id="T16:31:08"><abbr title="2013-09-07T16:31:08+00:00">16:31:08</abbr></a>] &lt;<cite>Jonnyw2k</cite>&gt; <q>it looks like my u-boot is alright on my eMMC</q></li>
+<li class="message">[<a href="#T16:31:09" id="T16:31:09"><abbr title="2013-09-07T16:31:09+00:00">16:31:09</abbr></a>] &lt;<cite>vvu|Log</cite>&gt; <q>it sets up the clocks, ram memory and other things then loads u-boot which is a second stage bootloade *not an expert in this area but this is what i know*</q></li>
+<li class="message">[<a href="#T16:31:23" id="T16:31:23"><abbr title="2013-09-07T16:31:23+00:00">16:31:23</abbr></a>] &lt;<cite>Jonnyw2k</cite>&gt; <q>i just cant boot from the u-boot# prompt</q></li>
+<li class="message">[<a href="#T16:31:40" id="T16:31:40"><abbr title="2013-09-07T16:31:40+00:00">16:31:40</abbr></a>] &lt;<cite>vvu|Log</cite>&gt; <q>so u-boot does not find the uImage</q></li>
+<li class="message">[<a href="#T16:31:42" id="T16:31:42"><abbr title="2013-09-07T16:31:42+00:00">16:31:42</abbr></a>] &lt;<cite>vvu|Log</cite>&gt; <q>i think so</q></li>
+<li class="message">[<a href="#T16:31:52" id="T16:31:52"><abbr title="2013-09-07T16:31:52+00:00">16:31:52</abbr></a>] &lt;<cite>vvu|Log</cite>&gt; <q>if you issue bootm command what do u see ?</q></li>
+<li class="quit">[<a href="#T16:32:09" id="T16:32:09"><abbr title="2013-09-07T16:32:09+00:00">16:32:09</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) Quit (Quit: timatron)</span></li>
+<li class="message">[<a href="#T16:33:16" id="T16:33:16"><abbr title="2013-09-07T16:33:16+00:00">16:33:16</abbr></a>] &lt;<cite>Jonnyw2k</cite>&gt; <q>can't get kernel image</q></li>
+<li class="message">[<a href="#T16:33:27" id="T16:33:27"><abbr title="2013-09-07T16:33:27+00:00">16:33:27</abbr></a>] &lt;<cite>vvu|Log</cite>&gt; <q>do u have a good uImage on the eMMC ?</q></li>
+<li class="message">[<a href="#T16:33:32" id="T16:33:32"><abbr title="2013-09-07T16:33:32+00:00">16:33:32</abbr></a>] &lt;<cite>Jonnyw2k</cite>&gt; <q>if I load it manually, it does take the dtb file propperly</q></li>
+<li class="quit">[<a href="#T16:35:16" id="T16:35:16"><abbr title="2013-09-07T16:35:16+00:00">16:35:16</abbr></a>] <span>* emeb_mac (~ericb@ip72-223-90-58.ph.ph.cox.net) Quit (Quit: emeb_mac)</span></li>
+<li class="join">[<a href="#T16:36:25" id="T16:36:25"><abbr title="2013-09-07T16:36:25+00:00">16:36:25</abbr></a>] <span>* koen (~koen@cl-267.ams-05.nl.sixxs.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:38:48" id="T16:38:48"><abbr title="2013-09-07T16:38:48+00:00">16:38:48</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:39:59" id="T16:39:59"><abbr title="2013-09-07T16:39:59+00:00">16:39:59</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T16:41:24" id="T16:41:24"><abbr title="2013-09-07T16:41:24+00:00">16:41:24</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:41:55" id="T16:41:55"><abbr title="2013-09-07T16:41:55+00:00">16:41:55</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T16:42:11" id="T16:42:11"><abbr title="2013-09-07T16:42:11+00:00">16:42:11</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T16:43:58" id="T16:43:58"><abbr title="2013-09-07T16:43:58+00:00">16:43:58</abbr></a>] <span>* ehaliewicz (~user@50-0-51-11.dsl.static.sonic.net) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T16:45:02" id="T16:45:02"><abbr title="2013-09-07T16:45:02+00:00">16:45:02</abbr></a>] <span>* falstaff_ (~quassel@62-12-223-211.pool.cyberlink.ch) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-09-07T16:45:02+00:00">16:45:02</abbr>] <span>* falstaff_ (~quassel@62-12-223-211.pool.cyberlink.ch) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T16:45:40" id="T16:45:40"><abbr title="2013-09-07T16:45:40+00:00">16:45:40</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T16:47:09" id="T16:47:09"><abbr title="2013-09-07T16:47:09+00:00">16:47:09</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:47:33" id="T16:47:33"><abbr title="2013-09-07T16:47:33+00:00">16:47:33</abbr></a>] <span>* falstaff (~quassel@62-12-221-115.pool.cyberlink.ch) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="quit">[<a href="#T16:49:17" id="T16:49:17"><abbr title="2013-09-07T16:49:17+00:00">16:49:17</abbr></a>] <span>* W1N9Zr0 (~W1N9Zr0@24-246-93-30.cable.teksavvy.com) Quit (Disconnected by services)</span></li>
+<li class="join">[<a href="#T16:49:30" id="T16:49:30"><abbr title="2013-09-07T16:49:30+00:00">16:49:30</abbr></a>] <span>* W1N9Zr0 (~W1N9Zr0@24-246-93-30.cable.teksavvy.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T16:54:18" id="T16:54:18"><abbr title="2013-09-07T16:54:18+00:00">16:54:18</abbr></a>] <span>* timatron (~timatron@cpe-76-168-61-54.socal.res.rr.com) Quit (Quit: timatron)</span></li>
+<li class="nick-change">[<a href="#T16:57:12" id="T16:57:12"><abbr title="2013-09-07T16:57:12+00:00">16:57:12</abbr></a>] <span>* vvu|Log is now known as vvu|Log_away</span></li>
+<li class="nick-change">[<a href="#T16:57:22" id="T16:57:22"><abbr title="2013-09-07T16:57:22+00:00">16:57:22</abbr></a>] <span>* vvu|Log_away is now known as vvu|Log</span></li>
