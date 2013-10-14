@@ -38,7 +38,7 @@ function edit_project_action ()
  {
   if (!session.user || !session.user["name"])
    {
-    var targetURL = root.href("login") + "?target=" + this.href();
+    var targetURL = root.href("login") + "?target=" + this.href();// + this.edit_skin;
     res.redirect(targetURL);
     return;
    }
@@ -77,6 +77,7 @@ function edit_project_action ()
     this.shortdesc = req.data["shortdesc"];
     this.homepage = req.data["homepage"];
     this.rssfeed = req.data["rssfeed"];
+    this.categories = String(req.data["categories_array"].join(","));
     this.updatetime = new Date();
     this.render_skin = "project";
     this.edit_skin = "edit_project";
@@ -90,7 +91,8 @@ function edit_project_action ()
      }
     else
      {
-      app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
+      app.log("Replacing project '" + this.uri + "' with '" + req.data["uri"] + "'");
+      app.log("Categories = " + this.categories);
       this.uri = req.data["uri"];
      }
     res.redirect(this.href());

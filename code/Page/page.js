@@ -51,6 +51,8 @@ function edit_action ()
  {
   var saveEdit = false;
 
+  //if(this.edit_skin == 'edit_project') return(res.redirect());
+
   if (!session.user || !session.user["name"])
    {
     var targetURL = root.href("login") + "?target=" + this.href();
@@ -111,7 +113,7 @@ function edit_action ()
        }
       else
        {
-        app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
+        app.log("Replacing page '" + this.uri + "' with '" + req.data["uri"] + "'");
         this.uri = req.data["uri"];
        }
       var runtime = Packages.java.lang.Runtime.getRuntime();

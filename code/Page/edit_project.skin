@@ -2,7 +2,7 @@
 <script>
         tinymce.init({selector:'#body'});
 </script>
-<form method="post">
+<form method="post" action="<% this.edit_skin %>">
  <h1>Register a BeagleBoard.org related project</h1>
  <h2>Project Information</h2>
  <p align="center"><font color="red"><% this.errmsg %></font></p>
@@ -15,7 +15,7 @@
    </td>
   </tr>
   <tr>
-   <td align="right"><font color="orange">*</font>Project shortname (alphanumeric)</td>
+   <td align="right"><font color="orange">*</font>Project Short-name (one word)</td>
    <td>&nbsp;</td>
    <td><input name="uri" type="text" style="width:200px;" maxlength="30" value="<% this.uri %>" /></td>
   </tr>
@@ -25,7 +25,7 @@
    <td><input name="pname" type="text" style="width:350px;" value="<% this.pname %>" /></td>
   </tr>
   <tr>
-   <td align="right" valign="top"><font color="orange">*</font>Short Description/Summary</td>
+   <td align="right" valign="top"><font color="orange">*</font>One-line Summary</td>
    <td>&nbsp;</td>
    <td><textarea name="shortdesc" style="width:350px;" rows="4"><% this.shortdesc %></textarea></td>
   </tr>
@@ -35,14 +35,28 @@
    <td><textarea id="body" name="body" style="width:350px;" rows="10"><% this.body %></textarea></td>
   </tr>
   <tr>
-   <td align="right"><font color="orange"></font>Homepage/URL</td>
+   <td align="right"><font color="orange"></font>Homepage URL</td>
    <td>&nbsp;</td>
    <td><input name="homepage" type="text" style="width:350px;" value="<% this.homepage %>" /></td>
   </tr>
   <tr>
-   <td align="right">RSS feed</td>
+   <td align="right">RSS feed URL</td>
    <td>&nbsp;</td>
    <td><input name="rssfeed" type="text" style="width:350px;" value="<% this.rssfeed %>" /></td>
+  </tr>
+  <tr>
+   <td align="right">Categories</td>
+   <td>&nbsp;</td>
+   <td>
+    <input type="checkbox" name="categories" value="distro">Distro: Linux or other operating system distribution</input><br>
+    <input type="checkbox" name="categories" value="documentation">Documentation: Something useful for teaching</input><br>
+    <input type="checkbox" name="categories" value="library">Library: Software library or component</input><br>
+    <input type="checkbox" name="categories" value="utility">Utility: Host application or boot/testing code</input><br>
+    <input type="checkbox" name="categories" value="cape">Cape: Add-on board for BeagleBone (Black)</input><br>
+    <input type="checkbox" name="categories" value="case">Case: Mechanical enclosure</input><br>
+    <input type="checkbox" name="categories" value="demo">Demo: Art project or technology demonstration</input><br>
+    <input type="checkbox" name="categories" value="robotics">Robotics: Anything involving robots</input><br>
+   </td>
   </tr>
   <tr>
    <td colspan="3">&nbsp;</td>
