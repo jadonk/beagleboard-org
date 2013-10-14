@@ -7,7 +7,7 @@ function uri_macro (param)
  {
   if (req.data["uri"])
    return ("" + req.data["uri"]);
-  else if (this.uri)
+  else if (this.uri && this.uri != "new")
    return (this.uri);
   else
    return ("");
