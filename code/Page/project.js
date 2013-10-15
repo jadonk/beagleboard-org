@@ -77,7 +77,14 @@ function edit_project_action ()
     this.shortdesc = req.data["shortdesc"];
     this.homepage = req.data["homepage"];
     this.rssfeed = req.data["rssfeed"];
-    this.categories = String(req.data["categories_array"].join(","));
+    try
+     {
+      this.categories = String(req.data["categories_array"].join(","));
+     }
+    catch(ex)
+     {
+      this.categories = "";
+     }
     this.updatetime = new Date();
     this.render_skin = "project";
     this.edit_skin = "edit_project";
