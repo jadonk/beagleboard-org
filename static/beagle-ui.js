@@ -138,6 +138,8 @@ function updateBoardInfo() {
             info += ' rev ' + x.version;
         if(typeof x.serialNumber != 'undefined')
             info += ' S/N ' + x.serialNumber;
+        if(typeof x.bonescript != 'undefined')
+            info += ' running BoneScript ' + x.bonescript;
         if(typeof _bonescript.address != 'undefined')
             info += ' at ' + _bonescript.address;
         info += '</div>';
