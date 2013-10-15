@@ -51,7 +51,9 @@ function listBody ()
     if (collection[i].render_skin == "project")
      {
       body +=
-       '<tr><td><a href="' + collection[i].href() + '">'
+       '<tr categories="'
+       + collection[i].categories
+       + '"><td><a href="' + collection[i].href() + '">'
        + collection[i].pname
        + '</a><br><small>' 
        ;
