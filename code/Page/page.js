@@ -257,7 +257,7 @@ function getChildElement (name)
      }
     catch(e)
      {
-      app.log("session.data.edit_new: No exiting children found for " + this.href() + " exception: " + e);
+      //app.log("session.data.edit_new: No exiting children found for " + this.href() + " exception: " + e);
      }
 
    }
