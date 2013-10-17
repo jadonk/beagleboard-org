@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3176" name="cape_bbb-ss" prototype="Page" created="1382043240758" lastModified="1382051677091">
+  <hopobject id="3176" name="cape_bbb-ss" prototype="Page" created="1382043240758" lastModified="1382051849991">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>69.14.126.115</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bbb-ss</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36</http_browser>
-    <time type="date">17.10.2013 18:14:37 CDT</time>
+    <time type="date">17.10.2013 18:17:29 CDT</time>
     <hopsession>69.14.126.ybquc8ldglq8</hopsession>
     <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
@@ -39,11 +39,11 @@ b.pinMode(indoor, b.OUTPUT);
 b.pinMode(outdoor, b.OUTPUT);
 
 $(&apos;#indoor&apos;).change(function () {
-    b.digitalWrite(indoor, $(this).is(&quot;:checked&quot;));
+    b.digitalWrite(indoor, $(this).is(&quot;:checked&quot;)?1:0);
 });
 
 $(&apos;#outdoor&apos;).change(function () {
-    b.digitalWrite(outdoor, $(this).is(&quot;:checked&quot;));
+    b.digitalWrite(outdoor, $(this).is(&quot;:checked&quot;)?1:0);
 });
 &lt;/pre&gt;
 &lt;div readonly id=&apos;console-output&apos; style=&apos;height:80px;&apos;&gt;&lt;/div&gt;
