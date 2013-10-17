@@ -1,25 +1,58 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3176" name="cape_bbb-ss" prototype="Page" created="1382043240758" lastModified="1382043287391">
+  <hopobject id="3176" name="cape_bbb-ss" prototype="Page" created="1382043240758" lastModified="1382043768641">
   <hop:parent idref="2471" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>69.14.126.115</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>cape_bbb-ss</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36</http_browser>
-    <time type="date">17.10.2013 15:54:47 CDT</time>
+    <time type="date">17.10.2013 16:02:48 CDT</time>
     <hopsession>69.14.126.ybquc8ldglq8</hopsession>
-    <body>&lt;script&gt;
-    
-&lt;/script&gt;
-&lt;input type=&quot;checkbox&quot; name=&quot;Indoor&quot;&gt;Indoor&lt;/input&gt;&lt;br /&gt;
-&lt;input type=&quot;checkbox&quot; name=&quot;Outdoor&quot;&gt;Outdoor&lt;/input&gt;
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+ &lt;ul class=&quot;left-menu&quot;&gt;
+  &lt;strong&gt;Navigation&lt;/strong&gt;
+  &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/menu/&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;t3_content_1&quot;&gt;
+&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;
+&lt;div id=&quot;content_child&quot;&gt;
+
+&lt;h1&gt;Cape Demo: BBB-SS Cape v1.2&lt;/h1&gt;
+&lt;h2&gt;by Chris Hemmerly&lt;/h2&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;indoor&quot;&gt;Indoor&lt;/input&gt;&lt;br /&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;outdoor&quot;&gt;Outdoor&lt;/input&gt;
+&lt;h2&gt;Code
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&apos;code&apos; class=&apos;use-editor&apos; style=&apos;height:240px;&apos;&gt;
+var b = require(&apos;bonescript&apos;);
+var indoor = &apos;P8_11&apos;;
+var outdoor = &apos;P8_16&apos;;
+b.pinMode(indoor, b.OUTPUT);
+b.pinMode(outdoor, b.OUTPUT);
+
+$(&apos;#indoor&apos;).change(function () {
+    b.digitalWrite(indoor, $(this).attr(&quot;checked&quot;));
+});
+&lt;/pre&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&apos;height:80px;&apos;&gt;&lt;/div&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;p&gt;Need instructions here on building the BBB-SS Cape, connecting it and running
+    the application above.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
 </body>
     <pseudoparent idref="2471" prototyperef="Page"/>
     <http_referer>http://beagleboard.org/support/BoneScript/cape_bbb-ss/edit</http_referer>
     <http_host>beagleboard.org</http_host>
-    <lang>en-us</lang>
     <user>jkridner@gmail.com</user>
+    <lang>en-us</lang>
   </hopobject>
 </xmlroot>
