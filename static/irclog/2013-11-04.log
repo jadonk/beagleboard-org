@@ -865,3 +865,246 @@
 <li class="message">[<a href="#T17:57:47" id="T17:57:47"><abbr title="2013-11-04T17:57:47+00:00">17:57:47</abbr></a>] &lt;<cite>clemahieu</cite>&gt; <q>What does the /sys/class/gpio/export file do?  Should I also do that to get them to work?</q></li>
 <li class="quit">[<a href="#T17:59:53" id="T17:59:53"><abbr title="2013-11-04T17:59:53+00:00">17:59:53</abbr></a>] <span>* old-papa (~ident@206.251.40.208) Quit (Ping timeout: 265 seconds)</span></li>
 <li class="join">[<a href="#T17:59:56" id="T17:59:56"><abbr title="2013-11-04T17:59:56+00:00">17:59:56</abbr></a>] <span>* Gust (c1882185@gateway/web/freenode/ip.193.136.33.133) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:00:09" id="T18:00:09"><abbr title="2013-11-04T18:00:09+00:00">18:00:09</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>cwilson:  are you setting it to handle other devices'  ip addresses, don't think you need the daemon just to grab an address</q></li>
+<li class="message">[<a href="#T18:00:27" id="T18:00:27"><abbr title="2013-11-04T18:00:27+00:00">18:00:27</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>export make the gpio pin available in user land</q></li>
+<li class="join">[<a href="#T18:00:38" id="T18:00:38"><abbr title="2013-11-04T18:00:38+00:00">18:00:38</abbr></a>] <span>* old-papa (~ident@206.251.40.208) has joined #beagle</span></li>
+<li class="join">[<abbr title="2013-11-04T18:00:38+00:00">18:00:38</abbr>] <span>* old-papa (~ident@206.251.40.208) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2013-11-04T18:00:38+00:00">18:00:38</abbr>] <span>* old-papa (~ident@206.251.40.208) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T18:01:07" id="T18:01:07"><abbr title="2013-11-04T18:01:07+00:00">18:01:07</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>hi guys, if I post in the google group my message goes to moderation?</q></li>
+<li class="message">[<a href="#T18:01:09" id="T18:01:09"><abbr title="2013-11-04T18:01:09+00:00">18:01:09</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>feed it a number and it will make that pin available if not used for something else</q></li>
+<li class="message">[<a href="#T18:01:17" id="T18:01:17"><abbr title="2013-11-04T18:01:17+00:00">18:01:17</abbr></a>] &lt;<cite>cwilson</cite>&gt; <q>thurgood:  i didn't think it was requesting an addr, lemme see if my tcpdump shows anything</q></li>
+<li class="message">[<a href="#T18:01:43" id="T18:01:43"><abbr title="2013-11-04T18:01:43+00:00">18:01:43</abbr></a>] &lt;<cite>cwilson</cite>&gt; <q>oh, hell. there it is, plain as day.</q></li>
+<li class="action">[<a href="#T18:01:51" id="T18:01:51"><abbr title="2013-11-04T18:01:51+00:00">18:01:51</abbr></a>] <span>* cwilson moves the cable</span></li>
+<li class="message">[<a href="#T18:02:40" id="T18:02:40"><abbr title="2013-11-04T18:02:40+00:00">18:02:40</abbr></a>] &lt;<cite>clemahieu</cite>&gt; <q>thurgood: Ok that sounds great.  The GPIO number would be like 76 for gpio2_12?</q></li>
+<li class="message">[<a href="#T18:02:44" id="T18:02:44"><abbr title="2013-11-04T18:02:44+00:00">18:02:44</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i need a simple linux without X11, i need only  console, how I create this?</q></li>
+<li class="message">[<a href="#T18:02:58" id="T18:02:58"><abbr title="2013-11-04T18:02:58+00:00">18:02:58</abbr></a>] &lt;<cite>clemahieu</cite>&gt; <q>I guess I can look it up, thanks a lot for the help.</q></li>
+<li class="message">[<a href="#T18:03:36" id="T18:03:36"><abbr title="2013-11-04T18:03:36+00:00">18:03:36</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>clemahieu:</q></li>
+<li class="quit">[<a href="#T18:03:37" id="T18:03:37"><abbr title="2013-11-04T18:03:37+00:00">18:03:37</abbr></a>] <span>* rsalveti (~rsalveti@unaffiliated/rsalveti) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T18:03:58" id="T18:03:58"><abbr title="2013-11-04T18:03:58+00:00">18:03:58</abbr></a>] &lt;<cite>clemahieu</cite>&gt; <q>mtkl_m: You should be able to connect with SSH</q></li>
+<li class="message">[<a href="#T18:04:09" id="T18:04:09"><abbr title="2013-11-04T18:04:09+00:00">18:04:09</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>what?</q></li>
+<li class="message">[<abbr title="2013-11-04T18:04:09+00:00">18:04:09</abbr>] &lt;<cite>thurgood</cite>&gt; <q>mtkl_m: get the oe setup tools for your board and after following the default instructions bitbake console</q></li>
+<li class="join">[<a href="#T18:04:16" id="T18:04:16"><abbr title="2013-11-04T18:04:16+00:00">18:04:16</abbr></a>] <span>* cwilson1 (~Urrrrrgh@198.27.60.170) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:04:37" id="T18:04:37"><abbr title="2013-11-04T18:04:37+00:00">18:04:37</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>did someone connect a maxsonar to uart2? I'm having trouble with the read data</q></li>
+<li class="message">[<a href="#T18:04:41" id="T18:04:41"><abbr title="2013-11-04T18:04:41+00:00">18:04:41</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>but i dont want default version on beagle board because it has X11</q></li>
+<li class="message">[<a href="#T18:04:58" id="T18:04:58"><abbr title="2013-11-04T18:04:58+00:00">18:04:58</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>console does not include X11</q></li>
+<li class="message">[<a href="#T18:05:09" id="T18:05:09"><abbr title="2013-11-04T18:05:09+00:00">18:05:09</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>but there is onboard</q></li>
+<li class="message">[<a href="#T18:05:25" id="T18:05:25"><abbr title="2013-11-04T18:05:25+00:00">18:05:25</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i want a new version with no X11</q></li>
+<li class="message">[<a href="#T18:05:41" id="T18:05:41"><abbr title="2013-11-04T18:05:41+00:00">18:05:41</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>replace the rootfs with the one bitbake generates</q></li>
+<li class="quit">[<a href="#T18:05:44" id="T18:05:44"><abbr title="2013-11-04T18:05:44+00:00">18:05:44</abbr></a>] <span>* shaunbak_ (~shaunbake@brick-lane.lbi.co.uk) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T18:05:50" id="T18:05:50"><abbr title="2013-11-04T18:05:50+00:00">18:05:50</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>what is bitbake?</q></li>
+<li class="message">[<a href="#T18:05:59" id="T18:05:59"><abbr title="2013-11-04T18:05:59+00:00">18:05:59</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i'm terrible confusion!</q></li>
+<li class="message">[<a href="#T18:06:03" id="T18:06:03"><abbr title="2013-11-04T18:06:03+00:00">18:06:03</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>ahhhhhh</q></li>
+<li class="quit">[<a href="#T18:06:08" id="T18:06:08"><abbr title="2013-11-04T18:06:08+00:00">18:06:08</abbr></a>] <span>* cwilson (~Urrrrrgh@198.27.60.170) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T18:06:11" id="T18:06:11"><abbr title="2013-11-04T18:06:11+00:00">18:06:11</abbr></a>] <span>* shaunbaker (~shaunbake@brick-lane.lbi.co.uk) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:06:14" id="T18:06:14"><abbr title="2013-11-04T18:06:14+00:00">18:06:14</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>angstrom, narcissus, bitbake :D</q></li>
+<li class="message">[<a href="#T18:06:25" id="T18:06:25"><abbr title="2013-11-04T18:06:25+00:00">18:06:25</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>there isnt a tutorial?</q></li>
+<li class="message">[<a href="#T18:06:31" id="T18:06:31"><abbr title="2013-11-04T18:06:31+00:00">18:06:31</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>for to customize board?</q></li>
+<li class="message">[<a href="#T18:06:39" id="T18:06:39"><abbr title="2013-11-04T18:06:39+00:00">18:06:39</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>it's a tool the OpenEmbedded , and by extension Angstrom, uses</q></li>
+<li class="join">[<a href="#T18:07:06" id="T18:07:06"><abbr title="2013-11-04T18:07:06+00:00">18:07:06</abbr></a>] <span>* riskable (~quassel@c-69-180-64-152.hsd1.fl.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:07:13" id="T18:07:13"><abbr title="2013-11-04T18:07:13+00:00">18:07:13</abbr></a>] <span>* prpplague (~danders@rrcs-97-77-26-26.sw.biz.rr.com) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T18:07:27" id="T18:07:27"><abbr title="2013-11-04T18:07:27+00:00">18:07:27</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>so</q></li>
+<li class="join">[<a href="#T18:07:33" id="T18:07:33"><abbr title="2013-11-04T18:07:33+00:00">18:07:33</abbr></a>] <span>* cwilson (~Urrrrrgh@198.27.60.170) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:07:35" id="T18:07:35"><abbr title="2013-11-04T18:07:35+00:00">18:07:35</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>pls follow me..</q></li>
+<li class="message">[<a href="#T18:07:51" id="T18:07:51"><abbr title="2013-11-04T18:07:51+00:00">18:07:51</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>first i have board with Angstrom onboard, when i buy it</q></li>
+<li class="message">[<a href="#T18:07:57" id="T18:07:57"><abbr title="2013-11-04T18:07:57+00:00">18:07:57</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>with X11</q></li>
+<li class="message">[<a href="#T18:08:22" id="T18:08:22"><abbr title="2013-11-04T18:08:22+00:00">18:08:22</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>after I install on my pc bitbake</q></li>
+<li class="message">[<a href="#T18:08:29" id="T18:08:29"><abbr title="2013-11-04T18:08:29+00:00">18:08:29</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>and i can customize my rootfs?</q></li>
+<li class="quit">[<a href="#T18:08:36" id="T18:08:36"><abbr title="2013-11-04T18:08:36+00:00">18:08:36</abbr></a>] <span>* cwilson1 (~Urrrrrgh@198.27.60.170) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T18:08:57" id="T18:08:57"><abbr title="2013-11-04T18:08:57+00:00">18:08:57</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i want Qt libraries for exampel</q></li>
+<li class="message">[<a href="#T18:09:39" id="T18:09:39"><abbr title="2013-11-04T18:09:39+00:00">18:09:39</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>once you have the rootfs you can add to it with opkg install if you're network enabled</q></li>
+<li class="message">[<a href="#T18:10:14" id="T18:10:14"><abbr title="2013-11-04T18:10:14+00:00">18:10:14</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>after that i power on for first time the board what i must do?</q></li>
+<li class="join">[<a href="#T18:10:27" id="T18:10:27"><abbr title="2013-11-04T18:10:27+00:00">18:10:27</abbr></a>] <span>* bizulk (~sli@h67.cornut.fr) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:10:28" id="T18:10:28"><abbr title="2013-11-04T18:10:28+00:00">18:10:28</abbr></a>] <span>* bizulk (~sli@h67.cornut.fr) has joined #beagleboard</span></li>
+<li class="quit">[<a href="#T18:10:33" id="T18:10:33"><abbr title="2013-11-04T18:10:33+00:00">18:10:33</abbr></a>] <span>* shaunbaker (~shaunbake@brick-lane.lbi.co.uk) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T18:11:02" id="T18:11:02"><abbr title="2013-11-04T18:11:02+00:00">18:11:02</abbr></a>] <span>* rsalveti (~rsalveti@unaffiliated/rsalveti) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:14:46" id="T18:14:46"><abbr title="2013-11-04T18:14:46+00:00">18:14:46</abbr></a>] <span>* aergus (~aras@2001:6f8:91c:0:a9e:1ff:fe43:98cc) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:16:03" id="T18:16:03"><abbr title="2013-11-04T18:16:03+00:00">18:16:03</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>thurgood: you can help me?</q></li>
+<li class="message">[<a href="#T18:16:27" id="T18:16:27"><abbr title="2013-11-04T18:16:27+00:00">18:16:27</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i  must run a little program on BBB that read from serial port</q></li>
+<li class="message">[<a href="#T18:16:32" id="T18:16:32"><abbr title="2013-11-04T18:16:32+00:00">18:16:32</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>mtkl_m: sorry but you're probably not going to have much luck finding the step by step instuctions that are up to date</q></li>
+<li class="message">[<a href="#T18:16:48" id="T18:16:48"><abbr title="2013-11-04T18:16:48+00:00">18:16:48</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>where is step by step instruction?</q></li>
+<li class="message">[<a href="#T18:17:01" id="T18:17:01"><abbr title="2013-11-04T18:17:01+00:00">18:17:01</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i need install all driver and after qt libraries</q></li>
+<li class="message">[<a href="#T18:17:04" id="T18:17:04"><abbr title="2013-11-04T18:17:04+00:00">18:17:04</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>and after run my app</q></li>
+<li class="message">[<a href="#T18:17:06" id="T18:17:06"><abbr title="2013-11-04T18:17:06+00:00">18:17:06</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>on board</q></li>
+<li class="message">[<a href="#T18:17:11" id="T18:17:11"><abbr title="2013-11-04T18:17:11+00:00">18:17:11</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i need enable serial port</q></li>
+<li class="message">[<a href="#T18:17:15" id="T18:17:15"><abbr title="2013-11-04T18:17:15+00:00">18:17:15</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>for examp?le</q></li>
+<li class="message">[<abbr title="2013-11-04T18:17:15+00:00">18:17:15</abbr>] &lt;<cite>cwilson</cite>&gt; <q>opkg list | grep qt</q></li>
+<li class="message">[<a href="#T18:17:17" id="T18:17:17"><abbr title="2013-11-04T18:17:17+00:00">18:17:17</abbr></a>] &lt;<cite>cwilson</cite>&gt; <q>for starters</q></li>
+<li class="message">[<a href="#T18:17:26" id="T18:17:26"><abbr title="2013-11-04T18:17:26+00:00">18:17:26</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>cwilson: thanks</q></li>
+<li class="message">[<a href="#T18:17:27" id="T18:17:27"><abbr title="2013-11-04T18:17:27+00:00">18:17:27</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>if you want to skip X from running in the first place that's probably not too hard</q></li>
+<li class="message">[<a href="#T18:17:43" id="T18:17:43"><abbr title="2013-11-04T18:17:43+00:00">18:17:43</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>but where is instruction for skip X11</q></li>
+<li class="join">[<a href="#T18:17:47" id="T18:17:47"><abbr title="2013-11-04T18:17:47+00:00">18:17:47</abbr></a>] <span>* Jayneil (~jayneil@cpe-173-175-241-63.tx.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:18:15" id="T18:18:15"><abbr title="2013-11-04T18:18:15+00:00">18:18:15</abbr></a>] <span>* alan5 (~quassel@cpc4-belf10-2-0-cust924.2-1.cable.virginm.net) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T18:18:16" id="T18:18:16"><abbr title="2013-11-04T18:18:16+00:00">18:18:16</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: there aint no exact steps</q></li>
+<li class="message">[<a href="#T18:18:28" id="T18:18:28"><abbr title="2013-11-04T18:18:28+00:00">18:18:28</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: you will have to learn how to use angstr??m</q></li>
+<li class="message">[<a href="#T18:18:34" id="T18:18:34"><abbr title="2013-11-04T18:18:34+00:00">18:18:34</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: alternatively you can use buildroot</q></li>
+<li class="message">[<a href="#T18:18:56" id="T18:18:56"><abbr title="2013-11-04T18:18:56+00:00">18:18:56</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>ok thanks 100</q></li>
+<li class="message">[<a href="#T18:18:57" id="T18:18:57"><abbr title="2013-11-04T18:18:57+00:00">18:18:57</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: buildroot is easier to customize imho, but needs more linux knowledge</q></li>
+<li class="message">[<a href="#T18:18:58" id="T18:18:58"><abbr title="2013-11-04T18:18:58+00:00">18:18:58</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>1000</q></li>
+<li class="message">[<a href="#T18:19:14" id="T18:19:14"><abbr title="2013-11-04T18:19:14+00:00">18:19:14</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>does anyone know why maxsonar would return random data instead of the packet refered on the datasheet?</q></li>
+<li class="message">[<a href="#T18:19:29" id="T18:19:29"><abbr title="2013-11-04T18:19:29+00:00">18:19:29</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>but on my pc</q></li>
+<li class="message">[<a href="#T18:19:35" id="T18:19:35"><abbr title="2013-11-04T18:19:35+00:00">18:19:35</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i must have a linux distro?</q></li>
+<li class="message">[<a href="#T18:19:37" id="T18:19:37"><abbr title="2013-11-04T18:19:37+00:00">18:19:37</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: connect a logic analyzer and have a look at the data comming over the wire</q></li>
+<li class="message">[<a href="#T18:19:43" id="T18:19:43"><abbr title="2013-11-04T18:19:43+00:00">18:19:43</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: maybe there is an alignment error</q></li>
+<li class="message">[<a href="#T18:19:52" id="T18:19:52"><abbr title="2013-11-04T18:19:52+00:00">18:19:52</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i have ubuntu is ok?</q></li>
+<li class="join">[<a href="#T18:19:56" id="T18:19:56"><abbr title="2013-11-04T18:19:56+00:00">18:19:56</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="message">[<abbr title="2013-11-04T18:19:56+00:00">18:19:56</abbr>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: no, you can build linux from scratch too</q></li>
+<li class="message">[<a href="#T18:20:35" id="T18:20:35"><abbr title="2013-11-04T18:20:35+00:00">18:20:35</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>scratch?</q></li>
+<li class="message">[<a href="#T18:20:39" id="T18:20:39"><abbr title="2013-11-04T18:20:39+00:00">18:20:39</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>in some forum about rasp pi I found the that the data is coming inverted, but I set active_low to 1 so I guess I also inverted it right?</q></li>
+<li class="message">[<a href="#T18:20:48" id="T18:20:48"><abbr title="2013-11-04T18:20:48+00:00">18:20:48</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: google for "linux from scratch"</q></li>
+<li class="message">[<a href="#T18:20:55" id="T18:20:55"><abbr title="2013-11-04T18:20:55+00:00">18:20:55</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T18:20:56" id="T18:20:56"><abbr title="2013-11-04T18:20:56+00:00">18:20:56</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>none the less I will try the analyzer</q></li>
+<li class="message">[<a href="#T18:21:03" id="T18:21:03"><abbr title="2013-11-04T18:21:03+00:00">18:21:03</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: is it SPI?</q></li>
+<li class="join">[<abbr title="2013-11-04T18:21:03+00:00">18:21:03</abbr>] <span>* prpplague (~danders@rrcs-97-77-26-26.sw.biz.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:21:20" id="T18:21:20"><abbr title="2013-11-04T18:21:20+00:00">18:21:20</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: there you need clock and sampling polarity right, otherwise you'll get anything</q></li>
+<li class="message">[<a href="#T18:22:34" id="T18:22:34"><abbr title="2013-11-04T18:22:34+00:00">18:22:34</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>I think it's not, I'm not proficient tho</q></li>
+<li class="message">[<a href="#T18:22:44" id="T18:22:44"><abbr title="2013-11-04T18:22:44+00:00">18:22:44</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>I'm using uart2</q></li>
+<li class="message">[<a href="#T18:22:52" id="T18:22:52"><abbr title="2013-11-04T18:22:52+00:00">18:22:52</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>welll...</q></li>
+<li class="message">[<a href="#T18:23:04" id="T18:23:04"><abbr title="2013-11-04T18:23:04+00:00">18:23:04</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>if you dont know what interface it uses, you cannot say you are using the right one</q></li>
+<li class="message">[<a href="#T18:24:04" id="T18:24:04"><abbr title="2013-11-04T18:24:04+00:00">18:24:04</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>i know I can connect it to uart 2</q></li>
+<li class="message">[<a href="#T18:24:17" id="T18:24:17"><abbr title="2013-11-04T18:24:17+00:00">18:24:17</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>and I should be reading RS232 formatted messages</q></li>
+<li class="message">[<a href="#T18:24:24" id="T18:24:24"><abbr title="2013-11-04T18:24:24+00:00">18:24:24</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>starting with an capital R</q></li>
+<li class="join">[<a href="#T18:24:47" id="T18:24:47"><abbr title="2013-11-04T18:24:47+00:00">18:24:47</abbr></a>] <span>* Crofton (~balister@64.186.172.226) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:24:54" id="T18:24:54"><abbr title="2013-11-04T18:24:54+00:00">18:24:54</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ah..ok rs232 then</q></li>
+<li class="message">[<a href="#T18:25:08" id="T18:25:08"><abbr title="2013-11-04T18:25:08+00:00">18:25:08</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>then it's most likely that you have the baudrate wrong</q></li>
+<li class="message">[<a href="#T18:25:32" id="T18:25:32"><abbr title="2013-11-04T18:25:32+00:00">18:25:32</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>I checked that 9600</q></li>
+<li class="message">[<a href="#T18:26:35" id="T18:26:35"><abbr title="2013-11-04T18:26:35+00:00">18:26:35</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>I get wrong messages but from the right place, because the data changes according to the distance from the sonar</q></li>
+<li class="message">[<a href="#T18:26:53" id="T18:26:53"><abbr title="2013-11-04T18:26:53+00:00">18:26:53</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>KotH: so i must download linux from scratch on my pc?</q></li>
+<li class="message">[<a href="#T18:26:59" id="T18:26:59"><abbr title="2013-11-04T18:26:59+00:00">18:26:59</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: no</q></li>
+<li class="message">[<abbr title="2013-11-04T18:26:59+00:00">18:26:59</abbr>] &lt;<cite>woglinde</cite>&gt; <q>hiho koth</q></li>
+<li class="message">[<a href="#T18:27:02" id="T18:27:02"><abbr title="2013-11-04T18:27:02+00:00">18:27:02</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>hey woglinde</q></li>
+<li class="message">[<a href="#T18:27:03" id="T18:27:03"><abbr title="2013-11-04T18:27:03+00:00">18:27:03</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>the problem is that i'm not reading messages starting with a R and ending with a \n</q></li>
+<li class="message">[<a href="#T18:27:07" id="T18:27:07"><abbr title="2013-11-04T18:27:07+00:00">18:27:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: alles klar?</q></li>
+<li class="message">[<a href="#T18:27:10" id="T18:27:10"><abbr title="2013-11-04T18:27:10+00:00">18:27:10</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>koth sure</q></li>
+<li class="message">[<a href="#T18:27:12" id="T18:27:12"><abbr title="2013-11-04T18:27:12+00:00">18:27:12</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I am fine</q></li>
+<li class="message">[<a href="#T18:27:14" id="T18:27:14"><abbr title="2013-11-04T18:27:14+00:00">18:27:14</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: you can use what ever pleases you</q></li>
+<li class="message">[<abbr title="2013-11-04T18:27:14+00:00">18:27:14</abbr>] &lt;<cite>mtkl_m</cite>&gt; <q>KotH: andwhat i must do?</q></li>
+<li class="message">[<a href="#T18:27:23" id="T18:27:23"><abbr title="2013-11-04T18:27:23+00:00">18:27:23</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: but you should learn some linux basics</q></li>
+<li class="message">[<a href="#T18:27:27" id="T18:27:27"><abbr title="2013-11-04T18:27:27+00:00">18:27:27</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: you will need them</q></li>
+<li class="message">[<a href="#T18:27:32" id="T18:27:32"><abbr title="2013-11-04T18:27:32+00:00">18:27:32</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: actually, you need them right now</q></li>
+<li class="message">[<a href="#T18:27:52" id="T18:27:52"><abbr title="2013-11-04T18:27:52+00:00">18:27:52</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>but you can say me what i must do for first?</q></li>
+<li class="message">[<a href="#T18:28:11" id="T18:28:11"><abbr title="2013-11-04T18:28:11+00:00">18:28:11</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: buy a book on linux</q></li>
+<li class="message">[<a href="#T18:28:15" id="T18:28:15"><abbr title="2013-11-04T18:28:15+00:00">18:28:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: read it</q></li>
+<li class="message">[<a href="#T18:28:17" id="T18:28:17"><abbr title="2013-11-04T18:28:17+00:00">18:28:17</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: learn german</q></li>
+<li class="message">[<a href="#T18:28:21" id="T18:28:21"><abbr title="2013-11-04T18:28:21+00:00">18:28:21</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T18:28:29" id="T18:28:29"><abbr title="2013-11-04T18:28:29+00:00">18:28:29</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>german?</q></li>
+<li class="message">[<a href="#T18:28:31" id="T18:28:31"><abbr title="2013-11-04T18:28:31+00:00">18:28:31</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T18:28:37" id="T18:28:37"><abbr title="2013-11-04T18:28:37+00:00">18:28:37</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>it's an important language</q></li>
+<li class="message">[<a href="#T18:28:44" id="T18:28:44"><abbr title="2013-11-04T18:28:44+00:00">18:28:44</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>germany has many many open source devs</q></li>
+<li class="message">[<a href="#T18:29:01" id="T18:29:01"><abbr title="2013-11-04T18:29:01+00:00">18:29:01</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>ah ok</q></li>
+<li class="message">[<a href="#T18:29:07" id="T18:29:07"><abbr title="2013-11-04T18:29:07+00:00">18:29:07</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>and after with my board</q></li>
+<li class="message">[<a href="#T18:29:18" id="T18:29:18"><abbr title="2013-11-04T18:29:18+00:00">18:29:18</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i have board with angstrom on</q></li>
+<li class="message">[<a href="#T18:29:27" id="T18:29:27"><abbr title="2013-11-04T18:29:27+00:00">18:29:27</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: everything you want to know is written on the internet</q></li>
+<li class="message">[<abbr title="2013-11-04T18:29:27+00:00">18:29:27</abbr>] &lt;<cite>mtkl_m</cite>&gt; <q>can you say me what i must do?</q></li>
+<li class="message">[<a href="#T18:29:33" id="T18:29:33"><abbr title="2013-11-04T18:29:33+00:00">18:29:33</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: you can google for it</q></li>
+<li class="message">[<a href="#T18:29:42" id="T18:29:42"><abbr title="2013-11-04T18:29:42+00:00">18:29:42</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: getting qt working on an embedded system is pretty easy</q></li>
+<li class="message">[<a href="#T18:29:51" id="T18:29:51"><abbr title="2013-11-04T18:29:51+00:00">18:29:51</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: as long as you know how linux works in general</q></li>
+<li class="message">[<a href="#T18:30:01" id="T18:30:01"><abbr title="2013-11-04T18:30:01+00:00">18:30:01</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: no i cannot hold your hand</q></li>
+<li class="message">[<a href="#T18:30:07" id="T18:30:07"><abbr title="2013-11-04T18:30:07+00:00">18:30:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: i dont have the time for it</q></li>
+<li class="message">[<a href="#T18:30:10" id="T18:30:10"><abbr title="2013-11-04T18:30:10+00:00">18:30:10</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: but you may hire me</q></li>
+<li class="message">[<a href="#T18:30:15" id="T18:30:15"><abbr title="2013-11-04T18:30:15+00:00">18:30:15</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>first i no need qt libraries</q></li>
+<li class="message">[<a href="#T18:30:43" id="T18:30:43"><abbr title="2013-11-04T18:30:43+00:00">18:30:43</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i need flash SD  with a linux without X11</q></li>
+<li class="message">[<a href="#T18:30:47" id="T18:30:47"><abbr title="2013-11-04T18:30:47+00:00">18:30:47</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>you can explain me?</q></li>
+<li class="message">[<a href="#T18:31:19" id="T18:31:19"><abbr title="2013-11-04T18:31:19+00:00">18:31:19</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: die leute vom land das aussieht wie ein stiefel sind genauso nervig wie die inder...</q></li>
+<li class="message">[<a href="#T18:32:02" id="T18:32:02"><abbr title="2013-11-04T18:32:02+00:00">18:32:02</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: either read the explenations you can find easily on the internet, or hire me</q></li>
+<li class="message">[<a href="#T18:32:14" id="T18:32:14"><abbr title="2013-11-04T18:32:14+00:00">18:32:14</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: i'm not going to hold your hand</q></li>
+<li class="message">[<abbr title="2013-11-04T18:32:14+00:00">18:32:14</abbr>] &lt;<cite>woglinde</cite>&gt; <q>koth hm I know some they are really nice</q></li>
+<li class="message">[<a href="#T18:32:22" id="T18:32:22"><abbr title="2013-11-04T18:32:22+00:00">18:32:22</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: yeah.. i know some too</q></li>
+<li class="message">[<a href="#T18:32:29" id="T18:32:29"><abbr title="2013-11-04T18:32:29+00:00">18:32:29</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>you can say me where i must read this?</q></li>
+<li class="message">[<a href="#T18:32:30" id="T18:32:30"><abbr title="2013-11-04T18:32:30+00:00">18:32:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: but they can be tyring</q></li>
+<li class="message">[<a href="#T18:32:37" id="T18:32:37"><abbr title="2013-11-04T18:32:37+00:00">18:32:37</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: google for "qt angstr??m"</q></li>
+<li class="message">[<a href="#T18:32:38" id="T18:32:38"><abbr title="2013-11-04T18:32:38+00:00">18:32:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>mtkl_m just remove the x11 packages</q></li>
+<li class="message">[<a href="#T18:32:57" id="T18:32:57"><abbr title="2013-11-04T18:32:57+00:00">18:32:57</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>meh.. mir reichts, ich geh kochen</q></li>
+<li class="message">[<a href="#T18:33:01" id="T18:33:01"><abbr title="2013-11-04T18:33:01+00:00">18:33:01</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>doener</q></li>
+<li class="message">[<a href="#T18:33:07" id="T18:33:07"><abbr title="2013-11-04T18:33:07+00:00">18:33:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>pfff..</q></li>
+<li class="message">[<a href="#T18:33:08" id="T18:33:08"><abbr title="2013-11-04T18:33:08+00:00">18:33:08</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i dont undstand</q></li>
+<li class="message">[<a href="#T18:33:10" id="T18:33:10"><abbr title="2013-11-04T18:33:10+00:00">18:33:10</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T18:33:14" id="T18:33:14"><abbr title="2013-11-04T18:33:14+00:00">18:33:14</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i dont have a tutorial</q></li>
+<li class="message">[<a href="#T18:33:20" id="T18:33:20"><abbr title="2013-11-04T18:33:20+00:00">18:33:20</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>find one</q></li>
+<li class="message">[<a href="#T18:33:21" id="T18:33:21"><abbr title="2013-11-04T18:33:21+00:00">18:33:21</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ich bin zwar t??rke aber d??ner ist keine vern??nftige mahlzeit ;)</q></li>
+<li class="message">[<a href="#T18:33:32" id="T18:33:32"><abbr title="2013-11-04T18:33:32+00:00">18:33:32</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>koth hm doener is enough</q></li>
+<li class="message">[<a href="#T18:33:36" id="T18:33:36"><abbr title="2013-11-04T18:33:36+00:00">18:33:36</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>better than burger</q></li>
+<li class="message">[<a href="#T18:33:38" id="T18:33:38"><abbr title="2013-11-04T18:33:38+00:00">18:33:38</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>and cheaper</q></li>
+<li class="message">[<a href="#T18:33:41" id="T18:33:41"><abbr title="2013-11-04T18:33:41+00:00">18:33:41</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>at least in de</q></li>
+<li class="message">[<a href="#T18:33:46" id="T18:33:46"><abbr title="2013-11-04T18:33:46+00:00">18:33:46</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>depends on the burger</q></li>
+<li class="message">[<a href="#T18:33:52" id="T18:33:52"><abbr title="2013-11-04T18:33:52+00:00">18:33:52</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>oh.. sorry b??rger ;)</q></li>
+<li class="message">[<a href="#T18:34:12" id="T18:34:12"><abbr title="2013-11-04T18:34:12+00:00">18:34:12</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>good burgers cost a lot more</q></li>
+<li class="message">[<a href="#T18:35:00" id="T18:35:00"><abbr title="2013-11-04T18:35:00+00:00">18:35:00</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>good food costs money</q></li>
+<li class="message">[<a href="#T18:35:06" id="T18:35:06"><abbr title="2013-11-04T18:35:06+00:00">18:35:06</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>at least in europe</q></li>
+<li class="message">[<a href="#T18:35:13" id="T18:35:13"><abbr title="2013-11-04T18:35:13+00:00">18:35:13</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>haha lol</q></li>
+<li class="message">[<a href="#T18:35:21" id="T18:35:21"><abbr title="2013-11-04T18:35:21+00:00">18:35:21</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>in the us you do not get good food</q></li>
+<li class="message">[<a href="#T18:35:33" id="T18:35:33"><abbr title="2013-11-04T18:35:33+00:00">18:35:33</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>juup, there are countries like that too</q></li>
+<li class="message">[<a href="#T18:35:46" id="T18:35:46"><abbr title="2013-11-04T18:35:46+00:00">18:35:46</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>and then there are countries where everything you buy is wonderfull!</q></li>
+<li class="message">[<a href="#T18:35:52" id="T18:35:52"><abbr title="2013-11-04T18:35:52+00:00">18:35:52</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>(like japan, or turkey)</q></li>
+<li class="join">[<a href="#T18:36:23" id="T18:36:23"><abbr title="2013-11-04T18:36:23+00:00">18:36:23</abbr></a>] <span>* divine (~divine@24-176-230-194.static.snlo.ca.charter.com) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T18:36:26" id="T18:36:26"><abbr title="2013-11-04T18:36:26+00:00">18:36:26</abbr></a>] <span>* RichardPotthoff (~richardpo@c-68-38-232-139.hsd1.nj.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:37:16" id="T18:37:16"><abbr title="2013-11-04T18:37:16+00:00">18:37:16</abbr></a>] <span>* djlewis (~djlewis@adsl-65-64-30-13.dsl.ltrkar.swbell.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:39:42" id="T18:39:42"><abbr title="2013-11-04T18:39:42+00:00">18:39:42</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T18:39:45" id="T18:39:45"><abbr title="2013-11-04T18:39:45+00:00">18:39:45</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>koth so what are you cooking today?</q></li>
+<li class="message">[<a href="#T18:39:59" id="T18:39:59"><abbr title="2013-11-04T18:39:59+00:00">18:39:59</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>KotH: i have found narcissus</q></li>
+<li class="message">[<a href="#T18:40:04" id="T18:40:04"><abbr title="2013-11-04T18:40:04+00:00">18:40:04</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>what you think?</q></li>
+<li class="quit">[<a href="#T18:41:28" id="T18:41:28"><abbr title="2013-11-04T18:41:28+00:00">18:41:28</abbr></a>] <span>* I440r (~mark4@cpe-192-136-220-10.tx.res.rr.com) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T18:41:44" id="T18:41:44"><abbr title="2013-11-04T18:41:44+00:00">18:41:44</abbr></a>] <span>* SyNko (~SyNko@81-174-39-166.v4.ngi.it) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:41:49" id="T18:41:49"><abbr title="2013-11-04T18:41:49+00:00">18:41:49</abbr></a>] &lt;<cite>eggzeck</cite>&gt; <q>I love my new BBB already!</q></li>
+<li class="join">[<a href="#T18:42:58" id="T18:42:58"><abbr title="2013-11-04T18:42:58+00:00">18:42:58</abbr></a>] <span>* groglogic (~groglogic@ip-64-134-58-146.public.wayport.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:44:34" id="T18:44:34"><abbr title="2013-11-04T18:44:34+00:00">18:44:34</abbr></a>] <span>* symgryph (92010102@gateway/web/freenode/ip.146.1.1.2) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:45:06" id="T18:45:06"><abbr title="2013-11-04T18:45:06+00:00">18:45:06</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: bin heute faul: pasta mit carbonara</q></li>
+<li class="message">[<a href="#T18:45:34" id="T18:45:34"><abbr title="2013-11-04T18:45:34+00:00">18:45:34</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: i think that there is not enough knowledge about the noise processes within a quartz crystal resonator and a lot more research should be done</q></li>
+<li class="message">[<a href="#T18:46:05" id="T18:46:05"><abbr title="2013-11-04T18:46:05+00:00">18:46:05</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>KotH: ^</q></li>
+<li class="message">[<a href="#T18:46:09" id="T18:46:09"><abbr title="2013-11-04T18:46:09+00:00">18:46:09</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T18:46:14" id="T18:46:14"><abbr title="2013-11-04T18:46:14+00:00">18:46:14</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>KotH: i'm italian</q></li>
+<li class="message">[<a href="#T18:46:20" id="T18:46:20"><abbr title="2013-11-04T18:46:20+00:00">18:46:20</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>LOL</q></li>
+<li class="message">[<a href="#T18:46:26" id="T18:46:26"><abbr title="2013-11-04T18:46:26+00:00">18:46:26</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>is the active_low field in the gpio pin export folder meant to change LOW inputs into HIGH?</q></li>
+<li class="message">[<a href="#T18:46:31" id="T18:46:31"><abbr title="2013-11-04T18:46:31+00:00">18:46:31</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>for all the bits?</q></li>
+<li class="message">[<a href="#T18:47:05" id="T18:47:05"><abbr title="2013-11-04T18:47:05+00:00">18:47:05</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: i know</q></li>
+<li class="message">[<a href="#T18:47:17" id="T18:47:17"><abbr title="2013-11-04T18:47:17+00:00">18:47:17</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>hahaha</q></li>
+<li class="message">[<a href="#T18:47:36" id="T18:47:36"><abbr title="2013-11-04T18:47:36+00:00">18:47:36</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: i think so.. not sure</q></li>
+<li class="message">[<a href="#T18:47:42" id="T18:47:42"><abbr title="2013-11-04T18:47:42+00:00">18:47:42</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>if you help me i say at you how to do a good pasta alla carbonara</q></li>
+<li class="message">[<abbr title="2013-11-04T18:47:42+00:00">18:47:42</abbr>] &lt;<cite>KotH</cite>&gt; <q>Gust: read the GPIO documentation</q></li>
+<li class="message">[<a href="#T18:47:55" id="T18:47:55"><abbr title="2013-11-04T18:47:55+00:00">18:47:55</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: too late, i'm already cooking</q></li>
+<li class="message">[<a href="#T18:48:04" id="T18:48:04"><abbr title="2013-11-04T18:48:04+00:00">18:48:04</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>hahaha</q></li>
+<li class="message">[<a href="#T18:48:05" id="T18:48:05"><abbr title="2013-11-04T18:48:05+00:00">18:48:05</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: beside, i know enough italians</q></li>
+<li class="message">[<a href="#T18:48:13" id="T18:48:13"><abbr title="2013-11-04T18:48:13+00:00">18:48:13</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>I did, but I wasn't sure, supposedly that was my problem, have inverted inputs</q></li>
+<li class="quit">[<a href="#T18:48:20" id="T18:48:20"><abbr title="2013-11-04T18:48:20+00:00">18:48:20</abbr></a>] <span>* alan_o (~alan@c-76-29-154-88.hsd1.fl.comcast.net) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T18:48:30" id="T18:48:30"><abbr title="2013-11-04T18:48:30+00:00">18:48:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: Docmentation/gpio/* as well?</q></li>
+<li class="message">[<a href="#T18:48:35" id="T18:48:35"><abbr title="2013-11-04T18:48:35+00:00">18:48:35</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>KotH: do you came from?</q></li>
+<li class="message">[<a href="#T18:48:49" id="T18:48:49"><abbr title="2013-11-04T18:48:49+00:00">18:48:49</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: i dont know whether that inverts the uart signals as well... i actually doubt it</q></li>
+<li class="message">[<a href="#T18:49:07" id="T18:49:07"><abbr title="2013-11-04T18:49:07+00:00">18:49:07</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>yeah, that docs</q></li>
+<li class="message">[<a href="#T18:49:17" id="T18:49:17"><abbr title="2013-11-04T18:49:17+00:00">18:49:17</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>really? that's good</q></li>
+<li class="message">[<a href="#T18:49:18" id="T18:49:18"><abbr title="2013-11-04T18:49:18+00:00">18:49:18</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>where do you come from?</q></li>
+<li class="message">[<a href="#T18:49:26" id="T18:49:26"><abbr title="2013-11-04T18:49:26+00:00">18:49:26</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>at leats I still have hope for hardware base inverter</q></li>
+<li class="message">[<a href="#T18:49:30" id="T18:49:30"><abbr title="2013-11-04T18:49:30+00:00">18:49:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: i'm not even sure the am3359 can invert uart signals... have a look at the technical reference manual</q></li>
+<li class="message">[<a href="#T18:50:11" id="T18:50:11"><abbr title="2013-11-04T18:50:11+00:00">18:50:11</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>Gust: if you have an oscilloscope or a logic analyzer, you can check the signals, whether they are what you expect them to be</q></li>
+<li class="message">[<a href="#T18:50:56" id="T18:50:56"><abbr title="2013-11-04T18:50:56+00:00">18:50:56</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>I know, I will find one tomorrow, but I would prefer a method that didn't mean me translating bit manually</q></li>
+<li class="message">[<a href="#T18:50:58" id="T18:50:58"><abbr title="2013-11-04T18:50:58+00:00">18:50:58</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>:P</q></li>
+<li class="message">[<a href="#T18:52:28" id="T18:52:28"><abbr title="2013-11-04T18:52:28+00:00">18:52:28</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>get the openbench sniffer and sigrok, it can do the translation for you</q></li>
+<li class="message">[<a href="#T18:52:42" id="T18:52:42"><abbr title="2013-11-04T18:52:42+00:00">18:52:42</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>actually any logic analyzer worth its salt does that these days</q></li>
+<li class="action">[<a href="#T18:52:57" id="T18:52:57"><abbr title="2013-11-04T18:52:57+00:00">18:52:57</abbr></a>] <span>* agmlego &lt;3 the Saleae one.</span></li>
+<li class="message">[<a href="#T18:53:28" id="T18:53:28"><abbr title="2013-11-04T18:53:28+00:00">18:53:28</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>KotH: help me plz</q></li>
+<li class="join">[<a href="#T18:53:57" id="T18:53:57"><abbr title="2013-11-04T18:53:57+00:00">18:53:57</abbr></a>] <span>* felipealmeida (~user@177.98.97.217) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T18:54:13" id="T18:54:13"><abbr title="2013-11-04T18:54:13+00:00">18:54:13</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>i dont found the turial for obtain an image of customized angstrom distro</q></li>
+<li class="message">[<a href="#T18:54:23" id="T18:54:23"><abbr title="2013-11-04T18:54:23+00:00">18:54:23</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>well I will try tomorrow</q></li>
+<li class="join">[<a href="#T18:54:25" id="T18:54:25"><abbr title="2013-11-04T18:54:25+00:00">18:54:25</abbr></a>] <span>* felipealmeida (~user@177.98.97.217) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:54:27" id="T18:54:27"><abbr title="2013-11-04T18:54:27+00:00">18:54:27</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>thank you</q></li>
+<li class="message">[<a href="#T18:54:30" id="T18:54:30"><abbr title="2013-11-04T18:54:30+00:00">18:54:30</abbr></a>] &lt;<cite>Gust</cite>&gt; <q>cya</q></li>
+<li class="quit">[<a href="#T18:54:40" id="T18:54:40"><abbr title="2013-11-04T18:54:40+00:00">18:54:40</abbr></a>] <span>* Gust (c1882185@gateway/web/freenode/ip.193.136.33.133) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T18:55:49" id="T18:55:49"><abbr title="2013-11-04T18:55:49+00:00">18:55:49</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: my hourly rate is 200EUR for normal problems</q></li>
+<li class="quit">[<a href="#T18:56:08" id="T18:56:08"><abbr title="2013-11-04T18:56:08+00:00">18:56:08</abbr></a>] <span>* emeb (~ericb@ip70-176-233-148.ph.ph.cox.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T18:56:24" id="T18:56:24"><abbr title="2013-11-04T18:56:24+00:00">18:56:24</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:56:27" id="T18:56:27"><abbr title="2013-11-04T18:56:27+00:00">18:56:27</abbr></a>] <span>* thurgood (~thurgood@64.132.24.36) Quit ()</span></li>
+<li class="message">[<a href="#T18:57:00" id="T18:57:00"><abbr title="2013-11-04T18:57:00+00:00">18:57:00</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>200CHF for hard ones</q></li>
+<li class="message">[<a href="#T18:57:14" id="T18:57:14"><abbr title="2013-11-04T18:57:14+00:00">18:57:14</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>KotH: ok</q></li>
+<li class="message">[<a href="#T18:57:30" id="T18:57:30"><abbr title="2013-11-04T18:57:30+00:00">18:57:30</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>but this is a free project</q></li>
+<li class="join">[<abbr title="2013-11-04T18:57:30+00:00">18:57:30</abbr>] <span>* emeb (~ericb@ip70-176-233-148.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:58:00" id="T18:58:00"><abbr title="2013-11-04T18:58:00+00:00">18:58:00</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>and you are a thief</q></li>
+<li class="message">[<a href="#T18:58:07" id="T18:58:07"><abbr title="2013-11-04T18:58:07+00:00">18:58:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>_av500_: 200CHF for intereswting ones, and 200KWD for managment probs</q></li>
+<li class="message">[<a href="#T18:58:27" id="T18:58:27"><abbr title="2013-11-04T18:58:27+00:00">18:58:27</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: well... these are standard rates overhere</q></li>
+<li class="message">[<a href="#T18:58:37" id="T18:58:37"><abbr title="2013-11-04T18:58:37+00:00">18:58:37</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: actually, that's a cheap rate for short term hire of an expert</q></li>
+<li class="message">[<a href="#T18:58:52" id="T18:58:52"><abbr title="2013-11-04T18:58:52+00:00">18:58:52</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>bitbake is same SUDO?</q></li>
+<li class="message">[<a href="#T18:58:56" id="T18:58:56"><abbr title="2013-11-04T18:58:56+00:00">18:58:56</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>opkg</q></li>
+<li class="message">[<a href="#T18:59:01" id="T18:59:01"><abbr title="2013-11-04T18:59:01+00:00">18:59:01</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>is same SUDo?</q></li>
+<li class="message">[<a href="#T18:59:04" id="T18:59:04"><abbr title="2013-11-04T18:59:04+00:00">18:59:04</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: and you should learn that i dont just do work for free, just because you are doing a free project</q></li>
+<li class="message">[<a href="#T18:59:05" id="T18:59:05"><abbr title="2013-11-04T18:59:05+00:00">18:59:05</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>mtkl_m: Or, you could just ask the channel at large rather than pestering one member in particular, and have patience and wait. ;-P</q></li>
+<li class="join">[<a href="#T18:59:29" id="T18:59:29"><abbr title="2013-11-04T18:59:29+00:00">18:59:29</abbr></a>] <span>* thurgood (~thurgood@64.132.24.36) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:59:30" id="T18:59:30"><abbr title="2013-11-04T18:59:30+00:00">18:59:30</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>ok sorry</q></li>
+<li class="message">[<abbr title="2013-11-04T18:59:30+00:00">18:59:30</abbr>] &lt;<cite>KotH</cite>&gt; <q>mtkl_m: there are thousands of projects that would want me to work on them. but i have only limited time. hence i work only on stuff i find interesting. especially in my free time</q></li>
+<li class="message">[<a href="#T18:59:42" id="T18:59:42"><abbr title="2013-11-04T18:59:42+00:00">18:59:42</abbr></a>] &lt;<cite>mtkl_m</cite>&gt; <q>excuse me</q></li>
