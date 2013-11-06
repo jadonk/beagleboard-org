@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3215" name="2013-11-06-beagleboneblack-3d-printer-intro" prototype="Page" created="1383767792139" lastModified="1383767792205">
+  <hop:parent idref="2912" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>98.250.142.42</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>2013-11-06-beagleboneblack-3d-printer-intro</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36</http_browser>
+    <time type="date">06.11.2013 13:56:32 CST</time>
+    <hopsession>98.250.142.1r21z81a3slbu</hopsession>
+    <body>Now that we&apos;ve got your imagination going on self-replicating machines and open source hardware, how do you get started and where can you end up?
+
+Here&apos;s the quick overview of what you&apos;ll need to produce your very own first prints in 3D plastic, before we dive into any details:
+
+Processor to control your printer — such as provided by the TI Sitara AM335x on BeagleBone Black
+Electronics to drive your positioning and extruder motors, extruder heating element, heating plate and limit switches — such as provided by a BeBoPr-Plus Cape, Pololu #2133 stepper motor drivers using TI DRV8825 devices and an off-the-shelf power supply
+Mechanical structure with drive motors, extruder, heating elements, build surface and limit switches — such as provided by a RepRap Huxley
+Software to run the slice up the 3D models into GCode, an interpreter for the GCode and to send pulse trains to the stepper motor drivers — such as is provided by the Machinekit Linux distribution based on Debian, Robert Nelson&apos;s image building tools and Charles Steinkuehler&apos;s integration work
+Models for the components you want to build — such as these Mendel plastic components on Thingiverse
+Patience — give yourself plenty of time when getting started with 3D printing and you&apos;ll find it a fun and rewarding endeavor!
+Processor
+
+Choosing the processor is the easy part, because the AM335x on BeagleBone Black has all of the most important hardware features you might need, including a fast processor, video display output with 3D graphics rendering capabilities, Ethernet/USB connectivity, ADCs, PWMs, lots of GPIOs and a couple of independent fast microcontrollers optimized for producing interface logic. At BeagleBone Black&apos;s rather affordable price point, nothing else is close when examining all of these features. Let&apos;s look at how each of those elements comes into necessity.
+
+To read the heat data, the simplest mechanisms are to utilize either an analog temperature sensor or a one-wire temperature sensor. An on-chip ADC sample the analog temperature values directly without additional hardware. The one-wire bus protocol is an alternative that enables multiple sensors to be connected along the same single-wire bus, simplifying the wiring topology and bringing data back to the processor digitally. Linux provides a driver that is capable of turning a GPIO pin into a one-wire bus port and this driver is almost trivial to enable using. Getting an accurate temperature reading has never been easier.
+
+The multitude of GPIOs serve many purposes, in addition to providing ports for one-wire support. Each limit switch provides time-critical information to the electronic controls in the case where a motor&apos;s position needs to be calibrated or the print head is otherwise attempted to be moved beyond the range of the printer. Every GPIO on the BeagleBone Black is capable of producing an interrupt to the main processor such that it can get notification quickly. Perhaps more importantly, several of the GPIOs have extremely low-latency connections to the PRU 32-bit 200MHz microcontrollers on-chip. These dedicated controllers are able to update the BeagleBone peripherals in real-time, without being distracted by other tasks running within the Linux environment.
+
+These PRUs are especially useful in talking to the stepper motor drivers that need to be given pulse trains telling them when to step forward or backward. With the real-time tasks off-loaded to the PRUs, it is even possible to use a high-level language like Python to feed the pulse-train data.
+
+Electronics
+
+This selection is a bit more difficult with many makers of competitive electronics constantly providing minor updates to add one minor feature or another. The good news is that you can grab a solution today and reuse the rest of your system as you make incremental electronics improvements moving forward. For now, I&apos;ve chosen the BeBoPr-Plus because it was easy for me to obtain, but keep an eye out for the Replicape from Hipster Circuits as I expect Thing Printer to be available any day now.
+
+ 
+
+For more information about the BeBoPr, consider visiting the BeBoPr forum.</body>
+    <pseudoparent idref="2912" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/blog/2013-11-06-beagleboneblack-3d-printer-intro/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <lang>en-us</lang>
+    <user>jkridner@gmail.com</user>
+  </hopobject>
+</xmlroot>
