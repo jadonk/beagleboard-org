@@ -219,3 +219,265 @@
 <li class="message">[<a href="#T02:55:08" id="T02:55:08"><abbr title="2013-11-15T02:55:08+00:00">02:55:08</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>time to find the am3559 data sheet...</q></li>
 <li class="message">[<a href="#T02:57:06" id="T02:57:06"><abbr title="2013-11-15T02:57:06+00:00">02:57:06</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>ok the CPU can actually take unto 5.25v on the USBx_Vbus pins.. so they are not actually breaking the limits? its only when you have a usb line that provides more than 5v that you have a problem...</q></li>
 <li class="message">[<a href="#T02:58:17" id="T02:58:17"><abbr title="2013-11-15T02:58:17+00:00">02:58:17</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>from some destructive testing i did here.. I blew up four boards finding the limit of this pin with the zero ohm resistor and anything over 10.2v will pop the chip..</q></li>
+<li class="message">[<a href="#T03:00:13" id="T03:00:13"><abbr title="2013-11-15T03:00:13+00:00">03:00:13</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>that's pretty bad, but why  would anyone hook that much power up to the hub even?</q></li>
+<li class="message">[<a href="#T03:05:04" id="T03:05:04"><abbr title="2013-11-15T03:05:04+00:00">03:05:04</abbr></a>] &lt;<cite>frege</cite>&gt; <q>can someone help me please with this: <a href="http://i.imgur.com/D0zxPUX.png">http://i.imgur.com/D0zxPUX.png</a></q></li>
+<li class="message">[<a href="#T03:05:13" id="T03:05:13"><abbr title="2013-11-15T03:05:13+00:00">03:05:13</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I keep getting 0 as the value of P8_16</q></li>
+<li class="message">[<a href="#T03:06:02" id="T03:06:02"><abbr title="2013-11-15T03:06:02+00:00">03:06:02</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I have a 2.2kohm pull-up resistor between ground and the emitter side of my photodiode</q></li>
+<li class="message">[<a href="#T03:06:29" id="T03:06:29"><abbr title="2013-11-15T03:06:29+00:00">03:06:29</abbr></a>] &lt;<cite>frege</cite>&gt; <q>anybody?</q></li>
+<li class="message">[<a href="#T03:07:41" id="T03:07:41"><abbr title="2013-11-15T03:07:41+00:00">03:07:41</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>doesn't PD0 prevent it from traveling that direction?</q></li>
+<li class="message">[<a href="#T03:14:10" id="T03:14:10"><abbr title="2013-11-15T03:14:10+00:00">03:14:10</abbr></a>] &lt;<cite>frege</cite>&gt; <q>thurgood: prevent what?</q></li>
+<li class="message">[<a href="#T03:14:17" id="T03:14:17"><abbr title="2013-11-15T03:14:17+00:00">03:14:17</abbr></a>] &lt;<cite>frege</cite>&gt; <q>should it be the other way around?</q></li>
+<li class="message">[<a href="#T03:14:25" id="T03:14:25"><abbr title="2013-11-15T03:14:25+00:00">03:14:25</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>frege, did you draw that diagram?</q></li>
+<li class="message">[<a href="#T03:14:45" id="T03:14:45"><abbr title="2013-11-15T03:14:45+00:00">03:14:45</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: yeah</q></li>
+<li class="message">[<a href="#T03:14:49" id="T03:14:49"><abbr title="2013-11-15T03:14:49+00:00">03:14:49</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>PD0 is in the wrong direction</q></li>
+<li class="message">[<a href="#T03:14:51" id="T03:14:51"><abbr title="2013-11-15T03:14:51+00:00">03:14:51</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: why?</q></li>
+<li class="message">[<a href="#T03:15:01" id="T03:15:01"><abbr title="2013-11-15T03:15:01+00:00">03:15:01</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>the cathod is the negative pole</q></li>
+<li class="message">[<a href="#T03:15:15" id="T03:15:15"><abbr title="2013-11-15T03:15:15+00:00">03:15:15</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>diodes are unidirectional</q></li>
+<li class="message">[<a href="#T03:15:21" id="T03:15:21"><abbr title="2013-11-15T03:15:21+00:00">03:15:21</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ok on my board the shorter leg of my photodiode is connected to the 2.2kohm resistance</q></li>
+<li class="message">[<a href="#T03:15:44" id="T03:15:44"><abbr title="2013-11-15T03:15:44+00:00">03:15:44</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>the "arrow" always point to the lower voltage (gnd)</q></li>
+<li class="message">[<a href="#T03:15:45" id="T03:15:45"><abbr title="2013-11-15T03:15:45+00:00">03:15:45</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>&lt;thurgood&gt; its either users that don't know what they are doing .. i.e. using a 12v psu on a 5v hub? or they have really crappy hardware that they are using...</q></li>
+<li class="message">[<a href="#T03:16:13" id="T03:16:13"><abbr title="2013-11-15T03:16:13+00:00">03:16:13</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>gui_ except when trying to catch back emf :)</q></li>
+<li class="message">[<a href="#T03:16:20" id="T03:16:20"><abbr title="2013-11-15T03:16:20+00:00">03:16:20</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: no difference, I switched it around</q></li>
+<li class="join">[<a href="#T03:16:29" id="T03:16:29"><abbr title="2013-11-15T03:16:29+00:00">03:16:29</abbr></a>] <span>* louiz920 (~a0272879@nat/ti/x-jpopukqnjnksjzgt) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:16:30" id="T03:16:30"><abbr title="2013-11-15T03:16:30+00:00">03:16:30</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>&lt;thurgood&gt; where is PD0?</q></li>
+<li class="message">[<a href="#T03:16:39" id="T03:16:39"><abbr title="2013-11-15T03:16:39+00:00">03:16:39</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>and you're still missing a pullup resistor</q></li>
+<li class="message">[<a href="#T03:16:46" id="T03:16:46"><abbr title="2013-11-15T03:16:46+00:00">03:16:46</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>or does the BBB have one?</q></li>
+<li class="message">[<a href="#T03:16:49" id="T03:16:49"><abbr title="2013-11-15T03:16:49+00:00">03:16:49</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>bnz... in frege's diagram</q></li>
+<li class="message">[<a href="#T03:17:04" id="T03:17:04"><abbr title="2013-11-15T03:17:04+00:00">03:17:04</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>oh sorry.. not related to me :)</q></li>
+<li class="message">[<a href="#T03:17:21" id="T03:17:21"><abbr title="2013-11-15T03:17:21+00:00">03:17:21</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: I thought that 2.2kohm is the pullup resistor</q></li>
+<li class="message">[<a href="#T03:17:25" id="T03:17:25"><abbr title="2013-11-15T03:17:25+00:00">03:17:25</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>PDO is a photo diode..</q></li>
+<li class="message">[<a href="#T03:17:56" id="T03:17:56"><abbr title="2013-11-15T03:17:56+00:00">03:17:56</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>frege, the pullup must be connected to the input pin and 3.3V</q></li>
+<li class="message">[<a href="#T03:18:00" id="T03:18:00"><abbr title="2013-11-15T03:18:00+00:00">03:18:00</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>the 2.2k is connected to gnd?</q></li>
+<li class="join">[<a href="#T03:18:14" id="T03:18:14"><abbr title="2013-11-15T03:18:14+00:00">03:18:14</abbr></a>] <span>* dgerlach (~dave@nat/ti/x-aylwmlpulspbmnxx) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:18:30" id="T03:18:30"><abbr title="2013-11-15T03:18:30+00:00">03:18:30</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>i think you are missing a pull up and a pull down in that circuit..</q></li>
+<li class="message">[<a href="#T03:18:40" id="T03:18:40"><abbr title="2013-11-15T03:18:40+00:00">03:18:40</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: so I also need another 2.2kohm between pd0 and input pin?</q></li>
+<li class="message">[<a href="#T03:18:57" id="T03:18:57"><abbr title="2013-11-15T03:18:57+00:00">03:18:57</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>i think you need the 2.2k to go to 3.3v and 10k-100k going from P8_16 to gnd..</q></li>
+<li class="quit">[<a href="#T03:19:34" id="T03:19:34"><abbr title="2013-11-15T03:19:34+00:00">03:19:34</abbr></a>] <span>* Er0x (~quassel@46.17.57.19) Quit (Quit: No Ping reply in 180 seconds.)</span></li>
+<li class="message">[<a href="#T03:19:46" id="T03:19:46"><abbr title="2013-11-15T03:19:46+00:00">03:19:46</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>yes, i agree with bnz</q></li>
+<li class="message">[<a href="#T03:19:49" id="T03:19:49"><abbr title="2013-11-15T03:19:49+00:00">03:19:49</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ok I'm getting confused here, when you say 3.3v you mean Gnd?</q></li>
+<li class="message">[<a href="#T03:19:52" id="T03:19:52"><abbr title="2013-11-15T03:19:52+00:00">03:19:52</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>when the photodiode see's no IR the pull down keeps the pin in a known state.. when the diode see's some IR light the 2.2k will set you GPIO pin to high..</q></li>
+<li class="message">[<a href="#T03:20:05" id="T03:20:05"><abbr title="2013-11-15T03:20:05+00:00">03:20:05</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>frege.. no 3.3v = VCC</q></li>
+<li class="message">[<a href="#T03:20:19" id="T03:20:19"><abbr title="2013-11-15T03:20:19+00:00">03:20:19</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>pull up* bnz</q></li>
+<li class="message">[<a href="#T03:20:25" id="T03:20:25"><abbr title="2013-11-15T03:20:25+00:00">03:20:25</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I see no VCC :(</q></li>
+<li class="message">[<a href="#T03:20:40" id="T03:20:40"><abbr title="2013-11-15T03:20:40+00:00">03:20:40</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>yeah vcc is missing from that circuit...</q></li>
+<li class="message">[<a href="#T03:20:44" id="T03:20:44"><abbr title="2013-11-15T03:20:44+00:00">03:20:44</abbr></a>] &lt;<cite>frege</cite>&gt; <q>where is VCC?</q></li>
+<li class="message">[<abbr title="2013-11-15T03:20:44+00:00">03:20:44</abbr>] &lt;<cite>thurgood</cite>&gt; <q>... exactly</q></li>
+<li class="message">[<a href="#T03:20:46" id="T03:20:46"><abbr title="2013-11-15T03:20:46+00:00">03:20:46</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>gnd is 0 volts</q></li>
+<li class="message">[<a href="#T03:20:57" id="T03:20:57"><abbr title="2013-11-15T03:20:57+00:00">03:20:57</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>vcc is you "high voltage"</q></li>
+<li class="message">[<a href="#T03:21:03" id="T03:21:03"><abbr title="2013-11-15T03:21:03+00:00">03:21:03</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>usually 3.3 or 5 volts</q></li>
+<li class="message">[<a href="#T03:21:04" id="T03:21:04"><abbr title="2013-11-15T03:21:04+00:00">03:21:04</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>look at pins 3&amp;4 of P9 these are 3.3v</q></li>
+<li class="message">[<a href="#T03:21:05" id="T03:21:05"><abbr title="2013-11-15T03:21:05+00:00">03:21:05</abbr></a>] &lt;<cite>frege</cite>&gt; <q>you mean VDD?</q></li>
+<li class="message">[<a href="#T03:21:06" id="T03:21:06"><abbr title="2013-11-15T03:21:06+00:00">03:21:06</abbr></a>] &lt;<cite>frege</cite>&gt; <q><a href="http://stuffwemade.net/post/beaglebone-pinout">http://stuffwemade.net/post/beaglebone-pinout</a></q></li>
+<li class="message">[<a href="#T03:21:10" id="T03:21:10"><abbr title="2013-11-15T03:21:10+00:00">03:21:10</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>BBB handles 3.3V</q></li>
+<li class="message">[<a href="#T03:21:13" id="T03:21:13"><abbr title="2013-11-15T03:21:13+00:00">03:21:13</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I'm looking at this there is no VCC</q></li>
+<li class="message">[<a href="#T03:21:25" id="T03:21:25"><abbr title="2013-11-15T03:21:25+00:00">03:21:25</abbr></a>] &lt;<cite>frege</cite>&gt; <q>there is VDD though</q></li>
+<li class="message">[<a href="#T03:21:26" id="T03:21:26"><abbr title="2013-11-15T03:21:26+00:00">03:21:26</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>yeah VDD or VCC almost the same thing.</q></li>
+<li class="message">[<a href="#T03:21:28" id="T03:21:28"><abbr title="2013-11-15T03:21:28+00:00">03:21:28</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>P9_3 and P9_4</q></li>
+<li class="message">[<a href="#T03:21:31" id="T03:21:31"><abbr title="2013-11-15T03:21:31+00:00">03:21:31</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ah okay</q></li>
+<li class="message">[<a href="#T03:21:35" id="T03:21:35"><abbr title="2013-11-15T03:21:35+00:00">03:21:35</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>gui_ correct..</q></li>
+<li class="message">[<a href="#T03:21:41" id="T03:21:41"><abbr title="2013-11-15T03:21:41+00:00">03:21:41</abbr></a>] &lt;<cite>frege</cite>&gt; <q>so I'm gonna redraw this</q></li>
+<li class="message">[<a href="#T03:21:58" id="T03:21:58"><abbr title="2013-11-15T03:21:58+00:00">03:21:58</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>it has to look like a T</q></li>
+<li class="quit">[<a href="#T03:22:16" id="T03:22:16"><abbr title="2013-11-15T03:22:16+00:00">03:22:16</abbr></a>] <span>* behanw (~behanw@S01067cb21b219d94.gv.shawcable.net) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T03:22:19" id="T03:22:19"><abbr title="2013-11-15T03:22:19+00:00">03:22:19</abbr></a>] <span>* Er0x (~quassel@46.17.57.19) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:22:29" id="T03:22:29"><abbr title="2013-11-15T03:22:29+00:00">03:22:29</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>3v3 - 2k2 - T - PD - gnd</q></li>
+<li class="message">[<a href="#T03:22:42" id="T03:22:42"><abbr title="2013-11-15T03:22:42+00:00">03:22:42</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>and from the T branch, 10k - input</q></li>
+<li class="quit">[<a href="#T03:23:13" id="T03:23:13"><abbr title="2013-11-15T03:23:13+00:00">03:23:13</abbr></a>] <span>* scrts (~quassel@unaffiliated/scrts) Quit (Quit: No Ping reply in 180 seconds.)</span></li>
+<li class="join">[<a href="#T03:23:29" id="T03:23:29"><abbr title="2013-11-15T03:23:29+00:00">03:23:29</abbr></a>] <span>* scrts (~quassel@unaffiliated/scrts) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:26:49" id="T03:26:49"><abbr title="2013-11-15T03:26:49+00:00">03:26:49</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: <a href="http://i.imgur.com/tqJgVCE.png">http://i.imgur.com/tqJgVCE.png</a> bnz</q></li>
+<li class="message">[<a href="#T03:26:52" id="T03:26:52"><abbr title="2013-11-15T03:26:52+00:00">03:26:52</abbr></a>] &lt;<cite>frege</cite>&gt; <q>how's this now?</q></li>
+<li class="message">[<a href="#T03:27:16" id="T03:27:16"><abbr title="2013-11-15T03:27:16+00:00">03:27:16</abbr></a>] &lt;<cite>frege</cite>&gt; <q>why should P8_16 be connected to the Ground?</q></li>
+<li class="message">[<a href="#T03:27:42" id="T03:27:42"><abbr title="2013-11-15T03:27:42+00:00">03:27:42</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>frege <a href="http://flockdraw.com/3kta8x">http://flockdraw.com/3kta8x</a></q></li>
+<li class="message">[<a href="#T03:28:10" id="T03:28:10"><abbr title="2013-11-15T03:28:10+00:00">03:28:10</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I've been looking for a place like this for two days</q></li>
+<li class="message">[<a href="#T03:28:24" id="T03:28:24"><abbr title="2013-11-15T03:28:24+00:00">03:28:24</abbr></a>] &lt;<cite>frege</cite>&gt; <q>oh it's just drawing</q></li>
+<li class="message">[<a href="#T03:28:48" id="T03:28:48"><abbr title="2013-11-15T03:28:48+00:00">03:28:48</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: this site is better <a href="http://www.twiddla.com/1385925">http://www.twiddla.com/1385925</a> ..</q></li>
+<li class="message">[<a href="#T03:28:51" id="T03:28:51"><abbr title="2013-11-15T03:28:51+00:00">03:28:51</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>you've go ground and power directly connected in this one</q></li>
+<li class="message">[<a href="#T03:29:08" id="T03:29:08"><abbr title="2013-11-15T03:29:08+00:00">03:29:08</abbr></a>] &lt;<cite>Fercho</cite>&gt; <q>s</q></li>
+<li class="message">[<a href="#T03:29:44" id="T03:29:44"><abbr title="2013-11-15T03:29:44+00:00">03:29:44</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: oh that's so fucking awesome! I think I understand why it should be like that</q></li>
+<li class="message">[<a href="#T03:30:12" id="T03:30:12"><abbr title="2013-11-15T03:30:12+00:00">03:30:12</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>think of the diode as a switch</q></li>
+<li class="message">[<a href="#T03:30:23" id="T03:30:23"><abbr title="2013-11-15T03:30:23+00:00">03:30:23</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: the current will flow into the photodiode, hit the ground and tries to come back?</q></li>
+<li class="message">[<a href="#T03:30:29" id="T03:30:29"><abbr title="2013-11-15T03:30:29+00:00">03:30:29</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>when open, the input is driven high</q></li>
+<li class="message">[<a href="#T03:30:45" id="T03:30:45"><abbr title="2013-11-15T03:30:45+00:00">03:30:45</abbr></a>] &lt;<cite>frege</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T03:30:48" id="T03:30:48"><abbr title="2013-11-15T03:30:48+00:00">03:30:48</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>when closed, there's a lower resistance path to ground</q></li>
+<li class="message">[<a href="#T03:30:54" id="T03:30:54"><abbr title="2013-11-15T03:30:54+00:00">03:30:54</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>the wire that you have between 8_16 and gnu should have a 10k resistor in it..</q></li>
+<li class="message">[<a href="#T03:31:06" id="T03:31:06"><abbr title="2013-11-15T03:31:06+00:00">03:31:06</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: but it doesn't make sense 2kohm to be there?</q></li>
+<li class="message">[<a href="#T03:31:44" id="T03:31:44"><abbr title="2013-11-15T03:31:44+00:00">03:31:44</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I thought the resistor on 8_16 has to be lighter than the other resistor</q></li>
+<li class="message">[<a href="#T03:31:56" id="T03:31:56"><abbr title="2013-11-15T03:31:56+00:00">03:31:56</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>yes it does, because when the switch is closed, you can't short-circuit 3.3V and gnd</q></li>
+<li class="message">[<a href="#T03:32:01" id="T03:32:01"><abbr title="2013-11-15T03:32:01+00:00">03:32:01</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>you need a resistor</q></li>
+<li class="message">[<a href="#T03:32:46" id="T03:32:46"><abbr title="2013-11-15T03:32:46+00:00">03:32:46</abbr></a>] &lt;<cite>frege</cite>&gt; <q>what does short-circuit mean?</q></li>
+<li class="message">[<a href="#T03:32:54" id="T03:32:54"><abbr title="2013-11-15T03:32:54+00:00">03:32:54</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>oops, my bad</q></li>
+<li class="message">[<a href="#T03:32:57" id="T03:32:57"><abbr title="2013-11-15T03:32:57+00:00">03:32:57</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>i got the labels wrong</q></li>
+<li class="message">[<a href="#T03:33:11" id="T03:33:11"><abbr title="2013-11-15T03:33:11+00:00">03:33:11</abbr></a>] &lt;<cite>frege</cite>&gt; <q>aaaah so my logic was correct?</q></li>
+<li class="message">[<a href="#T03:33:12" id="T03:33:12"><abbr title="2013-11-15T03:33:12+00:00">03:33:12</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>oh dang i broke.. it</q></li>
+<li class="message">[<a href="#T03:33:42" id="T03:33:42"><abbr title="2013-11-15T03:33:42+00:00">03:33:42</abbr></a>] &lt;<cite>frege</cite>&gt; <q>we are redirecting the current to p8_16 by putting a lighter resistor there?</q></li>
+<li class="message">[<a href="#T03:33:56" id="T03:33:56"><abbr title="2013-11-15T03:33:56+00:00">03:33:56</abbr></a>] &lt;<cite>frege</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T03:34:06" id="T03:34:06"><abbr title="2013-11-15T03:34:06+00:00">03:34:06</abbr></a>] &lt;<cite>frege</cite>&gt; <q>let me try it on my board :)</q></li>
+<li class="join">[<a href="#T03:34:44" id="T03:34:44"><abbr title="2013-11-15T03:34:44+00:00">03:34:44</abbr></a>] <span>* behanw (~behanw@S01067cb21b219d94.gv.shawcable.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:37:05" id="T03:37:05"><abbr title="2013-11-15T03:37:05+00:00">03:37:05</abbr></a>] <span>* eikeon (~eikeon@c-98-218-6-128.hsd1.dc.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:38:48" id="T03:38:48"><abbr title="2013-11-15T03:38:48+00:00">03:38:48</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>try this <a href="http://flockdraw.com/cvumwa">http://flockdraw.com/cvumwa</a></q></li>
+<li class="message">[<a href="#T03:38:56" id="T03:38:56"><abbr title="2013-11-15T03:38:56+00:00">03:38:56</abbr></a>] &lt;<cite>frege</cite>&gt; <q>nice!!!!!!!!!!!!!!!!!!!!!!!</q></li>
+<li class="message">[<a href="#T03:38:57" id="T03:38:57"><abbr title="2013-11-15T03:38:57+00:00">03:38:57</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>i do like that website? its nice...</q></li>
+<li class="message">[<a href="#T03:38:58" id="T03:38:58"><abbr title="2013-11-15T03:38:58+00:00">03:38:58</abbr></a>] &lt;<cite>frege</cite>&gt; <q>worked</q></li>
+<li class="message">[<a href="#T03:39:00" id="T03:39:00"><abbr title="2013-11-15T03:39:00+00:00">03:39:00</abbr></a>] &lt;<cite>frege</cite>&gt; <q>holly shit</q></li>
+<li class="message">[<a href="#T03:39:24" id="T03:39:24"><abbr title="2013-11-15T03:39:24+00:00">03:39:24</abbr></a>] &lt;<cite>frege</cite>&gt; <q>yeah it's simple</q></li>
+<li class="message">[<a href="#T03:39:29" id="T03:39:29"><abbr title="2013-11-15T03:39:29+00:00">03:39:29</abbr></a>] &lt;<cite>frege</cite>&gt; <q>but now it's always 1 !!</q></li>
+<li class="message">[<abbr title="2013-11-15T03:39:29+00:00">03:39:29</abbr>] &lt;<cite>gui_</cite>&gt; <q>hahahahahaha</q></li>
+<li class="message">[<a href="#T03:39:45" id="T03:39:45"><abbr title="2013-11-15T03:39:45+00:00">03:39:45</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>i'd never expect a "holly shit"</q></li>
+<li class="quit">[<a href="#T03:40:07" id="T03:40:07"><abbr title="2013-11-15T03:40:07+00:00">03:40:07</abbr></a>] <span>* konradoo77 (~debian@user-31-174-220-214.play-internet.pl) Quit (Ping timeout: 268 seconds)</span></li>
+<li class="message">[<a href="#T03:40:15" id="T03:40:15"><abbr title="2013-11-15T03:40:15+00:00">03:40:15</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>short circuit by the way means that the short path resistance wise goes from ground to power.. basically frying stuff</q></li>
+<li class="message">[<a href="#T03:40:18" id="T03:40:18"><abbr title="2013-11-15T03:40:18+00:00">03:40:18</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>get a bright light close to the photo diode</q></li>
+<li class="quit">[<a href="#T03:40:41" id="T03:40:41"><abbr title="2013-11-15T03:40:41+00:00">03:40:41</abbr></a>] <span>* louiz920 (~a0272879@nat/ti/x-jpopukqnjnksjzgt) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T03:40:54" id="T03:40:54"><abbr title="2013-11-15T03:40:54+00:00">03:40:54</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: then it's supposed to become 0?</q></li>
+<li class="join">[<a href="#T03:40:58" id="T03:40:58"><abbr title="2013-11-15T03:40:58+00:00">03:40:58</abbr></a>] <span>* louiz920 (~a0272879@nat/ti/x-cpysguriapgltxqr) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:41:00" id="T03:41:00"><abbr title="2013-11-15T03:41:00+00:00">03:41:00</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T03:41:11" id="T03:41:11"><abbr title="2013-11-15T03:41:11+00:00">03:41:11</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>i mean, I'm not sure</q></li>
+<li class="message">[<a href="#T03:41:35" id="T03:41:35"><abbr title="2013-11-15T03:41:35+00:00">03:41:35</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>if it's always one, it is either always getting to much light or never getting enough</q></li>
+<li class="part">[<a href="#T03:41:45" id="T03:41:45"><abbr title="2013-11-15T03:41:45+00:00">03:41:45</abbr></a>] <span>* nomel (0ce25ce2@gateway/web/freenode/ip.12.226.92.226) has left #beagle</span></li>
+<li class="message">[<a href="#T03:41:56" id="T03:41:56"><abbr title="2013-11-15T03:41:56+00:00">03:41:56</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>to, try a bright light, or turn off your ambient light for awhile</q></li>
+<li class="message">[<a href="#T03:42:15" id="T03:42:15"><abbr title="2013-11-15T03:42:15+00:00">03:42:15</abbr></a>] &lt;<cite>frege</cite>&gt; <q>oh no!</q></li>
+<li class="message">[<a href="#T03:42:31" id="T03:42:31"><abbr title="2013-11-15T03:42:31+00:00">03:42:31</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I pulled the pd0 out and it remained 1</q></li>
+<li class="message">[<a href="#T03:42:37" id="T03:42:37"><abbr title="2013-11-15T03:42:37+00:00">03:42:37</abbr></a>] &lt;<cite>frege</cite>&gt; <q>there is something funky going on</q></li>
+<li class="message">[<a href="#T03:42:42" id="T03:42:42"><abbr title="2013-11-15T03:42:42+00:00">03:42:42</abbr></a>] &lt;<cite>frege</cite>&gt; <q>let me double check my wiring</q></li>
+<li class="message">[<a href="#T03:42:53" id="T03:42:53"><abbr title="2013-11-15T03:42:53+00:00">03:42:53</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>no thats expected?..</q></li>
+<li class="message">[<a href="#T03:43:11" id="T03:43:11"><abbr title="2013-11-15T03:43:11+00:00">03:43:11</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>the PD0 will only pull the line low when there is IR light...</q></li>
+<li class="message">[<a href="#T03:43:18" id="T03:43:18"><abbr title="2013-11-15T03:43:18+00:00">03:43:18</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>normally it will sit high...</q></li>
+<li class="message">[<a href="#T03:43:31" id="T03:43:31"><abbr title="2013-11-15T03:43:31+00:00">03:43:31</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>at least on the circuit i drew.. ?.</q></li>
+<li class="message">[<a href="#T03:43:39" id="T03:43:39"><abbr title="2013-11-15T03:43:39+00:00">03:43:39</abbr></a>] &lt;<cite>frege</cite>&gt; <q>yours is different</q></li>
+<li class="message">[<a href="#T03:43:42" id="T03:43:42"><abbr title="2013-11-15T03:43:42+00:00">03:43:42</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>oh k</q></li>
+<li class="message">[<a href="#T03:43:51" id="T03:43:51"><abbr title="2013-11-15T03:43:51+00:00">03:43:51</abbr></a>] &lt;<cite>frege</cite>&gt; <q>the resistor is between ground and pd0!</q></li>
+<li class="message">[<a href="#T03:43:52" id="T03:43:52"><abbr title="2013-11-15T03:43:52+00:00">03:43:52</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>then yeah you might have a problem</q></li>
+<li class="message">[<a href="#T03:43:53" id="T03:43:53"><abbr title="2013-11-15T03:43:53+00:00">03:43:53</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>it should be 1 without PD</q></li>
+<li class="message">[<a href="#T03:44:08" id="T03:44:08"><abbr title="2013-11-15T03:44:08+00:00">03:44:08</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ok let me try again</q></li>
+<li class="message">[<a href="#T03:44:48" id="T03:44:48"><abbr title="2013-11-15T03:44:48+00:00">03:44:48</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I got a 10k lux light therapy device here</q></li>
+<li class="message">[<a href="#T03:44:57" id="T03:44:57"><abbr title="2013-11-15T03:44:57+00:00">03:44:57</abbr></a>] &lt;<cite>frege</cite>&gt; <q>it must have enough infrared to turn this on</q></li>
+<li class="join">[<a href="#T03:45:02" id="T03:45:02"><abbr title="2013-11-15T03:45:02+00:00">03:45:02</abbr></a>] <span>* johanhenselmans_ (~johanhens@pretsense.xs4all.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:45:23" id="T03:45:23"><abbr title="2013-11-15T03:45:23+00:00">03:45:23</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>if you need a IR filter you can try exposed 35mm film? it works really well as a IR filter</q></li>
+<li class="message">[<a href="#T03:45:32" id="T03:45:32"><abbr title="2013-11-15T03:45:32+00:00">03:45:32</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>get your tv remote</q></li>
+<li class="message">[<a href="#T03:45:39" id="T03:45:39"><abbr title="2013-11-15T03:45:39+00:00">03:45:39</abbr></a>] &lt;<cite>frege</cite>&gt; <q>!!!!!!!!!!!!!!!!!</q></li>
+<li class="quit">[<abbr title="2013-11-15T03:45:39+00:00">03:45:39</abbr>] <span>* louiz920 (~a0272879@nat/ti/x-cpysguriapgltxqr) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T03:45:40" id="T03:45:40"><abbr title="2013-11-15T03:45:40+00:00">03:45:40</abbr></a>] &lt;<cite>frege</cite>&gt; <q>shit</q></li>
+<li class="message">[<a href="#T03:45:43" id="T03:45:43"><abbr title="2013-11-15T03:45:43+00:00">03:45:43</abbr></a>] &lt;<cite>frege</cite>&gt; <q>it's working!</q></li>
+<li class="message">[<a href="#T03:45:48" id="T03:45:48"><abbr title="2013-11-15T03:45:48+00:00">03:45:48</abbr></a>] &lt;<cite>frege</cite>&gt; <q>holy shit!!!</q></li>
+<li class="quit">[<a href="#T03:45:55" id="T03:45:55"><abbr title="2013-11-15T03:45:55+00:00">03:45:55</abbr></a>] <span>* Fercho (c9f55dca@gateway/web/freenode/ip.201.245.93.202) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T03:46:09" id="T03:46:09"><abbr title="2013-11-15T03:46:09+00:00">03:46:09</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I forgot to switch the photodiode</q></li>
+<li class="message">[<a href="#T03:46:13" id="T03:46:13"><abbr title="2013-11-15T03:46:13+00:00">03:46:13</abbr></a>] &lt;<cite>thurgood</cite>&gt; <q>some cell phone cameras have ir sensors/emitters too</q></li>
+<li class="message">[<abbr title="2013-11-15T03:46:13+00:00">03:46:13</abbr>] &lt;<cite>gui_</cite>&gt; <q>why the surprise? it's science, bitches!</q></li>
+<li class="message">[<a href="#T03:46:23" id="T03:46:23"><abbr title="2013-11-15T03:46:23+00:00">03:46:23</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>hahahah</q></li>
+<li class="message">[<a href="#T03:46:37" id="T03:46:37"><abbr title="2013-11-15T03:46:37+00:00">03:46:37</abbr></a>] &lt;<cite>frege</cite>&gt; <q>this is so fucking awesome!</q></li>
+<li class="message">[<a href="#T03:46:45" id="T03:46:45"><abbr title="2013-11-15T03:46:45+00:00">03:46:45</abbr></a>] &lt;<cite>frege</cite>&gt; <q>it's all magic</q></li>
+<li class="message">[<abbr title="2013-11-15T03:46:45+00:00">03:46:45</abbr>] &lt;<cite>gui_</cite>&gt; <q>nerd detected</q></li>
+<li class="message">[<a href="#T03:46:49" id="T03:46:49"><abbr title="2013-11-15T03:46:49+00:00">03:46:49</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>hahahah</q></li>
+<li class="join">[<a href="#T03:47:06" id="T03:47:06"><abbr title="2013-11-15T03:47:06+00:00">03:47:06</abbr></a>] <span>* ynezz_ (ynezz@ibawizard.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:47:09" id="T03:47:09"><abbr title="2013-11-15T03:47:09+00:00">03:47:09</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>agh it may be magic but its well documented magic...</q></li>
+<li class="message">[<a href="#T03:47:22" id="T03:47:22"><abbr title="2013-11-15T03:47:22+00:00">03:47:22</abbr></a>] &lt;<cite>frege</cite>&gt; <q>so now when there is IR, it stays 0, when I cover it then it becomes 1</q></li>
+<li class="join">[<a href="#T03:47:30" id="T03:47:30"><abbr title="2013-11-15T03:47:30+00:00">03:47:30</abbr></a>] <span>* JuriadoB1lzac (~mista@162.219.5.125) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T03:47:35" id="T03:47:35"><abbr title="2013-11-15T03:47:35+00:00">03:47:35</abbr></a>] &lt;<cite>frege</cite>&gt; <q>how can I get signal from it now?</q></li>
+<li class="quit">[<a href="#T03:47:39" id="T03:47:39"><abbr title="2013-11-15T03:47:39+00:00">03:47:39</abbr></a>] <span>* shoragan (~jlu@debian/developer/shoragan) Quit (Read error: Connection timed out)</span></li>
+<li class="message">[<a href="#T03:47:42" id="T03:47:42"><abbr title="2013-11-15T03:47:42+00:00">03:47:42</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>thats good?</q></li>
+<li class="message">[<a href="#T03:47:53" id="T03:47:53"><abbr title="2013-11-15T03:47:53+00:00">03:47:53</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>well.. there's still no reasonable explanation for gravity, so yes, it could be well documented magic</q></li>
+<li class="message">[<a href="#T03:48:13" id="T03:48:13"><abbr title="2013-11-15T03:48:13+00:00">03:48:13</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>you write some code that says if (PD0 == 0) do something? like count the pulses or add them into a buffer so you can read a stream...</q></li>
+<li class="quit">[<a href="#T03:48:14" id="T03:48:14"><abbr title="2013-11-15T03:48:14+00:00">03:48:14</abbr></a>] <span>* rotorgeek (~quassel@65-128-74-231.hlrn.qwest.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T03:48:34" id="T03:48:34"><abbr title="2013-11-15T03:48:34+00:00">03:48:34</abbr></a>] <span>* shoragan (~jlu@debian/developer/shoragan) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:48:41" id="T03:48:41"><abbr title="2013-11-15T03:48:41+00:00">03:48:41</abbr></a>] <span>* bzyx_ (~bzyx@94.232.36.211) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:48:42" id="T03:48:42"><abbr title="2013-11-15T03:48:42+00:00">03:48:42</abbr></a>] <span>* russell-1 (~russell@donk.personaltelco.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:48:44" id="T03:48:44"><abbr title="2013-11-15T03:48:44+00:00">03:48:44</abbr></a>] <span>* sheldonw (~sheldon@207.216.196.150) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:48:52" id="T03:48:52"><abbr title="2013-11-15T03:48:52+00:00">03:48:52</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>i can't help you too much with the beagle code itself only a rough frame work...</q></li>
+<li class="message">[<a href="#T03:49:12" id="T03:49:12"><abbr title="2013-11-15T03:49:12+00:00">03:49:12</abbr></a>] &lt;<cite>frege</cite>&gt; <q>pulses/</q></li>
+<li class="join">[<a href="#T03:49:15" id="T03:49:15"><abbr title="2013-11-15T03:49:15+00:00">03:49:15</abbr></a>] <span>* eggzeck_ (~eggzeck@c-71-199-220-139.hsd1.fl.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:49:18" id="T03:49:18"><abbr title="2013-11-15T03:49:18+00:00">03:49:18</abbr></a>] &lt;<cite>frege</cite>&gt; <q>what do you mean by pulses?</q></li>
+<li class="join">[<a href="#T03:49:19" id="T03:49:19"><abbr title="2013-11-15T03:49:19+00:00">03:49:19</abbr></a>] <span>* thuttu77_2 (~thuttu77@178-75-147-229.bb.dnainternet.fi) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:49:20" id="T03:49:20"><abbr title="2013-11-15T03:49:20+00:00">03:49:20</abbr></a>] &lt;<cite>frege</cite>&gt; <q>oh I see</q></li>
+<li class="join">[<a href="#T03:49:22" id="T03:49:22"><abbr title="2013-11-15T03:49:22+00:00">03:49:22</abbr></a>] <span>* _darknighte_ (~darknight@pdpc/supporter/professional/darknighte) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:49:34" id="T03:49:34"><abbr title="2013-11-15T03:49:34+00:00">03:49:34</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>frege, do you know Python?</q></li>
+<li class="message">[<a href="#T03:49:37" id="T03:49:37"><abbr title="2013-11-15T03:49:37+00:00">03:49:37</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>oh pulses as in a burst of on then off..</q></li>
+<li class="message">[<a href="#T03:49:38" id="T03:49:38"><abbr title="2013-11-15T03:49:38+00:00">03:49:38</abbr></a>] &lt;<cite>frege</cite>&gt; <q>so I read from this photodiode 100 times in a sec</q></li>
+<li class="message">[<a href="#T03:49:44" id="T03:49:44"><abbr title="2013-11-15T03:49:44+00:00">03:49:44</abbr></a>] &lt;<cite>frege</cite>&gt; <q>yeah I'm really good in python</q></li>
+<li class="message">[<a href="#T03:49:53" id="T03:49:53"><abbr title="2013-11-15T03:49:53+00:00">03:49:53</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>so look for Adafruit BBIO</q></li>
+<li class="message">[<abbr title="2013-11-15T03:49:53+00:00">03:49:53</abbr>] &lt;<cite>frege</cite>&gt; <q>gui_: it's my job; writing python</q></li>
+<li class="message">[<a href="#T03:50:01" id="T03:50:01"><abbr title="2013-11-15T03:50:01+00:00">03:50:01</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: I'm using that right now</q></li>
+<li class="message">[<a href="#T03:50:05" id="T03:50:05"><abbr title="2013-11-15T03:50:05+00:00">03:50:05</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>cool</q></li>
+<li class="join">[<a href="#T03:50:08" id="T03:50:08"><abbr title="2013-11-15T03:50:08+00:00">03:50:08</abbr></a>] <span>* rocky|ar1h|away (~bluevm@192.3.115.203) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:50:35" id="T03:50:35"><abbr title="2013-11-15T03:50:35+00:00">03:50:35</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>it all depends on the frequency of the data stream that is in the IR light? think baud rate...</q></li>
+<li class="message">[<a href="#T03:50:36" id="T03:50:36"><abbr title="2013-11-15T03:50:36+00:00">03:50:36</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I think I got the idea how to read it on and off and make a stream</q></li>
+<li class="quit">[<a href="#T03:50:52" id="T03:50:52"><abbr title="2013-11-15T03:50:52+00:00">03:50:52</abbr></a>] <span>* cjoe (~customerj@fibhost-66-7-177.fibernet.hu) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T03:51:02" id="T03:51:02"><abbr title="2013-11-15T03:51:02+00:00">03:51:02</abbr></a>] &lt;<cite>frege</cite>&gt; <q>yeah it just needs a func of time to become a real signal</q></li>
+<li class="message">[<a href="#T03:51:18" id="T03:51:18"><abbr title="2013-11-15T03:51:18+00:00">03:51:18</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ok one more question</q></li>
+<li class="message">[<a href="#T03:51:27" id="T03:51:27"><abbr title="2013-11-15T03:51:27+00:00">03:51:27</abbr></a>] &lt;<cite>frege</cite>&gt; <q>how do I make this more sensitive?</q></li>
+<li class="message">[<a href="#T03:51:38" id="T03:51:38"><abbr title="2013-11-15T03:51:38+00:00">03:51:38</abbr></a>] &lt;<cite>frege</cite>&gt; <q>should I drop 2.2kohm to 1kohm?</q></li>
+<li class="join">[<a href="#T03:51:40" id="T03:51:40"><abbr title="2013-11-15T03:51:40+00:00">03:51:40</abbr></a>] <span>* honschu (~honschu@p549EA8E8.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:51:41" id="T03:51:41"><abbr title="2013-11-15T03:51:41+00:00">03:51:41</abbr></a>] <span>* honschu (~honschu@p549EA8E8.dip0.t-ipconnect.de) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-11-15T03:51:41+00:00">03:51:41</abbr>] <span>* honschu (~honschu@shackspace/j4fun) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:51:45" id="T03:51:45"><abbr title="2013-11-15T03:51:45+00:00">03:51:45</abbr></a>] &lt;<cite>frege</cite>&gt; <q>then it let the current flow in easier?</q></li>
+<li class="message">[<a href="#T03:51:53" id="T03:51:53"><abbr title="2013-11-15T03:51:53+00:00">03:51:53</abbr></a>] &lt;<cite>frege</cite>&gt; <q>man electronic is fun!!!!!!!!!!!</q></li>
+<li class="join">[<a href="#T03:52:10" id="T03:52:10"><abbr title="2013-11-15T03:52:10+00:00">03:52:10</abbr></a>] <span>* muriani_ (~james@192.241.234.224) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:52:38" id="T03:52:38"><abbr title="2013-11-15T03:52:38+00:00">03:52:38</abbr></a>] <span>* firemanxbr (~firemanxb@179.219.173.236) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:38+00:00">03:52:38</abbr>] <span>* darknighte (~darknight@pdpc/supporter/professional/darknighte) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:38+00:00">03:52:38</abbr>] <span>* bahar (~bahar@unaffiliated/bahar) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T03:52:39" id="T03:52:39"><abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr></a>] <span>* johanhenselmans (~johanhens@pretsense.xs4all.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr>] <span>* honschu_ (~honschu@shackspace/j4fun) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr>] <span>* mthalmei_away (~mthalmei@ex4.michisoft.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr>] <span>* bzyx (~bzyx@94.232.36.211) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr>] <span>* eggzeck (~eggzeck@c-71-199-220-139.hsd1.fl.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr>] <span>* jevin (~jevin@72.12.217.220) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr>] <span>* JuriadoBalzac (~mista@162.219.5.125) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr>] <span>* rocky|arch|away (~bluevm@192.3.115.203) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:39+00:00">03:52:39</abbr>] <span>* muriani (~james@192.241.234.224) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T03:52:40" id="T03:52:40"><abbr title="2013-11-15T03:52:40+00:00">03:52:40</abbr></a>] <span>* ynezz (ynezz@ibawizard.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:40+00:00">03:52:40</abbr>] <span>* kc4zvw (~kc4zvw@user-387c5vd.cable.mindspring.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:40+00:00">03:52:40</abbr>] <span>* russell-- (~russell@donk.personaltelco.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:40+00:00">03:52:40</abbr>] <span>* sakoman (~steve@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:40+00:00">03:52:40</abbr>] <span>* thuttu77 (~thuttu77@178-75-147-229.bb.dnainternet.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2013-11-15T03:52:40+00:00">03:52:40</abbr>] <span>* tklun (~tklun@c-24-13-107-173.hsd1.il.comcast.net) Quit (*.net *.split)</span></li>
+<li class="message">[<a href="#T03:52:47" id="T03:52:47"><abbr title="2013-11-15T03:52:47+00:00">03:52:47</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>electronic is shocking</q></li>
+<li class="nick-change">[<a href="#T03:52:54" id="T03:52:54"><abbr title="2013-11-15T03:52:54+00:00">03:52:54</abbr></a>] <span>* johanhenselmans_ is now known as johanhenselmans</span></li>
+<li class="message">[<a href="#T03:52:58" id="T03:52:58"><abbr title="2013-11-15T03:52:58+00:00">03:52:58</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I'm gonna try 630ohm</q></li>
+<li class="message">[<abbr title="2013-11-15T03:52:58+00:00">03:52:58</abbr>] &lt;<cite>gui_</cite>&gt; <q>#badjokegui</q></li>
+<li class="nick-change">[<a href="#T03:53:12" id="T03:53:12"><abbr title="2013-11-15T03:53:12+00:00">03:53:12</abbr></a>] <span>* _darknighte_ is now known as darknighte</span></li>
+<li class="message">[<a href="#T03:53:23" id="T03:53:23"><abbr title="2013-11-15T03:53:23+00:00">03:53:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>gui: wanna learn what a jacobs ladder is? :D</q></li>
+<li class="message">[<a href="#T03:53:41" id="T03:53:41"><abbr title="2013-11-15T03:53:41+00:00">03:53:41</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>i think i've heard of it</q></li>
+<li class="message">[<a href="#T03:53:45" id="T03:53:45"><abbr title="2013-11-15T03:53:45+00:00">03:53:45</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>is it bad joke?</q></li>
+<li class="message">[<a href="#T03:54:29" id="T03:54:29"><abbr title="2013-11-15T03:54:29+00:00">03:54:29</abbr></a>] &lt;<cite>frege</cite>&gt; <q>it's still dull</q></li>
+<li class="message">[<a href="#T03:54:46" id="T03:54:46"><abbr title="2013-11-15T03:54:46+00:00">03:54:46</abbr></a>] &lt;<cite>frege</cite>&gt; <q>I want to make it sensitive enough so it can capture 850nm</q></li>
+<li class="message">[<a href="#T03:55:03" id="T03:55:03"><abbr title="2013-11-15T03:55:03+00:00">03:55:03</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>frege</q></li>
+<li class="message">[<a href="#T03:55:05" id="T03:55:05"><abbr title="2013-11-15T03:55:05+00:00">03:55:05</abbr></a>] &lt;<cite>frege</cite>&gt; <q>this sensor is a really capable one; 400 to 1000nm</q></li>
+<li class="message">[<a href="#T03:55:09" id="T03:55:09"><abbr title="2013-11-15T03:55:09+00:00">03:55:09</abbr></a>] &lt;<cite>frege</cite>&gt; <q>yeah gui_ ?</q></li>
+<li class="message">[<a href="#T03:55:14" id="T03:55:14"><abbr title="2013-11-15T03:55:14+00:00">03:55:14</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>you should tune the ration of the resistors</q></li>
+<li class="message">[<a href="#T03:55:27" id="T03:55:27"><abbr title="2013-11-15T03:55:27+00:00">03:55:27</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>but remember not to keep the absolute values too low</q></li>
+<li class="message">[<a href="#T03:55:29" id="T03:55:29"><abbr title="2013-11-15T03:55:29+00:00">03:55:29</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ratio?</q></li>
+<li class="message">[<a href="#T03:55:32" id="T03:55:32"><abbr title="2013-11-15T03:55:32+00:00">03:55:32</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>or you could fry your bone</q></li>
+<li class="message">[<a href="#T03:55:36" id="T03:55:36"><abbr title="2013-11-15T03:55:36+00:00">03:55:36</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>R1/R2</q></li>
+<li class="message">[<a href="#T03:55:39" id="T03:55:39"><abbr title="2013-11-15T03:55:39+00:00">03:55:39</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>&lt;ds2&gt; jacobs ladder is great.. think frankenstein movies..</q></li>
+<li class="message">[<abbr title="2013-11-15T03:55:39+00:00">03:55:39</abbr>] &lt;<cite>gui_</cite>&gt; <q>10/2.2</q></li>
+<li class="message">[<a href="#T03:55:46" id="T03:55:46"><abbr title="2013-11-15T03:55:46+00:00">03:55:46</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ahhh shit gotcha</q></li>
+<li class="message">[<a href="#T03:56:00" id="T03:56:00"><abbr title="2013-11-15T03:56:00+00:00">03:56:00</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>maybe change the 10k to 100k</q></li>
+<li class="message">[<a href="#T03:56:06" id="T03:56:06"><abbr title="2013-11-15T03:56:06+00:00">03:56:06</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T03:56:13" id="T03:56:13"><abbr title="2013-11-15T03:56:13+00:00">03:56:13</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>that will mean less current is needed to change the state of the pin..</q></li>
+<li class="message">[<a href="#T03:56:14" id="T03:56:14"><abbr title="2013-11-15T03:56:14+00:00">03:56:14</abbr></a>] &lt;<cite>frege</cite>&gt; <q>bnz: how about the other one?</q></li>
+<li class="join">[<a href="#T03:56:26" id="T03:56:26"><abbr title="2013-11-15T03:56:26+00:00">03:56:26</abbr></a>] <span>* bahar (~bahar@cpe-24-90-66-253.nyc.res.rr.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:56:34" id="T03:56:34"><abbr title="2013-11-15T03:56:34+00:00">03:56:34</abbr></a>] <span>* mthalmei_away (~mthalmei@ex4.michisoft.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:56:44" id="T03:56:44"><abbr title="2013-11-15T03:56:44+00:00">03:56:44</abbr></a>] <span>* cjoe (~customerj@fibhost-66-7-177.fibernet.hu) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T03:56:46" id="T03:56:46"><abbr title="2013-11-15T03:56:46+00:00">03:56:46</abbr></a>] <span>* cjoe (~customerj@fibhost-66-7-177.fibernet.hu) has joined #beagleboard</span></li>
+<li class="join">[<a href="#T03:56:48" id="T03:56:48"><abbr title="2013-11-15T03:56:48+00:00">03:56:48</abbr></a>] <span>* cjoe (~customerj@fibhost-66-7-177.fibernet.hu) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:56:56" id="T03:56:56"><abbr title="2013-11-15T03:56:56+00:00">03:56:56</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>do you have a voltmeter?</q></li>
+<li class="message">[<a href="#T03:56:57" id="T03:56:57"><abbr title="2013-11-15T03:56:57+00:00">03:56:57</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>that one is sorta there for protection of the diode.. it limits the amount of current going thru the diode.. you need to look at the data sheet and see how much current it can handle..</q></li>
+<li class="message">[<a href="#T03:57:03" id="T03:57:03"><abbr title="2013-11-15T03:57:03+00:00">03:57:03</abbr></a>] &lt;<cite>frege</cite>&gt; <q>gui_: I don't :(</q></li>
+<li class="quit">[<a href="#T03:57:08" id="T03:57:08"><abbr title="2013-11-15T03:57:08+00:00">03:57:08</abbr></a>] <span>* bahar (~bahar@cpe-24-90-66-253.nyc.res.rr.com) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-11-15T03:57:08+00:00">03:57:08</abbr>] <span>* bahar (~bahar@unaffiliated/bahar) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:57:29" id="T03:57:29"><abbr title="2013-11-15T03:57:29+00:00">03:57:29</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>oh dear my kernel dev just killed his beagle bone black? :( and now i have to fix it...</q></li>
+<li class="message">[<a href="#T03:57:42" id="T03:57:42"><abbr title="2013-11-15T03:57:42+00:00">03:57:42</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>he changed the contents of the eeprom and now it don't boot?</q></li>
+<li class="join">[<a href="#T03:57:51" id="T03:57:51"><abbr title="2013-11-15T03:57:51+00:00">03:57:51</abbr></a>] <span>* tklun (~tklun@c-24-13-107-173.hsd1.il.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:58:00" id="T03:58:00"><abbr title="2013-11-15T03:58:00+00:00">03:58:00</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>gonna have to hang a another beagle bone off that to re-write the eeprom?</q></li>
+<li class="message">[<a href="#T03:58:01" id="T03:58:01"><abbr title="2013-11-15T03:58:01+00:00">03:58:01</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>bnz, that sounds so familiar</q></li>
+<li class="message">[<a href="#T03:58:04" id="T03:58:04"><abbr title="2013-11-15T03:58:04+00:00">03:58:04</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>but so familiar...</q></li>
+<li class="message">[<abbr title="2013-11-15T03:58:04+00:00">03:58:04</abbr>] &lt;<cite>ds2</cite>&gt; <q>here, hold this ;)</q></li>
+<li class="message">[<a href="#T03:58:11" id="T03:58:11"><abbr title="2013-11-15T03:58:11+00:00">03:58:11</abbr></a>] &lt;<cite>frege</cite>&gt; <q>now it stays 0 all the time</q></li>
+<li class="message">[<a href="#T03:58:23" id="T03:58:23"><abbr title="2013-11-15T03:58:23+00:00">03:58:23</abbr></a>] &lt;<cite>gui_</cite>&gt; <q>frege, too sensitive</q></li>
+<li class="join">[<a href="#T03:58:26" id="T03:58:26"><abbr title="2013-11-15T03:58:26+00:00">03:58:26</abbr></a>] <span>* Blaketh (nullidentd@c-69-143-46-14.hsd1.va.comcast.net) has joined #beagleboard</span></li>
+<li class="quit">[<a href="#T03:58:28" id="T03:58:28"><abbr title="2013-11-15T03:58:28+00:00">03:58:28</abbr></a>] <span>* sheldonw (~sheldon@207.216.196.150) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T03:58:34" id="T03:58:34"><abbr title="2013-11-15T03:58:34+00:00">03:58:34</abbr></a>] &lt;<cite>bnz</cite>&gt; <q>yeah maybe not 100k maybe 47k?</q></li>
+<li class="message">[<a href="#T03:58:35" id="T03:58:35"><abbr title="2013-11-15T03:58:35+00:00">03:58:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>frege: what kind of sensors are you playing with?</q></li>
+<li class="join">[<a href="#T03:58:38" id="T03:58:38"><abbr title="2013-11-15T03:58:38+00:00">03:58:38</abbr></a>] <span>* sakoman (~steve@static-74-41-60-154.dsl1.pco.ca.frontiernet.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T03:58:46" id="T03:58:46"><abbr title="2013-11-15T03:58:46+00:00">03:58:46</abbr></a>] &lt;<cite>frege</cite>&gt; <q>ir</q></li>
+<li class="message">[<a href="#T03:59:04" id="T03:59:04"><abbr title="2013-11-15T03:59:04+00:00">03:59:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what kind of IR sensor?</q></li>
+<li class="message">[<a href="#T03:59:09" id="T03:59:09"><abbr title="2013-11-15T03:59:09+00:00">03:59:09</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>phototransistor?</q></li>
+<li class="join">[<a href="#T03:59:25" id="T03:59:25"><abbr title="2013-11-15T03:59:25+00:00">03:59:25</abbr></a>] <span>* sheldonw (~sheldon@207.216.196.150) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:59:36" id="T03:59:36"><abbr title="2013-11-15T03:59:36+00:00">03:59:36</abbr></a>] <span>* kc4zvw (~kc4zvw@user-387c5vd.cable.mindspring.com) has joined #beaglebone</span></li>
