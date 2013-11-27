@@ -320,3 +320,76 @@
 <li class="join">[<a href="#T09:58:39" id="T09:58:39"><abbr title="2013-11-27T09:58:39+00:00">09:58:39</abbr></a>] <span>* konradoo77 (~debian@user-94-254-208-78.play-internet.pl) has joined #beagle</span></li>
 <li class="message">[<a href="#T09:59:07" id="T09:59:07"><abbr title="2013-11-27T09:59:07+00:00">09:59:07</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>av500,  the u-boot i am stuck on is giving me "Wrong Image Type for bootm command" for a u-boot.img</q></li>
 <li class="join">[<a href="#T10:00:10" id="T10:00:10"><abbr title="2013-11-27T10:00:10+00:00">10:00:10</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:07:22" id="T10:07:22"><abbr title="2013-11-27T10:07:22+00:00">10:07:22</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>rob_w: probably you're feeding it a zImage then... bootm needs a uImage</q></li>
+<li class="message">[<a href="#T10:08:10" id="T10:08:10"><abbr title="2013-11-27T10:08:10+00:00">10:08:10</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>rob_w: plus, it sounds like you are trying to chainload.</q></li>
+<li class="message">[<a href="#T10:11:22" id="T10:11:22"><abbr title="2013-11-27T10:11:22+00:00">10:11:22</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>LetoThe2nd, i am stuck on a wron u-boot</q></li>
+<li class="message">[<a href="#T10:11:43" id="T10:11:43"><abbr title="2013-11-27T10:11:43+00:00">10:11:43</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>and i either need to load a different one or manage to boot my kernel + fdt on this one</q></li>
+<li class="quit">[<a href="#T10:11:50" id="T10:11:50"><abbr title="2013-11-27T10:11:50+00:00">10:11:50</abbr></a>] <span>* c10ud (~c10ud@emesene/dictator/c10ud) Quit (Quit: cya)</span></li>
+<li class="message">[<a href="#T10:12:21" id="T10:12:21"><abbr title="2013-11-27T10:12:21+00:00">10:12:21</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>well then replace it?</q></li>
+<li class="message">[<a href="#T10:12:30" id="T10:12:30"><abbr title="2013-11-27T10:12:30+00:00">10:12:30</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>well i cant</q></li>
+<li class="message">[<a href="#T10:12:42" id="T10:12:42"><abbr title="2013-11-27T10:12:42+00:00">10:12:42</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>its loading the one on the internal mmc</q></li>
+<li class="message">[<a href="#T10:12:46" id="T10:12:46"><abbr title="2013-11-27T10:12:46+00:00">10:12:46</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>which is the bad one</q></li>
+<li class="message">[<a href="#T10:13:02" id="T10:13:02"><abbr title="2013-11-27T10:13:02+00:00">10:13:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so delete it</q></li>
+<li class="message">[<a href="#T10:13:06" id="T10:13:06"><abbr title="2013-11-27T10:13:06+00:00">10:13:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no?</q></li>
+<li class="message">[<a href="#T10:13:17" id="T10:13:17"><abbr title="2013-11-27T10:13:17+00:00">10:13:17</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>from u-boot console ?</q></li>
+<li class="message">[<a href="#T10:13:18" id="T10:13:18"><abbr title="2013-11-27T10:13:18+00:00">10:13:18</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>it can also be replaced.... erase, cp.b</q></li>
+<li class="message">[<a href="#T10:13:24" id="T10:13:24"><abbr title="2013-11-27T10:13:24+00:00">10:13:24</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>hmm</q></li>
+<li class="join">[<a href="#T10:13:25" id="T10:13:25"><abbr title="2013-11-27T10:13:25+00:00">10:13:25</abbr></a>] <span>* dogmatic69 (~dogmatic6@cpc10-telf10-2-0-cust20.wolv.cable.virginm.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:13:26" id="T10:13:26"><abbr title="2013-11-27T10:13:26+00:00">10:13:26</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T10:13:34" id="T10:13:34"><abbr title="2013-11-27T10:13:34+00:00">10:13:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>on BBB?</q></li>
+<li class="message">[<a href="#T10:13:38" id="T10:13:38"><abbr title="2013-11-27T10:13:38+00:00">10:13:38</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T10:13:39" id="T10:13:39"><abbr title="2013-11-27T10:13:39+00:00">10:13:39</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hold boot button to boot from sd, no?</q></li>
+<li class="message">[<a href="#T10:13:45" id="T10:13:45"><abbr title="2013-11-27T10:13:45+00:00">10:13:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>regardless of emmc</q></li>
+<li class="join">[<a href="#T10:14:43" id="T10:14:43"><abbr title="2013-11-27T10:14:43+00:00">10:14:43</abbr></a>] <span>* cwilson (~Urrrrrgh@198.27.60.170) has joined #beagle</span></li>
+<li class="message">[<a href="#T10:14:44" id="T10:14:44"><abbr title="2013-11-27T10:14:44+00:00">10:14:44</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>doent work</q></li>
+<li class="message">[<a href="#T10:14:49" id="T10:14:49"><abbr title="2013-11-27T10:14:49+00:00">10:14:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T10:14:59" id="T10:14:59"><abbr title="2013-11-27T10:14:59+00:00">10:14:59</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>let me try some more</q></li>
+<li class="message">[<a href="#T10:15:12" id="T10:15:12"><abbr title="2013-11-27T10:15:12+00:00">10:15:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>boot button will change the boot order to sd first</q></li>
+<li class="message">[<a href="#T10:15:16" id="T10:15:16"><abbr title="2013-11-27T10:15:16+00:00">10:15:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>that works for sure</q></li>
+<li class="message">[<abbr title="2013-11-27T10:15:16+00:00">10:15:16</abbr>] &lt;<cite>rob_w</cite>&gt; <q>never used that also our cape might interfere</q></li>
+<li class="message">[<a href="#T10:15:26" id="T10:15:26"><abbr title="2013-11-27T10:15:26+00:00">10:15:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cape fear</q></li>
+<li class="quit">[<a href="#T10:18:17" id="T10:18:17"><abbr title="2013-11-27T10:18:17+00:00">10:18:17</abbr></a>] <span>* tema (~tema@pw126253113100.6.panda-world.ne.jp) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T10:19:17" id="T10:19:17"><abbr title="2013-11-27T10:19:17+00:00">10:19:17</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>hmm pressing it brings me to the CCCC</q></li>
+<li class="message">[<a href="#T10:19:32" id="T10:19:32"><abbr title="2013-11-27T10:19:32+00:00">10:19:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>good</q></li>
+<li class="message">[<a href="#T10:19:34" id="T10:19:34"><abbr title="2013-11-27T10:19:34+00:00">10:19:34</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>so that tells me that it doesnt find my u-boot on the sdcard, right ?</q></li>
+<li class="message">[<a href="#T10:19:35" id="T10:19:35"><abbr title="2013-11-27T10:19:35+00:00">10:19:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>thats the ROM Code</q></li>
+<li class="message">[<a href="#T10:19:37" id="T10:19:37"><abbr title="2013-11-27T10:19:37+00:00">10:19:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T10:19:42" id="T10:19:42"><abbr title="2013-11-27T10:19:42+00:00">10:19:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>now fix your card</q></li>
+<li class="message">[<a href="#T10:19:46" id="T10:19:46"><abbr title="2013-11-27T10:19:46+00:00">10:19:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>:)</q></li>
+<li class="message">[<a href="#T10:20:11" id="T10:20:11"><abbr title="2013-11-27T10:20:11+00:00">10:20:11</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>must named u-boot.img</q></li>
+<li class="message">[<a href="#T10:20:17" id="T10:20:17"><abbr title="2013-11-27T10:20:17+00:00">10:20:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>MLO</q></li>
+<li class="message">[<a href="#T10:20:20" id="T10:20:20"><abbr title="2013-11-27T10:20:20+00:00">10:20:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you need MLO</q></li>
+<li class="message">[<a href="#T10:20:23" id="T10:20:23"><abbr title="2013-11-27T10:20:23+00:00">10:20:23</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>ah right</q></li>
+<li class="quit">[<a href="#T10:21:19" id="T10:21:19"><abbr title="2013-11-27T10:21:19+00:00">10:21:19</abbr></a>] <span>* Shadyman (~matthew@unaffiliated/shadyman) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T10:21:55" id="T10:21:55"><abbr title="2013-11-27T10:21:55+00:00">10:21:55</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>crap</q></li>
+<li class="message">[<a href="#T10:22:19" id="T10:22:19"><abbr title="2013-11-27T10:22:19+00:00">10:22:19</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>mlo is on but still the CCCC , so my sdcard partition is not good i guess</q></li>
+<li class="message">[<a href="#T10:23:29" id="T10:23:29"><abbr title="2013-11-27T10:23:29+00:00">10:23:29</abbr></a>] &lt;<cite>av500</cite>&gt; <q>active</q></li>
+<li class="message">[<a href="#T10:23:34" id="T10:23:34"><abbr title="2013-11-27T10:23:34+00:00">10:23:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it must be</q></li>
+<li class="message">[<a href="#T10:23:37" id="T10:23:37"><abbr title="2013-11-27T10:23:37+00:00">10:23:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>aka bootable</q></li>
+<li class="message">[<a href="#T10:23:40" id="T10:23:40"><abbr title="2013-11-27T10:23:40+00:00">10:23:40</abbr></a>] &lt;<cite>somesomething</cite>&gt; <q>my bbb should have shipped by now</q></li>
+<li class="message">[<a href="#T10:23:45" id="T10:23:45"><abbr title="2013-11-27T10:23:45+00:00">10:23:45</abbr></a>] &lt;<cite>somesomething</cite>&gt; <q>it hasn't</q></li>
+<li class="message">[<a href="#T10:23:48" id="T10:23:48"><abbr title="2013-11-27T10:23:48+00:00">10:23:48</abbr></a>] &lt;<cite>somesomething</cite>&gt; <q>afraid.tiff</q></li>
+<li class="message">[<a href="#T10:25:28" id="T10:25:28"><abbr title="2013-11-27T10:25:28+00:00">10:25:28</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>av500, fixed</q></li>
+<li class="message">[<a href="#T10:25:30" id="T10:25:30"><abbr title="2013-11-27T10:25:30+00:00">10:25:30</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>thx</q></li>
+<li class="message">[<a href="#T10:25:40" id="T10:25:40"><abbr title="2013-11-27T10:25:40+00:00">10:25:40</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>now back to original task ..</q></li>
+<li class="message">[<a href="#T10:26:35" id="T10:26:35"><abbr title="2013-11-27T10:26:35+00:00">10:26:35</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>maybe you have some hints .. about the following</q></li>
+<li class="message">[<a href="#T10:27:35" id="T10:27:35"><abbr title="2013-11-27T10:27:35+00:00">10:27:35</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>i found that the original u-boot env trys to detect the external mmc and boot but it gets stuck if it does find the card but with a wrong partition layout or a correct layout but missing the files</q></li>
+<li class="join">[<a href="#T10:29:15" id="T10:29:15"><abbr title="2013-11-27T10:29:15+00:00">10:29:15</abbr></a>] <span>* mrpackethead (~mrpacketh@24.85.92.145) has joined #beagle</span></li>
+<li class="quit">[<a href="#T10:31:18" id="T10:31:18"><abbr title="2013-11-27T10:31:18+00:00">10:31:18</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T10:32:00" id="T10:32:00"><abbr title="2013-11-27T10:32:00+00:00">10:32:00</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>actually ..</q></li>
+<li class="quit">[<a href="#T10:35:39" id="T10:35:39"><abbr title="2013-11-27T10:35:39+00:00">10:35:39</abbr></a>] <span>* mrpackethead (~mrpacketh@24.85.92.145) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T10:36:14" id="T10:36:14"><abbr title="2013-11-27T10:36:14+00:00">10:36:14</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>how do i provide u-boot on emmc a valid environment ?</q></li>
+<li class="message">[<a href="#T10:36:33" id="T10:36:33"><abbr title="2013-11-27T10:36:33+00:00">10:36:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you can hard code one</q></li>
+<li class="message">[<a href="#T10:36:37" id="T10:36:37"><abbr title="2013-11-27T10:36:37+00:00">10:36:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or use uEnv.txt</q></li>
+<li class="message">[<a href="#T10:37:00" id="T10:37:00"><abbr title="2013-11-27T10:37:00+00:00">10:37:00</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>hmm i do have a uEnv.txt so maybe its not valid</q></li>
+<li class="join">[<a href="#T10:41:08" id="T10:41:08"><abbr title="2013-11-27T10:41:08+00:00">10:41:08</abbr></a>] <span>* kmit (~sri@183.82.97.138) has joined #beagle</span></li>
+<li class="join">[<a href="#T10:42:18" id="T10:42:18"><abbr title="2013-11-27T10:42:18+00:00">10:42:18</abbr></a>] <span>* florian (~fuchs@port-217-146-132-69.static.qsc.de) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2013-11-27T10:42:18+00:00">10:42:18</abbr>] <span>* florian (~fuchs@port-217-146-132-69.static.qsc.de) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-11-27T10:42:18+00:00">10:42:18</abbr>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="part">[<a href="#T10:43:09" id="T10:43:09"><abbr title="2013-11-27T10:43:09+00:00">10:43:09</abbr></a>] <span>* avostrik (~avostrik@178-16-155-142.obit.ru) has left #beagle</span></li>
+<li class="message">[<a href="#T10:48:41" id="T10:48:41"><abbr title="2013-11-27T10:48:41+00:00">10:48:41</abbr></a>] &lt;<cite>cameraDriverDev</cite>&gt; <q>Angstrom feed seems broken for BeagleBoard XM. Some kernel packages are for 3.2.28 while others are for 3.7.0. These should be incompatible with each other unless I am missing something. <a href="http://feeds.angstrom-distribution.org/feeds/v2012.12/ipk/eglibc/armv7a-vfp-neon/machine/beagleboard/">http://feeds.angstrom-distribution.org/feeds/v2012.12/ipk/eglibc/armv7a-vfp-neon/machine/beagleboard/</a></q></li>
+<li class="message">[<a href="#T10:49:01" id="T10:49:01"><abbr title="2013-11-27T10:49:01+00:00">10:49:01</abbr></a>] &lt;<cite>av500</cite>&gt; <q>cameraDriverDev: what camera btw?</q></li>
+<li class="message">[<a href="#T10:50:27" id="T10:50:27"><abbr title="2013-11-27T10:50:27+00:00">10:50:27</abbr></a>] &lt;<cite>cameraDriverDev</cite>&gt; <q>It is a camera with a parallel interface that my colleague has put together. It has no I2C control lines just data automatically flowing on the parallel interface with HSYNC and FSYNC. The driver should be similar to existing Aptina driver with all the controls stubbed out.</q></li>
+<li class="message">[<a href="#T10:51:55" id="T10:51:55"><abbr title="2013-11-27T10:51:55+00:00">10:51:55</abbr></a>] &lt;<cite>cameraDriverDev</cite>&gt; <q>The same code could be used with any camera input that just produces output on parallel interface. For example, one could potentially use a ADC converter to convert analog video and put it on the parallel interface. A driver for this might already exist but I can't seem to find one.</q></li>
+<li class="message">[<a href="#T10:52:20" id="T10:52:20"><abbr title="2013-11-27T10:52:20+00:00">10:52:20</abbr></a>] &lt;<cite>rob_w</cite>&gt; <q>hmmm feels like sourcing emmc uEnv.txt is not working</q></li>
+<li class="message">[<a href="#T10:59:40" id="T10:59:40"><abbr title="2013-11-27T10:59:40+00:00">10:59:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>logs?</q></li>
