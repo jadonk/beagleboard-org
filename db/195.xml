@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1386144791934">
+  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1386145079426">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.142.42</http_remotehost>
@@ -11,7 +11,7 @@
     <http_language>en-US,en;q=0.8</http_language>
     <uri>default</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36</http_browser>
-    <time type="date">04.12.2013 02:13:11 CST</time>
+    <time type="date">04.12.2013 02:17:59 CST</time>
     <hopsession>98.250.142.1lv5chpb5nanq</hopsession>
     <body> &lt;!-- Product Promotion - START --&gt;
    &lt;div id=&quot;promo&quot;&gt;
@@ -138,32 +138,32 @@
 $(document).ready(function(){
   if($(&apos;#buy-black&apos;).length) {
     $.get(&apos;/distributors/black&apos;, function(data){
-      $(&apos;#buy-black&apos;).replaceWith(data);
-    });
-    $(&apos;ul.dropdown&apos;).each(function(){
-      var list = $(this);
-      var select = $(document.createElement(&apos;select&apos;)).insertBefore($(this).hide());
-      var action = list.attr(&apos;id&apos;); 
-      select.change(function(){
-       $(&apos;&gt;option:selected&apos;, this).each(function(){
-        var label = $(this).text();
-        var link = $(this).val();
-        _gaq.push([&apos;_trackEvent&apos;, &apos;exit&apos;, action, label]);
-        setTimeout(&apos;document.location = &quot;&apos; + link + &apos;&quot;&apos;, 100)
-       });
-      });
-      var option=$(document.createElement(&apos;option&apos;));
-      option.appendTo(select);
-      option.html(&apos;Select a distributor to buy&apos;);
-      $(&apos;&gt;li&apos;, this).each(function(){
-        var option=$(document.createElement(&apos;option&apos;));
-        option.appendTo(select);
-        option.html($(this).html());
-        $(&apos;&gt;a&apos;, this).each(function(){
-         option.val(this.href);
-       });
-      });
-      list.remove();
+        $(&apos;#buy-black&apos;).replaceWith(data);
+        $(&apos;ul.dropdown&apos;).each(function(){
+          var list = $(this);
+          var select = $(document.createElement(&apos;select&apos;)).insertBefore($(this).hide());
+          var action = list.attr(&apos;id&apos;); 
+          select.change(function(){
+           $(&apos;&gt;option:selected&apos;, this).each(function(){
+            var label = $(this).text();
+            var link = $(this).val();
+            _gaq.push([&apos;_trackEvent&apos;, &apos;exit&apos;, action, label]);
+            setTimeout(&apos;document.location = &quot;&apos; + link + &apos;&quot;&apos;, 100)
+           });
+          });
+          var option=$(document.createElement(&apos;option&apos;));
+          option.appendTo(select);
+          option.html(&apos;Select a distributor to buy&apos;);
+          $(&apos;&gt;li&apos;, this).each(function(){
+            var option=$(document.createElement(&apos;option&apos;));
+            option.appendTo(select);
+            option.html($(this).html());
+            $(&apos;&gt;a&apos;, this).each(function(){
+             option.val(this.href);
+           });
+          });
+          list.remove();
+        });
     });
   }
 });
