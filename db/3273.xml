@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3273" name="test" prototype="Page" created="1386196659838" lastModified="1386198134852">
+  <hopobject id="3273" name="test" prototype="Page" created="1386196659838" lastModified="1386198594669">
   <hop:parent idref="3269" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.142.42</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>test</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36</http_browser>
-    <time type="date">04.12.2013 17:02:14 CST</time>
+    <time type="date">04.12.2013 17:09:54 CST</time>
     <hopsession>98.250.142.15nsd7gxhowvd</hopsession>
-    <body>&lt;select id=&quot;buy-black&quot;&gt;
+    <body>&lt;select class=&quot;dropdown&quot; id=&quot;buy-black&quot;&gt;
     &lt;optgroup label=&quot;United States&quot;&gt;
         &lt;option&gt;&lt;a href=&quot;http://www.element14.com/nextgenbeaglebone&quot;&gt;Element14 - Farnell/Newark&lt;/a&gt;&lt;/option&gt;
         &lt;option&gt;&lt;a href=&quot;http://www.adafruit.com/products/1278&quot;&gt;Adafruit&lt;/a&gt;&lt;/option&gt;
@@ -26,8 +26,9 @@
         &lt;option&gt;&lt;a href=&quot;http://www.logicsupply.com/products/bb_bblk_000&quot;&gt;Logic Supply&lt;/a&gt;&lt;/option&gt;
         &lt;option&gt;&lt;a href=&quot;http://garagelabstore.com/store/embedded/beagle-bone-black.html&quot;&gt;GarageLab&lt;/a&gt;&lt;/option&gt;
     &lt;/optgroup&gt;
-  &lt;li class=&quot;group&quot;&gt;Argentina&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.openhacks.com/page/productos/id/359&quot;&gt;Openhacks.com&lt;/a&gt;&lt;/li&gt;
+    &lt;optgroup label=&quot;Argentina&quot;&gt;
+        &lt;option&gt;&lt;a href=&quot;http://www.openhacks.com/page/productos/id/359&quot;&gt;Openhacks.com&lt;/a&gt;&lt;/option&gt;    
+    &lt;/optgroup&gt;
   &lt;li class=&quot;group&quot;&gt;Austria&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.tigal.com/product/3406&quot;&gt;Tigal&lt;/a&gt;&lt;/li&gt;
   &lt;li class=&quot;group&quot;&gt;Belgium&lt;/li&gt;
@@ -78,7 +79,7 @@
           var option=$(document.createElement(&apos;option&apos;));
           option.appendTo(select);
           option.html(&apos;Select a distributor to buy&apos;);
-          $(&apos;&gt;li&apos;, this).each(function(){
+          $(&apos;&gt;option&apos;, this).each(function(){
             var option=$(document.createElement(&apos;option&apos;));
             option.appendTo(select);
             option.html($(this).html());
