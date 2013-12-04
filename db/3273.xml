@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3273" name="test" prototype="Page" created="1386196659838" lastModified="1386198594669">
+  <hopobject id="3273" name="test" prototype="Page" created="1386196659838" lastModified="1386199261732">
   <hop:parent idref="3269" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.142.42</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>test</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36</http_browser>
-    <time type="date">04.12.2013 17:09:54 CST</time>
+    <time type="date">04.12.2013 17:21:01 CST</time>
     <hopsession>98.250.142.15nsd7gxhowvd</hopsession>
     <body>&lt;select class=&quot;dropdown&quot; id=&quot;buy-black&quot;&gt;
+    &lt;option&gt;Select a distributor to buy&lt;/option&gt;
     &lt;optgroup label=&quot;United States&quot;&gt;
-        &lt;option&gt;&lt;a href=&quot;http://www.element14.com/nextgenbeaglebone&quot;&gt;Element14 - Farnell/Newark&lt;/a&gt;&lt;/option&gt;
-        &lt;option&gt;&lt;a href=&quot;http://www.adafruit.com/products/1278&quot;&gt;Adafruit&lt;/a&gt;&lt;/option&gt;
+        &lt;option value=&quot;http://www.element14.com/nextgenbeaglebone&quot;&gt;Element14 - Farnell/Newark&lt;/option&gt;
+        &lt;option&gt;&lt;a href=&quot;http://www.adafruit.com/products/1278&quot;&gt;Adafruit&lt;/option&gt;
         &lt;option&gt;&lt;a href=&quot;http://www.digikey.com/product-highlights/us/en/texas-instruments-beagleboard/685#beagleboneNext&quot;&gt;Digi-Key&lt;/a&gt;&lt;/option&gt;
         &lt;option&gt;&lt;a href=&quot;http://www.makershed.com/BeagleBoard_BeagleBone_Black_p/mkcce3.htm?Click=142528&quot;&gt;Maker Shed&lt;/a&gt;&lt;/option&gt;
         &lt;option&gt;&lt;a href=&quot;http://makertronic.com/beaglebone-black&quot;&gt;Makertronic&lt;/a&gt;&lt;/option&gt;
@@ -66,28 +67,15 @@
 &lt;script&gt;
         $(&apos;select.dropdown&apos;).each(function(){
           var list = $(this);
-          var select = $(document.createElement(&apos;select&apos;)).insertBefore($(this).hide());
           var action = list.attr(&apos;id&apos;); 
-          select.change(function(){
-           $(&apos;&gt;option:selected&apos;, this).each(function(){
+          list.change(function(){
+           $(&apos;&gt;:selected&apos;, this).each(function(){
             var label = $(this).text();
             var link = $(this).val();
             _gaq.push([&apos;_trackEvent&apos;, &apos;exit&apos;, action, label]);
             setTimeout(&apos;document.location = &quot;&apos; + link + &apos;&quot;&apos;, 100)
            });
           });
-          var option=$(document.createElement(&apos;option&apos;));
-          option.appendTo(select);
-          option.html(&apos;Select a distributor to buy&apos;);
-          $(&apos;&gt;option&apos;, this).each(function(){
-            var option=$(document.createElement(&apos;option&apos;));
-            option.appendTo(select);
-            option.html($(this).html());
-            $(&apos;&gt;a&apos;, this).each(function(){
-             option.val(this.href);
-           });
-          });
-          list.remove();
         });
 &lt;/script&gt;</body>
     <pseudoparent idref="3269" prototyperef="Page"/>
