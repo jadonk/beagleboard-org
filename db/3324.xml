@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3324" name="HomeEnergy" prototype="Page" created="1387549507128" lastModified="1387549507181">
+  <hop:parent idref="20" prototyperef="Page"/>
+    <edit_skin>edit_project</edit_skin>
+    <updatetime type="date">20.12.2013 08:25:07 CST</updatetime>
+    <uri>HomeEnergy</uri>
+    <time type="date">20.12.2013 08:25:07 CST</time>
+    <pseudoparent idref="20" prototyperef="Page"/>
+    <registrant>moa47401@gmail.com</registrant>
+    <pname>Home Energy Monitor</pname>
+    <user>moa47401@gmail.com</user>
+    <categories></categories>
+    <body>&lt;p&gt;Over the past 10 years I&apos;ve used various micro-controllers and devices to monitor and control my home heating and cooling system, water heater, sump pump, humidifier, AC power, lights, as well as a custom security system. After downsizing and moving into a condo a couple years ago, I also downsized my system toys, much to my wife&apos;s relief. But I am currently using a BeagleBoardXM to monitor our gas furnace and relevant weather datapoints. I thought I would share some of this project with anyone who might be interested.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The heart of the monitoring system is a BeagleBoardXm running Ubuntu 13.04 headless. The program itself is written in Python 2.7.4. Data passed to the program consists of whether the furnace&apos;s gas burner is on or off, the temperature and humidity inside our home and the temperature, wind chill and wind speed outside. These 6 data points are uploaded to Xively every 60 seconds where they are automatically graphed for web analysis. In addition all data is logged to the BeagleBoard&apos;s SD card everytime the status of the furnace changes.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;To be more specific about the hardware, a 24VAC relay is connected to the furnace&apos;s gas valve. It&apos;s normally closed contacts are connected to a digital input pin on a Xbee radio module. The Xbee is&amp;nbsp; set up in I/O line passing mode. When the furnace fires, pin D3 goes High, which is reflected on another Xbee, also running in I/O line passing mode, connected to a USB port on the BeagleBoard. This Xbee then sends a 13 byte packet to the serial port which is read by the Python program.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;I could add more appliances to the Xbee in our utility room, for example, the water heater, clothes washer/dryer and AC power. But for now I&apos;m keeping things minimal.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;To measure the temperature and humidity inside our home, I&apos;m using a Phidgets 8/8/8 Interface Board. Phidgets temperature and humidity sernsors are connected to a couple of its analog inputs. Here again I could add more sensors.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;To get outside conditions, I&apos;m pulling down metadata from WeatherBug.com, parsing its 30 some data elements and retreiving just temperature, wind chill and wind speed. Those seemed to be the things most relevant to how much my furnace runs.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Then as I mentioned, these 6 data elements are uploaded to Xively.com for online viewing. This has come in handy when we are away to make sure things are running OK at home. Here&apos;s a link to my account: It may not always be updating, as I fiddle around with the program.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;I use MobaXterm to SSH into the BeagleBoardXm and WinSCP for more extensive file management, both from my Windows machine through our home network. I did find it necessary to setup a static IP adress for the BBXm.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Some of the Python packages this project uses are: PySerial, Mechanize and Phidgets. I&apos;m using an embedded class from: github.com/mattvenn/cosm to format the data elements into a format suitable for uploading to Xively. Interestingly, Pachube was bought by Cosm and finally by Xively during the years I have been using them to graph my data.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;I also managed to get my sound working and may use it for audible warnings or messages. Perhaps more to come...&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</body>
+    <errmsg></errmsg>
+    <homepage></homepage>
+    <render_skin>project</render_skin>
+    <shortdesc>BeagleBoardXm monitors, reports and logs home furnace and relevant weather data. </shortdesc>
+    <rssfeed></rssfeed>
+  </hopobject>
+</xmlroot>
