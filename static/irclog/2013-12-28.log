@@ -303,3 +303,37 @@
 <li class="quit">[<a href="#T17:57:59" id="T17:57:59"><abbr title="2013-12-28T17:57:59+00:00">17:57:59</abbr></a>] <span>* TooLmaN (~TooLmaN@mail.thomsonplastics.com) Quit (Quit: Off to save the world!)</span></li>
 <li class="join">[<a href="#T17:59:08" id="T17:59:08"><abbr title="2013-12-28T17:59:08+00:00">17:59:08</abbr></a>] <span>* SebastianFlyte (~sebf@pool-173-79-188-107.washdc.fios.verizon.net) has joined #beaglebone</span></li>
 <li class="quit">[<a href="#T17:59:15" id="T17:59:15"><abbr title="2013-12-28T17:59:15+00:00">17:59:15</abbr></a>] <span>* emeb_mac (~ericb@ip68-2-61-225.ph.ph.cox.net) Quit (Quit: emeb_mac)</span></li>
+<li class="join">[<a href="#T18:02:18" id="T18:02:18"><abbr title="2013-12-28T18:02:18+00:00">18:02:18</abbr></a>] <span>* Nemo_ (b068b93c@gateway/web/freenode/ip.176.104.185.60) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:02:32" id="T18:02:32"><abbr title="2013-12-28T18:02:32+00:00">18:02:32</abbr></a>] &lt;<cite>Nemo_</cite>&gt; <q>hello everyone!</q></li>
+<li class="message">[<a href="#T18:03:24" id="T18:03:24"><abbr title="2013-12-28T18:03:24+00:00">18:03:24</abbr></a>] &lt;<cite>Nemo_</cite>&gt; <q>I have a problem, my simple program for blinkign LED is using 90 % CPU load</q></li>
+<li class="message">[<a href="#T18:03:38" id="T18:03:38"><abbr title="2013-12-28T18:03:38+00:00">18:03:38</abbr></a>] &lt;<cite>Nemo_</cite>&gt; <q>why is it?</q></li>
+<li class="message">[<a href="#T18:04:22" id="T18:04:22"><abbr title="2013-12-28T18:04:22+00:00">18:04:22</abbr></a>] &lt;<cite>SpeedEvil</cite>&gt; <q>because you're presumably doing:</q></li>
+<li class="message">[<a href="#T18:04:40" id="T18:04:40"><abbr title="2013-12-28T18:04:40+00:00">18:04:40</abbr></a>] &lt;<cite>SpeedEvil</cite>&gt; <q>for(x=0;x&lt;100000;x++)flashLED()</q></li>
+<li class="message">[<a href="#T18:04:51" id="T18:04:51"><abbr title="2013-12-28T18:04:51+00:00">18:04:51</abbr></a>] &lt;<cite>SpeedEvil</cite>&gt; <q>instead of using sleep calls to do the waiting</q></li>
+<li class="quit">[<a href="#T18:07:52" id="T18:07:52"><abbr title="2013-12-28T18:07:52+00:00">18:07:52</abbr></a>] <span>* Nemo_ (b068b93c@gateway/web/freenode/ip.176.104.185.60) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T18:10:16" id="T18:10:16"><abbr title="2013-12-28T18:10:16+00:00">18:10:16</abbr></a>] <span>* Nemo_ (b068b93c@gateway/web/freenode/ip.176.104.185.60) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:14:49" id="T18:14:49"><abbr title="2013-12-28T18:14:49+00:00">18:14:49</abbr></a>] <span>* Nemo_ (b068b93c@gateway/web/freenode/ip.176.104.185.60) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T18:15:43" id="T18:15:43"><abbr title="2013-12-28T18:15:43+00:00">18:15:43</abbr></a>] <span>* Nemo_ (b068b93c@gateway/web/freenode/ip.176.104.185.60) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:15:47" id="T18:15:47"><abbr title="2013-12-28T18:15:47+00:00">18:15:47</abbr></a>] &lt;<cite>Nemo_</cite>&gt; <q>void LedBlink() {  for(;;) { 	LedOn(); 	uslee(500*1000);         Led0ff(); 	uslee(500*1000); }  }  int main void {  pthread_create();  while(); }</q></li>
+<li class="join">[<a href="#T18:16:08" id="T18:16:08"><abbr title="2013-12-28T18:16:08+00:00">18:16:08</abbr></a>] <span>* honschu (~honschu@p549EAA8B.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2013-12-28T18:16:08+00:00">18:16:08</abbr>] <span>* honschu (~honschu@p549EAA8B.dip0.t-ipconnect.de) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2013-12-28T18:16:08+00:00">18:16:08</abbr>] <span>* honschu (~honschu@shackspace/j4fun) has joined #beagle</span></li>
+<li class="message">[<a href="#T18:16:36" id="T18:16:36"><abbr title="2013-12-28T18:16:36+00:00">18:16:36</abbr></a>] &lt;<cite>Nemo_</cite>&gt; <q>this is my program. There 1 thread for blink led, and this program usign 90% cpu time. I don't understand why...</q></li>
+<li class="message">[<a href="#T18:17:01" id="T18:17:01"><abbr title="2013-12-28T18:17:01+00:00">18:17:01</abbr></a>] &lt;<cite>Nemo_</cite>&gt; <q>I'm not usign for</q></li>
+<li class="message">[<a href="#T18:17:10" id="T18:17:10"><abbr title="2013-12-28T18:17:10+00:00">18:17:10</abbr></a>] &lt;<cite>Nemo_</cite>&gt; <q>olnly usleep functions</q></li>
+<li class="quit">[<a href="#T18:19:51" id="T18:19:51"><abbr title="2013-12-28T18:19:51+00:00">18:19:51</abbr></a>] <span>* honschu_ (~honschu@shackspace/j4fun) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="quit">[<a href="#T18:21:50" id="T18:21:50"><abbr title="2013-12-28T18:21:50+00:00">18:21:50</abbr></a>] <span>* Nemo_ (b068b93c@gateway/web/freenode/ip.176.104.185.60) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T18:22:50" id="T18:22:50"><abbr title="2013-12-28T18:22:50+00:00">18:22:50</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>usleep should not buy wait</q></li>
+<li class="message">[<a href="#T18:22:52" id="T18:22:52"><abbr title="2013-12-28T18:22:52+00:00">18:22:52</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>busy</q></li>
+<li class="message">[<a href="#T18:24:26" id="T18:24:26"><abbr title="2013-12-28T18:24:26+00:00">18:24:26</abbr></a>] &lt;<cite>honestly</cite>&gt; <q>while():</q></li>
+<li class="message">[<a href="#T18:24:31" id="T18:24:31"><abbr title="2013-12-28T18:24:31+00:00">18:24:31</abbr></a>] &lt;<cite>honestly</cite>&gt; <q>while();*</q></li>
+<li class="message">[<a href="#T18:24:37" id="T18:24:37"><abbr title="2013-12-28T18:24:37+00:00">18:24:37</abbr></a>] &lt;<cite>honestly</cite>&gt; <q>will busy wait...</q></li>
+<li class="quit">[<a href="#T18:25:03" id="T18:25:03"><abbr title="2013-12-28T18:25:03+00:00">18:25:03</abbr></a>] <span>* orhan89 (~orhan89@103.10.171.14) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T18:26:08" id="T18:26:08"><abbr title="2013-12-28T18:26:08+00:00">18:26:08</abbr></a>] <span>* orhan89 (~orhan89@103.10.171.14) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:29:26" id="T18:29:26"><abbr title="2013-12-28T18:29:26+00:00">18:29:26</abbr></a>] <span>* TooLmaN (~TooLmaN@mx1.thomsonplastics.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:37:13" id="T18:37:13"><abbr title="2013-12-28T18:37:13+00:00">18:37:13</abbr></a>] <span>* kuldeepdhaka (~kuldeepdh@117.254.221.164) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T18:47:31" id="T18:47:31"><abbr title="2013-12-28T18:47:31+00:00">18:47:31</abbr></a>] <span>* TooLmaN (~TooLmaN@mx1.thomsonplastics.com) Quit (Quit: Off to save the world!)</span></li>
+<li class="join">[<a href="#T18:47:38" id="T18:47:38"><abbr title="2013-12-28T18:47:38+00:00">18:47:38</abbr></a>] <span>* Calc (~Calc@c-76-100-81-122.hsd1.md.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T18:48:32" id="T18:48:32"><abbr title="2013-12-28T18:48:32+00:00">18:48:32</abbr></a>] <span>* vamc19 (~quassel@122.179.29.43) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T18:52:38" id="T18:52:38"><abbr title="2013-12-28T18:52:38+00:00">18:52:38</abbr></a>] <span>* riskable (~quassel@2601:e:8c00:7e:15da:bb84:e446:ed1f) has joined #beagle</span></li>
+<li class="join">[<a href="#T18:56:29" id="T18:56:29"><abbr title="2013-12-28T18:56:29+00:00">18:56:29</abbr></a>] <span>* kuldeepdhaka (~kuldeepdh@117.254.222.63) has joined #beagle</span></li>
