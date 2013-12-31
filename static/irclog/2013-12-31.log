@@ -420,3 +420,97 @@
 <li class="quit">[<a href="#T14:49:23" id="T14:49:23"><abbr title="2013-12-31T14:49:23+00:00">14:49:23</abbr></a>] <span>* misterx (~misterx@66.135.169.216.client.static.strong-dc33.as62651.net) Quit (Quit: gone)</span></li>
 <li class="quit">[<a href="#T14:52:43" id="T14:52:43"><abbr title="2013-12-31T14:52:43+00:00">14:52:43</abbr></a>] <span>* konradoo77 (~debian@81.6.139.17) Quit (Quit: leaving)</span></li>
 <li class="join">[<a href="#T14:52:57" id="T14:52:57"><abbr title="2013-12-31T14:52:57+00:00">14:52:57</abbr></a>] <span>* konradoo77 (~debian@81.6.139.17) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:03:17" id="T15:03:17"><abbr title="2013-12-31T15:03:17+00:00">15:03:17</abbr></a>] <span>* konradoo77 (~debian@81.6.139.17) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T15:09:52" id="T15:09:52"><abbr title="2013-12-31T15:09:52+00:00">15:09:52</abbr></a>] <span>* konradoo77 (~debian@81.6.139.17) has joined #beagle</span></li>
+<li class="quit">[<a href="#T15:10:46" id="T15:10:46"><abbr title="2013-12-31T15:10:46+00:00">15:10:46</abbr></a>] <span>* felipealmeida (~user@179.210.237.70) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T15:11:23" id="T15:11:23"><abbr title="2013-12-31T15:11:23+00:00">15:11:23</abbr></a>] <span>* konradoo77 (~debian@81.6.139.17) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T15:14:40" id="T15:14:40"><abbr title="2013-12-31T15:14:40+00:00">15:14:40</abbr></a>] <span>* Calc (~Calc@c-76-100-81-122.hsd1.md.comcast.net) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T15:18:28" id="T15:18:28"><abbr title="2013-12-31T15:18:28+00:00">15:18:28</abbr></a>] <span>* Zygo` is now known as Zygo</span></li>
+<li class="quit">[<a href="#T15:25:16" id="T15:25:16"><abbr title="2013-12-31T15:25:16+00:00">15:25:16</abbr></a>] <span>* Calc (~Calc@c-76-100-81-122.hsd1.md.comcast.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T15:25:59" id="T15:25:59"><abbr title="2013-12-31T15:25:59+00:00">15:25:59</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>musufu: confirmed, BBB Uart1 rts dons't work</q></li>
+<li class="message">[<a href="#T15:26:50" id="T15:26:50"><abbr title="2013-12-31T15:26:50+00:00">15:26:50</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>oscilloscope connected directly to the pin</q></li>
+<li class="message">[<a href="#T15:27:03" id="T15:27:03"><abbr title="2013-12-31T15:27:03+00:00">15:27:03</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>:[ strange, thinking that also might be related with pinmux,</q></li>
+<li class="message">[<a href="#T15:27:08" id="T15:27:08"><abbr title="2013-12-31T15:27:08+00:00">15:27:08</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>let me check</q></li>
+<li class="message">[<a href="#T15:27:12" id="T15:27:12"><abbr title="2013-12-31T15:27:12+00:00">15:27:12</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>which pin is it?</q></li>
+<li class="message">[<a href="#T15:27:27" id="T15:27:27"><abbr title="2013-12-31T15:27:27+00:00">15:27:27</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>P9_19</q></li>
+<li class="message">[<a href="#T15:30:01" id="T15:30:01"><abbr title="2013-12-31T15:30:01+00:00">15:30:01</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>hmm looks like that pin is rtsn in default</q></li>
+<li class="message">[<a href="#T15:30:08" id="T15:30:08"><abbr title="2013-12-31T15:30:08+00:00">15:30:08</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>but</q></li>
+<li class="message">[<a href="#T15:30:14" id="T15:30:14"><abbr title="2013-12-31T15:30:14+00:00">15:30:14</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>says uart1_rtsn</q></li>
+<li class="message">[<a href="#T15:30:29" id="T15:30:29"><abbr title="2013-12-31T15:30:29+00:00">15:30:29</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>probably meaning inverted maybe? the 'n' at the end</q></li>
+<li class="message">[<a href="#T15:31:43" id="T15:31:43"><abbr title="2013-12-31T15:31:43+00:00">15:31:43</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:31:57" id="T15:31:57"><abbr title="2013-12-31T15:31:57+00:00">15:31:57</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>sorry what does it mean rtsn?</q></li>
+<li class="message">[<a href="#T15:32:00" id="T15:32:00"><abbr title="2013-12-31T15:32:00+00:00">15:32:00</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>null?</q></li>
+<li class="message">[<a href="#T15:32:04" id="T15:32:04"><abbr title="2013-12-31T15:32:04+00:00">15:32:04</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T15:32:05" id="T15:32:05"><abbr title="2013-12-31T15:32:05+00:00">15:32:05</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>inverted</q></li>
+<li class="message">[<a href="#T15:32:08" id="T15:32:08"><abbr title="2013-12-31T15:32:08+00:00">15:32:08</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T15:32:23" id="T15:32:23"><abbr title="2013-12-31T15:32:23+00:00">15:32:23</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>means; it's gonna be HIGH (3.3) when you expect a binary 0</q></li>
+<li class="message">[<a href="#T15:32:37" id="T15:32:37"><abbr title="2013-12-31T15:32:37+00:00">15:32:37</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>and it's gonna be LOW (0v) when you expect a binary 1</q></li>
+<li class="message">[<a href="#T15:32:42" id="T15:32:42"><abbr title="2013-12-31T15:32:42+00:00">15:32:42</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>yes its</q></li>
+<li class="message">[<a href="#T15:33:14" id="T15:33:14"><abbr title="2013-12-31T15:33:14+00:00">15:33:14</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T15:33:44" id="T15:33:44"><abbr title="2013-12-31T15:33:44+00:00">15:33:44</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>it's possible to invert without hardware</q></li>
+<li class="message">[<a href="#T15:33:51" id="T15:33:51"><abbr title="2013-12-31T15:33:51+00:00">15:33:51</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T15:34:40" id="T15:34:40"><abbr title="2013-12-31T15:34:40+00:00">15:34:40</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>i'm using max485</q></li>
+<li class="message">[<a href="#T15:34:47" id="T15:34:47"><abbr title="2013-12-31T15:34:47+00:00">15:34:47</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>1st, I'm not sure if it's really inverted, just guessing from the 'n' in the name</q></li>
+<li class="message">[<a href="#T15:34:49" id="T15:34:49"><abbr title="2013-12-31T15:34:49+00:00">15:34:49</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>for RE/DE</q></li>
+<li class="message">[<a href="#T15:35:23" id="T15:35:23"><abbr title="2013-12-31T15:35:23+00:00">15:35:23</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>btw, I found someone else trying to use beaglebone for rs485</q></li>
+<li class="message">[<a href="#T15:35:27" id="T15:35:27"><abbr title="2013-12-31T15:35:27+00:00">15:35:27</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>see this link; <a href="https://groups.google.com/forum/#!topic/beagleboard/-qnUNuiY_AI">https://groups.google.com/forum/#!topic/beagleboard/-qnUNuiY_AI</a></q></li>
+<li class="join">[<a href="#T15:35:40" id="T15:35:40"><abbr title="2013-12-31T15:35:40+00:00">15:35:40</abbr></a>] <span>* zmatt (~zmatt@gerbil.xs4all.nl) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:36:28" id="T15:36:28"><abbr title="2013-12-31T15:36:28+00:00">15:36:28</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:36:32" id="T15:36:32"><abbr title="2013-12-31T15:36:32+00:00">15:36:32</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>thansk musufu: but I'know this post but its using rs485 cape</q></li>
+<li class="join">[<a href="#T15:36:48" id="T15:36:48"><abbr title="2013-12-31T15:36:48+00:00">15:36:48</abbr></a>] <span>* Tenkawa (~Tenkawa@unaffiliated/tenkawa) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:36:59" id="T15:36:59"><abbr title="2013-12-31T15:36:59+00:00">15:36:59</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>hmm :[</q></li>
+<li class="message">[<a href="#T15:37:25" id="T15:37:25"><abbr title="2013-12-31T15:37:25+00:00">15:37:25</abbr></a>] &lt;<cite>Tenkawa</cite>&gt; <q>keep forgetting i have this irc client</q></li>
+<li class="message">[<a href="#T15:37:36" id="T15:37:36"><abbr title="2013-12-31T15:37:36+00:00">15:37:36</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>ah, see this link, <a href="http://support.criticallink.com/redmine/projects/armc8-platforms/wiki/Driving_RS-485_transceivers">http://support.criticallink.com/redmine/projects/armc8-platforms/wiki/Driving_RS-485_transceivers</a></q></li>
+<li class="join">[<a href="#T15:37:52" id="T15:37:52"><abbr title="2013-12-31T15:37:52+00:00">15:37:52</abbr></a>] <span>* dj_pi (~dj@c-107-5-25-243.hsd1.mi.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:37:54" id="T15:37:54"><abbr title="2013-12-31T15:37:54+00:00">15:37:54</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>it just disables rts :D</q></li>
+<li class="message">[<a href="#T15:37:56" id="T15:37:56"><abbr title="2013-12-31T15:37:56+00:00">15:37:56</abbr></a>] &lt;<cite>Tenkawa</cite>&gt; <q>whats up,</q></li>
+<li class="message">[<a href="#T15:37:58" id="T15:37:58"><abbr title="2013-12-31T15:37:58+00:00">15:37:58</abbr></a>] &lt;<cite>Tenkawa</cite>&gt; <q>er ?</q></li>
+<li class="message">[<a href="#T15:38:17" id="T15:38:17"><abbr title="2013-12-31T15:38:17+00:00">15:38:17</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>and manually enables TXE pin with a gpio</q></li>
+<li class="message">[<a href="#T15:38:34" id="T15:38:34"><abbr title="2013-12-31T15:38:34+00:00">15:38:34</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>musufu : o_O</q></li>
+<li class="message">[<a href="#T15:38:39" id="T15:38:39"><abbr title="2013-12-31T15:38:39+00:00">15:38:39</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>:)??</q></li>
+<li class="message">[<a href="#T15:39:45" id="T15:39:45"><abbr title="2013-12-31T15:39:45+00:00">15:39:45</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>you can even make txe pin always high, probably no need to use a gpio for it</q></li>
+<li class="message">[<a href="#T15:40:09" id="T15:40:09"><abbr title="2013-12-31T15:40:09+00:00">15:40:09</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>what was your 485 IC?</q></li>
+<li class="message">[<a href="#T15:40:13" id="T15:40:13"><abbr title="2013-12-31T15:40:13+00:00">15:40:13</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>no replies from the remote devices?</q></li>
+<li class="message">[<a href="#T15:41:16" id="T15:41:16"><abbr title="2013-12-31T15:41:16+00:00">15:41:16</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>zmatt: not sure about rs485 but, rx and tx lines are separate, and both of them are active always like this, isn't it?</q></li>
+<li class="quit">[<a href="#T15:41:29" id="T15:41:29"><abbr title="2013-12-31T15:41:29+00:00">15:41:29</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T15:41:53" id="T15:41:53"><abbr title="2013-12-31T15:41:53+00:00">15:41:53</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>A and B in that diagram are a differential pair, not tx/rx lines</q></li>
+<li class="message">[<a href="#T15:41:58" id="T15:41:58"><abbr title="2013-12-31T15:41:58+00:00">15:41:58</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>aaa</q></li>
+<li class="message">[<abbr title="2013-12-31T15:41:58+00:00">15:41:58</abbr>] &lt;<cite>zmatt</cite>&gt; <q>485 is half-duplex</q></li>
+<li class="quit">[<a href="#T15:42:08" id="T15:42:08"><abbr title="2013-12-31T15:42:08+00:00">15:42:08</abbr></a>] <span>* Tenkawa (~Tenkawa@unaffiliated/tenkawa) Quit (Quit: Bye)</span></li>
+<li class="message">[<a href="#T15:42:14" id="T15:42:14"><abbr title="2013-12-31T15:42:14+00:00">15:42:14</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>and you need to enable/disable TXE pin to control it?</q></li>
+<li class="message">[<a href="#T15:42:23" id="T15:42:23"><abbr title="2013-12-31T15:42:23+00:00">15:42:23</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>normally you'd tie TXE and nRXE together to switch direction</q></li>
+<li class="message">[<a href="#T15:42:39" id="T15:42:39"><abbr title="2013-12-31T15:42:39+00:00">15:42:39</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>with nRXE tied to ground like this, you'll receive an echo of your own signal</q></li>
+<li class="message">[<a href="#T15:42:52" id="T15:42:52"><abbr title="2013-12-31T15:42:52+00:00">15:42:52</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:43:05" id="T15:43:05"><abbr title="2013-12-31T15:43:05+00:00">15:43:05</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>ah didn't know and went a bit overboard :D sorry</q></li>
+<li class="quit">[<a href="#T15:43:46" id="T15:43:46"><abbr title="2013-12-31T15:43:46+00:00">15:43:46</abbr></a>] <span>* Geminizer (~Geminizer@cpe-76-180-17-14.buffalo.res.rr.com) Quit (Quit: Leaving...)</span></li>
+<li class="message">[<a href="#T15:44:17" id="T15:44:17"><abbr title="2013-12-31T15:44:17+00:00">15:44:17</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>ah, you mean connect RXE and TXE to the same gpio? (since RXE is inverted), and control it like that? :) that makes sense</q></li>
+<li class="message">[<a href="#T15:44:28" id="T15:44:28"><abbr title="2013-12-31T15:44:28+00:00">15:44:28</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T15:44:52" id="T15:44:52"><abbr title="2013-12-31T15:44:52+00:00">15:44:52</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>ah, ok thanks :) enlightened a bit more</q></li>
+<li class="message">[<a href="#T15:44:54" id="T15:44:54"><abbr title="2013-12-31T15:44:54+00:00">15:44:54</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>that's the normal use, hence they conveniently inverted one of the signals</q></li>
+<li class="join">[<a href="#T15:46:46" id="T15:46:46"><abbr title="2013-12-31T15:46:46+00:00">15:46:46</abbr></a>] <span>* crondor (~crondor@91.210.100.70) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T15:46:59" id="T15:46:59"><abbr title="2013-12-31T15:46:59+00:00">15:46:59</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>though half-duplex, 485 is still nice though... with proper quality cable it reached like &gt;1000 meters</q></li>
+<li class="message">[<a href="#T15:47:06" id="T15:47:06"><abbr title="2013-12-31T15:47:06+00:00">15:47:06</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>try that with rs-232 ;)</q></li>
+<li class="message">[<a href="#T15:48:18" id="T15:48:18"><abbr title="2013-12-31T15:48:18+00:00">15:48:18</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>(don't forget the bus terminator with such lengths though)</q></li>
+<li class="join">[<a href="#T15:48:37" id="T15:48:37"><abbr title="2013-12-31T15:48:37+00:00">15:48:37</abbr></a>] <span>* chaconne (~chaconne@91.210.103.193) has joined #beagle</span></li>
+<li class="join">[<a href="#T15:48:58" id="T15:48:58"><abbr title="2013-12-31T15:48:58+00:00">15:48:58</abbr></a>] <span>* burundukc (~burundukc@91.210.100.119) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T15:49:23" id="T15:49:23"><abbr title="2013-12-31T15:49:23+00:00">15:49:23</abbr></a>] <span>* Geminizer (~Geminizer@cpe-76-180-17-14.buffalo.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T15:51:10" id="T15:51:10"><abbr title="2013-12-31T15:51:10+00:00">15:51:10</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>eps</q></li>
+<li class="message">[<a href="#T15:51:16" id="T15:51:16"><abbr title="2013-12-31T15:51:16+00:00">15:51:16</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>sorry I read now</q></li>
+<li class="message">[<a href="#T15:51:21" id="T15:51:21"><abbr title="2013-12-31T15:51:21+00:00">15:51:21</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>I'm triying :)</q></li>
+<li class="message">[<a href="#T15:52:01" id="T15:52:01"><abbr title="2013-12-31T15:52:01+00:00">15:52:01</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>good luck :)</q></li>
+<li class="message">[<a href="#T15:52:44" id="T15:52:44"><abbr title="2013-12-31T15:52:44+00:00">15:52:44</abbr></a>] &lt;<cite>N2TOH</cite>&gt; <q>zmatt, more like 1000 &lt; meters with RS485</q></li>
+<li class="message">[<a href="#T15:53:17" id="T15:53:17"><abbr title="2013-12-31T15:53:17+00:00">15:53:17</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>DMX (which uses it) has official max cable length of 1200m with a bus load of 32 devices</q></li>
+<li class="message">[<a href="#T15:53:51" id="T15:53:51"><abbr title="2013-12-31T15:53:51+00:00">15:53:51</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>for other protocols it will depend on the bitrate though</q></li>
+<li class="message">[<a href="#T15:55:16" id="T15:55:16"><abbr title="2013-12-31T15:55:16+00:00">15:55:16</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>zmatt:Thanks for your notes</q></li>
+<li class="message">[<a href="#T15:55:38" id="T15:55:38"><abbr title="2013-12-31T15:55:38+00:00">15:55:38</abbr></a>] &lt;<cite>N2TOH</cite>&gt; <q>yes the bit rate has alot to do with the limitation</q></li>
+<li class="message">[<a href="#T15:55:42" id="T15:55:42"><abbr title="2013-12-31T15:55:42+00:00">15:55:42</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>zmatt : yes you are correct but it's my first time with beaglebone black</q></li>
+<li class="message">[<a href="#T15:55:47" id="T15:55:47"><abbr title="2013-12-31T15:55:47+00:00">15:55:47</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>with rs485</q></li>
+<li class="message">[<a href="#T15:55:51" id="T15:55:51"><abbr title="2013-12-31T15:55:51+00:00">15:55:51</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>of course even a single shitty device can ruin things... we've seen DMX fixtures which simply connected (-) to its GND and (+) to a TTL input</q></li>
+<li class="message">[<a href="#T15:56:03" id="T15:56:03"><abbr title="2013-12-31T15:56:03+00:00">15:56:03</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>bye bye bus</q></li>
+<li class="message">[<a href="#T15:56:24" id="T15:56:24"><abbr title="2013-12-31T15:56:24+00:00">15:56:24</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>(and with a bit of luck, hello ground-loop)</q></li>
+<li class="message">[<a href="#T15:56:50" id="T15:56:50"><abbr title="2013-12-31T15:56:50+00:00">15:56:50</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T15:56:52" id="T15:56:52"><abbr title="2013-12-31T15:56:52+00:00">15:56:52</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>brilliant</q></li>
+<li class="message">[<a href="#T15:57:02" id="T15:57:02"><abbr title="2013-12-31T15:57:02+00:00">15:57:02</abbr></a>] &lt;<cite>musufu</cite>&gt; <q>improvising technician</q></li>
+<li class="message">[<a href="#T15:57:43" id="T15:57:43"><abbr title="2013-12-31T15:57:43+00:00">15:57:43</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>"it worked fine when we tried it"</q></li>
+<li class="quit">[<a href="#T15:58:07" id="T15:58:07"><abbr title="2013-12-31T15:58:07+00:00">15:58:07</abbr></a>] <span>* Jinx (~Jinx@unaffiliated/jinx) Quit (Quit: reboot)</span></li>
+<li class="message">[<a href="#T15:59:35" id="T15:59:35"><abbr title="2013-12-31T15:59:35+00:00">15:59:35</abbr></a>] &lt;<cite>salaet</cite>&gt; <q>zmatt: with BBB?</q></li>
