@@ -436,3 +436,71 @@
 <li class="message">[<a href="#T10:57:44" id="T10:57:44"><abbr title="2014-01-23T10:57:44+00:00">10:57:44</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>hi</q></li>
 <li class="message">[<a href="#T10:58:19" id="T10:58:19"><abbr title="2014-01-23T10:58:19+00:00">10:58:19</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>i had an issue with device tree while adding device info on beagle bone black</q></li>
 <li class="message">[<a href="#T10:58:48" id="T10:58:48"><abbr title="2014-01-23T10:58:48+00:00">10:58:48</abbr></a>] &lt;<cite>sefat</cite>&gt; <q>okay thank u</q></li>
+<li class="message">[<a href="#T11:00:12" id="T11:00:12"><abbr title="2014-01-23T11:00:12+00:00">11:00:12</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>while i am compiling "make dtbs" its showing syntax error</q></li>
+<li class="message">[<a href="#T11:02:32" id="T11:02:32"><abbr title="2014-01-23T11:02:32+00:00">11:02:32</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>maybe your devicetree changes introduced a syntax error then?</q></li>
+<li class="message">[<a href="#T11:04:28" id="T11:04:28"><abbr title="2014-01-23T11:04:28+00:00">11:04:28</abbr></a>] &lt;<cite>vikky</cite>&gt; <q>gfr</q></li>
+<li class="part">[<a href="#T11:04:32" id="T11:04:32"><abbr title="2014-01-23T11:04:32+00:00">11:04:32</abbr></a>] <span>* vikky (7aa4cf9c@gateway/web/freenode/ip.122.164.207.156) has left #beagle</span></li>
+<li class="message">[<a href="#T11:06:29" id="T11:06:29"><abbr title="2014-01-23T11:06:29+00:00">11:06:29</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>i have added this code <a href="http://pastebin.com/dwkaKqaB">http://pastebin.com/dwkaKqaB</a></q></li>
+<li class="message">[<a href="#T11:07:23" id="T11:07:23"><abbr title="2014-01-23T11:07:23+00:00">11:07:23</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>after "make dtbs" its giving make dts Error: arch/arm/boot/dts/am335x-boneblack.dts syntax error FATAL ERROR: Unable to parse input tree</q></li>
+<li class="message">[<a href="#T11:07:44" id="T11:07:44"><abbr title="2014-01-23T11:07:44+00:00">11:07:44</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>it should give you the line number of where it went wrong too</q></li>
+<li class="message">[<a href="#T11:07:56" id="T11:07:56"><abbr title="2014-01-23T11:07:56+00:00">11:07:56</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>yes its giving that too</q></li>
+<li class="message">[<a href="#T11:08:21" id="T11:08:21"><abbr title="2014-01-23T11:08:21+00:00">11:08:21</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>but removed that its giving exactly over here i2c1: i2c@4802a000 {</q></li>
+<li class="message">[<a href="#T11:08:55" id="T11:08:55"><abbr title="2014-01-23T11:08:55+00:00">11:08:55</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>pastebin the whole error and the whole dts</q></li>
+<li class="message">[<a href="#T11:09:06" id="T11:09:06"><abbr title="2014-01-23T11:09:06+00:00">11:09:06</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T11:13:05" id="T11:13:05"><abbr title="2014-01-23T11:13:05+00:00">11:13:05</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q><a href="http://pastebin.com/4NBUAGxp">http://pastebin.com/4NBUAGxp</a></q></li>
+<li class="message">[<a href="#T11:13:55" id="T11:13:55"><abbr title="2014-01-23T11:13:55+00:00">11:13:55</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>I think you need an &amp; before i2c1</q></li>
+<li class="message">[<a href="#T11:14:30" id="T11:14:30"><abbr title="2014-01-23T11:14:30+00:00">11:14:30</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>ah, wait, probably not, if that is the first declared instance of i2c1?</q></li>
+<li class="message">[<a href="#T11:15:18" id="T11:15:18"><abbr title="2014-01-23T11:15:18+00:00">11:15:18</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>basically in header file its declared</q></li>
+<li class="message">[<a href="#T11:15:34" id="T11:15:34"><abbr title="2014-01-23T11:15:34+00:00">11:15:34</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>yes, i2c1 is declared in am335x-bone-common</q></li>
+<li class="message">[<a href="#T11:15:45" id="T11:15:45"><abbr title="2014-01-23T11:15:45+00:00">11:15:45</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>status = "disabled"</q></li>
+<li class="message">[<a href="#T11:15:48" id="T11:15:48"><abbr title="2014-01-23T11:15:48+00:00">11:15:48</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>you need to change line 19 to:</q></li>
+<li class="message">[<a href="#T11:15:54" id="T11:15:54"><abbr title="2014-01-23T11:15:54+00:00">11:15:54</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>&amp;i2c1 {</q></li>
+<li class="message">[<a href="#T11:16:00" id="T11:16:00"><abbr title="2014-01-23T11:16:00+00:00">11:16:00</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>you don't need to redefine it</q></li>
+<li class="message">[<a href="#T11:16:11" id="T11:16:11"><abbr title="2014-01-23T11:16:11+00:00">11:16:11</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>i did that i took node name as refernce</q></li>
+<li class="message">[<a href="#T11:17:04" id="T11:17:04"><abbr title="2014-01-23T11:17:04+00:00">11:17:04</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>then there is no error but after compiling we get &lt;filename&gt;.dtb, i converted again to &lt;filename&gt;.dts</q></li>
+<li class="message">[<a href="#T11:17:21" id="T11:17:21"><abbr title="2014-01-23T11:17:21+00:00">11:17:21</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>to check this is included or not</q></li>
+<li class="message">[<a href="#T11:17:30" id="T11:17:30"><abbr title="2014-01-23T11:17:30+00:00">11:17:30</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>i couldnt find...</q></li>
+<li class="message">[<a href="#T11:17:44" id="T11:17:44"><abbr title="2014-01-23T11:17:44+00:00">11:17:44</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>why don't you try booting it and then reading the device tree from the running kernel</q></li>
+<li class="message">[<a href="#T11:18:10" id="T11:18:10"><abbr title="2014-01-23T11:18:10+00:00">11:18:10</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>yes i did i have written a driver with minimal probe</q></li>
+<li class="message">[<a href="#T11:18:27" id="T11:18:27"><abbr title="2014-01-23T11:18:27+00:00">11:18:27</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>and i2c1 wasn't present?</q></li>
+<li class="message">[<a href="#T11:18:28" id="T11:18:28"><abbr title="2014-01-23T11:18:28+00:00">11:18:28</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>am able to insert the driver but my probe is not called</q></li>
+<li class="message">[<a href="#T11:19:29" id="T11:19:29"><abbr title="2014-01-23T11:19:29+00:00">11:19:29</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>and no errors in dmesg?</q></li>
+<li class="message">[<a href="#T11:19:37" id="T11:19:37"><abbr title="2014-01-23T11:19:37+00:00">11:19:37</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>no errors...</q></li>
+<li class="message">[<a href="#T11:19:56" id="T11:19:56"><abbr title="2014-01-23T11:19:56+00:00">11:19:56</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>get that printk out and start following it back then I'm afraid</q></li>
+<li class="message">[<a href="#T11:19:57" id="T11:19:57"><abbr title="2014-01-23T11:19:57+00:00">11:19:57</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>so what happens if i redclare no issues write</q></li>
+<li class="join">[<a href="#T11:20:00" id="T11:20:00"><abbr title="2014-01-23T11:20:00+00:00">11:20:00</abbr></a>] <span>* jcw_ (~jcw@66-168-197-164.dhcp.gsvl.ga.charter.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:20:01" id="T11:20:01"><abbr title="2014-01-23T11:20:01+00:00">11:20:01</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>it has to include</q></li>
+<li class="message">[<a href="#T11:20:18" id="T11:20:18"><abbr title="2014-01-23T11:20:18+00:00">11:20:18</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>I doubt it is devicetree related if it's compiling fine and there are no errors on boot</q></li>
+<li class="message">[<a href="#T11:20:28" id="T11:20:28"><abbr title="2014-01-23T11:20:28+00:00">11:20:28</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>no errors</q></li>
+<li class="message">[<a href="#T11:21:31" id="T11:21:31"><abbr title="2014-01-23T11:21:31+00:00">11:21:31</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>the only other thing is maybe the pinmuxing</q></li>
+<li class="message">[<a href="#T11:21:35" id="T11:21:35"><abbr title="2014-01-23T11:21:35+00:00">11:21:35</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>I don't see any in your dts</q></li>
+<li class="message">[<a href="#T11:21:38" id="T11:21:38"><abbr title="2014-01-23T11:21:38+00:00">11:21:38</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>for iec2</q></li>
+<li class="message">[<a href="#T11:21:46" id="T11:21:46"><abbr title="2014-01-23T11:21:46+00:00">11:21:46</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>i2c1*</q></li>
+<li class="message">[<a href="#T11:21:48" id="T11:21:48"><abbr title="2014-01-23T11:21:48+00:00">11:21:48</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T11:22:07" id="T11:22:07"><abbr title="2014-01-23T11:22:07+00:00">11:22:07</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>see there are couple of included files</q></li>
+<li class="message">[<a href="#T11:22:21" id="T11:22:21"><abbr title="2014-01-23T11:22:21+00:00">11:22:21</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>in one of the included file pin muxing details are there</q></li>
+<li class="message">[<a href="#T11:22:41" id="T11:22:41"><abbr title="2014-01-23T11:22:41+00:00">11:22:41</abbr></a>] &lt;<cite>jackmitchell</cite>&gt; <q>for i2c1? and you are enabling the pinmux where?</q></li>
+<li class="message">[<a href="#T11:23:52" id="T11:23:52"><abbr title="2014-01-23T11:23:52+00:00">11:23:52</abbr></a>] &lt;<cite>linuxbot_</cite>&gt; <q>ok</q></li>
+<li class="quit">[<a href="#T11:25:25" id="T11:25:25"><abbr title="2014-01-23T11:25:25+00:00">11:25:25</abbr></a>] <span>* trigpoint_n9 (~trigpoint@149.254.186.235) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="join">[<a href="#T11:27:27" id="T11:27:27"><abbr title="2014-01-23T11:27:27+00:00">11:27:27</abbr></a>] <span>* [olli] (~olli@213.33.214.246) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:29:03" id="T11:29:03"><abbr title="2014-01-23T11:29:03+00:00">11:29:03</abbr></a>] <span>* sefat (7282408c@gateway/web/freenode/ip.114.130.64.140) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="join">[<a href="#T11:30:18" id="T11:30:18"><abbr title="2014-01-23T11:30:18+00:00">11:30:18</abbr></a>] <span>* shaunbaker (~shaunbake@2001:67c:90:7ff:6d50:3b8a:4a5f:2095) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:30:46" id="T11:30:46"><abbr title="2014-01-23T11:30:46+00:00">11:30:46</abbr></a>] <span>* shaunbak_ (~shaunbake@brick-lane.lbi.co.uk) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:34:43" id="T11:34:43"><abbr title="2014-01-23T11:34:43+00:00">11:34:43</abbr></a>] <span>* shaunbaker (~shaunbake@2001:67c:90:7ff:6d50:3b8a:4a5f:2095) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T11:38:57" id="T11:38:57"><abbr title="2014-01-23T11:38:57+00:00">11:38:57</abbr></a>] <span>* das (~das@217.108.83.254) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T11:39:15" id="T11:39:15"><abbr title="2014-01-23T11:39:15+00:00">11:39:15</abbr></a>] <span>* das (~das@217.108.83.254) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:45:29" id="T11:45:29"><abbr title="2014-01-23T11:45:29+00:00">11:45:29</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T11:46:04" id="T11:46:04"><abbr title="2014-01-23T11:46:04+00:00">11:46:04</abbr></a>] <span>* Owkkuri (~owkkuri@unaffiliated/owkkuri) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="join">[<a href="#T11:49:19" id="T11:49:19"><abbr title="2014-01-23T11:49:19+00:00">11:49:19</abbr></a>] <span>* Owkkuri (~owkkuri@unaffiliated/owkkuri) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:50:43" id="T11:50:43"><abbr title="2014-01-23T11:50:43+00:00">11:50:43</abbr></a>] <span>* RockyZheng (~Adium@64.104.161.107) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:50:52" id="T11:50:52"><abbr title="2014-01-23T11:50:52+00:00">11:50:52</abbr></a>] <span>* RockyZheng (~Adium@64.104.161.107) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T11:51:42" id="T11:51:42"><abbr title="2014-01-23T11:51:42+00:00">11:51:42</abbr></a>] <span>* RockyZheng (~Adium@64.104.161.107) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:53:40" id="T11:53:40"><abbr title="2014-01-23T11:53:40+00:00">11:53:40</abbr></a>] <span>* Rocky12345 (~peiqzhen@64.104.161.91) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:53:41" id="T11:53:41"><abbr title="2014-01-23T11:53:41+00:00">11:53:41</abbr></a>] <span>* [olli] (~olli@213.33.214.246) Quit (Ping timeout: 248 seconds)</span></li>
+<li class="quit">[<a href="#T11:54:42" id="T11:54:42"><abbr title="2014-01-23T11:54:42+00:00">11:54:42</abbr></a>] <span>* RockyZheng (~Adium@64.104.161.107) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T11:55:10" id="T11:55:10"><abbr title="2014-01-23T11:55:10+00:00">11:55:10</abbr></a>] &lt;<cite>Rocky12345</cite>&gt; <q>hello</q></li>
+<li class="join">[<a href="#T11:55:36" id="T11:55:36"><abbr title="2014-01-23T11:55:36+00:00">11:55:36</abbr></a>] <span>* RockyZheng (~Rocky3@64.104.161.107) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:55:41" id="T11:55:41"><abbr title="2014-01-23T11:55:41+00:00">11:55:41</abbr></a>] &lt;<cite>Rocky12345</cite>&gt; <q>hello</q></li>
+<li class="message">[<a href="#T11:56:01" id="T11:56:01"><abbr title="2014-01-23T11:56:01+00:00">11:56:01</abbr></a>] &lt;<cite>RockyZheng</cite>&gt; <q>world</q></li>
+<li class="quit">[<a href="#T11:57:05" id="T11:57:05"><abbr title="2014-01-23T11:57:05+00:00">11:57:05</abbr></a>] <span>* RockyZheng (~Rocky3@64.104.161.107) Quit (Client Quit)</span></li>
+<li class="quit">[<a href="#T11:58:13" id="T11:58:13"><abbr title="2014-01-23T11:58:13+00:00">11:58:13</abbr></a>] <span>* Rocky12345 (~peiqzhen@64.104.161.91) Quit (Quit: leaving)</span></li>
