@@ -186,3 +186,142 @@
 <li class="join">[<a href="#T20:59:52" id="T20:59:52"><abbr title="2014-02-05T20:59:52+00:00">20:59:52</abbr></a>] <span>* veremit (verimitt@188.31.214.67.threembb.co.uk) has joined #beagle</span></li>
 <li class="quit">[<abbr title="2014-02-05T20:59:52+00:00">20:59:52</abbr>] <span>* veremit (verimitt@188.31.214.67.threembb.co.uk) Quit (Changing host)</span></li>
 <li class="join">[<abbr title="2014-02-05T20:59:52+00:00">20:59:52</abbr>] <span>* veremit (verimitt@unaffiliated/veremit) has joined #beagle</span></li>
+<li class="part">[<a href="#T21:01:54" id="T21:01:54"><abbr title="2014-02-05T21:01:54+00:00">21:01:54</abbr></a>] <span>* vicash (~vicash@208.123.162.2) has left #beagle</span></li>
+<li class="message">[<a href="#T21:02:25" id="T21:02:25"><abbr title="2014-02-05T21:02:25+00:00">21:02:25</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>plm, my point was the upstream udev distro already has persistent serial rules in place on any system packaging it</q></li>
+<li class="message">[<a href="#T21:02:53" id="T21:02:53"><abbr title="2014-02-05T21:02:53+00:00">21:02:53</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>you get SYMLINK+="serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}" for any USB tty device</q></li>
+<li class="quit">[<a href="#T21:03:54" id="T21:03:54"><abbr title="2014-02-05T21:03:54+00:00">21:03:54</abbr></a>] <span>* LordDVG (~LordDVG@unaffiliated/lorddvg) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:05:28" id="T21:05:28"><abbr title="2014-02-05T21:05:28+00:00">21:05:28</abbr></a>] &lt;<cite>plm</cite>&gt; <q>mdp: so I dont need to to that ocnfigure udev for when I get out all dongles and put again?</q></li>
+<li class="message">[<a href="#T21:06:03" id="T21:06:03"><abbr title="2014-02-05T21:06:03+00:00">21:06:03</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>try and find out</q></li>
+<li class="message">[<a href="#T21:06:25" id="T21:06:25"><abbr title="2014-02-05T21:06:25+00:00">21:06:25</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>$ ls -l /dev/serial/by-id/</q></li>
+<li class="message">[<abbr title="2014-02-05T21:06:25+00:00">21:06:25</abbr>] &lt;<cite>mdp</cite>&gt; <q>total 0</q></li>
+<li class="message">[<a href="#T21:06:26" id="T21:06:26"><abbr title="2014-02-05T21:06:26+00:00">21:06:26</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>lrwxrwxrwx 1 root root 13 Feb  5 11:39 usb-FTDI_Quad_RS232-HS-if00-port0 -&gt; ../../ttyUSB0</q></li>
+<li class="message">[<abbr title="2014-02-05T21:06:26+00:00">21:06:26</abbr>] &lt;<cite>mdp</cite>&gt; <q>...</q></li>
+<li class="join">[<abbr title="2014-02-05T21:06:26+00:00">21:06:26</abbr>] <span>* onoffon (~khem@66.129.239.14) has joined #beagle</span></li>
+<li class="nick-change">[<abbr title="2014-02-05T21:06:26+00:00">21:06:26</abbr>] <span>* onoffon is now known as khem`</span></li>
+<li class="message">[<a href="#T21:06:56" id="T21:06:56"><abbr title="2014-02-05T21:06:56+00:00">21:06:56</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>nice serial :D</q></li>
+<li class="message">[<a href="#T21:07:27" id="T21:07:27"><abbr title="2014-02-05T21:07:27+00:00">21:07:27</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I trade it all for rs-232</q></li>
+<li class="message">[<a href="#T21:07:38" id="T21:07:38"><abbr title="2014-02-05T21:07:38+00:00">21:07:38</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>+1</q></li>
+<li class="message">[<a href="#T21:07:39" id="T21:07:39"><abbr title="2014-02-05T21:07:39+00:00">21:07:39</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>usb is a plague on the land</q></li>
+<li class="message">[<a href="#T21:07:46" id="T21:07:46"><abbr title="2014-02-05T21:07:46+00:00">21:07:46</abbr></a>] &lt;<cite>plm</cite>&gt; <q>mdp: this will works just in the last version of angstron?</q></li>
+<li class="message">[<a href="#T21:07:47" id="T21:07:47"><abbr title="2014-02-05T21:07:47+00:00">21:07:47</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>no I mean ID_SERIAL == FTDI_Quad_RS232-HS</q></li>
+<li class="message">[<a href="#T21:07:52" id="T21:07:52"><abbr title="2014-02-05T21:07:52+00:00">21:07:52</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>mdp: assuming the RS232 does 1mbit</q></li>
+<li class="message">[<a href="#T21:07:59" id="T21:07:59"><abbr title="2014-02-05T21:07:59+00:00">21:07:59</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>not something unique</q></li>
+<li class="message">[<a href="#T21:08:19" id="T21:08:19"><abbr title="2014-02-05T21:08:19+00:00">21:08:19</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>usb is fine except on the am325x :D</q></li>
+<li class="message">[<a href="#T21:08:24" id="T21:08:24"><abbr title="2014-02-05T21:08:24+00:00">21:08:24</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>335**</q></li>
+<li class="message">[<a href="#T21:08:25" id="T21:08:25"><abbr title="2014-02-05T21:08:25+00:00">21:08:25</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>Vaizki, my crappy day job board ;)</q></li>
+<li class="quit">[<a href="#T21:08:50" id="T21:08:50"><abbr title="2014-02-05T21:08:50+00:00">21:08:50</abbr></a>] <span>* spbnick (~nkondras@91.224.48.154) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T21:10:08" id="T21:10:08"><abbr title="2014-02-05T21:10:08+00:00">21:10:08</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>plm, absolutely..standard udev with /lib/udev/rules.d/60-persistent-serial.rules in place</q></li>
+<li class="message">[<a href="#T21:10:26" id="T21:10:26"><abbr title="2014-02-05T21:10:26+00:00">21:10:26</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>plm, according to an old angstrom nfsroot fs sitting here</q></li>
+<li class="message">[<a href="#T21:10:44" id="T21:10:44"><abbr title="2014-02-05T21:10:44+00:00">21:10:44</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>veremit, usb is only fine until it fails</q></li>
+<li class="message">[<a href="#T21:10:51" id="T21:10:51"><abbr title="2014-02-05T21:10:51+00:00">21:10:51</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>precisely</q></li>
+<li class="message">[<a href="#T21:11:13" id="T21:11:13"><abbr title="2014-02-05T21:11:13+00:00">21:11:13</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>but no interface is infallible</q></li>
+<li class="message">[<a href="#T21:11:42" id="T21:11:42"><abbr title="2014-02-05T21:11:42+00:00">21:11:42</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>usb is not fine on the raspi for example :)</q></li>
+<li class="message">[<a href="#T21:11:51" id="T21:11:51"><abbr title="2014-02-05T21:11:51+00:00">21:11:51</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>another crap platform :p</q></li>
+<li class="message">[<a href="#T21:11:56" id="T21:11:56"><abbr title="2014-02-05T21:11:56+00:00">21:11:56</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>*cough* lol</q></li>
+<li class="message">[<a href="#T21:12:03" id="T21:12:03"><abbr title="2014-02-05T21:12:03+00:00">21:12:03</abbr></a>] &lt;<cite>plm</cite>&gt; <q>mdp: and the last one ubuntu 13.10?</q></li>
+<li class="message">[<a href="#T21:12:18" id="T21:12:18"><abbr title="2014-02-05T21:12:18+00:00">21:12:18</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>its a glorified arm gpu not a processor board lol</q></li>
+<li class="message">[<a href="#T21:13:26" id="T21:13:26"><abbr title="2014-02-05T21:13:26+00:00">21:13:26</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>_av500_, agreed</q></li>
+<li class="message">[<a href="#T21:14:25" id="T21:14:25"><abbr title="2014-02-05T21:14:25+00:00">21:14:25</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>_av500_, I raise you one RS-485..I'm all in now.</q></li>
+<li class="message">[<a href="#T21:14:57" id="T21:14:57"><abbr title="2014-02-05T21:14:57+00:00">21:14:57</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>IR-fucking-DA</q></li>
+<li class="quit">[<a href="#T21:19:48" id="T21:19:48"><abbr title="2014-02-05T21:19:48+00:00">21:19:48</abbr></a>] <span>* erich4333 (8acf0002@gateway/web/freenode/ip.138.207.0.2) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T21:21:19" id="T21:21:19"><abbr title="2014-02-05T21:21:19+00:00">21:21:19</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>485 ain't bad .. differential ftw</q></li>
+<li class="message">[<a href="#T21:21:34" id="T21:21:34"><abbr title="2014-02-05T21:21:34+00:00">21:21:34</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>better noise immunity and safer faster speeds</q></li>
+<li class="join">[<a href="#T21:22:55" id="T21:22:55"><abbr title="2014-02-05T21:22:55+00:00">21:22:55</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:24:07" id="T21:24:07"><abbr title="2014-02-05T21:24:07+00:00">21:24:07</abbr></a>] <span>* mrpacket_ (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:24:26" id="T21:24:26"><abbr title="2014-02-05T21:24:26+00:00">21:24:26</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T21:24:41" id="T21:24:41"><abbr title="2014-02-05T21:24:41+00:00">21:24:41</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>veremit, it shall take decades to remove it from factory floors. "just works".</q></li>
+<li class="message">[<a href="#T21:24:58" id="T21:24:58"><abbr title="2014-02-05T21:24:58+00:00">21:24:58</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>irda?! :p</q></li>
+<li class="message">[<a href="#T21:25:34" id="T21:25:34"><abbr title="2014-02-05T21:25:34+00:00">21:25:34</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>funny .. got an email this afternoon from a customer "I can send data to the beagle from my PC fine .. but can I send data from the beagle back ...?!"</q></li>
+<li class="message">[<a href="#T21:25:57" id="T21:25:57"><abbr title="2014-02-05T21:25:57+00:00">21:25:57</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>UART4 fyi :P</q></li>
+<li class="join">[<a href="#T21:27:01" id="T21:27:01"><abbr title="2014-02-05T21:27:01+00:00">21:27:01</abbr></a>] <span>* awasj (~chain@cpc4-cdif14-2-0-cust892.5-1.cable.virginm.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:27:48" id="T21:27:48"><abbr title="2014-02-05T21:27:48+00:00">21:27:48</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>plm, if you asking if that works on 13.10 as well..yes. they still use udev with the prepackaged rules. that could change overnight using some NIH solution</q></li>
+<li class="message">[<a href="#T21:29:44" id="T21:29:44"><abbr title="2014-02-05T21:29:44+00:00">21:29:44</abbr></a>] &lt;<cite>plm</cite>&gt; <q>mdp: ok. What is "NIH" solutions?</q></li>
+<li class="quit">[<a href="#T21:29:51" id="T21:29:51"><abbr title="2014-02-05T21:29:51+00:00">21:29:51</abbr></a>] <span>* mhaberler (~mhaberler@macbook.stiwoll.mah.priv.at) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="nick-change">[<a href="#T21:30:24" id="T21:30:24"><abbr title="2014-02-05T21:30:24+00:00">21:30:24</abbr></a>] <span>* calculu5 is now known as calculus</span></li>
+<li class="message">[<a href="#T21:30:50" id="T21:30:50"><abbr title="2014-02-05T21:30:50+00:00">21:30:50</abbr></a>] &lt;<cite>awasj</cite>&gt; <q>hello! I'm trying build USB to Ethernet adapter driver -- <a href="http://pastebin.com/9JdVKL2j">http://pastebin.com/9JdVKL2j</a></q></li>
+<li class="message">[<a href="#T21:30:53" id="T21:30:53"><abbr title="2014-02-05T21:30:53+00:00">21:30:53</abbr></a>] &lt;<cite>awasj</cite>&gt; <q>but getting "No targets specified and no makefile found.  Stop."</q></li>
+<li class="message">[<a href="#T21:31:20" id="T21:31:20"><abbr title="2014-02-05T21:31:20+00:00">21:31:20</abbr></a>] &lt;<cite>awasj</cite>&gt; <q>however the makefile is there :(</q></li>
+<li class="quit">[<a href="#T21:31:52" id="T21:31:52"><abbr title="2014-02-05T21:31:52+00:00">21:31:52</abbr></a>] <span>* uv (~uv@92-249-192-153.pool.digikabel.hu) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<abbr title="2014-02-05T21:31:52+00:00">21:31:52</abbr>] &lt;<cite>awasj</cite>&gt; <q>and it even works through the makefile ;</q></li>
+<li class="message">[<a href="#T21:31:55" id="T21:31:55"><abbr title="2014-02-05T21:31:55+00:00">21:31:55</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>plm, not invented here. it means ubuntu could break everything on next release and that's their approach to distro releases.</q></li>
+<li class="message">[<a href="#T21:35:47" id="T21:35:47"><abbr title="2014-02-05T21:35:47+00:00">21:35:47</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>awasj .. looks like you migh tneed backports or something</q></li>
+<li class="message">[<a href="#T21:36:31" id="T21:36:31"><abbr title="2014-02-05T21:36:31+00:00">21:36:31</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you certainly need kernel sources :P</q></li>
+<li class="message">[<a href="#T21:36:55" id="T21:36:55"><abbr title="2014-02-05T21:36:55+00:00">21:36:55</abbr></a>] &lt;<cite>plm</cite>&gt; <q>mdp: what you recommend for BBB? angstron or ubuntu? why?</q></li>
+<li class="message">[<a href="#T21:37:04" id="T21:37:04"><abbr title="2014-02-05T21:37:04+00:00">21:37:04</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>Not ubuntu</q></li>
+<li class="message">[<a href="#T21:37:13" id="T21:37:13"><abbr title="2014-02-05T21:37:13+00:00">21:37:13</abbr></a>] &lt;<cite>plm</cite>&gt; <q>veremit: why not?</q></li>
+<li class="message">[<a href="#T21:37:36" id="T21:37:36"><abbr title="2014-02-05T21:37:36+00:00">21:37:36</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>1) its bloaty 2) I consider it the 'windows' of linuxes :p</q></li>
+<li class="message">[<a href="#T21:38:14" id="T21:38:14"><abbr title="2014-02-05T21:38:14+00:00">21:38:14</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hm</q></li>
+<li class="message">[<a href="#T21:38:17" id="T21:38:17"><abbr title="2014-02-05T21:38:17+00:00">21:38:17</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>angstrom is the traditional embedded linux</q></li>
+<li class="message">[<a href="#T21:38:19" id="T21:38:19"><abbr title="2014-02-05T21:38:19+00:00">21:38:19</abbr></a>] &lt;<cite>plm</cite>&gt; <q>veremit: I agree for 1 and 2 =D  But have debian packages very updates</q></li>
+<li class="message">[<a href="#T21:38:23" id="T21:38:23"><abbr title="2014-02-05T21:38:23+00:00">21:38:23</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>it does work well for me</q></li>
+<li class="message">[<a href="#T21:38:55" id="T21:38:55"><abbr title="2014-02-05T21:38:55+00:00">21:38:55</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>plm .. I see no reason you couldn't put debian testing on there .. I bet they've got arm packages</q></li>
+<li class="quit">[<a href="#T21:39:15" id="T21:39:15"><abbr title="2014-02-05T21:39:15+00:00">21:39:15</abbr></a>] <span>* trigpoint_n9___ (~trigpoint@149.254.180.238) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T21:39:22" id="T21:39:22"><abbr title="2014-02-05T21:39:22+00:00">21:39:22</abbr></a>] &lt;<cite>plm</cite>&gt; <q>veremit: I always has used debian in desktops and servers, but I change to ubuntu just becouse has packages is last version.</q></li>
+<li class="message">[<a href="#T21:39:39" id="T21:39:39"><abbr title="2014-02-05T21:39:39+00:00">21:39:39</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>yea it seems they've gone very 'bleeding edge'</q></li>
+<li class="join">[<a href="#T21:39:46" id="T21:39:46"><abbr title="2014-02-05T21:39:46+00:00">21:39:46</abbr></a>] <span>* trigpoint_n9___ (~trigpoint@149.254.180.238) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:39:50" id="T21:39:50"><abbr title="2014-02-05T21:39:50+00:00">21:39:50</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>although they have a reasonable reputation for security too</q></li>
+<li class="message">[<a href="#T21:40:12" id="T21:40:12"><abbr title="2014-02-05T21:40:12+00:00">21:40:12</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>debian is traditionally conservative .. which was one reason I didn' tlike it so much</q></li>
+<li class="message">[<a href="#T21:40:36" id="T21:40:36"><abbr title="2014-02-05T21:40:36+00:00">21:40:36</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>my 'hard-core' distro is gentoo currently</q></li>
+<li class="message">[<a href="#T21:40:49" id="T21:40:49"><abbr title="2014-02-05T21:40:49+00:00">21:40:49</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I just cna' tkeep up recompiling with all the updates</q></li>
+<li class="message">[<a href="#T21:41:22" id="T21:41:22"><abbr title="2014-02-05T21:41:22+00:00">21:41:22</abbr></a>] &lt;<cite>plm</cite>&gt; <q>veremit: yes, I know gentoo very well, I used it ten years ago, when I still was using freebsd</q></li>
+<li class="message">[<a href="#T21:41:35" id="T21:41:35"><abbr title="2014-02-05T21:41:35+00:00">21:41:35</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>especially since mycompile-farm is out of sync with the newer gcc now :(</q></li>
+<li class="message">[<a href="#T21:41:36" id="T21:41:36"><abbr title="2014-02-05T21:41:36+00:00">21:41:36</abbr></a>] &lt;<cite>plm</cite>&gt; <q>veremit: gentoo like bsd, ports =D</q></li>
+<li class="message">[<a href="#T21:42:09" id="T21:42:09"><abbr title="2014-02-05T21:42:09+00:00">21:42:09</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I touched bsd very briefly on recommendation from someone .. never got into it though</q></li>
+<li class="message">[<a href="#T21:42:25" id="T21:42:25"><abbr title="2014-02-05T21:42:25+00:00">21:42:25</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>portage is good though</q></li>
+<li class="message">[<a href="#T21:42:26" id="T21:42:26"><abbr title="2014-02-05T21:42:26+00:00">21:42:26</abbr></a>] &lt;<cite>plm</cite>&gt; <q>veremit: thwy very good!</q></li>
+<li class="message">[<a href="#T21:42:32" id="T21:42:32"><abbr title="2014-02-05T21:42:32+00:00">21:42:32</abbr></a>] &lt;<cite>plm</cite>&gt; <q>*they</q></li>
+<li class="message">[<a href="#T21:42:40" id="T21:42:40"><abbr title="2014-02-05T21:42:40+00:00">21:42:40</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>plm, I use debian, angstrom, and custom buildroot stuff depending on what I'm doing</q></li>
+<li class="message">[<a href="#T21:42:54" id="T21:42:54"><abbr title="2014-02-05T21:42:54+00:00">21:42:54</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>use what you are familiar with and fast</q></li>
+<li class="message">[<a href="#T21:42:55" id="T21:42:55"><abbr title="2014-02-05T21:42:55+00:00">21:42:55</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>I mentioned ubuntu from a host pov as many run it</q></li>
+<li class="message">[<a href="#T21:43:04" id="T21:43:04"><abbr title="2014-02-05T21:43:04+00:00">21:43:04</abbr></a>] &lt;<cite>plm</cite>&gt; <q>mdp: and talk to me about ubuntu? you do not use, why?</q></li>
+<li class="message">[<a href="#T21:43:15" id="T21:43:15"><abbr title="2014-02-05T21:43:15+00:00">21:43:15</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>+1 on what woglinde said</q></li>
+<li class="message">[<a href="#T21:43:16" id="T21:43:16"><abbr title="2014-02-05T21:43:16+00:00">21:43:16</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>mdp buildroot really?</q></li>
+<li class="message">[<a href="#T21:43:35" id="T21:43:35"><abbr title="2014-02-05T21:43:35+00:00">21:43:35</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>woglinde, for my personal "production" projects</q></li>
+<li class="message">[<a href="#T21:43:42" id="T21:43:42"><abbr title="2014-02-05T21:43:42+00:00">21:43:42</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>no go is centos with still 2.6 kernel</q></li>
+<li class="quit">[<a href="#T21:44:09" id="T21:44:09"><abbr title="2014-02-05T21:44:09+00:00">21:44:09</abbr></a>] <span>* prpplague (~danders@rrcs-97-77-26-26.sw.biz.rr.com) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:44:10" id="T21:44:10"><abbr title="2014-02-05T21:44:10+00:00">21:44:10</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lol old skool ..my 3G router is on 2.6 kernel</q></li>
+<li class="message">[<a href="#T21:44:23" id="T21:44:23"><abbr title="2014-02-05T21:44:23+00:00">21:44:23</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>prpp must be off home</q></li>
+<li class="message">[<a href="#T21:45:26" id="T21:45:26"><abbr title="2014-02-05T21:45:26+00:00">21:45:26</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>plm, there's nothing wrong with any distro if it works for you</q></li>
+<li class="message">[<a href="#T21:45:36" id="T21:45:36"><abbr title="2014-02-05T21:45:36+00:00">21:45:36</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>except android, that's evil.</q></li>
+<li class="message">[<a href="#T21:45:38" id="T21:45:38"><abbr title="2014-02-05T21:45:38+00:00">21:45:38</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>;)</q></li>
+<li class="message">[<a href="#T21:46:08" id="T21:46:08"><abbr title="2014-02-05T21:46:08+00:00">21:46:08</abbr></a>] &lt;<cite>plm</cite>&gt; <q>hahah</q></li>
+<li class="message">[<a href="#T21:46:12" id="T21:46:12"><abbr title="2014-02-05T21:46:12+00:00">21:46:12</abbr></a>] &lt;<cite>plm</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T21:46:22" id="T21:46:22"><abbr title="2014-02-05T21:46:22+00:00">21:46:22</abbr></a>] &lt;<cite>plm</cite>&gt; <q>well, I need to go!</q></li>
+<li class="message">[<a href="#T21:46:39" id="T21:46:39"><abbr title="2014-02-05T21:46:39+00:00">21:46:39</abbr></a>] &lt;<cite>plm</cite>&gt; <q>mdp: thanks mdp</q></li>
+<li class="message">[<a href="#T21:46:46" id="T21:46:46"><abbr title="2014-02-05T21:46:46+00:00">21:46:46</abbr></a>] &lt;<cite>plm</cite>&gt; <q>bye all</q></li>
+<li class="message">[<a href="#T21:47:19" id="T21:47:19"><abbr title="2014-02-05T21:47:19+00:00">21:47:19</abbr></a>] &lt;<cite>MrAFK</cite>&gt; <q>Well this is awkward</q></li>
+<li class="nick-change">[<a href="#T21:47:24" id="T21:47:24"><abbr title="2014-02-05T21:47:24+00:00">21:47:24</abbr></a>] <span>* MrAFK is now known as MrB4D</span></li>
+<li class="message">[<a href="#T21:47:57" id="T21:47:57"><abbr title="2014-02-05T21:47:57+00:00">21:47:57</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>i did an upgrade on my board, and the desktop went to sleep</q></li>
+<li class="message">[<a href="#T21:48:12" id="T21:48:12"><abbr title="2014-02-05T21:48:12+00:00">21:48:12</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>Now it seems that i cannot ssh into it</q></li>
+<li class="message">[<a href="#T21:48:15" id="T21:48:15"><abbr title="2014-02-05T21:48:15+00:00">21:48:15</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T21:48:26" id="T21:48:26"><abbr title="2014-02-05T21:48:26+00:00">21:48:26</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:48:49" id="T21:48:49"><abbr title="2014-02-05T21:48:49+00:00">21:48:49</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I think you can 'unsuspend' by touching the power button maybe?</q></li>
+<li class="message">[<a href="#T21:49:08" id="T21:49:08"><abbr title="2014-02-05T21:49:08+00:00">21:49:08</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>Well thats the thing, the lights were blinking all happy like</q></li>
+<li class="message">[<a href="#T21:49:09" id="T21:49:09"><abbr title="2014-02-05T21:49:09+00:00">21:49:09</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I thought it was .... compliant</q></li>
+<li class="nick-change">[<a href="#T21:49:20" id="T21:49:20"><abbr title="2014-02-05T21:49:20+00:00">21:49:20</abbr></a>] <span>* plm is now known as plm_out</span></li>
+<li class="message">[<a href="#T21:49:22" id="T21:49:22"><abbr title="2014-02-05T21:49:22+00:00">21:49:22</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>but cant ssh</q></li>
+<li class="message">[<a href="#T21:49:27" id="T21:49:27"><abbr title="2014-02-05T21:49:27+00:00">21:49:27</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>so i tried to restart the board</q></li>
+<li class="message">[<a href="#T21:49:40" id="T21:49:40"><abbr title="2014-02-05T21:49:40+00:00">21:49:40</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>now the computer wont see it, but the lights are blinking away nice and happy still</q></li>
+<li class="message">[<a href="#T21:50:18" id="T21:50:18"><abbr title="2014-02-05T21:50:18+00:00">21:50:18</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>Suppose i should start the Reflash process</q></li>
+<li class="quit">[<a href="#T21:50:45" id="T21:50:45"><abbr title="2014-02-05T21:50:45+00:00">21:50:45</abbr></a>] <span>* rob_w (~rob@unaffiliated/rob-w/x-1112029) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:53:33" id="T21:53:33"><abbr title="2014-02-05T21:53:33+00:00">21:53:33</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>I recommend Arch on BBB...</q></li>
+<li class="message">[<a href="#T21:53:46" id="T21:53:46"><abbr title="2014-02-05T21:53:46+00:00">21:53:46</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>if you know what you're doing</q></li>
+<li class="quit">[<a href="#T21:53:50" id="T21:53:50"><abbr title="2014-02-05T21:53:50+00:00">21:53:50</abbr></a>] <span>* mrpacket_ (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (Remote host closed the connection)</span></li>
+<li class="action">[<a href="#T21:54:07" id="T21:54:07"><abbr title="2014-02-05T21:54:07+00:00">21:54:07</abbr></a>] <span>* _av500_ recommends Linux</span></li>
+<li class="message">[<a href="#T21:54:20" id="T21:54:20"><abbr title="2014-02-05T21:54:20+00:00">21:54:20</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>I might give that a try, this is still week one with the bbb</q></li>
+<li class="message">[<a href="#T21:54:23" id="T21:54:23"><abbr title="2014-02-05T21:54:23+00:00">21:54:23</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>Linux is good :D</q></li>
+<li class="message">[<a href="#T21:54:34" id="T21:54:34"><abbr title="2014-02-05T21:54:34+00:00">21:54:34</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>my other partition is kali ;)</q></li>
+<li class="message">[<a href="#T21:54:51" id="T21:54:51"><abbr title="2014-02-05T21:54:51+00:00">21:54:51</abbr></a>] &lt;<cite>MrB4D</cite>&gt; <q>my issue is gaming ;)</q></li>
+<li class="join">[<a href="#T21:54:52" id="T21:54:52"><abbr title="2014-02-05T21:54:52+00:00">21:54:52</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="action">[<a href="#T21:55:58" id="T21:55:58"><abbr title="2014-02-05T21:55:58+00:00">21:55:58</abbr></a>] <span>* woglinde recommends BASIC</span></li>
+<li class="message">[<a href="#T21:56:03" id="T21:56:03"><abbr title="2014-02-05T21:56:03+00:00">21:56:03</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>gm mrpackethead</q></li>
+<li class="message">[<a href="#T21:56:28" id="T21:56:28"><abbr title="2014-02-05T21:56:28+00:00">21:56:28</abbr></a>] &lt;<cite>mrpackethead</cite>&gt; <q>hello woglinde</q></li>
+<li class="message">[<a href="#T21:57:14" id="T21:57:14"><abbr title="2014-02-05T21:57:14+00:00">21:57:14</abbr></a>] &lt;<cite>mdp</cite>&gt; <q>woglinde, I also recommend Fortran</q></li>
+<li class="message">[<a href="#T21:58:41" id="T21:58:41"><abbr title="2014-02-05T21:58:41+00:00">21:58:41</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>I recommend just doing everything in uboot</q></li>
+<li class="message">[<a href="#T21:58:56" id="T21:58:56"><abbr title="2014-02-05T21:58:56+00:00">21:58:56</abbr></a>] &lt;<cite>myself</cite>&gt; <q>Can I get a little love for INTERCAL?</q></li>
+<li class="message">[<a href="#T21:59:09" id="T21:59:09"><abbr title="2014-02-05T21:59:09+00:00">21:59:09</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>no</q></li>
+<li class="message">[<a href="#T21:59:17" id="T21:59:17"><abbr title="2014-02-05T21:59:17+00:00">21:59:17</abbr></a>] &lt;<cite>myself</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T21:59:31" id="T21:59:31"><abbr title="2014-02-05T21:59:31+00:00">21:59:31</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>for What?! lol</q></li>
+<li class="message">[<a href="#T21:59:33" id="T21:59:33"><abbr title="2014-02-05T21:59:33+00:00">21:59:33</abbr></a>] &lt;<cite>Vaizki</cite>&gt; <q>why do you ask if you don't like answers</q></li>
+<li class="message">[<a href="#T21:59:43" id="T21:59:43"><abbr title="2014-02-05T21:59:43+00:00">21:59:43</abbr></a>] &lt;<cite>_av500_</cite>&gt; <q>Vaizki: uboot is bloated, there is MLO!</q></li>
+<li class="message">[<a href="#T21:59:55" id="T21:59:55"><abbr title="2014-02-05T21:59:55+00:00">21:59:55</abbr></a>] &lt;<cite>winocm</cite>&gt; <q>X-loader 4eva</q></li>
