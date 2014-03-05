@@ -1057,3 +1057,100 @@
 <li class="quit">[<a href="#T12:57:09" id="T12:57:09"><abbr title="2014-03-05T12:57:09+00:00">12:57:09</abbr></a>] <span>* oofus_7 (~oofus@oofus1-adsl.demon.co.uk) Quit (Read error: Connection reset by peer)</span></li>
 <li class="join">[<a href="#T12:57:30" id="T12:57:30"><abbr title="2014-03-05T12:57:30+00:00">12:57:30</abbr></a>] <span>* oofus_7 (~oofus@oofus1-adsl.demon.co.uk) has joined #beagle</span></li>
 <li class="quit">[<a href="#T12:58:06" id="T12:58:06"><abbr title="2014-03-05T12:58:06+00:00">12:58:06</abbr></a>] <span>* narendraj9 (~narendraj@27.97.104.119) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T13:00:58" id="T13:00:58"><abbr title="2014-03-05T13:00:58+00:00">13:00:58</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:02:01" id="T13:02:01"><abbr title="2014-03-05T13:02:01+00:00">13:02:01</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:07:48" id="T13:07:48"><abbr title="2014-03-05T13:07:48+00:00">13:07:48</abbr></a>] <span>* kiilo (~kiilo@77-56-99-130.dclient.hispeed.ch) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:07:50" id="T13:07:50"><abbr title="2014-03-05T13:07:50+00:00">13:07:50</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T13:08:11" id="T13:08:11"><abbr title="2014-03-05T13:08:11+00:00">13:08:11</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:10:25" id="T13:10:25"><abbr title="2014-03-05T13:10:25+00:00">13:10:25</abbr></a>] <span>* miken (~devnn@mail.danelec-marine.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:11:13" id="T13:11:13"><abbr title="2014-03-05T13:11:13+00:00">13:11:13</abbr></a>] <span>* narendraj9 (~narendraj@1.187.254.209) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:12:42" id="T13:12:42"><abbr title="2014-03-05T13:12:42+00:00">13:12:42</abbr></a>] &lt;<cite>miken</cite>&gt; <q>I'm trying to get u-boot up and running on the BBB using OpenOCD. I can connect to the mcu just fint. I just can't really figure out what to do with uboot MLO etc., how and where to upload etc. Has anyone done this?</q></li>
+<li class="quit">[<a href="#T13:13:25" id="T13:13:25"><abbr title="2014-03-05T13:13:25+00:00">13:13:25</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T13:14:16" id="T13:14:16"><abbr title="2014-03-05T13:14:16+00:00">13:14:16</abbr></a>] &lt;<cite>av500</cite>&gt; <q>upload MLO firsrt</q></li>
+<li class="message">[<a href="#T13:14:18" id="T13:14:18"><abbr title="2014-03-05T13:14:18+00:00">13:14:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>upload MLO first</q></li>
+<li class="join">[<a href="#T13:14:23" id="T13:14:23"><abbr title="2014-03-05T13:14:23+00:00">13:14:23</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:14:45" id="T13:14:45"><abbr title="2014-03-05T13:14:45+00:00">13:14:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you can also setup memory via jtag, in this case you could load a kernel directly</q></li>
+<li class="message">[<a href="#T13:14:56" id="T13:14:56"><abbr title="2014-03-05T13:14:56+00:00">13:14:56</abbr></a>] &lt;<cite>av500</cite>&gt; <q>depends on what you are after</q></li>
+<li class="message">[<a href="#T13:15:45" id="T13:15:45"><abbr title="2014-03-05T13:15:45+00:00">13:15:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but in general, uploading MLO to the same place that the ROM code loads it into and then jumping to the start address should work</q></li>
+<li class="quit">[<a href="#T13:16:24" id="T13:16:24"><abbr title="2014-03-05T13:16:24+00:00">13:16:24</abbr></a>] <span>* winger (~winger@114.94.122.128) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T13:17:18" id="T13:17:18"><abbr title="2014-03-05T13:17:18+00:00">13:17:18</abbr></a>] <span>* uphille (c22ff5fd@gateway/web/freenode/ip.194.47.245.253) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T13:17:32" id="T13:17:32"><abbr title="2014-03-05T13:17:32+00:00">13:17:32</abbr></a>] &lt;<cite>miken</cite>&gt; <q>av500: My ultimate goal it to program a SPI flash connected to the mcu. I got a u-boot able to to this, and I load MLO and normal u-boot through the serial port. I was hoping to skip the MLO, but I guess that requires a manual sdram setup.</q></li>
+<li class="message">[<a href="#T13:17:50" id="T13:17:50"><abbr title="2014-03-05T13:17:50+00:00">13:17:50</abbr></a>] &lt;<cite>av500</cite>&gt; <q>somebody has to setup SDRAM</q></li>
+<li class="message">[<a href="#T13:18:05" id="T13:18:05"><abbr title="2014-03-05T13:18:05+00:00">13:18:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you, MLO or cosmic radiation</q></li>
+<li class="message">[<a href="#T13:18:37" id="T13:18:37"><abbr title="2014-03-05T13:18:37+00:00">13:18:37</abbr></a>] &lt;<cite>miken</cite>&gt; <q>heh, not really counting on the last one.</q></li>
+<li class="message">[<a href="#T13:18:46" id="T13:18:46"><abbr title="2014-03-05T13:18:46+00:00">13:18:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>give it time</q></li>
+<li class="quit">[<a href="#T13:19:34" id="T13:19:34"><abbr title="2014-03-05T13:19:34+00:00">13:19:34</abbr></a>] <span>* narendraj9 (~narendraj@1.187.254.209) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T13:19:47" id="T13:19:47"><abbr title="2014-03-05T13:19:47+00:00">13:19:47</abbr></a>] &lt;<cite>miken</cite>&gt; <q>are there any shortcuts to access spi flash, other than MLO-&gt;uboot-&gt;tftp-&gt;program ?</q></li>
+<li class="quit">[<a href="#T13:19:55" id="T13:19:55"><abbr title="2014-03-05T13:19:55+00:00">13:19:55</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T13:19:56" id="T13:19:56"><abbr title="2014-03-05T13:19:56+00:00">13:19:56</abbr></a>] <span>* narendraj9 (~narendraj@1.187.254.209) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2014-03-05T13:19:56+00:00">13:19:56</abbr>] <span>* phant0mas (~quassel@147.95.121.139) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T13:20:04" id="T13:20:04"><abbr title="2014-03-05T13:20:04+00:00">13:20:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T13:20:13" id="T13:20:13"><abbr title="2014-03-05T13:20:13+00:00">13:20:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>upload a SW that talks to you and to SPI</q></li>
+<li class="join">[<a href="#T13:20:21" id="T13:20:21"><abbr title="2014-03-05T13:20:21+00:00">13:20:21</abbr></a>] <span>* phant0mas (~quassel@147.95.121.139) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:20:32" id="T13:20:32"><abbr title="2014-03-05T13:20:32+00:00">13:20:32</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:20:44" id="T13:20:44"><abbr title="2014-03-05T13:20:44+00:00">13:20:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>a modifed MLO that does e.g. serial-&gt;spi</q></li>
+<li class="message">[<a href="#T13:20:54" id="T13:20:54"><abbr title="2014-03-05T13:20:54+00:00">13:20:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its all SW after all</q></li>
+<li class="message">[<a href="#T13:21:48" id="T13:21:48"><abbr title="2014-03-05T13:21:48+00:00">13:21:48</abbr></a>] &lt;<cite>miken</cite>&gt; <q>has anyone made such sw for the am335x already? I have to choose between the long road with serial port scripting or making specialized sw for the task.</q></li>
+<li class="quit">[<a href="#T13:22:20" id="T13:22:20"><abbr title="2014-03-05T13:22:20+00:00">13:22:20</abbr></a>] <span>* dj_pi (~dj@c-107-5-25-243.hsd1.mi.comcast.net) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T13:22:47" id="T13:22:47"><abbr title="2014-03-05T13:22:47+00:00">13:22:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>does am335 boot from spi?</q></li>
+<li class="message">[<a href="#T13:22:51" id="T13:22:51"><abbr title="2014-03-05T13:22:51+00:00">13:22:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>I guess it does</q></li>
+<li class="message">[<a href="#T13:23:32" id="T13:23:32"><abbr title="2014-03-05T13:23:32+00:00">13:23:32</abbr></a>] &lt;<cite>miken</cite>&gt; <q>sure. My setup is rigged that way. Guess I need to get mlo going, and investigate mlo-&gt;spi shortcut.</q></li>
+<li class="message">[<a href="#T13:24:14" id="T13:24:14"><abbr title="2014-03-05T13:24:14+00:00">13:24:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T13:24:30" id="T13:24:30"><abbr title="2014-03-05T13:24:30+00:00">13:24:30</abbr></a>] &lt;<cite>av500</cite>&gt; <q>should not be to much work to add</q></li>
+<li class="quit">[<a href="#T13:24:49" id="T13:24:49"><abbr title="2014-03-05T13:24:49+00:00">13:24:49</abbr></a>] <span>* musufu (~musufu@toki.sometwo.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T13:24:53" id="T13:24:53"><abbr title="2014-03-05T13:24:53+00:00">13:24:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>since MLO is part of uboot</q></li>
+<li class="message">[<a href="#T13:25:00" id="T13:25:00"><abbr title="2014-03-05T13:25:00+00:00">13:25:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and you have stuff like zmodem in uboot I guess</q></li>
+<li class="message">[<a href="#T13:25:13" id="T13:25:13"><abbr title="2014-03-05T13:25:13+00:00">13:25:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but</q></li>
+<li class="message">[<a href="#T13:25:23" id="T13:25:23"><abbr title="2014-03-05T13:25:23+00:00">13:25:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but why dont you load all over serial?</q></li>
+<li class="join">[<a href="#T13:25:27" id="T13:25:27"><abbr title="2014-03-05T13:25:27+00:00">13:25:27</abbr></a>] <span>* musufu (~musufu@toki.sometwo.net) has joined #beaglebone</span></li>
+<li class="join">[<abbr title="2014-03-05T13:25:27+00:00">13:25:27</abbr>] <span>* musufu (~musufu@toki.sometwo.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:25:59" id="T13:25:59"><abbr title="2014-03-05T13:25:59+00:00">13:25:59</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:26:27" id="T13:26:27"><abbr title="2014-03-05T13:26:27+00:00">13:26:27</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:29:57" id="T13:29:57"><abbr title="2014-03-05T13:29:57+00:00">13:29:57</abbr></a>] <span>* musufu (~musufu@toki.sometwo.net) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T13:31:29" id="T13:31:29"><abbr title="2014-03-05T13:31:29+00:00">13:31:29</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:32:16" id="T13:32:16"><abbr title="2014-03-05T13:32:16+00:00">13:32:16</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:34:26" id="T13:34:26"><abbr title="2014-03-05T13:34:26+00:00">13:34:26</abbr></a>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T13:34:58" id="T13:34:58"><abbr title="2014-03-05T13:34:58+00:00">13:34:58</abbr></a>] <span>* jkridner (~jkridner@c-98-250-189-79.hsd1.mi.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:34:59" id="T13:34:59"><abbr title="2014-03-05T13:34:59+00:00">13:34:59</abbr></a>] <span>* jkridner (~jkridner@c-98-250-189-79.hsd1.mi.comcast.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2014-03-05T13:34:59+00:00">13:34:59</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="mode">[<abbr title="2014-03-05T13:34:59+00:00">13:34:59</abbr>] <span>* ChanServ sets mode +o jkridner</span></li>
+<li class="join">[<a href="#T13:35:01" id="T13:35:01"><abbr title="2014-03-05T13:35:01+00:00">13:35:01</abbr></a>] <span>* winger (~winger@114.94.122.128) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:35:20" id="T13:35:20"><abbr title="2014-03-05T13:35:20+00:00">13:35:20</abbr></a>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (Read error: Connection reset by peer)</span></li>
+<li class="nick-change">[<a href="#T13:35:45" id="T13:35:45"><abbr title="2014-03-05T13:35:45+00:00">13:35:45</abbr></a>] <span>* dwatkins_ is now known as dwatkins</span></li>
+<li class="join">[<a href="#T13:35:50" id="T13:35:50"><abbr title="2014-03-05T13:35:50+00:00">13:35:50</abbr></a>] <span>* jkridner (~jkridner@c-98-250-189-79.hsd1.mi.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2014-03-05T13:35:50+00:00">13:35:50</abbr>] <span>* jkridner (~jkridner@c-98-250-189-79.hsd1.mi.comcast.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2014-03-05T13:35:50+00:00">13:35:50</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="mode">[<abbr title="2014-03-05T13:35:50+00:00">13:35:50</abbr>] <span>* ChanServ sets mode +o jkridner</span></li>
+<li class="quit">[<a href="#T13:37:42" id="T13:37:42"><abbr title="2014-03-05T13:37:42+00:00">13:37:42</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="join">[<a href="#T13:37:43" id="T13:37:43"><abbr title="2014-03-05T13:37:43+00:00">13:37:43</abbr></a>] <span>* anujdeshpande (~anujdeshp@117.195.32.25) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:37:48" id="T13:37:48"><abbr title="2014-03-05T13:37:48+00:00">13:37:48</abbr></a>] &lt;<cite>miken</cite>&gt; <q>av500: jtag is kinda supposed to be doing it all, rather that making a serial script with expect etc. Thought it was cleaner that way.</q></li>
+<li class="part">[<a href="#T13:37:55" id="T13:37:55"><abbr title="2014-03-05T13:37:55+00:00">13:37:55</abbr></a>] <span>* anujdeshpande (~anujdeshp@117.195.32.25) has left #beagle</span></li>
+<li class="join">[<a href="#T13:38:08" id="T13:38:08"><abbr title="2014-03-05T13:38:08+00:00">13:38:08</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:39:26" id="T13:39:26"><abbr title="2014-03-05T13:39:26+00:00">13:39:26</abbr></a>] <span>* winger (~winger@114.94.122.128) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T13:40:18" id="T13:40:18"><abbr title="2014-03-05T13:40:18+00:00">13:40:18</abbr></a>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T13:41:15" id="T13:41:15"><abbr title="2014-03-05T13:41:15+00:00">13:41:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well, you can also download the payload over jtag</q></li>
+<li class="message">[<a href="#T13:43:16" id="T13:43:16"><abbr title="2014-03-05T13:43:16+00:00">13:43:16</abbr></a>] &lt;<cite>miken</cite>&gt; <q>yeah, into an unused place in sdram, and then tell uboot to copy it to spi. Would be neat to execute u-boot functions directly over jtag, eliminating the need of the serial port.</q></li>
+<li class="quit">[<a href="#T13:43:29" id="T13:43:29"><abbr title="2014-03-05T13:43:29+00:00">13:43:29</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:43:55" id="T13:43:55"><abbr title="2014-03-05T13:43:55+00:00">13:43:55</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T13:44:37" id="T13:44:37"><abbr title="2014-03-05T13:44:37+00:00">13:44:37</abbr></a>] <span>* cornel__ is now known as cornl_</span></li>
+<li class="message">[<a href="#T13:45:00" id="T13:45:00"><abbr title="2014-03-05T13:45:00+00:00">13:45:00</abbr></a>] &lt;<cite>av500</cite>&gt; <q>upload MLO with SPI flashing code, make it init sdram then while(1);</q></li>
+<li class="message">[<a href="#T13:45:10" id="T13:45:10"><abbr title="2014-03-05T13:45:10+00:00">13:45:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>uploaod payload and jump to flashing code</q></li>
+<li class="message">[<a href="#T13:45:12" id="T13:45:12"><abbr title="2014-03-05T13:45:12+00:00">13:45:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>done</q></li>
+<li class="message">[<a href="#T13:45:17" id="T13:45:17"><abbr title="2014-03-05T13:45:17+00:00">13:45:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>(overjtag)</q></li>
+<li class="message">[<a href="#T13:47:02" id="T13:47:02"><abbr title="2014-03-05T13:47:02+00:00">13:47:02</abbr></a>] &lt;<cite>miken</cite>&gt; <q>lock a function in MLO to address using pragma?</q></li>
+<li class="message">[<a href="#T13:47:11" id="T13:47:11"><abbr title="2014-03-05T13:47:11+00:00">13:47:11</abbr></a>] &lt;<cite>av500</cite>&gt; <q>why lock?</q></li>
+<li class="message">[<a href="#T13:47:28" id="T13:47:28"><abbr title="2014-03-05T13:47:28+00:00">13:47:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>get it from objdump or so</q></li>
+<li class="message">[<a href="#T13:47:40" id="T13:47:40"><abbr title="2014-03-05T13:47:40+00:00">13:47:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or readelf</q></li>
+<li class="message">[<a href="#T13:48:38" id="T13:48:38"><abbr title="2014-03-05T13:48:38+00:00">13:48:38</abbr></a>] &lt;<cite>miken</cite>&gt; <q>ok. will look into that as a possible solution. thanks for the pointers.</q></li>
+<li class="quit">[<a href="#T13:48:58" id="T13:48:58"><abbr title="2014-03-05T13:48:58+00:00">13:48:58</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:49:06" id="T13:49:06"><abbr title="2014-03-05T13:49:06+00:00">13:49:06</abbr></a>] <span>* tasslehoff (~tasslehof@77.40.182.98) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:49:15" id="T13:49:15"><abbr title="2014-03-05T13:49:15+00:00">13:49:15</abbr></a>] <span>* DJWillis (~djwillis@cpc2-trow6-2-0-cust204.aztw.cable.virginm.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:49:40" id="T13:49:40"><abbr title="2014-03-05T13:49:40+00:00">13:49:40</abbr></a>] <span>* Andy1978 (~andy@holobabe.et-it.hs-offenburg.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:49:47" id="T13:49:47"><abbr title="2014-03-05T13:49:47+00:00">13:49:47</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:50:39" id="T13:50:39"><abbr title="2014-03-05T13:50:39+00:00">13:50:39</abbr></a>] <span>* stonescenter (c830fa83@gateway/web/freenode/ip.200.48.250.131) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:54:46" id="T13:54:46"><abbr title="2014-03-05T13:54:46+00:00">13:54:46</abbr></a>] <span>* bdub (~brad@c-98-231-49-200.hsd1.fl.comcast.net) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T13:55:16" id="T13:55:16"><abbr title="2014-03-05T13:55:16+00:00">13:55:16</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="join">[<a href="#T13:55:24" id="T13:55:24"><abbr title="2014-03-05T13:55:24+00:00">13:55:24</abbr></a>] <span>* rvraghav93 (~quassel@117.217.174.89) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2014-03-05T13:55:24+00:00">13:55:24</abbr>] <span>* rvraghav93 (~quassel@117.217.174.89) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:55:43" id="T13:55:43"><abbr title="2014-03-05T13:55:43+00:00">13:55:43</abbr></a>] <span>* ghoti (~paul@scratch.it.ca) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:56:43" id="T13:56:43"><abbr title="2014-03-05T13:56:43+00:00">13:56:43</abbr></a>] <span>* colonelK (~Thunderbi@84.93.15.235) has joined #beagle</span></li>
