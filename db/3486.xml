@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3486" name="2014-03-04-debian-beta-released" prototype="Page" created="1394074902761" lastModified="1394075442645">
+  <hopobject id="3486" name="2014-03-04-debian-beta-released" prototype="Page" created="1394074902761" lastModified="1394075809598">
   <hop:parent idref="2912" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>2014-03-04-debian-beta-released</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36</http_browser>
-    <time type="date">05.03.2014 21:10:42 CST</time>
+    <time type="date">05.03.2014 21:16:49 CST</time>
     <hopsession>98.250.189.xs0mv99vjk0p</hopsession>
-    <body>&lt;h1&gt;Debian Beta images have been released&lt;/h1&gt;
+    <body>&lt;h1&gt;Debian Beta images have been released &lt;a href=&quot;https://groups.google.com/d/msg/beagleboard/VRqGZbXBK1Q/8wofUZyTyUsJ&quot;&gt;**&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The latest BeagleBone Debian images are now posted at: &lt;a href=&quot;http://beagleboard.org/latest-images/&quot;&gt;http://beagleboard.org/latest-images/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If you&apos;ve upgraded the firmware on your BeagleBone or BeagleBone Black in the past, the experience will be quite similar, but you might find the eMMC flashing times a bit faster (~15 minutes rather than ~45 minutes) due to less post-installation processing. Using the 2GB uSD card image also flashes a bit faster and can be resized to whatever your uSD card size is using some scripts under /opt/scripts/tools.&lt;/p&gt;
 &lt;p&gt;Many, many thanks to Robert Nelson, Rob Rittman, Dave Anders, Cody Lacey, the Cloud9 IDE team and so many others in getting us this far.&lt;/p&gt;
@@ -29,19 +29,15 @@
 &lt;p&gt;You should also note that the /var/lib/cloud9 directory now contains a git clone of that bone101 repo (http://github.com/beagleboard/bone101), so you can start using the Cloud9 IDE to edit the content live. What I recommend is creating your own fork of the repo and sending me pull requests of any changes you&apos;d like to see.&lt;/p&gt;
 &lt;p&gt;You can also edit C/C++ code in the Cloud9 IDE, but no &apos;builder&apos; or &apos;runner&apos; plug-ins are provided. You will, however, find the Userspace-Arduino (http://elinux.org/Userspace_Arduino) code in /opt/source/Userspace-Arduino. Here&apos;s a quick little exercise you can do to blink LED0:&lt;/p&gt;
 &lt;pre&gt;
-
 root@beaglebone# cd /opt/source/Userspace-Arduino/arduino-makefile/examples/Blink
 root@beaglebone# perl -i -pe &apos;s/13/14/g&apos; Blink.ino
 root@beaglebone# make
 root@beaglebone# ./build-userspace/Blink.elf
-
 &lt;/pre&gt;
 &lt;p&gt;For more advanced C/C++ developers, future releases should include &lt;a href=&quot;https://github.com/jackmitch/libsoc&quot;&gt;https://github.com/jackmitch/libsoc.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Those familiar with Linux will also note that the init system is &apos;systemd&apos;, which has been helpful in providing reasonable boot times. If you are looking for the journal, you can explore it using &apos;systemd-journalctl&apos;.&lt;/p&gt;
-
-Drivers and firmware for many common USB WiFi dongles are included, so be sure to report any that you find missing. These latest images include the drivers for the popular UWN200 adapters provided by Logic Supply. To test it out myself, I uncommented and edited the wlan0 entry in /etc/network/interfaces (including replacing wlan0 with ra0), shutdown, plugged in the adapter and powered up the board again. I&apos;m seeing the issue &quot;rt28xx_open return fail!&quot;, but I&apos;m sure this is something we can fix in a few days and provide an updated image. I removed that adapter and plugged in an adapter I bought from Adafruit (and switched ra0 back to wlan0) and got the issue &quot;rtl8192cu:_rtl92cu_init_power_on():&lt;0-0&gt; Failed to polling REG_APS_FSMCO[APFM_ONMAC] done!&quot;. Finally, I plugged in a TL-WN822N adapter I bought from Amazon and BINGO---WiFi!!! Anyway, getting reports on what adapters work and don&apos;t work would be really helpful at this point as we&apos;ll be trying to get a very full set of WiFi drivers included.
-
-This is just a quick intro to some of the experience and what we are focused on fine tuning. Please take the time to check it out and let us know about your experience. It should be known that Koen has continued to advance the state of the Angstrom Distributions images he provides and those continue to serve as a more flexible base for building truly custom Linux distributions needed by many embedded systems developers. However, as our user base has grown, getting a Debian image that feels a bit more familiar to Linux novices is something for which I&apos;ve heard tremendous demand. If feedback from the community is positive, there will be a switch as to what distribution comes loaded in the eMMC flash on the boards. I hope you enjoy it!</body>
+&lt;p&gt;Drivers and firmware for many common USB WiFi dongles are included, so be sure to report any that you find missing. An issue with the driver for the Logic Supply UWN200 has already been resolved since the release[&lt;a href=&quot;https://groups.google.com/d/msg/beagleboard/VRqGZbXBK1Q/M09l6jdXLYMJ&quot;&gt;**&lt;/a&gt;]. To test it out myself, I uncommented and edited the wlan0 entry in /etc/network/interfaces (including replacing wlan0 with ra0), shutdown, plugged in the adapter and powered up the board again.  I also was able to plug in a TL-WN822N adapter I bought from Amazon and got it working right away.&lt;/p&gt;
+&lt;p&gt;This is just a quick intro to some of the experience and what we are focused on fine tuning. Please take the time to check it out and let us know about your experience. I hope you enjoy it!&lt;/p&gt;</body>
     <pseudoparent idref="2912" prototyperef="Page"/>
     <http_referer>http://beagleboard.org/blog/2014-03-04-debian-beta-released/edit</http_referer>
     <http_host>beagleboard.org</http_host>
