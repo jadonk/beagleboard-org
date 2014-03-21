@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3093" name="RGB LED (Hello World for BBB)" prototype="Page" created="1379386965520" lastModified="1379386965521">
+  <hop:parent idref="20" prototyperef="Page"/>
+    <edit_skin>edit_project</edit_skin>
+    <updatetime type="date">16.09.2013 22:02:45 CDT</updatetime>
+    <uri>RGB LED (Hello World for BBB)</uri>
+    <time type="date">16.09.2013 22:02:45 CDT</time>
+    <pseudoparent idref="20" prototyperef="Page"/>
+    <registrant>jnormandin63@gmail.com</registrant>
+    <pname>RGB LED Hello World Beagle Bord  Project</pname>
+    <user>jnormandin63@gmail.com</user>
+    <body>&lt;p&gt;Here&apos;s a real simple hello world project.&amp;nbsp; This uses 3 pwm pins. I disabled my HDMI port.&lt;/p&gt;
+&lt;p&gt;Here&apos;s the pic of my wiring and also the code.&amp;nbsp; I&apos;ll post more info later.&amp;nbsp; For now this code wull fad&amp;nbsp; red to green to blue.&amp;nbsp; next will be walking through a rgb table.&amp;nbsp; I already wrote&amp;nbsp; a&amp;nbsp; crzy spinning effect but that will be posted later.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Here&apos;s the board.. just ignore the accelerometer and yello led.&amp;nbsp; You want to copy the lower full spectrum led wiring.&amp;nbsp; Just look at the code, or&amp;nbsp; adapt the code whatever pins you decide to use.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Here&apos;s the code:&lt;/p&gt;
+&lt;p&gt;cat fadergb.js&lt;br /&gt;var b = require(&apos;bonescript&apos;);&lt;br /&gt;&lt;br /&gt;// setup starting conditions&lt;br /&gt;&lt;br /&gt;var awValue = 0.000001;&lt;br /&gt;var awDirection = 1;&lt;br /&gt;// var awPin = &quot;P8_46&quot;;&lt;br /&gt;var greenPin = &quot;P8_46&quot;;&lt;br /&gt;var bluePin = &quot;P8_45&quot;;&lt;br /&gt;var redPin = &quot;P8_34&quot;;&lt;br /&gt;var green;&lt;br /&gt;var blue;&lt;br /&gt;&lt;br /&gt;// configure pin &lt;br /&gt;b.pinMode(redPin, b.OUTPUT);&lt;br /&gt;b.pinMode(greenPin, b.OUTPUT);&lt;br /&gt;b.pinMode(bluePin, b.OUTPUT);&lt;br /&gt;&lt;br /&gt;b.analogWrite(redPin,1);&lt;br /&gt;b.analogWrite(greenPin,1);&lt;br /&gt;b.analogWrite(bluePin,1);&lt;br /&gt;// call function to update brightness every 10ms&lt;br /&gt;var red=setInterval (fade_red,5);&lt;br /&gt;var fadeloops=0;&lt;br /&gt;&lt;br /&gt;function fade_red() {&lt;br /&gt;&amp;nbsp;b.analogWrite(redPin, awValue);&lt;br /&gt;&amp;nbsp;awValue = awValue + (awDirection*0.01);&lt;br /&gt;&amp;nbsp;if(awValue &amp;gt; 1.0) { awValue = 1.0; awDirection = -1;&amp;nbsp; &lt;br /&gt;&amp;nbsp;if(fadeloops &amp;gt;= 1) { clearInterval(red);b.analogWrite(redPin,1);green =setInterval (fade_green,5); }}&lt;br /&gt;&amp;nbsp;else if(awValue &amp;lt;= 0.01) { awValue = 0.000001; awDirection = 1;fadeloops=fadeloops +1;&lt;br /&gt;&amp;nbsp;}&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;function fade_green() {&lt;br /&gt;&amp;nbsp;b.analogWrite(greenPin, awValue);&lt;br /&gt;&amp;nbsp;awValue = awValue + (awDirection*0.01);&lt;br /&gt;&amp;nbsp;if(awValue &amp;gt; 1.0) { awValue = 1.0; awDirection = -1; &lt;br /&gt;&amp;nbsp;if(fadeloops &amp;gt;= 1) { clearInterval(green); b.analogWrite(greenPin,1);blue=setInterval (fade_blue,5); }}&lt;br /&gt;&amp;nbsp;else if(awValue &amp;lt;= 0.01) { awValue = 0.000001; awDirection = 1;fadeloops=fadeloops +1;&lt;br /&gt;&amp;nbsp;}&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;function fade_blue()&lt;br /&gt;{&lt;br /&gt;&amp;nbsp;b.analogWrite(bluePin, awValue);&lt;br /&gt;&amp;nbsp;awValue = awValue + (awDirection*0.01);&lt;br /&gt;&amp;nbsp;if(awValue &amp;gt; 1.0) { awValue = 1.0; awDirection = -1; &lt;br /&gt;&amp;nbsp;if(fadeloops &amp;gt;= 1) { clearInterval(blue);clearInterval(green);clearInterval(red); &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;b.analogWrite(redPin,1);b.analogWrite(greenPin,1);&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;b.analogWrite(bluePin,1);red=setInterval (fade_red,5); }}&lt;br /&gt;&amp;nbsp; else if(awValue &amp;lt;= 0.01) { awValue = 0.000001; awDirection = 1;fadeloops=fadeloops +1;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; }&lt;br /&gt;&lt;br /&gt;&amp;nbsp;}&lt;/p&gt;</body>
+    <errmsg></errmsg>
+    <homepage></homepage>
+    <render_skin>project</render_skin>
+    <shortdesc>Here&apos;s a simple start to learning how to use the Node API.
+I picked up a rgb led and  some 220 ohm resistors from radio shack.  The code is real simple.. and your learn how to use setInterval and clear Interval.</shortdesc>
+    <rssfeed></rssfeed>
+  </hopobject>
+</xmlroot>

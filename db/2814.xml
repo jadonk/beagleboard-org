@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2814" name="2AxisThumbJoystick" prototype="Page" created="1372444995090" lastModified="1387488787005">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>192.91.75.30</http_remotehost>
+    <http_language>en-US,en;q=0.8,fr;q=0.6</http_language>
+    <uri>2AxisThumbJoystick</uri>
+    <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36</http_browser>
+    <time type="date">19.12.2013 15:33:07 CST</time>
+    <hopsession>192.91.75.1qb2qdg7e5z6r</hopsession>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+    &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
+        &lt;li&gt;&lt;a href=&quot;/static/side-menu.html&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
+&lt;h1&gt;Demo: Adafruit 2-Axis Thumb Joystick&lt;/h1&gt;
+&lt;p&gt; The &lt;a href=&quot;http://www.adafruit.com/products/512&quot; class=&quot;external&quot;&gt;Analog
+2-axis Thumb Joystick&lt;/a&gt; allows you to easily mount a PSP/Xbox-like thumb
+joystick to your project. Using analog pins, the BeagleBone will read and determine
+both the X and Y axis. The
+joystick also includes an extra digital input that will let you read the switch. 
+&lt;/p&gt;
+
+&lt;i&gt;The console will output both the x-axis and y-axis with readings from 0-100, with (50,50) being the center location.&lt;/i&gt;
+&lt;br&gt;
+
+&lt;h2&gt;Example
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:230px;&quot;&gt;
+var b = require(&apos;bonescript&apos;);
+var pos = {};
+
+b.analogRead(&apos;P9_36&apos;, onX);
+
+function onX(x) {
+    pos.x = parseFloat(x.value * 100).toFixed(2);
+    b.analogRead(&apos;P9_38&apos;, onY);
+}
+
+function onY(x) {
+    pos.y = parseFloat(x.value * 100).toFixed(2);
+	console.log(JSON.stringify(pos));
+}
+&lt;/pre&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&quot;height:100px;&quot;&gt;&lt;/div&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;img align=&quot;right&quot; width=&quot;70%&quot; src=&quot;http://beagleboard.org/static/uploads/Joystick1.PNG&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;Connect the &quot;VCC&quot; pin from the joystick to P9_32 of the BeagleBone.&lt;/li&gt;
+ &lt;li&gt;Connect the &quot;VER&quot; pin from the joystick to P9_38 of the BeagleBone.&lt;/li&gt;
+ &lt;li&gt;Connect the &quot;HOR&quot; pin from the joystick to P9_36 of the BeagleBone.&lt;/li&gt;
+ &lt;li&gt;Connect the &quot;SEL&quot; pin from the joystick to P9_42 of the BeagleBone.&lt;/li&gt;
+ &lt;li&gt;Connect the &quot;GND&quot; pin from the joystick to P9_34 of the BeagleBone.&lt;/li&gt;
+ &lt;li&gt;Click &quot;Run&quot; on the code and it will output both the x and y axis, with 50,50 being the center.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;h3&gt;Related functions&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#require&quot;&gt;require&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/analogRead/&quot;&gt;analogRead&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Where to buy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt; &lt;a href=&quot;http://elinux.org/CircuitCo:BeagleBone_Breadboard#Distributors&quot;&gt;BreadBoard&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;http://www.adafruit.com/products/512&quot;&gt;Joystick&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/11026&quot;&gt;Jumper wires&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;See it in action&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/tB3hM5whNN8&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/support/BoneScript/2AxisThumbJoystick/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <user>jessica.lynne.callaway@gmail.com</user>
+    <lang>en-us</lang>
+  </hopobject>
+</xmlroot>

@@ -51,7 +51,9 @@ function listBody ()
     if (collection[i].render_skin == "project")
      {
       body +=
-       '<tr><td><a href="' + collection[i].href() + '">'
+       '<tr categories="'
+       + collection[i].categories
+       + '"><td><a href="' + collection[i].href() + '">'
        + collection[i].pname
        + '</a><br><small>' 
        ;
@@ -79,7 +81,7 @@ function listBody ()
       body += '<td><small>'
        + encode(collection[i].shortdesc)
        + '</small></td><td><small>Registered by: '
-       + collection[i].registrant
+       + collection[i].registrant.replace(/\@.*$/, "")
        + '<br>Updated: '
        + collection[i].time
        + '</small></td></tr>\n'
@@ -141,7 +143,7 @@ function listBody ()
        '<li><a href="' + collection[i].href() + '">'
        + collection[i].uri
        + '</a>&nbsp;&nbsp;&nbsp;&nbsp;<small>Last updated by: '
-       + collection[i].user
+       + collection[i].user.replace(/\@.*$/, "")
        + '</small></li>\n';
      }
    }

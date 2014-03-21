@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="2836" name="PIRMotionSensor" prototype="Page" created="1373039502953" lastModified="1387489171923">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>192.94.94.105</http_remotehost>
+    <http_language>en-US,en;q=0.8,fr;q=0.6</http_language>
+    <uri>PIRMotionSensor</uri>
+    <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36</http_browser>
+    <time type="date">19.12.2013 15:39:31 CST</time>
+    <hopsession>192.94.94.9otttzsp6btn</hopsession>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+    &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
+        &lt;li&gt;&lt;a href=&quot;/static/side-menu.html&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
+&lt;h1&gt;Demo: PIR Motion Sensor&lt;/h1&gt;
+&lt;p&gt;  The PIR Motion Sensor, or Passive Infrared Sensor, is a sensor that takes a snapshot of the room and sets the
+&apos;alarm&apos; pin to &apos;LOW&apos; if it detects changes in heat. Since this sensor is an  &lt;a href=&quot;http://en.wikipedia.org/wiki/Open_collector&quot;&gt;open collector&lt;/a&gt;,
+it needs a pull-up resistor on the alarm pin, which allows multiple motion sensors to be connected on a single input pin. If motion is detected in this
+demo, it will output &quot;Motion Detected&quot; on the console and will turn on the LED.
+&lt;/p&gt;
+
+
+&lt;h2&gt;Example
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:300px;&quot;&gt;
+var b = require(&apos;bonescript&apos;);
+var led = &quot;P8_13&quot;;
+b.pinMode(led, &apos;out&apos;);
+b.pinMode(&apos;P8_19&apos;, b.INPUT);
+setInterval(checkPIR, 2500); // Checks the Sensor Every 2.5 Seconds
+
+function checkPIR(){
+b.digitalRead(&apos;P8_19&apos;, printStatus);
+}
+
+function printStatus(x) {
+    if(x.value === 0){
+         b.digitalWrite(led, 1);
+    console.log(&quot;Motion Detected&quot;);
+    }
+    else{
+    console.log(&quot;No Motion Detected&quot;);
+         b.digitalWrite(led, 0);
+    }
+}
+&lt;/pre&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&quot;height:100px;&quot;&gt;&lt;/div&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;img align=&quot;right&quot; width=&quot;65%&quot; src=&quot;http://beagleboard.org/static/uploads/Motion.PNG&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;Connect the &apos;+&apos; pin from the sensor to &apos;P9_5&apos; of the BeagleBoard in series with a 10kohm resistor as shown on the right.&lt;/li&gt;
+ &lt;li&gt;Connect the &apos;-&apos; pin from the sensor to &apos;P9_1&apos; of the BeagleBoard.&lt;/li&gt;
+ &lt;li&gt;Connect the &apos;AL&apos; pin from the sensor to &apos;P8_19&apos; of the BeagleBoard in series with a 10kohm resistor as shown on the right.&lt;/li&gt;
+ &lt;li&gt;Connect the LED with a 470ohm resistor as shown on the right &lt;/li&gt;
+ &lt;li&gt;Click &quot;Run&quot; on the code. Every 2.5 seconds, the console will tell you if there was motion detected. If there
+     was motion detected, the LED will also turn on.
+ &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;h3&gt;Related functions&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#require&quot;&gt;require&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;http://beagleboard.org/Support/BoneScript/digitalRead/&quot;&gt;digitalRead&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;http://beagleboard.org/Support/BoneScript/#timers&quot;&gt;setInterval&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;http://beagleboard.org/Support/BoneScript/digitalWrite/&quot;&gt;digitalWrite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Where to buy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt; &lt;a href=&quot;http://elinux.org/CircuitCo:BeagleBone_Breadboard#Distributors&quot;&gt;BreadBoard&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/9590&quot;&gt;External LED&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/11026&quot;&gt;Jumper wires&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://www.sparkfun.com/products/8630&quot;&gt;PIR motion sensor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://www.sparkfun.com/search/products?sort_by=relevance%7Casc&amp;per_page=500&amp;term=resistor&quot;&gt;Resistors&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;h2&gt;See it in action&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/7pfQWB_-ZZU&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/Support/BoneScript/PIRMotionSensor/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <user>jessica.lynne.callaway@gmail.com</user>
+    <lang>en-us</lang>
+  </hopobject>
+</xmlroot>

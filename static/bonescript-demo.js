@@ -83,7 +83,9 @@ function initClient() {
         editor[this.id].original = this.innerHTML;
         editor[this.id].editor = ace.edit(this.id);
         editor[this.id].editor.setTheme("ace/theme/textmate");
-        editor[this.id].editor.getSession().setMode("ace/mode/javascript");
+        if($(this).attr('syntax') == 'sh') 
+            editor[this.id].editor.getSession().setMode("ace/mode/sh");
+        else editor[this.id].editor.getSession().setMode("ace/mode/javascript");
         var originalDemoRun = demoRun;
         demoRun = function(myid) {
             if(typeof editor[myid].editor != 'undefined') {
@@ -91,6 +93,15 @@ function initClient() {
                 myeval(code);
             } else {
                 originalDemoRun(myid);
+            }
+        }
+        var originalShellRun = shellRun;
+        shellRun = function(myid) {
+            if(typeof editor[myid].editor != 'undefined') {
+                var code = editor[myid].editor.getValue();
+                myShell(code);
+            } else {
+                originalShellRun(myid);
             }
         }
     }
@@ -106,6 +117,21 @@ function demoRun(id) {
     myScript = myScript.replace("&gt;", ">");
     myScript = myScript.replace("&amp;", "&");
     myeval(myScript);
+}
+
+function onShell(x) {
+    console.log(x);
+}
+
+function myShell(code) {
+    var b = require('bonescript');
+    b.socket.on('shell', onShell);
+    b.socket.emit('shell', code);
+}
+
+function shellRun(id) {
+    var myScript = document.getElementById(id).innerHTML;
+    myShell(myScript);
 }
 
 function demoRestore(id) {

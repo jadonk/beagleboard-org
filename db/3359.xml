@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3359" name="2014-01-04-happy-new-year" prototype="Page" created="1388846358390" lastModified="1388849569031">
+  <hop:parent idref="2912" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>207.191.249.29</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>2014-01-04-happy-new-year</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36</http_browser>
+    <time type="date">04.01.2014 09:32:49 CST</time>
+    <hopsession>207.191.249.1di18g8m3dxc3</hopsession>
+    <body>&lt;h1&gt;Happy New Year!&lt;/h1&gt;
+&lt;h3&gt;by Jason Kridner&lt;/h3&gt;
+&lt;p&gt;Here we are, 2014. Expect a big year for Beagle! Unfortunately, I have to
+    start out with an apology. &lt;a href=&quot;http://linuxgizmos.com/beaglebone-black-sbc-surpasses-100000-units/&quot;&gt;
+        LinuxGizmos.com
+    &lt;/a&gt;
+    recently hopped on the news that over 100,000 BeagleBone Blacks have now
+    been sold. When they contacted me to confirm, I blundered a bit by repeating
+    and confirming what I thought was a fairly broadly shared rumor---that we
+    are looking to soon shift the Linux distribution that ships in the flash of
+    the boards from Angstrom to Debian. The blunder wasn&apos;t the confirming of the
+    news, but rather not doing a good job at communicating to the community
+    about this move better ahead of time. It didn&apos;t help that I was taking off
+    for vacation where my Internet access is spotty at best. So, I owe you all
+    a big apology, but I hope you are still excited about the news.
+&lt;/p&gt;
+&lt;h2&gt;So what&apos;s coming?&lt;/h2&gt;
+&lt;p&gt;The big news is a shift to Debian in the on-board flash. You&apos;ll still be
+    able to flash Angstrom if you want to use that and myself and others in the
+    community will still be rather happy to help you with Angstrom-related
+    questions, but the feeling is that we&apos;ll get a much broader support base
+    if we have new users encounter Debian first on the upcoming boards.
+&lt;/p&gt;
+&lt;p&gt;
+    The exact date of the switch-over hasn&apos;t been determined. Gerald had most
+    recently given me and everyone involved a deadline of giving him an image
+    by the end of January, but we are currently bottlenecked by the updated
+    version of Cloud9 IDE. I have been playing with a beta of version 3 and I
+    find it to be a huge improvement that will enable us to provide support for
+    C compilation within the IDE using plug-ins. The new version also runs on
+    node 0.10, making it much easier to work with recent Debian builds. Before
+    any switch in production happens, there will be a fairly complete beta image
+    shared broadly for testing.
+&lt;/p&gt;
+&lt;h2&gt;How similar will the experience be?&lt;/h2&gt;
+&lt;p&gt;
+    If you aren&apos;t a heavy Linux user and just do a few things from the command-line
+    and use the Cloud9 IDE, the experience will be pretty similar, but I hope
+    you&apos;ll find it somewhat improved. If you are a more seasoned developer, I
+    probably don&apos;t need to answer the question, because you are already likely to
+    be somewhat experienced with Debian. All of the key features you expect
+    should be there.
+&lt;/p&gt;
+&lt;p&gt;
+    We have a handful of performance goals to try to keep the experience on-par
+    with Angstrom. One is a boot time target of under 10 seconds. Using the
+    typical boot strategy for Debian Wheezy without any significant optimization,
+    Robert Nelson observed that boot time was more like 30 seconds. By switching
+    over to systemd, as is used by typical Angstrom builds, boot time dropped to
+    around 16 seconds. We&apos;ll be spending a bit of time trying to improve this
+    between now and the beta image.
+&lt;/p&gt;
+&lt;p&gt;
+    Space on the flash will likely be very similar, due to trying to provide
+    similar functionality. The builds are currently quite a bit smaller, but
+    Robert is still adding in items to bring in feature parity.
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;a href=&quot;https://github.com/jadonk/bonescript&quot;&gt;
+        BoneScript
+    &lt;/a&gt;
+    will still be included in the out-of-box experience to help
+    quickly prove out the various hardware interfaces and help people learn
+    about wiring up hardware. I&apos;ve fixed most of the issues with getting BoneScript
+    onto other distros besides Angstrom and am planning to soon release version
+    0.2.4 that already has improved support for switching pin modes and reading
+    pin states.
+&lt;/p&gt;
+&lt;p&gt;
+    The USB flash drive and USB networking features will still be included, as
+    well as the driver install guide, self-hosted web-based tutorial and the
+    previously mentioned Cloud9 IDE. 
+&lt;/p&gt;
+&lt;p&gt;
+    Over time, there will be more promotion of the
+    &lt;a href=&quot;http://elinux.org/Userspace_Arduino&quot;&gt;Userspace Arduino project&lt;/a&gt;
+    that provides an easy-to-learn C API for rapid prototyping of hardware
+    projects. Of course, the boards will continue to ship with a C/C++ compiler
+    and build tools, libraries, and a number of interpreters, such as Python. I&apos;d love to
+    include the Adafruit BBIO Python library, so I&apos;ll be contacting them to see
+    if they&apos;ll approve that. I&apos;ve also been chatting
+    quite a few times with the Erlang folks, so that is something that has a
+    good likelihood of being included.
+&lt;/p&gt;
+&lt;p&gt;
+    The kernel is likely to be the same one included currently in Angstrom, the
+    &lt;a href=&quot;https://github.com/beagleboard/kernel/tree/3.8&quot;&gt;
+        customized 3.8.x kernel.
+    &lt;/a&gt;
+    However, if the release slips enough, there is a reasonable chance we&apos;ll be
+    switching over to one of either the 
+    &lt;a href=&quot;https://github.com/beagleboard/kernel/tree/3.12&quot;&gt;
+        3.12
+    &lt;/a&gt;
+    or
+    &lt;a href=&quot;https://github.com/beagleboard/kernel/tree/3.13&quot;&gt;
+        3.13-rc
+    &lt;/a&gt;
+    kernels. A good amount of attention will be paid to having a good set of
+    drivers and firmware for USB wifi adapters included as this was a pain
+    point for some people in the past.
+&lt;/p&gt;
+&lt;h2&gt;How to contribute?&lt;/h2&gt;
+&lt;p&gt;
+    The script for building the image is currently hosted at
+    &lt;a href=&quot;https://github.com/beagleboard/image-builder&quot;&gt;
+        https://github.com/beagleboard/image-builder
+    &lt;/a&gt;. Hop on the mailing list with questions about running the script and
+    send Github pull requests if you have suggested improvements. Contributing
+    to the kernel continues to be the same at
+    &lt;a href=&quot;https://github.com/beagleboard/kernel&quot;&gt;
+        https://github.com/beagleboard/kernel
+    &lt;/a&gt;.
+    I am overdue, however, at writing up how to contribute Cape DTS firmware
+    sources that configure Cape hardware automatically using devicetree. The
+    new repository for that is at 
+    &lt;a href=&quot;https://github.com/beagleboard/cape-firmware&quot;&gt;
+        https://github.com/beagleboard/cape-firmware
+    &lt;/a&gt;
+    and it just needs a good README that describes the details of contributing.
+&lt;/p&gt;
+&lt;p&gt;
+    Thanks for all of your support and I&apos;m so very thrilled with all the
+    amazing things happening in the Beagleverse for 2014!
+&lt;/p&gt;</body>
+    <pseudoparent idref="2912" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/blog/2014-01-04-happy-new-year/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <user>jkridner@gmail.com</user>
+    <lang>en-us</lang>
+  </hopobject>
+</xmlroot>

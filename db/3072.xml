@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3072" name="temperature server" prototype="Page" created="1378565440607" lastModified="1378565440608">
+  <hop:parent idref="20" prototyperef="Page"/>
+    <edit_skin>edit_project</edit_skin>
+    <updatetime type="date">07.09.2013 09:50:40 CDT</updatetime>
+    <uri>temperature server</uri>
+    <time type="date">07.09.2013 09:50:40 CDT</time>
+    <pseudoparent idref="20" prototyperef="Page"/>
+    <registrant>larry.pedcardiologist@gmail.com</registrant>
+    <pname>temperature server</pname>
+    <user>larry.pedcardiologist@gmail.com</user>
+    <body>&lt;p&gt;One of the problems of Adafruit_BBIO is that you need to be root to use it. Running a server is a non-root user process. By running temperature as a superuser under crontab, saving the result as a text string, then having the server running php can pick up the info and output it to the world.&lt;/p&gt;
+&lt;p&gt;Install ubuntu os. When you plug in BBB to usb, and see mass storage connect window pop up, the start.html file are the instructions for booting ubuntu and other operating systems. Use the &lt;strong&gt;eMMC flasher img&lt;/strong&gt;, don&apos;t use the first one. See&amp;nbsp;&lt;a href=&quot;http://elinux.org/BeagleBoardUbuntu#eMMC:_BeagleBone_Black&quot;&gt;http://elinux.org/BeagleBoardUbuntu#eMMC:_BeagleBone_Black&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Connect using ssh&lt;/p&gt;
+&lt;p&gt;I use PuTTY, but from linux box, you can use in terminal $ssh ubuntu@192.168.7.2 the password for the above ubuntu distribution is temppwd.&lt;/p&gt;
+&lt;p&gt;Follow burning to SD card instructions, then install python on BBB: &amp;nbsp;&lt;span style=&quot;line-height: 1.1; text-decoration: underline; font-size: 15px; font-family: Arial; color: #1155cc; background-color: #f9f9f9; vertical-align: baseline; white-space: pre-wrap;&quot;&gt;&lt;a style=&quot;line-height: 1.1; text-decoration: none;&quot; href=&quot;http://learn.adafruit.com/setting-up-io-python-library-on-beaglebone-black/installation&quot;&gt;http://learn.adafruit.com/setting-up-io-python-library-on-beaglebone-black/installation&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Check that python is working by measuring temperature: &amp;nbsp;&lt;span style=&quot;text-decoration: underline; font-size: 15px; font-family: Arial; color: #1155cc; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;&quot;&gt;&lt;a style=&quot;text-decoration: none;&quot; href=&quot;http://learn.adafruit.com/measuring-temperature-with-a-beaglebone-black&quot;&gt;http://learn.adafruit.com/measuring-temperature-with-a-beaglebone-black&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;span style=&quot;font-size: 15px; font-family: Arial; color: #1155cc; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;&quot;&gt;&lt;span style=&quot;color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; white-space: normal;&quot;&gt;Modify the tmp36.py to print to a file. I put it into a shell script. Don&apos;t forget to make your shell script executable: $chmod a+x scriptnamehere.sh Run the tmp36.py or the script &amp;nbsp;from a crontab, but it has to be as a superuser&lt;br /&gt;$sudo crontab -e&lt;br /&gt;The Adafruit_BBIO function ADC.setup() needs to be run by superuser.&lt;br /&gt;Check via ssh what ethernet ip is &lt;br /&gt;$ssh ubuntu@192.168.7.2&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-size: 15px; font-family: Arial; color: #1155cc; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;&quot;&gt;&lt;span style=&quot;color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; white-space: normal;&quot;&gt;$ifconfig eth0 should give the ethernet port IP address&lt;br /&gt;Login from a browser, see apache warning that it is running, but no site served up.&lt;br /&gt;You have to write the index.php. You need the usual http stuff at top, and what you want to display. The php uses system function to read file created by tmp36.py&lt;br /&gt;$dummy = system(&apos;tail templog.txt&apos;, $retval)&lt;br /&gt;The $retval should be 0, the $dummy will include the last line of tail, but the entire tail output will appear on screen, because it is in between php tags.&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;&amp;nbsp;&lt;/pre&gt;
+&lt;p dir=&quot;ltr&quot; style=&quot;line-height: 1.1; margin-top: 0pt; margin-bottom: 0pt;&quot;&gt;&amp;nbsp;&lt;/p&gt;</body>
+    <errmsg></errmsg>
+    <homepage>http://nestor.dyn-o-saur.com:8080</homepage>
+    <render_skin>project</render_skin>
+    <shortdesc>combine the analog input of BBB with the built in ethernet connection to produce a server for temperature, as a proof of concept</shortdesc>
+    <rssfeed></rssfeed>
+  </hopobject>
+</xmlroot>

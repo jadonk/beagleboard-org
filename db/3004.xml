@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3004" name="ServoMotor" prototype="Page" created="1375818694413" lastModified="1387490969902">
+  <hop:parent idref="2471" prototyperef="Page"/>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>192.94.94.105</http_remotehost>
+    <http_language>en-US,en;q=0.8,fr;q=0.6</http_language>
+    <uri>ServoMotor</uri>
+    <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36</http_browser>
+    <time type="date">19.12.2013 16:09:29 CST</time>
+    <hopsession>192.94.94.7dfwhyo4o1ro</hopsession>
+    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+    &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
+        &lt;li&gt;&lt;a href=&quot;/static/side-menu.html&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
+&lt;h1&gt;Demo: Micro Servo Motor&lt;/h1&gt;
+&lt;p&gt;&lt;i&gt;Output a pulse width modulated signal on a Servo Motor.&lt;/i&gt; &lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://www.adafruit.com/products/169&quot;&gt;Micro Servo Motor&lt;/a&gt; 
+can rotate 180 degrees and is usually used in applications
+such as robotics, CNC machinery, or automated manufacturing. By using the &apos;analogWrite&apos;
+function [analogWrite(pin, value, [freq], [callback]), 
+the BeagleBone will send Pulse Width Modulated
+Signals to control the Servo Motor. The position of the servo motor is set 
+by the length of a pulse. In the following
+program, the frequency is set at 60Hz, which means that the servo receives a 
+pulse every 16.66ms. 
+The length of the pulse, or the duty cycle, can be changed from 3% to 14.5% and 
+can be changed to rotate
+the servo motor.&lt;/p&gt;
+&lt;p&gt;
+    The example below, when run, will adjust the position of the servo motor
+    between its two extremes repeatitively.
+&lt;/p&gt;
+&lt;p&gt;
+More information regarding PWMs can be found on the&lt;a href=&quot;https://en.wikipedia.org/wiki/Pulse-width_modulation&quot;&gt;
+Wikipedia pulse-width modulation page.&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2&gt;Example
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot; style=&quot;height:560px;&quot;&gt;
+var b = require(&apos;bonescript&apos;);
+var SERVO = &apos;P9_14&apos;;
+var duty_min = 0.03;
+var position = 0;
+var increment = 0.1;
+
+b.pinMode(SERVO, b.OUTPUT);
+updateDuty();
+
+function updateDuty() {
+    // compute and adjust duty_cycle based on
+    // desired position in range 0..1
+    var duty_cycle = (position*0.115) + duty_min;
+    b.analogWrite(SERVO, duty_cycle, 60, scheduleNextUpdate);
+    console.log(&quot;Duty Cycle: &quot; + 
+        parseFloat(duty_cycle*100).toFixed(1) + &quot; %&quot;);   
+}
+
+function scheduleNextUpdate() {
+    // adjust position by increment and 
+    // reverse if it exceeds range of 0..1
+    position = position + increment;
+    if(position &lt; 0) {
+        position = 0;
+        increment = -increment;
+    } else if(position &gt; 1) {
+        position = 1;
+        increment = -increment;
+    }
+    
+    // call updateDuty after 200ms
+    setTimeout(updateDuty, 200);
+}
+&lt;/pre&gt;
+&lt;div readonly id=&apos;console-output&apos; style=&quot;height:120px;&quot;&gt;&lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+
+&lt;img align=&quot;right&quot; width=&quot;60%&quot; src=&quot;http://beagleboard.org/static/uploads/Servo%20Motor.PNG&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;Connect the &quot;GND&quot; pin from the Servo Motor to P9_1 of the board&lt;/li&gt;
+ &lt;li&gt;Connect the &quot;V+&quot; pin from the Servo Motor to P9_3 of the board&lt;/li&gt;
+ &lt;li&gt;Connect a 1kohm resistor to the &quot;PWM&quot; pin of the Servo Motor and to P9_14 of the board.&lt;/li&gt;
+ &lt;li&gt;Click &quot;Run&quot; on the code. The value of &apos;position&apos; will go between 0 and 1
+    changing by &apos;increment&apos; amount with updates every 200ms.
+ &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;h3&gt;Topics&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#headers&quot;&gt;BeagleBone expansion headers&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#pwm&quot;&gt;PWM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Related functions&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/#require&quot;&gt;require&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/pinMode&quot;&gt;pinMode&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;http://beagleboard.org/Support/BoneScript/analogWrite/&quot;&gt;analogWrite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Examples&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/cape_bacon&quot;&gt;Bacon Cape&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/educationalBoosterPack&quot;&gt;Educational BoosterPack&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Where to buy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://elinux.org/CircuitCo:BeagleBone_Breadboard#Distributors&quot;&gt;BreadBoard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/11026&quot;&gt;Jumper wires&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/search/products?sort_by=relevance%7Casc&amp;per_page=500&amp;term=resistor&quot;&gt;Resistors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.adafruit.com/products/1143&quot;&gt;Servo motor&lt;/a&gt;&lt;/li&gt;
+
+
+&lt;/br&gt;
+
+&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;clear: both; padding-left:210px;&quot;&gt;&lt;h2&gt;See it in action&lt;/h2&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/DoveoxQ2m1Q&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;</body>
+    <pseudoparent idref="2471" prototyperef="Page"/>
+    <http_referer>http://beagleboard.org/Support/BoneScript/ServoMotor/edit</http_referer>
+    <http_host>beagleboard.org</http_host>
+    <user>jessica.lynne.callaway@gmail.com</user>
+    <lang>en-us</lang>
+  </hopobject>
+</xmlroot>
