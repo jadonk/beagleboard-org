@@ -3,6 +3,26 @@ function ownername_macro (param)
   return ("" + this.ownername);
  }
 
+function updateViewCount_macro (param)
+ {
+	if (this.pvCount == undefined) {
+		this.pvCount = 0;
+	}
+
+	this.pvCount = this.pvCount+1;
+
+	return this.pvCount;
+ }
+
+function getImageFile_macro (param)
+ {
+  if (this.imageFile == undefined || this.imageFile == '') {
+	return "/static/graphics/coolboris.png";
+  } else {
+	return this.imageFile;
+  }
+ }
+
 function edit_macro (param)
  {
   var uri = req.path.replace(/\/$/,"");
@@ -14,9 +34,27 @@ function edit_macro (param)
   return ("");
  }
 
-function homepage_macro (param)
+function gethomepage_macro (param)
  {
-  return ("" + this.homepage);
+	if (this.homepage != undefined && this.homepage != "") {
+	  if ((this.homepage).indexOf("http", -1)) {
+		return ('Homepage: <a href="http://' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
+	  } else {
+		return ('Homepage: <a href="' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
+	  }
+	}
+ }
+
+function getregistrant_macro (param)
+ {
+
+	if (this.registrar != undefined && this.registrar != "") {
+	  if ((this.registrar ).indexOf("mailto", -1)) {
+		return ('Homepage: <a href="mailto:' + this.registrar + '">' + this.registrar + '</a>');
+	  } else {
+		return ('Homepage: <a href="' + this.registrar + '">' + this.registrar + '</a>');
+	  }
+	} else { return('')}
  }
 
 function updatetime_macro (param)
@@ -38,7 +76,7 @@ function edit_project_action ()
  {
   if (!session.user || !session.user["name"])
    {
-    var targetURL = root.href("login") + "?target=" + this.href();// + this.edit_skin;
+    var targetURL = root.href("login") + "?target=" + this.href();
     res.redirect(targetURL);
     return;
    }
@@ -58,9 +96,13 @@ function edit_project_action ()
   this.lang = cleanField(this.lang);
   this.pname = cleanField(this.pname);
   this.shortdesc = cleanField(this.shortdesc);
+  this.category = cleanField(this.category);
   this.homepage = cleanField(this.homepage);
   this.rssfeed = cleanField(this.rssfeed);
-
+  this.prj_Status = cleanField(this.projstatus);
+  this.boardType = cleanField(this.boardtype);
+  this.imageFile = this.imageFile;
+ 
   if
    (
     req.data["submit"]
@@ -68,6 +110,9 @@ function edit_project_action ()
     && req.data["body"]
     && req.data["pname"]
     && req.data["shortdesc"]
+    && req.data["boardType"]
+    && req.data["prj_Status"]
+    && req.data["category"]
    )
    {
     this.user = "" + session.user["name"];
@@ -75,17 +120,14 @@ function edit_project_action ()
     this.lang = req.data["lang"];
     this.pname = req.data["pname"];
     this.shortdesc = req.data["shortdesc"];
+    this.category = req.data["category"];
     this.homepage = req.data["homepage"];
     this.rssfeed = req.data["rssfeed"];
-    try
-     {
-      this.categories = String(req.data["categories_array"].join(","));
-     }
-    catch(ex)
-     {
-      this.categories = "";
-     }
+    this.projstatus = req.data["prj_Status"];
+    this.boardtype = req.data["boardType"];
     this.updatetime = new Date();
+    this.imageFile = "" + req.data["imageFile"];
+
     this.render_skin = "project";
     this.edit_skin = "edit_project";
     if (this.isTransient())
@@ -98,8 +140,7 @@ function edit_project_action ()
      }
     else
      {
-      app.log("Replacing project '" + this.uri + "' with '" + req.data["uri"] + "'");
-      app.log("Categories = " + this.categories);
+      app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
       this.uri = req.data["uri"];
      }
     res.redirect(this.href());
@@ -111,6 +152,9 @@ function edit_project_action ()
     if (!req.data["shortdesc"]) this.errmsg += "* About/Summary is a required field<br />\n";
     if (!req.data["pname"]) this.errmsg += "* Project Name is a required field<br />\n";
     if (!req.data["uri"]) this.errmsg += "* Project Shortname/URI is a required field<br />\n";
+    if (!req.data["category"]) this.errmsg += "* Project Category is a required field<br />\n";
+    if (!req.data["boardType"]) this.errmsg += "* Project Board Type is a required field<br />\n";
+    if (!req.data["proj_Status"]) this.errmsg += "* Project Status is a required field<br />\n";
    }
   res.data.title = this.uri + " - edit_project";
   if (this.edit_skin)
