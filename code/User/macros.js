@@ -50,7 +50,7 @@ function prompt_macro (param)
       var serverResponse = verifyResponse(requestURL, queryString);
       app.log("serverResponse=" + serverResponse);
      }
-    else if (0 && req.isPost() && !session.user) // TI web people are idiots
+    else if (0 && req.isPost() && !session.user) // Do not go to login screen on posts without openid
      {
       app.log("Edit/login attempt without openid");
       var requestURL = req.getServletRequest().getRequestURL();
