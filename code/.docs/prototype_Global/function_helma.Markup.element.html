@@ -64,7 +64,7 @@
 <table width="90%" border="0" cellspacing="1" cellpadding="5">
 <tr>
 	<td class="headline">
-	<big><tt>Global.helma.Markup.Element&nbsp;(name,&nbsp;attributes,&nbsp;children)</tt></big><br>
+	<big><tt>Global.helma.Markup.element&nbsp;(name,&nbsp;attributes,&nbsp;content)</tt></big><br>
 	</td>
 </tr>
 
@@ -87,9 +87,39 @@
 <table width="90%" border="0" cellspacing="1" cellpadding="5">
 <tr>
 	<td>Sourcecode in helmaTools.zip/Global/helma.Markup.js:
-	<pre><font color="#aaaaaa">49:</font>   helma.Markup.Element = function(name, attributes, children) {
-<font color="#aaaaaa">50:</font>       return new MarkupElement(name, attributes, children);
-<font color="#aaaaaa">51:</font>   }
+	<pre><font color="#aaaaaa">15:</font>   helma.Markup.element = function(name, attributes, content) {
+<font color="#aaaaaa">16:</font>       if (!name) {
+<font color="#aaaaaa">17:</font>           throw <font color="#9999aa">&quot;helma.Markup.element called without element name&quot;</font>;
+<font color="#aaaaaa">18:</font>       }
+<font color="#aaaaaa">19:</font>   <font color="#33aa00">    // open tag
+<font color="#aaaaaa">20:</font>   </font>    res.write(<font color="#9999aa">&quot;&lt;&quot;</font>);
+<font color="#aaaaaa">21:</font>       res.write(name);
+<font color="#aaaaaa">22:</font>       if (attributes) {
+<font color="#aaaaaa">23:</font>           for (var i in attributes) {
+<font color="#aaaaaa">24:</font>              if (typeof(attributes[i]) == <font color="#9999aa">&quot;undefined&quot;</font>)
+<font color="#aaaaaa">25:</font>                  continue;
+<font color="#aaaaaa">26:</font>              res.write(<font color="#9999aa">&quot; &quot;</font>);
+<font color="#aaaaaa">27:</font>              res.write(i);
+<font color="#aaaaaa">28:</font>              res.write(<font color="#9999aa">&quot;=\&quot;</font>&quot;);
+<font color="#aaaaaa">29:</font>              res.write(encodeForm(attributes[i]));
+<font color="#aaaaaa">30:</font>              res.write(<font color="#9999aa">&quot;\&quot;</font>&quot;);
+<font color="#aaaaaa">31:</font>          }
+<font color="#aaaaaa">32:</font>      }
+<font color="#aaaaaa">33:</font>  <font color="#33aa00">    // if no child objects create empty element and return
+<font color="#aaaaaa">34:</font>  </font>    if (typeof(content) == <font color="#9999aa">&quot;undefined&quot;</font>) {
+<font color="#aaaaaa">35:</font>          res.write(<font color="#9999aa">&quot; /&gt;&quot;</font>);
+<font color="#aaaaaa">36:</font>          return;
+<font color="#aaaaaa">37:</font>      }
+<font color="#aaaaaa">38:</font>      res.write(<font color="#9999aa">&quot;&gt;&quot;</font>);
+<font color="#aaaaaa">39:</font>  
+<font color="#aaaaaa">40:</font>  <font color="#33aa00">    // write content
+<font color="#aaaaaa">41:</font>  </font>    res.write(content);
+<font color="#aaaaaa">42:</font>  
+<font color="#aaaaaa">43:</font>  <font color="#33aa00">    // close tag
+<font color="#aaaaaa">44:</font>  </font>    res.write(<font color="#9999aa">&quot;&lt;/&quot;</font>);
+<font color="#aaaaaa">45:</font>      res.write(name);
+<font color="#aaaaaa">46:</font>      res.write(<font color="#9999aa">&quot;&gt;&quot;</font>);
+<font color="#aaaaaa">47:</font>  }
 </pre>
 	</td>
 </tr>

@@ -30,7 +30,7 @@ $(function() {
 
 $(document).ready(function(){
     if($('#side-menu').length) {
-        $.get('/Support/BoneScript/menu', function(data){
+        $.get('/static/side-menu.html', function(data){
             $('#side-menu').replaceWith(data);
         });
     }
@@ -65,15 +65,14 @@ $(document).ready(function(){
             'beaglebone-2.local'
         ];
         $('#connect-status').replaceWith(statusDisconnected);
-
-	// note, due to a bug in Firefox, the call is moved below
+        testForConnection();
 
         function testForConnection() {
             var handlers = {};
             handlers.callback = callback;
             handlers.initialized = initialized;
             handlers.connecting = disconnected;
-            handlers.connect_failed = connect_failed;
+            handlers.connect_failed = disconnected;
             handlers.reconnect_failed = disconnected;
             handlers.disconnect = disconnected;
             handlers.connect = connected;
@@ -81,14 +80,11 @@ $(document).ready(function(){
             handlers.reconnecting = connected;
             $('#connect-ip').keypress(oninput);
             setTargetAddress(serversToTry[i], handlers);
-            i++;
-            if(i >= serversToTry.length) i = 0;
+			i++;
 
             function oninput(e) {
                 if(e.which == 10 || e.which == 13) {
-                    var givenAddress = $('#connect-ip').val();
-                    setTargetAddress(givenAddress, handlers);
-                    serversToTry = [ givenAddress ];
+                    setTargetAddress($('#connect-ip').val(), handlers);
                 }
             }
 
@@ -117,16 +113,7 @@ $(document).ready(function(){
                     connectState = 'disconnected';
                 }
             }
-            function connect_failed() {
-                if(connectState == 'init') {
-                    _onSocketIOLoaded_workaround();
-                } else {
-                    disconnected();
-                }
-            }
         }
-
-        testForConnection();
     }
 });
 
@@ -138,81 +125,9 @@ function updateBoardInfo() {
             info += ' rev ' + x.version;
         if(typeof x.serialNumber != 'undefined')
             info += ' S/N ' + x.serialNumber;
-        if(typeof x.bonescript != 'undefined')
-            info += ' running BoneScript ' + x.bonescript;
         if(typeof _bonescript.address != 'undefined')
             info += ' at ' + _bonescript.address;
         info += '</div>';
         $('#board-info').replaceWith(info);
     });
-}
-
-function _onSocketIOLoaded_workaround() {
-    //console.log("socket.io loaded");
-    var socket_addr = 'http://' + _bonescript.address + ':80';
-    var socket = io.connect(socket_addr);
-    socket.on('require', getRequireData);
-    socket.on('bonescript', _seqcall);
-    socket.on('connect', _bonescript.on.connect);
-    socket.on('connecting', _bonescript.on.connecting);
-    socket.on('disconnect', _bonescript.on.disconnect);
-    socket.on('connect_failed', _bonescript.on.connect_failed);
-    socket.on('error', _bonescript.on.error);
-    socket.on('reconnect', _bonescript.on.reconnect);
-    socket.on('reconnect_failed', _bonescript.on.reconnect_failed);
-    socket.on('reconnecting', _bonescript.on.reconnecting);
-    socket.on('initialized', _bonescript.on.initialized);
-
-    function getRequireData(m) {
-        if(!m.module || !m.data)
-            throw('Invalid "require" message sent for "' + m.module + '"');
-        //console.log('Initialized module: ' + m.module);
-        _bonescript.modules[m.module] = {};
-        for(var x in m.data) {
-            if(!m.data[x].type || !m.data[x].name || (typeof m.data[x].value == 'undefined'))
-                throw('Invalid data in "require" message sent for "' + m.module + '.' + m.data[x] + '"');
-            if(m.data[x].type == 'function') {
-                // define the function
-                if(!m.data[x].value)
-                    throw('Missing args in "require" message sent for "' + m.module + '.' + m.data[x] + '"');
-                var myargs = m.data[x].value;
-
-                // eval of objString builds the call data out of arguments passed in
-                var objString = '';
-                for(var y in myargs) {
-                    if(isNaN(y)) continue;  // Need to find the source of this bug
-                    if(myargs[y] == 'callback') continue;
-                    objString += ' if(typeof ' + myargs[y] + ' == "function") {\n';
-                    objString += '  ' + myargs[y] + ' = ' + myargs[y] + '.toString();\n';
-                    objString += ' }\n';
-                    objString += ' calldata.' + myargs[y] + ' = ' + myargs[y] + ';\n';
-                }
-                var argsString = myargs.join(', ');
-                var handyfunc = '_bonescript.modules["' + m.module + '"].' + m.data[x].name +
-                    ' = ' +
-                    'function (' + argsString + ') {\n' +
-                    ' var calldata = {};\n' +
-                    objString +
-                    ' if(callback) {\n' +
-                    '  _bonescript._callbacks[_bonescript._seqnum] = callback;\n' +
-                    '  calldata.seq = _bonescript._seqnum;\n' +
-                    '  _bonescript._seqnum++;\n' +
-                    ' }\n' +
-                    ' socket.emit("' + m.module + '$' + m.data[x].name + '", calldata);\n' +
-                    '};\n';
-                eval(handyfunc);
-            } else {
-                _bonescript.modules[m.module][m.data[x].name] = m.data[x].value;
-            }
-        }
-
-        // Work-around to add shell command
-        _bonescript.modules[m.module]["socket"] = socket;
-        _bonescript.modules[m.module]["shell"] = function(command) {
-            socket.emit('shell', command);
-        }
-        
-	// Call-back initialized function
-	_bonescript.on.initialized();
-    }
 }

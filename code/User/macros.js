@@ -16,7 +16,7 @@ function prompt_macro (param)
     else if (req.data["openid_url"])
      {
       // For automatic login, without authentication, set this to 'true'.
-      if (false)
+      if (true)
        {
         var name = "" + req.data["openid_url"];
         name = name.replace(/^http(s)*\:\/\//, "").replace(/\/$/, "");
@@ -36,8 +36,10 @@ function prompt_macro (param)
       var openID = req.data["openid_url"];
       var returnToURL = req.getServletRequest().getRequestURL();
       if (req.data["target"])
-       returnToURL = "http://beagleboard.org" + req.data["target"];
-      var realm = "http://beagleboard.org";
+//       returnToURL = "http://beagleboard.org" + req.data["target"];
+       returnToURL = "http://tgdimsteam.toro.design.ti.com:5001" + req.data["target"];
+//      var realm = "http://beagleboard.org";
+      var realm = "http://tgdimsteam.toro.design.ti.com:5001";
       app.log("Requesting authorization: openID=" + openID + ", returnToURL=" + returnToURL + 
        ", realm=" + realm);
       authRequest(openID, returnToURL, realm);
@@ -50,7 +52,7 @@ function prompt_macro (param)
       var serverResponse = verifyResponse(requestURL, queryString);
       app.log("serverResponse=" + serverResponse);
      }
-    else if (0 && req.isPost() && !session.user) // TI web people are idiots
+    else if (req.isPost() && !session.user)
      {
       app.log("Edit/login attempt without openid");
       var requestURL = req.getServletRequest().getRequestURL();

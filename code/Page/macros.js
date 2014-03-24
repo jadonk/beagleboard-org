@@ -7,7 +7,7 @@ function uri_macro (param)
  {
   if (req.data["uri"])
    return ("" + req.data["uri"]);
-  else if (this.uri && this.uri != "new")
+  else if (this.uri)
    return (this.uri);
   else
    return ("");
@@ -25,7 +25,7 @@ function page_macro (param)
 
 function user_macro (param)
  {
-  return (("" + this.user).replace(/\@.*$/, ""));
+  return ("" + this.user);
  }
 
 function body_macro (param)
@@ -82,7 +82,7 @@ function registrant_macro (param)
  {
   if (this.registrant)
    {
-    return (("" + this.registrant).replace(/\@.*$/, ""));
+    return ("" + this.registrant);
    }
   else
    {
@@ -94,11 +94,11 @@ function registrar_macro (param)
  {
   if (this.registrant)
    {
-    return (("" + this.registrant).replace(/\@.*$/, ""));
+    return ("" + this.registrant);
    }
   else if (session.user && session.user["name"])
    {
-    return (("" + session.user["name"]).replace(/\@.*$/, ""));
+    return ("" + session.user["name"]);
    }
   else
    {

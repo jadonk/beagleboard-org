@@ -4,7 +4,7 @@
 # git clone http://www.beagleboard.org/beagleboard.org.git/ beagleboard.org
 # 
 [ -d beagleboard.org ] || (echo "Run one directory above beagleboard.org" && exit -1)
-[ -e helma-1.6.1.tar.gz ] || wget http://adele.helma.org/download/helma/1.6.1/helma-1.6.1.tar.gz
+[ -e helma-1.6.1.tar.gz ] || curl http://adele.helma.org/download/helma/1.6.1/helma-1.6.1.tar.gz > helma-1.6.1.tar.gz
 [ -e helma-1.6.1 ] || tar xvzf helma-1.6.1.tar.gz
 cd helma-1.6.1
 cd apps

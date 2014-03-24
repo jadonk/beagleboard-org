@@ -1,158 +1,219 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2471" name="BoneScript" prototype="Page" created="1366427239709" lastModified="1386722178681">
-  <hop:parent idref="121" prototyperef="Page"/>
-    <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>68.43.104.104</http_remotehost>
-    <http_language>en-US,en;q=0.8</http_language>
-    <uri>BoneScript</uri>
-    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36</http_browser>
-    <time type="date">10.12.2013 18:36:18 CST</time>
-    <hopsession>68.43.104.occnfohvio7s</hopsession>
-    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
-&lt;/br&gt;
-&lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
-    &lt;ul class=&quot;left-menu&quot;&gt;&lt;strong&gt;Navigation&lt;/strong&gt;
-        &lt;li&gt;&lt;a href=&quot;/Support/BoneScript/menu/&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;t3_content_1&quot;&gt;&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;&lt;div id=&quot;content_child&quot;&gt;
-&lt;h1&gt;BoneScript Library&lt;/h1&gt;
-&lt;p&gt;BoneScript is a &lt;a href=&quot;http://nodejs.org&quot; class=&quot;External&quot;&gt;Node.js&lt;/a&gt; library specifically 
-optimized for the Beagle family
-and featuring familiar Arduino function calls, exported to the browser. Get 
-started exploring the BoneScript Library to discover the great simplicity 
-that is made possible by utilizing Linux.&lt;/p&gt;
-&lt;h2&gt;References&lt;/h2&gt;
-&lt;h3&gt;Web-based learning&lt;/h3&gt;
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;http://www.nodejs.org/docs/v0.8.22/api/&quot; class=&quot;external&quot;&gt;Node.JS API reference&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://www.w3schools.com/js/default.asp&quot; class=&quot;external&quot;&gt;W3Schools JavaScript tutorial&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://khanacademy.org/cs/programming&quot; class=&quot;external&quot;&gt;Khan Academy&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Books&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/bad-to-the-bone&quot;&gt;Bad to the Bone: Crafting Electronics Systems 
-with BeagleBone and BeagleBone Black&lt;/a&gt; (&lt;a 
-href=&quot;http://www.amazon.com/dp/1627051376/?tag=bloghanerhead-20&quot; Class=&quot;external&quot;&gt;Amazon&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/dp/1449345379/?tag=bloghanerhead-20&quot; 
-Class=&quot;external&quot;&gt;Getting Started with BeagleBone&lt;/a&gt;&lt;/li&gt; 
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/dp/1449398588/?tag=bloghanerhead-20&quot; 
-Class=&quot;external&quot;&gt;Node: Up and Running&lt;/a&gt;&lt;/li&gt; 
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;functions&quot;&gt;Functions&lt;/h2&gt;
- &lt;p&gt;The BoneScript library provides several functions useful for interacting
- with your hardware. Browse the menu to the left for examples to get you 
- started.&lt;/p&gt;
-
- &lt;h2 id=&quot;javascript&quot;&gt;JavaScript&lt;/h2&gt;
- &lt;p&gt;Performing physical computing tasks in JavaScript is a rather different than
-    C on microcontrollers.  JavaScript and the
-  Node.JS interpreter like to do everything asynchronously using callbacks.  
-  An event loop runs waiting on whatever the next
-  system-blocking event is, such as waiting for a keypress or a file 
-  load to complete.  The callbacks are then executed
-  to completion before other event handlers are run.
-  &lt;/p&gt;
-  &lt;h3 id=&quot;timers&quot;&gt;Timers&lt;/h3&gt;
-  &lt;p&gt;Timing operations in JavaScript are provided by setting timers with 
-  callback event handlers.  A nice overview of
-  JavaScript timers can be found on &lt;a 
-  href=&quot;http://www.w3schools.com/js/js_timing.asp&quot; target=&quot;_blank&quot; 
-  class=&quot;external&quot;&gt;www.w3schools.com&lt;/a&gt;.&lt;/p&gt;
-  &lt;ul&gt;
-   &lt;li&gt;var timer = setTimeout(callback, milliseconds)&lt;/li&gt;
-   &lt;li&gt;clearTimeout(timer)&lt;/li&gt;
-   &lt;li&gt;var timer = setInterval(callback, milliseconds)&lt;/li&gt;
-   &lt;li&gt;clearInterval(timer)&lt;/li&gt;
-  &lt;/ul&gt;
- &lt;h3 id=&quot;libraries&quot;&gt;Libraries&lt;/h3&gt;
- &lt;p&gt;The BoneScript Library runs in Node.JS.  You can run it
- directly on the board using the &apos;node&apos; interpreter or the Cloud9 IDE that 
- invokes the &apos;node&apos; interpreter.  You can
- also run it using the &lt;a href=&quot;/bonescript.js&quot;&gt;bonescript.js&lt;/a&gt; script 
- within your browser via remote procedure calls
- using Socket.io and served up by the web server running on your Beagle.&lt;/p&gt;
- &lt;p id=&quot;require&quot;&gt;Access to the library functions is provided through the 
- &quot;require(&apos;bonescript&apos;)&quot; function call.  The
- call returns an object containing all of the functions and constants 
- exported by the library.  The Node.JS API documentation
- on &lt;a href=&quot;http://www.nodejs.org/docs/v0.8.22/api/modules.html&quot; 
- target=&quot;_blank&quot; class=&quot;External&quot;&gt;modules&lt;/a&gt; provides more information on the usage
- of &apos;require&apos; within the &apos;node&apos; interpreter.&lt;/p&gt;
-  &lt;h3&gt;Other JavaScript topics&lt;/h3&gt;
-  &lt;p id=&quot;console&quot;&gt;The Chrome browser has a rather nice JavaScript debugger you 
-  can use to examine your code.  You might
-  also get good benefit out of &apos;console.log()&apos;.&lt;/p&gt;
-  &lt;p id=&quot;typeof&quot;&gt;Because JavaScript is dynamically typed, you might find the 
-  &apos;typeof operator&apos; rather useful to determine
-  the type of a variable at run-time.  A nice overview of the JavaScript typeof 
-  operator can be found at 
-  &lt;a target=&quot;_blank&quot; 
-  href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/typeof&quot; 
-  class=&quot;external&quot;&gt;
-      developer.mozilla.org&lt;/a&gt;.&lt;/p&gt;
-
-
-&lt;h3&gt;Resources&lt;/h3&gt;
-&lt;a id=&quot;console&quot;&gt;&lt;/a&gt;
-&lt;a id=&quot;typeof&quot;&gt;&lt;/a&gt;
-&lt;p&gt;To learn more about Cloud9 IDE and to synchronize the software on your board 
-with cloud-hosted services, see
-  &lt;a target=&quot;_blank&quot; href=&quot;http://c9.io&quot;&gt;www.c9.io&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;For more information on Node.JS, the JavaScript interpreter, see &lt;a 
-target=&quot;_blank&quot; href=&quot;http://nodejs.org&quot; class=&quot;external&quot;&gt;www.nodejs.org&lt;/a&gt;.
-  You can find the api documentation
-  at &lt;a target=&quot;_blank&quot; href=&quot;http://nodejs.org/docs/v0.8.22/api&quot; 
-  class=&quot;external&quot;&gt;www.nodejs.org/docs/v0.8.22/api&lt;/a&gt;.
-&lt;/p&gt;
-&lt;p&gt;The source code for BoneScript is hosted at 
-&lt;a href=&quot;https://github.com/jadonk/bonescript&quot;&gt;Github.com/jadonk/bonescript&lt;/a&gt;.&lt;/p&gt;
- 
-&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</body>
-    <pseudoparent idref="121" prototyperef="Page"/>
-    <http_referer>http://beagleboard.org/support/BoneScript/edit</http_referer>
-    <http_host>beagleboard.org</http_host>
-    <user>jkridner@gmail.com</user>
+  <hopobject id="2471" name="BeagleBoard-xM" prototype="Page" created="1364937979858" lastModified="1366406260974">
+  <hop:parent idref="2467" prototyperef="Page"/>
+    <http_browser>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31</http_browser>
+    <permid>3509536</permid>
+    <wtab_chosen>0</wtab_chosen>
     <lang>en-us</lang>
-    <hop:child idref="2477" prototyperef="Page"/>
-    <hop:child idref="2478" prototyperef="Page"/>
-    <hop:child idref="2479" prototyperef="Page"/>
-    <hop:child idref="2563" prototyperef="Page"/>
-    <hop:child idref="2564" prototyperef="Page"/>
-    <hop:child idref="2607" prototyperef="Page"/>
-    <hop:child idref="2640" prototyperef="Page"/>
-    <hop:child idref="2737" prototyperef="Page"/>
-    <hop:child idref="2738" prototyperef="Page"/>
-    <hop:child idref="2768" prototyperef="Page"/>
-    <hop:child idref="2769" prototyperef="Page"/>
-    <hop:child idref="2779" prototyperef="Page"/>
-    <hop:child idref="2780" prototyperef="Page"/>
-    <hop:child idref="2781" prototyperef="Page"/>
-    <hop:child idref="2782" prototyperef="Page"/>
-    <hop:child idref="2783" prototyperef="Page"/>
-    <hop:child idref="2784" prototyperef="Page"/>
-    <hop:child idref="2785" prototyperef="Page"/>
-    <hop:child idref="2798" prototyperef="Page"/>
-    <hop:child idref="2805" prototyperef="Page"/>
-    <hop:child idref="2806" prototyperef="Page"/>
-    <hop:child idref="2808" prototyperef="Page"/>
-    <hop:child idref="2809" prototyperef="Page"/>
-    <hop:child idref="2814" prototyperef="Page"/>
-    <hop:child idref="2819" prototyperef="Page"/>
-    <hop:child idref="2825" prototyperef="Page"/>
-    <hop:child idref="2836" prototyperef="Page"/>
-    <hop:child idref="2891" prototyperef="Page"/>
-    <hop:child idref="2892" prototyperef="Page"/>
-    <hop:child idref="2894" prototyperef="Page"/>
-    <hop:child idref="2993" prototyperef="Page"/>
-    <hop:child idref="2994" prototyperef="Page"/>
-    <hop:child idref="2995" prototyperef="Page"/>
-    <hop:child idref="3004" prototyperef="Page"/>
-    <hop:child idref="3016" prototyperef="Page"/>
-    <hop:child idref="3176" prototyperef="Page"/>
-    <hop:child idref="3277" prototyperef="Page"/>
+    <wbmain_flyout-products-webench>0</wbmain_flyout-products-webench>
+    <iplanetdirectorypro>AQIC5wM2LY4Sfcy7dRgaLyN0Xi73Wq5HXgkG8pkTmorBzf0=@AAJTSwALLTIxNDQxNDk3ODcAAlNJAAIwMwACUzEAAjAy#</iplanetdirectorypro>
+    <tijes5lbcookie>01</tijes5lbcookie>
+    <uri>BeagleBoard-xM</uri>
+    <http_language>en-US,en;q=0.8</http_language>
+    <wbmain_tab-tools-webench>0</wbmain_tab-tools-webench>
+    <tipassid>permanentid=3509536|mail=j-callaway@ti.com|uid=a0220935|type=p|role=Distributor Marketing|givenname=Jessica|givennamelocallanguage=|sn=Callaway|snlocallanguage=|cn=Jessica Callaway|securitylevel=1|adminrights=|originalorganizationname=Texas Instruments|relationship=TI Internal|o=Texas Instruments|olocallanguage=|wwacctnum=|modifytimestamp=20130406041002Z|authtimestamp=20130418211104Z|street=12500 TI Boulevard|street2=|city=Dallas|st=TX|postalcode=75243|c=US|shippingstreet=8627 Southwestern Boulevard|shippingstreet2=Apartment 527|shippingcity=Dallas|shippingst=TX|shippingpostalcode=75206|shippingc=US|region=Americas|telephonenumber=2145674757|facsimiletelephonenumber=|employeetype=Sales/Marketing|title=|webenchuserid=3509536|webenchoptin=|nscuid=|createdate=20120724205555Z|emailready=|emailvalidationdate=</tipassid>
+    <http_remotehost>10.247.20.98</http_remotehost>
+    <tipage>/dsp/c6000 power optimized  dsp/dsp+arm cortex-a8/omap3525-30 soc/omap3530/product folder - omap3530</tipage>
+    <ev4>dm3730 arm cortex-a8</ev4>
+    <hopsession>10.247.20.it7x5xbgsjs1</hopsession>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <ev0>AM33x_Announcement</ev0>
+    <usertype>Anonymous</usertype>
+    <gpn>OMAP3530-gpn</gpn>
+    <pathbytype>Anonymous:/dsp/c6000 power optimized  dsp/dsp+arm cortex-a8/omap3525-30 soc/omap3530/product folder - omap3530</pathbytype>
+    <gpv_p9_o>...rms%2Farm%2B%20video%20solutions%2Farm%20cortex-a8%2B%20video%20core%2Fdm37x%20video%20soc%2Fdm3730%2Fproduct%20folder%20-%20dm3730</gpv_p9_o>
+    <wbmain_tab-products-webench>0</wbmain_tab-products-webench>
+    <body>&lt;h1&gt;BeagleBoard-xM&lt;/h1&gt;
+
+
+
+&lt;div id=&quot;t2-c7&quot;&gt;&lt;div&gt;
+
+ &lt;div id=&quot;t2-c7-content&quot;&gt;
+&lt;div id=&quot;t2-c5d&quot;&gt;
+&lt;h2&gt;What is BeagleBoard-xM?&lt;/h2&gt;&lt;p&gt;The $149 MSRP BeagleBoard-xM delivers with the help of its AM37x 1GHz ARM processor, enabling hobbyists, students and innovators to bring a project to development fast. Designed with community inputs in mind, this open hardware design brings the previous generations&apos; laptop-like performance and expandability to the next level, while adhering to hand-held power levels. Direct connectivity is supported by the on-board four-port hub with 10/100 Ethernet, while maintaining a tiny credit-card-sized footprint.&lt;/p&gt;    
+ &lt;/div&gt;
+ &lt;div id=&quot;t2-c5a&quot;&gt;   
+    &lt;h3&gt;Processor: &lt;a href=&quot;http://www.ti.com/dsp/docs/dspcontent.tsp?contentId=72866&amp;DCMP=am37x_060710&amp;HQS=Other+OT+am37x&quot;&gt;AM37x 1GHz ARM Cortex-A8 compatible&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class=&quot;square&quot;&gt; 
+&lt;li&gt;More than 2,000 Dhrystone MIPS&lt;/li&gt;
+&lt;li&gt;Up to 20 million polygons/second graphics&lt;/li&gt;
+&lt;li&gt;HD video capable C64+TMDSP core&lt;/li&gt;
+&lt;li&gt;512 MB LPDDR RAM&lt;/li&gt;
+
+&lt;/ul&gt;
+&lt;/div&gt;
+
+
+ &lt;div id=&quot;t2-c5b&quot;&gt;  
+    &lt;h3&gt;Connectivity&lt;/h3&gt;
+&lt;ul class=&quot;square&quot;&gt; 
+  &lt;li&gt;2D/3D graphics accelerator&lt;/li&gt;
+&lt;li&gt;4 USB 2.0 ports &lt;/li&gt;
+&lt;li&gt;MMC/SD connector&lt;/li&gt;
+&lt;li&gt;DVI-D port&lt;/li&gt;
+&lt;li&gt;S-Video port&lt;/li&gt;
+&lt;li&gt;USB mini AB connector &lt;/li&gt;
+&lt;li&gt;Ethernet &lt;/li&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+ &lt;div id=&quot;t2-c5c&quot;&gt;
+&lt;h3 style=&quot;margin-top:0px;&quot;&gt;Software Compatibility&lt;/h3&gt;
+&lt;ul class=&quot;square&quot;&gt; 
+  &lt;li&gt;Angstrom Linux&lt;/li&gt;
+  &lt;li&gt;Android&lt;/li&gt;
+  &lt;li&gt;Ubuntu&lt;/li&gt;
+  &lt;li&gt;XBMC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+
+&lt;div id=&quot;CTA&quot;&gt;
+    &lt;img src=&quot;http://ims-mm01.am.dhcp.ti.com:5001/static/images/purchase.gif&quot; /&gt;&lt;br /&gt;
+ &lt;br /&gt;
+ &lt;ul class=&quot;dropdown&quot; id=&quot;buy-bone&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;http://components.arrow.com/part/detail/52318492S8965956N8241&quot;&gt;Arrow&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://avnetexpress.avnet.com/store/em/EMController/Development-Kits/Circuitco-Electronics-LLC/BEAGLEBOARD-XM/_/R-14441977/A-14441977/An-0?action=part&amp;catalogId=500201&amp;langId=-1&amp;storeId=500201&amp;listIndex=-1&amp;page=1&amp;rank=0&quot;&gt;Avnet&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.digikey.com/product-highlights/us/en/texas-instruments-beagleboard/685&quot;&gt;Digi-Key&lt;/a&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;a href=&quot;http://www.liquidware.com/shop/show/BB-XM/BeagleBoard+XM&quot;&gt;Liquidware&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.mouser.com/ProductDetail/BeagleBoard-Org/BeagleBoard-xM/?qs=sGAEpiMZZMswbtOCZfjOjLKX7u2Ui8hq6Hlv0Mom5jk%3d&quot;&gt;Mouser&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://specialcomp.com/beagleboard/xm.htm&quot;&gt;Special Computing&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.chipsee.com/beagleboard-xm.html&quot;&gt;ChipSee (China)&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;http://www.clotech.com.tw/products/beagle-series/beagleboard&quot;&gt;CLO Tech (Taiwan)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;a href=&quot;http://uk.farnell.com/texas-instruments/beagle-xm/kit-dev-beagleboard-xm-omap35x/dp/1823269&quot;&gt;Farnell (UK)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;a href=&quot;http://www.idasystems.net/products/beagle_board&quot;&gt;IDA Systems (India)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.lextronic.fr/P26244-platine-de-developpement-beagleboard-xm.html&quot;&gt;Lextronic (France)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://store.techshare.jp/shop/shopdetail.html?brandcode=005007000002&amp;search=beagleboard-xm&amp;sort=&quot;&gt;TechShare Store (Japan)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.tenettech.com/search?Q=beagleboard-xm&quot;&gt;Tenet Technetronics (India)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.tigal.com/products.asp?src=beagleboard-xm&quot;&gt;Tigal (Europe)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.watterott.com/en/BeagleBoard-xM&quot;&gt;Watterott (Germany)&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/div&gt;
+
+
+    &lt;a href=&quot;http://ad.doubleclick.net/jump/N4481.115138.5376011835521/B3997865;sz=1x1;ord=[timestamp]?&quot;&gt;
+    &lt;img src=&quot;http://ad.doubleclick.net/ad/N4481.115138.5376011835521/B3997865;sz=1x1;ord=[timestamp]?&quot; border=&quot;0&quot; width=&quot;1&quot; height=&quot;1&quot; alt=&quot;Click Here&quot;/&gt;
+   &lt;/a&gt;
+
+
+&lt;script&gt;
+$(&apos;ul.dropdown&apos;).each(function(){
+  var list = $(this);
+  var select = $(document.createElement(&apos;select&apos;)).insertBefore($(this).hide());
+  var action = list.attr(&apos;id&apos;); 
+  select.change(function(){
+   $(&apos;&gt;option:selected&apos;, this).each(function(){
+    var label = $(this).text();
+    var link = $(this).val();
+    _gaq.push([&apos;_trackEvent&apos;, &apos;exit&apos;, action, label]);
+    setTimeout(&apos;document.location = &quot;&apos; + link + &apos;&quot;&apos;, 100)
+   });
+  });
+  var option=$(document.createElement(&apos;option&apos;));
+  option.appendTo(select);
+  option.html(&apos;Select a distributor to buy&apos;);
+  $(&apos;&gt;li&apos;, this).each(function(){
+    var option=$(document.createElement(&apos;option&apos;));
+    option.appendTo(select);
+    option.html($(this).html());
+    $(&apos;&gt;a&apos;, this).each(function(){
+     option.val(this.href);
+   });
+  });
+  list.remove();
+});
+&lt;/script&gt;
+
+
+
+&lt;/div&gt;
+&lt;img src=&quot;http://ims-mm01.am.dhcp.ti.com:5001/static/images/product_beagleboard_xm.jpg&quot;  /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div style=&quot;clear:both&quot; /&gt;&lt;/div&gt;
+&lt;div id=&quot;t2-c4-prod-details&quot;&gt;
+&lt;h2&gt;BeagleBoard-xM Projects&lt;/h2&gt; 
+&lt;p&gt;&lt;h3&gt;BeagleSNES&lt;/a&gt;&lt;/h3&gt;
+BeagleSNES turns the BeagleBoard-xM into an embedded Linux-based appliance capable of playing Super Nintendo game titles
+&lt;br&gt;&lt;a href=&quot;/project/beaglesnes/&quot;&gt;Click Here&lt;/a&gt; »
+&lt;p&gt;&lt;h3&gt;Robotic Camera Operator&lt;/a&gt;&lt;/h3&gt;
+BeagleBoard-xM robotic camera platform that can track vehicles at over 30MPH. Developed as part of the TiroKart project, could also be used as a powerful BeagleBoard-based platform for robotics development
+&lt;br&gt;&lt;a href=&quot;/project/Rocamo/&quot;&gt;Click Here&lt;/a&gt; »
+&lt;p&gt;&lt;h3&gt;LVDS LCD Add-on Board&lt;/a&gt;&lt;/h3&gt;
+Additional PCB to connect LVDS LCD panel to BeagleBoard and BeagleBoard-xM. Provides simple interface to LVDS LCD panels like those in notebooks. 
+&lt;br&gt;&lt;a href=&quot;/project/LVDS+LCD/&quot;&gt;Click Here&lt;/a&gt; »
+
+&lt;/div&gt;
+
+&lt;div id=&quot;t2-c5-prod-details&quot;&gt;
+&lt;h2&gt;BeagleBoard-xM Support&lt;/h2&gt;
+&lt;p&gt;&lt;h3&gt;Getting Started&lt;/h3&gt;
+First step: connect your Beagle to this site  
+&lt;br&gt;&lt;a href=&quot;/Getting Started&quot;&gt;Click Here&lt;/a&gt; »
+
+&lt;p&gt;&lt;h3&gt;Discussion Groups&lt;/h3&gt;
+Collaborate on the Beagle community forum
+&lt;a href=&quot;https://groups.google.com/forum/#!forum/beagleboard&quot; Class=&quot;external&quot;&gt;Click Here&lt;/a&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;h3&gt;IRC Group Chat&lt;/h3&gt;
+Live chat with other open source enthusiasts&lt;br&gt;
+&lt;a href=&quot;http://beagleboard.org/chat&quot;&gt;Click Here&lt;/a&gt; »
+&lt;/div&gt;
+
+&lt;div id=&quot;t2-c6-prod-details&quot;&gt;
+&lt;h2&gt;Hardware Specs and Materials&lt;/h2&gt;
+&lt;p&gt;Browse the BeagleBoard-xM wiki to find all available hardware specifications such as:&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;
+&lt;li&gt;Bill of Materials&lt;/li&gt;
+&lt;li&gt;PCB Files&lt;/li&gt;
+&lt;li&gt;MFG Files&lt;/li&gt;
+&lt;li&gt;Schematic (PDF)&lt;/li&gt;
+&lt;li&gt;Schematic (OrCAD)&lt;/li&gt;
+&lt;li&gt;System Reference Manual&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://circuitco.com/support/index.php?title=BeagleBoard-xM#Rev_C2&quot; Class=&quot;external&quot;&gt;Rev C2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://circuitco.com/support/index.php?title=BeagleBoard-xM#Rev_C1&quot; Class=&quot;external&quot;&gt;Rev C1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://circuitco.com/support/index.php?title=BeagleBoard-xM#Rev_C&quot; Class=&quot;external&quot;&gt;Rev C&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://circuitco.com/support/index.php?title=BeagleBoard-xM#Rev_B&quot; Class=&quot;external&quot;&gt;Older Revs&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;clear:both&quot; /&gt;&lt;/div&gt;
+&lt;h2&gt;Videos &lt;/h2&gt;
+&lt;div id=&quot;t2-video-1&quot;&gt;
+&lt;iframe width=&quot;420&quot; height=&quot;236&quot; src=&quot;http://www.youtube.com/embed/Yjd1cXu8AZM?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;h3&gt;BeagleBoard-xM Intro&lt;/h3&gt; 
+&lt;p&gt;Getting started with Beagleboard-xM: Angstrom Linux on Beagleboard-xM, required peripherals, how to interface to external peripherals and their cost.  
+&lt;/p&gt;&lt;/div&gt;
+&lt;div id=&quot;t2-video-2&quot;&gt;
+&lt;iframe width=&quot;420&quot; height=&quot;236&quot; src=&quot;http://www.youtube.com/embed/j0-ujHf0RFM?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;h3&gt;BeagleBoard-xM, 6 Angstrom Linux Desktop Sync&lt;/h3&gt;
+&lt;p&gt;Create a mega display wall, combining several displays. The mouse is synchronized accross 6 ARM-powered Ubuntu desktops through synergy, and an ffmpeg synchronization app makes it possible to combine them into a video wall.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style=&quot;clear:both&quot; /&gt;&lt;/div&gt;
+&lt;!-- end Content Area --&gt;
+</body>
+    <s_sq>[[B]]</s_sq>
+    <http_referer>http://ims-mm01.am.dhcp.ti.com:5001/Products/BeagleBoard-xM/edit</http_referer>
+    <user>jess</user>
+    <http_host>ims-mm01.am.dhcp.ti.com:5001</http_host>
+    <credhash>8d5273649006376f0c8dcdcebfd8385a19033c3e</credhash>
+    <ev63>AM33x_Announcement</ev63>
+    <rembr549>uid=a0220935|securitylevel=1</rembr549>
+    <pseudoparent idref="2467" prototyperef="Page"/>
+    <s_ppv>/dsp/c6000%20power%20optimized%20%20dsp/dsp+arm%20cortex-a8/omap3525-30%20soc/omap3530/product%20folder%20-%20omap3530,7,7,667</s_ppv>
+    <gpv_p9>/dsp/c6000 power optimized  dsp/dsp+arm cortex-a8/omap3525-30 soc/omap3530/product folder - omap3530</gpv_p9>
+    <tijes5login>AQIC5wM2LY4SfcxWCV8dENZir1mwdMjeMffmvgsWKSFGpaI=@AAJTSwAKMTY2NzAzNDU1NAACU0kAAjAzAAJTMQACMDE=#</tijes5login>
+    <time type="date">19.04.2013 17:17:40 EDT</time>
+    <s_cc>true</s_cc>
+    <ap_cookie_en>computerId-C_EN_123244339&amp;expiryDate-1397938940351&amp;lastVisitedDate-1366402940351&amp;createdDate-1347912657085&amp;ipAddress-10.247.20.98&amp;</ap_cookie_en>
+    <hqs>am335x</hqs>
+    <ticontent>/DSP/C6000 Power Optimized  DSP/DSP+ARM Cortex-A8/OMAP3525-30 SOC/OMAP3530</ticontent>
+    <wbmain_flyout-tools-webench>0</wbmain_flyout-tools-webench>
+    <pc_user>cartId-PC_2077366</pc_user>
+    <iatc>1</iatc>
   </hopobject>
 </xmlroot>

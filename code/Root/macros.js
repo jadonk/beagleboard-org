@@ -27,7 +27,7 @@ function breadcrumb_macro (param)
      }
     else if ((("" + path[i].uri) == "undefined") && (("" + path[i]) == "[object Root]"))
      {
-      promptString += '<a href="/">';
+	  promptString += '<a href="/">';
       promptString += "BeagleBoard.org";
      }
     else if (path[i].href())

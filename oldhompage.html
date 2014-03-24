@@ -1,0 +1,282 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>BeagleBoard.org | Open Hardware Physical Computing on ARM and Linux</title>
+<meta name="keywords" content="Ubuntu, Android, Java, FreeBSD, Sitara, ARM, 
+ Cortex-A, beagleboard, beagelboard, baegleboard, bagelboard, bealgeboard, beagle,
+ bone, xm, open hardware, open source, Linux, computer, Arduino, Raspberry Pi, 
+ cubieboard, physical computing" />
+<meta name="description" content="Open. ARM. Low cost, low power, open hardware expandible computer
+   running latest Ubuntu and Android. Now able to go anywhere you'd like it to sense and control your world." />
+<link href="http://feeds.feedburner.com/BeagleBoard" rel="alternate" title="BeagleBoard news feed" type="application/atom+xml">
+<link rel="icon" href="/static/beagle.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/static/beagle.ico" type="image/x-icon">
+<style type="text/css" media="screen">@import "/static/common.css";</style>
+<style type="text/css" media="screen">@import "/static/login.css";</style>
+<style type="text/css" media="screen">@import "/static/movingboxes.css";</style>
+<script type="text/javascript" src="/static/jquery.js"></script>
+<script type="text/javascript" src="/static/jquery.movingboxes.min.js"></script>
+<script src="/static/jquery.js"></script>
+<script src="/static/jquery.movingboxes.min.js"></script>
+<script>
+function handleResponse(resp) {
+    for(item in resp.items) {
+            $('#slider').append('' +
+                '<li class="results_item" id="results_' + item + '" class="arrow"></li>');
+            $('#results_' + item).append('<h4><a href="' + 
+                resp.items[item].url + '">' + resp.items[item].title + '</a></h4>');
+            $('#results_' + item).append('<a href="' + resp.items[item].url + '"> more</a>');
+            try {
+                for(i in resp.items[item].object.attachments) {
+                    if(resp.items[item].object.attachments[i].image) {
+                        $('#results_' + item).prepend('' +
+                        '<img class="results_image" id="results_image_' +
+                        item + '" src="' +
+                        resp.items[item].object.attachments[i].image.url + '" />');
+                        break;
+                    }
+                }
+            } catch(ex) {
+            }
+    }
+
+   function nextSlideFlipper() {
+        if ( arguments.callee._singletonInstance )
+            return arguments.callee._singletonInstance;
+        arguments.callee._singletonInstance = this;
+
+        this.nextSlide = function() { 
+            var mb = $('#slider').data('movingBoxes')
+            mb.goForward();
+            if(this.timeout) {
+                clearTimeout(this.timeout);
+                this.timout = false;
+            }
+        };
+        
+        this.startTimeout = function() {
+            if(this.timeout) {
+                clearTimeout(this.timeout);
+                this.timeout = false;
+            }
+            this.timeout = setTimeout(this.nextSlide, 5000);
+        };
+   }
+
+    var mySlideFlipper = new nextSlideFlipper();
+
+   $('#slider').movingBoxes({
+    startPanel   : 1,
+    reducedSize  : 0.8,
+	wrap         : true,
+	buildNav     : true,
+	navFormatter : function(){ return "●"; },
+	width        : 250,
+    height       : 300,
+    fixedHeight  : true,
+	panelWidth   : 0.9,
+    initAnimation: true,
+    wrap         : true,
+    speed        : 500,
+    completed    : mySlideFlipper.startTimeout
+   });
+   
+   mySlideFlipper.startTimeout();
+}
+
+function makeRequest() {
+    var request = gapi.client.plus.activities.list(
+        {
+            'userId': '104712705716996155416', 
+            'collection': 'public', 
+            'maxResults': 12
+        });
+    request.execute(handleResponse);
+}
+
+function onGoogleLoad() {
+    gapi.client.setApiKey('AIzaSyDB9-M-HaJ1GtB8j8EppCLsdpzLwW5Y4IE');
+    gapi.client.load('plus', 'v1', makeRequest);
+}
+</script>
+</head>
+<body> 
+
+   <!-- Product Promotion - START -->
+   <div id="promo">
+    <a href="/buy">
+     <img src="/static/images/15972_beaglebone_944x225.jpg" alt="BeagleBoard - Get yours today!" border="0" />
+    </a>
+   </div>
+   <!-- Product Promotion - END -->
+   <!-- Content Area - START -->
+   <div id="contentarea" class="line portal">
+
+<div id="col1" class="item">
+  <h2>Getting Started</h2>
+  <h3><a href="/buy">Buy a board</a></h3>
+  <h3><a href="/static/beaglebone/latest/README.htm">BeagleBone quick start</a></h3>
+  <h3><a href="http://elinux.org/BeagleBoard">BeagleBoard and BeagleBoard-xM wiki</a></h3>
+   <h2>Getting Help</h2>
+    <ul class="arrow">
+     <li>
+      <a href="/discuss">Mailing list and live chat</a>
+     </li>
+     <li>
+      <a href="/support/faq">Read the FAQ</a>
+     </li>
+     <li>
+      <a href="/support">Support Resources</a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <h2>
+   <a href="/project">Top Projects</a>
+  </h2>
+  <ul class="arrow">
+   <li>
+    <a href="/project/rowboat/">Android</a>
+   </li>
+   <li>
+    <a href="/project/ubuntu/">Ubuntu</a>
+   </li>
+   <li>
+    <a href="/project/angstrom/">Ångström Distribution</a>
+   </li>
+   <li>
+    <a href="/project/riscos/">RISC OS</a>
+   </li>
+   <li>
+    <a href="/project/gentoo/">Gentoo</a>
+   </li>
+   <li>
+    <a href="/project/AM/">ArchLinux</a>
+   </li>
+   <li>
+    <a href="/project/QNX+Neutrino+on+OMAP/">QNX Neutrino</a>
+   </li>
+   <li>
+    <a href="/project/java/">Java</a>
+   </li>
+   <li>
+    <a href="/project/amsdk/">TI SDK</a>
+   </li>
+   <li>
+    <a href="/project/Omek+Beckon+SDK++/">3D vision for BeagleBoard-xM</a>
+   </li>
+   <li>
+    <a href="/project/stache">Face detection with OpenCV</a>   
+   </li>
+  </ul>
+  <p class="action">
+   <a href="/project">View registered projects</a>
+  </p>
+  <h2>
+   <a href="/resources">More Resources</a>
+  </h2>
+  <h3><a href="/hardware/design">Design Source Materials</a></h3>
+  <p>All hardware from BeagleBoard.org is open source, so you can download the design materials including schematics, bill-of-materials and PCB layout</p>
+ </div>
+<div id="col2" class="item">
+  <h2><a href="/news">Latest News</a></h2>
+  <div><h3><a href="/unzipped">
+    <img align="right" src="http://farm9.staticflickr.com/8102/8489388797_b81f4bb9d0.jpg" height="50px" width="35px" />
+    Next-gen BeagleBone</a></h3>
+     <p class="action"><a href="/unzipped">
+        Want a sneak peek at the next BeagleBone?
+     </a></p>
+  </div>
+  <h3><a href="/CapeContest/winners">Cape Contest Winners!</a></h3>
+    <p><a href="/CapeContest/winners">Have you checked out the winners from the
+        BeagleBone Cape Plug-in Board Design Contest yet?
+    </a></p>
+  <ul id="slider"></ul>
+ </div>
+<div id="col3" class="item">
+<p>
+  <h2>
+   <a href="/media">Videos and Pictures</a>
+  </h2>
+<div id="player" height="186" width="330"></div>
+<script>
+    //Load player api asynchronously.
+    var tag = document.createElement('script');
+    tag.src = "//www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var done = false;
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '186',
+          width: '330',
+          events: {'onReady': onPlayerReady}
+        });
+    }
+    function onPlayerReady(evt) {
+        evt.target.setLoop(true);
+        //evt.target.mute();
+        evt.target.cuePlaylist({list:'PLD7F77681D08C89D7'});
+        evt.target.setShuffle({shufflePlaylist:true});
+    }
+</script>
+  <br /><br /><br />
+  <a href="/unzipped"><img src="/static/images/16552_BeagleBone_336x280.gif" /></a>
+  <br /><br /><br />
+  <h2><a href="/details">Hardware Details</a>
+  </h2>
+  <h3>
+   <a href="/bone" title="The hardware experimenter's board with over 66 3.3V digital I/Os, 7 ADCs, 8 pulse-width modulators, 5 serial ports, 2 I2C ports, an SPI port, LCD signals and more at an affordable price and made easy-to-use a pre-installed single-cable development environment.">BeagleBone</a>
+  </h3>
+   <ul class="arrow"><li><a href="/static/beaglebone/latest/Docs/Hardware/BONE_SRM.pdf">BeagleBone manual</a></li></ul>
+  <h3>
+   <a href="/hardware-xm" title="Extra memory and extra MHz, along with additional USB host ports, makes this the highest performance BeagleBoard.">BeagleBoard-xM</a>    
+   </h3>
+   <ul class="arrow"><li><a href="/static/BBxMSRM_latest.pdf" title="The original!">BeagleBoard-xM manual</a></li></ul>
+  <h3><a href="/hardware">BeagleBoard</a></h3> 
+   <ul class="arrow"><li><a href="/static/BBSRM_latest.pdf">BeagleBoard manual</a></li></ul>
+ </div>
+ 
+   </div>
+   <!-- Content Area - END -->
+  </div>
+  <!-- DIV that centers page - END -->
+  <!-- Footer - START -->
+  <div id="footer">
+   <div id="cc"><a href="http://creativecommons.org/about/license/" target="_blank"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" width="88" height="33" /></a></div>
+   <p>
+    <a href="/about">About Us</a> | <a href="/support">Support</a> | <a href="/details">Product Details</a> | <a href="/projects">Join/View Projects</a> | <a href="/discuss">Discussion</a> | <a href="/media">Videos/Pictures</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Use</a> | <a href="/login">Login/Register</a> <br />
+    Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-Share Alike 3.0 license
+   </p>
+  </div>
+  <br />
+  <!-- Footer - END -->
+  <script type="text/javascript">
+   (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+   })();
+  </script>
+  <script src="https://apis.google.com/js/client.js?onload=onGoogleLoad"></script>
+  <script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+   var pageTracker = _gat._getTracker("UA-3429714-1");
+   pageTracker._initData();
+   pageTracker._trackPageview();
+  </script>
+  <script language="JavaScript">var axel = Math.random()+"";
+   var a = axel * 10000000000000;
+   document.write('<img src="http://ad.doubleclick.net/activity;src=2211385;type=dspyk143;cat=beagl825;ord=1;num='+ a + '?"' + 'WIDTH="1" HEIGHT="1" BORDER="0"/>');
+  </script>
+  <noscript>
+   <A HREF="http://ad.doubleclick.net/jump/N4481.115163.4990091127321/B4652602;sz=1x1;ord=[timestamp]?">
+   <IMG SRC="http://ad.doubleclick.net/ad/N4481.115163.4990091127321/B4652602;sz=1x1;ord=[timestamp]?" BORDER=0 WIDTH=1 HEIGHT=1 ALT=""></A>
+  </noscript>
+  <iframe src='http://pixel.fetchback.com/serve/fb/pdc?cat=&name=landing&sid=1866' scrolling='no' width='1' height='1' marginheight='0' marginwidth='0' frameborder='0'></iframe>
+ </body>
+</html>

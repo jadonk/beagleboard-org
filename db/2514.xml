@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2514" name="robtow.myopenid.com" prototype="user" created="1366737879079" lastModified="1366737879079">
-  <hop:parent idref="1" prototyperef="HopObject"/>
-    <password>password</password>
-    <name>robtow.myopenid.com</name>
+  <hopobject id="2514" name="analogRead" prototype="Page" created="1366384328176" lastModified="1366384328177">
+  <hop:parent idref="2458" prototyperef="Page"/>
+    <rembr549>uid=x0103021|securitylevel=1</rembr549>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>10.117.97.88</http_remotehost>
+    <http_language>en-US,en;q=0.5</http_language>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:20.0) Gecko/20100101 Firefox/20.0</http_browser>
+    <wbmain_flyout-products-webench>0</wbmain_flyout-products-webench>
+    <uri>analogRead</uri>
+    <time type="date">19.04.2013 11:12:08 EDT</time>
+    <wbmain_flyout-tools-webench>0</wbmain_flyout-tools-webench>
+    <hopsession>10.117.97.vh8mp6y8kk9p</hopsession>
+    <wbmain_tab-tools-webench>0</wbmain_tab-tools-webench>
+    <body>
+  &lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
+
+    &lt;h2&gt;Bonescript&lt;/h2&gt;
+
+    &lt;div id=&apos;side-menu&apos; class=&quot;t3_sidebar&quot;&gt;
+     &lt;ul class=&quot;left-menu&quot;&gt;
+      &lt;strong&gt;Navigation&lt;/strong&gt;
+      &lt;li&gt;&lt;a href=&quot;/static/side-menu.html&quot;&gt;Menu contents&lt;/a&gt;&lt;/li&gt;
+     &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;t3_content_1&quot;&gt;
+     &lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;
+     &lt;div id=&quot;content_child&quot;&gt;
+     &lt;!--- START CONTENT --&gt;
+
+&lt;p&gt;You might be able to see a newer version of this on &lt;a href=&quot;http://beagleboard.org/support/bonescript/analogRead&quot;&gt;beagleboard.org/support/bonescript/analogRead&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;analogRead(pin, [callback])&lt;/h1&gt;
+&lt;p&gt;Read the voltage at an analog input pin.&lt;/p&gt;
+&lt;h2&gt;Arguments&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;em&gt;pin&lt;/em&gt;: the &lt;a href=&quot;bonescript.html#pin&quot;&gt;pin identifier&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;callback&lt;/em&gt;: called upon completion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Return value&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;Number from 0 to 1 where 0 is 0V and 1 is the maximum input voltage (1.8V)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;callback(x)&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;em&gt;x.value&lt;/em&gt;: return value&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;x.err&lt;/em&gt;: error status message&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Example
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;code&apos;)&quot;&gt;run&lt;/button&gt;
+ &lt;button class=&quot;dynlink&quot; onclick=&quot;demoRestore(&apos;code&apos;)&quot;&gt;restore&lt;/button&gt;
+&lt;/h2&gt;
+&lt;pre id=&quot;code&quot; class=&quot;use-editor&quot;&gt;
+var b = require(&apos;bonescript&apos;);
+b.analogRead(&apos;P9_36&apos;, printStatus);
+function printStatus(x) {
+    console.log(&apos;x.value = &apos; + x.value);
+    console.log(&apos;x.err = &apos; + x.err);
+}&lt;/pre&gt;
+&lt;textarea readonly id=&apos;console-output&apos;&gt;&lt;/textarea&gt;
+&lt;h2&gt;Build and execute instructions&lt;/h2&gt;
+&lt;ul&gt;
+ &lt;li&gt;Apply voltage between 0V and 1.8V to P9_36 and run the example code.&lt;/li&gt;
+ &lt;li&gt;Adjust the voltage between 0V and 1.8V to P9_36 and run the example code again.&lt;/li&gt;
+ &lt;li&gt;Alter the code to look at inputs on other analog input pins.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;h3&gt;Topics&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;bonescript.html#headers&quot;&gt;BeagleBone expansion headers&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;bonescript.html#analogio&quot;&gt;Analog I/O&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Related functions&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;bonescript.html#require&quot;&gt;require&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;analogWrite.html&quot;&gt;analogWrite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Examples&lt;/h3&gt;
+&lt;ul&gt;
+&lt;/ul&gt;
+
+     &lt;!--- START FOOTER --&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</body>
+    <pseudoparent idref="2458" prototyperef="Page"/>
+    <wbmain_tab-products-webench>0</wbmain_tab-products-webench>
+    <http_referer>http://ims-mm01.am.dhcp.ti.com:5001/Support/BoneScript/newpage/edit</http_referer>
+    <wbmain_ti-webench-panel-08312012>0</wbmain_ti-webench-panel-08312012>
+    <http_host>ims-mm01.am.dhcp.ti.com:5001</http_host>
+    <ap_cookie_en>computerId-C_EN_147057343&amp;expiryDate-1393638055651&amp;lastVisitedDate-1362102055651&amp;createdDate-1362101974910&amp;</ap_cookie_en>
+    <lang>en-us</lang>
+    <user>idywabs</user>
   </hopobject>
 </xmlroot>
