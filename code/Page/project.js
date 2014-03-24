@@ -137,7 +137,8 @@ function edit_project_action ()
      }
     else
      {
-      app.log("Replacing '" + this.uri + "' with '" + req.data["uri"] + "'");
+      app.log("Replacing project '" + this.uri + "' with '" + req.data["uri"] + "'");
+      //app.log("Categories = " + this.categories);
       this.uri = req.data["uri"];
      }
     res.redirect(this.href());
