@@ -110,9 +110,6 @@ function edit_project_action ()
     && req.data["body"]
     && req.data["pname"]
     && req.data["shortdesc"]
-    && req.data["boardType"]
-    && req.data["prj_Status"]
-    && req.data["category"]
    )
    {
     this.user = "" + session.user["name"];
@@ -152,9 +149,6 @@ function edit_project_action ()
     if (!req.data["shortdesc"]) this.errmsg += "* About/Summary is a required field<br />\n";
     if (!req.data["pname"]) this.errmsg += "* Project Name is a required field<br />\n";
     if (!req.data["uri"]) this.errmsg += "* Project Shortname/URI is a required field<br />\n";
-    if (!req.data["category"]) this.errmsg += "* Project Category is a required field<br />\n";
-    if (!req.data["boardType"]) this.errmsg += "* Project Board Type is a required field<br />\n";
-    if (!req.data["proj_Status"]) this.errmsg += "* Project Status is a required field<br />\n";
    }
   res.data.title = this.uri + " - edit_project";
   if (this.edit_skin)
