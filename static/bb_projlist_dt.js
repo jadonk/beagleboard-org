@@ -46,7 +46,7 @@ $.fn.dataTableExt.afnFiltering.push(
 		
 		var dBoardType = aData[5] == "undefined" ? "" : aData[5];
 
-		if (chkConcept || chkDemo || chkDev || chkComplete || chkSubmit || chkProd) {
+		if (chkConcept || chkDemo || chkDev || chkComplete || chkSubmit || chkProd || chkObsolete) {
 		
 			if ( chkConcept && dBoardType.indexOf("concept") > -1 )
 			{
