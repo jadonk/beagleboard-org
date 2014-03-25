@@ -171,30 +171,15 @@ function listBody ()
   if (collection[0].render_skin == "project") 
    {
     body += "</tbody></table>\n";
-    body += '<script language="javascript">$(document).ready(function() {\n';
-    body += '$("#projects").dataTable({';
-    body += '"sDom": "piltp",';
-    body += '"sPaginationType": "full_numbers",';
-    body += '"bAutoWidth": false,';
-    body += '"aaSorting": [ [1,"asc"] ],';
-    body += '"aoColumns": [{"sType": "title-string"},{"sType": "title-numeric"},{"sWidth": "30px"},{"bVisible": false},{"bVisible": false},{"bVisible": false}],';
-    body += '"oLanguage": {';
-    body += '	"sLengthMenu":"<span id=\'showAll\' title=\'Show all projects\'>Show All</span>",';
-    body += '	"sInfo": "Showing _START_ to _END_ of _TOTAL_ projects",';
-    body += '	"sInfoFiltered": " - filtered from _MAX_ projects"';
-    body += '}';
-    body += '}) \n';
-    body += '$(".thumb-img").nailthumb({width:50, height:50, preload:true, replaceAnimation:null}); \n';
-    body += 'replaceInlineImages(); \n'; // this function is in bb_projlist_dt.js
-    body += '$("#projects").show();$("#loadmsg").hide();';
-    body += '});';
-    body += '$("#showAll").live("click", function() { $("#projects").dataTable().fnSettings()._iDisplayLength = -1;$("#projects_paginate")[0].style.display = "none";; $("#projects").dataTable().fnDraw();$("#showAll").hide();return false;});';
-    body += '</script>\n'; 
-  } else if (collection[0].render_skin == "cape") {
-   body += "</tbody></table>\n";
-  } else {
-   body += "</ul>\n";
-  }
+   }
+  else if (collection[0].render_skin == "cape")
+   {
+    body += "</tbody></table>\n";
+   }
+  else
+   {
+    body += "</ul>\n";
+   }
   return (body);
  
 }
