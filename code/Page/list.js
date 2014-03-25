@@ -36,7 +36,7 @@ function listBody ()
 
   if (collection[0].render_skin == "project")
    {
-    body += '<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>\n';
+    body += '<script type="text/javascript" charset="utf8" src="/static/jquery.dataTables.min.js"></script>\n';
     body += '<script type="text/javascript" charset="utf8" src="/static/dataTables.titleSort.js"></script>\n';
     body += '<script type="text/javascript" charset="utf8" src="/static/bb_projlist_dt.js"></script>\n';
 
