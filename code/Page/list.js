@@ -30,10 +30,20 @@ function listBody ()
      param = "http://" + param;
     return (param);
    }
+
+  var coolBoris = "/static/graphics/coolboris.png"
    
+
   if (collection[0].render_skin == "project")
-   body += "<table id='projects'><tbody>\n";
-  if (collection[0].render_skin == "cape")
+   {
+    body += '<script type="text/javascript" charset="utf8" src="/static/jquery.dataTables.min.js"></script>\n';
+    body += '<script type="text/javascript" charset="utf8" src="/static/dataTables.titleSort.js"></script>\n';
+    body += '<script type="text/javascript" charset="utf8" src="/static/bb_projlist_dt.js"></script>\n';
+
+    body += "<br /><div id='loadmsg' style='text-align:center;'><br /><br /><img src='/static/graphics/spinning-wheel.gif'><br /><br />Loading Projects...</div><table id='projects' style='display:none;'>\n";
+    body += "<thead><tr><th style='width: 350px;'>Project</th><th style='width: 180px;'>Updated</th><th style='width: 120px;'>Views</th><th>Category</th><th>Board</th><th>Status</th></tr></thead><tbody>\n";
+   }
+  else if (collection[0].render_skin == "cape")
    {
     body += "<table id='capes' class='cape-table' border='1'>\n";
     body += "<thead>\n";
@@ -43,55 +53,68 @@ function listBody ()
     body += "</thead>\n";
     body += "<tbody>\n";
     collection = collection.reverse();
-   }
-  else
+ }  else {
    body += "<ul>\n";
-  for (var i in collection)
-   {
+ }
+
+  for (var i in collection) {
+    var prjDate = new Date();
+    prjDate = Date.parse(collection[i].time);
+
     if (collection[i].render_skin == "project")
      {
-      body +=
-       '<tr categories="'
-       + collection[i].categories
-       + '"><td><a href="' + collection[i].href() + '">'
+      body += '<tr><td width="70%"><span title="' + collection[i].pname + '"></span>';
+
+      if (collection[i].imageFile == undefined || collection[i].imageFile == '')
+       {
+        body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + coolBoris + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
+       }
+      else
+       {
+        body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + collection[i].imageFile + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
+       }
+
+      var sRegistrant = collection[i].registrant;
+      var sRegurl = '';
+
+      if (sRegistrant.indexOf('http') > -1) 
+       {
+        sRegUrl = sRegistrant;
+       }
+      else if (sRegistrant.indexOf('/') == -1)
+       { 
+        sRegUrl = '/user/' + sRegistrant;
+       }
+      else
+       {
+        sRegUrl = 'https://' + sRegistrant;
+       }
+
+      if (sRegistrant.length > 32)
+       {
+        sRegistrant = sRegistrant.substring(0, 29) + '...';
+       }
+
+      body += '<a href="' + collection[i].href() + '">'
        + collection[i].pname
-       + '</a><br><small>' 
-       ;
-      if (("" + collection[i].homepage) != "")
-       {
-        body += ''
-	 + '[<a href="'
-         + fixUrl(collection[i].homepage)
-         + '" target="_blank">homepage</a>] '
-	 ;
-       }
-      if (("" + collection[i].rssfeed) != "")
-       {
-        body += ''
-	 + '[<a href="'
-         + fixUrl(collection[i].rssfeed)
-         + '" target="_blank">rss</a>]'
-	 ;
-       }
-      body += '</small></td>';
-      body += '<td><div class="wants-g-plusone" data-href="'
-       + 'http://beagleboard.org' + collection[i].href()
-       + '" data-size="small">'
-       + '</div></td>';
-      body += '<td><small>'
-       + encode(collection[i].shortdesc)
-       + '</small></td><td><small>Registered by: '
-       + collection[i].registrant.replace(/\@.*$/, "")
-       + '<br>Updated: '
+       + '</a><br><small>';
+       body += encode(collection[i].shortdesc)
+       + '</small></td><td><small>'
+       + '<span title="' + i + '" style="display: none;">' + collection[i].time.valueOf() + '</span>'
        + collection[i].time
-       + '</small></td></tr>\n'
-       ;
+       + '</small><br />'
+       + '<a href="' + sRegUrl + '">' + sRegistrant + '</a>'
+       + '</td>'
+       + '<td>' + (collection[i].pvCount == undefined ? 0 : collection[i].pvCount) + '</td>'
+       + '<td>' + collection[i].category + '</td>'
+       + '<td>' + collection[i].boardType + '</td>'
+       + '<td>' + collection[i].prj_Status + '</td>'
+       + '</tr>\n';
      }
     else if (collection[i].render_skin == "cape")
      {
       body += '<tr>\n';
-      body +=
-       ' <td><a href="' + collection[i].href() + '">'
+      body += ' <td><a href="' + collection[i].href() + '">'
        + collection[i].uri
        + '</a>' 
        + ' by '
@@ -111,24 +134,21 @@ function listBody ()
        + 'http://beagleboard.org' + collection[i].href()
        + '">Tweet'
        + '</a>'
-       + '</td>\n' 
-       ;
+       + '</td>\n';
       body += ' <td>' + collection[i].body + '</td>\n';
       if (collection[i].youtube_url)
        {
         var embed = ('' + collection[i].youtube_url).match(/(youtu.be|youtube.com)\/(.*)$/);
         if (embed && embed.length == 3)
-	 {
+         {
           body += ' <td><iframe width="412" height="240" ';
-	  body += 'src="http://www.youtube.com/embed/'
+          body += 'src="http://www.youtube.com/embed/'
           body += embed[2];
-	  body += '" frameborder="0" allowfullscreen></iframe></td>\n';
-	 }
+          body += '" frameborder="0" allowfullscreen></iframe></td>\n';
+         }
        }
       body += '</tr>\n';
-     }
-    else if (collection[i].render_skin == "rss")
-     {
+    } else if (collection[i].render_skin == "rss") {
       body +=
        '<li class="rss"><a href="' + collection[i].href() + '">'
        + collection[i].uri
@@ -136,23 +156,30 @@ function listBody ()
        + '<div>'
        + collection[i].body
        + '</div></li>\n';
-     }
-    else
-     {
+    } else {
       body +=
        '<li><a href="' + collection[i].href() + '">'
        + collection[i].uri
-       + '</a>&nbsp;&nbsp;&nbsp;&nbsp;<small>Last updated by: '
-       + collection[i].user.replace(/\@.*$/, "")
-       + '</small></li>\n';
-     }
+       + '</a>&nbsp;&nbsp;&nbsp;&nbsp;'
+       + '<small>Last updated by: '
+       + collection[i].user
+       + '</small>'
+       + '</li>\n';
+    }
    }
-  if (collection[0].render_skin == "project")
-   body += "</tbody></table>\n";
-  else if (collection[0].render_skin == "cape")
-   body += "</tbody></table>\n";
-  else
-   body += "</ul>\n";
-  return (body);
- }
 
+  if (collection[0].render_skin == "project") 
+   {
+    body += "</tbody></table>\n";
+   }
+  else if (collection[0].render_skin == "cape")
+   {
+    body += "</tbody></table>\n";
+   }
+  else
+   {
+    body += "</ul>\n";
+   }
+  return (body);
+ 
+}

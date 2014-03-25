@@ -116,7 +116,7 @@ function demoRun(id) {
     myScript = myScript.replace("&lt;", "<");
     myScript = myScript.replace("&gt;", ">");
     myScript = myScript.replace("&amp;", "&");
-    myeval(myScript);
+    return(myeval(myScript));
 }
 
 function onShell(x) {
@@ -141,7 +141,12 @@ function demoRestore(id) {
 
 function myeval(script) {
     try {
-        eval(script);
+        if(0) { //typeof Worker !== "undefined") {
+            var w = new Worker(script);
+            return(w);
+        } else {
+            eval(script);
+        }
     } catch(ex) {
         console.log('Exception: ' + ex);
     }

@@ -1,8 +1,5 @@
 <script src="/static/tinymce.min.js"></script>
-<script>
-        tinymce.init({selector:'#body'});
-</script>
-<form method="post" action="edit_project">
+<form method="post" enctype="multipart/form-data">
  <h1>Register a BeagleBoard.org related project</h1>
  <h2>Project Information</h2>
  <p align="center"><font color="red"><% this.errmsg %></font></p>
@@ -15,24 +12,19 @@
    </td>
   </tr>
   <tr>
-   <td align="right"><font color="orange">*</font>Project Short-name (one word)</td>
-   <td>&nbsp;</td>
-   <td><input name="uri" type="text" style="width:200px;" maxlength="30" value="<% this.uri %>" /></td>
-  </tr>
-  <tr>
    <td align="right"><font color="orange">*</font>Project Name</td>
    <td>&nbsp;</td>
    <td><input name="pname" type="text" style="width:350px;" value="<% this.pname %>" /></td>
   </tr>
   <tr>
-   <td align="right" valign="top"><font color="orange">*</font>One-line Summary</td>
+   <td align="right" valign="top"><font color="orange">*</font>Tagline</td>
    <td>&nbsp;</td>
    <td><textarea name="shortdesc" style="width:350px;" rows="4"><% this.shortdesc %></textarea></td>
   </tr>
   <tr>
    <td align="right" valign="top"><font color="orange">*</font>Full Description</td>
    <td>&nbsp;</td>
-   <td><textarea id="body" name="body" style="width:350px;" rows="10"><% this.body %></textarea></td>
+   <td><textarea id="fullDesc" name="body" style="width:350px;" rows="4"><% this.body %></textarea></td>
   </tr>
   <tr>
    <td align="right"><font color="orange"></font>Homepage URL</td>
@@ -45,21 +37,73 @@
    <td><input name="rssfeed" type="text" style="width:350px;" value="<% this.rssfeed %>" /></td>
   </tr>
   <tr>
-   <td align="right">Categories</td>
+   <td align="right" title="Please provide a shortname where your project will be found on beagleboard.org."><font color="orange">*</font>Project short-name (one word)</td>
+   <td>&nbsp;</td>
+   <td title="Please provide a shortname where your project will be found on beagleboard.org."><strong>http://beagleboard.org/project/</strong><input name="uri" type="text" style="width:200px;" maxlength="30" value="<% this.uri %>" /></td>
+  </tr>
+  <tr>
+   <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+   <td align="right" valign="top"><font color="orange">*</font>Choose a category or categories that best apply to your project</td>
    <td>&nbsp;</td>
    <td>
-    <input type="checkbox" name="categories" value="distro">Distro: Linux or other operating system distribution</input><br>
-    <input type="checkbox" name="categories" value="documentation">Documentation: Something useful for teaching</input><br>
-    <input type="checkbox" name="categories" value="library">Library: Software library or component</input><br>
-    <input type="checkbox" name="categories" value="utility">Utility: Host application or boot/testing code</input><br>
-    <input type="checkbox" name="categories" value="cape">Cape: Add-on board for BeagleBone (Black)</input><br>
-    <input type="checkbox" name="categories" value="case">Case: Mechanical enclosure</input><br>
-    <input type="checkbox" name="categories" value="demo">Demo: Art project or technology demonstration</input><br>
-    <input type="checkbox" name="categories" value="robotics">Robotics: Anything involving robots</input><br>
+   <table>
+	<tr><td><input name="cat_Distro" id="cat_Distro" type="checkbox" value="distro" /></td><td>Distro</td><td>Linux or other operating system distribution</td></tr>
+	<tr><td><input name="cat_Doc" id="cat_Doc" type="checkbox" value="documentation" /></td><td>Documentation</td><td>Something useful for teaching</td></tr>
+	<tr><td><input name="cat_Lib" id="cat_Lib" type="checkbox" value="library" /></td><td>Library/App</td><td>Software library or component</td></tr>
+	<tr><td><input name="cat_Host" id="cat_Host" type="checkbox" value="utility" /></td><td>Utility/Boot</td><td>Host application or boot/testing code</td></tr>
+	<tr><td><input name="cat_Cape" id="cat_Cape" type="checkbox" value="cape" /></td><td>Cape</td><td>Add-on board for BeagleBone (Black)</td></tr>
+	<tr><td><input name="cat_Case" id="cat_Case" type="checkbox" value="case" /></td><td>Case</td><td>Mechanical enclosure</td></tr>
+	<tr><td><input name="cat_Demo" id="cat_Demo" type="checkbox" value="demo" /></td><td>Demo</td><td>Art project or technology demonstration</td></tr>
+	<tr><td><input name="cat_Robot" id="cat_Robot" type="checkbox" value="robotics" /></td><td>Robotics</td><td>Anything involving robots</td></tr>
+	<tr><td><input name="cat_GSoC" id="cat_GSoC" type="checkbox" value="gsoc" /></td><td>Summer of Code</td><td>Project worked on as part of Google Summer of Code</td></tr>
+   </table>
+   <input name="category" id="category" type="hidden" value="<% this.category %>" />
    </td>
   </tr>
   <tr>
    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+   <td align="right" valign="top"><font color="orange">*</font>Choose a Board or Boards that your project is designed for</td>
+   <td>&nbsp;</td>
+   <td><input name="brd_Black" id="brd_Black" type="checkbox" value="bbblack" /> BeagleBone Black<br/>
+	<input name="brd_Bone" id="brd_One" type="checkbox" value="bbone" /> BeagleBone<br/>
+	<input name="brd_XM" id="brd_XM" type="checkbox" value="bbxm" /> BeagleBoard-xM<br/>
+	<input name="brd_Board" id="brd_Board" type="checkbox" value="bboard" /> BeagleBoard<br/>
+	<input name="boardType" id="boardType" type="hidden" value="<% this.boardType %>" />
+   </td>
+  </tr>
+  <tr>
+   <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+   <td align="right" valign="top"><font color="orange">*</font>Select one of the following for your project status</td>
+   <td>&nbsp;</td>
+<!--   <td><input name="prj_Status" id="prj_Status" type="radio" value="concept" /> Concept <img src="/static/graphics/helpbubble.png" title="an idea to be explored" /><br/>
+	<input name="prj_Status" id="prj_Status" type="radio" value="demo" /> Demo  <img src="/static/graphics/helpbubble.png" title="a project that may not include the necessary details for replication" /><br/>
+	<input name="prj_Status" id="prj_Status" type="radio" value="dev" /> Developing  <img src="/static/graphics/helpbubble.png" title="a project in development" /><br/>
+	<input name="prj_Status" id="prj_Status" type="radio" value="complete" /> Complete  <img src="/static/graphics/helpbubble.png" title="a finalized project that is fully reproducible" /><br/>
+	<input name="prj_Status" id="prj_Status" type="radio" value="submitted" /> Submitted for production  <img src="/static/graphics/helpbubble.png" title="a complete project that has been submitted for inclusion in the image shipped with the boards, on BeaglebBoard.org or in other communications" /><br/>
+	<input name="prj_Status" id="prj_Status" type="radio" value="production" /> In production  <img src="/static/graphics/helpbubble.png" title="a complete project that has been accepted for inclusion in the image shipped with the boards, on the cape listing page, on BeagleBoard.org or in other communications" /><br/>
+	<input name="prj_StatusVal" id="prj_StatusVal" type="hidden" value="<% this.prj_Status %>" />
+   </td> -->
+   <td><table><tr><td><input name="prj_Status" id="prj_Status" type="radio" value="concept" /></td><td>Concept</td><td>an idea to be explored</td></tr>
+	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="demo" /></td><td>Demo</td><td>a project that may not include the necessary details for replication</td></tr>
+	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="dev" /></td><td>Developing</td><td>a project in development</td></tr>
+	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="complete" /></td><td>Complete</td><td>a finalized project that is fully reproducible</td></tr>
+	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="submitted" /></td><td>Submitted for production</td><td>a complete project that has been submitted for inclusion in the image shipped with the boards, on BeaglebBoard.org or in other communications</td></tr>
+	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="production" /></td><td>In production</td><td>a complete project that has been accepted for inclusion in the image shipped with the boards, on the cape listing page, on BeagleBoard.org or in other communications</td>
+	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="obsolete" /></td><td>Obsolete</td><td>a project that is no longer active and is not recommended for use</td>
+	</tr></table><input name="prj_StatusVal" id="prj_StatusVal" type="hidden" value="<% this.prj_Status %>" />
+   </td>
+  </tr>
+  <tr id="uploadImageHere" style="display:none;">
+   <td align="right">Upload a project photo<br />(optional. 450kb max.)</td>
+   <td>&nbsp;</td>
+   <td><img id="imagePreview" style="width:75px;height:75px" src="<%this.getImageFile%>"/><input type="hidden" id="imageFile" name="imageFile" value="<%this.getImageFile%>"/><br />
+	<input type="file" name="imageFileChooser" id="imageFileChooser" /></td>
   </tr>
   <tr>
    <td align="right"></td>
@@ -69,3 +113,117 @@
  </table>
 </form>
 
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+
+	tinymce.init({selector:'textarea#fullDesc',
+			plugins: ['code']
+   			});
+
+	if ($.browser.msie && (parseFloat($.browser.version) < 9 ) ) {
+		// stay hidden
+	} else {
+		$('#uploadImageHere').show();
+	}
+
+	if ($('#imagePreview').src == "") {
+            $("#imageFile").value = coolBoris;
+	     $("#imagePreview").src = coolBoris;
+	}
+
+
+// categories
+	function getCategories() {
+		var checkedItems = "";
+		$('input[id^="cat_"]:checked').each(function() {
+			checkedItems = checkedItems + this.value + ';';
+		});
+		$('#category').val(checkedItems);
+	};
+
+	function setCategories() {
+		var selectedItems = $('#category').val();
+		$('input[id^="cat_"]').each(function() {
+			if (selectedItems.indexOf(this.value) > -1) {
+				$(this).prop("checked", true);
+			};
+		});
+	};
+
+	$('input[id^="cat_"]').live('change', getCategories);
+
+	if ($('#category').val().length > 0) {
+		setCategories();
+	};
+
+
+//board types
+	function getBoards() {
+		var checkedItems = "";
+		$('input[id^="brd_"]:checked').each(function() {
+			checkedItems = checkedItems + this.value + ';';
+		});
+		$('#boardType').val(checkedItems);
+	};
+
+	function setBoards() {
+		var selectedItems = $('#boardType').val();
+		$('input[id^="brd_"]').each(function() {
+			if (selectedItems.indexOf(this.value) > -1) {
+				$(this).prop("checked", true);
+			};
+		});
+	};
+
+	$('input[id^="brd_"]').live('change', getBoards);
+
+	if ($('#boardType').val().length > 0) {
+		setBoards();
+	};
+
+
+// project status
+
+	function setStatus() {
+		var selectedItems = $('#prj_StatusVal').val();
+		$('input[id^="prj_"]').each(function() {
+			if (selectedItems.indexOf(this.value) > -1) {
+				$(this).prop("checked", true);
+			};
+		});
+	};
+
+	if ($('#prj_StatusVal').val().length > 0) {
+		setStatus();
+	};
+
+});
+
+
+var handleFileSelect = function(evt) {
+    var files = evt.target.files;
+    var file = files[0];
+
+    if (files && file) {
+        var reader = new FileReader();
+
+        reader.onload = function(readerEvt) {
+		if (file.size < 450000) {
+			//alert(file.size);
+	            var binaryString = readerEvt.target.result;
+	            document.getElementById("imageFile").value = "data:" + file.type + ";base64," + btoa(binaryString);
+		     document.getElementById("imagePreview").src = "data:" + file.type + ";base64," + btoa(binaryString);
+		} else {
+			alert('Selected image is too large! Please select an image under 450kb.');
+		}
+        };
+
+        reader.readAsBinaryString(file);
+    }
+};
+
+$('#imageFileChooser').live('change', handleFileSelect);
+
+</script>
