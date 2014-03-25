@@ -94,10 +94,11 @@ $.fn.dataTableExt.afnFiltering.push(
 		var chkCase = $('#cCase').prop("checked");
 		var chkDemo = $('#cDemo').prop("checked");
 		var chkRobot = $('#cRobot').prop("checked");
+		var chkGSoC = $('#cGSoC').prop("checked");
 		
 		var dCategory = aData[3] == "undefined" ? "" : aData[3];
 
-		if (chkDistro || chkDoc || chkLib || chkUtil || chkCape || chkCase || chkDemo || chkRobot) {
+		if (chkDistro || chkDoc || chkLib || chkUtil || chkCape || chkCase || chkDemo || chkRobot || chkGSoC) {
 		
 			if ( chkDistro && dCategory.indexOf("distro") > -1 )
 			{
@@ -128,6 +129,10 @@ $.fn.dataTableExt.afnFiltering.push(
 				return true;
 			}
 			if ( chkRobot && dCategory.indexOf("robotics") > -1 )
+			{
+				return true;
+			}
+			if ( chkGSoC && dCategory.indexOf("gsoc") > -1 )
 			{
 				return true;
 			}
