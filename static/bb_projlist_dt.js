@@ -42,6 +42,7 @@ $.fn.dataTableExt.afnFiltering.push(
 		var chkComplete = $('#sComplete').prop("checked");
 		var chkSubmit = $('#sSubmit').prop("checked");
 		var chkProd = $('#sProd').prop("checked");
+		var chkObsolete = $('#sObsolete').prop("checked");
 		
 		var dBoardType = aData[5] == "undefined" ? "" : aData[5];
 
@@ -68,6 +69,10 @@ $.fn.dataTableExt.afnFiltering.push(
 				return true;
 			}
 			if ( chkProd && dBoardType.indexOf("production") > -1 )
+			{
+				return true;
+			}
+			if ( chkObsolete && dBoardType.indexOf("obsolete") > -1 )
 			{
 				return true;
 			}
