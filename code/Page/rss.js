@@ -11,6 +11,16 @@ function rss_action ()
 
 function rssBody ()
  {
+  function html_escape (str)
+   {
+    return String(str)
+     .replace(/&/g, '&amp;')
+     .replace(/"/g, '&quot;')
+     .replace(/'/g, '&#39;')
+     .replace(/</g, '&lt;')
+     .replace(/>/g, '&gt;');
+   }
+
   var body = "";
   var collection = [];
 
@@ -40,11 +50,11 @@ function rssBody ()
     if(typeof collection[i].shortdesc !== 'undefined')
      body += "   <description><![CDATA[" + collection[i].shortdesc + "]]></description>\n";
     else
-     body += "   <description>" + collection[i].uri + "</description>\n";
+     //body += "   <description>" + collection[i].uri + "</description>\n";
+     body += "   <description>" + html_escape(collection[i].body) + "</description>\n";
     body += "   <dc:creator>" + collection[i].user.replace(/\@.*$/, "") + "</dc:creator>\n";
     body += "   <pubDate>" + rfc882time + "</pubDate>\n";
     body += "  </item>\n";
    }
   return (body);
  }
-
