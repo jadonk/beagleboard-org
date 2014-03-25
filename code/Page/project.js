@@ -57,6 +57,18 @@ function getregistrant_macro (param)
 	} else { return('')}
  }
 
+function gettags_macro (param)
+ {
+  var tagString = 'Tags: ';
+  if (this.category)
+   tagString += this.category;
+  if (this.prj_Status)
+   tagString += this.prj_Status;
+  if (this.boardType)
+   tagString += this.boardType;
+  return(tagString);
+ }
+
 function updatetime_macro (param)
  {
   return ("" + this.updatetime);

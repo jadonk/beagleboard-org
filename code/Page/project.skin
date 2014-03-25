@@ -7,7 +7,12 @@
 <table class="tblproject">
  <tr>
   <td valign="top" class="tb" align="right"><img itemprop="image" id="projectImage" class="projimg" style="width:1px;height:1px;" src="<%this.imageFile%>" /></td>
-  <td class="tbl5" width="400" itemprop="description"><% this.body %><br /><br /><br />Registrar: <a href="mailto:<% this.registrar %>"><% this.registrar %></a><br /><% this.gethomepage %></td>
+  <td class="tbl5" width="400" itemprop="description"><% this.body %><br />
+   <br />
+   <br />
+   Registrar: <a href="mailto:<% this.registrar %>"><% this.registrar %></a><br />
+   <% this.gethomepage %>
+  </td>
  </tr>
 </table>
 </div>
@@ -24,6 +29,7 @@ var disqus_shortname = 'beagleboard-project';
 <script type="text/javascript">
 gapi.plusone.render("project-plusone");
 </script>
+<small><% this.gettags %></small><br />
 <small>Projected created on: <%this.updatetime%></small><br />
 <small>Submitted by: <a href="/user/<% this.registrar %>"><% this.registrar %></a></small><br />
 <small>Last updated on: <% this.time %></small><br />
