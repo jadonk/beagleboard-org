@@ -83,6 +83,19 @@ function htmlencode_macro (param)
  {
   return encode("" + eval(param.param));
  }
+
+function image_action ()
+ {
+  if (this.imageFile)
+   {
+    res.data.body = '<img src="' + this.imageFile + '" />\n';
+    renderSkin("bare");
+   }
+  else
+   {
+    return (this.notfound_action());
+   }
+ }
  
 function edit_project_action ()
  {
