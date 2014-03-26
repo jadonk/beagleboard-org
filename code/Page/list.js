@@ -95,15 +95,21 @@ function listBody ()
         sRegistrant = sRegistrant.substring(0, 29) + '...';
        }
 
-      body += '<a href="' + collection[i].href() + '">'
-       + collection[i].pname
-       + '</a><br><small>';
-       body += encode(collection[i].shortdesc)
+      body += '<a href="' + collection[i].href() + '">';
+      body += collection[i].pname + '</a>';
+      if (collection[i].homepage && collection[i].homepage.length > 0)
+       {
+        body += ' (&nbsp;<a target="_blank" class="external" href="';
+        body += collection[i].homepage;
+        body += '">*</a>&nbsp;)';
+       }
+      body += '<br><small>'
+       + encode(collection[i].shortdesc)
        + '</small></td><td><small>'
        + '<span title="' + i + '" style="display: none;">' + collection[i].time.valueOf() + '</span>'
        + collection[i].time
        + '</small><br />'
-       + '<a href="' + sRegUrl + '">' + sRegistrant + '</a>'
+       + '<a href="' + sRegUrl + '">' + sRegistrant.replace(/\@.*$/, "") + '</a>'
        + '</td>'
        + '<td>' + (collection[i].pvCount == undefined ? 0 : collection[i].pvCount) + '</td>'
        + '<td>' + collection[i].category + '</td>'
