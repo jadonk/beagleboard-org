@@ -71,7 +71,14 @@ function listBody ()
        }
       else
        {
-        body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + collection[i].imageFile + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
+        if ( collection[i].imageFile.length < 1000 )
+         {
+          body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + collection[i].imageFile + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
+         }
+        else
+         {
+          body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + coolBoris + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
+         }
        }
 
       var sRegistrant = collection[i].registrant;
