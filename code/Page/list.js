@@ -71,13 +71,13 @@ function listBody ()
        }
       else
        {
-        if ( collection[i].imageFile.length < 1000 )
+        if ( collection[i].imageFile.length < 100000 )
          {
           body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + collection[i].imageFile + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
          }
         else
          {
-          body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + coolBoris + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
+          body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + coolBoris + '" data-src="' + collection[i].href() + 'image" style="height:50px;width:50px;" class="thumb-img lazy-load" /></a></div>';
          }
        }
 
