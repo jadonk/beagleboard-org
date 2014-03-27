@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3168" name="Page" prototype="Page" created="1381863703452" lastModified="1395923435024">
+  <hopobject id="3168" name="Page" prototype="Page" created="1381863703452" lastModified="1395923541140">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>irclogs</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">27.03.2014 12:30:35 UTC</time>
+    <time type="date">27.03.2014 12:32:21 UTC</time>
     <hopsession>98.250.189.o78tvogn3rdg</hopsession>
     <body>&lt;p id=&quot;logs&quot;&gt;&lt;/p&gt;
 &lt;script&gt;
     $.get( &quot;/static/irclog&quot;, function(data) {
         var rawlogs = $.parseHTML(data);
         $(&quot;#logs&quot;).html(rawlogs[3]);
+        //$(&apos;tr td a&apos;).attr(&apos;href&apos;, &apos;#&apos;);
         $(&apos;tr td a&apos;).click(function() {
             console.log(&apos;loading &apos; + $(this).attr(&apos;href&apos;));
             $(this).load($(this).attr(&apos;href&apos;));
         });
-        $(&apos;tr td a&apos;).attr(&apos;href&apos;, &apos;#&apos;);
     });
 &lt;/script&gt;
 &lt;p&gt;&lt;a href=&quot;/static/irclog&quot;&gt;Unformatted raw logs&lt;/a&gt;&lt;/p&gt;
