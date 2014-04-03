@@ -190,11 +190,11 @@ $('.chkcat').live('click', function() {
 
 $('.chkboard').live('click', function() {
 	$('#projects').dataTable().fnDraw();
-})
+});
 
 $('.chkstatus').live('click', function() {
 	$('#projects').dataTable().fnDraw();
-})
+});
 
 //$('#projCats').live('change', function() {
 //	$('#projects').dataTable().fnDraw();
@@ -202,7 +202,7 @@ $('.chkstatus').live('click', function() {
 
 $('#proj_search').live('keyup change', function() {
 	$('#projects').dataTable().fnDraw();
-})
+});
 
 
 function replaceInlineImages() {  //this function is called in list
@@ -212,3 +212,18 @@ function replaceInlineImages() {  //this function is called in list
 		});
 	}
 }
+
+setInterval(function() {
+	$('.lazy-load').each(function() {
+		var e = $(this);
+
+		$.ajax({
+			url: e.attr('data-src'),
+			dataType: 'html',
+			success: function(html) {
+				e.removeClass('lazy-load');
+				e.attr('src', $(html).attr('src'));
+			}
+		});
+	});
+}, 1000);
