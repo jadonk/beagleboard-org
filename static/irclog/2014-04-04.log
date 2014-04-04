@@ -417,3 +417,99 @@
 <li class="message">[<a href="#T10:59:25" id="T10:59:25"><abbr title="2014-04-04T10:59:25+00:00">10:59:25</abbr></a>] &lt;<cite>onca</cite>&gt; <q>it says unable to mount root</q></li>
 <li class="message">[<a href="#T10:59:30" id="T10:59:30"><abbr title="2014-04-04T10:59:30+00:00">10:59:30</abbr></a>] &lt;<cite>onca</cite>&gt; <q>unknown block</q></li>
 <li class="message">[<a href="#T10:59:49" id="T10:59:49"><abbr title="2014-04-04T10:59:49+00:00">10:59:49</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>then your archlinux image is broken</q></li>
+<li class="message">[<a href="#T11:00:03" id="T11:00:03"><abbr title="2014-04-04T11:00:03+00:00">11:00:03</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>or kernel driver sdcard missing</q></li>
+<li class="message">[<a href="#T11:00:38" id="T11:00:38"><abbr title="2014-04-04T11:00:38+00:00">11:00:38</abbr></a>] &lt;<cite>onca</cite>&gt; <q>drat</q></li>
+<li class="message">[<a href="#T11:00:50" id="T11:00:50"><abbr title="2014-04-04T11:00:50+00:00">11:00:50</abbr></a>] &lt;<cite>FUN</cite>&gt; <q>try debian on bb?</q></li>
+<li class="message">[<a href="#T11:00:57" id="T11:00:57"><abbr title="2014-04-04T11:00:57+00:00">11:00:57</abbr></a>] &lt;<cite>onca</cite>&gt; <q>I will.</q></li>
+<li class="message">[<a href="#T11:00:59" id="T11:00:59"><abbr title="2014-04-04T11:00:59+00:00">11:00:59</abbr></a>] &lt;<cite>onca</cite>&gt; <q>thank you</q></li>
+<li class="message">[<a href="#T11:01:09" id="T11:01:09"><abbr title="2014-04-04T11:01:09+00:00">11:01:09</abbr></a>] &lt;<cite>onca</cite>&gt; <q>should it still be ext4 ?</q></li>
+<li class="quit">[<a href="#T11:01:53" id="T11:01:53"><abbr title="2014-04-04T11:01:53+00:00">11:01:53</abbr></a>] <span>* terinjokes (~terinjoke@wikinews/Terinjokes) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T11:02:06" id="T11:02:06"><abbr title="2014-04-04T11:02:06+00:00">11:02:06</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>that's filesystem, not block device</q></li>
+<li class="message">[<a href="#T11:02:27" id="T11:02:27"><abbr title="2014-04-04T11:02:27+00:00">11:02:27</abbr></a>] &lt;<cite>onca</cite>&gt; <q>okay</q></li>
+<li class="join">[<a href="#T11:02:29" id="T11:02:29"><abbr title="2014-04-04T11:02:29+00:00">11:02:29</abbr></a>] <span>* veremit (~veremit@94.197.120.128.threembb.co.uk) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2014-04-04T11:02:29+00:00">11:02:29</abbr>] <span>* veremit (~veremit@94.197.120.128.threembb.co.uk) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2014-04-04T11:02:29+00:00">11:02:29</abbr>] <span>* veremit (~veremit@unaffiliated/veremit) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:02:32" id="T11:02:32"><abbr title="2014-04-04T11:02:32+00:00">11:02:32</abbr></a>] &lt;<cite>onca</cite>&gt; <q>soo, yes</q></li>
+<li class="message">[<a href="#T11:03:07" id="T11:03:07"><abbr title="2014-04-04T11:03:07+00:00">11:03:07</abbr></a>] &lt;<cite>FUN</cite>&gt; <q>the official debian for bb use ext3 i think, but use ext4 if u can</q></li>
+<li class="message">[<a href="#T11:03:21" id="T11:03:21"><abbr title="2014-04-04T11:03:21+00:00">11:03:21</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>doesnt really matter for sdcards</q></li>
+<li class="message">[<a href="#T11:03:54" id="T11:03:54"><abbr title="2014-04-04T11:03:54+00:00">11:03:54</abbr></a>] &lt;<cite>FUN</cite>&gt; <q>mine still use ext3</q></li>
+<li class="message">[<a href="#T11:04:06" id="T11:04:06"><abbr title="2014-04-04T11:04:06+00:00">11:04:06</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>don't think you really wanna use journalling on sd .. certainly noatime is good :)</q></li>
+<li class="message">[<a href="#T11:04:17" id="T11:04:17"><abbr title="2014-04-04T11:04:17+00:00">11:04:17</abbr></a>] &lt;<cite>FUN</cite>&gt; <q>because that's what's in the image</q></li>
+<li class="message">[<a href="#T11:04:19" id="T11:04:19"><abbr title="2014-04-04T11:04:19+00:00">11:04:19</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>though jury is out on that :)</q></li>
+<li class="message">[<a href="#T11:04:29" id="T11:04:29"><abbr title="2014-04-04T11:04:29+00:00">11:04:29</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>veremit: journaling is not much of a problem</q></li>
+<li class="message">[<a href="#T11:04:37" id="T11:04:37"><abbr title="2014-04-04T11:04:37+00:00">11:04:37</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>veremit: the amount of data written there is small</q></li>
+<li class="join">[<a href="#T11:04:40" id="T11:04:40"><abbr title="2014-04-04T11:04:40+00:00">11:04:40</abbr></a>] <span>* terinjokes (~terinjoke@wikinews/Terinjokes) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:04:55" id="T11:04:55"><abbr title="2014-04-04T11:04:55+00:00">11:04:55</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>KotH .. thats usually the problem :)</q></li>
+<li class="message">[<a href="#T11:05:02" id="T11:05:02"><abbr title="2014-04-04T11:05:02+00:00">11:05:02</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T11:05:10" id="T11:05:10"><abbr title="2014-04-04T11:05:10+00:00">11:05:10</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>you have wear leveling</q></li>
+<li class="message">[<a href="#T11:05:13" id="T11:05:13"><abbr title="2014-04-04T11:05:13+00:00">11:05:13</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>depends on ya card though</q></li>
+<li class="message">[<a href="#T11:05:22" id="T11:05:22"><abbr title="2014-04-04T11:05:22+00:00">11:05:22</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>some much worse than others for accesses</q></li>
+<li class="message">[<a href="#T11:05:25" id="T11:05:25"><abbr title="2014-04-04T11:05:25+00:00">11:05:25</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>well, cheap chinese cards are cheap chinese cards</q></li>
+<li class="message">[<a href="#T11:05:38" id="T11:05:38"><abbr title="2014-04-04T11:05:38+00:00">11:05:38</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>there's an alternative?! :p</q></li>
+<li class="message">[<a href="#T11:05:41" id="T11:05:41"><abbr title="2014-04-04T11:05:41+00:00">11:05:41</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>stick with a brand if you want reliability</q></li>
+<li class="message">[<a href="#T11:05:43" id="T11:05:43"><abbr title="2014-04-04T11:05:43+00:00">11:05:43</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T11:05:46" id="T11:05:46"><abbr title="2014-04-04T11:05:46+00:00">11:05:46</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>yea</q></li>
+<li class="message">[<a href="#T11:05:51" id="T11:05:51"><abbr title="2014-04-04T11:05:51+00:00">11:05:51</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>or buy industrial sd cards with SLC memory</q></li>
+<li class="message">[<a href="#T11:06:00" id="T11:06:00"><abbr title="2014-04-04T11:06:00+00:00">11:06:00</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>better the devil you know lol :)</q></li>
+<li class="message">[<a href="#T11:06:16" id="T11:06:16"><abbr title="2014-04-04T11:06:16+00:00">11:06:16</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>or you can pay me lots of money and i design you an sd card that never fails</q></li>
+<li class="quit">[<a href="#T11:10:28" id="T11:10:28"><abbr title="2014-04-04T11:10:28+00:00">11:10:28</abbr></a>] <span>* N3wbs (~N3wbs@77.73.151.228) Quit (Quit: Time for a coffee...)</span></li>
+<li class="join">[<a href="#T11:15:11" id="T11:15:11"><abbr title="2014-04-04T11:15:11+00:00">11:15:11</abbr></a>] <span>* deffrag (~Dedec@unaffiliated/deffrag) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:15:28" id="T11:15:28"><abbr title="2014-04-04T11:15:28+00:00">11:15:28</abbr></a>] &lt;<cite>onca</cite>&gt; <q>everytime I take the sd card out and try to mount it, /dev/sdb2 is corrupt</q></li>
+<li class="message">[<a href="#T11:15:42" id="T11:15:42"><abbr title="2014-04-04T11:15:42+00:00">11:15:42</abbr></a>] &lt;<cite>onca</cite>&gt; <q>I have an 8gb one,  I shall try</q></li>
+<li class="quit">[<a href="#T11:15:54" id="T11:15:54"><abbr title="2014-04-04T11:15:54+00:00">11:15:54</abbr></a>] <span>* deffrag__ (~Dedec@unaffiliated/deffrag) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T11:18:24" id="T11:18:24"><abbr title="2014-04-04T11:18:24+00:00">11:18:24</abbr></a>] <span>* alexanderhiam_ (~ahiam@c-50-133-199-15.hsd1.nh.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:18:30" id="T11:18:30"><abbr title="2014-04-04T11:18:30+00:00">11:18:30</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>So i've read the datasheet of the ftdi 485 cable and i've to try to put an pull up resistor (750 Ohm) (Vcc with data+) and pull down resistor (750 Ohm) (ground with data-), to avoid z states.</q></li>
+<li class="message">[<a href="#T11:18:32" id="T11:18:32"><abbr title="2014-04-04T11:18:32+00:00">11:18:32</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>Then  i will try to put a resistor of 120 Ohms between the data+ and data- at the end of the cable to avoid signal reflections.</q></li>
+<li class="message">[<a href="#T11:18:34" id="T11:18:34"><abbr title="2014-04-04T11:18:34+00:00">11:18:34</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>Is this approach correct to, maybe, solve the ftdi usb-serial hang?</q></li>
+<li class="quit">[<a href="#T11:18:40" id="T11:18:40"><abbr title="2014-04-04T11:18:40+00:00">11:18:40</abbr></a>] <span>* alexanderhiam_ (~ahiam@c-50-133-199-15.hsd1.nh.comcast.net) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T11:19:21" id="T11:19:21"><abbr title="2014-04-04T11:19:21+00:00">11:19:21</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>astrapotro: i doubt it's that</q></li>
+<li class="message">[<a href="#T11:19:35" id="T11:19:35"><abbr title="2014-04-04T11:19:35+00:00">11:19:35</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>astrapotro: as we have told you before, it's either a power supply issue or a driver issue</q></li>
+<li class="message">[<a href="#T11:19:48" id="T11:19:48"><abbr title="2014-04-04T11:19:48+00:00">11:19:48</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>astrapotro: have you ruled out both of these?</q></li>
+<li class="message">[<a href="#T11:21:54" id="T11:21:54"><abbr title="2014-04-04T11:21:54+00:00">11:21:54</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>ftdi uarts are very reliable</q></li>
+<li class="quit">[<a href="#T11:22:17" id="T11:22:17"><abbr title="2014-04-04T11:22:17+00:00">11:22:17</abbr></a>] <span>* alexanderhiam (~ahiam@c-50-133-199-15.hsd1.nh.comcast.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T11:22:24" id="T11:22:24"><abbr title="2014-04-04T11:22:24+00:00">11:22:24</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>no yet. We've a 2A self-powered usb hub and we power the bbb trought and usb-miniusb cable</q></li>
+<li class="message">[<a href="#T11:23:16" id="T11:23:16"><abbr title="2014-04-04T11:23:16+00:00">11:23:16</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>power BBB through the DC jack .. usb is only designed for 500mA .. hence 4 port hubs require 2A total.</q></li>
+<li class="message">[<a href="#T11:24:07" id="T11:24:07"><abbr title="2014-04-04T11:24:07+00:00">11:24:07</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>although, yea, there are exceptions .. thats the spec.</q></li>
+<li class="message">[<a href="#T11:26:05" id="T11:26:05"><abbr title="2014-04-04T11:26:05+00:00">11:26:05</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>spec: n. document that everyone referes to, but nobody reads. never used to design any device.</q></li>
+<li class="message">[<a href="#T11:27:02" id="T11:27:02"><abbr title="2014-04-04T11:27:02+00:00">11:27:02</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>shhhh :p</q></li>
+<li class="message">[<a href="#T11:27:54" id="T11:27:54"><abbr title="2014-04-04T11:27:54+00:00">11:27:54</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lets not make the problem Worse eh?! :p</q></li>
+<li class="message">[<a href="#T11:28:12" id="T11:28:12"><abbr title="2014-04-04T11:28:12+00:00">11:28:12</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>it can't be worse</q></li>
+<li class="message">[<a href="#T11:29:48" id="T11:29:48"><abbr title="2014-04-04T11:29:48+00:00">11:29:48</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>xDD</q></li>
+<li class="quit">[<a href="#T11:31:10" id="T11:31:10"><abbr title="2014-04-04T11:31:10+00:00">11:31:10</abbr></a>] <span>* Dan2 (~desktop@ppp236-99.static.internode.on.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T11:31:38" id="T11:31:38"><abbr title="2014-04-04T11:31:38+00:00">11:31:38</abbr></a>] <span>* Dan1 (~desktop@ppp236-99.static.internode.on.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:34:38" id="T11:34:38"><abbr title="2014-04-04T11:34:38+00:00">11:34:38</abbr></a>] &lt;<cite>dogrocket</cite>&gt; <q>I bought a belken powered usb hub, unfortunatly the hub didnt work right but it had a nice 2.5 amp 5volt power supply. And its now powering the beagle happily...</q></li>
+<li class="message">[<a href="#T11:35:27" id="T11:35:27"><abbr title="2014-04-04T11:35:27+00:00">11:35:27</abbr></a>] &lt;<cite>dogrocket</cite>&gt; <q>i think it was worth the 14 bucks even if the hub was junk...</q></li>
+<li class="message">[<a href="#T11:38:24" id="T11:38:24"><abbr title="2014-04-04T11:38:24+00:00">11:38:24</abbr></a>] &lt;<cite>dogrocket</cite>&gt; <q>I have a usb cdrom that beagle wont drive on its own,  powered hub is necessity</q></li>
+<li class="quit">[<a href="#T11:39:50" id="T11:39:50"><abbr title="2014-04-04T11:39:50+00:00">11:39:50</abbr></a>] <span>* phant0mas (~quassel@147.95.121.139) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T11:40:02" id="T11:40:02"><abbr title="2014-04-04T11:40:02+00:00">11:40:02</abbr></a>] <span>* ph4nt0mas (~manolis@147.95.121.166) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T11:42:17" id="T11:42:17"><abbr title="2014-04-04T11:42:17+00:00">11:42:17</abbr></a>] <span>* Jellyk (~textual@nusnet-117-94.dynip.nus.edu.sg) has joined #beagle</span></li>
+<li class="quit">[<a href="#T11:42:22" id="T11:42:22"><abbr title="2014-04-04T11:42:22+00:00">11:42:22</abbr></a>] <span>* Jellyk (~textual@nusnet-117-94.dynip.nus.edu.sg) Quit (Max SendQ exceeded)</span></li>
+<li class="join">[<a href="#T11:43:52" id="T11:43:52"><abbr title="2014-04-04T11:43:52+00:00">11:43:52</abbr></a>] <span>* Jellyk (~textual@nusnet-117-94.dynip.nus.edu.sg) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:44:33" id="T11:44:33"><abbr title="2014-04-04T11:44:33+00:00">11:44:33</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>i 've tested our installation with a raspberrypi and raspbian has solved the ftdi cable issue just a week ago</q></li>
+<li class="message">[<a href="#T11:44:53" id="T11:44:53"><abbr title="2014-04-04T11:44:53+00:00">11:44:53</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>so i think is something with the driver</q></li>
+<li class="message">[<a href="#T11:45:12" id="T11:45:12"><abbr title="2014-04-04T11:45:12+00:00">11:45:12</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>not a power problem i think</q></li>
+<li class="join">[<a href="#T11:45:23" id="T11:45:23"><abbr title="2014-04-04T11:45:23+00:00">11:45:23</abbr></a>] <span>* phant0mas (~quassel@147.95.121.139) has joined #beagle</span></li>
+<li class="join">[<a href="#T11:45:25" id="T11:45:25"><abbr title="2014-04-04T11:45:25+00:00">11:45:25</abbr></a>] <span>* bahar (~bahar@cpe-184-153-116-106.rochester.res.rr.com) has joined #beagle</span></li>
+<li class="message">[<a href="#T11:52:08" id="T11:52:08"><abbr title="2014-04-04T11:52:08+00:00">11:52:08</abbr></a>] &lt;<cite>astrapotro</cite>&gt; <q>thanks guys , now is time for eat something !</q></li>
+<li class="message">[<a href="#T11:52:36" id="T11:52:36"><abbr title="2014-04-04T11:52:36+00:00">11:52:36</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>astrapotro: hint: rpi and bbb have different hardware</q></li>
+<li class="quit">[<a href="#T11:54:04" id="T11:54:04"><abbr title="2014-04-04T11:54:04+00:00">11:54:04</abbr></a>] <span>* Mounicq (~Icedove@local.paul-lacoste.fr) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T11:55:20" id="T11:55:20"><abbr title="2014-04-04T11:55:20+00:00">11:55:20</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>KotH: really? i thought RPi and BBB were identical in every single way ;)</q></li>
+<li class="message">[<a href="#T11:55:44" id="T11:55:44"><abbr title="2014-04-04T11:55:44+00:00">11:55:44</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>surely if something works on one... it will always work on the other exactly the same way</q></li>
+<li class="action">[<a href="#T11:55:59" id="T11:55:59"><abbr title="2014-04-04T11:55:59+00:00">11:55:59</abbr></a>] <span>* Dan1 puts on flame suit and ducks </span></li>
+<li class="action">[<a href="#T11:56:10" id="T11:56:10"><abbr title="2014-04-04T11:56:10+00:00">11:56:10</abbr></a>] <span>* veremit lights the torch ..</span></li>
+<li class="message">[<a href="#T11:56:15" id="T11:56:15"><abbr title="2014-04-04T11:56:15+00:00">11:56:15</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T11:56:31" id="T11:56:31"><abbr title="2014-04-04T11:56:31+00:00">11:56:31</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>i mean.... there almost the SAME SIZE!!!</q></li>
+<li class="message">[<a href="#T11:56:37" id="T11:56:37"><abbr title="2014-04-04T11:56:37+00:00">11:56:37</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>surely that means something</q></li>
+<li class="message">[<a href="#T11:56:39" id="T11:56:39"><abbr title="2014-04-04T11:56:39+00:00">11:56:39</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>coulda sworn I said someting about not makin things WORSE .. damnit! :p</q></li>
+<li class="message">[<a href="#T11:56:47" id="T11:56:47"><abbr title="2014-04-04T11:56:47+00:00">11:56:47</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T11:56:51" id="T11:56:51"><abbr title="2014-04-04T11:56:51+00:00">11:56:51</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>looool</q></li>
+<li class="action">[<a href="#T11:56:57" id="T11:56:57"><abbr title="2014-04-04T11:56:57+00:00">11:56:57</abbr></a>] <span>* KotH hands veremit a pitchfork</span></li>
+<li class="message">[<a href="#T11:57:02" id="T11:57:02"><abbr title="2014-04-04T11:57:02+00:00">11:57:02</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>hahaha</q></li>
+<li class="message">[<a href="#T11:57:04" id="T11:57:04"><abbr title="2014-04-04T11:57:04+00:00">11:57:04</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T11:57:09" id="T11:57:09"><abbr title="2014-04-04T11:57:09+00:00">11:57:09</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>ah thanks .. just wha tI needed</q></li>
+<li class="message">[<a href="#T11:57:28" id="T11:57:28"><abbr title="2014-04-04T11:57:28+00:00">11:57:28</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>now all I need is a cute farmgirl ...</q></li>
+<li class="message">[<a href="#T11:57:33" id="T11:57:33"><abbr title="2014-04-04T11:57:33+00:00">11:57:33</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>&gt;,&lt;</q></li>
+<li class="message">[<a href="#T11:58:26" id="T11:58:26"><abbr title="2014-04-04T11:58:26+00:00">11:58:26</abbr></a>] &lt;<cite>Dan1</cite>&gt; <q>in a tucker &amp; dale v evil sorta way??</q></li>
+<li class="join">[<a href="#T11:58:35" id="T11:58:35"><abbr title="2014-04-04T11:58:35+00:00">11:58:35</abbr></a>] <span>* riddle (riddle@us.yunix.net) has joined #beagle</span></li>
+<li class="join">[<abbr title="2014-04-04T11:58:35+00:00">11:58:35</abbr>] <span>* riddle (riddle@us.yunix.net) has joined #beagleboard</span></li>
+<li class="quit">[<a href="#T11:58:41" id="T11:58:41"><abbr title="2014-04-04T11:58:41+00:00">11:58:41</abbr></a>] <span>* nylar (~nylar@unaffiliated/nylar) Quit (Ping timeout: 240 seconds)</span></li>
