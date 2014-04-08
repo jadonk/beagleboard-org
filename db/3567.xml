@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1396988850966">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1396989012246">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">08.04.2014 20:27:30 UTC</time>
+    <time type="date">08.04.2014 20:30:12 UTC</time>
     <hopsession>98.250.189.1sc85vus56lm</hopsession>
     <body>&lt;script type=&quot;text/javascript&quot; src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     var address = getParameterByName(&quot;address&quot;);
     var handlers = {initialized: run};
     if(address) {
+        $(&apos;#step1-log&apos;).append(&quot;Attempting connection to &quot; + address + &apos;\n&apos;);
         setTargetAddress(address, handlers);
     }
     $(&apos;#address&apos;).keypress(onAddress);
@@ -22,6 +23,7 @@
     function onAddress(e) {
         if(e.which == 10 || e.which == 13) {
             address = $(&apos;#address&apos;).val();
+            $(&apos;#step1-log&apos;).append(&quot;Attempting connection to &quot; + address + &apos;\n&apos;);
             setTargetAddress(address, handlers);
         }
     }
@@ -33,6 +35,7 @@
     }
 
     function run() {
+        $(&apos;#step1-log&apos;).append(&apos;Connected to &apos; + address + &apos;\n&apos;);
         var b = require(&apos;bonescript&apos;);
         
         var sourceJS = &apos;/static/updater.js&apos;;
