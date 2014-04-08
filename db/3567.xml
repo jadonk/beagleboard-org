@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1396989419752">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1396989862516">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">08.04.2014 20:36:59 UTC</time>
+    <time type="date">08.04.2014 20:44:22 UTC</time>
     <hopsession>98.250.189.1sc85vus56lm</hopsession>
     <body>&lt;script type=&quot;text/javascript&quot; src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&quot;floatMenu&quot;&gt;  
     &lt;ul&gt;   
         &lt;li id=&quot;fmStep1&quot;&gt;&lt;a href=&quot;#step1&quot;&gt;&lt;strong&gt;Step 1:&lt;/strong&gt;&lt;br /&gt;
-            Connect to BeagleBone Black over your network&lt;/a&gt;&lt;/li&gt; 
+            Connect to BeagleBone Black over home network&lt;/a&gt;&lt;/li&gt; 
         &lt;li id=&quot;fmStep2&quot;&gt;&lt;a href=&quot;#step2&quot;&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;&lt;br /&gt;
             Insert blank uSD card and review contents&lt;/a&gt;&lt;/li&gt;         
         &lt;li id=&quot;fmStep3&quot;&gt;&lt;a href=&quot;#step3&quot;&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;&lt;br /&gt;
@@ -34,13 +34,13 @@
     &lt;/p&gt;
     &lt;h3 id=&quot;step1&quot;&gt;
         &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step1.gif&quot; /&gt;
-        &lt;strong&gt;Connect to BeagleBone Black over your network&lt;/strong&gt;
+        &lt;strong&gt;Connect to BeagleBone Black over home network&lt;/strong&gt;
     &lt;/h3&gt;
     &lt;p&gt;
         As long as your BeagleBone Black is already running on of the images
         shipped with the boards, you should be good to plug it into your
         network and get connected to it from this web page. If not, you&apos;ll
-        need to user other steps to download the latest image:&lt;br /&gt;
+        need to user other steps to download and flash the latest image:&lt;br /&gt;
         &lt;a href=&quot;/Getting%20Started#update&quot;&gt;http://beagleboard.org/Getting Started#update&lt;/a&gt;
     &lt;/p&gt;
     &lt;p&gt;
@@ -99,6 +99,7 @@
         
         var sourceJS = &apos;/static/updater.js&apos;;
         var targetJS = &apos;/var/lib/cloud9/autorun/updater.js&apos;;
+        var verifyFile = &apos;/tmp/verify-updater.txt&apos;;
         b.getPlatform(onGetPlatform);
 
         function onGetPlatform(platform) {
@@ -121,7 +122,17 @@
         }
         
         function onJSWritten() {
-            nextStep();  
+            $(&apos;#step1-log&apos;).append(&quot;Reading verification file &quot; + verifyFile + &apos;\n&apos;);
+            b.readTextFile(verifyFile, onVerifyRead)
+        }
+        
+        function onVerifyRead(x) {
+            if(x.err) {
+                $(&apos;#step1-log&apos;).append(&quot;Reading verification file &quot; + verifyFile + &apos;\n&apos;);
+                b.readTextFile(verifyFile, onVerifyRead)            
+            } else {
+                nextStep();
+            }
         }
         
         function nextStep() {
