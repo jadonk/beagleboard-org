@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1396994379178">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1396994544182">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">08.04.2014 21:59:39 UTC</time>
+    <time type="date">08.04.2014 22:02:24 UTC</time>
     <hopsession>98.250.189.1sc85vus56lm</hopsession>
     <body>&lt;script type=&quot;text/javascript&quot; src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&quot;floatMenu&quot;&gt;  
@@ -143,9 +143,10 @@
             } else {
                 var data = JSON.parse(x.data);
                 var date = new Date();
-                $(&apos;#step1-log&apos;).append(&quot;Confirming time stamp: &quot; + data.date + &apos;\n&apos;);
+                var diff = Math.abs(Date(date.date).valueOf() - date.valueOf());
+                $(&apos;#step1-log&apos;).append(&quot;Confirming time stamp: &quot; + diff + &apos;\n&apos;);
                 //$(&apos;#step1-log&apos;).append(JSON.stringify(data, null, 4) + &apos;\n&apos;);
-                if(data.date &amp;&amp; Math.abs(Date(date.date).valueOf() - date.valueOf()) - 60000) {
+                if(data.date &amp;&amp; (diff &lt; 60000)) {
                     stepOneDone();    
                 } else {
                     onJSWritten();
