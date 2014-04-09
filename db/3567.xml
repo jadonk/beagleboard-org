@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397083893277">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397084160557">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">09.04.2014 22:51:33 UTC</time>
+    <time type="date">09.04.2014 22:56:00 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script type=&quot;text/javascript&quot; src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&quot;floatMenu&quot;&gt;  
@@ -27,7 +27,7 @@
         This step-by-step guide will use the BoneScript server on your
         BeagleBone Black to download the latest BeagleBone Black software image
         onto a uSD card
-        connected inserted in your BeagleBone Black uSD card slot. To do this,
+        inserted in your BeagleBone Black uSD card slot. To do this,
         you
         will need to have your BeagleBone Black connected to the Internet and
         visible to the computer you are using to visit this web page.
@@ -52,8 +52,8 @@
     &lt;p&gt;
         When you type your board&apos;s address into the box below and click
         &lt;b&gt;GO&lt;/b&gt;, a script will
-        be copied onto your board to write images to your uSD cards
-        (/dev/mmcblk1). If connected over USB, the default address for your
+        be copied onto your board to write images to your uSD cards.
+        If connected over USB, the default address for your
         board is &apos;192.168.7.2&apos;.
     &lt;/p&gt;
     &lt;input id=&quot;address&quot; value=&quot;192.168.7.2&quot;&gt;&lt;/input&gt;
@@ -62,6 +62,13 @@
         &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step2.gif&quot; /&gt;
         &lt;strong&gt;Insert blank uSD card and select image to install&lt;/strong&gt;
     &lt;/h3&gt;
+    &lt;p&gt;
+        This script will write the selected image to your uSD card
+        (/dev/mmcblk1) if you are running off of your on-board eMMC, so be
+        sure to insert a blank uSD card &lt;i&gt;AFTER&lt;/i&gt; you finish booting
+        up. If you boot off of a uSD card, it is possible you will write
+        to the eMMC instead.
+    &lt;/p&gt;
     &lt;div id=&quot;latestImages&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
