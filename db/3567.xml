@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397082150029">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397082516032">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">09.04.2014 22:22:30 UTC</time>
+    <time type="date">09.04.2014 22:28:36 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script type=&quot;text/javascript&quot; src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&quot;floatMenu&quot;&gt;  
     &lt;ul&gt;   
         &lt;li id=&quot;fmStep1&quot;&gt;&lt;a href=&quot;#step1&quot;&gt;&lt;strong&gt;Step 1:&lt;/strong&gt;&lt;br /&gt;
-            Connect to BeagleBone Black over home network&lt;/a&gt;&lt;/li&gt; 
+            Connect to BeagleBone Black&lt;/a&gt;&lt;/li&gt; 
         &lt;li id=&quot;fmStep2&quot;&gt;&lt;a href=&quot;#step2&quot;&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;&lt;br /&gt;
             Insert blank uSD card and select image to install&lt;/a&gt;&lt;/li&gt;         
         &lt;li id=&quot;fmStep3&quot;&gt;&lt;a href=&quot;#step3&quot;&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;&lt;br /&gt;
@@ -34,7 +34,7 @@
     &lt;/p&gt;
     &lt;h3 id=&quot;step1&quot;&gt;
         &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step1.gif&quot; /&gt;
-        &lt;strong&gt;Connect to BeagleBone Black over home network&lt;/strong&gt;
+        &lt;strong&gt;Connect to BeagleBone Black&lt;/strong&gt;
     &lt;/h3&gt;
     &lt;p&gt;
         As long as your BeagleBone Black is already running on of the images
@@ -52,14 +52,14 @@
     &lt;p&gt;
         Fetch the IP address of your board using the DHCP information
         provided by your router. Depending on your home network configuration,
-        you might also find your BeagleBone Black using the &apos;beaglebone.local&apos;
+        you might find your BeagleBone Black using the &apos;beaglebone.local&apos;
         broadcast name.
     &lt;/p&gt;
     &lt;p&gt;
         When you type your board&apos;s address into the box below, a script will
         be copied onto your board to examine and update your uSD contents.
     &lt;/p&gt;
-    &lt;input id=&quot;address&quot;&gt;&lt;/input&gt;
+    &lt;input id=&quot;address&quot;&gt;192.168.7.2&lt;/input&gt;
     &lt;pre id=&quot;step1-log&quot;&gt;&lt;/pre&gt;
     &lt;h3 id=&quot;step2&quot;&gt;
         &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step2.gif&quot; /&gt;
@@ -135,12 +135,12 @@
             }
         }
         
-        function onSocketFail() {
-            $(&apos;#step1-log&apos;).append(&quot;Load failed\n&quot;);
+        function onSocketFail(jqxhr, settings, exception) {
+            $(&apos;#step1-log&apos;).append(&quot;Load failed: exception\n&quot;);
             onJSWritten();
         }
         
-        function onSocketIOLoad(data, textStatus, jqxhr ) {
+        function onSocketIOLoad(script, textStatus) {
             $(&apos;#step1-log&apos;).append(&quot;Load status: &quot; + textStatus + &apos;\n&apos;);
             stepOneDone();
         }
