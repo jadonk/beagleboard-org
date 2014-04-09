@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397075744717">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397080655467">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
-    <http_remotehost>68.43.1.216</http_remotehost>
+    <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">09.04.2014 20:35:44 UTC</time>
-    <hopsession>68.43.1.nd8gv7yj90ns</hopsession>
+    <time type="date">09.04.2014 21:57:35 UTC</time>
+    <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script type=&quot;text/javascript&quot; src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&quot;floatMenu&quot;&gt;  
     &lt;ul&gt;   
@@ -97,7 +97,6 @@
         
         var sourceJS = &apos;/static/updater.js&apos;;
         var targetJS = &apos;/var/lib/cloud9/autorun/updater.js&apos;;
-        var verifyFile = &apos;/tmp/verify-updater.json&apos;;
         b.getPlatform(onGetPlatform);
 
         function onGetPlatform(platform) {
@@ -128,12 +127,16 @@
         function verifyRead() {
             if(verifyAttempts &lt; 5) {
                 verifyAttempts++;
-                $(&apos;#step1-log&apos;).append(&quot;Reading verification file &quot; + verifyFile + &apos;\n&apos;);
-                $(&apos;#step1-log&apos;).append(&quot;Attempt # &quot; + verifyAttempts + &apos;\n&apos;);
-                b.readTextFile(verifyFile, onVerifyRead)            
+                $(&apos;#step1-log&apos;).append(&quot;Attempting socket connection to &quot; + address + &apos;:8000\n&apos;);
+                $.getScript(address+&apos;:8000&apos;, onSocketIOLoad);
             } else {
                 $(&apos;#step1-log&apos;).append(&quot;Connection failed\n&quot;);                    
             }
+        }
+        
+        function onSocketIOLoad(data, textStatus, jqxhr ) {
+            $(&apos;#step1-log&apos;).append(&quot;Load status: &quot; + textStatus + &apos;\n&apos;);
+            stepOneDone();
         }
         
         function onVerifyRead(x) {
