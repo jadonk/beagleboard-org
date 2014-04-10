@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397163875819">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397164214517">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">10.04.2014 21:04:35 UTC</time>
+    <time type="date">10.04.2014 21:10:14 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -20,7 +20,7 @@
         &lt;li id=&quot;fmStep2&quot;&gt;&lt;a href=&quot;#step2&quot;&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;&lt;br /&gt;
             Insert blank uSD card and select image to install&lt;/a&gt;&lt;/li&gt;         
         &lt;li id=&quot;fmStep3&quot;&gt;&lt;a href=&quot;#step3&quot;&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;&lt;br /&gt;
-            Wait and reboot&lt;/a&gt;&lt;/li&gt;
+            Shutdown and reboot&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&quot;gettingstarted&quot;&gt;
@@ -74,10 +74,14 @@
     &lt;/p&gt;
     &lt;div id=&quot;latestImages&quot; style=&quot;display:inline;&quot;&gt;&lt;/div&gt;
     &lt;input id=&quot;image-go&quot; name=&quot;image-go&quot; type=&quot;submit&quot; value=&quot;GO »&quot; style=&quot;display:inline;border:1px solid #B4A279; border-radius:5px 5px 5px 5px; margin-bottom:20px; margin-left:25px; padding:10px; width:80px; background-color:#B4A279; text-align:center; color:#fff; font-weight:bold; height:3em; cursor:pointer;&quot; /&gt;
+    &lt;div id=&quot;progressBarContainer&quot; style=&quot;display:inline-block;border:1px solid #B4A279;border-radius:5px 5px 5px 5px;width:300px;height:20px;&quot;&gt;
+        &lt;div id=&quot;progressBar&quot; style=&quot;height:20px;width:1px;background-color:#de7224&quot;&gt;&lt;/div&gt; 
+    &lt;/div&gt;
+    &lt;div id=&quot;progressPercent&quot; style=&quot;display:inline;font-size:2em;&quot;&gt;0 %&lt;/div&gt;
     &lt;pre id=&quot;step2-log&quot;&gt;&lt;/pre&gt;
     &lt;h3 id=&quot;step3&quot;&gt;
         &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step3.gif&quot; /&gt;
-        &lt;strong&gt;Wait and reboot&lt;/strong&gt;
+        &lt;strong&gt;Shutdown and reboot&lt;/strong&gt;
     &lt;/h3&gt;
     &lt;p&gt;
         The progress meter below will show you the status of the download.
@@ -86,15 +90,12 @@
         back to their normal state, flashing on device activity rather than
         in a set pattern.
     &lt;/p&gt;
-    &lt;div id=&quot;progressBarContainer&quot; style=&quot;display:inline-block;border:1px solid #B4A279;border-radius:5px 5px 5px 5px;width:300px;height:20px;&quot;&gt;
-        &lt;div id=&quot;progressBar&quot; style=&quot;height:20px;width:1px;background-color:#de7224&quot;&gt;&lt;/div&gt; 
-    &lt;/div&gt;
-    &lt;div id=&quot;progressPercent&quot; style=&quot;display:inline;font-size:2em;&quot;&gt;0 %&lt;/div&gt;
 &lt;/div&gt;
 &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
     var address = getParameterByName(&quot;address&quot;);
-    var image = getParameterByName(&quot;image&quot;);;
+    var image = getParameterByName(&quot;image&quot;);
+    var progress = 0;
     var handlers = {initialized: run, timeout: noBoneScript};
     if(address) {
         $(&apos;#step1-log&apos;).append(&quot;Attempting connection to &quot; + address + &apos;\n&apos;);
@@ -248,8 +249,21 @@
             $(&apos;#image-go&apos;).off(&apos;click&apos;);
             $(&apos;#image-go&apos;).css(&apos;background-color&apos;, &apos;#B4A279&apos;);
             image = $(&apos;#latestImages&apos;).find(&quot;:selected&quot;).attr(&apos;value&apos;);
+            progress = 0;
+            updateBar();
             $(&apos;#step2-log&apos;).append(&quot;Attempting to download &quot; + image + &apos;\n&apos;);
-            setTimeout(stepTwoDone, 500);
+            setTimeout(incrementProgress, 500);
+        }
+        
+        function incrementProgress() {
+            progress += 10;
+            if(progress &gt;= 100) {
+                progress = 100;
+                setTimeout(stepTwoDone, 500);    
+            } else {
+                setTimeout(incrementProgress, 2000);    
+            }
+            updateBar();
         }
         
         function stepTwoDone() {
@@ -266,9 +280,9 @@
         }
     }
     
-    function updateBar(percent) {
-        $(&apos;#progressBar&apos;).width(percent + &apos;%&apos;);
-        $(&apos;#progressPercent&apos;).html(percent + &apos; %&apos;);
+    function updateBar() {
+        $(&apos;#progressBar&apos;).width(progress + &apos;%&apos;);
+        $(&apos;#progressPercent&apos;).html(progress + &apos; %&apos;);
     }
 &lt;/script&gt;</body>
     <pseudoparent idref="0" prototyperef="Root"/>
