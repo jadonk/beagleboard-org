@@ -26,6 +26,7 @@ function onConnection(socket) {
     var connectDate = new Date();
     socket.emit('connect', { date: connectDate, port: port });
     socket.on('mounts', onMounts);
+    socket.on('download', onDownload);
     socket.on('disconnect', onDisconnect);
 
     function onMounts(data) {
@@ -34,6 +35,10 @@ function onConnection(socket) {
     
     function onMountsFile(error, data) {
         socket.emit('mounts', {error: error, data: data});
+    }
+
+    function onDownload(data) {
+        state = 'download';
     }
 }
     
@@ -45,21 +50,24 @@ function onDisconnect() {
 }
 
 function updateLEDs() {
+    phase = (phase + 1) % 8;
     if(state == 'init') {
-        phase = (phase + 1) % 8;
         if(phase == 0) {
             setLEDs(b.HIGH);
         } else if(phase == 6) {
             setLEDs(b.LOW);
         }
     } else if(state == 'connected') {
-        phase = (phase + 1) % 8;
         if(phase == 0) {
             setLEDs(b.HIGH);
         } else if(phase == 1) {
             setLEDs(b.LOW);
         }
-    } else {
+    } else if(state == 'download') {
+        b.digitalWrite('USR0', (phase == 0 || phase == 7) ? b.HIGH : b.LOW);
+        b.digitalWrite('USR1', (phase == 1 || phase == 6) ? b.HIGH : b.LOW);
+        b.digitalWrite('USR2', (phase == 2 || phase == 5) ? b.HIGH : b.LOW);
+        b.digitalWrite('USR3', (phase == 3 || phase == 4) ? b.HIGH : b.LOW);
     }
 }
 
