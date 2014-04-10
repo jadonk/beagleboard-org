@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397165372145">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397165916513">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">10.04.2014 21:29:32 UTC</time>
+    <time type="date">10.04.2014 21:38:36 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -108,7 +108,6 @@
     var address = getParameterByName(&quot;address&quot;);
     var image = getParameterByName(&quot;image&quot;);
     var progress = 0;
-    var imageGoHandler = null;
     var handlers = {initialized: run, timeout: noBoneScript};
     if(address) {
         $(&apos;#step1-log&apos;).append(&quot;Attempting connection to &quot; + address + &apos;\n&apos;);
@@ -116,8 +115,6 @@
     }
     $(&apos;#address&apos;).keypress(onAddress);
     $(&apos;#address-go&apos;).click(onAddressGo);
-    $(&apos;#image-go&apos;).click(onImageGo);
-    $(&apos;#image-go&apos;).off(&apos;click&apos;);
     $.get(&apos;/latest-images/&apos;, &apos;html&apos;).done(onLatestImages).fail(onLatestImagesFail);
     
     var menuYloc = parseInt($(&apos;#floatMenu&apos;).css(&quot;top&quot;).substring(0,$(&apos;#floatMenu&apos;).css(&quot;top&quot;).indexOf(&quot;px&quot;)));
@@ -139,10 +136,6 @@
         address = $(&apos;#address&apos;).val();
         $(&apos;#step1-log&apos;).append(&quot;Attempting connection to &quot; + address + &apos;\n&apos;);
         setTargetAddress(address, handlers);
-    }
-    
-    function onImageGo() {
-        if(typeof imageGoHandler == &apos;function&apos;) imageGoHandler();
     }
     
     function noBoneScript() {
@@ -241,6 +234,7 @@
             $(&apos;#step1-log&apos;).append(&quot;Load status: &quot; + textStatus + &apos;\n&apos;);
             socket = new io.connect(&apos;http://&apos; + address + &apos;:5000&apos;);
             socket.on(&apos;connect&apos;, onConnect);
+            $(&apos;#image-go&apos;).click(onImageGo);
             
             function onConnect(data) {
                 if(connected) return;
@@ -259,12 +253,11 @@
                 $(&apos;#fmStep1&apos;).addClass(&apos;fmGreen&apos;);
                 location.href = &quot;#&quot;;
                 location.href = &quot;#step2&quot;;
-                imageGoHandler = startDownload;
                 $(&apos;#image-go&apos;).on(&apos;click&apos;);
                 $(&apos;#image-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
             }
             
-            function startDownload() {
+            function onImageGo() {
                 $(&apos;#image-go&apos;).off(&apos;click&apos;);
                 $(&apos;#image-go&apos;).css(&apos;background-color&apos;, &apos;#B4A279&apos;);
                 image = $(&apos;#latestImages&apos;).find(&quot;:selected&quot;).attr(&apos;value&apos;);
