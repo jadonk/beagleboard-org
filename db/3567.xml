@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397135754890">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397136170876">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">10.04.2014 13:15:54 UTC</time>
+    <time type="date">10.04.2014 13:22:50 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -100,17 +100,16 @@
         var page = $(data).items(&quot;http://schema.org/SoftwareApplication&quot;);
         var parsed = $.microdata.json(page, dataFormatter);
         //$(&apos;#step2-log&apos;).append(JSON.stringify(parsed, null, 4) + &quot;\n&quot;);
-        $(&apos;#latestImages&apos;).append(&apos;&lt;select&gt;&lt;/select&gt;&apos;);
+        var images = [];
         for(var i in parsed.items) {
             var x = parsed.items[i].properties;
             if(x.device[0].match(/BeagleBone Black/)) {
                 var name = x.name[0] + &apos; &apos; + x.datePublished[0] + &apos; &apos; + x.memoryRequirements[0];
-                $(&apos;#latestImages select&apos;)
-                    .append(&apos;&lt;option&gt;&lt;/option&gt;&apos;)
-                    .attr(&apos;value&apos;, x.downloadURL[0])
-                    .text(name);
+                images.push(&apos;&lt;option value=&quot;&apos;+ x.downloadURL[0] +&apos;&quot;&gt;&apos;+ name +&apos;&lt;/option&gt;&apos;);
             }
         }
+        var select = &apos;&lt;select&gt;&apos; + images.join(&apos;&apos;) + &apos;&lt;/select&gt;&apos;;
+        $(&apos;#latestImages&apos;).append(select);
     }
     
     function dataFormatter(o) { return o; }
