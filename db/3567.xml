@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397163021328">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397163187408">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36</http_browser>
-    <time type="date">10.04.2014 20:50:21 UTC</time>
+    <time type="date">10.04.2014 20:53:07 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -238,7 +238,7 @@
         }
         
         function onImageGo() {
-            $(&apos;#image-go&apos;).click();
+            $(&apos;#image-go&apos;).off(&apos;click&apos;);
             $(&apos;#image-go&apos;).css(&apos;background-color&apos;, &apos;#B4A279&apos;);
             image = $(&apos;#latestImages&apos;).find(&quot;:selected&quot;).text();
             $(&apos;#step2-log&apos;).append(&quot;Attempting to download &quot; + image + &apos;\n&apos;);
@@ -246,7 +246,7 @@
         }
         
         function stepTwoDone() {
-            $(&apos;#images-go&apos;).click(onImagesGo);
+            $(&apos;#images-go&apos;).on(&apos;click&apos;);
             $(&apos;#images-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
             setTimeout(startStepThree, 50);
         }
