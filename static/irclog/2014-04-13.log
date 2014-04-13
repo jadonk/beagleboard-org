@@ -1244,3 +1244,105 @@
 <li class="quit">[<a href="#T20:59:01" id="T20:59:01"><abbr title="2014-04-13T20:59:01+00:00">20:59:01</abbr></a>] <span>* nylar (~nylar@unaffiliated/nylar) Quit (Quit: bbl)</span></li>
 <li class="message">[<a href="#T20:59:15" id="T20:59:15"><abbr title="2014-04-13T20:59:15+00:00">20:59:15</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you need to configure your pin muxes appropriately</q></li>
 <li class="message">[<a href="#T20:59:46" id="T20:59:46"><abbr title="2014-04-13T20:59:46+00:00">20:59:46</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>hi, how do i configure spi0?</q></li>
+<li class="message">[<a href="#T21:00:07" id="T21:00:07"><abbr title="2014-04-13T21:00:07+00:00">21:00:07</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>ls -la /dev/spi* does not show spi port</q></li>
+<li class="message">[<a href="#T21:02:45" id="T21:02:45"><abbr title="2014-04-13T21:02:45+00:00">21:02:45</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>what os are you using</q></li>
+<li class="message">[<a href="#T21:03:18" id="T21:03:18"><abbr title="2014-04-13T21:03:18+00:00">21:03:18</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>echo BB-SPIDEV0 &gt; /sys/devices/bone_capemgr.*/slots</q></li>
+<li class="join">[<a href="#T21:04:06" id="T21:04:06"><abbr title="2014-04-13T21:04:06+00:00">21:04:06</abbr></a>] <span>* DJWillis (~djwillis@cpc2-trow6-2-0-cust204.aztw.cable.virginm.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:06:27" id="T21:06:27"><abbr title="2014-04-13T21:06:27+00:00">21:06:27</abbr></a>] <span>* shoragan (~shoragan@debian/developer/shoragan) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T21:09:40" id="T21:09:40"><abbr title="2014-04-13T21:09:40+00:00">21:09:40</abbr></a>] <span>* LordDVG (~LordDVG@unaffiliated/lorddvg) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T21:10:07" id="T21:10:07"><abbr title="2014-04-13T21:10:07+00:00">21:10:07</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<a href="#T21:12:30" id="T21:12:30"><abbr title="2014-04-13T21:12:30+00:00">21:12:30</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>nyt-: official debian</q></li>
+<li class="message">[<a href="#T21:12:38" id="T21:12:38"><abbr title="2014-04-13T21:12:38+00:00">21:12:38</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>see command above</q></li>
+<li class="join">[<a href="#T21:14:12" id="T21:14:12"><abbr title="2014-04-13T21:14:12+00:00">21:14:12</abbr></a>] <span>* paccer (~paccer@paccer.dk) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:16:09" id="T21:16:09"><abbr title="2014-04-13T21:16:09+00:00">21:16:09</abbr></a>] &lt;<cite>Guest37958</cite>&gt; <q>veremit I think first problem is that how to sense analog data ...If I use ADC I cannot sense negative cycle of AC signal...PRU is used after the ADC</q></li>
+<li class="quit">[<a href="#T21:16:32" id="T21:16:32"><abbr title="2014-04-13T21:16:32+00:00">21:16:32</abbr></a>] <span>* tema (~tema@ppp89-110-3-110.pppoe.avangarddsl.ru) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:16:51" id="T21:16:51"><abbr title="2014-04-13T21:16:51+00:00">21:16:51</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>Guest37958 depends entirely on your biasing</q></li>
+<li class="message">[<a href="#T21:19:30" id="T21:19:30"><abbr title="2014-04-13T21:19:30+00:00">21:19:30</abbr></a>] &lt;<cite>Guest37958</cite>&gt; <q>It is possible to sense 5V or lower AC voltage through ADC pins because ADC pins will take maximum 1.8 V</q></li>
+<li class="message">[<a href="#T21:19:41" id="T21:19:41"><abbr title="2014-04-13T21:19:41+00:00">21:19:41</abbr></a>] &lt;<cite>Guest37958</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T21:20:15" id="T21:20:15"><abbr title="2014-04-13T21:20:15+00:00">21:20:15</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you will need some interfacing electronics</q></li>
+<li class="message">[<a href="#T21:23:43" id="T21:23:43"><abbr title="2014-04-13T21:23:43+00:00">21:23:43</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>nyt-: will that overwrite slots file?</q></li>
+<li class="message">[<a href="#T21:23:53" id="T21:23:53"><abbr title="2014-04-13T21:23:53+00:00">21:23:53</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>its not a normal file</q></li>
+<li class="message">[<a href="#T21:24:00" id="T21:24:00"><abbr title="2014-04-13T21:24:00+00:00">21:24:00</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>thats how you load device tree files</q></li>
+<li class="join">[<a href="#T21:24:08" id="T21:24:08"><abbr title="2014-04-13T21:24:08+00:00">21:24:08</abbr></a>] <span>* sidbh (sidbh@219.91.215.33) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:24:26" id="T21:24:26"><abbr title="2014-04-13T21:24:26+00:00">21:24:26</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>you can cat the file and see whats currently loading</q></li>
+<li class="message">[<a href="#T21:24:31" id="T21:24:31"><abbr title="2014-04-13T21:24:31+00:00">21:24:31</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>after runnin gthe command i gave you, you should see</q></li>
+<li class="message">[<a href="#T21:24:32" id="T21:24:32"><abbr title="2014-04-13T21:24:32+00:00">21:24:32</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q> 7: ff:P-O-L Override Board Name,00A0,Override Manuf,BB-SPIDEV0</q></li>
+<li class="message">[<a href="#T21:24:36" id="T21:24:36"><abbr title="2014-04-13T21:24:36+00:00">21:24:36</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>or similar</q></li>
+<li class="message">[<a href="#T21:24:52" id="T21:24:52"><abbr title="2014-04-13T21:24:52+00:00">21:24:52</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>nyt-: is it possible to backup?</q></li>
+<li class="message">[<a href="#T21:25:04" id="T21:25:04"><abbr title="2014-04-13T21:25:04+00:00">21:25:04</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>everything i said was just lost on you</q></li>
+<li class="message">[<a href="#T21:25:07" id="T21:25:07"><abbr title="2014-04-13T21:25:07+00:00">21:25:07</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>its a sysfs file, its not a file</q></li>
+<li class="message">[<a href="#T21:25:11" id="T21:25:11"><abbr title="2014-04-13T21:25:11+00:00">21:25:11</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>its an interface to the kernel</q></li>
+<li class="message">[<a href="#T21:25:38" id="T21:25:38"><abbr title="2014-04-13T21:25:38+00:00">21:25:38</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>how do i unload BB-SPIDEV0?</q></li>
+<li class="message">[<a href="#T21:25:42" id="T21:25:42"><abbr title="2014-04-13T21:25:42+00:00">21:25:42</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>you reboot</q></li>
+<li class="message">[<a href="#T21:25:47" id="T21:25:47"><abbr title="2014-04-13T21:25:47+00:00">21:25:47</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>otherwise you get to deal with a kernel crash</q></li>
+<li class="message">[<a href="#T21:25:49" id="T21:25:49"><abbr title="2014-04-13T21:25:49+00:00">21:25:49</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>O.O</q></li>
+<li class="message">[<a href="#T21:25:54" id="T21:25:54"><abbr title="2014-04-13T21:25:54+00:00">21:25:54</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>but the command would be</q></li>
+<li class="message">[<a href="#T21:26:02" id="T21:26:02"><abbr title="2014-04-13T21:26:02+00:00">21:26:02</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>echo -XX &gt; /sys/devices/bone_capemgr.*/slots</q></li>
+<li class="message">[<a href="#T21:26:14" id="T21:26:14"><abbr title="2014-04-13T21:26:14+00:00">21:26:14</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>where XX is the number at the start of the line for the spidev</q></li>
+<li class="message">[<a href="#T21:26:28" id="T21:26:28"><abbr title="2014-04-13T21:26:28+00:00">21:26:28</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>except current kernels do not unload device trees properly without crashing</q></li>
+<li class="message">[<a href="#T21:26:39" id="T21:26:39"><abbr title="2014-04-13T21:26:39+00:00">21:26:39</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>except maybe the single pin pwm trees</q></li>
+<li class="message">[<a href="#T21:26:43" id="T21:26:43"><abbr title="2014-04-13T21:26:43+00:00">21:26:43</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>those unload ok</q></li>
+<li class="message">[<a href="#T21:28:18" id="T21:28:18"><abbr title="2014-04-13T21:28:18+00:00">21:28:18</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>i did sudo ~ and it throws error with 'permission denied'</q></li>
+<li class="message">[<a href="#T21:28:40" id="T21:28:40"><abbr title="2014-04-13T21:28:40+00:00">21:28:40</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>didn't load</q></li>
+<li class="message">[<a href="#T21:28:45" id="T21:28:45"><abbr title="2014-04-13T21:28:45+00:00">21:28:45</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>you need to run as root so youre probably doing something wrong</q></li>
+<li class="message">[<a href="#T21:28:56" id="T21:28:56"><abbr title="2014-04-13T21:28:56+00:00">21:28:56</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>sudo echo BB-SPIDEV0 &gt; /sys/devices/bone_capemgr.*/slots</q></li>
+<li class="quit">[<a href="#T21:28:58" id="T21:28:58"><abbr title="2014-04-13T21:28:58+00:00">21:28:58</abbr></a>] <span>* rvraghav93 (~quassel@117.208.215.185) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:29:06" id="T21:29:06"><abbr title="2014-04-13T21:29:06+00:00">21:29:06</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>or just sudo -s</q></li>
+<li class="quit">[<a href="#T21:29:09" id="T21:29:09"><abbr title="2014-04-13T21:29:09+00:00">21:29:09</abbr></a>] <span>* paccer (~paccer@paccer.dk) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T21:29:10" id="T21:29:10"><abbr title="2014-04-13T21:29:10+00:00">21:29:10</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you can't sudo echo .. you need to sudo su :p</q></li>
+<li class="message">[<abbr title="2014-04-13T21:29:10+00:00">21:29:10</abbr>] &lt;<cite>nyt-</cite>&gt; <q>then run it once youre in the root shell</q></li>
+<li class="quit">[<a href="#T21:30:14" id="T21:30:14"><abbr title="2014-04-13T21:30:14+00:00">21:30:14</abbr></a>] <span>* joel_ (~joel@cpe-68-203-179-215.tx.res.rr.com) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="message">[<a href="#T21:30:35" id="T21:30:35"><abbr title="2014-04-13T21:30:35+00:00">21:30:35</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>lol; override board name, 00A0, override manuf, BB-SPIDEV0</q></li>
+<li class="message">[<a href="#T21:30:48" id="T21:30:48"><abbr title="2014-04-13T21:30:48+00:00">21:30:48</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>board name and manuf???</q></li>
+<li class="message">[<a href="#T21:34:05" id="T21:34:05"><abbr title="2014-04-13T21:34:05+00:00">21:34:05</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>ok, so this enables spi0, but how to interact with spi0 port?</q></li>
+<li class="message">[<a href="#T21:34:20" id="T21:34:20"><abbr title="2014-04-13T21:34:20+00:00">21:34:20</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>then the /dev/spi node is created :p</q></li>
+<li class="quit">[<a href="#T21:34:34" id="T21:34:34"><abbr title="2014-04-13T21:34:34+00:00">21:34:34</abbr></a>] <span>* dj_pi (~dj@c-107-5-25-243.hsd1.mi.comcast.net) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T21:34:47" id="T21:34:47"><abbr title="2014-04-13T21:34:47+00:00">21:34:47</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>you'll have /dev/spidev0.0 and 0.1</q></li>
+<li class="message">[<a href="#T21:34:48" id="T21:34:48"><abbr title="2014-04-13T21:34:48+00:00">21:34:48</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>i see it.</q></li>
+<li class="message">[<a href="#T21:34:50" id="T21:34:50"><abbr title="2014-04-13T21:34:50+00:00">21:34:50</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>you'll want to use 0.0</q></li>
+<li class="message">[<a href="#T21:34:58" id="T21:34:58"><abbr title="2014-04-13T21:34:58+00:00">21:34:58</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>as there is no cs hookup in that tree for 0.1</q></li>
+<li class="message">[<a href="#T21:35:05" id="T21:35:05"><abbr title="2014-04-13T21:35:05+00:00">21:35:05</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T21:35:37" id="T21:35:37"><abbr title="2014-04-13T21:35:37+00:00">21:35:37</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>is there api?</q></li>
+<li class="message">[<a href="#T21:35:56" id="T21:35:56"><abbr title="2014-04-13T21:35:56+00:00">21:35:56</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>in the linux kernel there are docs on how to interact with spi</q></li>
+<li class="message">[<a href="#T21:36:08" id="T21:36:08"><abbr title="2014-04-13T21:36:08+00:00">21:36:08</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>you interface through ioctl</q></li>
+<li class="message">[<a href="#T21:36:44" id="T21:36:44"><abbr title="2014-04-13T21:36:44+00:00">21:36:44</abbr></a>] &lt;<cite>veremit</cite>&gt; <q><a href="https://www.kernel.org/doc/Documentation/spi/spidev">https://www.kernel.org/doc/Documentation/spi/spidev</a></q></li>
+<li class="message">[<a href="#T21:37:09" id="T21:37:09"><abbr title="2014-04-13T21:37:09+00:00">21:37:09</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>if you can use ruby I just wrote a gem to make it fairly easy</q></li>
+<li class="message">[<a href="#T21:37:27" id="T21:37:27"><abbr title="2014-04-13T21:37:27+00:00">21:37:27</abbr></a>] &lt;<cite>veremit</cite>&gt; <q><a href="https://www.kernel.org/doc/Documentation/spi/spi-summary">https://www.kernel.org/doc/Documentation/spi/spi-summary</a></q></li>
+<li class="message">[<a href="#T21:37:41" id="T21:37:41"><abbr title="2014-04-13T21:37:41+00:00">21:37:41</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q><a href="http://pastebin.com/93FDDcas">http://pastebin.com/93FDDcas</a></q></li>
+<li class="message">[<a href="#T21:37:47" id="T21:37:47"><abbr title="2014-04-13T21:37:47+00:00">21:37:47</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>seriously need a google bot in here ...</q></li>
+<li class="message">[<a href="#T21:37:51" id="T21:37:51"><abbr title="2014-04-13T21:37:51+00:00">21:37:51</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>haha yeah</q></li>
+<li class="message">[<a href="#T21:38:07" id="T21:38:07"><abbr title="2014-04-13T21:38:07+00:00">21:38:07</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>ezmode spi communication w/ ruby gem there</q></li>
+<li class="action">[<a href="#T21:38:48" id="T21:38:48"><abbr title="2014-04-13T21:38:48+00:00">21:38:48</abbr></a>] <span>* nyt- gets back to actually documenting it</span></li>
+<li class="message">[<a href="#T21:41:04" id="T21:41:04"><abbr title="2014-04-13T21:41:04+00:00">21:41:04</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>nyt-: i'm not familiar with ruby</q></li>
+<li class="message">[<a href="#T21:41:17" id="T21:41:17"><abbr title="2014-04-13T21:41:17+00:00">21:41:17</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>kernel docs pasted have example in C</q></li>
+<li class="message">[<a href="#T21:41:23" id="T21:41:23"><abbr title="2014-04-13T21:41:23+00:00">21:41:23</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>all the info you need is in there</q></li>
+<li class="message">[<a href="#T21:42:29" id="T21:42:29"><abbr title="2014-04-13T21:42:29+00:00">21:42:29</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>nyt-: c is better. I need maximum spi-io speed out of bbb</q></li>
+<li class="message">[<a href="#T21:43:01" id="T21:43:01"><abbr title="2014-04-13T21:43:01+00:00">21:43:01</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>through the kernel interface in C i was getting around 16k msgs a second</q></li>
+<li class="message">[<a href="#T21:43:04" id="T21:43:04"><abbr title="2014-04-13T21:43:04+00:00">21:43:04</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>how many did you need?</q></li>
+<li class="message">[<a href="#T21:43:28" id="T21:43:28"><abbr title="2014-04-13T21:43:28+00:00">21:43:28</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>as much as i can</q></li>
+<li class="message">[<a href="#T21:43:37" id="T21:43:37"><abbr title="2014-04-13T21:43:37+00:00">21:43:37</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>what are you working on?</q></li>
+<li class="message">[<a href="#T21:44:09" id="T21:44:09"><abbr title="2014-04-13T21:44:09+00:00">21:44:09</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>two ov7725+fifo</q></li>
+<li class="join">[<a href="#T21:44:23" id="T21:44:23"><abbr title="2014-04-13T21:44:23+00:00">21:44:23</abbr></a>] <span>* huy (6362fefa@gateway/web/freenode/ip.99.98.254.250) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:44:42" id="T21:44:42"><abbr title="2014-04-13T21:44:42+00:00">21:44:42</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>well data xfer rates will basically be the same whichever language you use</q></li>
+<li class="message">[<a href="#T21:44:57" id="T21:44:57"><abbr title="2014-04-13T21:44:57+00:00">21:44:57</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>just spi msgs per second will be limited by using the kernel interface to about 20k/s</q></li>
+<li class="message">[<a href="#T21:45:06" id="T21:45:06"><abbr title="2014-04-13T21:45:06+00:00">21:45:06</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>well, less</q></li>
+<li class="join">[<a href="#T21:45:34" id="T21:45:34"><abbr title="2014-04-13T21:45:34+00:00">21:45:34</abbr></a>] <span>* paccer (~paccer@paccer.dk) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:46:46" id="T21:46:46"><abbr title="2014-04-13T21:46:46+00:00">21:46:46</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>qvga 120fps</q></li>
+<li class="message">[<a href="#T21:47:55" id="T21:47:55"><abbr title="2014-04-13T21:47:55+00:00">21:47:55</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>trying to use opencv c++</q></li>
+<li class="join">[<a href="#T21:48:31" id="T21:48:31"><abbr title="2014-04-13T21:48:31+00:00">21:48:31</abbr></a>] <span>* florian (~fuchs@sign-4db6b7f7.pool.mediaWays.net) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2014-04-13T21:48:31+00:00">21:48:31</abbr>] <span>* florian (~fuchs@sign-4db6b7f7.pool.mediaWays.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2014-04-13T21:48:31+00:00">21:48:31</abbr>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:49:07" id="T21:49:07"><abbr title="2014-04-13T21:49:07+00:00">21:49:07</abbr></a>] <span>* huy (6362fefa@gateway/web/freenode/ip.99.98.254.250) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T21:52:13" id="T21:52:13"><abbr title="2014-04-13T21:52:13+00:00">21:52:13</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>qvga(240x320 pixels) * fps(120 1/s) * #camera(2) = 18432000 pixels/s</q></li>
+<li class="message">[<a href="#T21:52:31" id="T21:52:31"><abbr title="2014-04-13T21:52:31+00:00">21:52:31</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>you're not making an spi call for each pixel</q></li>
+<li class="message">[<a href="#T21:52:41" id="T21:52:41"><abbr title="2014-04-13T21:52:41+00:00">21:52:41</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>xfer a frame at a time</q></li>
+<li class="message">[<a href="#T21:55:55" id="T21:55:55"><abbr title="2014-04-13T21:55:55+00:00">21:55:55</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>hm.</q></li>
+<li class="message">[<a href="#T21:56:02" id="T21:56:02"><abbr title="2014-04-13T21:56:02+00:00">21:56:02</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>how do i enable parallel port?</q></li>
+<li class="message">[<a href="#T21:56:08" id="T21:56:08"><abbr title="2014-04-13T21:56:08+00:00">21:56:08</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>lolwut</q></li>
+<li class="message">[<a href="#T21:56:35" id="T21:56:35"><abbr title="2014-04-13T21:56:35+00:00">21:56:35</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>ill just use parallel port</q></li>
+<li class="quit">[<a href="#T21:56:37" id="T21:56:37"><abbr title="2014-04-13T21:56:37+00:00">21:56:37</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T21:56:42" id="T21:56:42"><abbr title="2014-04-13T21:56:42+00:00">21:56:42</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>good luck</q></li>
+<li class="message">[<a href="#T21:56:48" id="T21:56:48"><abbr title="2014-04-13T21:56:48+00:00">21:56:48</abbr></a>] &lt;<cite>owl-v-</cite>&gt; <q>lol</q></li>
+<li class="join">[<a href="#T21:56:55" id="T21:56:55"><abbr title="2014-04-13T21:56:55+00:00">21:56:55</abbr></a>] <span>* dj_pi (~dj@c-107-5-25-243.hsd1.mi.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:57:05" id="T21:57:05"><abbr title="2014-04-13T21:57:05+00:00">21:57:05</abbr></a>] <span>* Starduster (~Starduste@unaffiliated/starduster) Quit (Quit: gotta go)</span></li>
+<li class="join">[<a href="#T21:59:56" id="T21:59:56"><abbr title="2014-04-13T21:59:56+00:00">21:59:56</abbr></a>] <span>* Suresh (32a929e2@gateway/web/freenode/ip.50.169.41.226) has joined #beagle</span></li>
