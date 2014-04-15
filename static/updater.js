@@ -1,6 +1,8 @@
 var fs = require('fs');
-var net = require('net');
+var http = require('http');
 var b = require('bonescript');
+var crypto = require('crypto');
+var child_process = require('child_process');
 var socketio = require('bonescript/node_modules/socket.io');
 
 // Setup LED indicators
@@ -21,12 +23,18 @@ getPort();
 var timeout = setTimeout(onDisconnect, 2*60*1000);
 
 function onConnection(socket) {
+    var md5sum;
+    var offset = 0;
+    var file;
+
     clearTimeout(timeout);
     state = 'connected';
     var connectDate = new Date();
     socket.emit('connect', { date: connectDate, port: port });
     socket.on('mounts', onMounts);
     socket.on('download', onDownload);
+    socket.on('proxy', onProxy);
+    socket.on('done', onDone);
     socket.on('disconnect', onDisconnect);
 
     function onMounts(data) {
@@ -37,8 +45,54 @@ function onConnection(socket) {
         socket.emit('mounts', {error: error, data: data});
     }
 
-    function onDownload(data) {
+    function onDownload(msg) {
         state = 'download';
+        file = msg.file;
+        md5sum = crypto.createHash('md5');
+        var request = http.get(file, onResponse);
+        request.on('error', onError);
+
+        function onResponse(response) {
+            response.setEncoding('binary');
+            response.on('data', onData);
+            response.on('end', onEnd);
+
+            function onData(data) {
+                md5sum.update(data, 'binary');
+                offset += data.length;
+                var progress = Math.ceil(offset/10000000);
+                socket.emit('download', { progress: progress });
+            }
+
+            function onEnd() {
+                state = 'done';
+                socket.emit('download', { progress: 100 });
+                socket.emit('done', { md5sum: md5sum.digest('hex') });
+            }
+        }
+
+        function onError(error) {
+        }
+    }
+
+    function onProxy(msg) {
+        if(typeof msg == typeof {}) {
+            if(msg.offset == offset) {
+                md5sum.update(msg.data, 'binary');
+                offset += msg.size;
+                socket.emit('download', { offset: offset, size: 524288 });
+            } else {
+                socket.emit('error', { offset: offset });
+            }
+        } else {
+            offset = 0;
+            md5sum = crypto.createHash('md5');
+            socket.emit('download', { offset: offset });
+        }
+    }
+
+    function onDone(msg) {
+        socket.emit('done', { offset: offset, md5sum: md5sum.digest('hex') });
     }
 }
     
@@ -68,6 +122,12 @@ function updateLEDs() {
         b.digitalWrite('USR1', (phase == 1 || phase == 6) ? b.HIGH : b.LOW);
         b.digitalWrite('USR2', (phase == 2 || phase == 5) ? b.HIGH : b.LOW);
         b.digitalWrite('USR3', (phase == 3 || phase == 4) ? b.HIGH : b.LOW);
+    } else if(state == 'done') {
+        if(phase % 1) {
+            setLEDs(b.HIGH);
+        } else {
+            setLEDs(b.LOW);
+        }
     }
 }
 
