@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397579892153">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397591042749">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36</http_browser>
-    <time type="date">15.04.2014 16:38:12 UTC</time>
+    <time type="date">15.04.2014 19:44:02 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -241,11 +241,14 @@
         $(&apos;#image-go&apos;).click(onImageGo);
     }
         
-    function onConnect(data) {
+    function onConnect(msg) {
         if(connected) return;
         connected = true;
         $(&apos;#address-go&apos;).on(&apos;click&apos;);
         $(&apos;#address-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
+        if(msg &amp;&amp; msg.rootfs) {
+            $(&apos;#bootSource&apos;).append(&apos;&lt;p&gt;Boot source is &apos; + msg.rootfs + &apos;&lt;/p&gt;&apos;);    
+        }
         stepOneDone();
     }
         
