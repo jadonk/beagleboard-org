@@ -71,7 +71,7 @@ function listBody ()
        }
       else
        {
-        if ( collection[i].imageFile.length < 100000 )
+        if ( collection[i].imageFile.length < 10000 )
          {
           body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + collection[i].imageFile + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
          }
