@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397591588760">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397596435505">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36</http_browser>
-    <time type="date">15.04.2014 19:53:08 UTC</time>
+    <time type="date">15.04.2014 21:13:55 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -56,14 +56,24 @@
         &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step2.gif&quot; /&gt;
         &lt;strong&gt;Insert blank uSD card and select image to install&lt;/strong&gt;
     &lt;/h3&gt;
-    &lt;p&gt;
+    &lt;p id=&quot;bootSource-unknown&quot;&gt;
         This script will write the selected image to your uSD card
         (/dev/mmcblk1) if you are running off of your on-board eMMC, so be
         sure to insert a blank uSD card &lt;i&gt;AFTER&lt;/i&gt; you finish booting
         up. If you boot off of a uSD card, you will write
         to the eMMC instead.
     &lt;/p&gt;
-    &lt;div id=&quot;bootSource&quot;&gt;&lt;/div&gt;
+    &lt;p id=&quot;bootSource-emmc&quot; style=&quot;display:hidden;&quot;&gt;
+        This script will write the selected image to your uSD card
+        (/dev/mmcblk1), so be sure the uSD card is blank or doesn&apos;t have
+        any content you want to preserve.
+    &lt;/p&gt;
+    &lt;p id=&quot;bootSource-usd&quot; style=&quot;display:hidden;&quot;&gt;
+        This script will write the selected image to your on-board eMMC
+        flash (/dev/mmcblk1). If you&apos;d prefer to program the uSD card, be
+        sure to insert a blank uSD card &lt;i&gt;AFTER&lt;/i&gt; you finish booting
+        up.
+    &lt;/p&gt;
     &lt;p&gt;
         Right now, you should see the LEDs blinking all together, but off for
         most of the time. When you
@@ -247,7 +257,16 @@
         $(&apos;#address-go&apos;).on(&apos;click&apos;);
         $(&apos;#address-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
         if(msg &amp;&amp; msg.rootfs) {
-            $(&apos;#bootSource&apos;).append(&apos;&lt;p&gt;Boot source is &apos; + msg.rootfs + &apos;&lt;/p&gt;&apos;);    
+            $(&apos;#step1-log&apos;).append(&apos;Boot source is &apos; + msg.rootfs + &apos;\n&apos;);    
+            if(msg.rootfs == &apos;eMMC&apos;) {
+                $(&apos;#bootSource-usd&apos;).hide();    
+                $(&apos;#bootSource-unknown&apos;).hide();    
+                $(&apos;#bootSource-emmc&apos;).show();    
+            } else if(msg.rotfs == &apos;uSD&apos;) {
+                $(&apos;#bootSource-emmc&apos;).hide();    
+                $(&apos;#bootSource-unknown&apos;).hide();    
+                $(&apos;#bootSource-usd&apos;).show();    
+            }
         }
         stepOneDone();
     }
