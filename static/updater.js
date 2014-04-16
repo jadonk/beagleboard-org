@@ -15,12 +15,31 @@ for(var i in leds) {
 }
 setInterval(updateLEDs, 100);
 
-// Setup connection listener
-var port = 4999;
-getPort();
+// Try to figure out rootfs media
+var rootfs;
+fs.readdir("/sys/bus/mmc/devices/mmc1:0001/block", onReadDir);
 
 // Timeout on no connect for 2 minutes
 var timeout = setTimeout(onDisconnect, 2*60*1000);
+
+function onReadDir(error, files) {
+    if(error) {
+        onDisconnect();
+    } else {
+        if((typeof files == typeof []) && (files[0] == 'mmcblk0')) {
+            rootfs = 'eMMC';
+        } else {
+            rootfs = 'uSD';
+        }
+        startServer();
+    }
+}
+
+var port = 4999;
+function startServer() {
+    // Setup connection listener
+    getPort();
+}
 
 function onConnection(socket) {
     var md5sum;
@@ -30,7 +49,7 @@ function onConnection(socket) {
     clearTimeout(timeout);
     state = 'connected';
     var connectDate = new Date();
-    socket.emit('connect', { date: connectDate, port: port });
+    socket.emit('start', { date: connectDate, port: port, rootfs: rootfs });
     socket.on('mounts', onMounts);
     socket.on('download', onDownload);
     socket.on('proxy', onProxy);
