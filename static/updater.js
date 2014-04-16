@@ -15,12 +15,16 @@ for(var i in leds) {
 }
 setInterval(updateLEDs, 100);
 
-// Try to figure out rootfs media
-var rootfs;
-fs.readdir("/sys/bus/mmc/devices/mmc1:0001/block", onReadDir);
+if(process.argv.length > 2) {
+    doDownload(process.argv[2]);
+} else {
+    // Try to figure out rootfs media
+    var rootfs;
+    fs.readdir("/sys/bus/mmc/devices/mmc1:0001/block", onReadDir);
 
-// Timeout on no connect for 2 minutes
-var timeout = setTimeout(onDisconnect, 2*60*1000);
+    // Timeout on no connect for 2 minutes
+    var timeout = setTimeout(onDisconnect, 2*60*1000);
+}
 
 function onReadDir(error, files) {
     if(error) {
@@ -41,10 +45,22 @@ function startServer() {
     getPort();
 }
 
+function getPort() {
+    port++;
+    console.log('Trying port ' + port);
+    var io = socketio.listen(port);
+    io.set('log level', 1);
+    io.on('error', getPort);
+    io.sockets.on('connection', onConnection);
+}
+
+var client;
+var offset = 0;
+var md5sum;
+var xz;
+var dd;
 function onConnection(socket) {
-    var md5sum;
-    var offset = 0;
-    var file;
+    client = socket;
 
     clearTimeout(timeout);
     state = 'connected';
@@ -59,39 +75,13 @@ function onConnection(socket) {
     function onMounts(data) {
         fs.readFile('/proc/mounts', 'ascii', onMountsFile);
     }
-    
+
     function onMountsFile(error, data) {
         socket.emit('mounts', {error: error, data: data});
     }
 
     function onDownload(msg) {
-        state = 'download';
-        file = msg.file;
-        md5sum = crypto.createHash('md5');
-        var request = http.get(file, onResponse);
-        request.on('error', onError);
-
-        function onResponse(response) {
-            response.setEncoding('binary');
-            response.on('data', onData);
-            response.on('end', onEnd);
-
-            function onData(data) {
-                md5sum.update(data, 'binary');
-                offset += data.length;
-                var progress = Math.ceil(offset/10000000);
-                socket.emit('download', { progress: progress });
-            }
-
-            function onEnd() {
-                state = 'done';
-                socket.emit('download', { progress: 100 });
-                socket.emit('done', { md5sum: md5sum.digest('hex') });
-            }
-        }
-
-        function onError(error) {
-        }
+        doDownload(msg.file);
     }
 
     function onProxy(msg) {
@@ -112,6 +102,56 @@ function onConnection(socket) {
 
     function onDone(msg) {
         socket.emit('done', { offset: offset, md5sum: md5sum.digest('hex') });
+    }
+}
+
+function doDownload(file) {
+    state = 'download';
+    md5sum = crypto.createHash('md5');
+    xz = child_process.spawn('xzcat');
+    //dd = child_process.spawn('dd', ['of=/dev/null']);
+    dd = child_process.spawn('dd', ['of=/dev/mmcblk1']);
+    var request = http.get(file, onResponse);
+    request.on('error', onError);
+
+    function onResponse(response) {
+        response.setEncoding('binary');
+        response.on('error', onError);
+        response.on('data', onData);
+        response.on('end', onEnd);
+        //response.pipe(md5sum);
+        //md5sum.pipe(xz);
+        xz.stdout.pipe(dd.stdin);
+        xz.on('exit', onXZExit);
+        dd.on('close', onDDExit);
+        dd.on('exit', onDDExit);
+
+        function onData(data) {
+            md5sum.update(data, 'binary');
+            xz.stdin.write(data, 'binary');
+            offset += data.length;
+            var progress = Math.ceil(offset/10000000);
+            if(client) client.emit('download', { progress: progress });
+        }
+
+        function onEnd() {
+            state = 'done';
+            socket.emit('download', { progress: 100 });
+            xz.stdin.end();
+        }
+
+        function onXZExit() {
+            dd.stdin.end();
+        }
+
+        function onDDExit() {
+            if(client) client.emit('done', { md5sum: md5sum.digest('hex') });
+        }
+    }
+
+    function onError(error) {
+        if(client) client.emit('error', { error: error });
+        onDisconnect();
     }
 }
     
@@ -166,12 +206,4 @@ function restoreLEDs() {
     b.writeTextFile(p+'1/trigger', 'mmc0');
     b.writeTextFile(p+'2/trigger', 'cpu0');
     b.writeTextFile(p+'3/trigger', 'mmc1');
-}
-
-function getPort() {
-    port++;
-    console.log('Trying port ' + port);
-    var io = socketio.listen(port);
-    io.on('error', getPort);
-    io.sockets.on('connection', onConnection);
 }
