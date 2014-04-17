@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397596998496">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397749956576">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36</http_browser>
-    <time type="date">15.04.2014 21:23:18 UTC</time>
+    <time type="date">17.04.2014 15:52:36 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -246,7 +246,7 @@
         $(&apos;#step1-log&apos;).append(&quot;Load status: &quot; + textStatus + &apos;\n&apos;);
         socket = new io.connect(&apos;http://&apos; + address + &apos;:5000&apos;);
         socket.on(&apos;start&apos;, onConnect);
-        socket.on(&apos;download&apos;, onDownload);
+        socket.on(&apos;progress&apos;, onProgress);
         socket.on(&apos;done&apos;, onDone);
         $(&apos;#image-go&apos;).click(onImageGo);
     }
@@ -296,7 +296,7 @@
         downloadTimeout = setTimeout(onDownloadTimeout, 60000);
     }
     
-    function onDownload(msg) {
+    function onProgress(msg) {
         if(downloadTimeout) clearTimeout(downloadTimeout);
         downloadTimeout = setTimeout(onDownloadTimeout, 20000);
         if(msg.progress) {
@@ -307,6 +307,8 @@
     
     function onDownloadTimeout() {
         $(&apos;#step2-log&apos;).append(&quot;Download timeout\n&quot;);
+        socket.disconnect();
+        socket = null;
     }
     
     function onDone(msg) {
@@ -335,11 +337,11 @@
         if(socket) {
             socket.disconnect()
             socket = null;
+            setTimeout(startStepThree, 50);
         }
         else {
             $(&apos;#step2-log&apos;).append(&quot;Lost socket connection early\n&quot;);
         }
-        setTimeout(startStepThree, 50);
     }
     
     function startStepThree() {
