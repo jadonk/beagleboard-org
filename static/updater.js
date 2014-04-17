@@ -16,8 +16,9 @@ for(var i in leds) {
 }
 setInterval(updateLEDs, 100);
 
-if(true) {
+if(false) {
     doDownload('http://debian.beagleboard.org/images/bone-debian-7.4-2014-04-14-2gb.img.xz');
+    //doDownload('http://beagleboard.org/static/test.txt.xz');
 } else if(process.argv.length > 2) {
     doDownload(process.argv[2]);
 } else {
@@ -111,64 +112,54 @@ function onConnection(socket) {
 function doDownload(file) {
     state = 'download';
 
-    var request = http.get(file, onResponse);
-    request.on('error', onError);
+    console.log('downloading: ' + file);
+    var umount = child_process.spawn('bash', ['-c', "for n in /dev/mmcblk1*;do umount $n;done"]);
+    umount.stdout.pipe(process.stdout);
+    umount.stderr.pipe(process.stderr);
+    umount.on('close', startCurl);
 
-    function onResponse(response) {
-        console.log('downloading ' + file);
-        md5sum = crypto.createHash('md5');
-        xz = child_process.spawn('xzcat');
-        dd = child_process.spawn('dd', ['of=/dev/null']);
-        //dd = child_process.spawn('dd', ['of=/dev/mmcblk1']);
-        xz.stdout.pipe(dd.stdin);
-        xz.stderr.pipe(process.stderr);
-        dd.stderr.pipe(process.stderr)
-        xz.on('close', onXZExit);
-        xz.on('exit', onXZExit);
-        dd.on('close', onDDExit);
-        dd.on('exit', onDDExit);
-        response.setEncoding('binary');
-        response.on('error', onError);
-        response.on('data', onData);
-        response.on('end', onEnd);
-        //response.pipe(xz.stdin);
-        //response.pipe(md5sum);
-        
-        function onXZExit() {
-            console.log('xzcat exited');
-            dd.stdin.end();
-        }
+    function startCurl() {
+        //var curl = child_process.spawn('bash', ['-c', "curl -# " + file + " | xzcat | tee >(dd of=/dev/null) | md5sum"]);
+        var curl = child_process.spawn('bash', ['-c', "curl -# " + file + " | tee >(xzcat | dd of=/dev/mmcblk1) | md5sum"]);
+        curl.on('error', onError);
+        curl.on('close', onCurlExit);
+        curl.stdout.on('data', onCurlData);
+        curl.stdout.setEncoding('ascii');
+        curl.stderr.on('data', onCurlUpdate);
+        curl.stderr.setEncoding('ascii');
+    }
+
+    function onCurlExit() {
+        console.log('curl exited');
+        doExit();
+    }
+
+    function onCurlData(data) {
+        console.log('md5sum: ' + data.substring(0,31));
+        if(client) client.emit('done', { md5sum: data.substring(0,31) });
+    }
     
-        function onDDExit() {
-            console.log('dd exited');
-            if(client) client.emit('done', { md5sum: md5sum.digest('hex') });
-        }
-
-        var lastProgress = 0;
-        function onData(data) {
-            md5sum.update(data, 'binary');
-            xz.stdin.write(data, 'binary');
-            offset += data.length;
-            var progress = Math.ceil(offset/10000000);
-            if(client) client.emit('download', { progress: progress });
-            else if(progress != lastProgress) {
-                console.log('progress: '+ progress + '%');
-                lastProgress = progress;
-            }
-        }
-
-        function onEnd() {
-            console.log('download completed');
-            state = 'done';
-            if(client) client.emit('download', { progress: 100 });
-            xz.stdin.end();
-        }
+    var lastProgress = 0;
+    function onCurlUpdate(data) {
+        var progress;
+        var x = data.match(/\d+\.+\d*\%/);
+        if(x) progress = parseFloat(x[0]);
+        if(progress && lastProgress < progress) {
+            lastProgress = progress;
+            if(client) client.emit('progress', { progress: progress.toFixed(1) });
+            else console.log('progress: ' + progress + '%');
+        }        
     }
 
     function onError(error) {
+        console.log('Error: ' + error);
         if(client) client.emit('error', { error: error });
-        onDisconnect();
+        doExit();
     }
+}
+
+function doExit() {
+    onDisconnect();
 }
     
 function onDisconnect() {
