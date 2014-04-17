@@ -112,8 +112,8 @@ function doDownload(file) {
     state = 'download';
     md5sum = crypto.createHash('md5');
     xz = child_process.spawn('xzcat');
-    //dd = child_process.spawn('dd', ['of=/dev/null']);
-    dd = child_process.spawn('dd', ['of=/dev/mmcblk1']);
+    dd = child_process.spawn('dd', ['of=/dev/null']);
+    //dd = child_process.spawn('dd', ['of=/dev/mmcblk1']);
     xz.stdout.pipe(dd.stdin);
     xz.stderr.pipe(process.stderr);
     dd.stderr.pipe(process.stderr)
@@ -141,7 +141,7 @@ function doDownload(file) {
         response.on('data', onData);
         response.on('end', onEnd);
         response.pipe(md5sum);
-        //response.pipe(xz.stdin);
+        response.pipe(xz.stdin);
 
         function onData(data) {
             //md5sum.update(data, 'binary');
