@@ -16,7 +16,7 @@ for(var i in leds) {
 }
 setInterval(updateLEDs, 100);
 
-if(false) {
+if(true) {
     doDownload('http://debian.beagleboard.org/images/bone-debian-7.4-2014-04-14-2gb.img.xz');
 } else if(process.argv.length > 2) {
     doDownload(process.argv[2]);
@@ -110,52 +110,58 @@ function onConnection(socket) {
 
 function doDownload(file) {
     state = 'download';
-    md5sum = crypto.createHash('md5');
-    xz = child_process.spawn('xzcat');
-    dd = child_process.spawn('dd', ['of=/dev/null']);
-    //dd = child_process.spawn('dd', ['of=/dev/mmcblk1']);
-    xz.stdout.pipe(dd.stdin);
-    xz.stderr.pipe(process.stderr);
-    dd.stderr.pipe(process.stderr)
-    xz.on('exit', onXZExit);
-    //dd.on('close', onDDExit);
-    dd.on('exit', onDDExit);
 
     var request = http.get(file, onResponse);
     request.on('error', onError);
 
-    function onXZExit() {
-        console.log('xzcat exited');
-        dd.stdin.end();
-    }
-
-    function onDDExit() {
-        console.log('dd exited');
-        if(client) client.emit('done', { md5sum: md5sum.digest('hex') });
-    }
-        
     function onResponse(response) {
         console.log('downloading ' + file);
+        md5sum = crypto.createHash('md5');
+        xz = child_process.spawn('xzcat');
+        dd = child_process.spawn('dd', ['of=/dev/null']);
+        //dd = child_process.spawn('dd', ['of=/dev/mmcblk1']);
+        xz.stdout.pipe(dd.stdin);
+        xz.stderr.pipe(process.stderr);
+        dd.stderr.pipe(process.stderr)
+        xz.on('close', onXZExit);
+        xz.on('exit', onXZExit);
+        dd.on('close', onDDExit);
+        dd.on('exit', onDDExit);
         response.setEncoding('binary');
         response.on('error', onError);
         response.on('data', onData);
         response.on('end', onEnd);
-        response.pipe(md5sum);
-        response.pipe(xz.stdin);
+        //response.pipe(xz.stdin);
+        //response.pipe(md5sum);
+        
+        function onXZExit() {
+            console.log('xzcat exited');
+            dd.stdin.end();
+        }
+    
+        function onDDExit() {
+            console.log('dd exited');
+            if(client) client.emit('done', { md5sum: md5sum.digest('hex') });
+        }
 
+        var lastProgress = 0;
         function onData(data) {
-            //md5sum.update(data, 'binary');
-            //xz.stdin.write(data, 'binary');
+            md5sum.update(data, 'binary');
+            xz.stdin.write(data, 'binary');
             offset += data.length;
             var progress = Math.ceil(offset/10000000);
             if(client) client.emit('download', { progress: progress });
+            else if(progress != lastProgress) {
+                console.log('progress: '+ progress + '%');
+                lastProgress = progress;
+            }
         }
 
         function onEnd() {
             console.log('download completed');
             state = 'done';
             if(client) client.emit('download', { progress: 100 });
-            //xz.stdin.end();
+            xz.stdin.end();
         }
     }
 
