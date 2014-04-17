@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397756864242">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397757265551">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36</http_browser>
-    <time type="date">17.04.2014 17:47:44 UTC</time>
+    <time type="date">17.04.2014 17:54:25 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -365,9 +365,9 @@
     
     function updateBar() {
         var elapsedTime = (new Date()) - startTime;
-        var hours = elapsedTime / (1000*60*60);
-        var minutes = (elapsedTime % (1000*60*60)) / (1000*60);
-        var seconds = (elapsedTime % (1000*60)) / 1000;
+        var hours = parseInt(elapsedTime / (1000*60*60));
+        var minutes = parseInt((elapsedTime % (1000*60*60)) / (1000*60));
+        var seconds = parseInt((elapsedTime % (1000*60)) / 1000);
         var timeString = hours + &apos;:&apos; + minutes + &apos;:&apos; + seconds;
         $(&apos;#progressBar&apos;).width(progress + &apos;%&apos;);
         $(&apos;#progressPercent&apos;).html(progress + &apos; %  &apos; + timeString);
