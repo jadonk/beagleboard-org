@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397757265551">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397757473485">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36</http_browser>
-    <time type="date">17.04.2014 17:54:25 UTC</time>
+    <time type="date">17.04.2014 17:57:53 UTC</time>
     <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
@@ -287,6 +287,7 @@
     }
     
     var startTime;
+    var updateBarTimer;
     function onImageGo() {
         $(&apos;#image-go&apos;).off(&apos;click&apos;);
         $(&apos;#image-go&apos;).css(&apos;background-color&apos;, &apos;#B4A279&apos;);
@@ -294,7 +295,7 @@
         md5sum = $(&apos;#latestImages&apos;).find(&quot;:selected&quot;).attr(&apos;md5sum&apos;);
         progress = 0;
         startTime = new Date();
-        updateBar();
+        updateBarTimer = setInterval(updateBar, 1000);
         $(&apos;#step2-log&apos;).append(&quot;Attempting to download &quot; + image + &apos;\n&apos;);
         socket.emit(&apos;download&apos;, { file: image, md5sum: md5sum });
         downloadTimeout = setTimeout(onDownloadTimeout, 60000);
@@ -321,11 +322,13 @@
         $(&apos;#step2-log&apos;).append(&quot;Connection timeout\n&quot;);
         socket.disconnect();
         socket = null;
+        if(updateBarTimer) clearInterval(updateBarTimer);
     }
     
     function onDone(msg) {
         if(downloadTimeout) clearTimeout(downloadTimeout);
         downloadTimeout = null;
+        if(updateBarTimer) clearInterval(updateBarTimer);
         if(msg.md5sum &amp;&amp; msg.md5sum == md5sum) {
             $(&apos;#step2-log&apos;).append(&quot;Download successful\n&quot;);
             stepTwoDone();
@@ -333,18 +336,7 @@
             $(&apos;#step2-log&apos;).append(&quot;Download failed: &quot; + JSON.stringify(msg, null, 4) + &quot;\n&quot;);
         }
     }
-    
-    function incrementProgress() {
-        progress += 10;
-        if(progress &gt;= 100) {
-            progress = 100;
-            setTimeout(stepTwoDone, 500);    
-        } else {
-            setTimeout(incrementProgress, 2000);    
-        }
-        updateBar();
-    }
-    
+
     function stepTwoDone() {
         if(socket) {
             socket.disconnect()
