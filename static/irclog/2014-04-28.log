@@ -845,3 +845,282 @@
 <li class="message">[<a href="#T20:58:45" id="T20:58:45"><abbr title="2014-04-28T20:58:45+00:00">20:58:45</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I need it as a master device, to send PCM clock to a CODEC, but when I play some audio or even testing it, I can't get any clock signal in aclk pin</q></li>
 <li class="message">[<a href="#T20:58:49" id="T20:58:49"><abbr title="2014-04-28T20:58:49+00:00">20:58:49</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>is this right?</q></li>
 <li class="message">[<a href="#T20:59:03" id="T20:59:03"><abbr title="2014-04-28T20:59:03+00:00">20:59:03</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>Abhishek_: i dont think so, rcn is traveling</q></li>
+<li class="part">[<a href="#T21:00:07" id="T21:00:07"><abbr title="2014-04-28T21:00:07+00:00">21:00:07</abbr></a>] <span>* evilroots (~roots@ec2-54-220-22-106.eu-west-1.compute.amazonaws.com) has left #beagle</span></li>
+<li class="message">[<a href="#T21:00:09" id="T21:00:09"><abbr title="2014-04-28T21:00:09+00:00">21:00:09</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>It's my first time with audio development on linux, and it's a bit hard to find some interesting info about this step</q></li>
+<li class="message">[<a href="#T21:00:54" id="T21:00:54"><abbr title="2014-04-28T21:00:54+00:00">21:00:54</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>someone here is using kernel 3.8 or all of you are working with 3.2/old based kernel?</q></li>
+<li class="message">[<a href="#T21:01:14" id="T21:01:14"><abbr title="2014-04-28T21:01:14+00:00">21:01:14</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lots have moved to 3.12+ victorsantos</q></li>
+<li class="message">[<a href="#T21:01:31" id="T21:01:31"><abbr title="2014-04-28T21:01:31+00:00">21:01:31</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>using 3.8 with latest debian build here</q></li>
+<li class="message">[<a href="#T21:01:32" id="T21:01:32"><abbr title="2014-04-28T21:01:32+00:00">21:01:32</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>maybe running away from device tree? lol</q></li>
+<li class="message">[<a href="#T21:01:54" id="T21:01:54"><abbr title="2014-04-28T21:01:54+00:00">21:01:54</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>nyt, do you know how to setup mcasp to work with TDM?</q></li>
+<li class="message">[<a href="#T21:02:05" id="T21:02:05"><abbr title="2014-04-28T21:02:05+00:00">21:02:05</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>havent used mcasp</q></li>
+<li class="message">[<a href="#T21:02:18" id="T21:02:18"><abbr title="2014-04-28T21:02:18+00:00">21:02:18</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>only have bbb</q></li>
+<li class="message">[<a href="#T21:02:40" id="T21:02:40"><abbr title="2014-04-28T21:02:40+00:00">21:02:40</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>bbb uses mcasp too, I will take one in the next week to test</q></li>
+<li class="message">[<a href="#T21:02:51" id="T21:02:51"><abbr title="2014-04-28T21:02:51+00:00">21:02:51</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>victorsantos .. you've done the pinmuxes, yes?</q></li>
+<li class="message">[<a href="#T21:02:58" id="T21:02:58"><abbr title="2014-04-28T21:02:58+00:00">21:02:58</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>yes</q></li>
+<li class="join">[<a href="#T21:03:20" id="T21:03:20"><abbr title="2014-04-28T21:03:20+00:00">21:03:20</abbr></a>] <span>* NulL` (~bleh1@217.28.11.150) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:03:29" id="T21:03:29"><abbr title="2014-04-28T21:03:29+00:00">21:03:29</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I got some dts in google called BB-BONE-AUDI-01.dts something like this</q></li>
+<li class="message">[<a href="#T21:03:36" id="T21:03:36"><abbr title="2014-04-28T21:03:36+00:00">21:03:36</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>victorsantos .. <a href="http://e2e.ti.com/support/arm/sitara_arm/f/791/t/194645.aspx">http://e2e.ti.com/support/arm/sitara_arm/f/791/t/194645.aspx</a> any use?</q></li>
+<li class="message">[<a href="#T21:03:43" id="T21:03:43"><abbr title="2014-04-28T21:03:43+00:00">21:03:43</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>with the pinmuxes and pinctrl descriptions</q></li>
+<li class="message">[<a href="#T21:04:20" id="T21:04:20"><abbr title="2014-04-28T21:04:20+00:00">21:04:20</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>that looks a lot over my head right now lol</q></li>
+<li class="message">[<a href="#T21:04:54" id="T21:04:54"><abbr title="2014-04-28T21:04:54+00:00">21:04:54</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:05:44" id="T21:05:44"><abbr title="2014-04-28T21:05:44+00:00">21:05:44</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I will take a break to read this discussion about McASP you sent veremit</q></li>
+<li class="quit">[<a href="#T21:05:57" id="T21:05:57"><abbr title="2014-04-28T21:05:57+00:00">21:05:57</abbr></a>] <span>* uv (~uv@94-21-238-127.pool.digikabel.hu) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T21:06:49" id="T21:06:49"><abbr title="2014-04-28T21:06:49+00:00">21:06:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what are you using the TDM bus for?</q></li>
+<li class="message">[<a href="#T21:08:10" id="T21:08:10"><abbr title="2014-04-28T21:08:10+00:00">21:08:10</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I need to make a product for my company, a FXS-VoIP gateway, and I need to talk with a Silicon Labs Codec Si3226x, so the interfaces I need to set up are SPI and McASP to treat the pcm side of CODEC</q></li>
+<li class="message">[<a href="#T21:08:14" id="T21:08:14"><abbr title="2014-04-28T21:08:14+00:00">21:08:14</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>got it?</q></li>
+<li class="message">[<a href="#T21:08:28" id="T21:08:28"><abbr title="2014-04-28T21:08:28+00:00">21:08:28</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>how many channels is the Si3226x?</q></li>
+<li class="message">[<a href="#T21:09:04" id="T21:09:04"><abbr title="2014-04-28T21:09:04+00:00">21:09:04</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I have another question, how many channels this Sitara could offer?</q></li>
+<li class="message">[<a href="#T21:09:19" id="T21:09:19"><abbr title="2014-04-28T21:09:19+00:00">21:09:19</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I need something around 16 channels at least</q></li>
+<li class="message">[<a href="#T21:09:43" id="T21:09:43"><abbr title="2014-04-28T21:09:43+00:00">21:09:43</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>wow</q></li>
+<li class="message">[<a href="#T21:09:49" id="T21:09:49"><abbr title="2014-04-28T21:09:49+00:00">21:09:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>that makes it a little harder to do the Linux end of things</q></li>
+<li class="quit">[<abbr title="2014-04-28T21:09:49+00:00">21:09:49</abbr>] <span>* emeb (~ericb@ip68-2-121-228.ph.ph.cox.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T21:10:02" id="T21:10:02"><abbr title="2014-04-28T21:10:02+00:00">21:10:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>not sure if ALSA supports a single device with 16 or more channels</q></li>
+<li class="join">[<a href="#T21:10:04" id="T21:10:04"><abbr title="2014-04-28T21:10:04+00:00">21:10:04</abbr></a>] <span>* dogmatic69_ (~dogmatic6@cpc65164-telf10-2-0-cust54.16-1.cable.virginm.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:10:22" id="T21:10:22"><abbr title="2014-04-28T21:10:22+00:00">21:10:22</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I could work with less channels</q></li>
+<li class="message">[<a href="#T21:10:23" id="T21:10:23"><abbr title="2014-04-28T21:10:23+00:00">21:10:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>16... you must be taking to a E1?</q></li>
+<li class="message">[<a href="#T21:10:32" id="T21:10:32"><abbr title="2014-04-28T21:10:32+00:00">21:10:32</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or a T1?</q></li>
+<li class="message">[<a href="#T21:10:41" id="T21:10:41"><abbr title="2014-04-28T21:10:41+00:00">21:10:41</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>no no, it is FXS</q></li>
+<li class="message">[<a href="#T21:10:48" id="T21:10:48"><abbr title="2014-04-28T21:10:48+00:00">21:10:48</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>analog telephones</q></li>
+<li class="message">[<a href="#T21:11:00" id="T21:11:00"><abbr title="2014-04-28T21:11:00+00:00">21:11:00</abbr></a>] &lt;<cite>myself</cite>&gt; <q>t1 would be 24 :)</q></li>
+<li class="join">[<abbr title="2014-04-28T21:11:00+00:00">21:11:00</abbr>] <span>* bmatusiak__ (4ab9f8fe@gateway/web/freenode/ip.74.185.248.254) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:11:13" id="T21:11:13"><abbr title="2014-04-28T21:11:13+00:00">21:11:13</abbr></a>] <span>* emeb (~ericb@ip68-2-121-228.ph.ph.cox.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:11:35" id="T21:11:35"><abbr title="2014-04-28T21:11:35+00:00">21:11:35</abbr></a>] &lt;<cite>bmatusiak__</cite>&gt; <q>anybody have SGX working?</q></li>
+<li class="quit">[<a href="#T21:11:38" id="T21:11:38"><abbr title="2014-04-28T21:11:38+00:00">21:11:38</abbr></a>] <span>* deluxe247 (~alex@static-72-64-155-102.tampfl.fios.verizon.net) Quit (Ping timeout: 276 seconds)</span></li>
+<li class="message">[<a href="#T21:11:42" id="T21:11:42"><abbr title="2014-04-28T21:11:42+00:00">21:11:42</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>If I have at least 4 FXS interfaces working it would be awesome</q></li>
+<li class="message">[<a href="#T21:11:44" id="T21:11:44"><abbr title="2014-04-28T21:11:44+00:00">21:11:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if you use all 24 for it</q></li>
+<li class="message">[<a href="#T21:11:56" id="T21:11:56"><abbr title="2014-04-28T21:11:56+00:00">21:11:56</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>just to prove a concept</q></li>
+<li class="message">[<a href="#T21:11:57" id="T21:11:57"><abbr title="2014-04-28T21:11:57+00:00">21:11:57</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>got it?</q></li>
+<li class="message">[<a href="#T21:11:58" id="T21:11:58"><abbr title="2014-04-28T21:11:58+00:00">21:11:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you don't have to use all 24 or 32 slots for voice</q></li>
+<li class="join">[<a href="#T21:12:17" id="T21:12:17"><abbr title="2014-04-28T21:12:17+00:00">21:12:17</abbr></a>] <span>* Shadyman (~matthew@unaffiliated/shadyman) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:12:58" id="T21:12:58"><abbr title="2014-04-28T21:12:58+00:00">21:12:58</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I will have to do the same project for E1 lines later</q></li>
+<li class="message">[<a href="#T21:13:11" id="T21:13:11"><abbr title="2014-04-28T21:13:11+00:00">21:13:11</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>but for now I need to set this up to work with some FXS lines</q></li>
+<li class="message">[<a href="#T21:13:21" id="T21:13:21"><abbr title="2014-04-28T21:13:21+00:00">21:13:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>docs claim it can do up to 32 slots</q></li>
+<li class="message">[<a href="#T21:13:49" id="T21:13:49"><abbr title="2014-04-28T21:13:49+00:00">21:13:49</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>yep, I guess this is good enough to my application</q></li>
+<li class="message">[<a href="#T21:13:53" id="T21:13:53"><abbr title="2014-04-28T21:13:53+00:00">21:13:53</abbr></a>] &lt;<cite>bmatusiak__</cite>&gt; <q>why is 3d acceleration advertised, but no support?</q></li>
+<li class="message">[<a href="#T21:14:05" id="T21:14:05"><abbr title="2014-04-28T21:14:05+00:00">21:14:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>do you plan to run the codecs on the cortex?</q></li>
+<li class="message">[<a href="#T21:14:15" id="T21:14:15"><abbr title="2014-04-28T21:14:15+00:00">21:14:15</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or just 711 straight out the networkside?</q></li>
+<li class="message">[<a href="#T21:14:20" id="T21:14:20"><abbr title="2014-04-28T21:14:20+00:00">21:14:20</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>Just G.711</q></li>
+<li class="message">[<a href="#T21:14:40" id="T21:14:40"><abbr title="2014-04-28T21:14:40+00:00">21:14:40</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>bmatusiak__ .. TI are not renowned for their 'support'</q></li>
+<li class="message">[<a href="#T21:14:41" id="T21:14:41"><abbr title="2014-04-28T21:14:41+00:00">21:14:41</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I am planning to use some SIP stack like Sophia</q></li>
+<li class="message">[<a href="#T21:14:50" id="T21:14:50"><abbr title="2014-04-28T21:14:50+00:00">21:14:50</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>interesting projecting</q></li>
+<li class="message">[<a href="#T21:14:51" id="T21:14:51"><abbr title="2014-04-28T21:14:51+00:00">21:14:51</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>libsofia</q></li>
+<li class="message">[<a href="#T21:15:04" id="T21:15:04"><abbr title="2014-04-28T21:15:04+00:00">21:15:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>looked at something like this a decade ago</q></li>
+<li class="message">[<a href="#T21:15:20" id="T21:15:20"><abbr title="2014-04-28T21:15:20+00:00">21:15:20</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:15:26" id="T21:15:26"><abbr title="2014-04-28T21:15:26+00:00">21:15:26</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>3D accel works just fine</q></li>
+<li class="message">[<a href="#T21:15:29" id="T21:15:29"><abbr title="2014-04-28T21:15:29+00:00">21:15:29</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>use an appropraite kernel</q></li>
+<li class="message">[<a href="#T21:16:06" id="T21:16:06"><abbr title="2014-04-28T21:16:06+00:00">21:16:06</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>at that time I was looking at using QSLICs from AMD</q></li>
+<li class="message">[<a href="#T21:16:07" id="T21:16:07"><abbr title="2014-04-28T21:16:07+00:00">21:16:07</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I just don't know which kernel has better support (i.e I will have faster development and more support) to develop</q></li>
+<li class="message">[<a href="#T21:16:24" id="T21:16:24"><abbr title="2014-04-28T21:16:24+00:00">21:16:24</abbr></a>] &lt;<cite>bmatusiak__</cite>&gt; <q>veremit: lol then why advertised it? lol</q></li>
+<li class="message">[<a href="#T21:16:29" id="T21:16:29"><abbr title="2014-04-28T21:16:29+00:00">21:16:29</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>My planning is to setup the device drivers quickly to start the job</q></li>
+<li class="quit">[<a href="#T21:16:34" id="T21:16:34"><abbr title="2014-04-28T21:16:34+00:00">21:16:34</abbr></a>] <span>* deffrag (~Dedec@unaffiliated/deffrag) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T21:16:41" id="T21:16:41"><abbr title="2014-04-28T21:16:41+00:00">21:16:41</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>do someone of you could give a clue?</q></li>
+<li class="message">[<a href="#T21:16:47" id="T21:16:47"><abbr title="2014-04-28T21:16:47+00:00">21:16:47</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>bmatusiak__ .. marketing :p</q></li>
+<li class="message">[<a href="#T21:17:00" id="T21:17:00"><abbr title="2014-04-28T21:17:00+00:00">21:17:00</abbr></a>] &lt;<cite>bmatusiak__</cite>&gt; <q>bmatusiak__:   well that makes me wana pee on my BBB</q></li>
+<li class="message">[<a href="#T21:17:01" id="T21:17:01"><abbr title="2014-04-28T21:17:01+00:00">21:17:01</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lol .. try ds2's solution .. an appropriate kernel</q></li>
+<li class="message">[<a href="#T21:17:26" id="T21:17:26"><abbr title="2014-04-28T21:17:26+00:00">21:17:26</abbr></a>] &lt;<cite>bmatusiak__</cite>&gt; <q>veremit: link me if you could</q></li>
+<li class="message">[<a href="#T21:17:30" id="T21:17:30"><abbr title="2014-04-28T21:17:30+00:00">21:17:30</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I believe there was a new BSP or whatever they call it .. shoulda shone some light on it</q></li>
+<li class="message">[<a href="#T21:17:45" id="T21:17:45"><abbr title="2014-04-28T21:17:45+00:00">21:17:45</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>ds2 .. any tips?</q></li>
+<li class="message">[<a href="#T21:18:23" id="T21:18:23"><abbr title="2014-04-28T21:18:23+00:00">21:18:23</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>all my arm boards are headless</q></li>
+<li class="message">[<a href="#T21:18:33" id="T21:18:33"><abbr title="2014-04-28T21:18:33+00:00">21:18:33</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>if I want fancy graphics .. I'd probably use the Pi (puke) lolz</q></li>
+<li class="message">[<a href="#T21:18:55" id="T21:18:55"><abbr title="2014-04-28T21:18:55+00:00">21:18:55</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>although I bet it doesn't do 3D either ...</q></li>
+<li class="message">[<a href="#T21:18:58" id="T21:18:58"><abbr title="2014-04-28T21:18:58+00:00">21:18:58</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T21:18:59" id="T21:18:59"><abbr title="2014-04-28T21:18:59+00:00">21:18:59</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>tips?</q></li>
+<li class="message">[<a href="#T21:19:11" id="T21:19:11"><abbr title="2014-04-28T21:19:11+00:00">21:19:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the docs for these silabs slics are locked down</q></li>
+<li class="message">[<a href="#T21:19:18" id="T21:19:18"><abbr title="2014-04-28T21:19:18+00:00">21:19:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so no idea on them</q></li>
+<li class="message">[<a href="#T21:19:28" id="T21:19:28"><abbr title="2014-04-28T21:19:28+00:00">21:19:28</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>3d accel ds2</q></li>
+<li class="message">[<a href="#T21:19:39" id="T21:19:39"><abbr title="2014-04-28T21:19:39+00:00">21:19:39</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>is it the vpu on this chip? I get my ARMs mixed up :(</q></li>
+<li class="message">[<a href="#T21:19:49" id="T21:19:49"><abbr title="2014-04-28T21:19:49+00:00">21:19:49</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>the Silicon Labs side its easy to work</q></li>
+<li class="message">[<a href="#T21:20:05" id="T21:20:05"><abbr title="2014-04-28T21:20:05+00:00">21:20:05</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I have some expertise on it, we just finished a project using it on my company</q></li>
+<li class="join">[<a href="#T21:20:07" id="T21:20:07"><abbr title="2014-04-28T21:20:07+00:00">21:20:07</abbr></a>] <span>* improvnerd (~jbrewer@c-98-248-34-4.hsd1.ca.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:20:38" id="T21:20:38"><abbr title="2014-04-28T21:20:38+00:00">21:20:38</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>All that I need is to setup up something to treat PCM side and to generate PCM clock on the bone</q></li>
+<li class="message">[<a href="#T21:21:05" id="T21:21:05"><abbr title="2014-04-28T21:21:05+00:00">21:21:05</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>for one thing, avoid the DT kernels</q></li>
+<li class="message">[<a href="#T21:21:14" id="T21:21:14"><abbr title="2014-04-28T21:21:14+00:00">21:21:14</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>DT?</q></li>
+<li class="message">[<a href="#T21:21:18" id="T21:21:18"><abbr title="2014-04-28T21:21:18+00:00">21:21:18</abbr></a>] &lt;<cite>bmatusiak__</cite>&gt; <q>device tree</q></li>
+<li class="message">[<a href="#T21:21:26" id="T21:21:26"><abbr title="2014-04-28T21:21:26+00:00">21:21:26</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>ah, got it</q></li>
+<li class="message">[<a href="#T21:21:30" id="T21:21:30"><abbr title="2014-04-28T21:21:30+00:00">21:21:30</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I am using one at this moment</q></li>
+<li class="message">[<a href="#T21:21:33" id="T21:21:33"><abbr title="2014-04-28T21:21:33+00:00">21:21:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>victorsanots: do they really have the ring voltage generators on the chip?</q></li>
+<li class="quit">[<a href="#T21:21:55" id="T21:21:55"><abbr title="2014-04-28T21:21:55+00:00">21:21:55</abbr></a>] <span>* nurax (~nurax@unaffiliated/nurax) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T21:22:08" id="T21:22:08"><abbr title="2014-04-28T21:22:08+00:00">21:22:08</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>i see you're back device tree hating again</q></li>
+<li class="message">[<a href="#T21:22:14" id="T21:22:14"><abbr title="2014-04-28T21:22:14+00:00">21:22:14</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>the FXS we used uses a pmos to generate its working voltage</q></li>
+<li class="message">[<a href="#T21:22:39" id="T21:22:39"><abbr title="2014-04-28T21:22:39+00:00">21:22:39</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>but it is a slave in respect of clock needing</q></li>
+<li class="message">[<a href="#T21:22:54" id="T21:22:54"><abbr title="2014-04-28T21:22:54+00:00">21:22:54</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>nyt-: go fix it for him.</q></li>
+<li class="message">[<a href="#T21:23:03" id="T21:23:03"><abbr title="2014-04-28T21:23:03+00:00">21:23:03</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>it needs a master clock to get CoDEC to work</q></li>
+<li class="message">[<a href="#T21:23:45" id="T21:23:45"><abbr title="2014-04-28T21:23:45+00:00">21:23:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>victorsantos: that's a nice part... it was annoying figuring a way to generate the ring voltage and meet spec</q></li>
+<li class="message">[<a href="#T21:26:31" id="T21:26:31"><abbr title="2014-04-28T21:26:31+00:00">21:26:31</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>where I can found some tutorial or something to start my work again with an old kernel (3.2/older) ?</q></li>
+<li class="message">[<a href="#T21:26:51" id="T21:26:51"><abbr title="2014-04-28T21:26:51+00:00">21:26:51</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>no prebuild ones, I like to compile my things ;)</q></li>
+<li class="join">[<a href="#T21:28:08" id="T21:28:08"><abbr title="2014-04-28T21:28:08+00:00">21:28:08</abbr></a>] <span>* jevin (~jevin@72.12.217.220) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:29:40" id="T21:29:40"><abbr title="2014-04-28T21:29:40+00:00">21:29:40</abbr></a>] <span>* NulL` (~bleh1@217.28.11.150) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="message">[<abbr title="2014-04-28T21:29:40+00:00">21:29:40</abbr>] &lt;<cite>victorsantos</cite>&gt; <q>there is a lot of readings talking about set up spi and mcasp on kernels with device tree support, It is hard to find something working in the older kernels</q></li>
+<li class="message">[<a href="#T21:30:55" id="T21:30:55"><abbr title="2014-04-28T21:30:55+00:00">21:30:55</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>dunno bout pinmux kernels, but spi just works with dtb kernels</q></li>
+<li class="message">[<a href="#T21:31:25" id="T21:31:25"><abbr title="2014-04-28T21:31:25+00:00">21:31:25</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I got spi working like a charm, spidev1.0 and 1.1</q></li>
+<li class="message">[<a href="#T21:31:27" id="T21:31:27"><abbr title="2014-04-28T21:31:27+00:00">21:31:27</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>piece of cake</q></li>
+<li class="message">[<a href="#T21:31:38" id="T21:31:38"><abbr title="2014-04-28T21:31:38+00:00">21:31:38</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>this mcasp that is a pain in the ass</q></li>
+<li class="message">[<a href="#T21:31:48" id="T21:31:48"><abbr title="2014-04-28T21:31:48+00:00">21:31:48</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>spi works fine in every kernel I have used</q></li>
+<li class="message">[<a href="#T21:31:56" id="T21:31:56"><abbr title="2014-04-28T21:31:56+00:00">21:31:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>donno what problems people are having</q></li>
+<li class="join">[<a href="#T21:32:08" id="T21:32:08"><abbr title="2014-04-28T21:32:08+00:00">21:32:08</abbr></a>] <span>* louiz9201 (~a0272879@nat/ti/x-bqcrtiihwveqtbfz) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:32:14" id="T21:32:14"><abbr title="2014-04-28T21:32:14+00:00">21:32:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the problem with DT kernels is having to deal with porting 234980294238904238094823094823094 different drivers</q></li>
+<li class="message">[<a href="#T21:32:25" id="T21:32:25"><abbr title="2014-04-28T21:32:25+00:00">21:32:25</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>whats pissing me off with dt</q></li>
+<li class="message">[<a href="#T21:32:29" id="T21:32:29"><abbr title="2014-04-28T21:32:29+00:00">21:32:29</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>is that its not finished yet</q></li>
+<li class="message">[<a href="#T21:32:38" id="T21:32:38"><abbr title="2014-04-28T21:32:38+00:00">21:32:38</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>e.g. can't change pullup/pulldown modes on gpio pins yet</q></li>
+<li class="quit">[<a href="#T21:32:43" id="T21:32:43"><abbr title="2014-04-28T21:32:43+00:00">21:32:43</abbr></a>] <span>* louiz920 (~a0272879@nat/ti/x-lyhbbjwplpnpjktg) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T21:32:45" id="T21:32:45"><abbr title="2014-04-28T21:32:45+00:00">21:32:45</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it is easier and quicker to backport a DT driver to my kernel.</q></li>
+<li class="message">[<a href="#T21:32:49" id="T21:32:49"><abbr title="2014-04-28T21:32:49+00:00">21:32:49</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>adc driver has no constant polling support</q></li>
+<li class="quit">[<a href="#T21:32:52" id="T21:32:52"><abbr title="2014-04-28T21:32:52+00:00">21:32:52</abbr></a>] <span>* louiz9201 (~a0272879@nat/ti/x-bqcrtiihwveqtbfz) Quit (Client Quit)</span></li>
+<li class="message">[<a href="#T21:33:13" id="T21:33:13"><abbr title="2014-04-28T21:33:13+00:00">21:33:13</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>nyt-:  hmmm? the version of DT I have seen allows that. it is just a major PITA to do that</q></li>
+<li class="message">[<a href="#T21:33:19" id="T21:33:19"><abbr title="2014-04-28T21:33:19+00:00">21:33:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ALL hte ADC drivers are F'ed</q></li>
+<li class="message">[<a href="#T21:33:21" id="T21:33:21"><abbr title="2014-04-28T21:33:21+00:00">21:33:21</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>which</q></li>
+<li class="message">[<a href="#T21:33:25" id="T21:33:25"><abbr title="2014-04-28T21:33:25+00:00">21:33:25</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>well</q></li>
+<li class="message">[<abbr title="2014-04-28T21:33:25+00:00">21:33:25</abbr>] &lt;<cite>victorsantos</cite>&gt; <q>someone has a link where I can use to restart my work?</q></li>
+<li class="message">[<a href="#T21:33:34" id="T21:33:34"><abbr title="2014-04-28T21:33:34+00:00">21:33:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>had to write my own ADC driver</q></li>
+<li class="message">[<a href="#T21:33:35" id="T21:33:35"><abbr title="2014-04-28T21:33:35+00:00">21:33:35</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>just, saying, friendly</q></li>
+<li class="message">[<a href="#T21:33:36" id="T21:33:36"><abbr title="2014-04-28T21:33:36+00:00">21:33:36</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:33:37" id="T21:33:37"><abbr title="2014-04-28T21:33:37+00:00">21:33:37</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>the adc drivers in 3.8 were hosed by a patch trying to add constant polling, which didn't work</q></li>
+<li class="join">[<a href="#T21:33:41" id="T21:33:41"><abbr title="2014-04-28T21:33:41+00:00">21:33:41</abbr></a>] <span>* nicksydney (~quassel@43.11-134-203.dynamic.dsl.syd.iprimus.net.au) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:33:45" id="T21:33:45"><abbr title="2014-04-28T21:33:45+00:00">21:33:45</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>i submitted a patch to fix single reads</q></li>
+<li class="message">[<a href="#T21:33:51" id="T21:33:51"><abbr title="2014-04-28T21:33:51+00:00">21:33:51</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>by removing the broken constant reading patch</q></li>
+<li class="message">[<a href="#T21:33:55" id="T21:33:55"><abbr title="2014-04-28T21:33:55+00:00">21:33:55</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>which is in the latest build now</q></li>
+<li class="message">[<a href="#T21:34:03" id="T21:34:03"><abbr title="2014-04-28T21:34:03+00:00">21:34:03</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the ADC driver in any of the versions don't work for damn</q></li>
+<li class="quit">[<a href="#T21:34:13" id="T21:34:13"><abbr title="2014-04-28T21:34:13+00:00">21:34:13</abbr></a>] <span>* Miklas (~Miklas@dD577D9F1.access.telenet.be) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T21:34:14" id="T21:34:14"><abbr title="2014-04-28T21:34:14+00:00">21:34:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the old TI one overruns the FIFO</q></li>
+<li class="message">[<a href="#T21:34:20" id="T21:34:20"><abbr title="2014-04-28T21:34:20+00:00">21:34:20</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>but, no joy for continuous sampling</q></li>
+<li class="message">[<a href="#T21:34:25" id="T21:34:25"><abbr title="2014-04-28T21:34:25+00:00">21:34:25</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the new one don't look much better</q></li>
+<li class="message">[<a href="#T21:34:30" id="T21:34:30"><abbr title="2014-04-28T21:34:30+00:00">21:34:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>solution - write yet another one :D</q></li>
+<li class="message">[<a href="#T21:34:36" id="T21:34:36"><abbr title="2014-04-28T21:34:36+00:00">21:34:36</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>latest debian build does proper sampling now</q></li>
+<li class="message">[<a href="#T21:34:39" id="T21:34:39"><abbr title="2014-04-28T21:34:39+00:00">21:34:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I can get reliable 8KHz sampling with my own</q></li>
+<li class="message">[<a href="#T21:34:45" id="T21:34:45"><abbr title="2014-04-28T21:34:45+00:00">21:34:45</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>but no continuous</q></li>
+<li class="message">[<a href="#T21:34:59" id="T21:34:59"><abbr title="2014-04-28T21:34:59+00:00">21:34:59</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>i was seeing 16khz from the latest debian kernel iirc</q></li>
+<li class="message">[<a href="#T21:35:02" id="T21:35:02"><abbr title="2014-04-28T21:35:02+00:00">21:35:02</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>but that's nothing</q></li>
+<li class="message">[<a href="#T21:35:09" id="T21:35:09"><abbr title="2014-04-28T21:35:09+00:00">21:35:09</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>do someone had success on get working mcasp with an old kernel at least?</q></li>
+<li class="message">[<a href="#T21:35:11" id="T21:35:11"><abbr title="2014-04-28T21:35:11+00:00">21:35:11</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>compared to what its capable of in continuous</q></li>
+<li class="message">[<abbr title="2014-04-28T21:35:11+00:00">21:35:11</abbr>] &lt;<cite>ds2</cite>&gt; <q>I needed 8KHz for audio input reasons</q></li>
+<li class="message">[<a href="#T21:35:23" id="T21:35:23"><abbr title="2014-04-28T21:35:23+00:00">21:35:23</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it can do a lot faster but my use calls for 8KHz :D</q></li>
+<li class="quit">[<a href="#T21:35:25" id="T21:35:25"><abbr title="2014-04-28T21:35:25+00:00">21:35:25</abbr></a>] <span>* brianjaod (~brian@unaffiliated/brianjaod) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="join">[<abbr title="2014-04-28T21:35:25+00:00">21:35:25</abbr>] <span>* louiz920 (~a0272879@nat/ti/x-ntvyvkoevxhvdfer) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:35:43" id="T21:35:43"><abbr title="2014-04-28T21:35:43+00:00">21:35:43</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the McASP driver is largely teh same as other chips</q></li>
+<li class="message">[<a href="#T21:36:33" id="T21:36:33"><abbr title="2014-04-28T21:36:33+00:00">21:36:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>nyt-: what happens if you enable continous on the kernels you are looking at?</q></li>
+<li class="message">[<a href="#T21:36:45" id="T21:36:45"><abbr title="2014-04-28T21:36:45+00:00">21:36:45</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>I need to get out now</q></li>
+<li class="message">[<a href="#T21:37:00" id="T21:37:00"><abbr title="2014-04-28T21:37:00+00:00">21:37:00</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>lets continue talking in a mail list, mail me victor.ifsc@gmail.com</q></li>
+<li class="message">[<a href="#T21:37:03" id="T21:37:03"><abbr title="2014-04-28T21:37:03+00:00">21:37:03</abbr></a>] &lt;<cite>victorsantos</cite>&gt; <q>see ya guys ;)</q></li>
+<li class="message">[<a href="#T21:38:45" id="T21:38:45"><abbr title="2014-04-28T21:38:45+00:00">21:38:45</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>ds2: you can't</q></li>
+<li class="message">[<a href="#T21:39:02" id="T21:39:02"><abbr title="2014-04-28T21:39:02+00:00">21:39:02</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>ds2: the patch that was removed, for continuous support, didn't include a valid/working method to enable</q></li>
+<li class="quit">[<a href="#T21:39:05" id="T21:39:05"><abbr title="2014-04-28T21:39:05+00:00">21:39:05</abbr></a>] <span>* jpirko (~jirka@ip-94-113-121-85.net.upcbroadband.cz) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:39:37" id="T21:39:37"><abbr title="2014-04-28T21:39:37+00:00">21:39:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T21:39:49" id="T21:39:49"><abbr title="2014-04-28T21:39:49+00:00">21:39:49</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>so the IIO glue is broken too</q></li>
+<li class="message">[<a href="#T21:39:56" id="T21:39:56"><abbr title="2014-04-28T21:39:56+00:00">21:39:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sigh</q></li>
+<li class="message">[<a href="#T21:40:01" id="T21:40:01"><abbr title="2014-04-28T21:40:01+00:00">21:40:01</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>use the widget</q></li>
+<li class="message">[<abbr title="2014-04-28T21:40:01+00:00">21:40:01</abbr>] &lt;<cite>ds2</cite>&gt; <q>too much crap</q></li>
+<li class="message">[<a href="#T21:40:07" id="T21:40:07"><abbr title="2014-04-28T21:40:07+00:00">21:40:07</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>that .. erm .. module</q></li>
+<li class="message">[<a href="#T21:40:10" id="T21:40:10"><abbr title="2014-04-28T21:40:10+00:00">21:40:10</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>GRR memory fail</q></li>
+<li class="message">[<a href="#T21:40:18" id="T21:40:18"><abbr title="2014-04-28T21:40:18+00:00">21:40:18</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>nyt-: fwiw, I have it tied ot ALSA instead</q></li>
+<li class="message">[<a href="#T21:40:49" id="T21:40:49"><abbr title="2014-04-28T21:40:49+00:00">21:40:49</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>the ti driver has a 'mode' file which you can use to specify oneshot or continuous</q></li>
+<li class="message">[<a href="#T21:40:52" id="T21:40:52"><abbr title="2014-04-28T21:40:52+00:00">21:40:52</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>this was missing in the kernels</q></li>
+<li class="message">[<a href="#T21:41:13" id="T21:41:13"><abbr title="2014-04-28T21:41:13+00:00">21:41:13</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>i have no idea on the status in the other kernels</q></li>
+<li class="message">[<a href="#T21:41:22" id="T21:41:22"><abbr title="2014-04-28T21:41:22+00:00">21:41:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>yes</q></li>
+<li class="message">[<abbr title="2014-04-28T21:41:22+00:00">21:41:22</abbr>] &lt;<cite>nyt-</cite>&gt; <q>but 3.8 doesnt have continuous support atm by default</q></li>
+<li class="message">[<a href="#T21:41:27" id="T21:41:27"><abbr title="2014-04-28T21:41:27+00:00">21:41:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>but that mode is serious broken</q></li>
+<li class="message">[<a href="#T21:41:38" id="T21:41:38"><abbr title="2014-04-28T21:41:38+00:00">21:41:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>it overruns the FIFO a lot</q></li>
+<li class="message">[<a href="#T21:41:42" id="T21:41:42"><abbr title="2014-04-28T21:41:42+00:00">21:41:42</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>someone doing gsoc tried to enable continuous in 3.8 and left everything broken</q></li>
+<li class="message">[<abbr title="2014-04-28T21:41:42+00:00">21:41:42</abbr>] &lt;<cite>ds2</cite>&gt; <q>seriously</q></li>
+<li class="action">[<a href="#T21:41:43" id="T21:41:43"><abbr title="2014-04-28T21:41:43+00:00">21:41:43</abbr></a>] <span>* nyt- sighs</span></li>
+<li class="quit">[<a href="#T21:41:46" id="T21:41:46"><abbr title="2014-04-28T21:41:46+00:00">21:41:46</abbr></a>] <span>* bmatusiak__ (4ab9f8fe@gateway/web/freenode/ip.74.185.248.254) Quit (Quit: Page closed)</span></li>
+<li class="message">[<a href="#T21:41:54" id="T21:41:54"><abbr title="2014-04-28T21:41:54+00:00">21:41:54</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>at least thats fixed now</q></li>
+<li class="message">[<a href="#T21:41:56" id="T21:41:56"><abbr title="2014-04-28T21:41:56+00:00">21:41:56</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>nyt-: what are you using the ADC for?</q></li>
+<li class="message">[<a href="#T21:42:24" id="T21:42:24"><abbr title="2014-04-28T21:42:24+00:00">21:42:24</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>PMU ?</q></li>
+<li class="message">[<a href="#T21:42:27" id="T21:42:27"><abbr title="2014-04-28T21:42:27+00:00">21:42:27</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>*cough* lol</q></li>
+<li class="message">[<a href="#T21:42:29" id="T21:42:29"><abbr title="2014-04-28T21:42:29+00:00">21:42:29</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>at the moment nothing</q></li>
+<li class="message">[<a href="#T21:42:34" id="T21:42:34"><abbr title="2014-04-28T21:42:34+00:00">21:42:34</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>PRU! thats it!</q></li>
+<li class="message">[<a href="#T21:42:41" id="T21:42:41"><abbr title="2014-04-28T21:42:41+00:00">21:42:41</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>was helping my wife w/ a project reading from a pulse sensor</q></li>
+<li class="message">[<a href="#T21:42:42" id="T21:42:42"><abbr title="2014-04-28T21:42:42+00:00">21:42:42</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>'k</q></li>
+<li class="message">[<a href="#T21:42:54" id="T21:42:54"><abbr title="2014-04-28T21:42:54+00:00">21:42:54</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q><a href="http://bugs.elinux.org/issues/73">http://bugs.elinux.org/issues/73</a></q></li>
+<li class="message">[<a href="#T21:43:07" id="T21:43:07"><abbr title="2014-04-28T21:43:07+00:00">21:43:07</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>just throwing together a character device to pull in samples is easy enough to do</q></li>
+<li class="message">[<a href="#T21:43:21" id="T21:43:21"><abbr title="2014-04-28T21:43:21+00:00">21:43:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>setup 4 registers and service the interrupts</q></li>
+<li class="quit">[<a href="#T21:43:41" id="T21:43:41"><abbr title="2014-04-28T21:43:41+00:00">21:43:41</abbr></a>] <span>* dogmatic69_ (~dogmatic6@cpc65164-telf10-2-0-cust54.16-1.cable.virginm.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T21:43:53" id="T21:43:53"><abbr title="2014-04-28T21:43:53+00:00">21:43:53</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>fortunately i dont need it atm, but it'd be nice to have working somehow without having to jump through hoops and hack like crazy</q></li>
+<li class="join">[<a href="#T21:44:03" id="T21:44:03"><abbr title="2014-04-28T21:44:03+00:00">21:44:03</abbr></a>] <span>* MLM (~madli_000@c-75-73-159-26.hsd1.mn.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:44:16" id="T21:44:16"><abbr title="2014-04-28T21:44:16+00:00">21:44:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the sad thing here is for EE reasons, it is easier to add an extra I2C adc then to make user of extra channels on that ADC :/</q></li>
+<li class="message">[<a href="#T21:44:31" id="T21:44:31"><abbr title="2014-04-28T21:44:31+00:00">21:44:31</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>thats probably a good idea ds2</q></li>
+<li class="message">[<a href="#T21:44:45" id="T21:44:45"><abbr title="2014-04-28T21:44:45+00:00">21:44:45</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>just forget the broken-ness .. but I know nyt- never will .. he's a man on a mission :)</q></li>
+<li class="message">[<a href="#T21:45:11" id="T21:45:11"><abbr title="2014-04-28T21:45:11+00:00">21:45:11</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>veremit: no... I have 2 needs - audio input and battery level measurement</q></li>
+<li class="message">[<a href="#T21:45:28" id="T21:45:28"><abbr title="2014-04-28T21:45:28+00:00">21:45:28</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you don't need 16khz sampling on a battery :P</q></li>
+<li class="message">[<a href="#T21:45:34" id="T21:45:34"><abbr title="2014-04-28T21:45:34+00:00">21:45:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the AM3359 cannot have any pin driven if it is turned off. so either I put in a mux to cut power</q></li>
+<li class="message">[<a href="#T21:45:42" id="T21:45:42"><abbr title="2014-04-28T21:45:42+00:00">21:45:42</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>and if you're wanting audio sampling .. wtf are you using an ADC?!</q></li>
+<li class="message">[<a href="#T21:45:51" id="T21:45:51"><abbr title="2014-04-28T21:45:51+00:00">21:45:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>or I just have an ADC directly powered by the battery and have it high Z the bus</q></li>
+<li class="message">[<a href="#T21:45:58" id="T21:45:58"><abbr title="2014-04-28T21:45:58+00:00">21:45:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what do you think a CODEC is?</q></li>
+<li class="message">[<a href="#T21:46:05" id="T21:46:05"><abbr title="2014-04-28T21:46:05+00:00">21:46:05</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>*cough*</q></li>
+<li class="message">[<a href="#T21:46:16" id="T21:46:16"><abbr title="2014-04-28T21:46:16+00:00">21:46:16</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you know what I  mean !! :P</q></li>
+<li class="message">[<a href="#T21:46:27" id="T21:46:27"><abbr title="2014-04-28T21:46:27+00:00">21:46:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>there is nothing wrong with the ADC for audio input</q></li>
+<li class="message">[<a href="#T21:46:41" id="T21:46:41"><abbr title="2014-04-28T21:46:41+00:00">21:46:41</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the battery is a completely ortogonal need</q></li>
+<li class="message">[<a href="#T21:46:42" id="T21:46:42"><abbr title="2014-04-28T21:46:42+00:00">21:46:42</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>in principle .. no .. lol</q></li>
+<li class="message">[<a href="#T21:46:55" id="T21:46:55"><abbr title="2014-04-28T21:46:55+00:00">21:46:55</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>sample rate on that just needs to be sub 1Hz</q></li>
+<li class="message">[<a href="#T21:47:01" id="T21:47:01"><abbr title="2014-04-28T21:47:01+00:00">21:47:01</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>in practice ......</q></li>
+<li class="message">[<a href="#T21:47:27" id="T21:47:27"><abbr title="2014-04-28T21:47:27+00:00">21:47:27</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if you have room to run an I2S bus around and slap on yet another chip, go for it.</q></li>
+<li class="message">[<a href="#T21:47:38" id="T21:47:38"><abbr title="2014-04-28T21:47:38+00:00">21:47:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I don't have room or interest in debugging yet another chip</q></li>
+<li class="quit">[<a href="#T21:47:57" id="T21:47:57"><abbr title="2014-04-28T21:47:57+00:00">21:47:57</abbr></a>] <span>* VoltVisionSteve (~VoltVisio@207.255.165.1) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T21:48:22" id="T21:48:22"><abbr title="2014-04-28T21:48:22+00:00">21:48:22</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>one chip at a time .. *snicker*</q></li>
+<li class="quit">[<a href="#T21:48:44" id="T21:48:44"><abbr title="2014-04-28T21:48:44+00:00">21:48:44</abbr></a>] <span>* Rickta59 (~Rickta59@cpe-174-106-144-066.ec.res.rr.com) Quit (Ping timeout: 258 seconds)</span></li>
+<li class="message">[<a href="#T21:49:02" id="T21:49:02"><abbr title="2014-04-28T21:49:02+00:00">21:49:02</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>chips take room</q></li>
+<li class="message">[<a href="#T21:49:11" id="T21:49:11"><abbr title="2014-04-28T21:49:11+00:00">21:49:11</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:49:15" id="T21:49:15"><abbr title="2014-04-28T21:49:15+00:00">21:49:15</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>spi adc for continuous sampling</q></li>
+<li class="message">[<a href="#T21:49:17" id="T21:49:17"><abbr title="2014-04-28T21:49:17+00:00">21:49:17</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>much better</q></li>
+<li class="message">[<a href="#T21:49:23" id="T21:49:23"><abbr title="2014-04-28T21:49:23+00:00">21:49:23</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>such speeds</q></li>
+<li class="message">[<a href="#T21:49:27" id="T21:49:27"><abbr title="2014-04-28T21:49:27+00:00">21:49:27</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>not worth the headache for like $2</q></li>
+<li class="message">[<a href="#T21:49:36" id="T21:49:36"><abbr title="2014-04-28T21:49:36+00:00">21:49:36</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>but at least one shot works now out of the box</q></li>
+<li class="message">[<a href="#T21:49:40" id="T21:49:40"><abbr title="2014-04-28T21:49:40+00:00">21:49:40</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>not tssop they don't :P~</q></li>
+<li class="message">[<a href="#T21:49:46" id="T21:49:46"><abbr title="2014-04-28T21:49:46+00:00">21:49:46</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>tssop is HUGE</q></li>
+<li class="message">[<a href="#T21:50:06" id="T21:50:06"><abbr title="2014-04-28T21:50:06+00:00">21:50:06</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>gawd what you building thats so small you can fit a beagle in it?!</q></li>
+<li class="message">[<abbr title="2014-04-28T21:50:06+00:00">21:50:06</abbr>] &lt;<cite>nyt-</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T21:50:14" id="T21:50:14"><abbr title="2014-04-28T21:50:14+00:00">21:50:14</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the beagle is just for a mock up</q></li>
+<li class="message">[<a href="#T21:50:18" id="T21:50:18"><abbr title="2014-04-28T21:50:18+00:00">21:50:18</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>*scratches head*</q></li>
+<li class="quit">[<a href="#T21:50:26" id="T21:50:26"><abbr title="2014-04-28T21:50:26+00:00">21:50:26</abbr></a>] <span>* dgerlach (~dave@nat/ti/x-rhtvjkxpbsefkrfz) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T21:50:34" id="T21:50:34"><abbr title="2014-04-28T21:50:34+00:00">21:50:34</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wearables!</q></li>
+<li class="message">[<a href="#T21:50:49" id="T21:50:49"><abbr title="2014-04-28T21:50:49+00:00">21:50:49</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>one of these days</q></li>
+<li class="message">[<a href="#T21:50:54" id="T21:50:54"><abbr title="2014-04-28T21:50:54+00:00">21:50:54</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>i'll have time to actually put something fun together with a bb</q></li>
+<li class="message">[<a href="#T21:50:58" id="T21:50:58"><abbr title="2014-04-28T21:50:58+00:00">21:50:58</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>instead of just writing code for others :(</q></li>
+<li class="message">[<a href="#T21:51:35" id="T21:51:35"><abbr title="2014-04-28T21:51:35+00:00">21:51:35</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>ds2 .. distributed computing/electronics :P</q></li>
+<li class="message">[<a href="#T21:51:57" id="T21:51:57"><abbr title="2014-04-28T21:51:57+00:00">21:51:57</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the fun is with the 0.4mm pitch parts</q></li>
+<li class="message">[<a href="#T21:52:06" id="T21:52:06"><abbr title="2014-04-28T21:52:06+00:00">21:52:06</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>yeah, I mean .. you can probably Fix/fudge the ADC driver .. but you're gonna have to hack it .. thats the harsh truth</q></li>
+<li class="message">[<a href="#T21:52:16" id="T21:52:16"><abbr title="2014-04-28T21:52:16+00:00">21:52:16</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>eh?</q></li>
+<li class="message">[<a href="#T21:52:19" id="T21:52:19"><abbr title="2014-04-28T21:52:19+00:00">21:52:19</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>I have it working alrady</q></li>
+<li class="message">[<a href="#T21:52:22" id="T21:52:22"><abbr title="2014-04-28T21:52:22+00:00">21:52:22</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>already.</q></li>
+<li class="message">[<a href="#T21:52:27" id="T21:52:27"><abbr title="2014-04-28T21:52:27+00:00">21:52:27</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>then what you complaining about???</q></li>
+<li class="message">[<a href="#T21:52:28" id="T21:52:28"><abbr title="2014-04-28T21:52:28+00:00">21:52:28</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:52:30" id="T21:52:30"><abbr title="2014-04-28T21:52:30+00:00">21:52:30</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>all done. finish.</q></li>
+<li class="message">[<a href="#T21:52:32" id="T21:52:32"><abbr title="2014-04-28T21:52:32+00:00">21:52:32</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>-sigh-</q></li>
+<li class="message">[<a href="#T21:53:04" id="T21:53:04"><abbr title="2014-04-28T21:53:04+00:00">21:53:04</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>just telling you guys... it can be quicker ot just do it instead of debugging that mess of code</q></li>
+<li class="message">[<a href="#T21:53:17" id="T21:53:17"><abbr title="2014-04-28T21:53:17+00:00">21:53:17</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>we're just bitching about the adc code</q></li>
+<li class="message">[<a href="#T21:53:38" id="T21:53:38"><abbr title="2014-04-28T21:53:38+00:00">21:53:38</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>what I wished is the ADC would work at 13.5MHz</q></li>
+<li class="message">[<a href="#T21:53:39" id="T21:53:39"><abbr title="2014-04-28T21:53:39+00:00">21:53:39</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T21:54:01" id="T21:54:01"><abbr title="2014-04-28T21:54:01+00:00">21:54:01</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>mm</q></li>
+<li class="message">[<a href="#T21:54:02" id="T21:54:02"><abbr title="2014-04-28T21:54:02+00:00">21:54:02</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>that'd be nice</q></li>
+<li class="message">[<a href="#T21:54:17" id="T21:54:17"><abbr title="2014-04-28T21:54:17+00:00">21:54:17</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>i have an rtl-sdr coming tomorrow</q></li>
+<li class="message">[<a href="#T21:54:21" id="T21:54:21"><abbr title="2014-04-28T21:54:21+00:00">21:54:21</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>usb</q></li>
+<li class="message">[<a href="#T21:54:24" id="T21:54:24"><abbr title="2014-04-28T21:54:24+00:00">21:54:24</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>looking forward to playing with that</q></li>
+<li class="message">[<a href="#T21:54:33" id="T21:54:33"><abbr title="2014-04-28T21:54:33+00:00">21:54:33</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>(and debugging wtf is up in the rf band my alarm runs on)</q></li>
+<li class="message">[<a href="#T21:54:37" id="T21:54:37"><abbr title="2014-04-28T21:54:37+00:00">21:54:37</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>wish I had time for that</q></li>
+<li class="message">[<a href="#T21:54:41" id="T21:54:41"><abbr title="2014-04-28T21:54:41+00:00">21:54:41</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>i think a neighbor is doing something not so good</q></li>
+<li class="join">[<a href="#T21:55:28" id="T21:55:28"><abbr title="2014-04-28T21:55:28+00:00">21:55:28</abbr></a>] <span>* nicksydney_ (~quassel@43.11-134-203.dynamic.dsl.syd.iprimus.net.au) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:55:51" id="T21:55:51"><abbr title="2014-04-28T21:55:51+00:00">21:55:51</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>why not just get a spectrum analyzer?</q></li>
+<li class="message">[<a href="#T21:56:01" id="T21:56:01"><abbr title="2014-04-28T21:56:01+00:00">21:56:01</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>the sub1GHz ones aren't that $$ thesedays</q></li>
+<li class="message">[<a href="#T21:56:09" id="T21:56:09"><abbr title="2014-04-28T21:56:09+00:00">21:56:09</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>$21</q></li>
+<li class="message">[<a href="#T21:56:11" id="T21:56:11"><abbr title="2014-04-28T21:56:11+00:00">21:56:11</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>for rtl-sdr</q></li>
+<li class="quit">[<a href="#T21:56:14" id="T21:56:14"><abbr title="2014-04-28T21:56:14+00:00">21:56:14</abbr></a>] <span>* victorsantos (c887b8fa@gateway/web/freenode/ip.200.135.184.250) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T21:56:22" id="T21:56:22"><abbr title="2014-04-28T21:56:22+00:00">21:56:22</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>25mhz - 1700mhz</q></li>
+<li class="quit">[<a href="#T21:56:25" id="T21:56:25"><abbr title="2014-04-28T21:56:25+00:00">21:56:25</abbr></a>] <span>* nicksydney (~quassel@43.11-134-203.dynamic.dsl.syd.iprimus.net.au) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T21:56:28" id="T21:56:28"><abbr title="2014-04-28T21:56:28+00:00">21:56:28</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>will use sdrsharp as an sa</q></li>
+<li class="message">[<a href="#T21:56:58" id="T21:56:58"><abbr title="2014-04-28T21:56:58+00:00">21:56:58</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>if you got the time to set it all up....</q></li>
+<li class="message">[<a href="#T21:57:12" id="T21:57:12"><abbr title="2014-04-28T21:57:12+00:00">21:57:12</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>eh, sdrsharp is pretty easy</q></li>
+<li class="message">[<a href="#T21:57:16" id="T21:57:16"><abbr title="2014-04-28T21:57:16+00:00">21:57:16</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>should have it up and running in like 15m</q></li>
+<li class="message">[<a href="#T21:57:33" id="T21:57:33"><abbr title="2014-04-28T21:57:33+00:00">21:57:33</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>you must have windows machines handy?</q></li>
+<li class="message">[<a href="#T21:57:36" id="T21:57:36"><abbr title="2014-04-28T21:57:36+00:00">21:57:36</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>yep</q></li>
+<li class="message">[<a href="#T21:57:47" id="T21:57:47"><abbr title="2014-04-28T21:57:47+00:00">21:57:47</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>my macbook ;)</q></li>
+<li class="message">[<a href="#T21:58:06" id="T21:58:06"><abbr title="2014-04-28T21:58:06+00:00">21:58:06</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>heh took osx off of that after like a month of being annoyed</q></li>
+<li class="message">[<a href="#T21:58:21" id="T21:58:21"><abbr title="2014-04-28T21:58:21+00:00">21:58:21</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>helps to just borrow an spec from a friend ;) much quicker</q></li>
+<li class="message">[<a href="#T21:58:26" id="T21:58:26"><abbr title="2014-04-28T21:58:26+00:00">21:58:26</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>well yeah</q></li>
+<li class="message">[<a href="#T21:58:30" id="T21:58:30"><abbr title="2014-04-28T21:58:30+00:00">21:58:30</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>but i dont have any friends with such toys</q></li>
+<li class="message">[<a href="#T21:58:32" id="T21:58:32"><abbr title="2014-04-28T21:58:32+00:00">21:58:32</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T21:58:38" id="T21:58:38"><abbr title="2014-04-28T21:58:38+00:00">21:58:38</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>my friends are all kind of stupid</q></li>
+<li class="message">[<a href="#T21:58:44" id="T21:58:44"><abbr title="2014-04-28T21:58:44+00:00">21:58:44</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T21:58:54" id="T21:58:54"><abbr title="2014-04-28T21:58:54+00:00">21:58:54</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>i was looking at those rf explorers for cheap</q></li>
+<li class="message">[<a href="#T21:58:56" id="T21:58:56"><abbr title="2014-04-28T21:58:56+00:00">21:58:56</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>they seem kind of cool</q></li>
+<li class="message">[<a href="#T21:59:02" id="T21:59:02"><abbr title="2014-04-28T21:59:02+00:00">21:59:02</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>but for $20 vs $200</q></li>
+<li class="message">[<a href="#T21:59:35" id="T21:59:35"><abbr title="2014-04-28T21:59:35+00:00">21:59:35</abbr></a>] &lt;<cite>ds2</cite>&gt; <q>okay back to porting code</q></li>
