@@ -779,3 +779,84 @@
 <li class="message">[<a href="#T22:56:18" id="T22:56:18"><abbr title="2014-05-11T22:56:18+00:00">22:56:18</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>let me get the instructions up</q></li>
 <li class="join">[<a href="#T22:59:05" id="T22:59:05"><abbr title="2014-05-11T22:59:05+00:00">22:59:05</abbr></a>] <span>* s34n (~chatzilla@ip-208-76-93-210.mvdsl.com) has joined #beaglebone</span></li>
 <li class="message">[<a href="#T22:59:36" id="T22:59:36"><abbr title="2014-05-11T22:59:36+00:00">22:59:36</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>i got a "Image"</q></li>
+<li class="message">[<a href="#T23:00:29" id="T23:00:29"><abbr title="2014-05-11T23:00:29+00:00">23:00:29</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>somethings' broken then</q></li>
+<li class="join">[<a href="#T23:01:59" id="T23:01:59"><abbr title="2014-05-11T23:01:59+00:00">23:01:59</abbr></a>] <span>* tridge (~tridge@pdpc/supporter/professional/tridge) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:02:04" id="T23:02:04"><abbr title="2014-05-11T23:02:04+00:00">23:02:04</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>so how far down this have you got?</q></li>
+<li class="message">[<a href="#T23:02:10" id="T23:02:10"><abbr title="2014-05-11T23:02:10+00:00">23:02:10</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I don't have my build system here to try it on</q></li>
+<li class="message">[<a href="#T23:02:36" id="T23:02:36"><abbr title="2014-05-11T23:02:36+00:00">23:02:36</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you'll see step 9 says "Make &lt;blah&gt; uImage dtbs modules"</q></li>
+<li class="message">[<a href="#T23:02:58" id="T23:02:58"><abbr title="2014-05-11T23:02:58+00:00">23:02:58</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>that should result in a file "uImage" in that build folder</q></li>
+<li class="message">[<a href="#T23:03:09" id="T23:03:09"><abbr title="2014-05-11T23:03:09+00:00">23:03:09</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>Yeah step 9 - then i got a "Image" not "zImage" or "uImage"</q></li>
+<li class="quit">[<a href="#T23:04:14" id="T23:04:14"><abbr title="2014-05-11T23:04:14+00:00">23:04:14</abbr></a>] <span>* johnwalkr (~jules@p5014-ipngn201aobadori.miyagi.ocn.ne.jp) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T23:04:24" id="T23:04:24"><abbr title="2014-05-11T23:04:24+00:00">23:04:24</abbr></a>] <span>* johnwalkr (~jules@p5014-ipngn201aobadori.miyagi.ocn.ne.jp) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:04:25" id="T23:04:25"><abbr title="2014-05-11T23:04:25+00:00">23:04:25</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>ok somehow you got a broken build system</q></li>
+<li class="message">[<a href="#T23:05:07" id="T23:05:07"><abbr title="2014-05-11T23:05:07+00:00">23:05:07</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>possibly if you're not building it on ubuntu .. which those instructions use</q></li>
+<li class="message">[<a href="#T23:05:26" id="T23:05:26"><abbr title="2014-05-11T23:05:26+00:00">23:05:26</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>But i got no errors</q></li>
+<li class="message">[<a href="#T23:06:01" id="T23:06:01"><abbr title="2014-05-11T23:06:01+00:00">23:06:01</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>possibly masked</q></li>
+<li class="message">[<a href="#T23:06:32" id="T23:06:32"><abbr title="2014-05-11T23:06:32+00:00">23:06:32</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>make uImage &gt; tells it to make a uImage file .. but it won't unless the uboot package is installed, for example</q></li>
+<li class="message">[<a href="#T23:06:41" id="T23:06:41"><abbr title="2014-05-11T23:06:41+00:00">23:06:41</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>zImage needs gzip I think</q></li>
+<li class="message">[<a href="#T23:06:43" id="T23:06:43"><abbr title="2014-05-11T23:06:43+00:00">23:06:43</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>bzImage bzip</q></li>
+<li class="message">[<a href="#T23:06:47" id="T23:06:47"><abbr title="2014-05-11T23:06:47+00:00">23:06:47</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>sorta thing</q></li>
+<li class="message">[<a href="#T23:07:05" id="T23:07:05"><abbr title="2014-05-11T23:07:05+00:00">23:07:05</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>Hmm okay so you think i've to try to compile with debian?</q></li>
+<li class="message">[<a href="#T23:08:02" id="T23:08:02"><abbr title="2014-05-11T23:08:02+00:00">23:08:02</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you need the right compiler package and uboot</q></li>
+<li class="message">[<a href="#T23:08:12" id="T23:08:12"><abbr title="2014-05-11T23:08:12+00:00">23:08:12</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>if you're using ubuntu, in theory, that should work</q></li>
+<li class="message">[<a href="#T23:08:16" id="T23:08:16"><abbr title="2014-05-11T23:08:16+00:00">23:08:16</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>so...</q></li>
+<li class="message">[<a href="#T23:08:53" id="T23:08:53"><abbr title="2014-05-11T23:08:53+00:00">23:08:53</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>try "sudo apt-get install uboot-mkimage"</q></li>
+<li class="quit">[<a href="#T23:09:04" id="T23:09:04"><abbr title="2014-05-11T23:09:04+00:00">23:09:04</abbr></a>] <span>* n-st (~n-st@188-192-82-106-dynip.superkabel.de) Quit (Quit: Verlassend)</span></li>
+<li class="message">[<a href="#T23:09:16" id="T23:09:16"><abbr title="2014-05-11T23:09:16+00:00">23:09:16</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I'm guessing thats not installed</q></li>
+<li class="join">[<a href="#T23:10:02" id="T23:10:02"><abbr title="2014-05-11T23:10:02+00:00">23:10:02</abbr></a>] <span>* deluxe247 (~alex@173.168.5.153) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2014-05-11T23:10:02+00:00">23:10:02</abbr>] <span>* deluxe247 (~alex@173.168.5.153) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:10:07" id="T23:10:07"><abbr title="2014-05-11T23:10:07+00:00">23:10:07</abbr></a>] <span>* nodocify (~nodocify@host-206-230-107-208.midco.net) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T23:10:08" id="T23:10:08"><abbr title="2014-05-11T23:10:08+00:00">23:10:08</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>For me its "u-boot-tools" but it is already installed</q></li>
+<li class="message">[<a href="#T23:10:36" id="T23:10:36"><abbr title="2014-05-11T23:10:36+00:00">23:10:36</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>so u boot-mkimage referred to u-boot-tools</q></li>
+<li class="message">[<a href="#T23:10:49" id="T23:10:49"><abbr title="2014-05-11T23:10:49+00:00">23:10:49</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T23:11:19" id="T23:11:19"><abbr title="2014-05-11T23:11:19+00:00">23:11:19</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>which ubuntu?</q></li>
+<li class="message">[<a href="#T23:11:24" id="T23:11:24"><abbr title="2014-05-11T23:11:24+00:00">23:11:24</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I see a separate mkimage package</q></li>
+<li class="message">[<a href="#T23:11:48" id="T23:11:48"><abbr title="2014-05-11T23:11:48+00:00">23:11:48</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>oh wait</q></li>
+<li class="message">[<a href="#T23:11:50" id="T23:11:50"><abbr title="2014-05-11T23:11:50+00:00">23:11:50</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>hrm</q></li>
+<li class="message">[<a href="#T23:12:01" id="T23:12:01"><abbr title="2014-05-11T23:12:01+00:00">23:12:01</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>nvm</q></li>
+<li class="message">[<a href="#T23:12:15" id="T23:12:15"><abbr title="2014-05-11T23:12:15+00:00">23:12:15</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>3.13.0-24-generic #47-Ubuntu SMP Fri May 2 23:30:00 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux</q></li>
+<li class="join">[<a href="#T23:13:56" id="T23:13:56"><abbr title="2014-05-11T23:13:56+00:00">23:13:56</abbr></a>] <span>* heNNa- (~heNNa-@95-88-197-56-dynip.superkabel.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:18:58" id="T23:18:58"><abbr title="2014-05-11T23:18:58+00:00">23:18:58</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>hmm not sure I know where to start unpicking that then</q></li>
+<li class="message">[<a href="#T23:20:44" id="T23:20:44"><abbr title="2014-05-11T23:20:44+00:00">23:20:44</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>Hmm</q></li>
+<li class="quit">[<a href="#T23:22:49" id="T23:22:49"><abbr title="2014-05-11T23:22:49+00:00">23:22:49</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T23:24:54" id="T23:24:54"><abbr title="2014-05-11T23:24:54+00:00">23:24:54</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>hang in here though, someone's bound to have the answer</q></li>
+<li class="action">[<a href="#T23:25:34" id="T23:25:34"><abbr title="2014-05-11T23:25:34+00:00">23:25:34</abbr></a>] <span>* nyt- yawns</span></li>
+<li class="message">[<a href="#T23:25:35" id="T23:25:35"><abbr title="2014-05-11T23:25:35+00:00">23:25:35</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>wordup</q></li>
+<li class="join">[<a href="#T23:27:47" id="T23:27:47"><abbr title="2014-05-11T23:27:47+00:00">23:27:47</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:28:56" id="T23:28:56"><abbr title="2014-05-11T23:28:56+00:00">23:28:56</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>Ahhhhh great i compiled twice and i got the zImage o.O</q></li>
+<li class="message">[<a href="#T23:29:50" id="T23:29:50"><abbr title="2014-05-11T23:29:50+00:00">23:29:50</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>might need a 'make clean' or even 'make distclean' if you got a part-compile</q></li>
+<li class="message">[<a href="#T23:29:55" id="T23:29:55"><abbr title="2014-05-11T23:29:55+00:00">23:29:55</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>mornin nyt-?! :P</q></li>
+<li class="message">[<a href="#T23:30:14" id="T23:30:14"><abbr title="2014-05-11T23:30:14+00:00">23:30:14</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>any ideas why we might have an Image and no uImage? got uboot-tools ...</q></li>
+<li class="message">[<a href="#T23:35:20" id="T23:35:20"><abbr title="2014-05-11T23:35:20+00:00">23:35:20</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>nah its 730 here ;)</q></li>
+<li class="message">[<a href="#T23:35:30" id="T23:35:30"><abbr title="2014-05-11T23:35:30+00:00">23:35:30</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>building what with what command</q></li>
+<li class="message">[<a href="#T23:35:46" id="T23:35:46"><abbr title="2014-05-11T23:35:46+00:00">23:35:46</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>xenomai kernel</q></li>
+<li class="message">[<a href="#T23:35:55" id="T23:35:55"><abbr title="2014-05-11T23:35:55+00:00">23:35:55</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>Ican't think why a Make uImage wold fail</q></li>
+<li class="message">[<a href="#T23:36:04" id="T23:36:04"><abbr title="2014-05-11T23:36:04+00:00">23:36:04</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>or rather .. fail to do the 'uImage# bit</q></li>
+<li class="message">[<a href="#T23:36:27" id="T23:36:27"><abbr title="2014-05-11T23:36:27+00:00">23:36:27</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>Now i got a zImage.. is it wring?</q></li>
+<li class="message">[<a href="#T23:36:31" id="T23:36:31"><abbr title="2014-05-11T23:36:31+00:00">23:36:31</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>*wrong</q></li>
+<li class="message">[<a href="#T23:36:48" id="T23:36:48"><abbr title="2014-05-11T23:36:48+00:00">23:36:48</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>for what you're doin, yes unfortunately</q></li>
+<li class="message">[<a href="#T23:37:17" id="T23:37:17"><abbr title="2014-05-11T23:37:17+00:00">23:37:17</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>"make -j16 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- LOADADDR=0x80008000 uImage dtbs modules"</q></li>
+<li class="message">[<a href="#T23:37:18" id="T23:37:18"><abbr title="2014-05-11T23:37:18+00:00">23:37:18</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>well</q></li>
+<li class="message">[<a href="#T23:37:20" id="T23:37:20"><abbr title="2014-05-11T23:37:20+00:00">23:37:20</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>do you have mkimage?</q></li>
+<li class="message">[<a href="#T23:37:50" id="T23:37:50"><abbr title="2014-05-11T23:37:50+00:00">23:37:50</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>what does "mkimage --help" say ? (two dashes - -help)</q></li>
+<li class="message">[<a href="#T23:38:08" id="T23:38:08"><abbr title="2014-05-11T23:38:08+00:00">23:38:08</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>is installed</q></li>
+<li class="message">[<a href="#T23:38:28" id="T23:38:28"><abbr title="2014-05-11T23:38:28+00:00">23:38:28</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>not familiar with xenomai</q></li>
+<li class="message">[<a href="#T23:38:30" id="T23:38:30"><abbr title="2014-05-11T23:38:30+00:00">23:38:30</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>let me check some docs real quick</q></li>
+<li class="message">[<a href="#T23:38:43" id="T23:38:43"><abbr title="2014-05-11T23:38:43+00:00">23:38:43</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>well command seems kosher enough</q></li>
+<li class="message">[<a href="#T23:38:46" id="T23:38:46"><abbr title="2014-05-11T23:38:46+00:00">23:38:46</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>working from .. <a href="http://brunosmartins.info/xenomai-on-the-beaglebone-black-in-14-easy-steps/">http://brunosmartins.info/xenomai-on-the-beaglebone-black-in-14-easy-steps/</a></q></li>
+<li class="message">[<a href="#T23:38:47" id="T23:38:47"><abbr title="2014-05-11T23:38:47+00:00">23:38:47</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>please paste output frmo the make command</q></li>
+<li class="message">[<a href="#T23:38:53" id="T23:38:53"><abbr title="2014-05-11T23:38:53+00:00">23:38:53</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>pastebin</q></li>
+<li class="message">[<a href="#T23:39:27" id="T23:39:27"><abbr title="2014-05-11T23:39:27+00:00">23:39:27</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>run it without -j16</q></li>
+<li class="message">[<a href="#T23:39:33" id="T23:39:33"><abbr title="2014-05-11T23:39:33+00:00">23:39:33</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>otherwise itll keep running after a failure on a branch</q></li>
+<li class="message">[<a href="#T23:40:04" id="T23:40:04"><abbr title="2014-05-11T23:40:04+00:00">23:40:04</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>Wait let me dl all stuff again</q></li>
+<li class="message">[<a href="#T23:45:16" id="T23:45:16"><abbr title="2014-05-11T23:45:16+00:00">23:45:16</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>out of curiosity what are you using xenomai for</q></li>
+<li class="join">[<a href="#T23:46:30" id="T23:46:30"><abbr title="2014-05-11T23:46:30+00:00">23:46:30</abbr></a>] <span>* Akuma (~Akuma@modemcable221.82-177-173.mc.videotron.ca) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2014-05-11T23:46:30+00:00">23:46:30</abbr>] <span>* Akuma (~Akuma@modemcable221.82-177-173.mc.videotron.ca) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:47:31" id="T23:47:31"><abbr title="2014-05-11T23:47:31+00:00">23:47:31</abbr></a>] <span>* dob_ (~dob_@2a02:8071:4c2:8500:2acf:e9ff:fe18:b971) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T23:47:57" id="T23:47:57"><abbr title="2014-05-11T23:47:57+00:00">23:47:57</abbr></a>] <span>* dob_ (~dob_@2a02:8071:4c2:8500:f854:22bb:8f0f:dce3) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:48:00" id="T23:48:00"><abbr title="2014-05-11T23:48:00+00:00">23:48:00</abbr></a>] &lt;<cite>Tommy24</cite>&gt; <q>I need it for some experiments with a real time os to learn how i can programming and using it</q></li>
+<li class="message">[<a href="#T23:51:33" id="T23:51:33"><abbr title="2014-05-11T23:51:33+00:00">23:51:33</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>nyt- pm?</q></li>
+<li class="message">[<a href="#T23:51:46" id="T23:51:46"><abbr title="2014-05-11T23:51:46+00:00">23:51:46</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>sure</q></li>
+<li class="join">[<a href="#T23:52:42" id="T23:52:42"><abbr title="2014-05-11T23:52:42+00:00">23:52:42</abbr></a>] <span>* dob__ (~dob_@2a02:8071:4c2:8500:7811:47ad:3d1e:ff1b) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:52:53" id="T23:52:53"><abbr title="2014-05-11T23:52:53+00:00">23:52:53</abbr></a>] <span>* dob_ (~dob_@2a02:8071:4c2:8500:f854:22bb:8f0f:dce3) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="quit">[<a href="#T23:59:52" id="T23:59:52"><abbr title="2014-05-11T23:59:52+00:00">23:59:52</abbr></a>] <span>* phant0mas (~quassel@147.95.121.175) Quit (Ping timeout: 240 seconds)</span></li>
