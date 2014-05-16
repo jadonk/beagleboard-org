@@ -404,3 +404,71 @@
 <li class="join">[<a href="#T12:54:11" id="T12:54:11"><abbr title="2014-05-16T12:54:11+00:00">12:54:11</abbr></a>] <span>* c10ud (~c10ud@emesene/dictator/c10ud) has joined #beagle</span></li>
 <li class="quit">[<a href="#T12:54:42" id="T12:54:42"><abbr title="2014-05-16T12:54:42+00:00">12:54:42</abbr></a>] <span>* sachin__ (~sachin@182.48.244.98) Quit (Ping timeout: 245 seconds)</span></li>
 <li class="quit">[<a href="#T12:56:45" id="T12:56:45"><abbr title="2014-05-16T12:56:45+00:00">12:56:45</abbr></a>] <span>* thurgood (~thurgood@cpe-70-113-204-247.austin.res.rr.com) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T13:04:20" id="T13:04:20"><abbr title="2014-05-16T13:04:20+00:00">13:04:20</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>av500: what is the mmc1 pin group used for on the BBB</q></li>
+<li class="message">[<a href="#T13:04:32" id="T13:04:32"><abbr title="2014-05-16T13:04:32+00:00">13:04:32</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>the micro SD or the emmc</q></li>
+<li class="message">[<a href="#T13:04:34" id="T13:04:34"><abbr title="2014-05-16T13:04:34+00:00">13:04:34</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>or neither</q></li>
+<li class="message">[<a href="#T13:04:40" id="T13:04:40"><abbr title="2014-05-16T13:04:40+00:00">13:04:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>what does the schematic say?</q></li>
+<li class="message">[<a href="#T13:04:51" id="T13:04:51"><abbr title="2014-05-16T13:04:51+00:00">13:04:51</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>haven't checked :X</q></li>
+<li class="message">[<a href="#T13:05:12" id="T13:05:12"><abbr title="2014-05-16T13:05:12+00:00">13:05:12</abbr></a>] &lt;<cite>av500</cite>&gt; <q>+1</q></li>
+<li class="message">[<a href="#T13:09:46" id="T13:09:46"><abbr title="2014-05-16T13:09:46+00:00">13:09:46</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>The onboard eMMC uses the MMC1 signals. They are also connected to the expansion header.</q></li>
+<li class="message">[<a href="#T13:09:48" id="T13:09:48"><abbr title="2014-05-16T13:09:48+00:00">13:09:48</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T13:09:55" id="T13:09:55"><abbr title="2014-05-16T13:09:55+00:00">13:09:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T13:10:03" id="T13:10:03"><abbr title="2014-05-16T13:10:03+00:00">13:10:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if you dont use the emmc, you can use these pins</q></li>
+<li class="message">[<a href="#T13:10:08" id="T13:10:08"><abbr title="2014-05-16T13:10:08+00:00">13:10:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>same for the HDMI out</q></li>
+<li class="message">[<a href="#T13:11:52" id="T13:11:52"><abbr title="2014-05-16T13:11:52+00:00">13:11:52</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>I see</q></li>
+<li class="message">[<a href="#T13:12:01" id="T13:12:01"><abbr title="2014-05-16T13:12:01+00:00">13:12:01</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>that was what I was looking for</q></li>
+<li class="join">[<a href="#T13:12:09" id="T13:12:09"><abbr title="2014-05-16T13:12:09+00:00">13:12:09</abbr></a>] <span>* thurgood (~thurgood@70.234.249.129) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:12:30" id="T13:12:30"><abbr title="2014-05-16T13:12:30+00:00">13:12:30</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>question about PRU pinmux mode</q></li>
+<li class="quit">[<a href="#T13:12:41" id="T13:12:41"><abbr title="2014-05-16T13:12:41+00:00">13:12:41</abbr></a>] <span>* jpirko (~jirka@jirka.pirko.cz) Quit (Quit: Leaving)</span></li>
+<li class="message">[<a href="#T13:12:42" id="T13:12:42"><abbr title="2014-05-16T13:12:42+00:00">13:12:42</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>most r30 pru pins are in mode 5</q></li>
+<li class="join">[<a href="#T13:12:54" id="T13:12:54"><abbr title="2014-05-16T13:12:54+00:00">13:12:54</abbr></a>] <span>* H-H-H (~H-H-H@host-92-20-255-45.as13285.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:12:59" id="T13:12:59"><abbr title="2014-05-16T13:12:59+00:00">13:12:59</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>but why do I need to set the EIN bit</q></li>
+<li class="quit">[<a href="#T13:13:18" id="T13:13:18"><abbr title="2014-05-16T13:13:18+00:00">13:13:18</abbr></a>] <span>* zodiac1111 (~zodiac111@218.93.10.202) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T13:13:40" id="T13:13:40"><abbr title="2014-05-16T13:13:40+00:00">13:13:40</abbr></a>] &lt;<cite>heeen</cite>&gt; <q><a href="http://elinux.org/Ti_AM33XX_PRUSSv2">http://elinux.org/Ti_AM33XX_PRUSSv2</a></q></li>
+<li class="message">[<a href="#T13:13:58" id="T13:13:58"><abbr title="2014-05-16T13:13:58+00:00">13:13:58</abbr></a>] &lt;<cite>heeen</cite>&gt; <q>this table says the mode should be 0x25, so 0x20 | 0x05</q></li>
+<li class="quit">[<a href="#T13:16:49" id="T13:16:49"><abbr title="2014-05-16T13:16:49+00:00">13:16:49</abbr></a>] <span>* _chase_ (~a0271661@nat/ti/x-xsiasyrhwcizmpsd) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T13:17:19" id="T13:17:19"><abbr title="2014-05-16T13:17:19+00:00">13:17:19</abbr></a>] <span>* _chase_ (~a0271661@nat/ti/x-ljkotrbpyosyjirz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:22:28" id="T13:22:28"><abbr title="2014-05-16T13:22:28+00:00">13:22:28</abbr></a>] <span>* johnwalkr (~jules@net020.mech.tohoku.ac.jp) Quit (Quit: johnwalkr)</span></li>
+<li class="quit">[<a href="#T13:23:02" id="T13:23:02"><abbr title="2014-05-16T13:23:02+00:00">13:23:02</abbr></a>] <span>* konradoo77 (~debian@user-94-254-212-131.play-internet.pl) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:23:42" id="T13:23:42"><abbr title="2014-05-16T13:23:42+00:00">13:23:42</abbr></a>] <span>* LordDVG (~LordDVG@unaffiliated/lorddvg) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:25:06" id="T13:25:06"><abbr title="2014-05-16T13:25:06+00:00">13:25:06</abbr></a>] <span>* konradoo77 (~debian@user-94-254-210-119.play-internet.pl) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:28:50" id="T13:28:50"><abbr title="2014-05-16T13:28:50+00:00">13:28:50</abbr></a>] <span>* c10ud (~c10ud@emesene/dictator/c10ud) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T13:30:19" id="T13:30:19"><abbr title="2014-05-16T13:30:19+00:00">13:30:19</abbr></a>] <span>* konradoo77 (~debian@user-94-254-210-119.play-internet.pl) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T13:32:15" id="T13:32:15"><abbr title="2014-05-16T13:32:15+00:00">13:32:15</abbr></a>] <span>* konradoo77 (~debian@user-94-254-205-161.play-internet.pl) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T13:35:10" id="T13:35:10"><abbr title="2014-05-16T13:35:10+00:00">13:35:10</abbr></a>] <span>* bzyx_ is now known as bzyx</span></li>
+<li class="nick-change">[<a href="#T13:38:38" id="T13:38:38"><abbr title="2014-05-16T13:38:38+00:00">13:38:38</abbr></a>] <span>* zz_repat is now known as repat</span></li>
+<li class="join">[<a href="#T13:39:14" id="T13:39:14"><abbr title="2014-05-16T13:39:14+00:00">13:39:14</abbr></a>] <span>* Daniele (~daniele@unaffiliated/daniele) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:47:19" id="T13:47:19"><abbr title="2014-05-16T13:47:19+00:00">13:47:19</abbr></a>] <span>* tumppu (tumppu@unaffiliated/tumppu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2014-05-16T13:47:19+00:00">13:47:19</abbr>] <span>* mazzoo (~mazzoo@83.133.178.26) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2014-05-16T13:47:19+00:00">13:47:19</abbr>] <span>* Akuma (~Akuma@modemcable221.82-177-173.mc.videotron.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:47:20" id="T13:47:20"><abbr title="2014-05-16T13:47:20+00:00">13:47:20</abbr></a>] <span>* Zygo (foobar@startkeylogger.hungrycats.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2014-05-16T13:47:20+00:00">13:47:20</abbr>] <span>* D4v33 (~D4v33@host86-146-82-240.range86-146.btcentralplus.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2014-05-16T13:47:20+00:00">13:47:20</abbr>] <span>* honestly (~luke@unaffiliated/luketheduke) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:47:21" id="T13:47:21"><abbr title="2014-05-16T13:47:21+00:00">13:47:21</abbr></a>] <span>* ShadowJK (~jk@212.7.198.194) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2014-05-16T13:47:21+00:00">13:47:21</abbr>] <span>* insurgent_ (~quassel@mx.hpcfactor.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2014-05-16T13:47:21+00:00">13:47:21</abbr>] <span>* RagBal (~RagBal@54694E34.cm-12-2b.dynamic.ziggo.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2014-05-16T13:47:21+00:00">13:47:21</abbr>] <span>* rwp (~bob@havoc.proulx.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T13:47:23" id="T13:47:23"><abbr title="2014-05-16T13:47:23+00:00">13:47:23</abbr></a>] <span>* KotH (~attila@lou-outside.kinali.ch) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2014-05-16T13:47:23+00:00">13:47:23</abbr>] <span>* isbric (~isbric@c-e49e71d5.036-12-6875761.cust.bredbandsbolaget.se) Quit (*.net *.split)</span></li>
+<li class="join">[<a href="#T13:47:26" id="T13:47:26"><abbr title="2014-05-16T13:47:26+00:00">13:47:26</abbr></a>] <span>* Zygo (foobar@startkeylogger.hungrycats.org) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:47:27" id="T13:47:27"><abbr title="2014-05-16T13:47:27+00:00">13:47:27</abbr></a>] <span>* ShadowJK (~jk@212.7.198.194) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:47:28" id="T13:47:28"><abbr title="2014-05-16T13:47:28+00:00">13:47:28</abbr></a>] <span>* KotH (~attila@lou-outside.kinali.ch) has joined #beagle</span></li>
+<li class="join">[<abbr title="2014-05-16T13:47:28+00:00">13:47:28</abbr>] <span>* mazzoo (~mazzoo@83.133.178.26) has joined #beagle</span></li>
+<li class="mode">[<abbr title="2014-05-16T13:47:28+00:00">13:47:28</abbr>] <span>* ChanServ sets mode +o KotH</span></li>
+<li class="join">[<abbr title="2014-05-16T13:47:28+00:00">13:47:28</abbr>] <span>* tumppu (tumppu@unaffiliated/tumppu) has joined #beagle</span></li>
+<li class="join">[<abbr title="2014-05-16T13:47:28+00:00">13:47:28</abbr>] <span>* isbric (~isbric@c-e49e71d5.036-12-6875761.cust.bredbandsbolaget.se) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:47:29" id="T13:47:29"><abbr title="2014-05-16T13:47:29+00:00">13:47:29</abbr></a>] <span>* rwp (~bob@havoc.proulx.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:47:34" id="T13:47:34"><abbr title="2014-05-16T13:47:34+00:00">13:47:34</abbr></a>] <span>* honestly (~luke@unaffiliated/luketheduke) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:47:39" id="T13:47:39"><abbr title="2014-05-16T13:47:39+00:00">13:47:39</abbr></a>] <span>* RagBal (~RagBal@54694E34.cm-12-2b.dynamic.ziggo.nl) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:47:45" id="T13:47:45"><abbr title="2014-05-16T13:47:45+00:00">13:47:45</abbr></a>] <span>* Akuma (~Akuma@modemcable221.82-177-173.mc.videotron.ca) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2014-05-16T13:47:45+00:00">13:47:45</abbr>] <span>* Akuma (~Akuma@modemcable221.82-177-173.mc.videotron.ca) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:47:54" id="T13:47:54"><abbr title="2014-05-16T13:47:54+00:00">13:47:54</abbr></a>] <span>* D4v33 (~D4v33@host86-146-82-240.range86-146.btcentralplus.com) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T13:47:56" id="T13:47:56"><abbr title="2014-05-16T13:47:56+00:00">13:47:56</abbr></a>] <span>* D4v33 (~D4v33@host86-146-82-240.range86-146.btcentralplus.com) has joined #beagle</span></li>
+<li class="join">[<abbr title="2014-05-16T13:47:56+00:00">13:47:56</abbr>] <span>* alan_o (~alan@2601:2:2980:379:b91c:561b:7a55:4bee) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:48:28" id="T13:48:28"><abbr title="2014-05-16T13:48:28+00:00">13:48:28</abbr></a>] <span>* insurgent (~quassel@mx.hpcfactor.com) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T13:50:25" id="T13:50:25"><abbr title="2014-05-16T13:50:25+00:00">13:50:25</abbr></a>] <span>* repat is now known as zz_repat</span></li>
+<li class="quit">[<a href="#T13:50:59" id="T13:50:59"><abbr title="2014-05-16T13:50:59+00:00">13:50:59</abbr></a>] <span>* ogra_ (~ogra_@p5098ed03.dip0.t-ipconnect.de) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="join">[<a href="#T13:54:40" id="T13:54:40"><abbr title="2014-05-16T13:54:40+00:00">13:54:40</abbr></a>] <span>* pingswept (~Adium@146-115-15-124.ma.subnet.cable.rcn.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:58:15" id="T13:58:15"><abbr title="2014-05-16T13:58:15+00:00">13:58:15</abbr></a>] <span>* johnwalkr (~jules@p5014-ipngn201aobadori.miyagi.ocn.ne.jp) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:59:33" id="T13:59:33"><abbr title="2014-05-16T13:59:33+00:00">13:59:33</abbr></a>] <span>* crxz0193 (~crxz0193@123.201.50.65) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:59:36" id="T13:59:36"><abbr title="2014-05-16T13:59:36+00:00">13:59:36</abbr></a>] <span>* Abhishek_ (~Thunderbi@202.62.24.45) has joined #beagle</span></li>
