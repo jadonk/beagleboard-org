@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1397763206989">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1400638650647">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>updater</uri>
-    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36</http_browser>
-    <time type="date">17.04.2014 19:33:26 UTC</time>
-    <hopsession>98.250.189.1fr2k0ri8th8m</hopsession>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36</http_browser>
+    <time type="date">21.05.2014 02:17:30 UTC</time>
+    <hopsession>98.250.189.9u8540vbqjpf</hopsession>
     <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/static/jquery.microdata.json.js&quot;&gt;&lt;/script&gt;
-&lt;div id=&quot;floatMenu&quot;&gt;  
-    &lt;ul&gt;   
-        &lt;li id=&quot;fmStep1&quot;&gt;&lt;a href=&quot;#step1&quot;&gt;&lt;strong&gt;Step 1:&lt;/strong&gt;&lt;br /&gt;
-            Connect to BeagleBone Black&lt;/a&gt;&lt;/li&gt; 
-        &lt;li id=&quot;fmStep2&quot;&gt;&lt;a href=&quot;#step2&quot;&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;&lt;br /&gt;
-            Insert blank uSD card and select image to install&lt;/a&gt;&lt;/li&gt;         
-        &lt;li id=&quot;fmStep3&quot;&gt;&lt;a href=&quot;#step3&quot;&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;&lt;br /&gt;
-            Shutdown and reboot&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&quot;gettingstarted&quot;&gt;
+&lt;div&gt;
     &lt;h1&gt;BeagleBone Image Updater&lt;/h1&gt;
     &lt;p&gt;
-        This step-by-step guide will use the BoneScript server on your
+        This interactive page wizard will use the BoneScript server on your
         BeagleBone Black to download the latest BeagleBone Black software image
         onto a uSD card
         inserted in your BeagleBone Black uSD card slot. To do this,
@@ -34,28 +24,12 @@
         will need to have your BeagleBone Black connected to the Internet and
         visible to the computer you are using to visit this web page.
     &lt;/p&gt;
-    &lt;h3 id=&quot;step1&quot;&gt;
-        &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step1.gif&quot; /&gt;
-        &lt;strong&gt;Connect to BeagleBone Black&lt;/strong&gt;
-    &lt;/h3&gt;
     &lt;p&gt;
         This wizard currently requires you to connect your BeagleBone Black
         up to the Internet. The simplest way to do so is to put it on your
         home router via Ethernet. You&apos;ll then need to locate the board
         address via your router&apos;s DHCP logs or mDNS.
     &lt;/p&gt;
-    &lt;p&gt;
-        When you type your board&apos;s address into the box below and click
-        &lt;b&gt;GO&lt;/b&gt;, a script will
-        be copied onto your board to write images to your uSD cards.
-    &lt;/p&gt;
-    &lt;input id=&quot;address&quot; value=&quot;beaglebone.local&quot; size=&quot;40&quot; style=&quot;height:22px;padding:1px;border:2px inset;margin:2px;font-size:1em;&quot;&gt;&lt;/input&gt;
-    &lt;input id=&quot;address-go&quot; name=&quot;address-go&quot; type=&quot;submit&quot; value=&quot;GO »&quot; style=&quot;border:1px solid #B4A279; border-radius:5px 5px 5px 5px; margin-bottom:20px; margin-left:25px; padding:10px; width:80px; background-color:#de7224; text-align:center; color:#fff; font-weight:bold; height:3em; cursor:pointer;&quot; /&gt;
-    &lt;pre id=&quot;step1-log&quot;&gt;&lt;/pre&gt;
-    &lt;h3 id=&quot;step2&quot;&gt;
-        &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step2.gif&quot; /&gt;
-        &lt;strong&gt;Insert blank uSD card and select image to install&lt;/strong&gt;
-    &lt;/h3&gt;
     &lt;p id=&quot;bootSource-unknown&quot;&gt;
         This script will write the selected image to your uSD card
         if you are running off of your on-board eMMC, so be
@@ -75,35 +49,21 @@
         up.
     &lt;/p&gt;
     &lt;p&gt;
-        Right now, you should see the LEDs blinking all together, but off for
-        most of the time. When you
-        click &lt;b&gt;GO&lt;/b&gt;, you will see the LEDs blinking in a sweeping pattern,
-        back and
-        forth. When the download is complete, you should see the LEDs go
-        back to their normal state, flashing on device activity rather than
-        in a set pattern.
-    &lt;/p&gt;
-    &lt;p&gt;
+        When you type your board&apos;s address into the box below and click
+        &lt;b&gt;GO&lt;/b&gt;, a script will
+        be copied onto your board to write images to your uSD cards.
         The progress meter below will show you the status of the download.
+        When the uSD card has been written, your board will reboot automatically.
     &lt;/p&gt;
     &lt;div id=&quot;latestImages&quot; style=&quot;display:inline;&quot;&gt;&lt;/div&gt;
-    &lt;input id=&quot;image-go&quot; name=&quot;image-go&quot; type=&quot;submit&quot; value=&quot;GO »&quot; style=&quot;display:inline;border:1px solid #B4A279; border-radius:5px 5px 5px 5px; margin-bottom:20px; margin-left:25px; padding:10px; width:80px; background-color:#B4A279; text-align:center; color:#fff; font-weight:bold; height:3em; cursor:pointer;&quot; /&gt;
+    &lt;input id=&quot;address&quot; value=&quot;beaglebone.local&quot; size=&quot;40&quot; style=&quot;height:22px;padding:1px;border:2px inset;margin:2px;font-size:1em;&quot;&gt;&lt;/input&gt;
+    &lt;input id=&quot;address-go&quot; name=&quot;address-go&quot; type=&quot;submit&quot; value=&quot;GO »&quot; style=&quot;border:1px solid #B4A279; border-radius:5px 5px 5px 5px; margin-bottom:20px; margin-left:25px; padding:10px; width:80px; background-color:#de7224; text-align:center; color:#fff; font-weight:bold; height:3em; cursor:pointer;&quot; /&gt;
     &lt;div id=&quot;progressBarContainer&quot; style=&quot;display:inline-block;border:1px solid #B4A279;border-radius:5px 5px 5px 5px;width:300px;height:20px;&quot;&gt;
         &lt;div id=&quot;progressBar&quot; style=&quot;height:20px;width:1px;background-color:#de7224&quot;&gt;&lt;/div&gt; 
     &lt;/div&gt;
     &lt;div id=&quot;progressPercent&quot; style=&quot;display:inline;font-size:2em;&quot;&gt;0 %&lt;/div&gt;
+    &lt;pre id=&quot;step1-log&quot;&gt;&lt;/pre&gt;
     &lt;pre id=&quot;step2-log&quot;&gt;&lt;/pre&gt;
-    &lt;h3 id=&quot;step3&quot;&gt;
-        &lt;img class=&quot;steps&quot; src=&quot;/static/images/btn_step3.gif&quot; /&gt;
-        &lt;strong&gt;Shutdown and reboot&lt;/strong&gt;
-    &lt;/h3&gt;
-    &lt;p&gt;
-        The card contents should now be programmed. Please shutdown your
-        BeagleBone Black normally and reboot. If you downloaded a flasher
-        image, the image will proceed to flash the eMMC on your board. If
-        you downloaded a normal SD card image, your board should boot from
-        the SD card.
-    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
@@ -260,14 +220,11 @@
         socket.on(&apos;start&apos;, onConnect);
         socket.on(&apos;progress&apos;, onProgress);
         socket.on(&apos;done&apos;, onDone);
-        $(&apos;#image-go&apos;).click(onImageGo);
     }
         
     function onConnect(msg) {
         if(connected) return;
         connected = true;
-        //$(&apos;#address-go&apos;).on(&apos;click&apos;);
-        //$(&apos;#address-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
         if(msg &amp;&amp; msg.rootfs) {
             $(&apos;#step1-log&apos;).append(&apos;Boot source is &apos; + msg.rootfs + &apos;\n&apos;);    
             if(msg.rootfs == &apos;eMMC&apos;) {
@@ -289,18 +246,12 @@
     }
     
     function startStepTwo() {
-        $(&apos;#fmStep1&apos;).addClass(&apos;fmGreen&apos;);
-        location.href = &quot;#&quot;;
-        location.href = &quot;#step2&quot;;
-        $(&apos;#image-go&apos;).on(&apos;click&apos;);
-        $(&apos;#image-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
+        onImageGo();
     }
     
     var startTime;
     var updateBarTimer;
     function onImageGo() {
-        $(&apos;#image-go&apos;).off(&apos;click&apos;);
-        $(&apos;#image-go&apos;).css(&apos;background-color&apos;, &apos;#B4A279&apos;);
         image = $(&apos;#latestImages&apos;).find(&quot;:selected&quot;).attr(&apos;value&apos;);
         md5sum = $(&apos;#latestImages&apos;).find(&quot;:selected&quot;).attr(&apos;md5sum&apos;);
         progress = 0;
@@ -359,10 +310,9 @@
     }
     
     function startStepThree() {
-        $(&apos;#fmStep2&apos;).addClass(&apos;fmGreen&apos;);
-        updateBar(25);
-        location.href = &quot;#&quot;;
-        location.href = &quot;#step3&quot;;    
+        updateBar();
+        $(&apos;#address-go&apos;).on(&apos;click&apos;);
+        $(&apos;#address-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
     }
     
     function updateBar() {
