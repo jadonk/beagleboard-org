@@ -1,4 +1,3 @@
-//require('v8-profiler');
 var fs = require('fs');
 var http = require('http');
 var b = require('bonescript');
@@ -14,7 +13,7 @@ for(var i in leds) {
     b.pinMode(leds[i], b.OUTPUT);
     b.digitalWrite(leds[i], b.HIGH);
 }
-setInterval(updateLEDs, 100);
+var ledTimer = setInterval(updateLEDs, 100);
 
 if(false) {
     doDownload('http://debian.beagleboard.org/images/bone-debian-7.4-2014-04-14-2gb.img.xz');
@@ -26,8 +25,8 @@ if(false) {
     var rootfs;
     fs.readdir("/sys/bus/mmc/devices/mmc1:0001/block", onReadDir);
 
-    // Timeout on no connect for 2 minutes
-    var timeout = setTimeout(onDisconnect, 2*60*1000);
+    // Timeout on no connect for 3 minutes
+    var timeout = setTimeout(onDisconnect, 3*60*1000);
 }
 
 function onReadDir(error, files) {
@@ -59,10 +58,7 @@ function getPort() {
 }
 
 var client;
-var offset = 0;
-var md5sum;
-var xz;
-var dd;
+var waitForCurl = false;
 function onConnection(socket) {
     client = socket;
 
@@ -72,8 +68,6 @@ function onConnection(socket) {
     socket.emit('start', { date: connectDate, port: port, rootfs: rootfs });
     socket.on('mounts', onMounts);
     socket.on('download', onDownload);
-    socket.on('proxy', onProxy);
-    socket.on('done', onDone);
     socket.on('disconnect', onDisconnect);
 
     function onMounts(data) {
@@ -86,26 +80,6 @@ function onConnection(socket) {
 
     function onDownload(msg) {
         doDownload(msg.file);
-    }
-
-    function onProxy(msg) {
-        if(typeof msg == typeof {}) {
-            if(msg.offset == offset) {
-                md5sum.update(msg.data, 'binary');
-                offset += msg.size;
-                socket.emit('download', { offset: offset, size: 524288 });
-            } else {
-                socket.emit('error', { offset: offset });
-            }
-        } else {
-            offset = 0;
-            md5sum = crypto.createHash('md5');
-            socket.emit('download', { offset: offset });
-        }
-    }
-
-    function onDone(msg) {
-        socket.emit('done', { offset: offset, md5sum: md5sum.digest('hex') });
     }
 }
 
@@ -135,8 +109,8 @@ function doDownload(file) {
     }
 
     function onCurlData(data) {
-        console.log('md5sum: ' + data.substring(0,31));
-        if(client) client.emit('done', { md5sum: data.substring(0,31) });
+        console.log('md5sum: ' + data.substring(0,32));
+        if(client) client.emit('done', { md5sum: data.substring(0,32) });
     }
     
     var lastProgress = 0;
@@ -144,6 +118,7 @@ function doDownload(file) {
         var progress;
         var x = data.match(/\d+\.+\d*\%/);
         if(x) progress = parseFloat(x[0]);
+        if(progress > 99) waitForCurl = true;
         if(progress && lastProgress < progress) {
             lastProgress = progress;
             if(client) client.emit('progress', { progress: progress.toFixed(1) });
@@ -159,14 +134,23 @@ function doDownload(file) {
 }
 
 function doExit() {
-    onDisconnect();
-}
-    
-function onDisconnect() {
-    state = 'disconnected';
     restoreLEDs();
+    var shutdown = child_process.spawn('shutdown', ['-r', '-t', '5', 'now']);
+    shutdown.stdout.pipe(process.stdout);
+    shutdown.stderr.pipe(process.stderr);
+    shutdown.on('close', onShutdown);
+}
+
+function onShutdown() {
     fs.unlinkSync(__filename);
     process.exit(0);
+}
+
+function onDisconnect() {
+    state = 'disconnected';
+    if(!waitForCurl) {
+    	doExit();
+    }
 }
 
 function updateLEDs() {
@@ -204,6 +188,7 @@ function setLEDs(level) {
 }
 
 function restoreLEDs() {
+    clearInterval(ledTimer);
     var p = '/sys/class/leds/beaglebone:green:usr';
     b.digitalWrite('USR0', b.LOW);
     b.digitalWrite('USR1', b.LOW);
@@ -214,4 +199,3 @@ function restoreLEDs() {
     b.writeTextFile(p+'2/trigger', 'cpu0');
     b.writeTextFile(p+'3/trigger', 'mmc1');
 }
-
