@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1403205309559">
+  <hopobject id="195" name="default" prototype="Page" created="1214843673324" lastModified="1403205907980">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>98.250.189.79</http_remotehost>
@@ -11,7 +11,7 @@
     <http_language>en-US,en;q=0.8</http_language>
     <uri>default</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36</http_browser>
-    <time type="date">19.06.2014 19:15:09 UTC</time>
+    <time type="date">19.06.2014 19:25:07 UTC</time>
     <hopsession>98.250.189.j7fmla9gksqe</hopsession>
     <body> &lt;!-- Product Promotion - START --&gt;
    &lt;div id=&quot;promo&quot;&gt;
@@ -182,10 +182,14 @@ $(document).ready(function(){
     
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&quot;hp-c2&quot; style=&quot;background-color: #f1f1f1; padding: 10px; width: 250px; border-radius: 5px 5px 5px 5px;&quot;&gt;&lt;h1 style=&quot;margin-top: 0px&quot;&gt;Community Activity&lt;/h1&gt;
-&lt;p&gt;&lt;strong id=&quot;element14&quot;&gt;&lt;a href=&quot;http://element14.com/element14_BBB&quot;&gt;Element14
+&lt;div id=&quot;hp-c2&quot; style=&quot;background-color: #f1f1f1; padding: 10px; width: 250px; border-radius: 5px 5px 5px 5px;&quot;&gt;
+&lt;h1 style=&quot;margin-top: 0px&quot;&gt;Community Activity&lt;/h1&gt;
+&lt;p&gt;&lt;strong id=&quot;element14&quot;&gt;&lt;a id=&quot;e14-click&quot; href=&quot;http://element14.com/element14_BBB&quot;&gt;Element14
 delivers BeagleBoard Compliant BeagleBone Black&lt;/strong&gt; &lt;br /&gt;...more&lt;/a&gt;&lt;/p&gt;
 &lt;script&gt;
+$(&apos;#e14&apos;).on(&apos;click&apos;, function() {
+  ga(&apos;send&apos;, &apos;event&apos;, &apos;exit&apos;, &apos;element14&apos;, &apos;community activity&apos;);
+});
 var ne = 0;
 function handleResponse(resp) {
     for(item in resp.items) {
