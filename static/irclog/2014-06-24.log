@@ -104,3 +104,46 @@
 <li class="message">[<a href="#T03:39:56" id="T03:39:56"><abbr title="2014-06-24T03:39:56+00:00">03:39:56</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>putty</q></li>
 <li class="join">[<a href="#T03:50:03" id="T03:50:03"><abbr title="2014-06-24T03:50:03+00:00">03:50:03</abbr></a>] <span>* GusBricker (~GusBricke@cre1513898.lnk.telstra.net) has joined #beaglebone</span></li>
 <li class="quit">[<a href="#T03:51:59" id="T03:51:59"><abbr title="2014-06-24T03:51:59+00:00">03:51:59</abbr></a>] <span>* dj_pi (~dj@c-107-5-25-243.hsd1.mi.comcast.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T04:01:25" id="T04:01:25"><abbr title="2014-06-24T04:01:25+00:00">04:01:25</abbr></a>] <span>* Gazpaxxo (~bizarro_1@140.Red-83-55-234.dynamicIP.rima-tde.net) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T04:03:25" id="T04:03:25"><abbr title="2014-06-24T04:03:25+00:00">04:03:25</abbr></a>] <span>* granito-laptop (~granito@cpe-075-182-108-119.nc.res.rr.com) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T04:04:04" id="T04:04:04"><abbr title="2014-06-24T04:04:04+00:00">04:04:04</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>maybe someone can answer this</q></li>
+<li class="message">[<a href="#T04:04:09" id="T04:04:09"><abbr title="2014-06-24T04:04:09+00:00">04:04:09</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>why on debuntu</q></li>
+<li class="message">[<a href="#T04:05:01" id="T04:05:01"><abbr title="2014-06-24T04:05:01+00:00">04:05:01</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>sudo echo 'something something &gt; write_protected_file</q></li>
+<li class="message">[<a href="#T04:05:03" id="T04:05:03"><abbr title="2014-06-24T04:05:03+00:00">04:05:03</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>doesnt work</q></li>
+<li class="message">[<a href="#T04:05:09" id="T04:05:09"><abbr title="2014-06-24T04:05:09+00:00">04:05:09</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>unless</q></li>
+<li class="join">[<a href="#T04:05:15" id="T04:05:15"><abbr title="2014-06-24T04:05:15+00:00">04:05:15</abbr></a>] <span>* varad (~varad@116.202.150.140) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:05:27" id="T04:05:27"><abbr title="2014-06-24T04:05:27+00:00">04:05:27</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>sudo su -c "echo 'something something &gt; write_protected_file"</q></li>
+<li class="message">[<a href="#T04:06:13" id="T04:06:13"><abbr title="2014-06-24T04:06:13+00:00">04:06:13</abbr></a>] &lt;<cite>mjgardes</cite>&gt; <q>because "something something" is the only part that gets executed as root</q></li>
+<li class="message">[<a href="#T04:06:38" id="T04:06:38"><abbr title="2014-06-24T04:06:38+00:00">04:06:38</abbr></a>] &lt;<cite>mjgardes</cite>&gt; <q>then the output gets passed back to your shell and written to the file as your user</q></li>
+<li class="message">[<a href="#T04:08:13" id="T04:08:13"><abbr title="2014-06-24T04:08:13+00:00">04:08:13</abbr></a>] &lt;<cite>mjgardes</cite>&gt; <q>just to illustrate the way order of operations works in the shell:</q></li>
+<li class="message">[<a href="#T04:08:21" id="T04:08:21"><abbr title="2014-06-24T04:08:21+00:00">04:08:21</abbr></a>] &lt;<cite>mjgardes</cite>&gt; <q>sudo (echo (something something)) &gt; file</q></li>
+<li class="message">[<a href="#T04:12:43" id="T04:12:43"><abbr title="2014-06-24T04:12:43+00:00">04:12:43</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T04:14:34" id="T04:14:34"><abbr title="2014-06-24T04:14:34+00:00">04:14:34</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>so is su -c the best solution or is there some other way to fix it</q></li>
+<li class="join">[<a href="#T04:15:24" id="T04:15:24"><abbr title="2014-06-24T04:15:24+00:00">04:15:24</abbr></a>] <span>* squid_ (6eaf2670@gateway/web/freenode/ip.110.175.38.112) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T04:15:25" id="T04:15:25"><abbr title="2014-06-24T04:15:25+00:00">04:15:25</abbr></a>] <span>* icecube45 is now known as BlackCoiner</span></li>
+<li class="message">[<abbr title="2014-06-24T04:15:25+00:00">04:15:25</abbr>] &lt;<cite>squid_</cite>&gt; <q>hey there</q></li>
+<li class="nick-change">[<a href="#T04:15:39" id="T04:15:39"><abbr title="2014-06-24T04:15:39+00:00">04:15:39</abbr></a>] <span>* BlackCoiner is now known as icecube45</span></li>
+<li class="message">[<a href="#T04:16:20" id="T04:16:20"><abbr title="2014-06-24T04:16:20+00:00">04:16:20</abbr></a>] &lt;<cite>squid_</cite>&gt; <q>has anyone ever connected the PN532 NFC adarfuit card to the beaglebone black</q></li>
+<li class="nick-change">[<a href="#T04:16:29" id="T04:16:29"><abbr title="2014-06-24T04:16:29+00:00">04:16:29</abbr></a>] <span>* icecube45 is now known as BlackCoiner</span></li>
+<li class="nick-change">[<a href="#T04:16:36" id="T04:16:36"><abbr title="2014-06-24T04:16:36+00:00">04:16:36</abbr></a>] <span>* BlackCoiner is now known as icecube45</span></li>
+<li class="quit">[<a href="#T04:18:52" id="T04:18:52"><abbr title="2014-06-24T04:18:52+00:00">04:18:52</abbr></a>] <span>* woooden (~woooden@c-98-232-209-134.hsd1.or.comcast.net) Quit (Quit: woooden)</span></li>
+<li class="message">[<a href="#T04:19:40" id="T04:19:40"><abbr title="2014-06-24T04:19:40+00:00">04:19:40</abbr></a>] &lt;<cite>mjgardes</cite>&gt; <q>there are lots of ways to work around that</q></li>
+<li class="message">[<a href="#T04:20:35" id="T04:20:35"><abbr title="2014-06-24T04:20:35+00:00">04:20:35</abbr></a>] &lt;<cite>mjgardes</cite>&gt; <q>whichever way you are most comfortable with is fine</q></li>
+<li class="quit">[<a href="#T04:22:22" id="T04:22:22"><abbr title="2014-06-24T04:22:22+00:00">04:22:22</abbr></a>] <span>* VoltVisionSteve (~VoltVisio@207-255-162-088-dhcp.wrn.pa.atlanticbb.net) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="quit">[<a href="#T04:23:07" id="T04:23:07"><abbr title="2014-06-24T04:23:07+00:00">04:23:07</abbr></a>] <span>* GusBricker (~GusBricke@cre1513898.lnk.telstra.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T04:23:50" id="T04:23:50"><abbr title="2014-06-24T04:23:50+00:00">04:23:50</abbr></a>] <span>* hype_ (82d83682@gateway/web/freenode/ip.130.216.54.130) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:25:07" id="T04:25:07"><abbr title="2014-06-24T04:25:07+00:00">04:25:07</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>what happens if i remove my only user from the sudoer file... and disable login with empty password</q></li>
+<li class="message">[<a href="#T04:25:10" id="T04:25:10"><abbr title="2014-06-24T04:25:10+00:00">04:25:10</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>:D</q></li>
+<li class="message">[<a href="#T04:25:25" id="T04:25:25"><abbr title="2014-06-24T04:25:25+00:00">04:25:25</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>i will need to chroot the system</q></li>
+<li class="join">[<a href="#T04:25:28" id="T04:25:28"><abbr title="2014-06-24T04:25:28+00:00">04:25:28</abbr></a>] <span>* GusBricker (~GusBricke@cre1513898.lnk.telstra.net) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T04:25:37" id="T04:25:37"><abbr title="2014-06-24T04:25:37+00:00">04:25:37</abbr></a>] &lt;<cite>shay_shay</cite>&gt; <q>how to do that its on the emmc</q></li>
+<li class="quit">[<a href="#T04:26:39" id="T04:26:39"><abbr title="2014-06-24T04:26:39+00:00">04:26:39</abbr></a>] <span>* GusBricker (~GusBricke@cre1513898.lnk.telstra.net) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T04:27:45" id="T04:27:45"><abbr title="2014-06-24T04:27:45+00:00">04:27:45</abbr></a>] <span>* improvnerd (~jbrewer@12.250.97.26) Quit (Quit: improvnerd)</span></li>
+<li class="join">[<a href="#T04:31:16" id="T04:31:16"><abbr title="2014-06-24T04:31:16+00:00">04:31:16</abbr></a>] <span>* DLPeterson (~hazelnuss@c-71-198-192-33.hsd1.ca.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T04:33:03" id="T04:33:03"><abbr title="2014-06-24T04:33:03+00:00">04:33:03</abbr></a>] <span>* GusBricker (~GusBricke@cre1513898.lnk.telstra.net) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T04:35:56" id="T04:35:56"><abbr title="2014-06-24T04:35:56+00:00">04:35:56</abbr></a>] <span>* djerome (~djerome@ip24-251-115-14.ph.ph.cox.net) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T04:41:42" id="T04:41:42"><abbr title="2014-06-24T04:41:42+00:00">04:41:42</abbr></a>] <span>* chnyc (320c3e67@gateway/web/freenode/ip.50.12.62.103) has joined #beagle</span></li>
+<li class="join">[<a href="#T04:45:43" id="T04:45:43"><abbr title="2014-06-24T04:45:43+00:00">04:45:43</abbr></a>] <span>* vagrantc (~vagrant@freegeek/vagrantc) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T04:51:03" id="T04:51:03"><abbr title="2014-06-24T04:51:03+00:00">04:51:03</abbr></a>] <span>* jpfau is now known as jpfau|away</span></li>
+<li class="nick-change">[<a href="#T04:51:07" id="T04:51:07"><abbr title="2014-06-24T04:51:07+00:00">04:51:07</abbr></a>] <span>* jpfau|away is now known as jpfau</span></li>
+<li class="join">[<a href="#T04:59:12" id="T04:59:12"><abbr title="2014-06-24T04:59:12+00:00">04:59:12</abbr></a>] <span>* behanw (~behanw@S0106dc9fdb80cffd.gv.shawcable.net) has joined #beagle</span></li>
