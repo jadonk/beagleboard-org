@@ -7,9 +7,10 @@ var parser = xml2js.Parser();
 var filepath = __dirname + '/../../db/';
 var db = {};
 
-addElements('/', 0, onDone);
+addElements('/', 0);
+process.on('exit', onDone);
 
-function addElements(path, id, callback) {
+function addElements(path, id) {
     fs.readFile(filepath + id + '.xml', onFile);
 
     function onFile(err, data) {
@@ -18,18 +19,16 @@ function addElements(path, id, callback) {
     }
 
     function onParse(err, result) {
+        db[path] = result;
         console.log('parsed ' + id);
         //console.log(id + ':' + JSON.stringify(result, null, '\t'));
         var children = result.xmlroot.hopobject[0]['hop:child'];
         for(var i in children) {
             var cid = children[i]['$'].idref;
             console.log('adding ' + cid);
-            addElements(path + i + '/', cid, testForDone);
+            addElements(path + i + '/', cid);
         }
     }
-}
-
-function testForDone() {
 }
 
 function onDone() {
