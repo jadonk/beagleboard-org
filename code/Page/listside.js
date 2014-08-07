@@ -25,7 +25,13 @@ function listTops ()
   for (var i in collection) {
 
       var postbody = collection[i].body;
-      var postTitle = postbody.substr((postbody.indexOf('<h1>') + 4), postbody.indexOf('</h1>') - (postbody.indexOf('<h1>') + 4));
+      var tempPos = postbody.indexOf('>', postbody.indexOf('<h1')) + 1;
+      var postTitle = postbody.substr(tempPos, postbody.indexOf('</h1>') - tempPos);
+ 
+      if (postTitle.length < 2) {
+        tempPos = postbody.indexOf('>', postbody.indexOf('<h3')) + 1;
+        postTitle = postTitle = postbody.substr(tempPos, postbody.indexOf('</h3>') - tempPos);
+      }
 
     if (collection[i].pvCount != undefined) {
       body +=

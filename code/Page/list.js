@@ -56,6 +56,9 @@ function listBody ()
    }
   else if (collection[0].render_skin == "blog")
    {
+    var sort = "uri desc";
+    var orderedByDate = this.getOrderedView(sort);
+    collection = orderedByDate.list();
     body += "<table id='articlelist' style='width:675px;'>\n";
    }
   else
@@ -180,7 +183,6 @@ function listBody ()
      }
     else if (collection[i].render_skin == "blog")
      {
-      var contacttype = '';
       var postbody = collection[i].body;
       var tempPos = postbody.indexOf('>', postbody.indexOf('<h1')) + 1;
       var postTitle = postbody.substr(tempPos, postbody.indexOf('</h1>') - tempPos);
@@ -199,18 +201,10 @@ function listBody ()
         postSummary = postbody.substr(tempPos, postbody.indexOf('</p>', newStart) - tempPos);
       }
 
-      if ( collection[i].user.indexOf('@') > -1 ) {
-        contacttype = "mailto:";
-      } else {
-        contacttype = "http://";
-      }
-
       body +=
        '<tr><td>' + i + '</td><td><h1><a href="' + collection[i].href() + '">'
        + (postTitle.length > 3 ? postTitle : collection[i].uri) 
        + '</a></h1><div class="blogInfo">' + collection[i].time
-       + ' Last updated by: '
-       + '<a href="' + contacttype + collection[i].user + '">' + collection[i].user + '</a>'
        + '</div><div class="summary">' + ( postSummary.length > 3 ? postSummary : ' ')
        + '</div><div style="text-align:right;"><a href="' + collection[i].href() + '">Read more</a> &raquo;</div></td></tr>\n';
      }
