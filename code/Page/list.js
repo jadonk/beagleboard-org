@@ -53,9 +53,15 @@ function listBody ()
     body += "</thead>\n";
     body += "<tbody>\n";
     collection = collection.reverse();
- }  else {
-   body += "<ul>\n";
- }
+   }
+  else if (collection[0].render_skin == "blog")
+   {
+    body += "<table id='articlelist' style='width:675px;'>\n";
+   }
+  else
+   {
+    body += "<ul>\n";
+   }
 
   for (var i in collection) {
     var prjDate = new Date();
@@ -161,7 +167,9 @@ function listBody ()
          }
        }
       body += '</tr>\n';
-    } else if (collection[i].render_skin == "rss") {
+     }
+    else if (collection[i].render_skin == "rss")
+     {
       body +=
        '<li class="rss"><a href="' + collection[i].href() + '">'
        + collection[i].uri
@@ -169,7 +177,45 @@ function listBody ()
        + '<div>'
        + collection[i].body
        + '</div></li>\n';
-    } else {
+     }
+    else if (collection[i].render_skin == "blog")
+     {
+      var contacttype = '';
+      var postbody = collection[i].body;
+      var tempPos = postbody.indexOf('>', postbody.indexOf('<h1')) + 1;
+      var postTitle = postbody.substr(tempPos, postbody.indexOf('</h1>') - tempPos);
+
+      if (postTitle.length < 2) {
+        tempPos = postbody.indexOf('>', postbody.indexOf('<h3')) + 1;
+        postTitle = postTitle = postbody.substr(tempPos, postbody.indexOf('</h3>') - tempPos);
+      }
+
+      tempPos = postbody.indexOf('>', postbody.indexOf('<p')) + 1;
+      var postSummary = postbody.substr(tempPos, postbody.indexOf('</p>') - tempPos);
+
+      if (postSummary.indexOf('By') > -1) {
+        var newStart = postbody.indexOf('</p>') + 4;
+        tempPos = postbody.indexOf('>', postbody.indexOf('<p', newStart)) + 1;
+        postSummary = postbody.substr(tempPos, postbody.indexOf('</p>', newStart) - tempPos);
+      }
+
+      if ( collection[i].user.indexOf('@') > -1 ) {
+        contacttype = "mailto:";
+      } else {
+        contacttype = "http://";
+      }
+
+      body +=
+       '<tr><td>' + i + '</td><td><h1><a href="' + collection[i].href() + '">'
+       + (postTitle.length > 3 ? postTitle : collection[i].uri) 
+       + '</a></h1><div class="blogInfo">' + collection[i].time
+       + ' Last updated by: '
+       + '<a href="' + contacttype + collection[i].user + '">' + collection[i].user + '</a>'
+       + '</div><div class="summary">' + ( postSummary.length > 3 ? postSummary : ' ')
+       + '</div><div style="text-align:right;"><a href="' + collection[i].href() + '">Read more</a> &raquo;</div></td></tr>\n';
+     }
+    else
+     {
       body +=
        '<li><a href="' + collection[i].href() + '">'
        + collection[i].uri
@@ -188,6 +234,10 @@ function listBody ()
   else if (collection[0].render_skin == "cape")
    {
     body += "</tbody></table>\n";
+   }
+  else if (collection[0].render_skin == "blog")
+   {
+    body += "</table>\n";
    }
   else
    {
