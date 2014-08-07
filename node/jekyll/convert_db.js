@@ -11,6 +11,7 @@ addElements('/', 0);
 process.on('exit', onDone);
 
 function addElements(path, id) {
+    console.log('adding ' + path + id);
     fs.readFile(filepath + id + '.xml', onFile);
 
     function onFile(err, data) {
@@ -19,14 +20,16 @@ function addElements(path, id) {
     }
 
     function onParse(err, result) {
-        db[path] = result;
-        console.log('parsed ' + id);
+        var uri = result.xmlroot.hopobject[0]['uri'];
+        if(!uri) uri = id;
+        var newpath = path + uri + '/';
+        db[newpath] = result;
+        console.log('parsed ' + id + ':' + newpath);
         //console.log(id + ':' + JSON.stringify(result, null, '\t'));
         var children = result.xmlroot.hopobject[0]['hop:child'];
         for(var i in children) {
             var cid = children[i]['$'].idref;
-            console.log('adding ' + cid);
-            addElements(path + i + '/', cid);
+            addElements(newpath, cid);
         }
     }
 }
