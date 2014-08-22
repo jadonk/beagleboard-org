@@ -432,3 +432,52 @@
 <li class="quit">[<a href="#T12:57:46" id="T12:57:46"><abbr title="2014-08-22T12:57:46+00:00">12:57:46</abbr></a>] <span>* woglinde (~henning@fb-n15-11.unbelievable-machine.net) Quit (Ping timeout: 240 seconds)</span></li>
 <li class="message">[<a href="#T12:59:29" id="T12:59:29"><abbr title="2014-08-22T12:59:29+00:00">12:59:29</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>Who was having trouble booting vanilla 3.16 yesterday?</q></li>
 <li class="message">[<a href="#T12:59:33" id="T12:59:33"><abbr title="2014-08-22T12:59:33+00:00">12:59:33</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>Cause I just did</q></li>
+<li class="join">[<a href="#T13:00:06" id="T13:00:06"><abbr title="2014-08-22T13:00:06+00:00">13:00:06</abbr></a>] <span>* LordDVG (~LordDVG@unaffiliated/lorddvg) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:00:22" id="T13:00:22"><abbr title="2014-08-22T13:00:22+00:00">13:00:22</abbr></a>] <span>* sidbh (~Siddharth@175.100.169.207) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:01:12" id="T13:01:12"><abbr title="2014-08-22T13:01:12+00:00">13:01:12</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>It crashes though</q></li>
+<li class="message">[<a href="#T13:01:16" id="T13:01:16"><abbr title="2014-08-22T13:01:16+00:00">13:01:16</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>but I do get some output</q></li>
+<li class="message">[<a href="#T13:01:23" id="T13:01:23"><abbr title="2014-08-22T13:01:23+00:00">13:01:23</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>[    0.780045] omap_rng 48310000.rng: OMAP Random Number Generator ver. 20</q></li>
+<li class="message">[<abbr title="2014-08-22T13:01:23+00:00">13:01:23</abbr>] &lt;<cite>Ecco</cite>&gt; <q>[    0.787095] Unable to handle kernel NULL pointer dereference at virtual address 00000000</q></li>
+<li class="message">[<a href="#T13:01:35" id="T13:01:35"><abbr title="2014-08-22T13:01:35+00:00">13:01:35</abbr></a>] &lt;<cite>varad</cite>&gt; <q>Ecco: me! I got it to work after a lot of trials, with omap2plus_defconfig + earlyprintk</q></li>
+<li class="message">[<a href="#T13:01:49" id="T13:01:49"><abbr title="2014-08-22T13:01:49+00:00">13:01:49</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>indeed that was you :)</q></li>
+<li class="part">[<a href="#T13:01:50" id="T13:01:50"><abbr title="2014-08-22T13:01:50+00:00">13:01:50</abbr></a>] <span>* tasslehoff (~Tasslehof@ti0260a430-0319.bb.online.no) has left #beagle</span></li>
+<li class="message">[<a href="#T13:01:54" id="T13:01:54"><abbr title="2014-08-22T13:01:54+00:00">13:01:54</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>I'm using earlyprintk too</q></li>
+<li class="message">[<a href="#T13:02:00" id="T13:02:00"><abbr title="2014-08-22T13:02:00+00:00">13:02:00</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>here are my boot args</q></li>
+<li class="message">[<a href="#T13:02:04" id="T13:02:04"><abbr title="2014-08-22T13:02:04+00:00">13:02:04</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>set bootargs console=ttyO0,115200n8 earlyprintk=serial,uart1,115200n8 ro</q></li>
+<li class="message">[<a href="#T13:02:11" id="T13:02:11"><abbr title="2014-08-22T13:02:11+00:00">13:02:11</abbr></a>] &lt;<cite>varad</cite>&gt; <q>Ecco: could you post your bootargs?</q></li>
+<li class="message">[<a href="#T13:02:18" id="T13:02:18"><abbr title="2014-08-22T13:02:18+00:00">13:02:18</abbr></a>] &lt;<cite>varad</cite>&gt; <q>Ecco: :)</q></li>
+<li class="message">[<abbr title="2014-08-22T13:02:18+00:00">13:02:18</abbr>] &lt;<cite>Ecco</cite>&gt; <q>I read your mind :p</q></li>
+<li class="message">[<a href="#T13:02:51" id="T13:02:51"><abbr title="2014-08-22T13:02:51+00:00">13:02:51</abbr></a>] &lt;<cite>varad</cite>&gt; <q>Ecco: yes, I too have the same thing</q></li>
+<li class="message">[<a href="#T13:03:07" id="T13:03:07"><abbr title="2014-08-22T13:03:07+00:00">13:03:07</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>same crash?</q></li>
+<li class="message">[<a href="#T13:03:12" id="T13:03:12"><abbr title="2014-08-22T13:03:12+00:00">13:03:12</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>or same boot args?</q></li>
+<li class="message">[<a href="#T13:03:27" id="T13:03:27"><abbr title="2014-08-22T13:03:27+00:00">13:03:27</abbr></a>] &lt;<cite>varad</cite>&gt; <q>no, same bootargs. The kernel boots for me</q></li>
+<li class="message">[<a href="#T13:03:30" id="T13:03:30"><abbr title="2014-08-22T13:03:30+00:00">13:03:30</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>(at that point I'm not surprised mine crashes, I configured the kernel way too quickly)</q></li>
+<li class="quit">[<a href="#T13:07:27" id="T13:07:27"><abbr title="2014-08-22T13:07:27+00:00">13:07:27</abbr></a>] <span>* eikeon (~eikeon@c-98-204-80-157.hsd1.dc.comcast.net) Quit (Quit: eikeon)</span></li>
+<li class="quit">[<a href="#T13:07:28" id="T13:07:28"><abbr title="2014-08-22T13:07:28+00:00">13:07:28</abbr></a>] <span>* sidbh (~Siddharth@175.100.169.207) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="join">[<a href="#T13:07:56" id="T13:07:56"><abbr title="2014-08-22T13:07:56+00:00">13:07:56</abbr></a>] <span>* sidbh (~Siddharth@175.100.169.207) has joined #beagle</span></li>
+<li class="message">[<a href="#T13:08:15" id="T13:08:15"><abbr title="2014-08-22T13:08:15+00:00">13:08:15</abbr></a>] &lt;<cite>varad</cite>&gt; <q>Ecco: make sure you use the power supply and not USB for power. it turns off abruptly at `[4.007115] Started Journal Service.`.</q></li>
+<li class="message">[<a href="#T13:08:35" id="T13:08:35"><abbr title="2014-08-22T13:08:35+00:00">13:08:35</abbr></a>] &lt;<cite>varad</cite>&gt; <q>(maybe while configuring the USB controller)</q></li>
+<li class="message">[<a href="#T13:09:28" id="T13:09:28"><abbr title="2014-08-22T13:09:28+00:00">13:09:28</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>What?</q></li>
+<li class="message">[<a href="#T13:09:30" id="T13:09:30"><abbr title="2014-08-22T13:09:30+00:00">13:09:30</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>Why?</q></li>
+<li class="quit">[<a href="#T13:09:33" id="T13:09:33"><abbr title="2014-08-22T13:09:33+00:00">13:09:33</abbr></a>] <span>* VoltVisionSteve (~VoltVisio@209.203.194.209) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="message">[<a href="#T13:10:38" id="T13:10:38"><abbr title="2014-08-22T13:10:38+00:00">13:10:38</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>I didn't even enable USB at that point :)</q></li>
+<li class="nick-change">[<a href="#T13:10:54" id="T13:10:54"><abbr title="2014-08-22T13:10:54+00:00">13:10:54</abbr></a>] <span>* zz_repat is now known as repat</span></li>
+<li class="message">[<a href="#T13:10:59" id="T13:10:59"><abbr title="2014-08-22T13:10:59+00:00">13:10:59</abbr></a>] &lt;<cite>varad</cite>&gt; <q>Ecco: The board goes down (LEDs off, no more console putput) if I power it from the USB instead of the adapter.</q></li>
+<li class="message">[<a href="#T13:11:01" id="T13:11:01"><abbr title="2014-08-22T13:11:01+00:00">13:11:01</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>And the kernel is doomed to panic, there's no filesystem enabled</q></li>
+<li class="message">[<a href="#T13:11:10" id="T13:11:10"><abbr title="2014-08-22T13:11:10+00:00">13:11:10</abbr></a>] &lt;<cite>Ecco</cite>&gt; <q>varad: That's weird, it shouldn't</q></li>
+<li class="quit">[<a href="#T13:12:07" id="T13:12:07"><abbr title="2014-08-22T13:12:07+00:00">13:12:07</abbr></a>] <span>* silenius (~ve@193-81-148-246.adsl.highway.telekom.at) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="quit">[<a href="#T13:12:24" id="T13:12:24"><abbr title="2014-08-22T13:12:24+00:00">13:12:24</abbr></a>] <span>* sidbh (~Siddharth@175.100.169.207) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="join">[<a href="#T13:18:21" id="T13:18:21"><abbr title="2014-08-22T13:18:21+00:00">13:18:21</abbr></a>] <span>* ph4nt0mas (~quassel@athedsl-266751.home.otenet.gr) has joined #beagle</span></li>
+<li class="join">[<a href="#T13:28:49" id="T13:28:49"><abbr title="2014-08-22T13:28:49+00:00">13:28:49</abbr></a>] <span>* sidbh (~Siddharth@175.100.169.207) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:32:33" id="T13:32:33"><abbr title="2014-08-22T13:32:33+00:00">13:32:33</abbr></a>] <span>* zodiac1111 (~zodiac111@112.213.99.210) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T13:33:58" id="T13:33:58"><abbr title="2014-08-22T13:33:58+00:00">13:33:58</abbr></a>] <span>* sidbh (~Siddharth@175.100.169.207) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="nick-change">[<a href="#T13:34:38" id="T13:34:38"><abbr title="2014-08-22T13:34:38+00:00">13:34:38</abbr></a>] <span>* balister_ is now known as Crofton</span></li>
+<li class="quit">[<a href="#T13:34:46" id="T13:34:46"><abbr title="2014-08-22T13:34:46+00:00">13:34:46</abbr></a>] <span>* dj_pi (~dj@c-107-5-25-243.hsd1.mi.comcast.net) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T13:36:39" id="T13:36:39"><abbr title="2014-08-22T13:36:39+00:00">13:36:39</abbr></a>] <span>* rohitksingh (~Rohit@59.177.65.94) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:43:37" id="T13:43:37"><abbr title="2014-08-22T13:43:37+00:00">13:43:37</abbr></a>] <span>* ph4nt0mas (~quassel@athedsl-266751.home.otenet.gr) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T13:46:00" id="T13:46:00"><abbr title="2014-08-22T13:46:00+00:00">13:46:00</abbr></a>] <span>* ph4nt0mas (~quassel@athedsl-266751.home.otenet.gr) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:49:45" id="T13:49:45"><abbr title="2014-08-22T13:49:45+00:00">13:49:45</abbr></a>] <span>* sorakun (~sora@41.224.119.136) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="join">[<a href="#T13:54:51" id="T13:54:51"><abbr title="2014-08-22T13:54:51+00:00">13:54:51</abbr></a>] <span>* c10ud` (~c10ud@emesene/dictator/c10ud) has joined #beagle</span></li>
+<li class="join">[<abbr title="2014-08-22T13:54:51+00:00">13:54:51</abbr>] <span>* mrjazzcat (~mrjazzcat@c-24-8-176-66.hsd1.co.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T13:55:20" id="T13:55:20"><abbr title="2014-08-22T13:55:20+00:00">13:55:20</abbr></a>] <span>* c10ud (~c10ud@emesene/dictator/c10ud) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T13:55:33" id="T13:55:33"><abbr title="2014-08-22T13:55:33+00:00">13:55:33</abbr></a>] <span>* nofxx_ (~nofxx@unaffiliated/nofxx) Quit (Ping timeout: 240 seconds)</span></li>
