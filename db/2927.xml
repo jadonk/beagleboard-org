@@ -1,70 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2927" name="Page" prototype="Page" created="1375134478947" lastModified="1409688460936">
+  <hopobject id="2927" name="Page" prototype="Page" created="1375134478947" lastModified="1409688500918">
   <hop:parent idref="0" prototyperef="Root"/>
-    <http_browser>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.9 (KHTML, like Gecko) Chrome/20.0.1115.1 Safari/536.9</http_browser>
-    <lang>en-us</lang>
-    <uri>makerfairedetroit2013</uri>
-    <http_host>beagleboard.org</http_host>
-    <time type="date">19.10.2013 06:15:01 UTC</time>
-    <pseudoparent idref="0" prototyperef="Root"/>
-    <http_remotehost>71.239.244.4</http_remotehost>
-    <hopsession>71.239.244.14ecwad7644ne</hopsession>
-    <user>pdp7pdp7@gmail.com</user>
-    <pvcount type="float">98.0</pvcount>
-    <body>&lt;script src=&quot;/static/bonescript-demo.js&quot;&gt;&lt;/script&gt;
-&lt;h1&gt;BeagleBone Black workshop at Maker Faire Detroit 2013&lt;/h1&gt;
-&lt;h3&gt;Sponsored by &lt;a href=&quot;http://www.element14.com/community/community/knode/single-board_computers/next-gen_beaglebone/blog/2013/07/31/beaglebone-black-hands-on-workshop&quot;&gt;element14&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;
-&lt;a href=&quot;https://docs.google.com/file/d/0B9D7XdBlve3HeDZwaHVEbmVJYUE/edit?usp=sharing&quot; class=&quot;external&quot;&gt;Workshop Instructions [PDF]&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;Bill of Materials (BOM) for the workshop with Newark element14 SKUs:
-&lt;table&gt;
-&lt;tr&gt;&lt;th&gt;Qty&lt;/th&gt;&lt;th&gt;Desc&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=65W6016&quot;&gt;BeagleBone Black&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=53W6187&quot;&gt;Adafruit BeagleBone Black Protoplate&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=53W6131&quot;&gt;Adafruit half-size breadboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt; 
-&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=38K0357&quot;&gt;270 Ohm resistor&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt; 
-&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=09J9321&quot;&gt;Red LED&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt; 
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=66W7458&quot;&gt;Adafruit tactile switch buttons (10 pack)&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt; 
-&lt;tr&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=38K0327&quot;&gt;1K Ohm resistor&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt; 
-&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=19M9015&quot;&gt;TMP36 temperature sensor&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt; 
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://www.newark.com/jsp/search/productdetail.jsp?SKU=53W6160&quot;&gt;BeagleBone sticker&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;      
-&lt;/table&gt;
-&lt;/p&gt;
-&lt;h2&gt;Let&apos;s start with a quick board tour&lt;/h2&gt;
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/ciX08ysl6LE&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;h2&gt;Task #1 - Blink an LED&lt;/h2&gt;
-&lt;iframe width=&quot;480&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/d3-_aoOa8SE&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;p&gt;
-&lt;pre id=&quot;task1&quot; class=&quot;use-editor&quot;&gt;
-// Setup
-var b = require(&apos;bonescript&apos;);  // Read library
-var LED = &quot;P9_14&quot;;              // Where the LED is connected
-var state = 0;                  // Define the &apos;state&apos; variable
-b.pinMode(LED, b.OUTPUT);       // Enable the pin
-
-// Call &apos;blink&apos; every 100ms
-setInterval(blink, 100);
-
-// Define the &apos;blink&apos; function
-function blink() {
-    state = !state;
-    b.analogWrite(LED, state);
-}&lt;/pre&gt;
-&lt;button class=&quot;dynlink&quot; onclick=&quot;demoRun(&apos;task1&apos;)&quot;&gt;run&lt;/button&gt;
-&lt;/p&gt;
-&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
-&lt;h2&gt;Run examples from this web page&lt;/h2&gt;
-&lt;p&gt;If you don&apos;t want to type these programs into the Cloud9 IDE, you can connect
-    your board over USB and the box below should turn green. You can then use
-    the run buttons above.
-&lt;/p&gt;
-&lt;div id=&apos;connect-status&apos;&gt;&lt;/div&gt;
-&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</body>
-    <http_language>en-US,en;q=0.8</http_language>
     <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <http_language>en-US,en;q=0.8</http_language>
+    <uri>makerfairedetroit2013</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36</http_browser>
+    <time type="date">02.09.2014 20:08:20 UTC</time>
+    <hopsession>127.0.0.x6exoezk90au</hopsession>
+    <body>&lt;script&gt;window.location=&quot;/show/makerfairedetroit2013&quot;;&lt;/script&gt;</body>
+    <pseudoparent idref="0" prototyperef="Root"/>
+    <pvcount type="float">99.0</pvcount>
     <http_referer>http://beagleboard.org/makerfairedetroit2013/edit</http_referer>
+    <http_host>127.0.0.1:8080</http_host>
+    <user>jkridner.wordpress.com</user>
+    <lang>en-us</lang>
   </hopobject>
 </xmlroot>
