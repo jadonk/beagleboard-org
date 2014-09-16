@@ -1,7 +1,7 @@
 function getChildElement (name)
  {
   var x = app.getUser(name);
-  if (x.page)
+  if (x && x.page)
    {
     x = x.page;
    }
