@@ -338,3 +338,93 @@
 <li class="message">[<a href="#T11:54:03" id="T11:54:03"><abbr title="2014-09-30T11:54:03+00:00">11:54:03</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>i've minimized the SPI read code to simple registry commands (sequence works at 512 ksps in main loop) ..but when using a triggered input, the gpio ISR fails to keep a constant speed and the trigger channel(input) becomes noisy and SPI CS length fluctuates for the same number of bits</q></li>
 <li class="message">[<a href="#T11:54:46" id="T11:54:46"><abbr title="2014-09-30T11:54:46+00:00">11:54:46</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>using 1 word of 32 bits</q></li>
 <li class="part">[<a href="#T11:55:12" id="T11:55:12"><abbr title="2014-09-30T11:55:12+00:00">11:55:12</abbr></a>] <span>* sidbh (~Siddharth@203.88.132.189) has left #beagle</span></li>
+<li class="quit">[<a href="#T12:00:51" id="T12:00:51"><abbr title="2014-09-30T12:00:51+00:00">12:00:51</abbr></a>] <span>* jpsaman (~jpsaman@videolan/developer/jpsaman) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T12:01:35" id="T12:01:35"><abbr title="2014-09-30T12:01:35+00:00">12:01:35</abbr></a>] <span>* WillAmes (~py@ool-18b9b3ea.dyn.optonline.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T12:02:13" id="T12:02:13"><abbr title="2014-09-30T12:02:13+00:00">12:02:13</abbr></a>] <span>* WillAmes (~py@ool-18b9b3ea.dyn.optonline.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:02:28" id="T12:02:28"><abbr title="2014-09-30T12:02:28+00:00">12:02:28</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>is there a problem if spi is controlled by gpio input triggered isr?</q></li>
+<li class="quit">[<a href="#T12:02:30" id="T12:02:30"><abbr title="2014-09-30T12:02:30+00:00">12:02:30</abbr></a>] <span>* stamina (~stamina@83.128.211.177) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T12:03:23" id="T12:03:23"><abbr title="2014-09-30T12:03:23+00:00">12:03:23</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>you do gpio-spi?</q></li>
+<li class="message">[<a href="#T12:03:44" id="T12:03:44"><abbr title="2014-09-30T12:03:44+00:00">12:03:44</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>that will of course fluctuate, as it's done in software, bit-banging rpi style</q></li>
+<li class="message">[<a href="#T12:03:56" id="T12:03:56"><abbr title="2014-09-30T12:03:56+00:00">12:03:56</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>no ..the spi code is inside gpio isr</q></li>
+<li class="message">[<a href="#T12:04:16" id="T12:04:16"><abbr title="2014-09-30T12:04:16+00:00">12:04:16</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>what do you mean by gpio isr?</q></li>
+<li class="message">[<a href="#T12:04:46" id="T12:04:46"><abbr title="2014-09-30T12:04:46+00:00">12:04:46</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>interrupt routine to start spi read</q></li>
+<li class="message">[<a href="#T12:05:01" id="T12:05:01"><abbr title="2014-09-30T12:05:01+00:00">12:05:01</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>triggered from external input</q></li>
+<li class="message">[<a href="#T12:07:03" id="T12:07:03"><abbr title="2014-09-30T12:07:03+00:00">12:07:03</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>the spi code have 2 while loops for transmit and receive registers ..</q></li>
+<li class="message">[<a href="#T12:07:59" id="T12:07:59"><abbr title="2014-09-30T12:07:59+00:00">12:07:59</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>but why is the input_only (trigger pin) becoming noisy ..</q></li>
+<li class="message">[<a href="#T12:08:03" id="T12:08:03"><abbr title="2014-09-30T12:08:03+00:00">12:08:03</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>?</q></li>
+<li class="action">[<a href="#T12:09:48" id="T12:09:48"><abbr title="2014-09-30T12:09:48+00:00">12:09:48</abbr></a>] <span>* KotH does not understand the setup</span></li>
+<li class="message">[<a href="#T12:13:29" id="T12:13:29"><abbr title="2014-09-30T12:13:29+00:00">12:13:29</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>i'm using spi to read 32 bits from ADC ..only when a gpio pin (trigger) becomes high</q></li>
+<li class="message">[<a href="#T12:14:18" id="T12:14:18"><abbr title="2014-09-30T12:14:18+00:00">12:14:18</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>yes, but where does your code run? in kernel space? user space? how do you access spi? what driver do you use? why is my chocolate bar shrinking?</q></li>
+<li class="message">[<a href="#T12:15:08" id="T12:15:08"><abbr title="2014-09-30T12:15:08+00:00">12:15:08</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>i'm working with starterware in bare metal</q></li>
+<li class="message">[<a href="#T12:15:11" id="T12:15:11"><abbr title="2014-09-30T12:15:11+00:00">12:15:11</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>koth because you are eating it</q></li>
+<li class="message">[<a href="#T12:15:29" id="T12:15:29"><abbr title="2014-09-30T12:15:29+00:00">12:15:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>I never heard of starterware</q></li>
+<li class="message">[<a href="#T12:15:39" id="T12:15:39"><abbr title="2014-09-30T12:15:39+00:00">12:15:39</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>where did you get it from?</q></li>
+<li class="message">[<a href="#T12:15:54" id="T12:15:54"><abbr title="2014-09-30T12:15:54+00:00">12:15:54</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: Ti tool to write code on bare metal</q></li>
+<li class="message">[<a href="#T12:15:59" id="T12:15:59"><abbr title="2014-09-30T12:15:59+00:00">12:15:59</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>from TI's website</q></li>
+<li class="message">[<a href="#T12:16:12" id="T12:16:12"><abbr title="2014-09-30T12:16:12+00:00">12:16:12</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: very few people use starterware</q></li>
+<li class="message">[<a href="#T12:16:32" id="T12:16:32"><abbr title="2014-09-30T12:16:32+00:00">12:16:32</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: we get questions like yours once every 2-3 months</q></li>
+<li class="message">[<a href="#T12:16:48" id="T12:16:48"><abbr title="2014-09-30T12:16:48+00:00">12:16:48</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: nobody can answer them because this channel is mostly linux based</q></li>
+<li class="message">[<a href="#T12:16:57" id="T12:16:57"><abbr title="2014-09-30T12:16:57+00:00">12:16:57</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: ask your friendly Ti representative</q></li>
+<li class="message">[<a href="#T12:17:57" id="T12:17:57"><abbr title="2014-09-30T12:17:57+00:00">12:17:57</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>ok, thanks KotH, i'll stick around maybe i'll change to linux in the future ..</q></li>
+<li class="message">[<a href="#T12:18:42" id="T12:18:42"><abbr title="2014-09-30T12:18:42+00:00">12:18:42</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: hmm.. that sounds like the decision for starterware was not a concious decision?</q></li>
+<li class="message">[<a href="#T12:20:41" id="T12:20:41"><abbr title="2014-09-30T12:20:41+00:00">12:20:41</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>KotH: i'm looking for "as fast as possible" spi read ..</q></li>
+<li class="message">[<a href="#T12:21:04" id="T12:21:04"><abbr title="2014-09-30T12:21:04+00:00">12:21:04</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>as fast as possible &lt;&gt; spi</q></li>
+<li class="message">[<a href="#T12:21:23" id="T12:21:23"><abbr title="2014-09-30T12:21:23+00:00">12:21:23</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: which fast?</q></li>
+<li class="message">[<a href="#T12:21:31" id="T12:21:31"><abbr title="2014-09-30T12:21:31+00:00">12:21:31</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: latency or troughput?</q></li>
+<li class="message">[<a href="#T12:21:48" id="T12:21:48"><abbr title="2014-09-30T12:21:48+00:00">12:21:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>troughtency</q></li>
+<li class="message">[<a href="#T12:22:04" id="T12:22:04"><abbr title="2014-09-30T12:22:04+00:00">12:22:04</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>KotH: 1 MSPS 32 bits</q></li>
+<li class="join">[<a href="#T12:22:24" id="T12:22:24"><abbr title="2014-09-30T12:22:24+00:00">12:22:24</abbr></a>] <span>* jsst (~jsst@cable-233-41.zeelandnet.nl) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:22:38" id="T12:22:38"><abbr title="2014-09-30T12:22:38+00:00">12:22:38</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>32Mbit/s</q></li>
+<li class="message">[<a href="#T12:22:53" id="T12:22:53"><abbr title="2014-09-30T12:22:53+00:00">12:22:53</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>hmm...</q></li>
+<li class="message">[<a href="#T12:23:02" id="T12:23:02"><abbr title="2014-09-30T12:23:02+00:00">12:23:02</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>does teh am335x suppor that spi clock?</q></li>
+<li class="join">[<a href="#T12:23:16" id="T12:23:16"><abbr title="2014-09-30T12:23:16+00:00">12:23:16</abbr></a>] <span>* Icicle_Trepan (~IcicleTre@unaffiliated/icicletrepan) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:23:26" id="T12:23:26"><abbr title="2014-09-30T12:23:26+00:00">12:23:26</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>it supports 48mhz clock</q></li>
+<li class="message">[<a href="#T12:23:36" id="T12:23:36"><abbr title="2014-09-30T12:23:36+00:00">12:23:36</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>other than that, linux can easily sustain 4Mbyte/s</q></li>
+<li class="message">[<a href="#T12:23:50" id="T12:23:50"><abbr title="2014-09-30T12:23:50+00:00">12:23:50</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>that doesnt translate to 48 mbit/byte/whatever/s though</q></li>
+<li class="join">[<a href="#T12:24:04" id="T12:24:04"><abbr title="2014-09-30T12:24:04+00:00">12:24:04</abbr></a>] <span>* TricycleBedpan (~IcicleTre@unaffiliated/icicletrepan) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:24:09" id="T12:24:09"><abbr title="2014-09-30T12:24:09+00:00">12:24:09</abbr></a>] <span>* IcicleTrepan (~IcicleTre@unaffiliated/icicletrepan) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T12:25:21" id="T12:25:21"><abbr title="2014-09-30T12:25:21+00:00">12:25:21</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>gurki: a 48MHz clock translates into &gt;40Mbit transfer rate</q></li>
+<li class="message">[<a href="#T12:25:27" id="T12:25:27"><abbr title="2014-09-30T12:25:27+00:00">12:25:27</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>roughly</q></li>
+<li class="message">[<a href="#T12:25:36" id="T12:25:36"><abbr title="2014-09-30T12:25:36+00:00">12:25:36</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>theoretically. practically i found it hard to archieve any of theese rates</q></li>
+<li class="join">[<a href="#T12:25:50" id="T12:25:50"><abbr title="2014-09-30T12:25:50+00:00">12:25:50</abbr></a>] <span>* mkad (~mkad@unaffiliated/mkad) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:25:52" id="T12:25:52"><abbr title="2014-09-30T12:25:52+00:00">12:25:52</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>would be happy to be told wrong ...</q></li>
+<li class="message">[<a href="#T12:25:54" id="T12:25:54"><abbr title="2014-09-30T12:25:54+00:00">12:25:54</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>:)</q></li>
+<li class="action">[<a href="#T12:26:12" id="T12:26:12"><abbr title="2014-09-30T12:26:12+00:00">12:26:12</abbr></a>] <span>* KotH has acheived 24MHz -&gt; 22Mbit/s on an arm7</span></li>
+<li class="message">[<a href="#T12:26:21" id="T12:26:21"><abbr title="2014-09-30T12:26:21+00:00">12:26:21</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>with 8bit data</q></li>
+<li class="message">[<a href="#T12:26:23" id="T12:26:23"><abbr title="2014-09-30T12:26:23+00:00">12:26:23</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>nice</q></li>
+<li class="message">[<a href="#T12:26:31" id="T12:26:31"><abbr title="2014-09-30T12:26:31+00:00">12:26:31</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>didnt even get close to that :O</q></li>
+<li class="quit">[<a href="#T12:26:47" id="T12:26:47"><abbr title="2014-09-30T12:26:47+00:00">12:26:47</abbr></a>] <span>* jsst (~jsst@cable-233-41.zeelandnet.nl) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T12:26:56" id="T12:26:56"><abbr title="2014-09-30T12:26:56+00:00">12:26:56</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>you shouldnt use node.js for that kind of stuff ;)</q></li>
+<li class="action">[<a href="#T12:27:08" id="T12:27:08"><abbr title="2014-09-30T12:27:08+00:00">12:27:08</abbr></a>] <span>* tbr giggles</span></li>
+<li class="message">[<a href="#T12:27:17" id="T12:27:17"><abbr title="2014-09-30T12:27:17+00:00">12:27:17</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>well done ..KotH, where you using bare metal?</q></li>
+<li class="join">[<a href="#T12:27:24" id="T12:27:24"><abbr title="2014-09-30T12:27:24+00:00">12:27:24</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) has joined #beagle</span></li>
+<li class="message">[<a href="#T12:27:26" id="T12:27:26"><abbr title="2014-09-30T12:27:26+00:00">12:27:26</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: yes</q></li>
+<li class="message">[<a href="#T12:27:37" id="T12:27:37"><abbr title="2014-09-30T12:27:37+00:00">12:27:37</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>im not exactly using node.js :P</q></li>
+<li class="quit">[<a href="#T12:27:48" id="T12:27:48"><abbr title="2014-09-30T12:27:48+00:00">12:27:48</abbr></a>] <span>* H-H-H (~H-H-H@79-65-13-189.host.pobb.as13285.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T12:27:51" id="T12:27:51"><abbr title="2014-09-30T12:27:51+00:00">12:27:51</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>but i guess i should choose my libs more wisely</q></li>
+<li class="message">[<a href="#T12:27:53" id="T12:27:53"><abbr title="2014-09-30T12:27:53+00:00">12:27:53</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>also using interrupts in spi?</q></li>
+<li class="message">[<a href="#T12:27:59" id="T12:27:59"><abbr title="2014-09-30T12:27:59+00:00">12:27:59</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: ofc</q></li>
+<li class="message">[<a href="#T12:28:11" id="T12:28:11"><abbr title="2014-09-30T12:28:11+00:00">12:28:11</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>jmikii: shuffling everything trough to usb</q></li>
+<li class="message">[<a href="#T12:28:14" id="T12:28:14"><abbr title="2014-09-30T12:28:14+00:00">12:28:14</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>could you link me yours? or did u write it from scratch?</q></li>
+<li class="quit">[<a href="#T12:28:18" id="T12:28:18"><abbr title="2014-09-30T12:28:18+00:00">12:28:18</abbr></a>] <span>* Icicle_Trepan (~IcicleTre@unaffiliated/icicletrepan) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T12:28:30" id="T12:28:30"><abbr title="2014-09-30T12:28:30+00:00">12:28:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>gurki: sorry, nope. company owned code</q></li>
+<li class="message">[<a href="#T12:28:57" id="T12:28:57"><abbr title="2014-09-30T12:28:57+00:00">12:28:57</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>nm. dont ve to if ure not allowed to ... ;)</q></li>
+<li class="message">[<a href="#T12:29:18" id="T12:29:18"><abbr title="2014-09-30T12:29:18+00:00">12:29:18</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>i dont even have access to the code</q></li>
+<li class="message">[<a href="#T12:29:19" id="T12:29:19"><abbr title="2014-09-30T12:29:19+00:00">12:29:19</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>;)</q></li>
+<li class="message">[<a href="#T12:29:25" id="T12:29:25"><abbr title="2014-09-30T12:29:25+00:00">12:29:25</abbr></a>] &lt;<cite>gurki</cite>&gt; <q>*g*</q></li>
+<li class="message">[<a href="#T12:29:55" id="T12:29:55"><abbr title="2014-09-30T12:29:55+00:00">12:29:55</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>KotH, what is ofc?</q></li>
+<li class="message">[<a href="#T12:30:53" id="T12:30:53"><abbr title="2014-09-30T12:30:53+00:00">12:30:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>of course</q></li>
+<li class="message">[<a href="#T12:31:19" id="T12:31:19"><abbr title="2014-09-30T12:31:19+00:00">12:31:19</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>ofc :))</q></li>
+<li class="message">[<a href="#T12:31:41" id="T12:31:41"><abbr title="2014-09-30T12:31:41+00:00">12:31:41</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>sorry.. got too used to abreviate stuff ^^'</q></li>
+<li class="quit">[<a href="#T12:31:43" id="T12:31:43"><abbr title="2014-09-30T12:31:43+00:00">12:31:43</abbr></a>] <span>* divine (~divine@2001:470:8247:1::42) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="message">[<a href="#T12:31:54" id="T12:31:54"><abbr title="2014-09-30T12:31:54+00:00">12:31:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sry!</q></li>
+<li class="message">[<a href="#T12:32:07" id="T12:32:07"><abbr title="2014-09-30T12:32:07+00:00">12:32:07</abbr></a>] &lt;<cite>jmikii</cite>&gt; <q>thanks all ..</q></li>
+<li class="quit">[<a href="#T12:32:46" id="T12:32:46"><abbr title="2014-09-30T12:32:46+00:00">12:32:46</abbr></a>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="join">[<a href="#T12:37:32" id="T12:37:32"><abbr title="2014-09-30T12:37:32+00:00">12:37:32</abbr></a>] <span>* divine (~divine@2001:470:8247:1::42) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T12:41:33" id="T12:41:33"><abbr title="2014-09-30T12:41:33+00:00">12:41:33</abbr></a>] <span>* jmikii (567c52d7@gateway/web/freenode/ip.86.124.82.215) Quit (Quit: Page closed)</span></li>
+<li class="quit">[<a href="#T12:45:00" id="T12:45:00"><abbr title="2014-09-30T12:45:00+00:00">12:45:00</abbr></a>] <span>* gustavoz (~gustavoz@186.18.128.65) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T12:47:31" id="T12:47:31"><abbr title="2014-09-30T12:47:31+00:00">12:47:31</abbr></a>] <span>* jsst (~jsst@cable-233-41.zeelandnet.nl) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:52:38" id="T12:52:38"><abbr title="2014-09-30T12:52:38+00:00">12:52:38</abbr></a>] <span>* jsst (~jsst@cable-233-41.zeelandnet.nl) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="quit">[<a href="#T12:56:46" id="T12:56:46"><abbr title="2014-09-30T12:56:46+00:00">12:56:46</abbr></a>] <span>* mkad (~mkad@unaffiliated/mkad) Quit (Quit: Leaving)</span></li>
+<li class="join">[<a href="#T12:58:58" id="T12:58:58"><abbr title="2014-09-30T12:58:58+00:00">12:58:58</abbr></a>] <span>* micr0 (~micr0@subtle/user/jedahan) has joined #beagle</span></li>
+<li class="quit">[<a href="#T12:59:53" id="T12:59:53"><abbr title="2014-09-30T12:59:53+00:00">12:59:53</abbr></a>] <span>* sakoman (~steve@static-50-53-56-166.bvtn.or.frontiernet.net) Quit (Quit: Leaving.)</span></li>
