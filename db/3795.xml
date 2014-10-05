@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3795" name="makerfairerome2014" prototype="Page" created="1412498193376" lastModified="1412498277602">
+  <hopobject id="3795" name="makerfairerome2014" prototype="Page" created="1412498193376" lastModified="1412506877060">
   <hop:parent idref="3757" prototyperef="Page"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>makerfairerome2014</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.122 Safari/537.36</http_browser>
-    <time type="date">05.10.2014 08:37:57 UTC</time>
+    <time type="date">05.10.2014 11:01:16 UTC</time>
     <hopsession>127.0.0.1tz6qn1mbwqdp</hopsession>
     <body>&lt;h1&gt;Maker Faire Rome 2014
 &lt;/h1&gt;
@@ -16,9 +16,40 @@
 &lt;h2&gt;Steps executed in workshop&lt;/h2&gt;
 &lt;ol&gt;
     &lt;li&gt;A&lt;/li&gt;
-&lt;/ol&gt;</body>
+&lt;/ol&gt;
+&lt;h2&gt;Example code for SensorTag interfacing&lt;/h2&gt;
+&lt;pre&gt;
+var sensortag = require(&apos;sensortag&apos;);
+sensortag.discover(ondiscover, &quot;bc6a29ac437d&quot;);
+
+function ondiscover(sensorTag) {
+    console.log(&quot;hello Maker Faire Rome from &quot; + sensorTag.uuid);
+    sensorTag.on(&apos;accelerometerChange&apos;, onaccel);
+    sensorTag.connect(onconnect);
+
+    function onconnect() {
+        sensorTag.discoverServicesAndCharacteristics(onservices);
+    }
+    
+    function onservices() {
+        sensorTag.enableAccelerometer(dummycb);
+        sensorTag.setAccelerometerPeriod(1000);
+        sensorTag.notifyAccelerometer(dummycb);
+    }
+}
+
+function onaccel(x, y, z) {
+    console.log(&quot;x = &quot; + x);
+    console.log(&quot;y = &quot; + y);
+    console.log(&quot;z = &quot; + z);
+}
+
+function dummycb() {
+}
+
+&lt;/pre&gt;</body>
     <pseudoparent idref="3757" prototyperef="Page"/>
-    <pvcount type="float">3.0</pvcount>
+    <pvcount type="float">7.0</pvcount>
     <http_referer>http://beagleboard.org/show/makerfairerome2014/edit</http_referer>
     <http_host>127.0.0.1:8080</http_host>
     <user>jkridner.wordpress.com</user>
