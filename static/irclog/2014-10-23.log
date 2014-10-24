@@ -644,3 +644,30 @@
 <li class="join">[<a href="#T22:55:12" id="T22:55:12"><abbr title="2014-10-23T22:55:12+00:00">22:55:12</abbr></a>] <span>* themadcanudist (~themadcan@24-52-242-139.cable.teksavvy.com) has joined #beaglebone</span></li>
 <li class="join">[<a href="#T22:57:44" id="T22:57:44"><abbr title="2014-10-23T22:57:44+00:00">22:57:44</abbr></a>] <span>* dj_pi (~dj@c-107-5-25-243.hsd1.mi.comcast.net) has joined #beagle</span></li>
 <li class="quit">[<a href="#T22:57:59" id="T22:57:59"><abbr title="2014-10-23T22:57:59+00:00">22:57:59</abbr></a>] <span>* micr0 (~micr0@subtle/user/jedahan) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T23:05:23" id="T23:05:23"><abbr title="2014-10-23T23:05:23+00:00">23:05:23</abbr></a>] <span>* Caesar (apollock@debian/developer/apollock) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:06:03" id="T23:06:03"><abbr title="2014-10-23T23:06:03+00:00">23:06:03</abbr></a>] &lt;<cite>Caesar</cite>&gt; <q>Hey, I'm trying to talk to my BBB via serial (pl2303) from Linux, but I'm not getting a lot out of it</q></li>
+<li class="message">[<a href="#T23:06:17" id="T23:06:17"><abbr title="2014-10-23T23:06:17+00:00">23:06:17</abbr></a>] &lt;<cite>Caesar</cite>&gt; <q>I get a tiny amount of output when it boots, and no login prompt</q></li>
+<li class="message">[<a href="#T23:06:57" id="T23:06:57"><abbr title="2014-10-23T23:06:57+00:00">23:06:57</abbr></a>] &lt;<cite>Caesar</cite>&gt; <q>I'm not sure what I'm doing wrong, because from all my research, it's supposed to Just Work(tm)</q></li>
+<li class="part">[<a href="#T23:09:51" id="T23:09:51"><abbr title="2014-10-23T23:09:51+00:00">23:09:51</abbr></a>] <span>* themadcanudist (~themadcan@24-52-242-139.cable.teksavvy.com) has left #beaglebone</span></li>
+<li class="message">[<a href="#T23:11:50" id="T23:11:50"><abbr title="2014-10-23T23:11:50+00:00">23:11:50</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>stty -F /dev/ttyUSBwhatever 9600 raw</q></li>
+<li class="message">[<a href="#T23:11:55" id="T23:11:55"><abbr title="2014-10-23T23:11:55+00:00">23:11:55</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>screen /dev/ttyUSBwhatever 9600</q></li>
+<li class="message">[<a href="#T23:12:01" id="T23:12:01"><abbr title="2014-10-23T23:12:01+00:00">23:12:01</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>make sure your ground, tx, and rx are connected</q></li>
+<li class="message">[<a href="#T23:12:07" id="T23:12:07"><abbr title="2014-10-23T23:12:07+00:00">23:12:07</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>solidly</q></li>
+<li class="message">[<a href="#T23:15:51" id="T23:15:51"><abbr title="2014-10-23T23:15:51+00:00">23:15:51</abbr></a>] &lt;<cite>Caesar</cite>&gt; <q>nyt-: but the getty on the BBB is running at 115200?</q></li>
+<li class="join">[<a href="#T23:24:33" id="T23:24:33"><abbr title="2014-10-23T23:24:33+00:00">23:24:33</abbr></a>] <span>* n-st (~n-st@ipbcc053ce.dynamic.kabel-deutschland.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:30:32" id="T23:30:32"><abbr title="2014-10-23T23:30:32+00:00">23:30:32</abbr></a>] <span>* staylor (~staylor@mail.au-zone.com) Quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)</span></li>
+<li class="message">[<a href="#T23:34:06" id="T23:34:06"><abbr title="2014-10-23T23:34:06+00:00">23:34:06</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>then 115200</q></li>
+<li class="action">[<a href="#T23:34:07" id="T23:34:07"><abbr title="2014-10-23T23:34:07+00:00">23:34:07</abbr></a>] <span>* nyt- forgets</span></li>
+<li class="message">[<a href="#T23:34:19" id="T23:34:19"><abbr title="2014-10-23T23:34:19+00:00">23:34:19</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>might need to change along the way?  Dont know what uboot runs at</q></li>
+<li class="message">[<a href="#T23:34:23" id="T23:34:23"><abbr title="2014-10-23T23:34:23+00:00">23:34:23</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>been a while since i had to console one</q></li>
+<li class="quit">[<a href="#T23:35:31" id="T23:35:31"><abbr title="2014-10-23T23:35:31+00:00">23:35:31</abbr></a>] <span>* dj_pi (~dj@c-107-5-25-243.hsd1.mi.comcast.net) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="quit">[<a href="#T23:36:27" id="T23:36:27"><abbr title="2014-10-23T23:36:27+00:00">23:36:27</abbr></a>] <span>* FunkyPenguin (~quassel@opensuse/member/FunkyPenguin) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T23:37:44" id="T23:37:44"><abbr title="2014-10-23T23:37:44+00:00">23:37:44</abbr></a>] <span>* FunkyPenguin (~quassel@w-28.cust-19171.ip.static.uno.uk.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:37:48" id="T23:37:48"><abbr title="2014-10-23T23:37:48+00:00">23:37:48</abbr></a>] <span>* FunkyPenguin (~quassel@w-28.cust-19171.ip.static.uno.uk.net) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2014-10-23T23:37:48+00:00">23:37:48</abbr>] <span>* FunkyPenguin (~quassel@opensuse/member/FunkyPenguin) has joined #beagle</span></li>
+<li class="quit">[<a href="#T23:45:19" id="T23:45:19"><abbr title="2014-10-23T23:45:19+00:00">23:45:19</abbr></a>] <span>* pwillard (~pwillard@c-73-184-136-133.hsd1.ga.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T23:45:45" id="T23:45:45"><abbr title="2014-10-23T23:45:45+00:00">23:45:45</abbr></a>] <span>* pwillard (~pwillard@c-73-184-136-133.hsd1.ga.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T23:46:33" id="T23:46:33"><abbr title="2014-10-23T23:46:33+00:00">23:46:33</abbr></a>] &lt;<cite>vagrantc</cite>&gt; <q>bbb u-boot runs at 115200</q></li>
+<li class="quit">[<a href="#T23:52:02" id="T23:52:02"><abbr title="2014-10-23T23:52:02+00:00">23:52:02</abbr></a>] <span>* JoshAshby (~ashby@192.210.238.183) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T23:53:49" id="T23:53:49"><abbr title="2014-10-23T23:53:49+00:00">23:53:49</abbr></a>] <span>* JoshAshby (~ashby@192.210.238.183) has joined #beagle</span></li>
+<li class="nick-change">[<a href="#T23:55:07" id="T23:55:07"><abbr title="2014-10-23T23:55:07+00:00">23:55:07</abbr></a>] <span>* russell-1 is now known as russell--</span></li>
