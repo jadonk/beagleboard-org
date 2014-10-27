@@ -1106,3 +1106,113 @@
 <li class="quit">[<a href="#T20:59:10" id="T20:59:10"><abbr title="2014-10-27T20:59:10+00:00">20:59:10</abbr></a>] <span>* bborg_builds (~bborg_bui@ec2-50-17-196-130.compute-1.amazonaws.com) Quit (Client Quit)</span></li>
 <li class="quit">[<abbr title="2014-10-27T20:59:10+00:00">20:59:10</abbr>] <span>* rohitksingh1 (~Rohit@120.59.42.56) Quit (Quit: Leaving.)</span></li>
 <li class="join">[<a href="#T20:59:50" id="T20:59:50"><abbr title="2014-10-27T20:59:50+00:00">20:59:50</abbr></a>] <span>* bborg_builds (~bborg_bui@ec2-50-17-196-130.compute-1.amazonaws.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:00:04" id="T21:00:04"><abbr title="2014-10-27T21:00:04+00:00">21:00:04</abbr></a>] <span>* GusBricker (~GusBricke@CPE-120-149-34-233.oirx2.lon.bigpond.net.au) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T21:00:35" id="T21:00:35"><abbr title="2014-10-27T21:00:35+00:00">21:00:35</abbr></a>] <span>* vagrantc (~vagrant@freegeek/vagrantc) Quit (Quit: leaving)</span></li>
+<li class="join">[<a href="#T21:02:36" id="T21:02:36"><abbr title="2014-10-27T21:02:36+00:00">21:02:36</abbr></a>] <span>* kiwichris (~kiwichris@12.104.145.5) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:04:21" id="T21:04:21"><abbr title="2014-10-27T21:04:21+00:00">21:04:21</abbr></a>] <span>* wgrant (~wgrant@ubuntu/member/wgrant) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T21:06:44" id="T21:06:44"><abbr title="2014-10-27T21:06:44+00:00">21:06:44</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>is it possible to run adc with 3.17.1 kernel?</q></li>
+<li class="join">[<a href="#T21:08:01" id="T21:08:01"><abbr title="2014-10-27T21:08:01+00:00">21:08:01</abbr></a>] <span>* DiegoTc (c9dc8ef3@ubuntu/member/diegotc) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:10:08" id="T21:10:08"><abbr title="2014-10-27T21:10:08+00:00">21:10:08</abbr></a>] <span>* NulL` (~bleh1@46.226.190.152) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T21:11:26" id="T21:11:26"><abbr title="2014-10-27T21:11:26+00:00">21:11:26</abbr></a>] <span>* c10ud (~c10ud@emesene/dictator/c10ud) Quit (Quit: cya)</span></li>
+<li class="message">[<a href="#T21:14:43" id="T21:14:43"><abbr title="2014-10-27T21:14:43+00:00">21:14:43</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>is it possible to part the 3.17.1 kernel to enable the cape_bone stuff?</q></li>
+<li class="message">[<a href="#T21:16:54" id="T21:16:54"><abbr title="2014-10-27T21:16:54+00:00">21:16:54</abbr></a>] &lt;<cite>tbr</cite>&gt; <q>Laurenceb: the sources are available, they are the kernel sources.</q></li>
+<li class="message">[<a href="#T21:17:10" id="T21:17:10"><abbr title="2014-10-27T21:17:10+00:00">21:17:10</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T21:17:17" id="T21:17:17"><abbr title="2014-10-27T21:17:17+00:00">21:17:17</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T21:17:25" id="T21:17:25"><abbr title="2014-10-27T21:17:25+00:00">21:17:25</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>this is somewhat over my head</q></li>
+<li class="message">[<a href="#T21:17:46" id="T21:17:46"><abbr title="2014-10-27T21:17:46+00:00">21:17:46</abbr></a>] &lt;<cite>tbr</cite>&gt; <q>the dtb-overlay stuff isn't upstream yet and I think is only in 3.8, so you'll have to get your dt compiled and loaded at boot</q></li>
+<li class="message">[<a href="#T21:17:48" id="T21:17:48"><abbr title="2014-10-27T21:17:48+00:00">21:17:48</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>but in theory the 3.17.1 kernel could be compiled with working usb host and gpio/adc?</q></li>
+<li class="message">[<a href="#T21:17:52" id="T21:17:52"><abbr title="2014-10-27T21:17:52+00:00">21:17:52</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T21:18:11" id="T21:18:11"><abbr title="2014-10-27T21:18:11+00:00">21:18:11</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>atm it seems to be a choice between usb or adc/gpio</q></li>
+<li class="message">[<a href="#T21:18:20" id="T21:18:20"><abbr title="2014-10-27T21:18:20+00:00">21:18:20</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>unless.. 3.16.x  kernel?</q></li>
+<li class="quit">[<a href="#T21:19:14" id="T21:19:14"><abbr title="2014-10-27T21:19:14+00:00">21:19:14</abbr></a>] <span>* GusBricker (~GusBricke@CPE-120-149-34-233.oirx2.lon.bigpond.net.au) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:19:40" id="T21:19:40"><abbr title="2014-10-27T21:19:40+00:00">21:19:40</abbr></a>] &lt;<cite>DiegoTc</cite>&gt; <q>hi av500, do you know if jkrinder have plans to include beagleboard.org on the Google Code In program this year?</q></li>
+<li class="quit">[<a href="#T21:21:33" id="T21:21:33"><abbr title="2014-10-27T21:21:33+00:00">21:21:33</abbr></a>] <span>* eikeon (~eikeon@140.147.245.196) Quit (Quit: eikeon)</span></li>
+<li class="message">[<a href="#T21:21:59" id="T21:21:59"><abbr title="2014-10-27T21:21:59+00:00">21:21:59</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>anyone running 3.16.3-bone6  ?</q></li>
+<li class="message">[<a href="#T21:23:19" id="T21:23:19"><abbr title="2014-10-27T21:23:19+00:00">21:23:19</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>or know if there is a kernel supporting usb and gpio/adc  ?</q></li>
+<li class="nick-change">[<a href="#T21:24:16" id="T21:24:16"><abbr title="2014-10-27T21:24:16+00:00">21:24:16</abbr></a>] <span>* flufmsntr is now known as flufmnstr</span></li>
+<li class="quit">[<a href="#T21:26:30" id="T21:26:30"><abbr title="2014-10-27T21:26:30+00:00">21:26:30</abbr></a>] <span>* kiwichris (~kiwichris@12.104.145.5) Quit ()</span></li>
+<li class="quit">[<a href="#T21:34:58" id="T21:34:58"><abbr title="2014-10-27T21:34:58+00:00">21:34:58</abbr></a>] <span>* qrz7 (~pku@ppp-88-217-62-190.dynamic.mnet-online.de) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T21:35:57" id="T21:35:57"><abbr title="2014-10-27T21:35:57+00:00">21:35:57</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:35:58" id="T21:35:58"><abbr title="2014-10-27T21:35:58+00:00">21:35:58</abbr></a>] <span>* konradoo77 (~debian@ip-93-154-154-59.free.aero2.net.pl) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:37:41" id="T21:37:41"><abbr title="2014-10-27T21:37:41+00:00">21:37:41</abbr></a>] <span>* behanw (~behanw@208.181.69.201) has joined #beagle</span></li>
+<li class="quit">[<a href="#T21:38:28" id="T21:38:28"><abbr title="2014-10-27T21:38:28+00:00">21:38:28</abbr></a>] <span>* konradoo87 (~debian@ip-37-209-135-74.free.aero2.net.pl) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="quit">[<a href="#T21:39:10" id="T21:39:10"><abbr title="2014-10-27T21:39:10+00:00">21:39:10</abbr></a>] <span>* n-st (~n-st@ipbcc053ce.dynamic.kabel-deutschland.de) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:39:12" id="T21:39:12"><abbr title="2014-10-27T21:39:12+00:00">21:39:12</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>can anyone explain how capes work?</q></li>
+<li class="message">[<a href="#T21:39:35" id="T21:39:35"><abbr title="2014-10-27T21:39:35+00:00">21:39:35</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>if i use the Adafruit BBIO library from python, does it matter if my configuration doesnt match a cape?</q></li>
+<li class="message">[<a href="#T21:40:41" id="T21:40:41"><abbr title="2014-10-27T21:40:41+00:00">21:40:41</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>that library is not so good lol</q></li>
+<li class="message">[<a href="#T21:40:50" id="T21:40:50"><abbr title="2014-10-27T21:40:50+00:00">21:40:50</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>but you should read the docs on capes</q></li>
+<li class="join">[<a href="#T21:41:01" id="T21:41:01"><abbr title="2014-10-27T21:41:01+00:00">21:41:01</abbr></a>] <span>* n-st (~n-st@ipbcc053ce.dynamic.kabel-deutschland.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:41:21" id="T21:41:21"><abbr title="2014-10-27T21:41:21+00:00">21:41:21</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q><a href="http://beagleboard.org/Support/bone101/#capes">http://beagleboard.org/Support/bone101/#capes</a></q></li>
+<li class="message">[<a href="#T21:42:10" id="T21:42:10"><abbr title="2014-10-27T21:42:10+00:00">21:42:10</abbr></a>] &lt;<cite>nyt-</cite>&gt; <q>just use the default debian image and kernel if you want everything to work :/</q></li>
+<li class="message">[<a href="#T21:42:32" id="T21:42:32"><abbr title="2014-10-27T21:42:32+00:00">21:42:32</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T21:42:35" id="T21:42:35"><abbr title="2014-10-27T21:42:35+00:00">21:42:35</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>usb is broken</q></li>
+<li class="message">[<a href="#T21:42:46" id="T21:42:46"><abbr title="2014-10-27T21:42:46+00:00">21:42:46</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>its fixed in 3.17.1, but everything else is broken</q></li>
+<li class="message">[<a href="#T21:42:57" id="T21:42:57"><abbr title="2014-10-27T21:42:57+00:00">21:42:57</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>im contemplating compiling from source</q></li>
+<li class="quit">[<a href="#T21:43:22" id="T21:43:22"><abbr title="2014-10-27T21:43:22+00:00">21:43:22</abbr></a>] <span>* dgerlach (~dave@nat/ti/x-bzmesfyskzxaqrlw) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T21:44:42" id="T21:44:42"><abbr title="2014-10-27T21:44:42+00:00">21:44:42</abbr></a>] <span>* dgerlach (~dave@nat/ti/x-nmqmfvqwbieqgibs) has joined #beagle</span></li>
+<li class="join">[<a href="#T21:45:04" id="T21:45:04"><abbr title="2014-10-27T21:45:04+00:00">21:45:04</abbr></a>] <span>* BadStreff (~BadStreff@66.171.10.194) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:46:29" id="T21:46:29"><abbr title="2014-10-27T21:46:29+00:00">21:46:29</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>Laurenceb .. I strongly recommend writin a new usb driver</q></li>
+<li class="quit">[<a href="#T21:46:42" id="T21:46:42"><abbr title="2014-10-27T21:46:42+00:00">21:46:42</abbr></a>] <span>* konradoo77 (~debian@ip-93-154-154-59.free.aero2.net.pl) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T21:46:53" id="T21:46:53"><abbr title="2014-10-27T21:46:53+00:00">21:46:53</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:46:57" id="T21:46:57"><abbr title="2014-10-27T21:46:57+00:00">21:46:57</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>beyond my skills</q></li>
+<li class="join">[<a href="#T21:46:59" id="T21:46:59"><abbr title="2014-10-27T21:46:59+00:00">21:46:59</abbr></a>] <span>* beegs (44cc6f96@gateway/web/freenode/ip.68.204.111.150) has joined #beagle</span></li>
+<li class="message">[<a href="#T21:47:04" id="T21:47:04"><abbr title="2014-10-27T21:47:04+00:00">21:47:04</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>but usb is working now</q></li>
+<li class="message">[<a href="#T21:47:07" id="T21:47:07"><abbr title="2014-10-27T21:47:07+00:00">21:47:07</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>with 3.17.1</q></li>
+<li class="message">[<abbr title="2014-10-27T21:47:07+00:00">21:47:07</abbr>] &lt;<cite>beegs</cite>&gt; <q>bonjour everyone</q></li>
+<li class="message">[<a href="#T21:47:15" id="T21:47:15"><abbr title="2014-10-27T21:47:15+00:00">21:47:15</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>i need to patch the kernel ?</q></li>
+<li class="message">[<a href="#T21:47:19" id="T21:47:19"><abbr title="2014-10-27T21:47:19+00:00">21:47:19</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>to get cape support</q></li>
+<li class="message">[<a href="#T21:47:34" id="T21:47:34"><abbr title="2014-10-27T21:47:34+00:00">21:47:34</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you won't get cape support from 3.9+</q></li>
+<li class="message">[<a href="#T21:47:45" id="T21:47:45"><abbr title="2014-10-27T21:47:45+00:00">21:47:45</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>why?</q></li>
+<li class="message">[<a href="#T21:47:48" id="T21:47:48"><abbr title="2014-10-27T21:47:48+00:00">21:47:48</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>its not been implemented</q></li>
+<li class="message">[<a href="#T21:47:51" id="T21:47:51"><abbr title="2014-10-27T21:47:51+00:00">21:47:51</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T21:47:55" id="T21:47:55"><abbr title="2014-10-27T21:47:55+00:00">21:47:55</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>thanks for th einfo</q></li>
+<li class="message">[<a href="#T21:48:01" id="T21:48:01"><abbr title="2014-10-27T21:48:01+00:00">21:48:01</abbr></a>] &lt;<cite>beegs</cite>&gt; <q>can anyone tell me why there is no opkg on the latest image?</q></li>
+<li class="message">[<a href="#T21:48:02" id="T21:48:02"><abbr title="2014-10-27T21:48:02+00:00">21:48:02</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>is there any way to use the adc?</q></li>
+<li class="message">[<a href="#T21:48:11" id="T21:48:11"><abbr title="2014-10-27T21:48:11+00:00">21:48:11</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>there's a lot of either/or with beagle kernels</q></li>
+<li class="message">[<a href="#T21:48:18" id="T21:48:18"><abbr title="2014-10-27T21:48:18+00:00">21:48:18</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>i dont actually want to use capes</q></li>
+<li class="message">[<a href="#T21:48:27" id="T21:48:27"><abbr title="2014-10-27T21:48:27+00:00">21:48:27</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>i have my own custom daughtboards</q></li>
+<li class="message">[<a href="#T21:48:44" id="T21:48:44"><abbr title="2014-10-27T21:48:44+00:00">21:48:44</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>write it in c?</q></li>
+<li class="message">[<a href="#T21:50:23" id="T21:50:23"><abbr title="2014-10-27T21:50:23+00:00">21:50:23</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>hmm</q></li>
+<li class="message">[<a href="#T21:50:57" id="T21:50:57"><abbr title="2014-10-27T21:50:57+00:00">21:50:57</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>what is the probability that i will be able to get my hardware (needs adc, pwm, usart, spi, i2c) running with working usb host in the next month?</q></li>
+<li class="quit">[<a href="#T21:51:18" id="T21:51:18"><abbr title="2014-10-27T21:51:18+00:00">21:51:18</abbr></a>] <span>* DiegoTc (c9dc8ef3@ubuntu/member/diegotc) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="action">[<a href="#T21:51:39" id="T21:51:39"><abbr title="2014-10-27T21:51:39+00:00">21:51:39</abbr></a>] <span>* Laurenceb_ is wondering if he should abandon the project</span></li>
+<li class="message">[<a href="#T21:52:19" id="T21:52:19"><abbr title="2014-10-27T21:52:19+00:00">21:52:19</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>lol</q></li>
+<li class="join">[<a href="#T21:52:40" id="T21:52:40"><abbr title="2014-10-27T21:52:40+00:00">21:52:40</abbr></a>] <span>* GusBricker (~GusBricke@cre1513898.lnk.telstra.net) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T21:52:55" id="T21:52:55"><abbr title="2014-10-27T21:52:55+00:00">21:52:55</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>massive waste of money, but i should have done more research</q></li>
+<li class="message">[<a href="#T21:53:12" id="T21:53:12"><abbr title="2014-10-27T21:53:12+00:00">21:53:12</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>well i could start work on an stm32f4 based replacement straight away</q></li>
+<li class="message">[<a href="#T21:53:26" id="T21:53:26"><abbr title="2014-10-27T21:53:26+00:00">21:53:26</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>but i have boards ready for the BBB option</q></li>
+<li class="message">[<a href="#T21:53:49" id="T21:53:49"><abbr title="2014-10-27T21:53:49+00:00">21:53:49</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>decisions decisions...</q></li>
+<li class="quit">[<a href="#T21:54:30" id="T21:54:30"><abbr title="2014-10-27T21:54:30+00:00">21:54:30</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T21:54:34" id="T21:54:34"><abbr title="2014-10-27T21:54:34+00:00">21:54:34</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>Laurenceb, wtf are you talking about?</q></li>
+<li class="message">[<a href="#T21:54:48" id="T21:54:48"><abbr title="2014-10-27T21:54:48+00:00">21:54:48</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>Laurenceb, BBB works fine default debian image</q></li>
+<li class="message">[<a href="#T21:54:56" id="T21:54:56"><abbr title="2014-10-27T21:54:56+00:00">21:54:56</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>nothing is broken</q></li>
+<li class="message">[<a href="#T21:55:16" id="T21:55:16"><abbr title="2014-10-27T21:55:16+00:00">21:55:16</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>mkad: usb host is broken</q></li>
+<li class="message">[<a href="#T21:55:20" id="T21:55:20"><abbr title="2014-10-27T21:55:20+00:00">21:55:20</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>its not</q></li>
+<li class="message">[<a href="#T21:55:25" id="T21:55:25"><abbr title="2014-10-27T21:55:25+00:00">21:55:25</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>yes it is lol</q></li>
+<li class="message">[<a href="#T21:55:26" id="T21:55:26"><abbr title="2014-10-27T21:55:26+00:00">21:55:26</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>works here</q></li>
+<li class="message">[<a href="#T21:55:32" id="T21:55:32"><abbr title="2014-10-27T21:55:32+00:00">21:55:32</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>plug and unplug</q></li>
+<li class="message">[<a href="#T21:55:37" id="T21:55:37"><abbr title="2014-10-27T21:55:37+00:00">21:55:37</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>then it will break</q></li>
+<li class="message">[<a href="#T21:55:44" id="T21:55:44"><abbr title="2014-10-27T21:55:44+00:00">21:55:44</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>what image do you have?</q></li>
+<li class="message">[<a href="#T21:55:48" id="T21:55:48"><abbr title="2014-10-27T21:55:48+00:00">21:55:48</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>it wont</q></li>
+<li class="message">[<a href="#T21:56:27" id="T21:56:27"><abbr title="2014-10-27T21:56:27+00:00">21:56:27</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>dunno what image Debian jessie</q></li>
+<li class="message">[<abbr title="2014-10-27T21:56:27+00:00">21:56:27</abbr>] &lt;<cite>veremit</cite>&gt; <q>mkad .. it IS broken .. it may work for you .. but there are conditions it won't</q></li>
+<li class="message">[<a href="#T21:56:28" id="T21:56:28"><abbr title="2014-10-27T21:56:28+00:00">21:56:28</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>says 3.8.13-bone67</q></li>
+<li class="message">[<a href="#T21:56:57" id="T21:56:57"><abbr title="2014-10-27T21:56:57+00:00">21:56:57</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>what are you connecting</q></li>
+<li class="message">[<a href="#T21:57:01" id="T21:57:01"><abbr title="2014-10-27T21:57:01+00:00">21:57:01</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>usb</q></li>
+<li class="message">[<a href="#T21:57:03" id="T21:57:03"><abbr title="2014-10-27T21:57:03+00:00">21:57:03</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>a mouse?</q></li>
+<li class="message">[<abbr title="2014-10-27T21:57:03+00:00">21:57:03</abbr>] &lt;<cite>mkad</cite>&gt; <q>to laptop</q></li>
+<li class="quit">[<a href="#T21:57:06" id="T21:57:06"><abbr title="2014-10-27T21:57:06+00:00">21:57:06</abbr></a>] <span>* dgerlach (~dave@nat/ti/x-nmqmfvqwbieqgibs) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<abbr title="2014-10-27T21:57:06+00:00">21:57:06</abbr>] &lt;<cite>Laurenceb_</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T21:57:11" id="T21:57:11"><abbr title="2014-10-27T21:57:11+00:00">21:57:11</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>erm</q></li>
+<li class="message">[<a href="#T21:57:14" id="T21:57:14"><abbr title="2014-10-27T21:57:14+00:00">21:57:14</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>laptop --&gt; bbb</q></li>
+<li class="message">[<a href="#T21:57:17" id="T21:57:17"><abbr title="2014-10-27T21:57:17+00:00">21:57:17</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>im talking about host here</q></li>
+<li class="message">[<a href="#T21:57:18" id="T21:57:18"><abbr title="2014-10-27T21:57:18+00:00">21:57:18</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>usb cable</q></li>
+<li class="message">[<a href="#T21:57:30" id="T21:57:30"><abbr title="2014-10-27T21:57:30+00:00">21:57:30</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>not usb ethernet (tho that can break as well)</q></li>
+<li class="message">[<a href="#T21:58:03" id="T21:58:03"><abbr title="2014-10-27T21:58:03+00:00">21:58:03</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>dunno my wifi usb dongle work</q></li>
+<li class="message">[<a href="#T21:58:08" id="T21:58:08"><abbr title="2014-10-27T21:58:08+00:00">21:58:08</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>yes usb host NOT usb client/otg</q></li>
+<li class="message">[<a href="#T21:58:36" id="T21:58:36"><abbr title="2014-10-27T21:58:36+00:00">21:58:36</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>is it hard to add cape/whatever you need for adc support to 3.17.1-bone4  ?</q></li>
+<li class="message">[<a href="#T21:58:42" id="T21:58:42"><abbr title="2014-10-27T21:58:42+00:00">21:58:42</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>what does it involve</q></li>
+<li class="message">[<a href="#T21:58:57" id="T21:58:57"><abbr title="2014-10-27T21:58:57+00:00">21:58:57</abbr></a>] &lt;<cite>mkad</cite>&gt; <q>Laurenceb, reading I guess</q></li>
+<li class="message">[<a href="#T21:59:01" id="T21:59:01"><abbr title="2014-10-27T21:59:01+00:00">21:59:01</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T21:59:18" id="T21:59:18"><abbr title="2014-10-27T21:59:18+00:00">21:59:18</abbr></a>] &lt;<cite>Laurenceb_</cite>&gt; <q>more than a simple kernel patch?</q></li>
+<li class="quit">[<a href="#T21:59:26" id="T21:59:26"><abbr title="2014-10-27T21:59:26+00:00">21:59:26</abbr></a>] <span>* JoshAshby (~ashby@192.210.238.183) Quit (Ping timeout: 256 seconds)</span></li>
