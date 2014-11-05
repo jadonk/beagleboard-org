@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="3797" name="Page" prototype="Page" created="1412621357700" lastModified="1415152049294">
+  <hopobject id="3797" name="Page" prototype="Page" created="1412621357700" lastModified="1415152165038">
   <hop:parent idref="0" prototyperef="Root"/>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_remotehost>127.0.0.1</http_remotehost>
     <http_language>en-US,en;q=0.8</http_language>
     <uri>pru</uri>
     <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36</http_browser>
-    <time type="date">05.11.2014 01:47:29 UTC</time>
+    <time type="date">05.11.2014 01:49:24 UTC</time>
     <hopsession>127.0.0.1otngbzkpu1wt</hopsession>
     <body>&lt;h1&gt;PRU-ICSS Resources&lt;/h1&gt;
 &lt;p&gt;This page is still in development. For now, visit &lt;a href=&quot;http://elinux.org/Ti_AM33XX_PRUSSv2&quot;&gt;http://elinux.org/Ti_AM33XX_PRUSSv2&lt;/a&gt;.&lt;/p&gt;
@@ -28,12 +28,12 @@
     &lt;li&gt;
         Go to Cloud-9 - http://192.168.7.2:3000/
     &lt;/li&gt;
-    &lt;li&gt;Disable HDMI in /boot/uEnv.txt&lt;br /&gt;
+    &lt;li&gt;Disable HDMI in /boot/uEnv.txt (back in Cloud9 IDE terminal window)&lt;br /&gt;
     &lt;pre&gt;sed -i &apos;/cape_disable=capemgr.disable_partno=BB-BONELT-HDMI,BB-BONELT-HDMIN$/ s/^#//&apos; /boot/uEnv.txt&lt;/pre&gt;
     &lt;/li&gt;
-    &lt;li&gt;&lt;pre&gt;shutdown –r now&lt;/pre&gt; (restarts the BeagleBone)&lt;/li&gt;
-    &lt;li&gt;&lt;pre&gt;modprobe pru_speak&lt;/pre&gt; (back in Cloud-9)&lt;/li&gt;
-    &lt;li&gt;&lt;pre&gt;config-pin overlay BB-PRUSPEAK&lt;/pre&gt;   - device tree source file&lt;br /&gt;
+    &lt;li&gt;Restart the BeagleBone&lt;pre&gt;shutdown –r now&lt;/pre&gt;&lt;/li&gt;
+    &lt;li&gt;Load the kernel module (back in Cloud9 IDE terminal window)&lt;pre&gt;modprobe pru_speak&lt;/pre&gt;&lt;/li&gt;
+    &lt;li&gt;Load the device tree overlay (from Cloud9 IDE terminal window)&lt;pre&gt;config-pin overlay BB-PRUSPEAK&lt;/pre&gt;&lt;br /&gt;
 -          this the remote proc server, which loads firmware and manages communication between files and the PRU. It is placed inthe OS Kernel. 
 &lt;/li&gt;
 &lt;li&gt;dhclient eth0 (in a separate Cloud-9 subwindow) - to connect obtain an IP address for the BeagleBone if necessary
@@ -51,7 +51,7 @@ X.&lt;br /&gt;
 &lt;li&gt;Execute SET DIO[4],1 in PRU Speak to turn the LED on.&lt;/li&gt;
 &lt;/ol&gt;</body>
     <pseudoparent idref="0" prototyperef="Root"/>
-    <pvcount type="float">614.0</pvcount>
+    <pvcount type="float">616.0</pvcount>
     <http_referer>http://beagleboard.org/pru/edit</http_referer>
     <http_host>127.0.0.1:8080</http_host>
     <user>jkridner.wordpress.com</user>
