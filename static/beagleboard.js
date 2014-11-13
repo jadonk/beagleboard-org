@@ -9,6 +9,11 @@ ga('require', 'linkid', 'linkid.js');
 ga('require', 'displayfeatures');
 ga('send', 'pageview');
 
+function goTracked(action, link) {
+    ga('send', 'event', 'exit', action, link);
+    setTimeout('document.location = "' + link + '"', 100);
+};
+
 // adroll
 adroll_adv_id = "EC3AD5CVBRBDZK2IF5HUG7";
 adroll_pix_id = "KPOF2PWBSVAU7LE7IYHV7U";
