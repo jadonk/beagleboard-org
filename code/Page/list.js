@@ -42,6 +42,7 @@ function listBody ()
 
     body += "<br /><div id='loadmsg' style='text-align:center;'><br /><br /><img src='/static/graphics/spinning-wheel.gif'><br /><br />Loading Projects...</div><table id='projects' style='display:none;'>\n";
     body += "<thead><tr><th style='width: 350px;'>Project</th><th style='width: 180px;'>Updated</th><th style='width: 120px;'>Views</th><th>Category</th><th>Board</th><th>Status</th></tr></thead><tbody>\n";
+    //body += "<thead><tr><th style='width: 350px;'>Project</th><th style='width: 180px;'>Updated</th><th style='width: 120px;'>Views</th><th>Category</th><th>Board</th><th>Status</th><th>Trend</th></tr></thead><tbody>\n";
    }
   else if (collection[0].render_skin == "cape")
    {
@@ -119,6 +120,7 @@ function listBody ()
         body += collection[i].homepage;
         body += '">*</a>&nbsp;)';
        }
+      //var trend = Math.random().toFixed(2);
       body += '<br><small>'
        + encode(collection[i].shortdesc)
        + '</small></td><td><small>'
@@ -131,6 +133,7 @@ function listBody ()
        + '<td>' + collection[i].category + '</td>'
        + '<td>' + collection[i].boardType + '</td>'
        + '<td>' + collection[i].prj_Status + '</td>'
+       //+ '<td>' + trend + '</td>'
        + '</tr>\n';
      }
     else if (collection[i].render_skin == "cape")
