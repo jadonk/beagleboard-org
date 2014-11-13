@@ -2,12 +2,12 @@
 <link rel="stylesheet" href="/static/jquery/nailthumb/jquery.nailthumb.1.1.min.css" type="text/css" media="screen">
 <div itemscope itemtype="http://schema.org/CreativeWork">
 <h1 itemprop="name"><% this.pname %></h1>
-<h2><% this.shortdesc %></h2>
-<div id="project-plusone" class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
+<h2 itemprop="description"><% this.shortdesc %></h2>
+<button class="g-interactivepost" data-calltoaction="LEARN" data-contenturl="http://beagleboard.org/project/<%this.uri%>/" data-clientid="456596826642-hp34gga3r8lmshjkarkbfoohfm2972f9.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-calltoactionurl="http://beagleboard.org/project/<%this.uri%>/">Share on G+</button>
 <table class="tblproject">
  <tr>
   <td valign="top" class="tb" align="right"><img itemprop="image" id="projectImage" class="projimg" style="width:1px;height:1px;" src="<%this.imageFile%>" /></td>
-  <td class="tbl5" width="400" itemprop="description"><% this.body %><br />
+  <td class="tbl5" width="400"><% this.body %><br />
    <br />
    <br />
    <span style="font-size:150%"><% this.gethomepage %></span><br />
@@ -25,9 +25,6 @@ var disqus_shortname = 'beagleboard-project';
  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
-</script>
-<script type="text/javascript">
-gapi.plusone.render("project-plusone");
 </script>
 <small><% this.gettags %></small><br />
 <small>Projected created on: <%this.updatetime%></small><br />
@@ -54,3 +51,4 @@ $(document).ready(function() {
 	$('.projimg').nailthumb({width:300, height:300, replaceAnimation:null, method:'resize', fitDirection:'top right'});
 });
 </script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
