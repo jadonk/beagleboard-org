@@ -9,10 +9,32 @@ ga('require', 'linkid', 'linkid.js');
 ga('require', 'displayfeatures');
 ga('send', 'pageview');
 
+$(document).ready(findLinks);
+
+function findLinks() {
+    $("a[class='External']").each(trackExitLink);
+    $("a[class='external']").each(trackExitLink);
+}
+
+function trackExitLink() {
+    try {
+        var old_link = this.href;
+        var a = $(this);
+        var action = a.attr('data-action');
+        if(!action) action = 'link-external';
+        var new_link = 'goTracked("' + action + '", "' + old_link + '");';
+        //console.log("Replacing external link " + this.href + " with: " + new_link);
+        a.attr('href', '#' + old_link);
+        a.attr('onClick', new_link);
+    } catch(ex) {
+        console.log("Error: " + ex);
+    }
+}
+
 function goTracked(action, link) {
     ga('send', 'event', 'exit', action, link);
     setTimeout('document.location = "' + link + '"', 100);
-};
+}
 
 // adroll
 adroll_adv_id = "EC3AD5CVBRBDZK2IF5HUG7";
