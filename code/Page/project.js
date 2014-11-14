@@ -38,9 +38,9 @@ function gethomepage_macro (param)
  {
 	if (this.homepage != undefined && this.homepage != "") {
 	  if ((this.homepage).indexOf("http", -1)) {
-		return ('Homepage: <a href="http://' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
+		return ('Homepage: <a class="external" href="http://' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
 	  } else {
-		return ('Homepage: <a href="' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
+		return ('Homepage: <a class="external" href="' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
 	  }
 	}
  }
