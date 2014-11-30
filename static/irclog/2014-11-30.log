@@ -28,3 +28,113 @@
 <li class="quit">[<abbr title="2014-11-30T00:53:46+00:00">00:53:46</abbr>] <span>* veremit (~kvirc@88-145-147-139.host.pobb.as13285.net) Quit (Changing host)</span></li>
 <li class="join">[<abbr title="2014-11-30T00:53:46+00:00">00:53:46</abbr>] <span>* veremit (~kvirc@unaffiliated/veremit) has joined #beagle</span></li>
 <li class="quit">[<a href="#T00:54:38" id="T00:54:38"><abbr title="2014-11-30T00:54:38+00:00">00:54:38</abbr></a>] <span>* vorsorken (~vorsorken@108-237-121-21.lightspeed.frokca.sbcglobal.net) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T01:01:06" id="T01:01:06"><abbr title="2014-11-30T01:01:06+00:00">01:01:06</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>hey veremit you may know</q></li>
+<li class="message">[<a href="#T01:01:19" id="T01:01:19"><abbr title="2014-11-30T01:01:19+00:00">01:01:19</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>local_irq_disable does this guy disable all ints?</q></li>
+<li class="message">[<a href="#T01:01:22" id="T01:01:22"><abbr title="2014-11-30T01:01:22+00:00">01:01:22</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>uhoh</q></li>
+<li class="message">[<a href="#T01:01:25" id="T01:01:25"><abbr title="2014-11-30T01:01:25+00:00">01:01:25</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>:O</q></li>
+<li class="message">[<a href="#T01:01:56" id="T01:01:56"><abbr title="2014-11-30T01:01:56+00:00">01:01:56</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>on the arm? you hard-coding?</q></li>
+<li class="message">[<a href="#T01:02:05" id="T01:02:05"><abbr title="2014-11-30T01:02:05+00:00">01:02:05</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>uhm .. bare metal I mean</q></li>
+<li class="message">[<a href="#T01:02:11" id="T01:02:11"><abbr title="2014-11-30T01:02:11+00:00">01:02:11</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>no kernel/linux/etc</q></li>
+<li class="join">[<a href="#T01:02:19" id="T01:02:19"><abbr title="2014-11-30T01:02:19+00:00">01:02:19</abbr></a>] <span>* calculu5 (~calculus@gentoo/user/calculus) has joined #beagle</span></li>
+<li class="mode">[<abbr title="2014-11-30T01:02:19+00:00">01:02:19</abbr>] <span>* ChanServ sets mode +o calculu5</span></li>
+<li class="message">[<a href="#T01:02:35" id="T01:02:35"><abbr title="2014-11-30T01:02:35+00:00">01:02:35</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>And, erm, no clue ;D</q></li>
+<li class="message">[<a href="#T01:02:40" id="T01:02:40"><abbr title="2014-11-30T01:02:40+00:00">01:02:40</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>no..with the kernel/linux</q></li>
+<li class="message">[<a href="#T01:02:53" id="T01:02:53"><abbr title="2014-11-30T01:02:53+00:00">01:02:53</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>I wouldn't recommend disabling all interrupts with a live kernel .. ;)</q></li>
+<li class="message">[<a href="#T01:03:03" id="T01:03:03"><abbr title="2014-11-30T01:03:03+00:00">01:03:03</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>well...i kind of need to</q></li>
+<li class="message">[<a href="#T01:03:14" id="T01:03:14"><abbr title="2014-11-30T01:03:14+00:00">01:03:14</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>ok then..baremetal.</q></li>
+<li class="message">[<a href="#T01:03:20" id="T01:03:20"><abbr title="2014-11-30T01:03:20+00:00">01:03:20</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you -can- .. but I don't imagine it's gonna like that lol</q></li>
+<li class="message">[<a href="#T01:03:25" id="T01:03:25"><abbr title="2014-11-30T01:03:25+00:00">01:03:25</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>im doing some inline assembly to do it</q></li>
+<li class="message">[<a href="#T01:03:38" id="T01:03:38"><abbr title="2014-11-30T01:03:38+00:00">01:03:38</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>	asm(</q></li>
+<li class="message">[<abbr title="2014-11-30T01:03:38+00:00">01:03:38</abbr>] &lt;<cite>zsnafu</cite>&gt; <q>	"LDMFD   SP!, {R8, R12}\n\t" 	//Load R8, SPSR</q></li>
+<li class="message">[<abbr title="2014-11-30T01:03:38+00:00">01:03:38</abbr>] &lt;<cite>zsnafu</cite>&gt; <q>	"ORR     R12, R12, #0x80\n\t" 	//Set IRQ flag to disable it</q></li>
+<li class="message">[<abbr title="2014-11-30T01:03:38+00:00">01:03:38</abbr>] &lt;<cite>zsnafu</cite>&gt; <q>	"MSR     SPSR_cxsf, R12\n\t" 	//SPSR</q></li>
+<li class="message">[<abbr title="2014-11-30T01:03:38+00:00">01:03:38</abbr>] &lt;<cite>zsnafu</cite>&gt; <q>	".align 4\n\t"</q></li>
+<li class="message">[<abbr title="2014-11-30T01:03:38+00:00">01:03:38</abbr>] &lt;<cite>zsnafu</cite>&gt; <q>	"LDMFD   SP!, {R12, PC}^\n\t"		//Restore R12 and Return</q></li>
+<li class="message">[<abbr title="2014-11-30T01:03:38+00:00">01:03:38</abbr>] &lt;<cite>zsnafu</cite>&gt; <q>	);</q></li>
+<li class="message">[<a href="#T01:03:44" id="T01:03:44"><abbr title="2014-11-30T01:03:44+00:00">01:03:44</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>does that look right?</q></li>
+<li class="message">[<a href="#T01:03:54" id="T01:03:54"><abbr title="2014-11-30T01:03:54+00:00">01:03:54</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>ignore the .align4</q></li>
+<li class="quit">[<abbr title="2014-11-30T01:03:54+00:00">01:03:54</abbr>] <span>* divine (~divine@66-189-167-23.dhcp.trlk.ca.charter.com) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T01:03:57" id="T01:03:57"><abbr title="2014-11-30T01:03:57+00:00">01:03:57</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>holy crap lol</q></li>
+<li class="message">[<a href="#T01:04:09" id="T01:04:09"><abbr title="2014-11-30T01:04:09+00:00">01:04:09</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>no idea .. the only assembler I do is Atmel AVR or PIC ;D</q></li>
+<li class="message">[<a href="#T01:04:19" id="T01:04:19"><abbr title="2014-11-30T01:04:19+00:00">01:04:19</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>damn</q></li>
+<li class="message">[<a href="#T01:04:24" id="T01:04:24"><abbr title="2014-11-30T01:04:24+00:00">01:04:24</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>even the cortex-M3/M0 I've done in C ..</q></li>
+<li class="message">[<a href="#T01:04:45" id="T01:04:45"><abbr title="2014-11-30T01:04:45+00:00">01:04:45</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>you can't register an interrupt another way?</q></li>
+<li class="message">[<a href="#T01:05:04" id="T01:05:04"><abbr title="2014-11-30T01:05:04+00:00">01:05:04</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>you can register it</q></li>
+<li class="message">[<a href="#T01:05:08" id="T01:05:08"><abbr title="2014-11-30T01:05:08+00:00">01:05:08</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>err</q></li>
+<li class="message">[<a href="#T01:05:12" id="T01:05:12"><abbr title="2014-11-30T01:05:12+00:00">01:05:12</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>im trying to disable them</q></li>
+<li class="message">[<a href="#T01:05:32" id="T01:05:32"><abbr title="2014-11-30T01:05:32+00:00">01:05:32</abbr></a>] &lt;<cite>breaker19</cite>&gt; <q>what's the most up to date and stable OE tag for building console-image for the Beagleboard C3?</q></li>
+<li class="message">[<abbr title="2014-11-30T01:05:32+00:00">01:05:32</abbr>] &lt;<cite>zsnafu</cite>&gt; <q>for timing critical stuff...but not critical to go to the pu</q></li>
+<li class="message">[<a href="#T01:05:35" id="T01:05:35"><abbr title="2014-11-30T01:05:35+00:00">01:05:35</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>yea I get that . but Why. And seriously, don't think that's a good idea .. even for a microsecond!</q></li>
+<li class="quit">[<a href="#T01:05:53" id="T01:05:53"><abbr title="2014-11-30T01:05:53+00:00">01:05:53</abbr></a>] <span>* calculus (~calculus@gentoo/user/calculus) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="message">[<a href="#T01:05:56" id="T01:05:56"><abbr title="2014-11-30T01:05:56+00:00">01:05:56</abbr></a>] &lt;<cite>methuzla</cite>&gt; <q>ARM has two interrupts - IRQ and FIQ</q></li>
+<li class="message">[<a href="#T01:06:01" id="T01:06:01"><abbr title="2014-11-30T01:06:01+00:00">01:06:01</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>who knows what might break</q></li>
+<li class="join">[<a href="#T01:06:21" id="T01:06:21"><abbr title="2014-11-30T01:06:21+00:00">01:06:21</abbr></a>] <span>* tmcmahon (~tmcmahon@d-230.lcom.net) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T01:06:32" id="T01:06:32"><abbr title="2014-11-30T01:06:32+00:00">01:06:32</abbr></a>] <span>* tmcmahon (~tmcmahon@d-230.lcom.net) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T01:06:40" id="T01:06:40"><abbr title="2014-11-30T01:06:40+00:00">01:06:40</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>things break..i just reboot...the boot file fixes it</q></li>
+<li class="message">[<a href="#T01:06:42" id="T01:06:42"><abbr title="2014-11-30T01:06:42+00:00">01:06:42</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>*shrug*</q></li>
+<li class="message">[<a href="#T01:07:07" id="T01:07:07"><abbr title="2014-11-30T01:07:07+00:00">01:07:07</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>drivers disable interrupts all the time</q></li>
+<li class="message">[<a href="#T01:08:09" id="T01:08:09"><abbr title="2014-11-30T01:08:09+00:00">01:08:09</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>zsnafu: I think the solution in your case is to look into RT_PREEMPT.</q></li>
+<li class="message">[<a href="#T01:08:25" id="T01:08:25"><abbr title="2014-11-30T01:08:25+00:00">01:08:25</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Not turning off interrupts.</q></li>
+<li class="message">[<a href="#T01:08:57" id="T01:08:57"><abbr title="2014-11-30T01:08:57+00:00">01:08:57</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>looking into it now</q></li>
+<li class="quit">[<a href="#T01:09:28" id="T01:09:28"><abbr title="2014-11-30T01:09:28+00:00">01:09:28</abbr></a>] <span>* mhaberler (~mhaberler@extern-175.stiwoll.mah.priv.at) Quit (Quit: mhaberler)</span></li>
+<li class="message">[<a href="#T01:09:45" id="T01:09:45"><abbr title="2014-11-30T01:09:45+00:00">01:09:45</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>ohh yea..so i've read a bit about this</q></li>
+<li class="message">[<a href="#T01:10:04" id="T01:10:04"><abbr title="2014-11-30T01:10:04+00:00">01:10:04</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>i heard the bbb kernel..2.9? crashes with RT_PREEMPT</q></li>
+<li class="message">[<a href="#T01:10:09" id="T01:10:09"><abbr title="2014-11-30T01:10:09+00:00">01:10:09</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Yeah, that is probably the correct solution for your issue.</q></li>
+<li class="message">[<a href="#T01:10:20" id="T01:10:20"><abbr title="2014-11-30T01:10:20+00:00">01:10:20</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Why do you want such an old kernel?</q></li>
+<li class="message">[<a href="#T01:10:49" id="T01:10:49"><abbr title="2014-11-30T01:10:49+00:00">01:10:49</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>err 3.8</q></li>
+<li class="message">[<a href="#T01:11:00" id="T01:11:00"><abbr title="2014-11-30T01:11:00+00:00">01:11:00</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>3.8 crashes with RT_PREEMPT</q></li>
+<li class="message">[<a href="#T01:11:06" id="T01:11:06"><abbr title="2014-11-30T01:11:06+00:00">01:11:06</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Does it?</q></li>
+<li class="quit">[<abbr title="2014-11-30T01:11:06+00:00">01:11:06</abbr>] <span>* woglinde (~henning@g225144155.adsl.alicedsl.de) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T01:11:09" id="T01:11:09"><abbr title="2014-11-30T01:11:09+00:00">01:11:09</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>from what i heard</q></li>
+<li class="message">[<a href="#T01:11:23" id="T01:11:23"><abbr title="2014-11-30T01:11:23+00:00">01:11:23</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Try hearing from somewhere else then?</q></li>
+<li class="message">[<a href="#T01:11:39" id="T01:11:39"><abbr title="2014-11-30T01:11:39+00:00">01:11:39</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>hey agmlego...does it?</q></li>
+<li class="message">[<a href="#T01:11:52" id="T01:11:52"><abbr title="2014-11-30T01:11:52+00:00">01:11:52</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>I know the guys over at ArduPilot are working on porting their stuff over to Bone, which is on RT_PREEMPT.</q></li>
+<li class="message">[<a href="#T01:12:15" id="T01:12:15"><abbr title="2014-11-30T01:12:15+00:00">01:12:15</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>I cannot imagine they would be doing that if 3.8/RT crashed regularly.</q></li>
+<li class="message">[<a href="#T01:13:33" id="T01:13:33"><abbr title="2014-11-30T01:13:33+00:00">01:13:33</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>hm</q></li>
+<li class="message">[<a href="#T01:13:39" id="T01:13:39"><abbr title="2014-11-30T01:13:39+00:00">01:13:39</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>k i'll look in to it</q></li>
+<li class="message">[<a href="#T01:14:04" id="T01:14:04"><abbr title="2014-11-30T01:14:04+00:00">01:14:04</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>but i mean still...i'd like to know how to disable irqs</q></li>
+<li class="message">[<a href="#T01:14:46" id="T01:14:46"><abbr title="2014-11-30T01:14:46+00:00">01:14:46</abbr></a>] &lt;<cite>methuzla</cite>&gt; <q>set the I bit in the status register</q></li>
+<li class="message">[<a href="#T01:14:50" id="T01:14:50"><abbr title="2014-11-30T01:14:50+00:00">01:14:50</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>I would suggest doing that through the kernel.</q></li>
+<li class="message">[<a href="#T01:15:03" id="T01:15:03"><abbr title="2014-11-30T01:15:03+00:00">01:15:03</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>So that it knows that you are doing it.</q></li>
+<li class="message">[<a href="#T01:15:35" id="T01:15:35"><abbr title="2014-11-30T01:15:35+00:00">01:15:35</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T01:15:45" id="T01:15:45"><abbr title="2014-11-30T01:15:45+00:00">01:15:45</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>will the kernel care if i'm running as root?</q></li>
+<li class="message">[<a href="#T01:16:01" id="T01:16:01"><abbr title="2014-11-30T01:16:01+00:00">01:16:01</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>...</q></li>
+<li class="message">[<a href="#T01:16:19" id="T01:16:19"><abbr title="2014-11-30T01:16:19+00:00">01:16:19</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>This is not a permissions thing; the kernel makes heavy use of interrupts for its routine operation.</q></li>
+<li class="message">[<a href="#T01:16:24" id="T01:16:24"><abbr title="2014-11-30T01:16:24+00:00">01:16:24</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T01:16:34" id="T01:16:34"><abbr title="2014-11-30T01:16:34+00:00">01:16:34</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T01:17:13" id="T01:17:13"><abbr title="2014-11-30T01:17:13+00:00">01:17:13</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>So, if you are going to disable interrupts, you need to ask the kernel to disable them in a way that will not panic it.</q></li>
+<li class="join">[<a href="#T01:19:01" id="T01:19:01"><abbr title="2014-11-30T01:19:01+00:00">01:19:01</abbr></a>] <span>* ArtyG_ (~ArtyG@c-67-185-17-3.hsd1.wa.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:20:43" id="T01:20:43"><abbr title="2014-11-30T01:20:43+00:00">01:20:43</abbr></a>] <span>* ArtyG (~ArtyG@c-67-185-17-3.hsd1.wa.comcast.net) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T01:21:17" id="T01:21:17"><abbr title="2014-11-30T01:21:17+00:00">01:21:17</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T01:21:19" id="T01:21:19"><abbr title="2014-11-30T01:21:19+00:00">01:21:19</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>ok so let me get this straight...with RT_Preempt interrupts are handled by threads</q></li>
+<li class="message">[<a href="#T01:21:30" id="T01:21:30"><abbr title="2014-11-30T01:21:30+00:00">01:21:30</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>thus i could give the process i need a higher priority</q></li>
+<li class="join">[<a href="#T01:21:31" id="T01:21:31"><abbr title="2014-11-30T01:21:31+00:00">01:21:31</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:21:37" id="T01:21:37"><abbr title="2014-11-30T01:21:37+00:00">01:21:37</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>than whatever..</q></li>
+<li class="message">[<a href="#T01:22:01" id="T01:22:01"><abbr title="2014-11-30T01:22:01+00:00">01:22:01</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Yup.</q></li>
+<li class="message">[<a href="#T01:22:21" id="T01:22:21"><abbr title="2014-11-30T01:22:21+00:00">01:22:21</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>cool shit</q></li>
+<li class="join">[<a href="#T01:22:31" id="T01:22:31"><abbr title="2014-11-30T01:22:31+00:00">01:22:31</abbr></a>] <span>* idwer_ (~irc@unaffiliated/idwer) has joined #beagle</span></li>
+<li class="message">[<a href="#T01:23:14" id="T01:23:14"><abbr title="2014-11-30T01:23:14+00:00">01:23:14</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>ok so</q></li>
+<li class="message">[<a href="#T01:23:23" id="T01:23:23"><abbr title="2014-11-30T01:23:23+00:00">01:23:23</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>the patch is located here:</q></li>
+<li class="message">[<a href="#T01:23:24" id="T01:23:24"><abbr title="2014-11-30T01:23:24+00:00">01:23:24</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q><a href="ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.1.tar.bz2">ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.23.1.tar.bz2</a></q></li>
+<li class="message">[<a href="#T01:23:31" id="T01:23:31"><abbr title="2014-11-30T01:23:31+00:00">01:23:31</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>does that mean it's going to patch 2.6?</q></li>
+<li class="message">[<a href="#T01:23:40" id="T01:23:40"><abbr title="2014-11-30T01:23:40+00:00">01:23:40</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Uh, yeah.</q></li>
+<li class="message">[<a href="#T01:24:05" id="T01:24:05"><abbr title="2014-11-30T01:24:05+00:00">01:24:05</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Specifically, 2.6.23.1</q></li>
+<li class="message">[<a href="#T01:24:31" id="T01:24:31"><abbr title="2014-11-30T01:24:31+00:00">01:24:31</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>so im going to lose 3.8</q></li>
+<li class="message">[<a href="#T01:24:49" id="T01:24:49"><abbr title="2014-11-30T01:24:49+00:00">01:24:49</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>...no?</q></li>
+<li class="message">[<a href="#T01:24:50" id="T01:24:50"><abbr title="2014-11-30T01:24:50+00:00">01:24:50</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>and the device tree stuff?</q></li>
+<li class="message">[<a href="#T01:24:51" id="T01:24:51"><abbr title="2014-11-30T01:24:51+00:00">01:24:51</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>oh</q></li>
+<li class="message">[<abbr title="2014-11-30T01:24:51+00:00">01:24:51</abbr>] &lt;<cite>zsnafu</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T01:25:05" id="T01:25:05"><abbr title="2014-11-30T01:25:05+00:00">01:25:05</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Why are you applying patches for a kernel you are not running?</q></li>
+<li class="join">[<a href="#T01:25:14" id="T01:25:14"><abbr title="2014-11-30T01:25:14+00:00">01:25:14</abbr></a>] <span>* mrpackethead (~mrpacketh@rrcs-71-43-181-156.se.biz.rr.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:25:28" id="T01:25:28"><abbr title="2014-11-30T01:25:28+00:00">01:25:28</abbr></a>] <span>* idwer (~irc@unaffiliated/idwer) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T01:25:42" id="T01:25:42"><abbr title="2014-11-30T01:25:42+00:00">01:25:42</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>i was just following the instructions at:</q></li>
+<li class="message">[<a href="#T01:25:43" id="T01:25:43"><abbr title="2014-11-30T01:25:43+00:00">01:25:43</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q><a href="https://rt.wiki.kernel.org/index.php/RT_PREEMPT_HOWTO">https://rt.wiki.kernel.org/index.php/RT_PREEMPT_HOWTO</a></q></li>
+<li class="quit">[<a href="#T01:26:06" id="T01:26:06"><abbr title="2014-11-30T01:26:06+00:00">01:26:06</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="message">[<a href="#T01:27:01" id="T01:27:01"><abbr title="2014-11-30T01:27:01+00:00">01:27:01</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>I really strongly suggest a) not following a tutorial on a decade-old kernel and b) not following a tutorial on x86.</q></li>
+<li class="message">[<a href="#T01:29:20" id="T01:29:20"><abbr title="2014-11-30T01:29:20+00:00">01:29:20</abbr></a>] &lt;<cite>zsnafu</cite>&gt; <q>hm</q></li>
+<li class="quit">[<a href="#T01:30:02" id="T01:30:02"><abbr title="2014-11-30T01:30:02+00:00">01:30:02</abbr></a>] <span>* mrpackethead (~mrpacketh@rrcs-71-43-181-156.se.biz.rr.com) Quit (Ping timeout: 252 seconds)</span></li>
+<li class="quit">[<a href="#T01:35:34" id="T01:35:34"><abbr title="2014-11-30T01:35:34+00:00">01:35:34</abbr></a>] <span>* drkfdr (~darkfader@ip3e8346be.speed.planet.nl) Quit (Quit: drkfdr)</span></li>
+<li class="join">[<a href="#T01:38:18" id="T01:38:18"><abbr title="2014-11-30T01:38:18+00:00">01:38:18</abbr></a>] <span>* eikeon (~eikeon@c-98-204-80-157.hsd1.dc.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:41:56" id="T01:41:56"><abbr title="2014-11-30T01:41:56+00:00">01:41:56</abbr></a>] <span>* eikeon (~eikeon@c-98-204-80-157.hsd1.dc.comcast.net) Quit (Client Quit)</span></li>
+<li class="nick-change">[<a href="#T01:59:00" id="T01:59:00"><abbr title="2014-11-30T01:59:00+00:00">01:59:00</abbr></a>] <span>* idwer_ is now known as idwer</span></li>
+<li class="quit">[<a href="#T01:59:55" id="T01:59:55"><abbr title="2014-11-30T01:59:55+00:00">01:59:55</abbr></a>] <span>* richardpotthoff (~richardpo@c-68-38-232-139.hsd1.nj.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
