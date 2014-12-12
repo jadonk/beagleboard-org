@@ -1,0 +1,17 @@
+<script src="/static/tinymce.min.js"></script>
+<form method="post" action="edit">
+ <h1>Blog Post</h1>
+ Alternate set name: <% this.alt %><br />
+ URI: <input type="text" name="uri" value="<% this.uri %>" /><br />
+ <textarea id="fullDesc" name="body" style="width:350px;" rows="20"><% this.body %></textarea><br />
+ Language: <input type="text" name="lang" value="<% this.lang %>" /><br />
+ <input type="submit" name="submit" value="Save" />
+</form>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	tinymce.init({selector:'textarea#fullDesc', plugins: ['code'] });
+});
+
+</script>
