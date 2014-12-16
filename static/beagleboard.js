@@ -25,7 +25,7 @@ function trackExitLink() {
         var action = a.attr('data-action');
         if(!action) action = 'link-external';
         var new_link = 'goTracked("' + action + '", "' + old_link + '");';
-        console.log("Replacing external link " + this.href + " with: " + new_link);
+        //console.log("Replacing external link " + this.href + " with: " + new_link);
         a.attr('href', '#' + old_link);
         a.attr('onClick', new_link);
     } catch(ex) {
