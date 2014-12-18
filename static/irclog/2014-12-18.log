@@ -392,3 +392,211 @@
 <li class="message">[<a href="#T03:59:37" id="T03:59:37"><abbr title="2014-12-18T03:59:37+00:00">03:59:37</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>it's dynamic (likely), unless you get a STATIC ip</q></li>
 <li class="message">[<a href="#T03:59:46" id="T03:59:46"><abbr title="2014-12-18T03:59:46+00:00">03:59:46</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>TWC charges a buttload more for that</q></li>
 <li class="message">[<a href="#T03:59:50" id="T03:59:50"><abbr title="2014-12-18T03:59:50+00:00">03:59:50</abbr></a>] &lt;<cite>py0</cite>&gt; <q>yeah it's DHCP</q></li>
+<li class="message">[<a href="#T04:00:01" id="T04:00:01"><abbr title="2014-12-18T04:00:01+00:00">04:00:01</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>anyway, you can either get a static IP from TWC (don't)...</q></li>
+<li class="message">[<a href="#T04:00:07" id="T04:00:07"><abbr title="2014-12-18T04:00:07+00:00">04:00:07</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>or use a DDNS</q></li>
+<li class="message">[<a href="#T04:00:11" id="T04:00:11"><abbr title="2014-12-18T04:00:11+00:00">04:00:11</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>dynamic DNS</q></li>
+<li class="message">[<a href="#T04:00:29" id="T04:00:29"><abbr title="2014-12-18T04:00:29+00:00">04:00:29</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>your router sends it's new DHCP-aquired IP to some service</q></li>
+<li class="message">[<a href="#T04:00:36" id="T04:00:36"><abbr title="2014-12-18T04:00:36+00:00">04:00:36</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>you register with that service</q></li>
+<li class="message">[<a href="#T04:00:41" id="T04:00:41"><abbr title="2014-12-18T04:00:41+00:00">04:00:41</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>so for instance</q></li>
+<li class="message">[<a href="#T04:00:52" id="T04:00:52"><abbr title="2014-12-18T04:00:52+00:00">04:00:52</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>my asus router has it for free</q></li>
+<li class="message">[<a href="#T04:00:59" id="T04:00:59"><abbr title="2014-12-18T04:00:59+00:00">04:00:59</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>foo.asuscomm.com</q></li>
+<li class="message">[<a href="#T04:01:08" id="T04:01:08"><abbr title="2014-12-18T04:01:08+00:00">04:01:08</abbr></a>] &lt;<cite>py0</cite>&gt; <q>but my nginx uses google dns</q></li>
+<li class="message">[<a href="#T04:01:09" id="T04:01:09"><abbr title="2014-12-18T04:01:09+00:00">04:01:09</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>that might be my "virtual" ip</q></li>
+<li class="message">[<a href="#T04:01:19" id="T04:01:19"><abbr title="2014-12-18T04:01:19+00:00">04:01:19</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>DNS is not the same as DDNS</q></li>
+<li class="message">[<a href="#T04:01:23" id="T04:01:23"><abbr title="2014-12-18T04:01:23+00:00">04:01:23</abbr></a>] &lt;<cite>py0</cite>&gt; <q>and my router doesn't let me specify a custom dns, just dyndns</q></li>
+<li class="message">[<a href="#T04:01:49" id="T04:01:49"><abbr title="2014-12-18T04:01:49+00:00">04:01:49</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>dyndns would be exactly what you want to use</q></li>
+<li class="message">[<a href="#T04:02:05" id="T04:02:05"><abbr title="2014-12-18T04:02:05+00:00">04:02:05</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>so here's the problem: You need to get the nginx traffic from the WAN, to your default gateway (router), then you can port-forward it to the BBB</q></li>
+<li class="message">[<a href="#T04:02:39" id="T04:02:39"><abbr title="2014-12-18T04:02:39+00:00">04:02:39</abbr></a>] &lt;<cite>py0</cite>&gt; <q>fuck that noise</q></li>
+<li class="message">[<a href="#T04:02:44" id="T04:02:44"><abbr title="2014-12-18T04:02:44+00:00">04:02:44</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>dyndns == DDNS, i presume?</q></li>
+<li class="message">[<a href="#T04:02:46" id="T04:02:46"><abbr title="2014-12-18T04:02:46+00:00">04:02:46</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I'm not paying 30/mo+ for that</q></li>
+<li class="message">[<a href="#T04:03:32" id="T04:03:32"><abbr title="2014-12-18T04:03:32+00:00">04:03:32</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>but if you're going to host a site that you want people (and yourself) to access, it must be locatable</q></li>
+<li class="message">[<a href="#T04:04:06" id="T04:04:06"><abbr title="2014-12-18T04:04:06+00:00">04:04:06</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>your IP must not change--either because your ISP gives you a static one, or because you register with a DDNS service</q></li>
+<li class="message">[<a href="#T04:04:12" id="T04:04:12"><abbr title="2014-12-18T04:04:12+00:00">04:04:12</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I don't see why I need some bullshit external service for it that costs me more money</q></li>
+<li class="message">[<a href="#T04:04:13" id="T04:04:13"><abbr title="2014-12-18T04:04:13+00:00">04:04:13</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>--. <a href="http://lifehacker.com/the-best-free-alternatives-to-dyndns-1561556205">http://lifehacker.com/the-best-free-alternatives-to-dyndns-1561556205</a></q></li>
+<li class="message">[<a href="#T04:04:15" id="T04:04:15"><abbr title="2014-12-18T04:04:15+00:00">04:04:15</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>those are your two options. period</q></li>
+<li class="message">[<a href="#T04:04:34" id="T04:04:34"><abbr title="2014-12-18T04:04:34+00:00">04:04:34</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>well, how do you think people will find your ip?</q></li>
+<li class="message">[<a href="#T04:04:45" id="T04:04:45"><abbr title="2014-12-18T04:04:45+00:00">04:04:45</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>the ISP keeps changing it, lol</q></li>
+<li class="message">[<a href="#T04:05:50" id="T04:05:50"><abbr title="2014-12-18T04:05:50+00:00">04:05:50</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I can make it static</q></li>
+<li class="message">[<a href="#T04:05:58" id="T04:05:58"><abbr title="2014-12-18T04:05:58+00:00">04:05:58</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>$25 per year is pretty cheap</q></li>
+<li class="message">[<a href="#T04:06:05" id="T04:06:05"><abbr title="2014-12-18T04:06:05+00:00">04:06:05</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>so is <a href="http://www.1dollar-webhosting.com/">http://www.1dollar-webhosting.com/</a></q></li>
+<li class="message">[<a href="#T04:06:14" id="T04:06:14"><abbr title="2014-12-18T04:06:14+00:00">04:06:14</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>there you go</q></li>
+<li class="message">[<a href="#T04:06:19" id="T04:06:19"><abbr title="2014-12-18T04:06:19+00:00">04:06:19</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>$1 sounds good</q></li>
+<li class="message">[<a href="#T04:06:23" id="T04:06:23"><abbr title="2014-12-18T04:06:23+00:00">04:06:23</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>anyway, I think we're done</q></li>
+<li class="message">[<a href="#T04:07:26" id="T04:07:26"><abbr title="2014-12-18T04:07:26+00:00">04:07:26</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>one last thing py0... if you by chance want to upgrade your router, Asus (for example) offers a free DDNS service</q></li>
+<li class="message">[<a href="#T04:07:48" id="T04:07:48"><abbr title="2014-12-18T04:07:48+00:00">04:07:48</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>but a $75 spiffy router (that's what mine cost), get free DDNS</q></li>
+<li class="message">[<a href="#T04:07:49" id="T04:07:49"><abbr title="2014-12-18T04:07:49+00:00">04:07:49</abbr></a>] &lt;<cite>py0</cite>&gt; <q><a href="http://i.imgur.com/b4vobfR.png">http://i.imgur.com/b4vobfR.png</a></q></li>
+<li class="message">[<a href="#T04:08:12" id="T04:08:12"><abbr title="2014-12-18T04:08:12+00:00">04:08:12</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I don't need that</q></li>
+<li class="message">[<a href="#T04:08:16" id="T04:08:16"><abbr title="2014-12-18T04:08:16+00:00">04:08:16</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I can enable a static ip</q></li>
+<li class="message">[<a href="#T04:08:25" id="T04:08:25"><abbr title="2014-12-18T04:08:25+00:00">04:08:25</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>yeah, i think they are saying "enter the values your ISP gave you"</q></li>
+<li class="message">[<a href="#T04:08:49" id="T04:08:49"><abbr title="2014-12-18T04:08:49+00:00">04:08:49</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>that first field there... "Internet IPv4 address"</q></li>
+<li class="message">[<a href="#T04:08:55" id="T04:08:55"><abbr title="2014-12-18T04:08:55+00:00">04:08:55</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>you'd get that from your ISP</q></li>
+<li class="message">[<a href="#T04:09:14" id="T04:09:14"><abbr title="2014-12-18T04:09:14+00:00">04:09:14</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>and then they wouldn't have you on DHCP anymore</q></li>
+<li class="join">[<a href="#T04:09:23" id="T04:09:23"><abbr title="2014-12-18T04:09:23+00:00">04:09:23</abbr></a>] <span>* day- (~day@unaffiliated/day) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:09:42" id="T04:09:42"><abbr title="2014-12-18T04:09:42+00:00">04:09:42</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>what brand/model is your router?</q></li>
+<li class="message">[<a href="#T04:09:47" id="T04:09:47"><abbr title="2014-12-18T04:09:47+00:00">04:09:47</abbr></a>] &lt;<cite>py0</cite>&gt; <q>even so, namecheap offers this</q></li>
+<li class="message">[<a href="#T04:09:51" id="T04:09:51"><abbr title="2014-12-18T04:09:51+00:00">04:09:51</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>nor will you be using the right gateway, when things change</q></li>
+<li class="message">[<a href="#T04:10:04" id="T04:10:04"><abbr title="2014-12-18T04:10:04+00:00">04:10:04</abbr></a>] &lt;<cite>py0</cite>&gt; <q>the link idwer first gave lists namecheap as an alternative</q></li>
+<li class="message">[<a href="#T04:10:11" id="T04:10:11"><abbr title="2014-12-18T04:10:11+00:00">04:10:11</abbr></a>] &lt;<cite>py0</cite>&gt; <q>they happen to be the company I use the domain with</q></li>
+<li class="message">[<a href="#T04:10:15" id="T04:10:15"><abbr title="2014-12-18T04:10:15+00:00">04:10:15</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T04:10:19" id="T04:10:19"><abbr title="2014-12-18T04:10:19+00:00">04:10:19</abbr></a>] &lt;<cite>py0</cite>&gt; <q>but I fail to see what else I can do with them</q></li>
+<li class="message">[<a href="#T04:10:28" id="T04:10:28"><abbr title="2014-12-18T04:10:28+00:00">04:10:28</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>what router do you have?</q></li>
+<li class="message">[<a href="#T04:10:32" id="T04:10:32"><abbr title="2014-12-18T04:10:32+00:00">04:10:32</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>brand, model</q></li>
+<li class="message">[<a href="#T04:10:48" id="T04:10:48"><abbr title="2014-12-18T04:10:48+00:00">04:10:48</abbr></a>] &lt;<cite>py0</cite>&gt; <q>cisco ea6300</q></li>
+<li class="quit">[<a href="#T04:11:37" id="T04:11:37"><abbr title="2014-12-18T04:11:37+00:00">04:11:37</abbr></a>] <span>* GPSFan (~kenm@64.92.145.112) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T04:12:07" id="T04:12:07"><abbr title="2014-12-18T04:12:07+00:00">04:12:07</abbr></a>] <span>* day (~day@unaffiliated/day) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T04:12:53" id="T04:12:53"><abbr title="2014-12-18T04:12:53+00:00">04:12:53</abbr></a>] &lt;<cite>tb__</cite>&gt; <q><a href="http://www.noip.com/remote-access">http://www.noip.com/remote-access</a></q></li>
+<li class="message">[<a href="#T04:12:57" id="T04:12:57"><abbr title="2014-12-18T04:12:57+00:00">04:12:57</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>free</q></li>
+<li class="message">[<a href="#T04:13:18" id="T04:13:18"><abbr title="2014-12-18T04:13:18+00:00">04:13:18</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>you need to re-register every 30 days, but the hostname never expires</q></li>
+<li class="message">[<a href="#T04:13:43" id="T04:13:43"><abbr title="2014-12-18T04:13:43+00:00">04:13:43</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>then...  <a href="http://www.noip.com/support/knowledgebase/using-your-cisco-router-with-no-ip-dynamic-dns-services/">http://www.noip.com/support/knowledgebase/using-your-cisco-router-with-no-ip-dynamic-dns-services/</a></q></li>
+<li class="message">[<a href="#T04:13:48" id="T04:13:48"><abbr title="2014-12-18T04:13:48+00:00">04:13:48</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>how to set it up</q></li>
+<li class="message">[<a href="#T04:14:15" id="T04:14:15"><abbr title="2014-12-18T04:14:15+00:00">04:14:15</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>(general guide--might not be exactly for your model)</q></li>
+<li class="message">[<a href="#T04:14:27" id="T04:14:27"><abbr title="2014-12-18T04:14:27+00:00">04:14:27</abbr></a>] &lt;<cite>py0</cite>&gt; <q>but namecheap gives me an option to enable dynamic dns for my domain</q></li>
+<li class="message">[<a href="#T04:14:59" id="T04:14:59"><abbr title="2014-12-18T04:14:59+00:00">04:14:59</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>oh...then there you go</q></li>
+<li class="message">[<a href="#T04:15:02" id="T04:15:02"><abbr title="2014-12-18T04:15:02+00:00">04:15:02</abbr></a>] &lt;<cite>tb__</cite>&gt; <q><a href="http://www.firewall.cx/cisco-technical-knowledgebase/cisco-routers/811-cisco-router-ddns.html">http://www.firewall.cx/cisco-technical-knowledgebase/cisco-routers/811-cisco-router-ddns.html</a></q></li>
+<li class="message">[<a href="#T04:15:14" id="T04:15:14"><abbr title="2014-12-18T04:15:14+00:00">04:15:14</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>another page to assist with Cisco router setup</q></li>
+<li class="message">[<a href="#T04:15:31" id="T04:15:31"><abbr title="2014-12-18T04:15:31+00:00">04:15:31</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>it's for no-ip.com, but the steps should at least be similar</q></li>
+<li class="message">[<a href="#T04:17:52" id="T04:17:52"><abbr title="2014-12-18T04:17:52+00:00">04:17:52</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I've got no idea how they get to that terminal tb__</q></li>
+<li class="message">[<a href="#T04:17:58" id="T04:17:58"><abbr title="2014-12-18T04:17:58+00:00">04:17:58</abbr></a>] &lt;<cite>py0</cite>&gt; <q>R1(config)</q></li>
+<li class="message">[<a href="#T04:18:15" id="T04:18:15"><abbr title="2014-12-18T04:18:15+00:00">04:18:15</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>an aironet does not run ios</q></li>
+<li class="message">[<a href="#T04:18:41" id="T04:18:41"><abbr title="2014-12-18T04:18:41+00:00">04:18:41</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>oops</q></li>
+<li class="message">[<a href="#T04:18:43" id="T04:18:43"><abbr title="2014-12-18T04:18:43+00:00">04:18:43</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>good catch</q></li>
+<li class="message">[<a href="#T04:18:51" id="T04:18:51"><abbr title="2014-12-18T04:18:51+00:00">04:18:51</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>sorry</q></li>
+<li class="join">[<a href="#T04:19:11" id="T04:19:11"><abbr title="2014-12-18T04:19:11+00:00">04:19:11</abbr></a>] <span>* dgilmore (~dgilmore@fedora/dgilmore) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:19:58" id="T04:19:58"><abbr title="2014-12-18T04:19:58+00:00">04:19:58</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>maybe it's even easier then--simply get a no-ip.com or namecheap DDNS account, and Google for setting it up with your router</q></li>
+<li class="message">[<a href="#T04:20:27" id="T04:20:27"><abbr title="2014-12-18T04:20:27+00:00">04:20:27</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I can't get it to work. All namecheap gives me is a domain name, tells me my host name can be anything I enter, and a string for a password</q></li>
+<li class="message">[<a href="#T04:20:38" id="T04:20:38"><abbr title="2014-12-18T04:20:38+00:00">04:20:38</abbr></a>] &lt;<cite>py0</cite>&gt; <q>the router wants a username and says the pass is invalid</q></li>
+<li class="message">[<a href="#T04:21:03" id="T04:21:03"><abbr title="2014-12-18T04:21:03+00:00">04:21:03</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>I would call their support phone number</q></li>
+<li class="message">[<a href="#T04:21:33" id="T04:21:33"><abbr title="2014-12-18T04:21:33+00:00">04:21:33</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>besides DynDNS.org, are there any other DDNS providers listed in the drop-down menu on the DDNS setup page?</q></li>
+<li class="message">[<a href="#T04:21:41" id="T04:21:41"><abbr title="2014-12-18T04:21:41+00:00">04:21:41</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>py0, change the password to something easy then.</q></li>
+<li class="message">[<a href="#T04:21:48" id="T04:21:48"><abbr title="2014-12-18T04:21:48+00:00">04:21:48</abbr></a>] &lt;<cite>py0</cite>&gt; <q>you can't</q></li>
+<li class="message">[<a href="#T04:21:54" id="T04:21:54"><abbr title="2014-12-18T04:21:54+00:00">04:21:54</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>ur fucked</q></li>
+<li class="message">[<a href="#T04:22:02" id="T04:22:02"><abbr title="2014-12-18T04:22:02+00:00">04:22:02</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>lol</q></li>
+<li class="message">[<a href="#T04:22:13" id="T04:22:13"><abbr title="2014-12-18T04:22:13+00:00">04:22:13</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I'm probably just going to return my beagle</q></li>
+<li class="message">[<a href="#T04:22:15" id="T04:22:15"><abbr title="2014-12-18T04:22:15+00:00">04:22:15</abbr></a>] &lt;<cite>py0</cite>&gt; <q>and say fuck it all</q></li>
+<li class="message">[<a href="#T04:22:24" id="T04:22:24"><abbr title="2014-12-18T04:22:24+00:00">04:22:24</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>this seems like</q></li>
+<li class="message">[<a href="#T04:22:26" id="T04:22:26"><abbr title="2014-12-18T04:22:26+00:00">04:22:26</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>a namecheap problem</q></li>
+<li class="message">[<abbr title="2014-12-18T04:22:26+00:00">04:22:26</abbr>] &lt;<cite>py0</cite>&gt; <q>because this is bullshit</q></li>
+<li class="message">[<abbr title="2014-12-18T04:22:26+00:00">04:22:26</abbr>] &lt;<cite>Toba</cite>&gt; <q>to me</q></li>
+<li class="message">[<a href="#T04:22:30" id="T04:22:30"><abbr title="2014-12-18T04:22:30+00:00">04:22:30</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>you have dns bullshit</q></li>
+<li class="message">[<a href="#T04:22:32" id="T04:22:32"><abbr title="2014-12-18T04:22:32+00:00">04:22:32</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>not beagle bullshit</q></li>
+<li class="message">[<a href="#T04:22:35" id="T04:22:35"><abbr title="2014-12-18T04:22:35+00:00">04:22:35</abbr></a>] &lt;<cite>BobCat</cite>&gt; <q>whatever problem you have is not with the beagle</q></li>
+<li class="message">[<a href="#T04:22:49" id="T04:22:49"><abbr title="2014-12-18T04:22:49+00:00">04:22:49</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>well, can't you just enter the namecheap info into the DDNS setup page in the router?</q></li>
+<li class="message">[<a href="#T04:23:00" id="T04:23:00"><abbr title="2014-12-18T04:23:00+00:00">04:23:00</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>what the fuck does your router have to do with your beagle?</q></li>
+<li class="message">[<a href="#T04:23:01" id="T04:23:01"><abbr title="2014-12-18T04:23:01+00:00">04:23:01</abbr></a>] &lt;<cite>py0</cite>&gt; <q>tb__, I'm trying to tell you that it does not work</q></li>
+<li class="message">[<abbr title="2014-12-18T04:23:01+00:00">04:23:01</abbr>] &lt;<cite>tb__</cite>&gt; <q>nothing wrong with the BBB, right</q></li>
+<li class="message">[<a href="#T04:23:02" id="T04:23:02"><abbr title="2014-12-18T04:23:02+00:00">04:23:02</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>I'm lost</q></li>
+<li class="message">[<a href="#T04:23:11" id="T04:23:11"><abbr title="2014-12-18T04:23:11+00:00">04:23:11</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>why do we care about this here?</q></li>
+<li class="message">[<a href="#T04:23:18" id="T04:23:18"><abbr title="2014-12-18T04:23:18+00:00">04:23:18</abbr></a>] &lt;<cite>idwer</cite>&gt; <q><a href="https://www.namecheap.com/support/live-chat.aspx?loc=%2fdomains%2ffreedns.aspx">https://www.namecheap.com/support/live-chat.aspx?loc=%2fdomains%2ffreedns.aspx</a></q></li>
+<li class="message">[<a href="#T04:23:19" id="T04:23:19"><abbr title="2014-12-18T04:23:19+00:00">04:23:19</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>end</q></li>
+<li class="message">[<abbr title="2014-12-18T04:23:19+00:00">04:23:19</abbr>] &lt;<cite>tb__</cite>&gt; <q>in the provider list, is there anything else?</q></li>
+<li class="join">[<a href="#T04:23:32" id="T04:23:32"><abbr title="2014-12-18T04:23:32+00:00">04:23:32</abbr></a>] <span>* sidbh (~Siddharth@123.201.178.13) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:23:43" id="T04:23:43"><abbr title="2014-12-18T04:23:43+00:00">04:23:43</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>I bet they like IRC logs (:</q></li>
+<li class="message">[<a href="#T04:24:19" id="T04:24:19"><abbr title="2014-12-18T04:24:19+00:00">04:24:19</abbr></a>] &lt;<cite>py0</cite>&gt; <q>idwer, your URL redirects me to the domains page</q></li>
+<li class="message">[<a href="#T04:25:45" id="T04:25:45"><abbr title="2014-12-18T04:25:45+00:00">04:25:45</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>welcome to live chat support live chat support</q></li>
+<li class="message">[<a href="#T04:25:50" id="T04:25:50"><abbr title="2014-12-18T04:25:50+00:00">04:25:50</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>this is toba, how may i be of assistance</q></li>
+<li class="message">[<a href="#T04:26:01" id="T04:26:01"><abbr title="2014-12-18T04:26:01+00:00">04:26:01</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>py0 may i posit that you're bad at computers</q></li>
+<li class="message">[<a href="#T04:26:35" id="T04:26:35"><abbr title="2014-12-18T04:26:35+00:00">04:26:35</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>the button is at the bottom</q></li>
+<li class="message">[<abbr title="2014-12-18T04:26:35+00:00">04:26:35</abbr>] &lt;<cite>py0</cite>&gt; <q>I just think it's fucking retarded that I would need some external bullshit service to do something like this from my own network</q></li>
+<li class="message">[<a href="#T04:26:41" id="T04:26:41"><abbr title="2014-12-18T04:26:41+00:00">04:26:41</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>you don't</q></li>
+<li class="message">[<a href="#T04:26:45" id="T04:26:45"><abbr title="2014-12-18T04:26:45+00:00">04:26:45</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>if you set up your own bind server</q></li>
+<li class="message">[<a href="#T04:26:50" id="T04:26:50"><abbr title="2014-12-18T04:26:50+00:00">04:26:50</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>and write a few shell scripts</q></li>
+<li class="message">[<a href="#T04:26:57" id="T04:26:57"><abbr title="2014-12-18T04:26:57+00:00">04:26:57</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>a friend of mine set up his own thing</q></li>
+<li class="message">[<a href="#T04:27:06" id="T04:27:06"><abbr title="2014-12-18T04:27:06+00:00">04:27:06</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>you can either use an external service</q></li>
+<li class="message">[<a href="#T04:27:10" id="T04:27:10"><abbr title="2014-12-18T04:27:10+00:00">04:27:10</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>or you can set the service up yourself</q></li>
+<li class="message">[<a href="#T04:27:14" id="T04:27:14"><abbr title="2014-12-18T04:27:14+00:00">04:27:14</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>Toba: that is called overengineering</q></li>
+<li class="message">[<a href="#T04:27:17" id="T04:27:17"><abbr title="2014-12-18T04:27:17+00:00">04:27:17</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T04:27:26" id="T04:27:26"><abbr title="2014-12-18T04:27:26+00:00">04:27:26</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>which is why py0 should actually read the page, and click the button at the bottom</q></li>
+<li class="message">[<a href="#T04:27:30" id="T04:27:30"><abbr title="2014-12-18T04:27:30+00:00">04:27:30</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>instead of saying he got 'redirected'</q></li>
+<li class="message">[<a href="#T04:27:32" id="T04:27:32"><abbr title="2014-12-18T04:27:32+00:00">04:27:32</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>which he didn't</q></li>
+<li class="message">[<a href="#T04:27:37" id="T04:27:37"><abbr title="2014-12-18T04:27:37+00:00">04:27:37</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>and he should calm down and talk to support</q></li>
+<li class="message">[<a href="#T04:27:43" id="T04:27:43"><abbr title="2014-12-18T04:27:43+00:00">04:27:43</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>i don't know why i care so much but he's being a dumbass</q></li>
+<li class="message">[<a href="#T04:27:53" id="T04:27:53"><abbr title="2014-12-18T04:27:53+00:00">04:27:53</abbr></a>] &lt;<cite>Toba</cite>&gt; <q>in fact, this is a waste of everyone's time</q></li>
+<li class="part">[<a href="#T04:27:57" id="T04:27:57"><abbr title="2014-12-18T04:27:57+00:00">04:27:57</abbr></a>] <span>* Toba (~eastein@pumpingstationone/cto) has left #beagle</span></li>
+<li class="message">[<a href="#T04:28:29" id="T04:28:29"><abbr title="2014-12-18T04:28:29+00:00">04:28:29</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>here you go...  <a href="https://wiki.debian.org/DDNS">https://wiki.debian.org/DDNS</a></q></li>
+<li class="message">[<a href="#T04:28:31" id="T04:28:31"><abbr title="2014-12-18T04:28:31+00:00">04:28:31</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>have at it</q></li>
+<li class="message">[<a href="#T04:28:44" id="T04:28:44"><abbr title="2014-12-18T04:28:44+00:00">04:28:44</abbr></a>] &lt;<cite>BobCat</cite>&gt; <q>it took me a full day to get namecheap dyndns working on ubuntu server</q></li>
+<li class="message">[<a href="#T04:28:54" id="T04:28:54"><abbr title="2014-12-18T04:28:54+00:00">04:28:54</abbr></a>] &lt;<cite>BobCat</cite>&gt; <q>it was not obvious</q></li>
+<li class="message">[<a href="#T04:29:07" id="T04:29:07"><abbr title="2014-12-18T04:29:07+00:00">04:29:07</abbr></a>] &lt;<cite>BobCat</cite>&gt; <q>and that was on a plain pc</q></li>
+<li class="message">[<a href="#T04:30:30" id="T04:30:30"><abbr title="2014-12-18T04:30:30+00:00">04:30:30</abbr></a>] &lt;<cite>py0</cite>&gt; <q>fuck that toba guy haha, I totally appreciate what tb__ &amp; idwer have done</q></li>
+<li class="join">[<a href="#T04:31:18" id="T04:31:18"><abbr title="2014-12-18T04:31:18+00:00">04:31:18</abbr></a>] <span>* robertinant (~robertina@c-67-171-48-208.hsd1.wa.comcast.net) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:31:21" id="T04:31:21"><abbr title="2014-12-18T04:31:21+00:00">04:31:21</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>that DDNS drop-down list py0, does it have any other names in it?</q></li>
+<li class="message">[<a href="#T04:31:30" id="T04:31:30"><abbr title="2014-12-18T04:31:30+00:00">04:31:30</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>(i missed it if you already answered this)</q></li>
+<li class="message">[<a href="#T04:31:52" id="T04:31:52"><abbr title="2014-12-18T04:31:52+00:00">04:31:52</abbr></a>] &lt;<cite>py0</cite>&gt; <q>tzo.com</q></li>
+<li class="message">[<a href="#T04:32:14" id="T04:32:14"><abbr title="2014-12-18T04:32:14+00:00">04:32:14</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>have you checked them out?</q></li>
+<li class="message">[<a href="#T04:32:29" id="T04:32:29"><abbr title="2014-12-18T04:32:29+00:00">04:32:29</abbr></a>] &lt;<cite>py0</cite>&gt; <q>they were acquired by dyn</q></li>
+<li class="message">[<a href="#T04:32:30" id="T04:32:30"><abbr title="2014-12-18T04:32:30+00:00">04:32:30</abbr></a>] &lt;<cite>py0</cite>&gt; <q>-_-</q></li>
+<li class="join">[<a href="#T04:32:52" id="T04:32:52"><abbr title="2014-12-18T04:32:52+00:00">04:32:52</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="message">[<abbr title="2014-12-18T04:32:52+00:00">04:32:52</abbr>] &lt;<cite>tb__</cite>&gt; <q>yeah, i see that now on their website</q></li>
+<li class="message">[<a href="#T04:32:59" id="T04:32:59"><abbr title="2014-12-18T04:32:59+00:00">04:32:59</abbr></a>] &lt;<cite>py0</cite>&gt; <q>in any case</q></li>
+<li class="message">[<a href="#T04:33:16" id="T04:33:16"><abbr title="2014-12-18T04:33:16+00:00">04:33:16</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I am way too pissed off to be doing this, but your last URL looks promising</q></li>
+<li class="message">[<a href="#T04:33:22" id="T04:33:22"><abbr title="2014-12-18T04:33:22+00:00">04:33:22</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I'll do that in the morning</q></li>
+<li class="message">[<a href="#T04:33:25" id="T04:33:25"><abbr title="2014-12-18T04:33:25+00:00">04:33:25</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>sorry man--seems like (in reading the user's guide for your Linksys/cisco router) there aren't many DDNS options for you</q></li>
+<li class="message">[<a href="#T04:33:52" id="T04:33:52"><abbr title="2014-12-18T04:33:52+00:00">04:33:52</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>you have to learn to not get pissed off at computers</q></li>
+<li class="message">[<a href="#T04:34:00" id="T04:34:00"><abbr title="2014-12-18T04:34:00+00:00">04:34:00</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>especially where Linux is involved, lol</q></li>
+<li class="message">[<a href="#T04:34:24" id="T04:34:24"><abbr title="2014-12-18T04:34:24+00:00">04:34:24</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>there's a lot of frustration involved, but you can pretty much get anything  to work...eventually</q></li>
+<li class="message">[<a href="#T04:34:28" id="T04:34:28"><abbr title="2014-12-18T04:34:28+00:00">04:34:28</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I hate debian and I hate dns</q></li>
+<li class="message">[<a href="#T04:34:42" id="T04:34:42"><abbr title="2014-12-18T04:34:42+00:00">04:34:42</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>you mean DDNS</q></li>
+<li class="message">[<a href="#T04:34:44" id="T04:34:44"><abbr title="2014-12-18T04:34:44+00:00">04:34:44</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T04:34:45" id="T04:34:45"><abbr title="2014-12-18T04:34:45+00:00">04:34:45</abbr></a>] &lt;<cite>py0</cite>&gt; <q>all of it</q></li>
+<li class="message">[<a href="#T04:34:55" id="T04:34:55"><abbr title="2014-12-18T04:34:55+00:00">04:34:55</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>without DNS you won't ever use the Internet again</q></li>
+<li class="message">[<a href="#T04:35:01" id="T04:35:01"><abbr title="2014-12-18T04:35:01+00:00">04:35:01</abbr></a>] &lt;<cite>py0</cite>&gt; <q>good riddens</q></li>
+<li class="message">[<a href="#T04:35:09" id="T04:35:09"><abbr title="2014-12-18T04:35:09+00:00">04:35:09</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>LOL</q></li>
+<li class="message">[<a href="#T04:35:17" id="T04:35:17"><abbr title="2014-12-18T04:35:17+00:00">04:35:17</abbr></a>] &lt;<cite>py0</cite>&gt; <q>time for a friggin #powernap</q></li>
+<li class="message">[<a href="#T04:35:34" id="T04:35:34"><abbr title="2014-12-18T04:35:34+00:00">04:35:34</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>py0 leaves the Internet, never to be seen again</q></li>
+<li class="message">[<a href="#T04:35:38" id="T04:35:38"><abbr title="2014-12-18T04:35:38+00:00">04:35:38</abbr></a>] &lt;<cite>py0</cite>&gt; <q>thanks for your help</q></li>
+<li class="message">[<a href="#T04:35:42" id="T04:35:42"><abbr title="2014-12-18T04:35:42+00:00">04:35:42</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>no sweat</q></li>
+<li class="message">[<a href="#T04:35:56" id="T04:35:56"><abbr title="2014-12-18T04:35:56+00:00">04:35:56</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>sorry it didn't work out for you--but at least you learned about DDNS</q></li>
+<li class="message">[<a href="#T04:36:02" id="T04:36:02"><abbr title="2014-12-18T04:36:02+00:00">04:36:02</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>look at the bright side</q></li>
+<li class="message">[<a href="#T04:37:09" id="T04:37:09"><abbr title="2014-12-18T04:37:09+00:00">04:37:09</abbr></a>] &lt;<cite>py0</cite>&gt; <q>I'm gonna go look at the bright side of my pillow</q></li>
+<li class="message">[<a href="#T04:37:13" id="T04:37:13"><abbr title="2014-12-18T04:37:13+00:00">04:37:13</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>on another (BBB-related) note...</q></li>
+<li class="message">[<a href="#T04:37:19" id="T04:37:19"><abbr title="2014-12-18T04:37:19+00:00">04:37:19</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>(nite py0)</q></li>
+<li class="message">[<a href="#T04:37:48" id="T04:37:48"><abbr title="2014-12-18T04:37:48+00:00">04:37:48</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>i've been wondering why people would thread an app on a single-core machine like the BBB</q></li>
+<li class="message">[<a href="#T04:37:53" id="T04:37:53"><abbr title="2014-12-18T04:37:53+00:00">04:37:53</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>scratching my head</q></li>
+<li class="nick-change">[<a href="#T04:38:04" id="T04:38:04"><abbr title="2014-12-18T04:38:04+00:00">04:38:04</abbr></a>] <span>* Vasco is now known as Vasco_O</span></li>
+<li class="message">[<a href="#T04:38:06" id="T04:38:06"><abbr title="2014-12-18T04:38:06+00:00">04:38:06</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>then i get to the workings of Node.js</q></li>
+<li class="nick-change">[<a href="#T04:38:20" id="T04:38:20"><abbr title="2014-12-18T04:38:20+00:00">04:38:20</abbr></a>] <span>* Vasco_O is now known as Vasco</span></li>
+<li class="message">[<a href="#T04:38:22" id="T04:38:22"><abbr title="2014-12-18T04:38:22+00:00">04:38:22</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>...so much for my ideas</q></li>
+<li class="quit">[<a href="#T04:43:41" id="T04:43:41"><abbr title="2014-12-18T04:43:41+00:00">04:43:41</abbr></a>] <span>* contempt (contempt@unaffiliated/contempt) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T04:43:52" id="T04:43:52"><abbr title="2014-12-18T04:43:52+00:00">04:43:52</abbr></a>] <span>* beaglenoob (45cc2dd8@gateway/web/freenode/ip.69.204.45.216) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:44:33" id="T04:44:33"><abbr title="2014-12-18T04:44:33+00:00">04:44:33</abbr></a>] &lt;<cite>beaglenoob</cite>&gt; <q>nice... got bbb default booting jessie from sd</q></li>
+<li class="message">[<a href="#T04:44:49" id="T04:44:49"><abbr title="2014-12-18T04:44:49+00:00">04:44:49</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>cool</q></li>
+<li class="message">[<a href="#T04:45:12" id="T04:45:12"><abbr title="2014-12-18T04:45:12+00:00">04:45:12</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>so it wasn't an eMMC flasher then?</q></li>
+<li class="message">[<a href="#T04:45:43" id="T04:45:43"><abbr title="2014-12-18T04:45:43+00:00">04:45:43</abbr></a>] &lt;<cite>beaglenoob</cite>&gt; <q>no... not a flasher</q></li>
+<li class="message">[<a href="#T04:46:19" id="T04:46:19"><abbr title="2014-12-18T04:46:19+00:00">04:46:19</abbr></a>] &lt;<cite>beaglenoob</cite>&gt; <q>had to rename the MLO file on emmc to default boot from sd</q></li>
+<li class="message">[<a href="#T04:46:50" id="T04:46:50"><abbr title="2014-12-18T04:46:50+00:00">04:46:50</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>rename it to what?</q></li>
+<li class="message">[<a href="#T04:46:59" id="T04:46:59"><abbr title="2014-12-18T04:46:59+00:00">04:46:59</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>just something else?</q></li>
+<li class="message">[<a href="#T04:47:36" id="T04:47:36"><abbr title="2014-12-18T04:47:36+00:00">04:47:36</abbr></a>] &lt;<cite>beaglenoob</cite>&gt; <q>the image from elinux is great... i was able to write it to sd on the bbb... just had to install parted</q></li>
+<li class="message">[<a href="#T04:47:43" id="T04:47:43"><abbr title="2014-12-18T04:47:43+00:00">04:47:43</abbr></a>] &lt;<cite>beaglenoob</cite>&gt; <q>MLO.bak</q></li>
+<li class="message">[<a href="#T04:48:07" id="T04:48:07"><abbr title="2014-12-18T04:48:07+00:00">04:48:07</abbr></a>] &lt;<cite>beaglenoob</cite>&gt; <q>yes, just something else</q></li>
+<li class="message">[<a href="#T04:48:15" id="T04:48:15"><abbr title="2014-12-18T04:48:15+00:00">04:48:15</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>ah, gotcha</q></li>
+<li class="message">[<a href="#T04:48:25" id="T04:48:25"><abbr title="2014-12-18T04:48:25+00:00">04:48:25</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>the old switch-a-roo</q></li>
+<li class="message">[<a href="#T04:48:42" id="T04:48:42"><abbr title="2014-12-18T04:48:42+00:00">04:48:42</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>ah.. this reminds me of having to use xmas' time off to install stock debian on my bbb</q></li>
+<li class="message">[<a href="#T04:49:21" id="T04:49:21"><abbr title="2014-12-18T04:49:21+00:00">04:49:21</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>that's what i went back to</q></li>
+<li class="message">[<a href="#T04:49:26" id="T04:49:26"><abbr title="2014-12-18T04:49:26+00:00">04:49:26</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>less stress, lol</q></li>
+<li class="action">[<a href="#T04:49:34" id="T04:49:34"><abbr title="2014-12-18T04:49:34+00:00">04:49:34</abbr></a>] <span>* tb__ was getting like py0</span></li>
+<li class="join">[<a href="#T04:49:47" id="T04:49:47"><abbr title="2014-12-18T04:49:47+00:00">04:49:47</abbr></a>] <span>* contempt (contempt@unaffiliated/contempt) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2014-12-18T04:49:47+00:00">04:49:47</abbr>] <span>* contempt (contempt@unaffiliated/contempt) has joined #beagle</span></li>
+<li class="join">[<a href="#T04:52:03" id="T04:52:03"><abbr title="2014-12-18T04:52:03+00:00">04:52:03</abbr></a>] <span>* foley (4c586a9d@gateway/web/freenode/ip.76.88.106.157) has joined #beagle</span></li>
+<li class="quit">[<a href="#T04:52:20" id="T04:52:20"><abbr title="2014-12-18T04:52:20+00:00">04:52:20</abbr></a>] <span>* n-st (~n-st@2001:470:7272:0:3868:ef73:94a5:77fc) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T04:52:58" id="T04:52:58"><abbr title="2014-12-18T04:52:58+00:00">04:52:58</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>no more cloud9, too</q></li>
+<li class="message">[<a href="#T04:53:07" id="T04:53:07"><abbr title="2014-12-18T04:53:07+00:00">04:53:07</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>oh?</q></li>
+<li class="message">[<a href="#T04:53:20" id="T04:53:20"><abbr title="2014-12-18T04:53:20+00:00">04:53:20</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>you got the minimal image?</q></li>
+<li class="message">[<a href="#T04:53:24" id="T04:53:24"><abbr title="2014-12-18T04:53:24+00:00">04:53:24</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>with stock debby?</q></li>
+<li class="message">[<a href="#T04:53:40" id="T04:53:40"><abbr title="2014-12-18T04:53:40+00:00">04:53:40</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>I forgot what it's running right now</q></li>
+<li class="message">[<a href="#T04:53:48" id="T04:53:48"><abbr title="2014-12-18T04:53:48+00:00">04:53:48</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>i got the "latest" from the BB website and it comes with cloud9</q></li>
+<li class="message">[<a href="#T04:53:49" id="T04:53:49"><abbr title="2014-12-18T04:53:49+00:00">04:53:49</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>but want to fiddle with <a href="https://www.debian.org/releases/testing/armhf/ch04s02.html.en">https://www.debian.org/releases/testing/armhf/ch04s02.html.en</a></q></li>
+<li class="message">[<a href="#T04:54:44" id="T04:54:44"><abbr title="2014-12-18T04:54:44+00:00">04:54:44</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>you like pain</q></li>
+<li class="action">[<a href="#T04:55:12" id="T04:55:12"><abbr title="2014-12-18T04:55:12+00:00">04:55:12</abbr></a>] <span>* tb__ is somewhat new to Debian, and hasn't yet fully appreciated the value of the "testing" and "unstable" branches</span></li>
+<li class="message">[<a href="#T04:57:14" id="T04:57:14"><abbr title="2014-12-18T04:57:14+00:00">04:57:14</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>no pain, no gain</q></li>
+<li class="message">[<a href="#T04:57:30" id="T04:57:30"><abbr title="2014-12-18T04:57:30+00:00">04:57:30</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>i'm old.</q></li>
+<li class="message">[<a href="#T04:57:39" id="T04:57:39"><abbr title="2014-12-18T04:57:39+00:00">04:57:39</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>had enough pain</q></li>
+<li class="message">[<a href="#T04:57:57" id="T04:57:57"><abbr title="2014-12-18T04:57:57+00:00">04:57:57</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>I spent about 20h on setting up logstash+graylog2, so.. agony :)</q></li>
+<li class="message">[<a href="#T04:58:09" id="T04:58:09"><abbr title="2014-12-18T04:58:09+00:00">04:58:09</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T04:58:24" id="T04:58:24"><abbr title="2014-12-18T04:58:24+00:00">04:58:24</abbr></a>] &lt;<cite>idwer</cite>&gt; <q>so...do you have grandkids</q></li>
+<li class="join">[<a href="#T04:58:35" id="T04:58:35"><abbr title="2014-12-18T04:58:35+00:00">04:58:35</abbr></a>] <span>* krajo1 (~krajo1@host146.nwt.cz) has joined #beagle</span></li>
+<li class="message">[<a href="#T04:58:42" id="T04:58:42"><abbr title="2014-12-18T04:58:42+00:00">04:58:42</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>grandcats</q></li>
+<li class="message">[<a href="#T04:58:46" id="T04:58:46"><abbr title="2014-12-18T04:58:46+00:00">04:58:46</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>do they count?</q></li>
+<li class="message">[<a href="#T04:59:20" id="T04:59:20"><abbr title="2014-12-18T04:59:20+00:00">04:59:20</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>daughter old enough  to have some grandkids for us...but nothing yet</q></li>
+<li class="message">[<a href="#T04:59:25" id="T04:59:25"><abbr title="2014-12-18T04:59:25+00:00">04:59:25</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>(thankfully)</q></li>
+<li class="message">[<a href="#T04:59:44" id="T04:59:44"><abbr title="2014-12-18T04:59:44+00:00">04:59:44</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>hey, we'd take them though</q></li>
+<li class="message">[<a href="#T04:59:49" id="T04:59:49"><abbr title="2014-12-18T04:59:49+00:00">04:59:49</abbr></a>] &lt;<cite>tb__</cite>&gt; <q>life is too short</q></li>
