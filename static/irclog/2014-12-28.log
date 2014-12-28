@@ -94,3 +94,26 @@
 <li class="join">[<a href="#T08:59:44" id="T08:59:44"><abbr title="2014-12-28T08:59:44+00:00">08:59:44</abbr></a>] <span>* panto (~panto@195.97.110.117) has joined #beagle</span></li>
 <li class="message">[<a href="#T08:59:47" id="T08:59:47"><abbr title="2014-12-28T08:59:47+00:00">08:59:47</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>yet, I can't notice the pulses in /sys/class/gpio/gpio48/value</q></li>
 <li class="message">[<a href="#T08:59:57" id="T08:59:57"><abbr title="2014-12-28T08:59:57+00:00">08:59:57</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>I use /sys/class/gpio/gpio48/edge</q></li>
+<li class="message">[<a href="#T09:00:01" id="T09:00:01"><abbr title="2014-12-28T09:00:01+00:00">09:00:01</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>I use /sys/class/gpio/gpio48/edge = both</q></li>
+<li class="message">[<a href="#T09:01:39" id="T09:01:39"><abbr title="2014-12-28T09:01:39+00:00">09:01:39</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>my python really does : gpio_fd = open(os.path.join(gpio_path, 'value'), 'r')</q></li>
+<li class="quit">[<a href="#T09:01:44" id="T09:01:44"><abbr title="2014-12-28T09:01:44+00:00">09:01:44</abbr></a>] <span>* SoCo_cpp_ (~soco@gateway/tor-sasl/sococpp/x-93321146) Quit (Remote host closed the connection)</span></li>
+<li class="message">[<a href="#T09:01:52" id="T09:01:52"><abbr title="2014-12-28T09:01:52+00:00">09:01:52</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>po = select.epoll()</q></li>
+<li class="message">[<a href="#T09:01:59" id="T09:01:59"><abbr title="2014-12-28T09:01:59+00:00">09:01:59</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>po.register(gpio_fd, select.EPOLLIN | select.EPOLLET)</q></li>
+<li class="message">[<a href="#T09:02:14" id="T09:02:14"><abbr title="2014-12-28T09:02:14+00:00">09:02:14</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>events = po.poll( WATERFLOW_TIMEOUT )</q></li>
+<li class="message">[<a href="#T09:02:28" id="T09:02:28"><abbr title="2014-12-28T09:02:28+00:00">09:02:28</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>yet the line after this is not called.</q></li>
+<li class="message">[<a href="#T09:02:34" id="T09:02:34"><abbr title="2014-12-28T09:02:34+00:00">09:02:34</abbr></a>] &lt;<cite>cityoflights2</cite>&gt; <q>this used to work</q></li>
+<li class="join">[<a href="#T09:03:35" id="T09:03:35"><abbr title="2014-12-28T09:03:35+00:00">09:03:35</abbr></a>] <span>* SoCo_cpp_ (~soco@gateway/tor-sasl/sococpp/x-93321146) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:19:04" id="T09:19:04"><abbr title="2014-12-28T09:19:04+00:00">09:19:04</abbr></a>] <span>* rob_w (~rob@unaffiliated/rob-w/x-1112029) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:19:34" id="T09:19:34"><abbr title="2014-12-28T09:19:34+00:00">09:19:34</abbr></a>] <span>* manuel__ (~manuel_@AStrasbourg-551-1-76-209.w81-51.abo.wanadoo.fr) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:28:13" id="T09:28:13"><abbr title="2014-12-28T09:28:13+00:00">09:28:13</abbr></a>] <span>* GusBricker (~GusBricke@c122-107-239-5.mckinn3.vic.optusnet.com.au) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T09:30:41" id="T09:30:41"><abbr title="2014-12-28T09:30:41+00:00">09:30:41</abbr></a>] <span>* eFfeM (~frans@c73189.upc-c.chello.nl) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:33:36" id="T09:33:36"><abbr title="2014-12-28T09:33:36+00:00">09:33:36</abbr></a>] <span>* jhn (~jhn@p4FD5620E.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:34:09" id="T09:34:09"><abbr title="2014-12-28T09:34:09+00:00">09:34:09</abbr></a>] <span>* krajo1 (~krajo1@host146.nwt.cz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:46:14" id="T09:46:14"><abbr title="2014-12-28T09:46:14+00:00">09:46:14</abbr></a>] <span>* krajo1 (~krajo1@host146.nwt.cz) Quit (Quit: Konversation terminated!)</span></li>
+<li class="quit">[<a href="#T09:47:10" id="T09:47:10"><abbr title="2014-12-28T09:47:10+00:00">09:47:10</abbr></a>] <span>* jhn (~jhn@p4FD5620E.dip0.t-ipconnect.de) Quit (Quit: jhn)</span></li>
+<li class="quit">[<a href="#T09:51:50" id="T09:51:50"><abbr title="2014-12-28T09:51:50+00:00">09:51:50</abbr></a>] <span>* beest (~bem@unaffiliated/gnubeest) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T09:52:19" id="T09:52:19"><abbr title="2014-12-28T09:52:19+00:00">09:52:19</abbr></a>] <span>* mhaberler (~mhaberler@extern-171.stiwoll.mah.priv.at) has joined #beagle</span></li>
+<li class="join">[<abbr title="2014-12-28T09:52:19+00:00">09:52:19</abbr>] <span>* mhaberler (~mhaberler@extern-171.stiwoll.mah.priv.at) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T09:54:41" id="T09:54:41"><abbr title="2014-12-28T09:54:41+00:00">09:54:41</abbr></a>] <span>* jhn (~jhn@p4FD5620E.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="join">[<a href="#T09:57:51" id="T09:57:51"><abbr title="2014-12-28T09:57:51+00:00">09:57:51</abbr></a>] <span>* VirG1 (~VirGin@c-24-22-62-31.hsd1.or.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T09:58:06" id="T09:58:06"><abbr title="2014-12-28T09:58:06+00:00">09:58:06</abbr></a>] <span>* VirG (~VirGin@c-24-22-62-31.hsd1.or.comcast.net) Quit (Ping timeout: 240 seconds)</span></li>
