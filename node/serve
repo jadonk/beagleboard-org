@@ -3,11 +3,14 @@ var express = require('express');
 var formidable = require('formidable');
 var util = require('util');
 var fs = require('fs');
+var morgan = require('morgan');
 
 var uploadDir = __dirname + '../static/uploads';
-var documentRoot = __dirname + '../static';
+var staticDir = __dirname + '../static';
+var documentRoot = __dirname + 'jekyll/_site/0';
 
 var app = express();
+app.use(morgan());
 app.post('/upload', function (req, res) {
     var form = new formidable.IncomingForm();
     form.uploadDir = uploadDir;
@@ -22,7 +25,7 @@ app.post('/upload', function (req, res) {
 });
 app.use(express.static(documentRoot));
 app.use(express.directory(documentRoot));
+app.use('/static', express.static(staticDir));
 app.use(express.methodOverride());
 app.use(app.router);
 app.listen(8081);
-

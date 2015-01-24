@@ -34,7 +34,7 @@ function prompt_macro (param)
        }
 
       var openID = req.data["openid_url"];
-      var returnToURL = req.getServletRequest().getRequestURL();
+      var returnToURL = "http://beagleboard.org/login_success";
       if (req.data["target"])
        returnToURL = "http://beagleboard.org" + req.data["target"];
       var realm = "http://beagleboard.org";
@@ -46,6 +46,7 @@ function prompt_macro (param)
      {
       var queryString = req.getServletRequest().getQueryString();
       var requestURL = req.getServletRequest().getRequestURL();
+      requestURL = ("" + requestURL).replace("127.0.0.1:8080", "beagleboard.org");
       app.log("Verifying response: requestURL=" + requestURL + ", queryString=" + queryString);
       var serverResponse = verifyResponse(requestURL, queryString);
       app.log("serverResponse=" + serverResponse);
@@ -53,7 +54,8 @@ function prompt_macro (param)
     else if (0 && req.isPost() && !session.user) // Do not go to login screen on posts without openid
      {
       app.log("Edit/login attempt without openid");
-      var requestURL = req.getServletRequest().getRequestURL();
+      //var requestURL = req.getServletRequest().getRequestURL();
+      var requestURL = "http://beagleboard.org/login_success";
       res.redirect("/login?target=" + requestURL);
      }
    }
@@ -164,6 +166,7 @@ function prompt_macro (param)
       var receivingURL = uri + "?" + queryString;
       var parameterList =
        Packages.org.openid4java.message.ParameterList.createFromQueryString(queryString);
+      app.log("Attempting to verify with receivingURL = " + receivingURL);
       var verification = manager.verify(receivingURL, parameterList, discovered);
       var verified = verification.getVerifiedId();
       if (verified != null)

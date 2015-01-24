@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3567" name="Page" prototype="Page" created="1396975410691" lastModified="1421829263819">
+  <hop:parent idref="0" prototyperef="Root"/>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36</http_browser>
+    <lang>en-us</lang>
+    <uri>updater</uri>
+    <http_host>beagleboard.org</http_host>
+    <time type="date">21.05.2014 02:17:30 UTC</time>
+    <pseudoparent idref="0" prototyperef="Root"/>
+    <http_remotehost>98.250.189.79</http_remotehost>
+    <hopsession>98.250.189.9u8540vbqjpf</hopsession>
+    <user>jkridner.wordpress.com</user>
+    <pvcount type="float">46.0</pvcount>
+    <body>&lt;script src=&quot;/static/bonescript.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/static/jquery.microdata.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/static/jquery.microdata.json.js&quot;&gt;&lt;/script&gt;
+&lt;div&gt;
+    &lt;h1&gt;BeagleBone Image Updater&lt;/h1&gt;
+    &lt;p&gt;
+        This interactive page wizard will use the BoneScript server on your
+        BeagleBone Black to download the latest BeagleBone Black software image
+        onto a uSD card
+        inserted in your BeagleBone Black uSD card slot. To do this,
+        you
+        will need to have your BeagleBone Black connected to the Internet and
+        visible to the computer you are using to visit this web page.
+    &lt;/p&gt;
+    &lt;p&gt;
+        This wizard currently requires you to connect your BeagleBone Black
+        up to the Internet. The simplest way to do so is to put it on your
+        home router via Ethernet. You&apos;ll then need to locate the board
+        address via your router&apos;s DHCP logs or mDNS.
+    &lt;/p&gt;
+    &lt;p id=&quot;bootSource-unknown&quot;&gt;
+        This script will write the selected image to your uSD card
+        if you are running off of your on-board eMMC, so be
+        sure to insert a blank uSD card &lt;i&gt;AFTER&lt;/i&gt; you finish booting
+        up. If you boot off of a uSD card, you will write
+        to the eMMC instead.
+    &lt;/p&gt;
+    &lt;p id=&quot;bootSource-emmc&quot; style=&quot;display:none;&quot;&gt;
+        This script will write the selected image to your uSD card,
+        so be sure the uSD card is blank or doesn&apos;t have
+        any content you want to preserve.
+    &lt;/p&gt;
+    &lt;p id=&quot;bootSource-usd&quot; style=&quot;display:none;&quot;&gt;
+        This script will &lt;b&gt;write the selected image to your on-board eMMC
+        flash.&lt;/b&gt; If you&apos;d prefer to program the uSD card, be
+        sure to insert a blank uSD card &lt;i&gt;AFTER&lt;/i&gt; you finish booting
+        up.
+    &lt;/p&gt;
+    &lt;p&gt;
+        When you type your board&apos;s address into the box below and click
+        &lt;b&gt;GO&lt;/b&gt;, a script will
+        be copied onto your board to write images to your uSD cards.
+        The progress meter below will show you the status of the download.
+        When the uSD card has been written, your board will reboot automatically.
+    &lt;/p&gt;
+    &lt;div id=&quot;latestImages&quot; style=&quot;display:inline;&quot;&gt;&lt;/div&gt;
+    &lt;input id=&quot;address&quot; value=&quot;beaglebone.local&quot; size=&quot;40&quot; style=&quot;height:22px;padding:1px;border:2px inset;margin:2px;font-size:1em;&quot;&gt;&lt;/input&gt;
+    &lt;input id=&quot;address-go&quot; name=&quot;address-go&quot; type=&quot;submit&quot; value=&quot;GO »&quot; style=&quot;border:1px solid #B4A279; border-radius:5px 5px 5px 5px; margin-bottom:20px; margin-left:25px; padding:10px; width:80px; background-color:#de7224; text-align:center; color:#fff; font-weight:bold; height:3em; cursor:pointer;&quot; /&gt;
+    &lt;div id=&quot;progressBarContainer&quot; style=&quot;display:inline-block;border:1px solid #B4A279;border-radius:5px 5px 5px 5px;width:300px;height:20px;&quot;&gt;
+        &lt;div id=&quot;progressBar&quot; style=&quot;height:20px;width:1px;background-color:#de7224&quot;&gt;&lt;/div&gt; 
+    &lt;/div&gt;
+    &lt;div id=&quot;progressPercent&quot; style=&quot;display:inline;font-size:2em;&quot;&gt;0 %&lt;/div&gt;
+    &lt;pre id=&quot;step1-log&quot;&gt;&lt;/pre&gt;
+    &lt;pre id=&quot;step2-log&quot;&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    var address = getParameterByName(&quot;address&quot;);
+    var image = getParameterByName(&quot;image&quot;);
+    var md5sum;
+    var progress = 0;
+    var handlers = {initialized: run, timeout: noBoneScript};
+    var socket = null;
+    var verifyAttempts = 0;
+    var socketLoadTimeout;
+    var downloadTimeout;
+
+    $.get(&apos;/latest-images/&apos;, &apos;html&apos;).done(onLatestImages).fail(onLatestImagesFail);
+    
+    var menuYloc = parseInt($(&apos;#floatMenu&apos;).css(&quot;top&quot;).substring(0,$(&apos;#floatMenu&apos;).css(&quot;top&quot;).indexOf(&quot;px&quot;)));
+    $(window).scroll(function () {
+        var offset = menuYloc+$(document).scrollTop()+&quot;px&quot;;
+        $(&apos;#floatMenu&apos;).animate({top:offset},{duration:500,queue:false});
+    });
+
+    var addressEnabled = true;
+    var connected = false;
+    $(&apos;#address&apos;).keypress(onAddress);
+    $(&apos;#address-go&apos;).click(onAddressGo);    
+    if(address) {
+        doConnect();
+    }
+    
+    function doConnect() {
+        if(!connected) {
+            addressEnabled = false;
+            $(&apos;#address-go&apos;).off(&apos;click&apos;);
+            $(&apos;#address-go&apos;).css(&apos;background-color&apos;, &apos;#B4A279&apos;);
+            $(&apos;#step1-log&apos;).append(&quot;Attempting connection to &quot; + address + &apos;\n&apos;);
+            setTargetAddress(address, handlers);    
+        } else {
+            $(&apos;#step1-log&apos;).append(&quot;New connection not started to &quot; + address + &apos;\n&apos;);            
+        }
+    }
+    
+    function onAddress(e) {
+        if(addressEnabled &amp;&amp; (e.which == 10 || e.which == 13)) {
+            onAddressGo();
+        }
+    }
+    
+    function onAddressGo() {
+        address = $(&apos;#address&apos;).val();
+        doConnect();
+    }
+    
+    function noBoneScript() {
+        $(&apos;#address-go&apos;).on(&apos;click&apos;);
+        $(&apos;#address-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
+        $(&apos;#step1-log&apos;).append(&quot;Connection failed\n&quot;);
+        verifyAttempts = 0;
+    }
+
+    function onLatestImages(data) {
+        data = data.replace(/&lt;script/g, &quot;&lt;!--&quot;);
+        data = data.replace(/&lt;\/script&gt;/g, &quot;--&gt;&quot;);
+        var page = $(data).items(&quot;http://schema.org/SoftwareApplication&quot;);
+        var parsed = $.microdata.json(page, dataFormatter);
+        //$(&apos;#step2-log&apos;).append(JSON.stringify(parsed, null, 4) + &quot;\n&quot;);
+        var images = [];
+        for(var i in parsed.items) {
+            var x = parsed.items[i].properties;
+            if(x.device[0].match(/BeagleBone Black/)) {
+                var name = x.name[0] + &apos; &apos; + x.datePublished[0] + &apos; &apos; + x.memoryRequirements[0];
+                if(typeof x.md5sum == typeof []) {
+                    images.push(&apos;&lt;option value=&quot;&apos;+ x.downloadURL[0] + &apos;&quot; md5sum=&quot;&apos; +
+                        x.md5sum[0] + &apos;&quot;&gt;&apos;+ name +&apos;&lt;/option&gt;&apos;);                    
+                } else {
+                    images.push(&apos;&lt;option value=&quot;&apos;+ x.downloadURL[0] +&apos;&quot;&gt;&apos;+ name +&apos;&lt;/option&gt;&apos;);                    
+                }
+            }
+        }
+        var select = &apos;&lt;select&gt;&apos; + images.join(&apos;&apos;) + &apos;&lt;/select&gt;&apos;;
+        $(&apos;#latestImages&apos;).append(select);
+    }
+    
+    function dataFormatter(o) { return o; }
+    
+    function jsonFormatter(o) { return JSON.stringify(o, null, 4); }
+    
+    function onLatestImagesFail() {
+        $(&apos;#step2-log&apos;).append(&quot;Fetch of latest-images failed\n&quot;);
+    }
+    
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, &quot;\\\[&quot;).replace(/[\]]/, &quot;\\\]&quot;);
+        var regex = new RegExp(&quot;[\\?&amp;]&quot; + name + &quot;=([^&amp;#]*)&quot;), results = regex.exec(location.search);
+        return results == null ? &quot;&quot; : decodeURIComponent(results[1].replace(/\+/g, &quot; &quot;));
+    }
+
+    function run() {
+        $(&apos;#step1-log&apos;).append(&apos;Connected to &apos; + address + &apos;\n&apos;);
+        var b = require(&apos;bonescript&apos;);
+        
+        var sourceJS = &apos;/static/updater.js&apos;;
+        var targetJS = &apos;/var/lib/cloud9/autorun/updater.js&apos;;
+        b.getPlatform(onGetPlatform);
+
+        function onGetPlatform(platform) {
+            $(&apos;#step1-log&apos;).append(&quot;Running BoneScript version &quot; + platform.bonescript + &apos;\n&apos;);
+            b.setDate(Date().toString(), onSetDate);
+        }
+
+        function onSetDate() {
+            $(&apos;#step1-log&apos;).append(&quot;Reading &quot; + sourceJS + &apos;\n&apos;);
+            jQuery.get(sourceJS, onJSReadSuccess, &apos;text&apos;).fail(onJSReadFail);
+        }
+
+        function onJSReadSuccess(contentsJS) {
+            $(&apos;#step1-log&apos;).append(&quot;Writing &quot; + targetJS + &apos;\n&apos;);
+            b.writeTextFile(targetJS, contentsJS, onJSWritten);
+        }
+
+        function onJSReadFail() {
+            $(&apos;#step1-log&apos;).append(&quot;Failed to read &quot; + targetJS + &apos;\n&apos;);
+        }
+        
+        function onJSWritten() {
+            $(&apos;#step1-log&apos;).append(&quot;Waiting 10 seconds...\n&quot;);
+            setTimeout(connectSocket, 10000);
+        }
+    }
+
+    function connectSocket() {
+        if(verifyAttempts &lt; 5) {
+            verifyAttempts++;
+            var path = &apos;http://&apos; + address + &apos;:5000/socket.io/socket.io.js&apos;;
+            $(&apos;#step1-log&apos;).append(&quot;Attempting to fetch &quot; + path + &apos;\n&apos;);
+            socketLoadTimeout = setTimeout(onSocketFail, 10000);
+            $.getScript(path).done(onSocketIOLoad).fail(onSocketFail);
+        } else {
+            $(&apos;#step1-log&apos;).append(&quot;Connection failed\n&quot;);                    
+        }
+    }
+    
+    function onSocketFail(jqxhr, settings, exception) {
+        $(&apos;#step1-log&apos;).append(&quot;Load failed...\n&quot;);
+        if(socketLoadTimeout) clearTimeout(onSocketFail);
+        setTimeout(connectSocket(), 3000);
+        //noBoneScript();
+    }
+    
+    function onSocketIOLoad(script, textStatus) {
+        connected = false;
+        clearTimeout(socketLoadTimeout);
+        $(&apos;#step1-log&apos;).append(&quot;Load status: &quot; + textStatus + &apos;\n&apos;);
+        socket = new io.connect(&apos;http://&apos; + address + &apos;:5000&apos;);
+        socket.on(&apos;start&apos;, onConnect);
+        socket.on(&apos;progress&apos;, onProgress);
+        socket.on(&apos;done&apos;, onDone);
+    }
+        
+    function onConnect(msg) {
+        if(connected) return;
+        connected = true;
+        if(msg &amp;&amp; msg.rootfs) {
+            $(&apos;#step1-log&apos;).append(&apos;Boot source is &apos; + msg.rootfs + &apos;\n&apos;);    
+            if(msg.rootfs == &apos;eMMC&apos;) {
+                $(&apos;#bootSource-usd&apos;).hide();    
+                $(&apos;#bootSource-unknown&apos;).hide();    
+                $(&apos;#bootSource-emmc&apos;).show();    
+            } else if(msg.rootfs == &apos;uSD&apos;) {
+                $(&apos;#bootSource-emmc&apos;).hide();    
+                $(&apos;#bootSource-unknown&apos;).hide();    
+                $(&apos;#bootSource-usd&apos;).show();    
+            }
+        }
+        stepOneDone();
+    }
+        
+    function stepOneDone() {
+        $(&apos;#step1-log&apos;).append(&quot;Connection successful... on to Step #2\n&quot;);
+        setTimeout(startStepTwo, 50);
+    }
+    
+    function startStepTwo() {
+        onImageGo();
+    }
+    
+    var startTime;
+    var updateBarTimer;
+    function onImageGo() {
+        image = $(&apos;#latestImages&apos;).find(&quot;:selected&quot;).attr(&apos;value&apos;);
+        md5sum = $(&apos;#latestImages&apos;).find(&quot;:selected&quot;).attr(&apos;md5sum&apos;);
+        progress = 0;
+        startTime = new Date();
+        updateBarTimer = setInterval(updateBar, 1000);
+        $(&apos;#step2-log&apos;).append(&quot;Attempting to download &quot; + image + &apos;\n&apos;);
+        socket.emit(&apos;download&apos;, { file: image, md5sum: md5sum });
+        downloadTimeout = setTimeout(onDownloadTimeout, 60000);
+    }
+    
+    var waitingForCurl = false;
+    function onProgress(msg) {
+        if(downloadTimeout) clearTimeout(downloadTimeout);
+        if(progress &lt; 99) {
+            downloadTimeout = setTimeout(onDownloadTimeout, 60000);
+        } else {
+            if(!waitingForCurl) {
+                $(&apos;#step2-log&apos;).append(&quot;Waiting for write buffer to flush\n&quot;);
+                waitingForCurl = true;
+            }
+        }
+        if(msg.progress) {
+            progress = msg.progress;
+            updateBar();
+        }
+    }
+    
+    function onDownloadTimeout() {
+        $(&apos;#step2-log&apos;).append(&quot;Connection timeout\n&quot;);
+        socket.disconnect();
+        socket = null;
+        if(updateBarTimer) clearInterval(updateBarTimer);
+    }
+    
+    function onDone(msg) {
+        if(downloadTimeout) clearTimeout(downloadTimeout);
+        downloadTimeout = null;
+        if(updateBarTimer) clearInterval(updateBarTimer);
+        if(msg.md5sum &amp;&amp; msg.md5sum == md5sum) {
+            $(&apos;#step2-log&apos;).append(&quot;Download successful\n&quot;);
+            stepTwoDone();
+        } else {
+            $(&apos;#step2-log&apos;).append(&quot;Download failed: &quot; + JSON.stringify(msg, null, 4) + &quot;\n&quot;);
+        }
+    }
+
+    function stepTwoDone() {
+        if(socket) {
+            socket.disconnect()
+            socket = null;
+            setTimeout(startStepThree, 50);
+        }
+        else {
+            $(&apos;#step2-log&apos;).append(&quot;Lost socket connection early\n&quot;);
+        }
+    }
+    
+    function startStepThree() {
+        updateBar();
+        $(&apos;#address-go&apos;).on(&apos;click&apos;);
+        $(&apos;#address-go&apos;).css(&apos;background-color&apos;, &apos;#de7224&apos;);
+    }
+    
+    function updateBar() {
+        var elapsedTime = (new Date()) - startTime;
+        var hours = parseInt(elapsedTime / (1000*60*60));
+        var minutes = parseInt((elapsedTime % (1000*60*60)) / (1000*60));
+        var seconds = parseInt((elapsedTime % (1000*60)) / 1000);
+        var timeString = hours + &apos;:&apos; + minutes + &apos;:&apos; + seconds;
+        $(&apos;#progressBar&apos;).width(progress + &apos;%&apos;);
+        $(&apos;#progressPercent&apos;).html(progress + &apos; %  &apos; + timeString);
+    }
+&lt;/script&gt;</body>
+    <http_language>en-US,en;q=0.8</http_language>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_referer>http://beagleboard.org/updater/edit</http_referer>
+  </hopobject>
+</xmlroot>

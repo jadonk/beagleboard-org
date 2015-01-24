@@ -38,9 +38,9 @@ function gethomepage_macro (param)
  {
 	if (this.homepage != undefined && this.homepage != "") {
 	  if ((this.homepage).indexOf("http", -1)) {
-		return ('Homepage: <a href="http://' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
+		return ('Homepage: <a class="external" href="http://' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
 	  } else {
-		return ('Homepage: <a href="' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
+		return ('Homepage: <a class="external" href="' + this.homepage + '" target="_projhome">' + this.homepage + '</a>');
 	  }
 	}
  }
@@ -82,6 +82,19 @@ function shortdesc_macro (param)
 function htmlencode_macro (param)
  {
   return encode("" + eval(param.param));
+ }
+
+function image_action ()
+ {
+  if (this.imageFile)
+   {
+    res.data.body = '<img src="' + this.imageFile + '" />\n';
+    renderSkin("bare");
+   }
+  else
+   {
+    return (this.notfound_action());
+   }
  }
  
 function edit_project_action ()

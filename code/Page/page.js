@@ -1,5 +1,16 @@
 app.addRepository('modules/core/JSON.js');
 
+function updateViewCount_macro (param)
+ {
+  if (this.pvCount == undefined) {
+    this.pvCount = 0;
+  }
+
+  this.pvCount = this.pvCount+1;
+
+  return this.pvCount;
+ }
+
 function main_action ()
  {
   if (this.isTransient())

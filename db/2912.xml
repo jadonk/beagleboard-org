@@ -1,41 +1,62 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="helma.xsl"?>
 <xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
-  <hopobject id="2912" name="blog" prototype="Page" created="1374786336435" lastModified="1395067179242">
+  <hopobject id="2912" name="blog" prototype="Page" created="1374786336435" lastModified="1421970739320">
   <hop:parent idref="0" prototyperef="Root"/>
-    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36</http_browser>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36</http_browser>
     <lang>en-us</lang>
     <uri>blog</uri>
     <http_host>beagleboard.org</http_host>
-    <time type="date">17.02.2014 20:13:12 CST</time>
+    <time type="date">07.08.2014 19:04:29 UTC</time>
     <pseudoparent idref="0" prototyperef="Root"/>
     <http_remotehost>98.250.189.79</http_remotehost>
-    <hopsession>98.250.189.jy9bu9wz4uxi</hopsession>
-    <user>jkridner@gmail.com</user>
-    <body>&lt;a href=&quot;/blog/rss&quot;&gt;&lt;img align=&quot;right&quot; src=&quot;/static/uploads/rss.png&quot; width=&quot;5%&quot; /&gt;&lt;/a&gt;
-&lt;h1&gt;Blog&lt;/h1&gt;
-&lt;!-- Begin MailChimp Signup Form --&gt;
-&lt;link href=&quot;//cdn-images.mailchimp.com/embedcode/slim-081711.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
-&lt;style type=&quot;text/css&quot;&gt;
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-&lt;/style&gt;
-&lt;div id=&quot;mc_embed_signup&quot;&gt;
-&lt;form action=&quot;http://beagleboard.us3.list-manage.com/subscribe/post?u=6e7c2131525b7b1b74c71e2cb&amp;id=eec1b627b7&quot; method=&quot;post&quot; id=&quot;mc-embedded-subscribe-form&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;validate&quot; target=&quot;_blank&quot; novalidate&gt;
-	&lt;label for=&quot;mce-EMAIL&quot;&gt;Want to get blog post updates in your inbox?&lt;/label&gt;
-	&lt;input type=&quot;email&quot; value=&quot;&quot; name=&quot;EMAIL&quot; class=&quot;email&quot; id=&quot;mce-EMAIL&quot; placeholder=&quot;email address&quot; required&gt;
-    &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
-    &lt;div style=&quot;position: absolute; left: -5000px;&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;b_6e7c2131525b7b1b74c71e2cb_eec1b627b7&quot; value=&quot;&quot;&gt;&lt;/div&gt;
-	&lt;div class=&quot;clear&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; id=&quot;mc-embedded-subscribe&quot; class=&quot;button&quot;&gt;&lt;/div&gt;
-&lt;/form&gt;
+    <hopsession>98.250.189.jm00sjw6y64l</hopsession>
+    <user>jkridner.wordpress.com</user>
+    <pvcount type="float">12352.0</pvcount>
+    <body>&lt;h1&gt;BeagleBoard.org Blog&lt;/h1&gt;
+&lt;script type=&quot;text/javascript&quot; charset=&quot;utf8&quot; src=&quot;/static/jquery.dataTables.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function () {
+        var mainArticles = $(&apos;#leftContent #articlelist&apos;)
+        mainArticles.dataTable({
+            &quot;sDom&quot;: &quot;tilp&quot;,
+            &quot;bSort&quot;: false,
+            &quot;sPaginationType&quot;: &quot;full_numbers&quot;,
+            &quot;aoColumns&quot;: [
+                {&quot;sType&quot;: &quot;int&quot;, &quot;bVisible&quot;:false},
+                {&quot;sType&quot;: &quot;html&quot;}
+            ],
+            &quot;iDisplayLength&quot;: 10
+        });
+        mainArticles.find(&apos;th&apos;).hide();
+        
+        $(&apos;#blogSearch&apos;).keyup(function(e){
+            mainArticles.dataTable().fnFilter( $(this).val() );
+        });
+        
+        $(&apos;#rightBar&apos;).show();
+        
+        
+        var sideBarArticles = $(&apos;#rightBar #topList&apos;);
+        sideBarArticles.dataTable({
+            &quot;aaSortingFixed&quot;: [[1, &apos;desc&apos;]],
+            &quot;sDom&quot;: &quot;t&quot;,
+            &quot;iDisplayLength&quot;: 5,
+            &quot;aoColumns&quot;: [
+                { &quot;sType&quot;: &quot;html&quot;, &quot;sTitle&quot;: &quot;Title&quot;, &quot;bSortable&quot;:false },
+                { &quot;sType&quot;: &quot;numeric&quot;, &quot;sTitle&quot;: &quot;Views&quot;, &quot;bSortable&quot;:false }
+            ]
+            
+        });
+    });
+&lt;/script&gt;
+&lt;div id=&quot;leftContent&quot;&gt;
+
 &lt;/div&gt;
-&lt;!--End mc_embed_signup--&gt;
-&lt;img src=&quot;http://1.bp.blogspot.com/-z948nd2PfF0/UZqLb5BRKvI/AAAAAAAAEvw/LOJERJlfiDw/s910/beaglebone%2Bblog.jpg&quot; width=&quot;100%&quot; /&gt;
-&lt;p&gt;New home of the official BeagleBoard.org blog&lt;/p&gt;
-&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; href=&quot;http://beagleboard.org/blog/rss&quot; title=&quot;Official BeagleBoard.org blog&quot; /&gt;</body>
+</body>
     <list_children>true</list_children>
     <http_language>en-US,en;q=0.8</http_language>
+    <render_skin>blog</render_skin>
     <is_xhtml type="boolean">true</is_xhtml>
     <http_referer>http://beagleboard.org/blog/edit</http_referer>
     <hop:child idref="2933" prototyperef="Page"/>
@@ -120,5 +141,28 @@
     <hop:child idref="3466" prototyperef="Page"/>
     <hop:child idref="3486" prototyperef="Page"/>
     <hop:child idref="3507" prototyperef="Page"/>
+    <hop:child idref="3562" prototyperef="Page"/>
+    <hop:child idref="3578" prototyperef="Page"/>
+    <hop:child idref="3595" prototyperef="Page"/>
+    <hop:child idref="3596" prototyperef="Page"/>
+    <hop:child idref="3614" prototyperef="Page"/>
+    <hop:child idref="3615" prototyperef="Page"/>
+    <hop:child idref="3618" prototyperef="Page"/>
+    <hop:child idref="3629" prototyperef="Page"/>
+    <hop:child idref="3653" prototyperef="Page"/>
+    <hop:child idref="3654" prototyperef="Page"/>
+    <hop:child idref="3674" prototyperef="Page"/>
+    <hop:child idref="3691" prototyperef="Page"/>
+    <hop:child idref="3711" prototyperef="Page"/>
+    <hop:child idref="3719" prototyperef="Page"/>
+    <hop:child idref="3739" prototyperef="Page"/>
+    <hop:child idref="3746" prototyperef="Page"/>
+    <hop:child idref="3769" prototyperef="Page"/>
+    <hop:child idref="3814" prototyperef="Page"/>
+    <hop:child idref="3850" prototyperef="Page"/>
+    <hop:child idref="3859" prototyperef="Page"/>
+    <hop:child idref="3885" prototyperef="Page"/>
+    <hop:child idref="3891" prototyperef="Page"/>
+    <hop:child idref="3900" prototyperef="Page"/>
   </hopobject>
 </xmlroot>

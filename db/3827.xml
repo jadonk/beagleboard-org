@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3827" name="easyBlack" prototype="Page" created="1415115039191" lastModified="1421968731425">
+  <hop:parent idref="20" prototyperef="Page"/>
+    <cat_lib>library</cat_lib>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <pname>easyBlack C++ Library</pname>
+    <registrant>manu</registrant>
+    <prj_statusval></prj_statusval>
+    <http_language>es-ES,es;q=0.8</http_language>
+    <uri>easyBlack</uri>
+    <http_browser>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.42 Safari/537.36</http_browser>
+    <time type="date">04.11.2014 16:46:43 UTC</time>
+    <updatetime type="date">04.11.2014 15:30:39 UTC</updatetime>
+    <brd_black>bbblack</brd_black>
+    <projstatus>complete</projstatus>
+    <hopsession>127.0.0.t3huvq62bbwu</hopsession>
+    <body>&lt;h2 style=&quot;box-sizing: border-box; margin-top: 1em; margin-bottom: 16px; line-height: 1.225; font-size: 1.75em; position: relative; padding-bottom: 0.3em; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eeeeee; color: #333333; font-family: &apos;Helvetica Neue&apos;, Helvetica, &apos;Segoe UI&apos;, Arial, freesans, sans-serif;&quot;&gt;PreRequisites&lt;/h2&gt;
+&lt;p style=&quot;box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: &apos;Helvetica Neue&apos;, Helvetica, &apos;Segoe UI&apos;, Arial, freesans, sans-serif; font-size: 16px; line-height: 25.6000003814697px;&quot;&gt;Debian and Ubuntu:&lt;/p&gt;
+&lt;div class=&quot;highlight highlight-sh&quot; style=&quot;box-sizing: border-box; margin-bottom: 16px; color: #333333; font-family: &apos;Helvetica Neue&apos;, Helvetica, &apos;Segoe UI&apos;, Arial, freesans, sans-serif; font-size: 16px; line-height: 25.6000003814697px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;&quot;&gt;
+&lt;pre style=&quot;box-sizing: border-box; overflow: auto; font-family: Consolas, &apos;Liberation Mono&apos;, Menlo, Courier, monospace; font-size: 14px; margin-top: 0px; margin-bottom: 0px; font-stretch: normal; line-height: 1.45; padding: 16px; border-radius: 3px; word-wrap: normal; word-break: normal; background-color: #f7f7f7;&quot;&gt;sudo apt-get install -y build-essential g++
+wget -c https://raw.github.com/RobertCNelson/tools/master/pkgs/dtc.sh
+chmod +x dtc.sh
+sudo ./dtc.sh&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 style=&quot;box-sizing: border-box; margin-top: 1em; margin-bottom: 16px; line-height: 1.225; font-size: 1.75em; position: relative; padding-bottom: 0.3em; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eeeeee; color: #333333; font-family: &apos;Helvetica Neue&apos;, Helvetica, &apos;Segoe UI&apos;, Arial, freesans, sans-serif;&quot;&gt;&lt;a id=&quot;user-content-example&quot; class=&quot;anchor&quot; style=&quot;box-sizing: border-box; color: #4183c4; text-decoration: none; position: absolute; top: 0px; bottom: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; background: transparent;&quot; href=&quot;https://github.com/facine/easyBlack#example&quot;&gt;&lt;/a&gt;Example&lt;/h2&gt;
+&lt;p style=&quot;box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: &apos;Helvetica Neue&apos;, Helvetica, &apos;Segoe UI&apos;, Arial, freesans, sans-serif; font-size: 16px; line-height: 25.6000003814697px;&quot;&gt;See more examples en examples directory.&lt;/p&gt;
+&lt;div class=&quot;highlight highlight-cpp&quot; style=&quot;box-sizing: border-box; margin-bottom: 16px; color: #333333; font-family: &apos;Helvetica Neue&apos;, Helvetica, &apos;Segoe UI&apos;, Arial, freesans, sans-serif; font-size: 16px; line-height: 25.6000003814697px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;&quot;&gt;
+&lt;pre style=&quot;box-sizing: border-box; overflow: auto; font-family: Consolas, &apos;Liberation Mono&apos;, Menlo, Courier, monospace; font-size: 14px; margin-top: 0px; margin-bottom: 0px; font-stretch: normal; line-height: 1.45; padding: 16px; border-radius: 3px; word-wrap: normal; word-break: normal; background-color: #f7f7f7;&quot;&gt;#&lt;span class=&quot;k&quot; style=&quot;box-sizing: border-box; font-weight: bold;&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s2&quot; style=&quot;box-sizing: border-box; color: #df5000;&quot;&gt;&quot;memGPIO.hpp&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot; style=&quot;box-sizing: border-box; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;int&lt;/span&gt; REPEATS = &lt;span class=&quot;m&quot; style=&quot;box-sizing: border-box; color: #945277;&quot;&gt;10&lt;/span&gt;;
+&lt;span class=&quot;k&quot; style=&quot;box-sizing: border-box; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;int&lt;/span&gt; DELAY = &lt;span class=&quot;m&quot; style=&quot;box-sizing: border-box; color: #945277;&quot;&gt;250000&lt;/span&gt;;
+
+&lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;main&lt;/span&gt; () {
+  &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Make a instance.&lt;/span&gt;
+  easyBlack::memGPIO myExample;
+
+  &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Get PINs data for better performance.&lt;/span&gt;
+  easyBlack::memGPIO::gpioPin usr0 = myExample.&lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;getPin&lt;/span&gt; (&lt;span class=&quot;s2&quot; style=&quot;box-sizing: border-box; color: #df5000;&quot;&gt;&quot;USR0&quot;&lt;/span&gt;);
+
+  &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Get PIN direction for better performance.&lt;/span&gt;
+  &lt;span class=&quot;k&quot; style=&quot;box-sizing: border-box; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;char&lt;/span&gt; output = myExample.&lt;span class=&quot;nv&quot; style=&quot;box-sizing: border-box; color: #008080;&quot;&gt;OUTPUT&lt;/span&gt;;
+
+  &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Get PIN values for better performance.&lt;/span&gt;
+  &lt;span class=&quot;k&quot; style=&quot;box-sizing: border-box; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;char&lt;/span&gt; low = myExample.&lt;span class=&quot;nv&quot; style=&quot;box-sizing: border-box; color: #008080;&quot;&gt;LOW&lt;/span&gt;;
+  &lt;span class=&quot;k&quot; style=&quot;box-sizing: border-box; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;char&lt;/span&gt; high = myExample.&lt;span class=&quot;nv&quot; style=&quot;box-sizing: border-box; color: #008080;&quot;&gt;HIGH&lt;/span&gt;;
+
+  &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Set pin mode.&lt;/span&gt;
+  myExample.&lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;pinMode&lt;/span&gt; (usr0, output);
+
+  &lt;span class=&quot;k&quot; style=&quot;box-sizing: border-box; font-weight: bold;&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;kt&quot; style=&quot;box-sizing: border-box; font-weight: bold; color: #445588;&quot;&gt;int&lt;/span&gt; x = &lt;span class=&quot;m&quot; style=&quot;box-sizing: border-box; color: #945277;&quot;&gt;0&lt;/span&gt;; x &amp;lt; REPEATS; x++) {
+    &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Turn USR0 LED on.&lt;/span&gt;
+    myExample.&lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;digitalWrite&lt;/span&gt; (usr0, high);
+
+    &lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;usleep&lt;/span&gt; (DELAY);
+
+    &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Turn USR0 LED off.&lt;/span&gt;
+    myExample.&lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;digitalWrite&lt;/span&gt; (usr0, low);
+
+    &lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;usleep&lt;/span&gt; (DELAY);
+  }
+
+  &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Reset USR0 LED trigger to default.&lt;/span&gt;
+  myExample.&lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;resetLEDPin0ToDefault&lt;/span&gt; ();
+
+  &lt;span class=&quot;c1&quot; style=&quot;box-sizing: border-box; color: #999988; font-style: italic;&quot;&gt;// Call the destructor.&lt;/span&gt;
+  myExample.&lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;~memGPIO&lt;/span&gt; ();
+
+  &lt;span class=&quot;nf&quot; style=&quot;box-sizing: border-box; color: #945277; font-weight: bold;&quot;&gt;exit&lt;/span&gt; (EXIT_SUCCESS);
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 style=&quot;box-sizing: border-box; margin-top: 1em; margin-bottom: 16px; line-height: 1.225; font-size: 1.75em; position: relative; padding-bottom: 0.3em; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eeeeee; color: #333333; font-family: &apos;Helvetica Neue&apos;, Helvetica, &apos;Segoe UI&apos;, Arial, freesans, sans-serif;&quot;&gt;&lt;a id=&quot;user-content-digital-and-analog-io&quot; class=&quot;anchor&quot; style=&quot;box-sizing: border-box; color: #4183c4; text-decoration: none; position: absolute; top: 0px; bottom: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; background: transparent;&quot; href=&quot;https://github.com/facine/easyBlack#digital-and-analog-io&quot;&gt;&lt;/a&gt;Digital and Analog I/O&lt;/h2&gt;
+&lt;ul class=&quot;task-list&quot; style=&quot;box-sizing: border-box; padding: 0px 0px 0px 2em; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: &apos;Helvetica Neue&apos;, Helvetica, &apos;Segoe UI&apos;, Arial, freesans, sans-serif; font-size: 16px; line-height: 25.6000003814697px;&quot;&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;getPin (pinNumber)&lt;/li&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;pinMode (pin, direction, [mux], [pullup], [slew])&lt;/li&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;digitalRead (pin)&lt;/li&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;digitalWrite (pin, value)&lt;/li&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;resetLEDPin0ToDefault ()&lt;/li&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;resetLEDPin1ToDefault ()&lt;/li&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;resetLEDPin2ToDefault ()&lt;/li&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;resetLEDPin3ToDefault ()&lt;/li&gt;
+&lt;li style=&quot;box-sizing: border-box;&quot;&gt;resetLEDPinsToDefault ()&lt;/li&gt;
+&lt;/ul&gt;</body>
+    <imagefile>/static/graphics/coolboris.png</imagefile>
+    <pseudoparent idref="20" prototyperef="Page"/>
+    <rssfeed></rssfeed>
+    <pvcount type="float">1321.0</pvcount>
+    <prj_status></prj_status>
+    <boardtype>bbblack;</boardtype>
+    <category>library;</category>
+    <homepage>https://github.com/facine/easyBlack</homepage>
+    <edit_skin>edit_project</edit_skin>
+    <render_skin>project</render_skin>
+    <http_referer>http://beagleboard.org/project/easyBlack/edit</http_referer>
+    <http_host>127.0.0.1:8080</http_host>
+    <errmsg></errmsg>
+    <shortdesc>(Arduino Style) Beaglebone Black C++ Library for GPIO using high performance of mmap.</shortdesc>
+    <user>manu@facine.es</user>
+  </hopobject>
+</xmlroot>

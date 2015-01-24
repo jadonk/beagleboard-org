@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="helma.xsl"?>
+<xmlroot xmlns:hop="http://www.helma.org/docs/guide/features/database">
+  <hopobject id="3612" name="libpruio" prototype="Page" created="1399654167803" lastModified="1421970059802">
+  <hop:parent idref="20" prototyperef="Page"/>
+    <cat_lib>library</cat_lib>
+    <cat_robot>robotics</cat_robot>
+    <is_xhtml type="boolean">true</is_xhtml>
+    <http_remotehost>127.0.0.1</http_remotehost>
+    <pname>libpruio-0.2 (fast and easy D/A - I/O)</pname>
+    <registrant>tjfr.wordpress.com</registrant>
+    <brd_bone>bbone</brd_bone>
+    <prj_statusval>complete</prj_statusval>
+    <http_language>de,en-US;q=0.7,en;q=0.3</http_language>
+    <uri>libpruio</uri>
+    <http_browser>Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0</http_browser>
+    <time type="date">27.10.2014 08:25:11 UTC</time>
+    <updatetime type="date">09.05.2014 16:49:27 UTC</updatetime>
+    <brd_black>bbblack</brd_black>
+    <projstatus>complete</projstatus>
+    <hopsession>127.0.0.875v9irjwa3o</hopsession>
+    <body>&lt;p&gt;Developing I/O tasks on Beaglebone (white or black) hardware isn&apos;t really fun (effective May 2014). For digital I/O you&apos;ve to deal with issues like&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;multiple source (device tree overlays and you program)&lt;/li&gt;
+&lt;li&gt;several device tree compiler versions (option -@)&lt;/li&gt;
+&lt;li&gt;pure documentation (spread all over the kernel source)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And also for analog input the situation isn&apos;t better&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;faulty ADC kernel driver&lt;/li&gt;
+&lt;li&gt;no control over the ADC device setting&lt;/li&gt;
+&lt;li&gt;slow sampling rates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Most operations either need root privileges or a lot of configurations to get access for a normal user. Furthermore, all I/O isn&apos;t fast due to the slow file operations.&lt;br /&gt;&lt;br /&gt;All these pitfalls don&apos;t realy help when you&apos;re going to focus on your core problem: create new software.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;Here&apos;s my solution&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;libpruio is a driver for the AM33xx processor family. It controls the subsystems&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Control Module (pinmuxing)&lt;/li&gt;
+&lt;li&gt;GPIO 0 to 3 (General Purpose Input and Output)&lt;/li&gt;
+&lt;li&gt;TSC_ADC_SS (Touch Screen Controler and Analog to Digital Convertor SubSystem)&lt;/li&gt;
+&lt;li&gt;PWMSS 0 to 2 (Pulse Width Modulation SubSystem)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;in real time by software running on the PRUSS (Programable Realtime Unit SubSystem). The API is designed for easy and safe usage, but also for high speed operations. For the daily work you need not care about mystic tables with CPU ball numbers or GPIO codes. Instead specify what you see (ie. P8_11 = header P8, pin 11).&lt;br /&gt;&lt;br /&gt;libpruio handles&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;waking up subsystems&lt;/li&gt;
+&lt;li&gt;reading original subsystems configurations on start up&lt;/li&gt;
+&lt;li&gt;enable or disable subsystems at run-time&lt;/li&gt;
+&lt;li&gt;configure subsystems at run-time&lt;/li&gt;
+&lt;li&gt;performing GPIO operations (read / write in IO mode)&lt;/li&gt;
+&lt;li&gt;output of pulse trains (PWM)&lt;/li&gt;
+&lt;li&gt;analysing of pulse trains (CAP)&lt;/li&gt;
+&lt;li&gt;setting ADC configurations&lt;/li&gt;
+&lt;li&gt;reading single ADC samples (IO mode, timed by host)&lt;/li&gt;
+&lt;li&gt;reading multiple ADC samples in a ring buffer and controling digital lines (RB mode, timed by PRUSS)&lt;/li&gt;
+&lt;li&gt;reading multiple ADC samples in a buffer (MM mode, timed by PRUSS)&lt;/li&gt;
+&lt;li&gt;using triggers to start ADC sampling in MM mode (GPIO or ADC input)&lt;/li&gt;
+&lt;li&gt;restoring the original configurations on close down&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The library can be used under the terms of the Lesser GNU Public Licence version 2 (LGPLv2). The package also contains a C wrapper for the library and examples (under GPLv3) in FreeBASIC syntax (most of them are also included in C syntax):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;1&lt;/span&gt;: minimal example&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;analyse&lt;/span&gt;: output initial devices configurations&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;io_input&lt;/span&gt;: output the digital and analog lines in IO mode&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;pwm_cap&lt;/span&gt;: output a measured pulse train of a PWM output&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;sos&lt;/span&gt;: blink a user led in SOS code&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;stepper&lt;/span&gt;: drive a stepper motor (unipolar)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pwm_adc&lt;/strong&gt;: show a graph of analog inputs of three PWM outputs&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;oszi&lt;/span&gt;: show a graph of analog inputs&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;rb_oszi&lt;/span&gt;: show a graph of analog inputs&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;triggers&lt;/span&gt;: start measurements by trigger events in MM mode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Since version 0.2, tools to create, compile and install device tree overlays are included. They support either customized overlays with fixed pin configurations or universal overlays with run-time pinmuxing capability.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;Check out the &lt;a class=&quot;postlink&quot; href=&quot;http://users.freebasic-portal.de/tjf/Projekte/libpruio/doc/html/&quot;&gt;on-line documentation&lt;/a&gt; or &lt;a class=&quot;postlink&quot; href=&quot;http://www.freebasic-portal.de/downloads/fb-on-arm/anleitung-zu-libpruio-en-326.html&quot;&gt;download it here&lt;/a&gt; for off-line usage.&lt;br /&gt;&lt;br /&gt;Download the package (source and binaries) at&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;postlink&quot; href=&quot;http://www.freebasic-portal.de/downloads/fb-on-arm/libpruio-325.html&quot;&gt;libpruio (D/A - I/O schnell und einfach)&lt;/a&gt;&lt;/p&gt;</body>
+    <imagefile>data:image/png;base64,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</imagefile>
+    <pseudoparent idref="20" prototyperef="Page"/>
+    <cat_demo>demo</cat_demo>
+    <rssfeed></rssfeed>
+    <pvcount type="float">11513.0</pvcount>
+    <cat_doc>documentation</cat_doc>
+    <prj_status>complete</prj_status>
+    <boardtype>bbblack;bbone;</boardtype>
+    <category>documentation;library;demo;robotics;</category>
+    <homepage>http://www.freebasic.net/forum/viewtopic.php?f=14&amp;t=22501</homepage>
+    <edit_skin>edit_project</edit_skin>
+    <render_skin>project</render_skin>
+    <http_referer>http://beagleboard.org/project/libpruio/edit</http_referer>
+    <http_host>127.0.0.1:8080</http_host>
+    <errmsg></errmsg>
+    <shortdesc>Fast and easy digital input/output and analog input for Beaglebone hardware with PRU subsystem.</shortdesc>
+    <user>tjfr.wordpress.com</user>
+  </hopobject>
+</xmlroot>

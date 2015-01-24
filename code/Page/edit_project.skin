@@ -81,17 +81,9 @@
   <tr>
    <td align="right" valign="top"><font color="orange">*</font>Select one of the following for your project status</td>
    <td>&nbsp;</td>
-<!--   <td><input name="prj_Status" id="prj_Status" type="radio" value="concept" /> Concept <img src="/static/graphics/helpbubble.png" title="an idea to be explored" /><br/>
-	<input name="prj_Status" id="prj_Status" type="radio" value="demo" /> Demo  <img src="/static/graphics/helpbubble.png" title="a project that may not include the necessary details for replication" /><br/>
-	<input name="prj_Status" id="prj_Status" type="radio" value="dev" /> Developing  <img src="/static/graphics/helpbubble.png" title="a project in development" /><br/>
-	<input name="prj_Status" id="prj_Status" type="radio" value="complete" /> Complete  <img src="/static/graphics/helpbubble.png" title="a finalized project that is fully reproducible" /><br/>
-	<input name="prj_Status" id="prj_Status" type="radio" value="submitted" /> Submitted for production  <img src="/static/graphics/helpbubble.png" title="a complete project that has been submitted for inclusion in the image shipped with the boards, on BeaglebBoard.org or in other communications" /><br/>
-	<input name="prj_Status" id="prj_Status" type="radio" value="production" /> In production  <img src="/static/graphics/helpbubble.png" title="a complete project that has been accepted for inclusion in the image shipped with the boards, on the cape listing page, on BeagleBoard.org or in other communications" /><br/>
-	<input name="prj_StatusVal" id="prj_StatusVal" type="hidden" value="<% this.prj_Status %>" />
-   </td> -->
    <td><table><tr><td><input name="prj_Status" id="prj_Status" type="radio" value="concept" /></td><td>Concept</td><td>an idea to be explored</td></tr>
-	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="demo" /></td><td>Demo</td><td>a project that may not include the necessary details for replication</td></tr>
 	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="dev" /></td><td>Developing</td><td>a project in development</td></tr>
+	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="demo" /></td><td>Demo</td><td>a project that may not include the necessary details for replication</td></tr>
 	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="complete" /></td><td>Complete</td><td>a finalized project that is fully reproducible</td></tr>
 	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="submitted" /></td><td>Submitted for production</td><td>a complete project that has been submitted for inclusion in the image shipped with the boards, on BeaglebBoard.org or in other communications</td></tr>
 	<tr><td><input name="prj_Status" id="prj_Status" type="radio" value="production" /></td><td>In production</td><td>a complete project that has been accepted for inclusion in the image shipped with the boards, on the cape listing page, on BeagleBoard.org or in other communications</td>
@@ -119,7 +111,7 @@
 $(document).ready(function() {
 
 	tinymce.init({selector:'textarea#fullDesc',
-			plugins: ['code']
+			plugins: ['code','link','image','media']
    			});
 
 	if ($.browser.msie && (parseFloat($.browser.version) < 9 ) ) {

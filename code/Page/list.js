@@ -42,6 +42,7 @@ function listBody ()
 
     body += "<br /><div id='loadmsg' style='text-align:center;'><br /><br /><img src='/static/graphics/spinning-wheel.gif'><br /><br />Loading Projects...</div><table id='projects' style='display:none;'>\n";
     body += "<thead><tr><th style='width: 350px;'>Project</th><th style='width: 180px;'>Updated</th><th style='width: 120px;'>Views</th><th>Category</th><th>Board</th><th>Status</th></tr></thead><tbody>\n";
+    //body += "<thead><tr><th style='width: 350px;'>Project</th><th style='width: 180px;'>Updated</th><th style='width: 120px;'>Views</th><th>Category</th><th>Board</th><th>Status</th><th>Trend</th></tr></thead><tbody>\n";
    }
   else if (collection[0].render_skin == "cape")
    {
@@ -53,9 +54,18 @@ function listBody ()
     body += "</thead>\n";
     body += "<tbody>\n";
     collection = collection.reverse();
- }  else {
-   body += "<ul>\n";
- }
+   }
+  else if (collection[0].render_skin == "blog")
+   {
+    var sort = "uri desc";
+    var orderedByDate = this.getOrderedView(sort);
+    collection = orderedByDate.list();
+    body += "<table id='articlelist' style='width:675px;'>\n";
+   }
+  else
+   {
+    body += "<ul>\n";
+   }
 
   for (var i in collection) {
     var prjDate = new Date();
@@ -71,7 +81,14 @@ function listBody ()
        }
       else
        {
-        body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + collection[i].imageFile + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
+        if ( collection[i].imageFile.length < 10000 )
+         {
+          body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + collection[i].imageFile + '" style="height:50px;width:50px;" class="thumb-img" /></a></div>';
+         }
+        else
+         {
+          body += '<div style="float:left;height:50px;width:50px;margin-right:7px;"><a href="' + collection[i].href() + '"><img src="' + coolBoris + '" data-src="' + collection[i].href() + 'image" style="height:50px;width:50px;" class="thumb-img lazy-load" /></a></div>';
+         }
        }
 
       var sRegistrant = collection[i].registrant;
@@ -95,20 +112,28 @@ function listBody ()
         sRegistrant = sRegistrant.substring(0, 29) + '...';
        }
 
-      body += '<a href="' + collection[i].href() + '">'
-       + collection[i].pname
-       + '</a><br><small>';
-       body += encode(collection[i].shortdesc)
+      body += '<a href="' + collection[i].href() + '">';
+      body += collection[i].pname + '</a>';
+      if (collection[i].homepage && collection[i].homepage.length > 0)
+       {
+        body += ' (&nbsp;<a target="_blank" class="external" href="';
+        body += collection[i].homepage;
+        body += '">*</a>&nbsp;)';
+       }
+      //var trend = Math.random().toFixed(2);
+      body += '<br><small>'
+       + encode(collection[i].shortdesc)
        + '</small></td><td><small>'
        + '<span title="' + i + '" style="display: none;">' + collection[i].time.valueOf() + '</span>'
        + collection[i].time
        + '</small><br />'
-       + '<a href="' + sRegUrl + '">' + sRegistrant + '</a>'
+       + '<a href="' + sRegUrl + '">' + sRegistrant.replace(/\@.*$/, "") + '</a>'
        + '</td>'
        + '<td>' + (collection[i].pvCount == undefined ? 0 : collection[i].pvCount) + '</td>'
        + '<td>' + collection[i].category + '</td>'
        + '<td>' + collection[i].boardType + '</td>'
        + '<td>' + collection[i].prj_Status + '</td>'
+       //+ '<td>' + trend + '</td>'
        + '</tr>\n';
      }
     else if (collection[i].render_skin == "cape")
@@ -148,7 +173,9 @@ function listBody ()
          }
        }
       body += '</tr>\n';
-    } else if (collection[i].render_skin == "rss") {
+     }
+    else if (collection[i].render_skin == "rss")
+     {
       body +=
        '<li class="rss"><a href="' + collection[i].href() + '">'
        + collection[i].uri
@@ -156,7 +183,36 @@ function listBody ()
        + '<div>'
        + collection[i].body
        + '</div></li>\n';
-    } else {
+     }
+    else if (collection[i].render_skin == "blog")
+     {
+      var postbody = collection[i].body;
+      var tempPos = postbody.indexOf('>', postbody.indexOf('<h1')) + 1;
+      var postTitle = postbody.substr(tempPos, postbody.indexOf('</h1>') - tempPos);
+
+      if (postTitle.length < 2) {
+        tempPos = postbody.indexOf('>', postbody.indexOf('<h3')) + 1;
+        postTitle = postTitle = postbody.substr(tempPos, postbody.indexOf('</h3>') - tempPos);
+      }
+
+      tempPos = postbody.indexOf('>', postbody.indexOf('<p')) + 1;
+      var postSummary = postbody.substr(tempPos, postbody.indexOf('</p>') - tempPos);
+
+      if (postSummary.indexOf('By') > -1) {
+        var newStart = postbody.indexOf('</p>') + 4;
+        tempPos = postbody.indexOf('>', postbody.indexOf('<p', newStart)) + 1;
+        postSummary = postbody.substr(tempPos, postbody.indexOf('</p>', newStart) - tempPos);
+      }
+
+      body +=
+       '<tr><td>' + i + '</td><td><h1><a href="' + collection[i].href() + '">'
+       + (postTitle.length > 3 ? postTitle : collection[i].uri) 
+       + '</a></h1><div class="blogInfo">' + collection[i].time
+       + '</div><div class="summary">' + ( postSummary.length > 3 ? postSummary : ' ')
+       + '</div><div style="text-align:right;"><a href="' + collection[i].href() + '">Read more</a> &raquo;</div></td></tr>\n';
+     }
+    else
+     {
       body +=
        '<li><a href="' + collection[i].href() + '">'
        + collection[i].uri
@@ -175,6 +231,10 @@ function listBody ()
   else if (collection[0].render_skin == "cape")
    {
     body += "</tbody></table>\n";
+   }
+  else if (collection[0].render_skin == "blog")
+   {
+    body += "</table>\n";
    }
   else
    {

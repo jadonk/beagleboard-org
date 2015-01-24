@@ -69,6 +69,9 @@ $(document).ready(function(){
 	// note, due to a bug in Firefox, the call is moved below
 
         function testForConnection() {
+            if(ga && (typeof ga == "function")) {
+                ga('send', 'event', 'bonescript', 'started', window.location.href);
+            }
             var handlers = {};
             handlers.callback = callback;
             handlers.initialized = initialized;
@@ -105,6 +108,9 @@ $(document).ready(function(){
             }
             function initialized() {
                 console.log('Bonescript: initialized');
+                if(ga && (typeof ga == "function")) {
+                    ga('send', 'event', 'bonescript', 'connected', window.location.href);
+                }
                 $('#connect-status').replaceWith(statusConnected);
                 updateBoardInfo();
                 if(typeof onbonescriptinit == 'function') onbonescriptinit();
@@ -138,8 +144,12 @@ function updateBoardInfo() {
             info += ' rev ' + x.version;
         if(typeof x.serialNumber != 'undefined')
             info += ' S/N ' + x.serialNumber;
-        if(typeof x.bonescript != 'undefined')
+        if(typeof x.bonescript != 'undefined') {
             info += ' running BoneScript ' + x.bonescript;
+            if(ga && (typeof ga == "function")) {
+                ga('send', 'event', 'bonescript', 'version', x.bonescript);
+            }
+        }
         if(typeof _bonescript.address != 'undefined')
             info += ' at ' + _bonescript.address;
         info += '</div>';
