@@ -189,3 +189,48 @@
 <li class="nick-change">[<a href="#T07:59:18" id="T07:59:18"><abbr title="2015-02-19T07:59:18+00:00">07:59:18</abbr></a>] <span>* __av500__ is now known as av500</span></li>
 <li class="join">[<a href="#T07:59:25" id="T07:59:25"><abbr title="2015-02-19T07:59:25+00:00">07:59:25</abbr></a>] <span>* aswin (~aswin@117.207.97.10) has joined #beagle</span></li>
 <li class="quit">[<a href="#T07:59:48" id="T07:59:48"><abbr title="2015-02-19T07:59:48+00:00">07:59:48</abbr></a>] <span>* aswin (~aswin@117.207.97.10) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T08:02:46" id="T08:02:46"><abbr title="2015-02-19T08:02:46+00:00">08:02:46</abbr></a>] <span>* BobCat (~Bob@unaffiliated/bobcat) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="message">[<a href="#T08:07:27" id="T08:07:27"><abbr title="2015-02-19T08:07:27+00:00">08:07:27</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>weird, I'm getting EINVAL from  open( "/tmp", O_TMPFILE | O_EXCL | O_RDWR, 0 );  on bbb even though I'm running debian sid with a very recent kernel</q></li>
+<li class="join">[<a href="#T08:07:56" id="T08:07:56"><abbr title="2015-02-19T08:07:56+00:00">08:07:56</abbr></a>] <span>* krajo1__ (~krajo1@host36.nwt.cz) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:08:46" id="T08:08:46"><abbr title="2015-02-19T08:08:46+00:00">08:08:46</abbr></a>] <span>* krajo1 (~krajo1@host146.nwt.cz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:09:23" id="T08:09:23"><abbr title="2015-02-19T08:09:23+00:00">08:09:23</abbr></a>] <span>* NulL` (~bleh1@217.28.4.31) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="quit">[<a href="#T08:10:33" id="T08:10:33"><abbr title="2015-02-19T08:10:33+00:00">08:10:33</abbr></a>] <span>* krajo1_ (~krajo1@host146.nwt.cz) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T08:10:54" id="T08:10:54"><abbr title="2015-02-19T08:10:54+00:00">08:10:54</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>zmatt hm and which argument is not known?</q></li>
+<li class="message">[<a href="#T08:10:58" id="T08:10:58"><abbr title="2015-02-19T08:10:58+00:00">08:10:58</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>O_TMPFILE?</q></li>
+<li class="join">[<a href="#T08:11:21" id="T08:11:21"><abbr title="2015-02-19T08:11:21+00:00">08:11:21</abbr></a>] <span>* rob_w (~bob@93.104.205.194) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2015-02-19T08:11:21+00:00">08:11:21</abbr>] <span>* rob_w (~bob@93.104.205.194) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2015-02-19T08:11:21+00:00">08:11:21</abbr>] <span>* rob_w (~bob@unaffiliated/rob-w/x-1112029) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:12:29" id="T08:12:29"><abbr title="2015-02-19T08:12:29+00:00">08:12:29</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>ah bingo, adding | O_DIRECTORY to the flags fixes the problem... which means the header file contains a wrong definition for O_TMPFILE</q></li>
+<li class="quit">[<a href="#T08:12:44" id="T08:12:44"><abbr title="2015-02-19T08:12:44+00:00">08:12:44</abbr></a>] <span>* krajo1__ (~krajo1@host36.nwt.cz) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="message">[<a href="#T08:13:16" id="T08:13:16"><abbr title="2015-02-19T08:13:16+00:00">08:13:16</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>yes?</q></li>
+<li class="message">[<a href="#T08:14:12" id="T08:14:12"><abbr title="2015-02-19T08:14:12+00:00">08:14:12</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q> O_TMPFILE must be specified with one of O_RDWR or O_WRONLY</q></li>
+<li class="message">[<a href="#T08:14:13" id="T08:14:13"><abbr title="2015-02-19T08:14:13+00:00">08:14:13</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>              and, optionally, O_EXCL.</q></li>
+<li class="message">[<a href="#T08:14:29" id="T08:14:29"><abbr title="2015-02-19T08:14:29+00:00">08:14:29</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>looks like you did not read the man page?</q></li>
+<li class="message">[<a href="#T08:15:08" id="T08:15:08"><abbr title="2015-02-19T08:15:08+00:00">08:15:08</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>ehm, I specified it with O_EXCL and O_RDWR.. looks like you didn't read what I said? :P</q></li>
+<li class="join">[<a href="#T08:16:21" id="T08:16:21"><abbr title="2015-02-19T08:16:21+00:00">08:16:21</abbr></a>] <span>* BobCat (~Bob@unaffiliated/bobcat) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:16:29" id="T08:16:29"><abbr title="2015-02-19T08:16:29+00:00">08:16:29</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>bingo, ARM has a non-standard value for O_DIRECTORY</q></li>
+<li class="message">[<a href="#T08:16:35" id="T08:16:35"><abbr title="2015-02-19T08:16:35+00:00">08:16:35</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>x86:</q></li>
+<li class="message">[<a href="#T08:16:40" id="T08:16:40"><abbr title="2015-02-19T08:16:40+00:00">08:16:40</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>#define __O_DIRECTORY 0200000</q></li>
+<li class="message">[<abbr title="2015-02-19T08:16:40+00:00">08:16:40</abbr>] &lt;<cite>zmatt</cite>&gt; <q>#define __O_TMPFILE 020200000</q></li>
+<li class="message">[<a href="#T08:16:43" id="T08:16:43"><abbr title="2015-02-19T08:16:43+00:00">08:16:43</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>arm:</q></li>
+<li class="message">[<a href="#T08:16:46" id="T08:16:46"><abbr title="2015-02-19T08:16:46+00:00">08:16:46</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>#define __O_DIRECTORY 040000</q></li>
+<li class="message">[<abbr title="2015-02-19T08:16:46+00:00">08:16:46</abbr>] &lt;<cite>zmatt</cite>&gt; <q>#define __O_TMPFILE 020200000</q></li>
+<li class="message">[<a href="#T08:17:28" id="T08:17:28"><abbr title="2015-02-19T08:17:28+00:00">08:17:28</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>definition of __O_TMPFILE in /usr/include/arm-linux-gnueabihf/bits/fcntl-linux.h is incorrect</q></li>
+<li class="message">[<a href="#T08:18:31" id="T08:18:31"><abbr title="2015-02-19T08:18:31+00:00">08:18:31</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>ah, the fix was committed to glibc git a couple of days ago, good</q></li>
+<li class="quit">[<a href="#T08:18:43" id="T08:18:43"><abbr title="2015-02-19T08:18:43+00:00">08:18:43</abbr></a>] <span>* av500 (~av500@b2b-46-252-131-98.unitymedia.biz) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T08:19:13" id="T08:19:13"><abbr title="2015-02-19T08:19:13+00:00">08:19:13</abbr></a>] <span>* av500 (~av500@b2b-46-252-131-98.unitymedia.biz) has joined #beagle</span></li>
+<li class="mode">[<abbr title="2015-02-19T08:19:13+00:00">08:19:13</abbr>] <span>* ChanServ sets mode +o av500</span></li>
+<li class="join">[<a href="#T08:23:49" id="T08:23:49"><abbr title="2015-02-19T08:23:49+00:00">08:23:49</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:25:02" id="T08:25:02"><abbr title="2015-02-19T08:25:02+00:00">08:25:02</abbr></a>] <span>* av500 (~av500@b2b-46-252-131-98.unitymedia.biz) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T08:25:20" id="T08:25:20"><abbr title="2015-02-19T08:25:20+00:00">08:25:20</abbr></a>] <span>* av500 (~av500@b2b-46-252-131-98.unitymedia.biz) has joined #beagle</span></li>
+<li class="mode">[<abbr title="2015-02-19T08:25:20+00:00">08:25:20</abbr>] <span>* ChanServ sets mode +o av500</span></li>
+<li class="nick-change">[<a href="#T08:27:16" id="T08:27:16"><abbr title="2015-02-19T08:27:16+00:00">08:27:16</abbr></a>] <span>* ph4nt0mas is now known as phant0mas</span></li>
+<li class="quit">[<a href="#T08:36:55" id="T08:36:55"><abbr title="2015-02-19T08:36:55+00:00">08:36:55</abbr></a>] <span>* boneskull (~boneskull@c-50-137-151-209.hsd1.or.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T08:38:10" id="T08:38:10"><abbr title="2015-02-19T08:38:10+00:00">08:38:10</abbr></a>] <span>* boneskull (~boneskull@c-50-137-151-209.hsd1.or.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:41:43" id="T08:41:43"><abbr title="2015-02-19T08:41:43+00:00">08:41:43</abbr></a>] <span>* mhaberler (~mhaberler@extern-171.stiwoll.mah.priv.at) Quit (Quit: mhaberler)</span></li>
+<li class="message">[<a href="#T08:51:59" id="T08:51:59"><abbr title="2015-02-19T08:51:59+00:00">08:51:59</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>hehe okay</q></li>
+<li class="action">[<a href="#T08:52:11" id="T08:52:11"><abbr title="2015-02-19T08:52:11+00:00">08:52:11</abbr></a>] <span>* woglinde wonders why it took so long to spot this</span></li>
+<li class="join">[<a href="#T08:56:05" id="T08:56:05"><abbr title="2015-02-19T08:56:05+00:00">08:56:05</abbr></a>] <span>* mhaberler (~mhaberler@extern-171.stiwoll.mah.priv.at) has joined #beagle</span></li>
+<li class="join">[<abbr title="2015-02-19T08:56:05+00:00">08:56:05</abbr>] <span>* mhaberler (~mhaberler@extern-171.stiwoll.mah.priv.at) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T08:56:48" id="T08:56:48"><abbr title="2015-02-19T08:56:48+00:00">08:56:48</abbr></a>] <span>* boneskull (~boneskull@c-50-137-151-209.hsd1.or.comcast.net) Quit ()</span></li>
+<li class="quit">[<a href="#T08:58:53" id="T08:58:53"><abbr title="2015-02-19T08:58:53+00:00">08:58:53</abbr></a>] <span>* linuxkernelhacke (~linuxkern@124.123.219.186) Quit (Ping timeout: 240 seconds)</span></li>
