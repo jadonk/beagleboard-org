@@ -20,13 +20,15 @@ function findLinks() {
 function trackExitLink() {
     try {
         var old_link = this.href;
-        if(old_link.indexOf('#') >= 0) return;
         var a = $(this);
+        if(old_link.indexOf('#') >= 0) return;
+        if(a.attr('onClick')) return;
         var action = a.attr('data-action');
         if(!action) action = 'link-external';
         var new_link = 'goTracked("' + action + '", "' + old_link + '");';
         //console.log("Replacing external link " + this.href + " with: " + new_link);
-        a.attr('href', '#' + old_link);
+        //a.attr('href', '#');
+        a.attr('target', '_self');
         a.attr('onClick', new_link);
     } catch(ex) {
         console.log("Error: " + ex);
@@ -34,8 +36,11 @@ function trackExitLink() {
 }
 
 function goTracked(action, link) {
-    ga('send', 'event', 'exit', action, link);
-    setTimeout('document.location = "' + link + '"', 100);
+    ga('send', 'event', 'exit', action, link, {'hitCallback': hitCallback});
+
+    function hitCallback() {
+       document.location = link;
+    }
 }
 
 // adroll
