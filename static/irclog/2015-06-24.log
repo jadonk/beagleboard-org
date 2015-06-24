@@ -250,3 +250,201 @@
 <li class="message">[<a href="#T07:58:54" id="T07:58:54"><abbr title="2015-06-24T07:58:54+00:00">07:58:54</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>Everything would be easy, if I can measure the RTT, but in my scenario the RTT does not say anything about the latency.</q></li>
 <li class="message">[<a href="#T07:59:16" id="T07:59:16"><abbr title="2015-06-24T07:59:16+00:00">07:59:16</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>RTT is equal to ping - Packet goes from host a to b and back to a</q></li>
 <li class="message">[<a href="#T07:59:25" id="T07:59:25"><abbr title="2015-06-24T07:59:25+00:00">07:59:25</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>and when it was sent and received by A the time is taken</q></li>
+<li class="join">[<a href="#T08:00:35" id="T08:00:35"><abbr title="2015-06-24T08:00:35+00:00">08:00:35</abbr></a>] <span>* roric_ (~roric@83.140.117.51) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T08:00:37" id="T08:00:37"><abbr title="2015-06-24T08:00:37+00:00">08:00:37</abbr></a>] <span>* roric_ (~roric@83.140.117.51) has joined #beagleboard</span></li>
+<li class="message">[<a href="#T08:02:53" id="T08:02:53"><abbr title="2015-06-24T08:02:53+00:00">08:02:53</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: ptp acheives &lt;1ms sync</q></li>
+<li class="message">[<a href="#T08:03:31" id="T08:03:31"><abbr title="2015-06-24T08:03:31+00:00">08:03:31</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: i think, w/o special hardware it's around a few 10us to 100us</q></li>
+<li class="quit">[<a href="#T08:03:41" id="T08:03:41"><abbr title="2015-06-24T08:03:41+00:00">08:03:41</abbr></a>] <span>* Attunga (~Attunga@220-245-60-186.static.tpgi.com.au) Quit (Quit: Konversation terminated!)</span></li>
+<li class="message">[<a href="#T08:03:43" id="T08:03:43"><abbr title="2015-06-24T08:03:43+00:00">08:03:43</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>woglinde: with real hardware [tm] you can get it down to 100ns</q></li>
+<li class="join">[<a href="#T08:03:56" id="T08:03:56"><abbr title="2015-06-24T08:03:56+00:00">08:03:56</abbr></a>] <span>* lyakh (~lyakh@xdsl-89-0-120-83.netcologne.de) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:04:24" id="T08:04:24"><abbr title="2015-06-24T08:04:24+00:00">08:04:24</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>sla89: are you trying to do ptp by hand? if so, stop. you will not be able to beat it</q></li>
+<li class="message">[<a href="#T08:04:41" id="T08:04:41"><abbr title="2015-06-24T08:04:41+00:00">08:04:41</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>nope - I am not</q></li>
+<li class="message">[<a href="#T08:05:15" id="T08:05:15"><abbr title="2015-06-24T08:05:15+00:00">08:05:15</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>ah.. sorry, i misread what you wrote</q></li>
+<li class="message">[<a href="#T08:05:18" id="T08:05:18"><abbr title="2015-06-24T08:05:18+00:00">08:05:18</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>Its a students project where the BBB is used to control a small robot via wifi</q></li>
+<li class="message">[<a href="#T08:05:29" id="T08:05:29"><abbr title="2015-06-24T08:05:29+00:00">08:05:29</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>eh..</q></li>
+<li class="message">[<a href="#T08:05:33" id="T08:05:33"><abbr title="2015-06-24T08:05:33+00:00">08:05:33</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>and one requirement is to measure the latency for the commands sent via wifi</q></li>
+<li class="message">[<a href="#T08:05:44" id="T08:05:44"><abbr title="2015-06-24T08:05:44+00:00">08:05:44</abbr></a>] &lt;<cite>av500</cite>&gt; <q>so, use a wire</q></li>
+<li class="message">[<abbr title="2015-06-24T08:05:44+00:00">08:05:44</abbr>] &lt;<cite>sla89</cite>&gt; <q>no problem :)</q></li>
+<li class="message">[<a href="#T08:05:46" id="T08:05:46"><abbr title="2015-06-24T08:05:46+00:00">08:05:46</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>i hope you run ptp over wire?</q></li>
+<li class="message">[<a href="#T08:05:59" id="T08:05:59"><abbr title="2015-06-24T08:05:59+00:00">08:05:59</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>I am not running PTP at all at the moment ^^</q></li>
+<li class="message">[<a href="#T08:06:22" id="T08:06:22"><abbr title="2015-06-24T08:06:22+00:00">08:06:22</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you dont need PTP</q></li>
+<li class="message">[<a href="#T08:06:34" id="T08:06:34"><abbr title="2015-06-24T08:06:34+00:00">08:06:34</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>the idea was to sync the time before the measurements were done via a cross over wire</q></li>
+<li class="message">[<a href="#T08:06:35" id="T08:06:35"><abbr title="2015-06-24T08:06:35+00:00">08:06:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>run a GPIO between host and robot</q></li>
+<li class="quit">[<a href="#T08:06:43" id="T08:06:43"><abbr title="2015-06-24T08:06:43+00:00">08:06:43</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T08:07:05" id="T08:07:05"><abbr title="2015-06-24T08:07:05+00:00">08:07:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>set gpio high when you send a packet</q></li>
+<li class="message">[<a href="#T08:07:15" id="T08:07:15"><abbr title="2015-06-24T08:07:15+00:00">08:07:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>measure the delta on the other side</q></li>
+<li class="message">[<a href="#T08:07:17" id="T08:07:17"><abbr title="2015-06-24T08:07:17+00:00">08:07:17</abbr></a>] &lt;<cite>av500</cite>&gt; <q>move on</q></li>
+<li class="message">[<a href="#T08:07:26" id="T08:07:26"><abbr title="2015-06-24T08:07:26+00:00">08:07:26</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>what av500 said</q></li>
+<li class="message">[<a href="#T08:07:30" id="T08:07:30"><abbr title="2015-06-24T08:07:30+00:00">08:07:30</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>far simpler</q></li>
+<li class="message">[<a href="#T08:07:46" id="T08:07:46"><abbr title="2015-06-24T08:07:46+00:00">08:07:46</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>never done this before</q></li>
+<li class="message">[<a href="#T08:07:47" id="T08:07:47"><abbr title="2015-06-24T08:07:47+00:00">08:07:47</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>and with a good oscilloscope you can readily measure delay down to 100ns</q></li>
+<li class="message">[<a href="#T08:07:56" id="T08:07:56"><abbr title="2015-06-24T08:07:56+00:00">08:07:56</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>how can I achieve it in detail?</q></li>
+<li class="message">[<a href="#T08:07:59" id="T08:07:59"><abbr title="2015-06-24T08:07:59+00:00">08:07:59</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>actually, you can do that even with a cheap scope</q></li>
+<li class="message">[<a href="#T08:08:05" id="T08:08:05"><abbr title="2015-06-24T08:08:05+00:00">08:08:05</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>how can i put gpio high with my laptop</q></li>
+<li class="message">[<a href="#T08:08:13" id="T08:08:13"><abbr title="2015-06-24T08:08:13+00:00">08:08:13</abbr></a>] &lt;<cite>av500</cite>&gt; <q>use the parallel port :)</q></li>
+<li class="message">[<a href="#T08:08:22" id="T08:08:22"><abbr title="2015-06-24T08:08:22+00:00">08:08:22</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>+1</q></li>
+<li class="message">[<a href="#T08:08:49" id="T08:08:49"><abbr title="2015-06-24T08:08:49+00:00">08:08:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>or then NumLock LED</q></li>
+<li class="message">[<a href="#T08:08:51" id="T08:08:51"><abbr title="2015-06-24T08:08:51+00:00">08:08:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the*</q></li>
+<li class="message">[<a href="#T08:10:07" id="T08:10:07"><abbr title="2015-06-24T08:10:07+00:00">08:10:07</abbr></a>] &lt;<cite>KotH</cite>&gt; <q>to verify you can sniff the packets off the air using gnuradio and some sdr</q></li>
+<li class="message">[<a href="#T08:10:09" id="T08:10:09"><abbr title="2015-06-24T08:10:09+00:00">08:10:09</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>i dont have :(</q></li>
+<li class="message">[<a href="#T08:10:47" id="T08:10:47"><abbr title="2015-06-24T08:10:47+00:00">08:10:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you dont have a numlock LED?</q></li>
+<li class="message">[<a href="#T08:12:00" id="T08:12:00"><abbr title="2015-06-24T08:12:00+00:00">08:12:00</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>i have no parallel port on my laptop</q></li>
+<li class="message">[<a href="#T08:12:06" id="T08:12:06"><abbr title="2015-06-24T08:12:06+00:00">08:12:06</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>but i have a numlock led</q></li>
+<li class="join">[<a href="#T08:12:12" id="T08:12:12"><abbr title="2015-06-24T08:12:12+00:00">08:12:12</abbr></a>] <span>* neemo (~nemo@61.170.170.2) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:12:20" id="T08:12:20"><abbr title="2015-06-24T08:12:20+00:00">08:12:20</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>KotH thanks for the hint</q></li>
+<li class="message">[<a href="#T08:12:45" id="T08:12:45"><abbr title="2015-06-24T08:12:45+00:00">08:12:45</abbr></a>] &lt;<cite>tbr</cite>&gt; <q>serial port</q></li>
+<li class="message">[<a href="#T08:12:46" id="T08:12:46"><abbr title="2015-06-24T08:12:46+00:00">08:12:46</abbr></a>] &lt;<cite>tbr</cite>&gt; <q>whatever</q></li>
+<li class="message">[<a href="#T08:12:54" id="T08:12:54"><abbr title="2015-06-24T08:12:54+00:00">08:12:54</abbr></a>] &lt;<cite>av500</cite>&gt; <q>he dont have that either</q></li>
+<li class="message">[<a href="#T08:13:05" id="T08:13:05"><abbr title="2015-06-24T08:13:05+00:00">08:13:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>he has a laptop, not a museum piece</q></li>
+<li class="message">[<a href="#T08:13:12" id="T08:13:12"><abbr title="2015-06-24T08:13:12+00:00">08:13:12</abbr></a>] &lt;<cite>tbr</cite>&gt; <q>then use a machine/board that has :)</q></li>
+<li class="quit">[<a href="#T08:13:37" id="T08:13:37"><abbr title="2015-06-24T08:13:37+00:00">08:13:37</abbr></a>] <span>* Shadyman (~matthew@unaffiliated/shadyman) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T08:13:42" id="T08:13:42"><abbr title="2015-06-24T08:13:42+00:00">08:13:42</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>KotH can I sniff all packets with gnuradio? does it fetch everything around?</q></li>
+<li class="quit">[<a href="#T08:14:53" id="T08:14:53"><abbr title="2015-06-24T08:14:53+00:00">08:14:53</abbr></a>] <span>* neem0 (~nemo@103.10.197.106) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T08:15:03" id="T08:15:03"><abbr title="2015-06-24T08:15:03+00:00">08:15:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sla89: ignore the gnuradio for now</q></li>
+<li class="message">[<a href="#T08:15:07" id="T08:15:07"><abbr title="2015-06-24T08:15:07+00:00">08:15:07</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you dont have that either</q></li>
+<li class="message">[<a href="#T08:16:03" id="T08:16:03"><abbr title="2015-06-24T08:16:03+00:00">08:16:03</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T08:16:24" id="T08:16:24"><abbr title="2015-06-24T08:16:24+00:00">08:16:24</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>is it possible via USB?</q></li>
+<li class="quit">[<a href="#T08:16:31" id="T08:16:31"><abbr title="2015-06-24T08:16:31+00:00">08:16:31</abbr></a>] <span>* zyga (~zyga@ubuntu/member/zyga) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="message">[<a href="#T08:16:40" id="T08:16:40"><abbr title="2015-06-24T08:16:40+00:00">08:16:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sla89: why not measure RTT and half it?</q></li>
+<li class="message">[<a href="#T08:16:51" id="T08:16:51"><abbr title="2015-06-24T08:16:51+00:00">08:16:51</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>because its not the same</q></li>
+<li class="message">[<a href="#T08:17:08" id="T08:17:08"><abbr title="2015-06-24T08:17:08+00:00">08:17:08</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>when the packet is on its way back some jitter can happen or other stuff</q></li>
+<li class="message">[<a href="#T08:18:02" id="T08:18:02"><abbr title="2015-06-24T08:18:02+00:00">08:18:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>that can happen in the other direction too</q></li>
+<li class="message">[<a href="#T08:18:05" id="T08:18:05"><abbr title="2015-06-24T08:18:05+00:00">08:18:05</abbr></a>] &lt;<cite>av500</cite>&gt; <q>no?</q></li>
+<li class="message">[<a href="#T08:18:28" id="T08:18:28"><abbr title="2015-06-24T08:18:28+00:00">08:18:28</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T08:18:41" id="T08:18:41"><abbr title="2015-06-24T08:18:41+00:00">08:18:41</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>but assume sending from A to B needs 10 ms</q></li>
+<li class="message">[<a href="#T08:18:49" id="T08:18:49"><abbr title="2015-06-24T08:18:49+00:00">08:18:49</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>back from B to A 7 ms</q></li>
+<li class="message">[<a href="#T08:18:52" id="T08:18:52"><abbr title="2015-06-24T08:18:52+00:00">08:18:52</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>would be 17 MS</q></li>
+<li class="message">[<a href="#T08:18:53" id="T08:18:53"><abbr title="2015-06-24T08:18:53+00:00">08:18:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T08:18:58" id="T08:18:58"><abbr title="2015-06-24T08:18:58+00:00">08:18:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it would</q></li>
+<li class="message">[<a href="#T08:19:04" id="T08:19:04"><abbr title="2015-06-24T08:19:04+00:00">08:19:04</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>you cannot half it - its not the same</q></li>
+<li class="message">[<a href="#T08:19:14" id="T08:19:14"><abbr title="2015-06-24T08:19:14+00:00">08:19:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>well, then do this:</q></li>
+<li class="message">[<a href="#T08:19:25" id="T08:19:25"><abbr title="2015-06-24T08:19:25+00:00">08:19:25</abbr></a>] &lt;<cite>av500</cite>&gt; <q>on the PC, make numlock light up when you send the packet</q></li>
+<li class="message">[<a href="#T08:19:35" id="T08:19:35"><abbr title="2015-06-24T08:19:35+00:00">08:19:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>on the BBB make some GPIO light up when you recieve it</q></li>
+<li class="message">[<a href="#T08:19:41" id="T08:19:41"><abbr title="2015-06-24T08:19:41+00:00">08:19:41</abbr></a>] &lt;<cite>av500</cite>&gt; <q>hook both to a scope</q></li>
+<li class="message">[<a href="#T08:20:19" id="T08:20:19"><abbr title="2015-06-24T08:20:19+00:00">08:20:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then you can see the delta</q></li>
+<li class="message">[<a href="#T08:20:20" id="T08:20:20"><abbr title="2015-06-24T08:20:20+00:00">08:20:20</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>use two bbbs, see, you can use two gpios. :-)</q></li>
+<li class="quit">[<a href="#T08:20:29" id="T08:20:29"><abbr title="2015-06-24T08:20:29+00:00">08:20:29</abbr></a>] <span>* SoFLy (~SoFLy@c-73-218-52-210.hsd1.ma.comcast.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="message">[<a href="#T08:21:40" id="T08:21:40"><abbr title="2015-06-24T08:21:40+00:00">08:21:40</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>av500 itsnt it a bit inaccurate?</q></li>
+<li class="message">[<a href="#T08:21:47" id="T08:21:47"><abbr title="2015-06-24T08:21:47+00:00">08:21:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>why?</q></li>
+<li class="message">[<a href="#T08:22:08" id="T08:22:08"><abbr title="2015-06-24T08:22:08+00:00">08:22:08</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>LetoThe2nd hehe - that doesn't fit to the setup since the controlling part is a laptop or smartphone - not another bbb ;)</q></li>
+<li class="join">[<a href="#T08:22:41" id="T08:22:41"><abbr title="2015-06-24T08:22:41+00:00">08:22:41</abbr></a>] <span>* Peter___ (524725a3@gateway/web/freenode/ip.82.71.37.163) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:22:43" id="T08:22:43"><abbr title="2015-06-24T08:22:43+00:00">08:22:43</abbr></a>] &lt;<cite>av500</cite>&gt; <q>on the phone, make a part of the screen go white from black</q></li>
+<li class="message">[<a href="#T08:22:47" id="T08:22:47"><abbr title="2015-06-24T08:22:47+00:00">08:22:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>put a photocell there</q></li>
+<li class="message">[<a href="#T08:22:53" id="T08:22:53"><abbr title="2015-06-24T08:22:53+00:00">08:22:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>same as on the LED</q></li>
+<li class="message">[<a href="#T08:23:01" id="T08:23:01"><abbr title="2015-06-24T08:23:01+00:00">08:23:01</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>since I would then measure lights coming up and down - how shall I take the time of this?</q></li>
+<li class="message">[<a href="#T08:23:14" id="T08:23:14"><abbr title="2015-06-24T08:23:14+00:00">08:23:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you see the time on the scope</q></li>
+<li class="message">[<a href="#T08:23:19" id="T08:23:19"><abbr title="2015-06-24T08:23:19+00:00">08:23:19</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the X axis is time</q></li>
+<li class="message">[<a href="#T08:23:23" id="T08:23:23"><abbr title="2015-06-24T08:23:23+00:00">08:23:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>even quite calibrated</q></li>
+<li class="message">[<a href="#T08:23:50" id="T08:23:50"><abbr title="2015-06-24T08:23:50+00:00">08:23:50</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>Hi - I'm trying to load ARM's C compiler with NEON stuff but it's too big for the free space on my BBB. Any suggestions?</q></li>
+<li class="action">[<a href="#T08:24:00" id="T08:24:00"><abbr title="2015-06-24T08:24:00+00:00">08:24:00</abbr></a>] <span>* LetoThe2nd doesn't get the point. you want to make the network, so better get two endpoints that can provide the data you need. 2xbbb + a scope or logic analyzer. logic analyzer can even be running on some laptop or phone and see: results are there.</span></li>
+<li class="message">[<a href="#T08:25:08" id="T08:25:08"><abbr title="2015-06-24T08:25:08+00:00">08:25:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sla89: you do understand that you can show the timing relation between 2 signals on a scope?</q></li>
+<li class="quit">[<a href="#T08:25:28" id="T08:25:28"><abbr title="2015-06-24T08:25:28+00:00">08:25:28</abbr></a>] <span>* boB_K7IQ (~IceChat9@c-73-221-121-119.hsd1.wa.comcast.net) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="message">[<a href="#T08:26:20" id="T08:26:20"><abbr title="2015-06-24T08:26:20+00:00">08:26:20</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>Peter___: "ARMs C compiler with NEON stuff"? in what form is that meant to be different from the gcc that comes with the stock installaion?</q></li>
+<li class="message">[<a href="#T08:26:57" id="T08:26:57"><abbr title="2015-06-24T08:26:57+00:00">08:26:57</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>Good question, but I found a page that compared the machine code and said ARM's was better</q></li>
+<li class="message">[<a href="#T08:27:34" id="T08:27:34"><abbr title="2015-06-24T08:27:34+00:00">08:27:34</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>Peter___: well the general answer for the lack of space problem is: add more storage. :-)</q></li>
+<li class="message">[<a href="#T08:27:43" id="T08:27:43"><abbr title="2015-06-24T08:27:43+00:00">08:27:43</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>or, in reverse: free up some space.</q></li>
+<li class="message">[<a href="#T08:28:04" id="T08:28:04"><abbr title="2015-06-24T08:28:04+00:00">08:28:04</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>Peter___: but if you're talking about ARMCC, be assured: its crap.</q></li>
+<li class="message">[<a href="#T08:28:06" id="T08:28:06"><abbr title="2015-06-24T08:28:06+00:00">08:28:06</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>I also can't get the kind of speed we need from gcc, even using -O3 and the approprrate flage at compile and link</q></li>
+<li class="message">[<a href="#T08:28:26" id="T08:28:26"><abbr title="2015-06-24T08:28:26+00:00">08:28:26</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and ARM compiler has unicorns inside?</q></li>
+<li class="message">[<a href="#T08:28:34" id="T08:28:34"><abbr title="2015-06-24T08:28:34+00:00">08:28:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and make your code magically fasdter?</q></li>
+<li class="message">[<a href="#T08:28:37" id="T08:28:37"><abbr title="2015-06-24T08:28:37+00:00">08:28:37</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>Why do you say ARMGCC is crap?</q></li>
+<li class="message">[<a href="#T08:28:45" id="T08:28:45"><abbr title="2015-06-24T08:28:45+00:00">08:28:45</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>Peter___: in about 100 of 100 cases, its not the compiler that makes your code slow, its the code that makes the code slow.</q></li>
+<li class="message">[<a href="#T08:28:46" id="T08:28:46"><abbr title="2015-06-24T08:28:46+00:00">08:28:46</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its not crap</q></li>
+<li class="message">[<a href="#T08:28:51" id="T08:28:51"><abbr title="2015-06-24T08:28:51+00:00">08:28:51</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but its also not magical</q></li>
+<li class="message">[<a href="#T08:29:15" id="T08:29:15"><abbr title="2015-06-24T08:29:15+00:00">08:29:15</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>I'm running the same sode on my old PC and on the BBB - the PC is 15 times faster</q></li>
+<li class="message">[<a href="#T08:29:19" id="T08:29:19"><abbr title="2015-06-24T08:29:19+00:00">08:29:19</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>code</q></li>
+<li class="message">[<a href="#T08:29:20" id="T08:29:20"><abbr title="2015-06-24T08:29:20+00:00">08:29:20</abbr></a>] &lt;<cite>av500</cite>&gt; <q>of course</q></li>
+<li class="message">[<a href="#T08:29:40" id="T08:29:40"><abbr title="2015-06-24T08:29:40+00:00">08:29:40</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>Peter___: read more precisely what i said. i said: "ARMCC is crap". no letter 'G' in there. and its crap because its an ancient compiler frontend on an even more ancient backend.</q></li>
+<li class="message">[<a href="#T08:29:42" id="T08:29:42"><abbr title="2015-06-24T08:29:42+00:00">08:29:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>thats not surprising</q></li>
+<li class="message">[<a href="#T08:29:51" id="T08:29:51"><abbr title="2015-06-24T08:29:51+00:00">08:29:51</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>I don't feel gcc is using the BBB's resorces</q></li>
+<li class="message">[<a href="#T08:29:59" id="T08:29:59"><abbr title="2015-06-24T08:29:59+00:00">08:29:59</abbr></a>] &lt;<cite>av500</cite>&gt; <q>like?</q></li>
+<li class="message">[<a href="#T08:30:03" id="T08:30:03"><abbr title="2015-06-24T08:30:03+00:00">08:30:03</abbr></a>] &lt;<cite>av500</cite>&gt; <q>what does your code do?</q></li>
+<li class="message">[<a href="#T08:30:08" id="T08:30:08"><abbr title="2015-06-24T08:30:08+00:00">08:30:08</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>av500 nope - didnt got it how I can achieve this. I was thinking about it but I don't get it :(</q></li>
+<li class="message">[<a href="#T08:30:23" id="T08:30:23"><abbr title="2015-06-24T08:30:23+00:00">08:30:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sla89: you see 2 signals on a 2-channel scope</q></li>
+<li class="message">[<a href="#T08:30:25" id="T08:30:25"><abbr title="2015-06-24T08:30:25+00:00">08:30:25</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>sla89: ask your instructor to show you how a scope works :)</q></li>
+<li class="message">[<a href="#T08:30:28" id="T08:30:28"><abbr title="2015-06-24T08:30:28+00:00">08:30:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>one goes high at time t_1</q></li>
+<li class="message">[<a href="#T08:30:34" id="T08:30:34"><abbr title="2015-06-24T08:30:34+00:00">08:30:34</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the other at time t_2</q></li>
+<li class="message">[<a href="#T08:30:38" id="T08:30:38"><abbr title="2015-06-24T08:30:38+00:00">08:30:38</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you trigger on signal 1</q></li>
+<li class="message">[<a href="#T08:30:49" id="T08:30:49"><abbr title="2015-06-24T08:30:49+00:00">08:30:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then you move the cursor to be on t1 and t2</q></li>
+<li class="message">[<a href="#T08:30:55" id="T08:30:55"><abbr title="2015-06-24T08:30:55+00:00">08:30:55</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>yeah - I know that</q></li>
+<li class="message">[<abbr title="2015-06-24T08:30:55+00:00">08:30:55</abbr>] &lt;<cite>Peter___</cite>&gt; <q>it just calculates atan2(y,x) over 100 different values for y and x</q></li>
+<li class="message">[<a href="#T08:30:57" id="T08:30:57"><abbr title="2015-06-24T08:30:57+00:00">08:30:57</abbr></a>] &lt;<cite>av500</cite>&gt; <q>and the scope tells you the delta</q></li>
+<li class="message">[<a href="#T08:31:20" id="T08:31:20"><abbr title="2015-06-24T08:31:20+00:00">08:31:20</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>ah</q></li>
+<li class="message">[<a href="#T08:31:28" id="T08:31:28"><abbr title="2015-06-24T08:31:28+00:00">08:31:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Peter___: the BBB has no atan in hardware</q></li>
+<li class="message">[<a href="#T08:31:30" id="T08:31:30"><abbr title="2015-06-24T08:31:30+00:00">08:31:30</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>and i switch the LEDs of immediatly</q></li>
+<li class="message">[<a href="#T08:31:37" id="T08:31:37"><abbr title="2015-06-24T08:31:37+00:00">08:31:37</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it uses the floating point lib that comes with gcc</q></li>
+<li class="message">[<a href="#T08:31:49" id="T08:31:49"><abbr title="2015-06-24T08:31:49+00:00">08:31:49</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>since I will receive/send several packets</q></li>
+<li class="message">[<a href="#T08:31:53" id="T08:31:53"><abbr title="2015-06-24T08:31:53+00:00">08:31:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>sure</q></li>
+<li class="message">[<a href="#T08:32:08" id="T08:32:08"><abbr title="2015-06-24T08:32:08+00:00">08:32:08</abbr></a>] &lt;<cite>av500</cite>&gt; <q>if you do it continously you can overlay all the traces</q></li>
+<li class="message">[<a href="#T08:32:15" id="T08:32:15"><abbr title="2015-06-24T08:32:15+00:00">08:32:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q>then you even see the min/max latency</q></li>
+<li class="message">[<a href="#T08:32:30" id="T08:32:30"><abbr title="2015-06-24T08:32:30+00:00">08:32:30</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>OK - so we have to rewrite all these functions for NEON?</q></li>
+<li class="message">[<a href="#T08:32:31" id="T08:32:31"><abbr title="2015-06-24T08:32:31+00:00">08:32:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the armcc one might be a feq cycles faster</q></li>
+<li class="message">[<a href="#T08:32:47" id="T08:32:47"><abbr title="2015-06-24T08:32:47+00:00">08:32:47</abbr></a>] &lt;<cite>av500</cite>&gt; <q>yes</q></li>
+<li class="message">[<a href="#T08:33:09" id="T08:33:09"><abbr title="2015-06-24T08:33:09+00:00">08:33:09</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://stackoverflow.com/questions/18187492/calculate-atan2-using-simd-instructions-and-neon-arm-assemlby">http://stackoverflow.com/questions/18187492/calculate-atan2-using-simd-instructions-and-neon-arm-assemlby</a></q></li>
+<li class="message">[<a href="#T08:33:14" id="T08:33:14"><abbr title="2015-06-24T08:33:14+00:00">08:33:14</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the compiler wont do that for you</q></li>
+<li class="message">[<a href="#T08:33:53" id="T08:33:53"><abbr title="2015-06-24T08:33:53+00:00">08:33:53</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>av500: hm, shouldn't -gnueabihf be able to use the floating functions automagically to build atan out of them?</q></li>
+<li class="message">[<a href="#T08:34:10" id="T08:34:10"><abbr title="2015-06-24T08:34:10+00:00">08:34:10</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>e.g. the problem is only "constructed atan" versus "hw atan"</q></li>
+<li class="message">[<a href="#T08:34:31" id="T08:34:31"><abbr title="2015-06-24T08:34:31+00:00">08:34:31</abbr></a>] &lt;<cite>av500</cite>&gt; <q>the only speedup is if you do SIMD</q></li>
+<li class="message">[<a href="#T08:34:42" id="T08:34:42"><abbr title="2015-06-24T08:34:42+00:00">08:34:42</abbr></a>] &lt;<cite>av500</cite>&gt; <q>otherwise, yes gcc will emit floating point code</q></li>
+<li class="message">[<a href="#T08:34:53" id="T08:34:53"><abbr title="2015-06-24T08:34:53+00:00">08:34:53</abbr></a>] &lt;<cite>av500</cite>&gt; <q>very much like armcc or on the PC</q></li>
+<li class="message">[<a href="#T08:35:17" id="T08:35:17"><abbr title="2015-06-24T08:35:17+00:00">08:35:17</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>thanks for confirming :)</q></li>
+<li class="message">[<a href="#T08:35:41" id="T08:35:41"><abbr title="2015-06-24T08:35:41+00:00">08:35:41</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>OK, thanks for explaining. We weren't sure what we would get with the Arm version of the compiler.</q></li>
+<li class="join">[<a href="#T08:35:49" id="T08:35:49"><abbr title="2015-06-24T08:35:49+00:00">08:35:49</abbr></a>] <span>* hewball (~hewball@203-59-97-212.perm.iinet.net.au) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:36:23" id="T08:36:23"><abbr title="2015-06-24T08:36:23+00:00">08:36:23</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Peter___: not 15x faster</q></li>
+<li class="message">[<a href="#T08:36:40" id="T08:36:40"><abbr title="2015-06-24T08:36:40+00:00">08:36:40</abbr></a>] &lt;<cite>av500</cite>&gt; <q>is armcc free to use now?</q></li>
+<li class="message">[<a href="#T08:36:45" id="T08:36:45"><abbr title="2015-06-24T08:36:45+00:00">08:36:45</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T08:36:49" id="T08:36:49"><abbr title="2015-06-24T08:36:49+00:00">08:36:49</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>well, how much faster?</q></li>
+<li class="message">[<a href="#T08:36:55" id="T08:36:55"><abbr title="2015-06-24T08:36:55+00:00">08:36:55</abbr></a>] &lt;<cite>av500</cite>&gt; <q>simple</q></li>
+<li class="message">[<a href="#T08:36:58" id="T08:36:58"><abbr title="2015-06-24T08:36:58+00:00">08:36:58</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it .... depends</q></li>
+<li class="message">[<a href="#T08:37:00" id="T08:37:00"><abbr title="2015-06-24T08:37:00+00:00">08:37:00</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>only for &lt;32kB baremetal</q></li>
+<li class="message">[<a href="#T08:37:04" id="T08:37:04"><abbr title="2015-06-24T08:37:04+00:00">08:37:04</abbr></a>] &lt;<cite>av500</cite>&gt; <q>on everysingle use case</q></li>
+<li class="message">[<a href="#T08:37:21" id="T08:37:21"><abbr title="2015-06-24T08:37:21+00:00">08:37:21</abbr></a>] &lt;<cite>woglinde</cite>&gt; <q>do not use atan at all haha</q></li>
+<li class="join">[<a href="#T08:37:24" id="T08:37:24"><abbr title="2015-06-24T08:37:24+00:00">08:37:24</abbr></a>] <span>* Attunga (~Attunga@220-245-60-186.static.tpgi.com.au) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:37:28" id="T08:37:28"><abbr title="2015-06-24T08:37:28+00:00">08:37:28</abbr></a>] &lt;<cite>av500</cite>&gt; <q>but optimizing your code faster will be always better</q></li>
+<li class="message">[<a href="#T08:37:32" id="T08:37:32"><abbr title="2015-06-24T08:37:32+00:00">08:37:32</abbr></a>] &lt;<cite>av500</cite>&gt; <q>dont use atan</q></li>
+<li class="message">[<a href="#T08:37:33" id="T08:37:33"><abbr title="2015-06-24T08:37:33+00:00">08:37:33</abbr></a>] &lt;<cite>Peter___</cite>&gt; <q>well, how much faster would you think</q></li>
+<li class="message">[<a href="#T08:37:36" id="T08:37:36"><abbr title="2015-06-24T08:37:36+00:00">08:37:36</abbr></a>] &lt;<cite>av500</cite>&gt; <q>use a look up table</q></li>
+<li class="message">[<a href="#T08:37:38" id="T08:37:38"><abbr title="2015-06-24T08:37:38+00:00">08:37:38</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>woglinde: that basically solves it</q></li>
+<li class="message">[<a href="#T08:37:45" id="T08:37:45"><abbr title="2015-06-24T08:37:45+00:00">08:37:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>Peter___: I cannot say</q></li>
+<li class="message">[<abbr title="2015-06-24T08:37:45+00:00">08:37:45</abbr>] &lt;<cite>LetoThe2nd</cite>&gt; <q>av500: dang you typed faster.</q></li>
+<li class="message">[<a href="#T08:37:48" id="T08:37:48"><abbr title="2015-06-24T08:37:48+00:00">08:37:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>nobody can</q></li>
+<li class="message">[<a href="#T08:38:02" id="T08:38:02"><abbr title="2015-06-24T08:38:02+00:00">08:38:02</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>its the usual tradeoff storage/speed?</q></li>
+<li class="message">[<a href="#T08:38:04" id="T08:38:04"><abbr title="2015-06-24T08:38:04+00:00">08:38:04</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>:-)</q></li>
+<li class="message">[<a href="#T08:39:02" id="T08:39:02"><abbr title="2015-06-24T08:39:02+00:00">08:39:02</abbr></a>] &lt;<cite>av500</cite>&gt; <q>its one solution</q></li>
+<li class="message">[<a href="#T08:39:06" id="T08:39:06"><abbr title="2015-06-24T08:39:06+00:00">08:39:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>look up table</q></li>
+<li class="message">[<a href="#T08:39:10" id="T08:39:10"><abbr title="2015-06-24T08:39:10+00:00">08:39:10</abbr></a>] &lt;<cite>av500</cite>&gt; <q>approximation</q></li>
+<li class="message">[<a href="#T08:39:18" id="T08:39:18"><abbr title="2015-06-24T08:39:18+00:00">08:39:18</abbr></a>] &lt;<cite>av500</cite>&gt; <q>changing the math to another "domain"</q></li>
+<li class="message">[<a href="#T08:39:27" id="T08:39:27"><abbr title="2015-06-24T08:39:27+00:00">08:39:27</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>av500 thank you for your help - I think this can do the trick :)</q></li>
+<li class="message">[<a href="#T08:39:33" id="T08:39:33"><abbr title="2015-06-24T08:39:33+00:00">08:39:33</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it all depends/tm)</q></li>
+<li class="message">[<a href="#T08:39:35" id="T08:39:35"><abbr title="2015-06-24T08:39:35+00:00">08:39:35</abbr></a>] &lt;<cite>av500</cite>&gt; <q>it all depends(tm)</q></li>
+<li class="message">[<a href="#T08:39:44" id="T08:39:44"><abbr title="2015-06-24T08:39:44+00:00">08:39:44</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>LetoThe2nd thank you too :)</q></li>
+<li class="message">[<a href="#T08:41:20" id="T08:41:20"><abbr title="2015-06-24T08:41:20+00:00">08:41:20</abbr></a>] &lt;<cite>LetoThe2nd</cite>&gt; <q>sla89: np :)</q></li>
+<li class="message">[<a href="#T08:44:48" id="T08:44:48"><abbr title="2015-06-24T08:44:48+00:00">08:44:48</abbr></a>] &lt;<cite>av500</cite>&gt; <q>why is he named like a TI data sheet?</q></li>
+<li class="join">[<a href="#T08:47:30" id="T08:47:30"><abbr title="2015-06-24T08:47:30+00:00">08:47:30</abbr></a>] <span>* zyga (~zyga@ubuntu/member/zyga) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:49:29" id="T08:49:29"><abbr title="2015-06-24T08:49:29+00:00">08:49:29</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>who?</q></li>
+<li class="message">[<a href="#T08:49:45" id="T08:49:45"><abbr title="2015-06-24T08:49:45+00:00">08:49:45</abbr></a>] &lt;<cite>av500</cite>&gt; <q>you :)</q></li>
+<li class="message">[<a href="#T08:50:15" id="T08:50:15"><abbr title="2015-06-24T08:50:15+00:00">08:50:15</abbr></a>] &lt;<cite>av500</cite>&gt; <q><a href="http://electronics.stackexchange.com/questions/14297/ti-manual-naming-conventions">http://electronics.stackexchange.com/questions/14297/ti-manual-naming-conventions</a></q></li>
+<li class="message">[<a href="#T08:50:42" id="T08:50:42"><abbr title="2015-06-24T08:50:42+00:00">08:50:42</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>omg xD</q></li>
+<li class="message">[<a href="#T08:50:50" id="T08:50:50"><abbr title="2015-06-24T08:50:50+00:00">08:50:50</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>it has nothing to do with TI ;)</q></li>
+<li class="message">[<a href="#T08:50:59" id="T08:50:59"><abbr title="2015-06-24T08:50:59+00:00">08:50:59</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>the letters are part of my real name ^^</q></li>
+<li class="message">[<a href="#T08:51:06" id="T08:51:06"><abbr title="2015-06-24T08:51:06+00:00">08:51:06</abbr></a>] &lt;<cite>av500</cite>&gt; <q>;)</q></li>
+<li class="message">[<a href="#T08:51:11" id="T08:51:11"><abbr title="2015-06-24T08:51:11+00:00">08:51:11</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>and you are 89 years old?</q></li>
+<li class="message">[<a href="#T08:51:34" id="T08:51:34"><abbr title="2015-06-24T08:51:34+00:00">08:51:34</abbr></a>] &lt;<cite>Humpelst1lzchen</cite>&gt; <q>born 89?</q></li>
+<li class="message">[<a href="#T08:51:49" id="T08:51:49"><abbr title="2015-06-24T08:51:49+00:00">08:51:49</abbr></a>] &lt;<cite>av500</cite>&gt; <q>more likely</q></li>
+<li class="message">[<a href="#T08:52:05" id="T08:52:05"><abbr title="2015-06-24T08:52:05+00:00">08:52:05</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>don't discriminate against old people</q></li>
+<li class="message">[<a href="#T08:52:09" id="T08:52:09"><abbr title="2015-06-24T08:52:09+00:00">08:52:09</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>yeah - born 89</q></li>
+<li class="message">[<a href="#T08:52:10" id="T08:52:10"><abbr title="2015-06-24T08:52:10+00:00">08:52:10</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>hehe</q></li>
+<li class="message">[<a href="#T08:52:28" id="T08:52:28"><abbr title="2015-06-24T08:52:28+00:00">08:52:28</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>equal chances and all that stuff</q></li>
+<li class="message">[<a href="#T08:53:27" id="T08:53:27"><abbr title="2015-06-24T08:53:27+00:00">08:53:27</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>does the BBB throttle the cpu speed if it is plugged to USB since it does not get enough power?</q></li>
+<li class="message">[<a href="#T08:53:40" id="T08:53:40"><abbr title="2015-06-24T08:53:40+00:00">08:53:40</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>especially if also a wifi dongle is used</q></li>
+<li class="message">[<a href="#T08:55:23" id="T08:55:23"><abbr title="2015-06-24T08:55:23+00:00">08:55:23</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>nope</q></li>
+<li class="message">[<a href="#T08:56:21" id="T08:56:21"><abbr title="2015-06-24T08:56:21+00:00">08:56:21</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>why do people then write to use 5V and 2A when running BBB with a wifi dongle?</q></li>
+<li class="message">[<a href="#T08:56:29" id="T08:56:29"><abbr title="2015-06-24T08:56:29+00:00">08:56:29</abbr></a>] &lt;<cite>Attunga</cite>&gt; <q>Yes it does as far as I know</q></li>
+<li class="message">[<a href="#T08:57:12" id="T08:57:12"><abbr title="2015-06-24T08:57:12+00:00">08:57:12</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>sla89: because it will just fail and crash and burn</q></li>
+<li class="message">[<a href="#T08:57:23" id="T08:57:23"><abbr title="2015-06-24T08:57:23+00:00">08:57:23</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>sla89: if you don't</q></li>
+<li class="message">[<a href="#T08:57:26" id="T08:57:26"><abbr title="2015-06-24T08:57:26+00:00">08:57:26</abbr></a>] &lt;<cite>Abhishek_</cite>&gt; <q>because it would exceed the power draw from the USB port</q></li>
+<li class="message">[<a href="#T08:58:19" id="T08:58:19"><abbr title="2015-06-24T08:58:19+00:00">08:58:19</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>that's not really managed</q></li>
+<li class="message">[<a href="#T08:58:38" id="T08:58:38"><abbr title="2015-06-24T08:58:38+00:00">08:58:38</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>but yes</q></li>
+<li class="message">[<a href="#T08:58:52" id="T08:58:52"><abbr title="2015-06-24T08:58:52+00:00">08:58:52</abbr></a>] &lt;<cite>jacekowski</cite>&gt; <q>basically it would cause the voltage to drop and then things to stop working</q></li>
+<li class="message">[<a href="#T08:59:06" id="T08:59:06"><abbr title="2015-06-24T08:59:06+00:00">08:59:06</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>ah alright</q></li>
+<li class="message">[<a href="#T08:59:08" id="T08:59:08"><abbr title="2015-06-24T08:59:08+00:00">08:59:08</abbr></a>] &lt;<cite>sla89</cite>&gt; <q>thanks :)</q></li>
