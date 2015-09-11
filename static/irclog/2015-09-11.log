@@ -150,3 +150,46 @@
 <li class="join">[<abbr title="2015-09-11T07:45:03+00:00">07:45:03</abbr>] <span>* micges (~micges@abps196.neoplus.adsl.tpnet.pl) has joined #beaglebone</span></li>
 <li class="join">[<a href="#T07:45:27" id="T07:45:27"><abbr title="2015-09-11T07:45:27+00:00">07:45:27</abbr></a>] <span>* ppisati (~ppisati@2-230-238-136.ip204.fastwebnet.it) has joined #beagle</span></li>
 <li class="join">[<a href="#T07:46:16" id="T07:46:16"><abbr title="2015-09-11T07:46:16+00:00">07:46:16</abbr></a>] <span>* j0rd__ (~j0rd_@unaffiliated/j0rd-/x-9112651) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:04:23" id="T08:04:23"><abbr title="2015-09-11T08:04:23+00:00">08:04:23</abbr></a>] <span>* Amperture (~Amp@107-207-76-17.lightspeed.austtx.sbcglobal.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T08:08:19" id="T08:08:19"><abbr title="2015-09-11T08:08:19+00:00">08:08:19</abbr></a>] <span>* Costin_R (d99c67de@gateway/web/freenode/ip.217.156.103.222) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:08:25" id="T08:08:25"><abbr title="2015-09-11T08:08:25+00:00">08:08:25</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>hello</q></li>
+<li class="message">[<a href="#T08:08:30" id="T08:08:30"><abbr title="2015-09-11T08:08:30+00:00">08:08:30</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>need some help with spi</q></li>
+<li class="message">[<a href="#T08:08:40" id="T08:08:40"><abbr title="2015-09-11T08:08:40+00:00">08:08:40</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>i have a BBB</q></li>
+<li class="message">[<a href="#T08:08:46" id="T08:08:46"><abbr title="2015-09-11T08:08:46+00:00">08:08:46</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>and i want to use SPI0</q></li>
+<li class="quit">[<a href="#T08:09:29" id="T08:09:29"><abbr title="2015-09-11T08:09:29+00:00">08:09:29</abbr></a>] <span>* limbrik (~textual@64.197.89.235) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="message">[<a href="#T08:09:45" id="T08:09:45"><abbr title="2015-09-11T08:09:45+00:00">08:09:45</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>I managed to bring it up (i.e. rise /dev/spidev1.0)</q></li>
+<li class="message">[<a href="#T08:09:54" id="T08:09:54"><abbr title="2015-09-11T08:09:54+00:00">08:09:54</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>at boot time</q></li>
+<li class="message">[<a href="#T08:10:18" id="T08:10:18"><abbr title="2015-09-11T08:10:18+00:00">08:10:18</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>but i can't communicate with my device</q></li>
+<li class="message">[<a href="#T08:10:43" id="T08:10:43"><abbr title="2015-09-11T08:10:43+00:00">08:10:43</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>i monitored all 4 signals (CS, D0, D1, SCLK)</q></li>
+<li class="message">[<a href="#T08:11:11" id="T08:11:11"><abbr title="2015-09-11T08:11:11+00:00">08:11:11</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>and it seems that CS is always HIGH, no matter what i do</q></li>
+<li class="message">[<a href="#T08:11:19" id="T08:11:19"><abbr title="2015-09-11T08:11:19+00:00">08:11:19</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>from boot time</q></li>
+<li class="message">[<a href="#T08:12:05" id="T08:12:05"><abbr title="2015-09-11T08:12:05+00:00">08:12:05</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>i need to control CS in order to send data (when is LOW i can send, and after i finish transmission i set it up back high)</q></li>
+<li class="message">[<a href="#T08:12:29" id="T08:12:29"><abbr title="2015-09-11T08:12:29+00:00">08:12:29</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>but it simply doesn't respond to any of my commands</q></li>
+<li class="message">[<a href="#T08:12:54" id="T08:12:54"><abbr title="2015-09-11T08:12:54+00:00">08:12:54</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>i can't make it go LOW so that i could start transmission</q></li>
+<li class="message">[<a href="#T08:13:20" id="T08:13:20"><abbr title="2015-09-11T08:13:20+00:00">08:13:20</abbr></a>] &lt;<cite>Costin_R</cite>&gt; <q>i'm using python (my C/C++ skills are very low)</q></li>
+<li class="quit">[<a href="#T08:18:51" id="T08:18:51"><abbr title="2015-09-11T08:18:51+00:00">08:18:51</abbr></a>] <span>* j0rd__ (~j0rd_@unaffiliated/j0rd-/x-9112651) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T08:18:54" id="T08:18:54"><abbr title="2015-09-11T08:18:54+00:00">08:18:54</abbr></a>] <span>* rob_w (~bob@unaffiliated/rob-w/x-1112029) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:30:46" id="T08:30:46"><abbr title="2015-09-11T08:30:46+00:00">08:30:46</abbr></a>] <span>* kilroi (~cop@ip-84-118-180-123.unity-media.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:34:00" id="T08:34:00"><abbr title="2015-09-11T08:34:00+00:00">08:34:00</abbr></a>] <span>* tomeff (~tomeff@ip-78-102-111-158.net.upcbroadband.cz) has joined #beagle</span></li>
+<li class="join">[<abbr title="2015-09-11T08:34:00+00:00">08:34:00</abbr>] <span>* tomeff (~tomeff@ip-78-102-111-158.net.upcbroadband.cz) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-09-11T08:34:00+00:00">08:34:00</abbr>] <span>* tomeff (~tomeff@ip-78-102-111-158.net.upcbroadband.cz) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T08:37:59" id="T08:37:59"><abbr title="2015-09-11T08:37:59+00:00">08:37:59</abbr></a>] <span>* kunalg (~kunalg@14.139.160.234) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:38:00" id="T08:38:00"><abbr title="2015-09-11T08:38:00+00:00">08:38:00</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T08:38:09" id="T08:38:09"><abbr title="2015-09-11T08:38:09+00:00">08:38:09</abbr></a>] <span>* j0rd__ (~j0rd_@unaffiliated/j0rd-/x-9112651) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:38:43" id="T08:38:43"><abbr title="2015-09-11T08:38:43+00:00">08:38:43</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:39:44" id="T08:39:44"><abbr title="2015-09-11T08:39:44+00:00">08:39:44</abbr></a>] <span>* hoijui (~hoijui@176.2.115.200) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T08:49:26" id="T08:49:26"><abbr title="2015-09-11T08:49:26+00:00">08:49:26</abbr></a>] <span>* johanhenselmans (~johanhens@pretsense.xs4all.nl) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T08:50:15" id="T08:50:15"><abbr title="2015-09-11T08:50:15+00:00">08:50:15</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:50:40" id="T08:50:40"><abbr title="2015-09-11T08:50:40+00:00">08:50:40</abbr></a>] <span>* kunalg_ (~kunalg@14.139.160.234) has joined #beagle</span></li>
+<li class="quit">[<a href="#T08:51:12" id="T08:51:12"><abbr title="2015-09-11T08:51:12+00:00">08:51:12</abbr></a>] <span>* kunalg_ (~kunalg@14.139.160.234) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T08:51:56" id="T08:51:56"><abbr title="2015-09-11T08:51:56+00:00">08:51:56</abbr></a>] <span>* HaoNC (76468068@gateway/web/freenode/ip.118.70.128.104) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:52:04" id="T08:52:04"><abbr title="2015-09-11T08:52:04+00:00">08:52:04</abbr></a>] &lt;<cite>HaoNC</cite>&gt; <q>JOIN</q></li>
+<li class="quit">[<a href="#T08:52:11" id="T08:52:11"><abbr title="2015-09-11T08:52:11+00:00">08:52:11</abbr></a>] <span>* kunalg (~kunalg@14.139.160.234) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="message">[<a href="#T08:52:25" id="T08:52:25"><abbr title="2015-09-11T08:52:25+00:00">08:52:25</abbr></a>] &lt;<cite>HaoNC</cite>&gt; <q>anybody here</q></li>
+<li class="message">[<a href="#T08:52:27" id="T08:52:27"><abbr title="2015-09-11T08:52:27+00:00">08:52:27</abbr></a>] &lt;<cite>HaoNC</cite>&gt; <q>?</q></li>
+<li class="message">[<a href="#T08:52:30" id="T08:52:30"><abbr title="2015-09-11T08:52:30+00:00">08:52:30</abbr></a>] &lt;<cite>Nitay</cite>&gt; <q>I DO</q></li>
+<li class="action">[<a href="#T08:54:21" id="T08:54:21"><abbr title="2015-09-11T08:54:21+00:00">08:54:21</abbr></a>] <span>* Nitay slaps BeagleBot around a bit with a large fishbot</span></li>
+<li class="quit">[<a href="#T08:54:35" id="T08:54:35"><abbr title="2015-09-11T08:54:35+00:00">08:54:35</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="join">[<a href="#T08:58:14" id="T08:58:14"><abbr title="2015-09-11T08:58:14+00:00">08:58:14</abbr></a>] <span>* mhaberler (~mhaberler@next.stiwoll.mah.priv.at) has joined #beagle</span></li>
+<li class="join">[<abbr title="2015-09-11T08:58:14+00:00">08:58:14</abbr>] <span>* mhaberler (~mhaberler@next.stiwoll.mah.priv.at) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T08:58:52" id="T08:58:52"><abbr title="2015-09-11T08:58:52+00:00">08:58:52</abbr></a>] <span>* johanhenselmans (~johanhens@zsense.xs4all.nl) has joined #beagle</span></li>
