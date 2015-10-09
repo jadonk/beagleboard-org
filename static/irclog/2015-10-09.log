@@ -176,3 +176,147 @@
 <li class="join">[<a href="#T07:43:21" id="T07:43:21"><abbr title="2015-10-09T07:43:21+00:00">07:43:21</abbr></a>] <span>* florian_kc (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
 <li class="nick-change">[<a href="#T07:44:16" id="T07:44:16"><abbr title="2015-10-09T07:44:16+00:00">07:44:16</abbr></a>] <span>* florian_kc is now known as florian</span></li>
 <li class="join">[<a href="#T07:48:20" id="T07:48:20"><abbr title="2015-10-09T07:48:20+00:00">07:48:20</abbr></a>] <span>* BellinganRoy (~Bellingan@host228-109-static.242-95-b.business.telecomitalia.it) has joined #beagle</span></li>
+<li class="join">[<a href="#T08:05:28" id="T08:05:28"><abbr title="2015-10-09T08:05:28+00:00">08:05:28</abbr></a>] <span>* nighty-_ (~nighty@hokuriku.rural-networks.com) has joined #beagleboard</span></li>
+<li class="nick-change">[<a href="#T08:05:47" id="T08:05:47"><abbr title="2015-10-09T08:05:47+00:00">08:05:47</abbr></a>] <span>* Starduster_ is now known as Starduster</span></li>
+<li class="message">[<a href="#T08:05:55" id="T08:05:55"><abbr title="2015-10-09T08:05:55+00:00">08:05:55</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>nyt: have you tried a 4.1 -ti kernel?</q></li>
+<li class="message">[<a href="#T08:07:10" id="T08:07:10"><abbr title="2015-10-09T08:07:10+00:00">08:07:10</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>nyt: the -bone branch is prone to fuck up the timing calculation (depending on video mode), that got rewritten in the -ti branch but hasn't been mainlined yet</q></li>
+<li class="message">[<a href="#T08:08:15" id="T08:08:15"><abbr title="2015-10-09T08:08:15+00:00">08:08:15</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>though that would result in consistent failure though, sounds like yours is stochastic?</q></li>
+<li class="message">[<a href="#T08:09:30" id="T08:09:30"><abbr title="2015-10-09T08:09:30+00:00">08:09:30</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>also, it's worth mentioning that a reboot never resets the hdmi framer, you need to poweroff and on again for that</q></li>
+<li class="join">[<a href="#T08:10:38" id="T08:10:38"><abbr title="2015-10-09T08:10:38+00:00">08:10:38</abbr></a>] <span>* Akex_ (uid58281@gateway/web/irccloud.com/x-lzameqgeeuzpzjwf) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T08:10:41" id="T08:10:41"><abbr title="2015-10-09T08:10:41+00:00">08:10:41</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>so if one kernel meddles with some particular setting of the hdmi framer while the other does not, then you'll get some interesting blend of settings by rebooting into the second kernel</q></li>
+<li class="message">[<a href="#T08:11:46" id="T08:11:46"><abbr title="2015-10-09T08:11:46+00:00">08:11:46</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>(unless the driver performs a soft-reset of the framer, haven't checked that, nor am I sure whether that actually sets the hdmi framer's registers or merely the functional logic)</q></li>
+<li class="message">[<a href="#T08:14:27" id="T08:14:27"><abbr title="2015-10-09T08:14:27+00:00">08:14:27</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>yeh i was using the ti kernel</q></li>
+<li class="message">[<a href="#T08:14:28" id="T08:14:28"><abbr title="2015-10-09T08:14:28+00:00">08:14:28</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>btw</q></li>
+<li class="message">[<a href="#T08:14:30" id="T08:14:30"><abbr title="2015-10-09T08:14:30+00:00">08:14:30</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>(never mind, it doesn't have soft-reset other than for audio and i2c-master)</q></li>
+<li class="message">[<abbr title="2015-10-09T08:14:30+00:00">08:14:30</abbr>] &lt;<cite>nyt</cite>&gt; <q>i figured it out</q></li>
+<li class="message">[<a href="#T08:14:31" id="T08:14:31"><abbr title="2015-10-09T08:14:31+00:00">08:14:31</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>ok</q></li>
+<li class="message">[<a href="#T08:14:36" id="T08:14:36"><abbr title="2015-10-09T08:14:36+00:00">08:14:36</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>if i boot with 3.8</q></li>
+<li class="message">[<a href="#T08:14:39" id="T08:14:39"><abbr title="2015-10-09T08:14:39+00:00">08:14:39</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>then install 4.1 and reboot</q></li>
+<li class="message">[<abbr title="2015-10-09T08:14:39+00:00">08:14:39</abbr>] &lt;<cite>nyt</cite>&gt; <q>its good</q></li>
+<li class="message">[<a href="#T08:14:44" id="T08:14:44"><abbr title="2015-10-09T08:14:44+00:00">08:14:44</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>if i power off and power back on</q></li>
+<li class="message">[<a href="#T08:14:45" id="T08:14:45"><abbr title="2015-10-09T08:14:45+00:00">08:14:45</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>no good</q></li>
+<li class="message">[<a href="#T08:14:52" id="T08:14:52"><abbr title="2015-10-09T08:14:52+00:00">08:14:52</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>so it needs to boot with 3.8 first before 4.1 works</q></li>
+<li class="message">[<a href="#T08:14:55" id="T08:14:55"><abbr title="2015-10-09T08:14:55+00:00">08:14:55</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>ok, so 3.8 fixes some hdmi framer configuratio</q></li>
+<li class="message">[<a href="#T08:14:56" id="T08:14:56"><abbr title="2015-10-09T08:14:56+00:00">08:14:56</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>i dont know why but that's the dela</q></li>
+<li class="message">[<a href="#T08:14:59" id="T08:14:59"><abbr title="2015-10-09T08:14:59+00:00">08:14:59</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>yea</q></li>
+<li class="message">[<a href="#T08:15:06" id="T08:15:06"><abbr title="2015-10-09T08:15:06+00:00">08:15:06</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>that should be easy enough to locate</q></li>
+<li class="message">[<a href="#T08:15:08" id="T08:15:08"><abbr title="2015-10-09T08:15:08+00:00">08:15:08</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>its up on 3.8 right now at 720p50</q></li>
+<li class="message">[<a href="#T08:15:11" id="T08:15:11"><abbr title="2015-10-09T08:15:11+00:00">08:15:11</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>:/</q></li>
+<li class="message">[<a href="#T08:15:14" id="T08:15:14"><abbr title="2015-10-09T08:15:14+00:00">08:15:14</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>on 4.1 it was 720p60</q></li>
+<li class="message">[<a href="#T08:15:23" id="T08:15:23"><abbr title="2015-10-09T08:15:23+00:00">08:15:23</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>when it came up</q></li>
+<li class="message">[<a href="#T08:15:31" id="T08:15:31"><abbr title="2015-10-09T08:15:31+00:00">08:15:31</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>I've heard someone also did work on the hdmi framer</q></li>
+<li class="message">[<a href="#T08:15:43" id="T08:15:43"><abbr title="2015-10-09T08:15:43+00:00">08:15:43</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>possibly not all work is good work :P</q></li>
+<li class="message">[<a href="#T08:16:15" id="T08:16:15"><abbr title="2015-10-09T08:16:15+00:00">08:16:15</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>gnna try 4.1.10-ti-r21</q></li>
+<li class="message">[<a href="#T08:17:01" id="T08:17:01"><abbr title="2015-10-09T08:17:01+00:00">08:17:01</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>i also see linux-image-4.1.10-ti-git20151008-4b5cc48a</q></li>
+<li class="message">[<a href="#T08:17:50" id="T08:17:50"><abbr title="2015-10-09T08:17:50+00:00">08:17:50</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>that's... very fresh</q></li>
+<li class="message">[<a href="#T08:17:57" id="T08:17:57"><abbr title="2015-10-09T08:17:57+00:00">08:17:57</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>I wonder why rcn-ee made a git release</q></li>
+<li class="message">[<a href="#T08:18:52" id="T08:18:52"><abbr title="2015-10-09T08:18:52+00:00">08:18:52</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>I'm checking git log of the driver</q></li>
+<li class="message">[<a href="#T08:19:32" id="T08:19:32"><abbr title="2015-10-09T08:19:32+00:00">08:19:32</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>where is the ti gitt tree?</q></li>
+<li class="message">[<a href="#T08:21:31" id="T08:21:31"><abbr title="2015-10-09T08:21:31+00:00">08:21:31</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>you can view the source tree corresponding to each kernel version released by rcn-ee here -&gt; <a href="https://github.com/RobertCNelson/linux-stable-rcn-ee/releases">https://github.com/RobertCNelson/linux-stable-rcn-ee/releases</a></q></li>
+<li class="message">[<a href="#T08:22:11" id="T08:22:11"><abbr title="2015-10-09T08:22:11+00:00">08:22:11</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>oh -r21 is fresher</q></li>
+<li class="message">[<a href="#T08:22:32" id="T08:22:32"><abbr title="2015-10-09T08:22:32+00:00">08:22:32</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>indeed</q></li>
+<li class="join">[<a href="#T08:22:56" id="T08:22:56"><abbr title="2015-10-09T08:22:56+00:00">08:22:56</abbr></a>] <span>* cart_man (29a03a62@gateway/web/freenode/ip.41.160.58.98) has joined #beagle</span></li>
+<li class="message">[<a href="#T08:25:42" id="T08:25:42"><abbr title="2015-10-09T08:25:42+00:00">08:25:42</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>ah, the git snapshot is missing all the usual patches</q></li>
+<li class="message">[<a href="#T08:25:48" id="T08:25:48"><abbr title="2015-10-09T08:25:48+00:00">08:25:48</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>(e.g. bone_capemgr)</q></li>
+<li class="message">[<a href="#T08:26:17" id="T08:26:17"><abbr title="2015-10-09T08:26:17+00:00">08:26:17</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>no joy on -r21</q></li>
+<li class="quit">[<a href="#T08:26:43" id="T08:26:43"><abbr title="2015-10-09T08:26:43+00:00">08:26:43</abbr></a>] <span>* bizarro_1 (~bizarro_1@7.Red-83-33-190.dynamicIP.rima-tde.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T08:26:47" id="T08:26:47"><abbr title="2015-10-09T08:26:47+00:00">08:26:47</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>so yeah</q></li>
+<li class="message">[<a href="#T08:26:48" id="T08:26:48"><abbr title="2015-10-09T08:26:48+00:00">08:26:48</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>ok, so either 3.8-bone has a specific patch that fixes it, or 4.1 broke it</q></li>
+<li class="message">[<a href="#T08:26:52" id="T08:26:52"><abbr title="2015-10-09T08:26:52+00:00">08:26:52</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>theres some hdmi fuckery in 4.1</q></li>
+<li class="message">[<a href="#T08:26:55" id="T08:26:55"><abbr title="2015-10-09T08:26:55+00:00">08:26:55</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>:(</q></li>
+<li class="message">[<a href="#T08:27:03" id="T08:27:03"><abbr title="2015-10-09T08:27:03+00:00">08:27:03</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>rolling back and rebuilding all my dtcs lol</q></li>
+<li class="message">[<a href="#T08:27:07" id="T08:27:07"><abbr title="2015-10-09T08:27:07+00:00">08:27:07</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>or missing hdmi-fuckery</q></li>
+<li class="message">[<a href="#T08:27:28" id="T08:27:28"><abbr title="2015-10-09T08:27:28+00:00">08:27:28</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>its weird 3.8 comes up w/ 720p at 50hz</q></li>
+<li class="message">[<a href="#T08:27:32" id="T08:27:32"><abbr title="2015-10-09T08:27:32+00:00">08:27:32</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>but when 4.1 comes up its proper at 60</q></li>
+<li class="message">[<a href="#T08:27:42" id="T08:27:42"><abbr title="2015-10-09T08:27:42+00:00">08:27:42</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>edid handling changed</q></li>
+<li class="message">[<a href="#T08:28:07" id="T08:28:07"><abbr title="2015-10-09T08:28:07+00:00">08:28:07</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T08:28:10" id="T08:28:10"><abbr title="2015-10-09T08:28:10+00:00">08:28:10</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>i noticed 4.1 was much better</q></li>
+<li class="message">[<a href="#T08:28:16" id="T08:28:16"><abbr title="2015-10-09T08:28:16+00:00">08:28:16</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>ill try forcing it</q></li>
+<li class="message">[<a href="#T08:28:27" id="T08:28:27"><abbr title="2015-10-09T08:28:27+00:00">08:28:27</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q><a href="https://github.com/RobertCNelson/linux-stable-rcn-ee/commit/07259f8b9fbd30fcef595e872deeea5ffab934ed">https://github.com/RobertCNelson/linux-stable-rcn-ee/commit/07259f8b9fbd30fcef595e872deeea5ffab934ed</a></q></li>
+<li class="message">[<a href="#T08:30:17" id="T08:30:17"><abbr title="2015-10-09T08:30:17+00:00">08:30:17</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>lots</q></li>
+<li class="message">[<a href="#T08:31:08" id="T08:31:08"><abbr title="2015-10-09T08:31:08+00:00">08:31:08</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>or we need to diff the actual hdmi framer config somehow</q></li>
+<li class="message">[<a href="#T08:31:27" id="T08:31:27"><abbr title="2015-10-09T08:31:27+00:00">08:31:27</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>between non-working-4.1 and working-4.1</q></li>
+<li class="message">[<a href="#T08:31:44" id="T08:31:44"><abbr title="2015-10-09T08:31:44+00:00">08:31:44</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>forcing 1920x1080@24 no joy</q></li>
+<li class="message">[<a href="#T08:31:52" id="T08:31:52"><abbr title="2015-10-09T08:31:52+00:00">08:31:52</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>which 4.1 is working?</q></li>
+<li class="message">[<a href="#T08:31:58" id="T08:31:58"><abbr title="2015-10-09T08:31:58+00:00">08:31:58</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>after rebooting from 3.8</q></li>
+<li class="message">[<a href="#T08:32:04" id="T08:32:04"><abbr title="2015-10-09T08:32:04+00:00">08:32:04</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>that diff is for 4.3</q></li>
+<li class="message">[<a href="#T08:32:17" id="T08:32:17"><abbr title="2015-10-09T08:32:17+00:00">08:32:17</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>oh</q></li>
+<li class="message">[<a href="#T08:32:18" id="T08:32:18"><abbr title="2015-10-09T08:32:18+00:00">08:32:18</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>no i see</q></li>
+<li class="message">[<a href="#T08:32:19" id="T08:32:19"><abbr title="2015-10-09T08:32:19+00:00">08:32:19</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>lots of patches</q></li>
+<li class="message">[<a href="#T08:32:24" id="T08:32:24"><abbr title="2015-10-09T08:32:24+00:00">08:32:24</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>it's in the history for 4.1-ti</q></li>
+<li class="message">[<a href="#T08:32:33" id="T08:32:33"><abbr title="2015-10-09T08:32:33+00:00">08:32:33</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>the diff between 3.8 and 4.1 is... big</q></li>
+<li class="message">[<a href="#T08:32:46" id="T08:32:46"><abbr title="2015-10-09T08:32:46+00:00">08:32:46</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>that patch is old</q></li>
+<li class="message">[<a href="#T08:32:48" id="T08:32:48"><abbr title="2015-10-09T08:32:48+00:00">08:32:48</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>might not even be that</q></li>
+<li class="message">[<a href="#T08:32:51" id="T08:32:51"><abbr title="2015-10-09T08:32:51+00:00">08:32:51</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>might be</q></li>
+<li class="message">[<a href="#T08:33:00" id="T08:33:00"><abbr title="2015-10-09T08:33:00+00:00">08:33:00</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>no I'm staring at the actual diff right now</q></li>
+<li class="message">[<a href="#T08:33:11" id="T08:33:11"><abbr title="2015-10-09T08:33:11+00:00">08:33:11</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>whtas weird is</q></li>
+<li class="message">[<a href="#T08:33:32" id="T08:33:32"><abbr title="2015-10-09T08:33:32+00:00">08:33:32</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>definitely lots of fixes and improvements</q></li>
+<li class="message">[<a href="#T08:33:41" id="T08:33:41"><abbr title="2015-10-09T08:33:41+00:00">08:33:41</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>so what o what did they break...</q></li>
+<li class="message">[<a href="#T08:34:20" id="T08:34:20"><abbr title="2015-10-09T08:34:20+00:00">08:34:20</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>root@backupbone:~# xrandr</q></li>
+<li class="message">[<abbr title="2015-10-09T08:34:20+00:00">08:34:20</abbr>] &lt;<cite>nyt</cite>&gt; <q>Screen 0: minimum 320 x 200, current 1280 x 1024, maximum 2048 x 2048</q></li>
+<li class="message">[<abbr title="2015-10-09T08:34:20+00:00">08:34:20</abbr>] &lt;<cite>nyt</cite>&gt; <q>HDMI-0 connected 1280x1024+0+0 (normal left inverted right x axis y axis) 1209mm x 680mm</q></li>
+<li class="message">[<abbr title="2015-10-09T08:34:20+00:00">08:34:20</abbr>] &lt;<cite>nyt</cite>&gt; <q>   1280x720       60.0 +   50.0     59.9</q></li>
+<li class="message">[<abbr title="2015-10-09T08:34:20+00:00">08:34:20</abbr>] &lt;<cite>nyt</cite>&gt; <q>   1920x1080      30.0     25.0     24.0     30.0     24.0     24.0</q></li>
+<li class="message">[<a href="#T08:34:21" id="T08:34:21"><abbr title="2015-10-09T08:34:21+00:00">08:34:21</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   1280x1024      60.0*</q></li>
+<li class="message">[<a href="#T08:34:23" id="T08:34:23"><abbr title="2015-10-09T08:34:23+00:00">08:34:23</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   1440x900       59.9</q></li>
+<li class="message">[<a href="#T08:34:24" id="T08:34:24"><abbr title="2015-10-09T08:34:24+00:00">08:34:24</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   1280x800       59.9</q></li>
+<li class="message">[<a href="#T08:34:27" id="T08:34:27"><abbr title="2015-10-09T08:34:27+00:00">08:34:27</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   1152x864       75.0</q></li>
+<li class="message">[<a href="#T08:34:28" id="T08:34:28"><abbr title="2015-10-09T08:34:28+00:00">08:34:28</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   1024x768       75.1     70.1     60.0</q></li>
+<li class="message">[<a href="#T08:34:31" id="T08:34:31"><abbr title="2015-10-09T08:34:31+00:00">08:34:31</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   832x624        74.6</q></li>
+<li class="message">[<a href="#T08:34:32" id="T08:34:32"><abbr title="2015-10-09T08:34:32+00:00">08:34:32</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>please use pastebin or such</q></li>
+<li class="message">[<a href="#T08:34:33" id="T08:34:33"><abbr title="2015-10-09T08:34:33+00:00">08:34:33</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   800x600        72.2     75.0     60.3</q></li>
+<li class="message">[<a href="#T08:34:34" id="T08:34:34"><abbr title="2015-10-09T08:34:34+00:00">08:34:34</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   720x576        50.0</q></li>
+<li class="message">[<a href="#T08:34:37" id="T08:34:37"><abbr title="2015-10-09T08:34:37+00:00">08:34:37</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   720x480        60.0     59.9</q></li>
+<li class="message">[<a href="#T08:34:38" id="T08:34:38"><abbr title="2015-10-09T08:34:38+00:00">08:34:38</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   640x480        75.0     72.8     66.7     60.0     59.9</q></li>
+<li class="message">[<a href="#T08:34:40" id="T08:34:40"><abbr title="2015-10-09T08:34:40+00:00">08:34:40</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>   720x400        70.1</q></li>
+<li class="message">[<a href="#T08:34:44" id="T08:34:44"><abbr title="2015-10-09T08:34:44+00:00">08:34:44</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>i can see the edid shit</q></li>
+<li class="message">[<a href="#T08:34:47" id="T08:34:47"><abbr title="2015-10-09T08:34:47+00:00">08:34:47</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>im justnot getting any joy</q></li>
+<li class="message">[<a href="#T08:34:51" id="T08:34:51"><abbr title="2015-10-09T08:34:51+00:00">08:34:51</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>sorry</q></li>
+<li class="message">[<a href="#T08:34:53" id="T08:34:53"><abbr title="2015-10-09T08:34:53+00:00">08:34:53</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>don't paste anything that's more than 1 or 2 lines into the chat</q></li>
+<li class="message">[<a href="#T08:34:55" id="T08:34:55"><abbr title="2015-10-09T08:34:55+00:00">08:34:55</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>forcing modes does nothing</q></li>
+<li class="message">[<a href="#T08:36:08" id="T08:36:08"><abbr title="2015-10-09T08:36:08+00:00">08:36:08</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>will try reseating hdmi while live</q></li>
+<li class="message">[<a href="#T08:36:10" id="T08:36:10"><abbr title="2015-10-09T08:36:10+00:00">08:36:10</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>you did try making sure it's not in display sleep?  (e.g. press a key on a keyboard)</q></li>
+<li class="message">[<a href="#T08:36:53" id="T08:36:53"><abbr title="2015-10-09T08:36:53+00:00">08:36:53</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>yeah</q></li>
+<li class="message">[<a href="#T08:36:59" id="T08:36:59"><abbr title="2015-10-09T08:36:59+00:00">08:36:59</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>i also tried using xset</q></li>
+<li class="message">[<a href="#T08:37:03" id="T08:37:03"><abbr title="2015-10-09T08:37:03+00:00">08:37:03</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>and turning it on and off with dpms</q></li>
+<li class="message">[<a href="#T08:37:11" id="T08:37:11"><abbr title="2015-10-09T08:37:11+00:00">08:37:11</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>though still, if it works on reboot from 3.8 but not on cold boot in 4.1 or reboot from 4.1 then the only thing I can think of is a hdmi framer setting</q></li>
+<li class="message">[<a href="#T08:37:31" id="T08:37:31"><abbr title="2015-10-09T08:37:31+00:00">08:37:31</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>since it has no reset input</q></li>
+<li class="message">[<a href="#T08:37:58" id="T08:37:58"><abbr title="2015-10-09T08:37:58+00:00">08:37:58</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>but then I'd need to find a setting that's written by 3.8 and not overwritten by 4.1</q></li>
+<li class="message">[<a href="#T08:38:55" id="T08:38:55"><abbr title="2015-10-09T08:38:55+00:00">08:38:55</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>can you try bisecting?  i.e. try intermediate kernel versions to see when they broke it?</q></li>
+<li class="message">[<a href="#T08:39:06" id="T08:39:06"><abbr title="2015-10-09T08:39:06+00:00">08:39:06</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>like, does 3.12 or 3.14 work ?</q></li>
+<li class="message">[<a href="#T08:39:32" id="T08:39:32"><abbr title="2015-10-09T08:39:32+00:00">08:39:32</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>cant test atm</q></li>
+<li class="message">[<a href="#T08:39:41" id="T08:39:41"><abbr title="2015-10-09T08:39:41+00:00">08:39:41</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>3.14 -ti is still being maintained</q></li>
+<li class="message">[<a href="#T08:39:59" id="T08:39:59"><abbr title="2015-10-09T08:39:59+00:00">08:39:59</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>so that would be a good try</q></li>
+<li class="message">[<a href="#T08:41:31" id="T08:41:31"><abbr title="2015-10-09T08:41:31+00:00">08:41:31</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>k</q></li>
+<li class="message">[<a href="#T08:41:32" id="T08:41:32"><abbr title="2015-10-09T08:41:32+00:00">08:41:32</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>sec</q></li>
+<li class="message">[<a href="#T08:42:31" id="T08:42:31"><abbr title="2015-10-09T08:42:31+00:00">08:42:31</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>installing linux-image-3.14.54-ti-r77</q></li>
+<li class="quit">[<a href="#T08:44:13" id="T08:44:13"><abbr title="2015-10-09T08:44:13+00:00">08:44:13</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (Quit: Leaving.)</span></li>
+<li class="message">[<a href="#T08:45:05" id="T08:45:05"><abbr title="2015-10-09T08:45:05+00:00">08:45:05</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>also im pretty sure this worked on rev b ok</q></li>
+<li class="message">[<a href="#T08:45:13" id="T08:45:13"><abbr title="2015-10-09T08:45:13+00:00">08:45:13</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>but i cant be certain</q></li>
+<li class="message">[<a href="#T08:45:27" id="T08:45:27"><abbr title="2015-10-09T08:45:27+00:00">08:45:27</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>might have been an upgrade after booting 3.8</q></li>
+<li class="message">[<a href="#T08:45:40" id="T08:45:40"><abbr title="2015-10-09T08:45:40+00:00">08:45:40</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>that would be my guess since there's no relevant hw change</q></li>
+<li class="message">[<a href="#T08:45:46" id="T08:45:46"><abbr title="2015-10-09T08:45:46+00:00">08:45:46</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>yea</q></li>
+<li class="message">[<a href="#T08:46:55" id="T08:46:55"><abbr title="2015-10-09T08:46:55+00:00">08:46:55</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>no joy there</q></li>
+<li class="message">[<a href="#T08:47:16" id="T08:47:16"><abbr title="2015-10-09T08:47:16+00:00">08:47:16</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>putting 3.8 back on for now and getting back to work</q></li>
+<li class="message">[<a href="#T08:50:25" id="T08:50:25"><abbr title="2015-10-09T08:50:25+00:00">08:50:25</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>what package is responsible for /lib/firmware?</q></li>
+<li class="message">[<a href="#T08:50:29" id="T08:50:29"><abbr title="2015-10-09T08:50:29+00:00">08:50:29</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>no idea</q></li>
+<li class="message">[<a href="#T08:50:38" id="T08:50:38"><abbr title="2015-10-09T08:50:38+00:00">08:50:38</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>will find it when this is done installing</q></li>
+<li class="message">[<a href="#T08:51:37" id="T08:51:37"><abbr title="2015-10-09T08:51:37+00:00">08:51:37</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>root@backupbone:/lib/firmware# dpkg -S BB-SPIDEV1-00A0.dtbo</q></li>
+<li class="message">[<a href="#T08:51:38" id="T08:51:38"><abbr title="2015-10-09T08:51:38+00:00">08:51:38</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>dpkg-query: no path found matching pattern *BB-SPIDEV1-00A0.dtbo*</q></li>
+<li class="message">[<abbr title="2015-10-09T08:51:38+00:00">08:51:38</abbr>] &lt;<cite>nyt</cite>&gt; <q>damn</q></li>
+<li class="message">[<a href="#T08:51:51" id="T08:51:51"><abbr title="2015-10-09T08:51:51+00:00">08:51:51</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>oh i can build em</q></li>
+<li class="message">[<a href="#T08:51:54" id="T08:51:54"><abbr title="2015-10-09T08:51:54+00:00">08:51:54</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>just gotta remove new dtc</q></li>
+<li class="nick-change">[<a href="#T08:55:54" id="T08:55:54"><abbr title="2015-10-09T08:55:54+00:00">08:55:54</abbr></a>] <span>* kilroi_off is now known as kilroi</span></li>
+<li class="message">[<a href="#T08:57:41" id="T08:57:41"><abbr title="2015-10-09T08:57:41+00:00">08:57:41</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>aaaaaaaaaand my bbb just roasted itself wtffffffffffff</q></li>
+<li class="message">[<a href="#T08:57:53" id="T08:57:53"><abbr title="2015-10-09T08:57:53+00:00">08:57:53</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>??</q></li>
+<li class="message">[<a href="#T08:58:00" id="T08:58:00"><abbr title="2015-10-09T08:58:00+00:00">08:58:00</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>has some io hooked up something might not be right</q></li>
+<li class="message">[<a href="#T08:58:06" id="T08:58:06"><abbr title="2015-10-09T08:58:06+00:00">08:58:06</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>maybe an external ps leaked to it</q></li>
+<li class="message">[<a href="#T08:58:16" id="T08:58:16"><abbr title="2015-10-09T08:58:16+00:00">08:58:16</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>its only hooked up to some npn transistors tho so</q></li>
+<li class="message">[<a href="#T08:58:17" id="T08:58:17"><abbr title="2015-10-09T08:58:17+00:00">08:58:17</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>i dunno</q></li>
+<li class="message">[<a href="#T08:58:24" id="T08:58:24"><abbr title="2015-10-09T08:58:24+00:00">08:58:24</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>really odd</q></li>
+<li class="message">[<a href="#T08:58:56" id="T08:58:56"><abbr title="2015-10-09T08:58:56+00:00">08:58:56</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>but roasted as in... it won't power on anymore?</q></li>
+<li class="message">[<a href="#T08:59:33" id="T08:59:33"><abbr title="2015-10-09T08:59:33+00:00">08:59:33</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>right</q></li>
+<li class="message">[<a href="#T08:59:38" id="T08:59:38"><abbr title="2015-10-09T08:59:38+00:00">08:59:38</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>power led blips when i hook up the ps</q></li>
+<li class="message">[<a href="#T08:59:40" id="T08:59:40"><abbr title="2015-10-09T08:59:40+00:00">08:59:40</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>thats it</q></li>
+<li class="message">[<a href="#T08:59:43" id="T08:59:43"><abbr title="2015-10-09T08:59:43+00:00">08:59:43</abbr></a>] &lt;<cite>nyt</cite>&gt; <q>dead yes?</q></li>
+<li class="message">[<a href="#T08:59:55" id="T08:59:55"><abbr title="2015-10-09T08:59:55+00:00">08:59:55</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>the dreaded flashing power led of doom</q></li>
