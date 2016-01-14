@@ -610,3 +610,46 @@
 <li class="join">[<a href="#T16:49:18" id="T16:49:18"><abbr title="2016-01-14T16:49:18+00:00">16:49:18</abbr></a>] <span>* [Butch] (~butch@169.145.89.207) has joined #beagle</span></li>
 <li class="message">[<a href="#T16:56:44" id="T16:56:44"><abbr title="2016-01-14T16:56:44+00:00">16:56:44</abbr></a>] &lt;<cite>zmatt</cite>&gt; <q>ok, fuck the kernel, this shit is totally inpenetrable... time to ditch another driver and Do It In Userspace™</q></li>
 <li class="join">[<a href="#T16:59:10" id="T16:59:10"><abbr title="2016-01-14T16:59:10+00:00">16:59:10</abbr></a>] <span>* eFfeM (~frans@c73189.upc-c.chello.nl) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:02:10" id="T17:02:10"><abbr title="2016-01-14T17:02:10+00:00">17:02:10</abbr></a>] <span>* balrog (~balrog@unaffiliated/balrog) Quit (Read error: Connection reset by peer)</span></li>
+<li class="message">[<a href="#T17:03:37" id="T17:03:37"><abbr title="2016-01-14T17:03:37+00:00">17:03:37</abbr></a>] &lt;<cite>yates</cite>&gt; <q>ha ha</q></li>
+<li class="message">[<a href="#T17:04:03" id="T17:04:03"><abbr title="2016-01-14T17:04:03+00:00">17:04:03</abbr></a>] &lt;<cite>yates</cite>&gt; <q>oh no! not DIIU?!?!</q></li>
+<li class="quit">[<a href="#T17:06:34" id="T17:06:34"><abbr title="2016-01-14T17:06:34+00:00">17:06:34</abbr></a>] <span>* foobarbecue (~quassel@186.9.135.247) Quit (Ping timeout: 265 seconds)</span></li>
+<li class="join">[<a href="#T17:08:14" id="T17:08:14"><abbr title="2016-01-14T17:08:14+00:00">17:08:14</abbr></a>] <span>* foobarbecue (~quassel@186.9.135.247) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:08:15" id="T17:08:15"><abbr title="2016-01-14T17:08:15+00:00">17:08:15</abbr></a>] <span>* foobarbecue (~quassel@186.9.135.247) has joined #beaglebone</span></li>
+<li class="message">[<a href="#T17:08:48" id="T17:08:48"><abbr title="2016-01-14T17:08:48+00:00">17:08:48</abbr></a>] &lt;<cite>yates</cite>&gt; <q>µ</q></li>
+<li class="quit">[<a href="#T17:09:48" id="T17:09:48"><abbr title="2016-01-14T17:09:48+00:00">17:09:48</abbr></a>] <span>* lyakh (~lyakh@xdsl-87-79-219-167.netcologne.de) Quit (Quit: thanks, bye)</span></li>
+<li class="quit">[<a href="#T17:12:40" id="T17:12:40"><abbr title="2016-01-14T17:12:40+00:00">17:12:40</abbr></a>] <span>* shoragan_ (~shoragan@debian/developer/shoragan) Quit (Quit: Ex-Chat)</span></li>
+<li class="quit">[<a href="#T17:13:06" id="T17:13:06"><abbr title="2016-01-14T17:13:06+00:00">17:13:06</abbr></a>] <span>* foobarbecue (~quassel@186.9.135.247) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="nick-change">[<a href="#T17:13:19" id="T17:13:19"><abbr title="2016-01-14T17:13:19+00:00">17:13:19</abbr></a>] <span>* Vasco_O is now known as Vasco</span></li>
+<li class="message">[<a href="#T17:15:03" id="T17:15:03"><abbr title="2016-01-14T17:15:03+00:00">17:15:03</abbr></a>] &lt;<cite>yates</cite>&gt; <q>i can't imagine it would, since the processor doesn't know what PMIC is being used, but does the ROM code attempt to set any registers on the tps65217 over the i2c on boot?</q></li>
+<li class="join">[<a href="#T17:15:55" id="T17:15:55"><abbr title="2016-01-14T17:15:55+00:00">17:15:55</abbr></a>] <span>* balrog (~balrog@unaffiliated/balrog) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:17:00" id="T17:17:00"><abbr title="2016-01-14T17:17:00+00:00">17:17:00</abbr></a>] &lt;<cite>yates</cite>&gt; <q>the am335x, that is.</q></li>
+<li class="message">[<a href="#T17:17:40" id="T17:17:40"><abbr title="2016-01-14T17:17:40+00:00">17:17:40</abbr></a>] &lt;<cite>yates</cite>&gt; <q>it looks like the 1.1V regulator is outputting 3.3V on our board and we are wondering if it got set over I2C somehow.</q></li>
+<li class="message">[<a href="#T17:18:07" id="T17:18:07"><abbr title="2016-01-14T17:18:07+00:00">17:18:07</abbr></a>] &lt;<cite>yates</cite>&gt; <q>the DCDC2 voltage, specifically.</q></li>
+<li class="message">[<a href="#T17:21:44" id="T17:21:44"><abbr title="2016-01-14T17:21:44+00:00">17:21:44</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>uboot does some stuff I -think- then possibly the kernel .. should be in board configs ..</q></li>
+<li class="message">[<a href="#T17:22:22" id="T17:22:22"><abbr title="2016-01-14T17:22:22+00:00">17:22:22</abbr></a>] &lt;<cite>yates</cite>&gt; <q>that's a possibility. thanks verem</q></li>
+<li class="message">[<a href="#T17:22:35" id="T17:22:35"><abbr title="2016-01-14T17:22:35+00:00">17:22:35</abbr></a>] &lt;<cite>yates</cite>&gt; <q>veremit:</q></li>
+<li class="quit">[<a href="#T17:24:19" id="T17:24:19"><abbr title="2016-01-14T17:24:19+00:00">17:24:19</abbr></a>] <span>* mythos (~mythos@unaffiliated/mythos) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<abbr title="2016-01-14T17:24:19+00:00">17:24:19</abbr>] <span>* ketas (~ketas@229-211-191-90.dyn.estpak.ee) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="join">[<a href="#T17:27:35" id="T17:27:35"><abbr title="2016-01-14T17:27:35+00:00">17:27:35</abbr></a>] <span>* ketas (~ketas@123-88-235-80.dyn.estpak.ee) has joined #beaglebone</span></li>
+<li class="join">[<abbr title="2016-01-14T17:27:35+00:00">17:27:35</abbr>] <span>* ketas (~ketas@123-88-235-80.dyn.estpak.ee) has joined #beagle</span></li>
+<li class="quit">[<a href="#T17:27:36" id="T17:27:36"><abbr title="2016-01-14T17:27:36+00:00">17:27:36</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) Quit (Quit: Client exiting)</span></li>
+<li class="message">[<a href="#T17:28:15" id="T17:28:15"><abbr title="2016-01-14T17:28:15+00:00">17:28:15</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>np</q></li>
+<li class="join">[<a href="#T17:29:52" id="T17:29:52"><abbr title="2016-01-14T17:29:52+00:00">17:29:52</abbr></a>] <span>* foobarbecue (~quassel@186.9.135.247) has joined #beagle</span></li>
+<li class="join">[<abbr title="2016-01-14T17:29:52+00:00">17:29:52</abbr>] <span>* foobarbecue (~quassel@186.9.135.247) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T17:31:43" id="T17:31:43"><abbr title="2016-01-14T17:31:43+00:00">17:31:43</abbr></a>] <span>* weox (uid112413@gateway/web/irccloud.com/x-uekdtobfkvufriir) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:38:42" id="T17:38:42"><abbr title="2016-01-14T17:38:42+00:00">17:38:42</abbr></a>] <span>* NulL` (~bleh1@178.16.3.86) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:40:55" id="T17:40:55"><abbr title="2016-01-14T17:40:55+00:00">17:40:55</abbr></a>] <span>* rob_w (~rob@unaffiliated/rob-w/x-1112029) has joined #beagle</span></li>
+<li class="join">[<abbr title="2016-01-14T17:40:55+00:00">17:40:55</abbr>] <span>* begaleinterst (58dbb33a@gateway/web/freenode/ip.88.219.179.58) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:41:09" id="T17:41:09"><abbr title="2016-01-14T17:41:09+00:00">17:41:09</abbr></a>] &lt;<cite>begaleinterst</cite>&gt; <q>hello all</q></li>
+<li class="message">[<a href="#T17:43:43" id="T17:43:43"><abbr title="2016-01-14T17:43:43+00:00">17:43:43</abbr></a>] &lt;<cite>begaleinterst</cite>&gt; <q>ship date was said to be moved to december 15th. any news of an approx ship date now?</q></li>
+<li class="quit">[<a href="#T17:47:21" id="T17:47:21"><abbr title="2016-01-14T17:47:21+00:00">17:47:21</abbr></a>] <span>* ppisati (~ppisati@2-230-238-136.ip204.fastwebnet.it) Quit (Quit: leaving)</span></li>
+<li class="quit">[<a href="#T17:47:30" id="T17:47:30"><abbr title="2016-01-14T17:47:30+00:00">17:47:30</abbr></a>] <span>* Devastator (~devas@unaffiliated/devastator) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="join">[<a href="#T17:48:32" id="T17:48:32"><abbr title="2016-01-14T17:48:32+00:00">17:48:32</abbr></a>] <span>* vagrantc (~vagrant@unaffiliated/vagrantc) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:49:25" id="T17:49:25"><abbr title="2016-01-14T17:49:25+00:00">17:49:25</abbr></a>] <span>* Amynka (~frozen@gentoo/developer/amynka) has joined #beagle</span></li>
+<li class="message">[<a href="#T17:49:44" id="T17:49:44"><abbr title="2016-01-14T17:49:44+00:00">17:49:44</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>woot hey Amynka</q></li>
+<li class="message">[<a href="#T17:49:54" id="T17:49:54"><abbr title="2016-01-14T17:49:54+00:00">17:49:54</abbr></a>] &lt;<cite>Amynka</cite>&gt; <q>veremit: hey :P</q></li>
+<li class="message">[<a href="#T17:50:00" id="T17:50:00"><abbr title="2016-01-14T17:50:00+00:00">17:50:00</abbr></a>] &lt;<cite>veremit</cite>&gt; <q>ltns :D lol</q></li>
+<li class="message">[<a href="#T17:50:19" id="T17:50:19"><abbr title="2016-01-14T17:50:19+00:00">17:50:19</abbr></a>] &lt;<cite>Amynka</cite>&gt; <q>indeed :D</q></li>
+<li class="join">[<a href="#T17:52:40" id="T17:52:40"><abbr title="2016-01-14T17:52:40+00:00">17:52:40</abbr></a>] <span>* florian (~fuchs@Maemo/community/contributor/florian) has joined #beagle</span></li>
+<li class="join">[<a href="#T17:59:16" id="T17:59:16"><abbr title="2016-01-14T17:59:16+00:00">17:59:16</abbr></a>] <span>* Shadyman (~matthew@unaffiliated/shadyman) has joined #beagle</span></li>
