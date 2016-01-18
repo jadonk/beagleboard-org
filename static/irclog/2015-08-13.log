@@ -1,0 +1,433 @@
+<li class="join">[<a href="#T00:00:36" id="T00:00:36"><abbr title="2015-08-13T00:00:36+00:00">00:00:36</abbr></a>] <span>* BeagleBot (~PircBot@ec2-50-17-196-130.compute-1.amazonaws.com) has joined #beagle</span></li>
+<li class="topic">[<abbr title="2015-08-13T00:00:36+00:00">00:00:36</abbr>] <span>* Topic is '<a href="http://beagleboard.org/chat">http://beagleboard.org/chat</a> has a guide on how to ask questions and links to the logs | never ask to ask, just ask | be patient | pastebin a boot log | <a href="http://ahsoftware.de/Beaglebone_Black_Boot_explained.svg">http://ahsoftware.de/Beaglebone_Black_Boot_explained.svg</a> | <a href="http://beagleboard.org/latest-images">http://beagleboard.org/latest-images</a> | <a href="http://beagleboard.org/Support/bone101">http://beagleboard.org/Support/bone101</a> | direct bonescript/node.js questions to #beagle-bonescript | books: <a href="http://bit.ly/bbb-books'">http://bit.ly/bbb-books'</a></span></li>
+<li class="topic">[<abbr title="2015-08-13T00:00:36+00:00">00:00:36</abbr>] <span>* Set by KotH!~attila@erica.kinali.ch on Wed Jul 15 13:55:07 UTC 2015</span></li>
+<li class="join">[<abbr title="2015-08-13T00:00:36+00:00">00:00:36</abbr>] <span>* BeagleBot (~PircBot@ec2-50-17-196-130.compute-1.amazonaws.com) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T00:00:36+00:00">00:00:36</abbr>] <span>* BeagleBot (~PircBot@ec2-50-17-196-130.compute-1.amazonaws.com) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T00:02:58" id="T00:02:58"><abbr title="2015-08-13T00:02:58+00:00">00:02:58</abbr></a>] <span>* CrazyEddy (crazyed@wrongplanet/CrazyEddy) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T00:10:06" id="T00:10:06"><abbr title="2015-08-13T00:10:06+00:00">00:10:06</abbr></a>] <span>* mistawright (ad41cd81@gateway/web/freenode/ip.173.65.205.129) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:14:11" id="T00:14:11"><abbr title="2015-08-13T00:14:11+00:00">00:14:11</abbr></a>] <span>* somazero (~somazero@ip72-198-86-61.ok.ok.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:19:31" id="T00:19:31"><abbr title="2015-08-13T00:19:31+00:00">00:19:31</abbr></a>] <span>* PSanf (4a82756a@gateway/web/freenode/ip.74.130.117.106) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:22:18" id="T00:22:18"><abbr title="2015-08-13T00:22:18+00:00">00:22:18</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>Does anyone know of a good resource for learning how to program in C++ on the BBB? I'm looking for something text based, with code examples, that doesn't want me to watch dated youtube videos, that will cover topics such as leds, buttons, pots, servos, pwm, and I2C. i've been searching all over the place, but the only resources i've been able to find keep harping on about the device tree.</q></li>
+<li class="message">[<a href="#T00:25:04" id="T00:25:04"><abbr title="2015-08-13T00:25:04+00:00">00:25:04</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>then just look at C++ for linux?</q></li>
+<li class="message">[<a href="#T00:27:14" id="T00:27:14"><abbr title="2015-08-13T00:27:14+00:00">00:27:14</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>i already know c++, and linux. what has me stuck is which files to read and write from to interact with the pins. for example, to control an LED you write to /sys/class/leds/beaglebone:green:usr0/brightness. big whoop, that's easy enough. where do i find out which other files to write to for the pins, what to write, and what i can expect to read in when getting inputs from an analog device, or an I2C device?</q></li>
+<li class="join">[<a href="#T00:28:06" id="T00:28:06"><abbr title="2015-08-13T00:28:06+00:00">00:28:06</abbr></a>] <span>* pwillard_ (~pwillard@c-73-184-136-133.hsd1.ga.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:30:20" id="T00:30:20"><abbr title="2015-08-13T00:30:20+00:00">00:30:20</abbr></a>] <span>* pwillard (~pwillard@c-73-184-136-133.hsd1.ga.comcast.net) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="message">[<a href="#T00:32:54" id="T00:32:54"><abbr title="2015-08-13T00:32:54+00:00">00:32:54</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>I dunno really, maybe look at the Adafruit BBB IO Library?  You could reverse engineer it I would think... should be open source</q></li>
+<li class="quit">[<a href="#T00:33:38" id="T00:33:38"><abbr title="2015-08-13T00:33:38+00:00">00:33:38</abbr></a>] <span>* [Butch] (~i831533@169.145.89.207) Quit (Quit: Linkinus - <a href="http://linkinus.com)">http://linkinus.com)</a></span></li>
+<li class="message">[<a href="#T00:34:34" id="T00:34:34"><abbr title="2015-08-13T00:34:34+00:00">00:34:34</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>honestly, i wouldn't mind using a library if they weren't all written for python. that language is yuck in the extreme.</q></li>
+<li class="message">[<a href="#T00:34:55" id="T00:34:55"><abbr title="2015-08-13T00:34:55+00:00">00:34:55</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>python is pretty good for general use</q></li>
+<li class="message">[<a href="#T00:35:26" id="T00:35:26"><abbr title="2015-08-13T00:35:26+00:00">00:35:26</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>if you look at the source code, it looks to be in C</q></li>
+<li class="message">[<a href="#T00:35:32" id="T00:35:32"><abbr title="2015-08-13T00:35:32+00:00">00:35:32</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>C/C++</q></li>
+<li class="message">[<a href="#T00:35:38" id="T00:35:38"><abbr title="2015-08-13T00:35:38+00:00">00:35:38</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>the only really knowledgeable resource i've found has been the derek molloy stuff, but i can't stand sitting through multiple hour long videos when i could just read what i'm needing to know in five minutes</q></li>
+<li class="message">[<a href="#T00:35:56" id="T00:35:56"><abbr title="2015-08-13T00:35:56+00:00">00:35:56</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>i'll check that out</q></li>
+<li class="message">[<a href="#T00:36:04" id="T00:36:04"><abbr title="2015-08-13T00:36:04+00:00">00:36:04</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>maybe it'll be easy enough to use in c++ then</q></li>
+<li class="message">[<a href="#T00:36:11" id="T00:36:11"><abbr title="2015-08-13T00:36:11+00:00">00:36:11</abbr></a>] &lt;<cite>tlab</cite>&gt; <q><a href="https://github.com/adafruit/adafruit-beaglebone-io-python/tree/master/source">https://github.com/adafruit/adafruit-beaglebone-io-python/tree/master/source</a></q></li>
+<li class="message">[<a href="#T00:36:24" id="T00:36:24"><abbr title="2015-08-13T00:36:24+00:00">00:36:24</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>tyvm</q></li>
+<li class="join">[<a href="#T00:36:27" id="T00:36:27"><abbr title="2015-08-13T00:36:27+00:00">00:36:27</abbr></a>] <span>* carpman (~carpman@71.12.39.22) has joined #beagle</span></li>
+<li class="message">[<a href="#T00:36:54" id="T00:36:54"><abbr title="2015-08-13T00:36:54+00:00">00:36:54</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>I think maybe just C, not C++</q></li>
+<li class="message">[<a href="#T00:37:11" id="T00:37:11"><abbr title="2015-08-13T00:37:11+00:00">00:37:11</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>only .c and .h files</q></li>
+<li class="message">[<a href="#T00:39:32" id="T00:39:32"><abbr title="2015-08-13T00:39:32+00:00">00:39:32</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>that's not a big deal. if i want to be creative then i'll do OOP in C, if i want to be ambitious then i'll port it to C++, if i want to be lazy then i'll just use it as is and be careful with my code</q></li>
+<li class="message">[<a href="#T00:39:38" id="T00:39:38"><abbr title="2015-08-13T00:39:38+00:00">00:39:38</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>that's a big help, though. thanks a lot!</q></li>
+<li class="message">[<a href="#T00:40:37" id="T00:40:37"><abbr title="2015-08-13T00:40:37+00:00">00:40:37</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>yeah np, I figured python still has to interact with the system somehow, just seems to be they use C, then wrap it with python, so to speak</q></li>
+<li class="message">[<a href="#T00:41:09" id="T00:41:09"><abbr title="2015-08-13T00:41:09+00:00">00:41:09</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>looks like that's exactly what they're doing from the page on adafruit: <a href="https://learn.adafruit.com/setting-up-io-python-library-on-beaglebone-black?view=all">https://learn.adafruit.com/setting-up-io-python-library-on-beaglebone-black?view=all</a></q></li>
+<li class="message">[<a href="#T00:41:45" id="T00:41:45"><abbr title="2015-08-13T00:41:45+00:00">00:41:45</abbr></a>] &lt;<cite>PSanf</cite>&gt; <q>guh, python is such a freaking lazy hipster language. i am so glad i didn't waste my time on that crap when i was in school</q></li>
+<li class="message">[<a href="#T00:44:30" id="T00:44:30"><abbr title="2015-08-13T00:44:30+00:00">00:44:30</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>python is easy to pickup and use is why, but is very handy with different libraries</q></li>
+<li class="message">[<a href="#T00:45:02" id="T00:45:02"><abbr title="2015-08-13T00:45:02+00:00">00:45:02</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>I can pull data from tektronix scope with it, or I can use it to pull data from a canbus with a usb to canbus dongle I have</q></li>
+<li class="message">[<a href="#T00:45:09" id="T00:45:09"><abbr title="2015-08-13T00:45:09+00:00">00:45:09</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>mix and mash it all together</q></li>
+<li class="message">[<a href="#T00:45:27" id="T00:45:27"><abbr title="2015-08-13T00:45:27+00:00">00:45:27</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>best of all, it's free</q></li>
+<li class="message">[<a href="#T00:46:12" id="T00:46:12"><abbr title="2015-08-13T00:46:12+00:00">00:46:12</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>I've seen 100k dollar test stands use it for testing ecm's for automotive, construction, space, etc</q></li>
+<li class="message">[<a href="#T00:47:25" id="T00:47:25"><abbr title="2015-08-13T00:47:25+00:00">00:47:25</abbr></a>] &lt;<cite>agmlego</cite>&gt; <q>Python is excellent glue language, but I doubt I will get very far explaining its merits to someone whose outlook is that it is a "freaking lazy hipster language".</q></li>
+<li class="quit">[<a href="#T00:49:00" id="T00:49:00"><abbr title="2015-08-13T00:49:00+00:00">00:49:00</abbr></a>] <span>* manuel__ (~manuel@209.6.175.242) Quit (Quit: manuel__)</span></li>
+<li class="message">[<a href="#T00:51:23" id="T00:51:23"><abbr title="2015-08-13T00:51:23+00:00">00:51:23</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>last company I worked for stuck with visual studio c++ and just last year they had to revamp a bunch of software because all the software would only run on 32bit systems</q></li>
+<li class="message">[<a href="#T00:51:37" id="T00:51:37"><abbr title="2015-08-13T00:51:37+00:00">00:51:37</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>they all has windows xp 32 bit, LAST YEAR!</q></li>
+<li class="message">[<a href="#T00:52:06" id="T00:52:06"><abbr title="2015-08-13T00:52:06+00:00">00:52:06</abbr></a>] &lt;<cite>tlab</cite>&gt; <q>plus python can run on linux, mac os, embedded linx, etc</q></li>
+<li class="quit">[<a href="#T00:54:18" id="T00:54:18"><abbr title="2015-08-13T00:54:18+00:00">00:54:18</abbr></a>] <span>* mistawright (ad41cd81@gateway/web/freenode/ip.173.65.205.129) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T00:56:06" id="T00:56:06"><abbr title="2015-08-13T00:56:06+00:00">00:56:06</abbr></a>] <span>* James_Johnson (~clayshoot@ip68-0-127-69.tu.ok.cox.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T00:56:15" id="T00:56:15"><abbr title="2015-08-13T00:56:15+00:00">00:56:15</abbr></a>] <span>* souther (~souther@2605:6400:1:fed5:22:1ac:61c0:e24e) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T00:56:48" id="T00:56:48"><abbr title="2015-08-13T00:56:48+00:00">00:56:48</abbr></a>] <span>* pdp7 (~pdp7@fsf/member/pdp7) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T00:57:17" id="T00:57:17"><abbr title="2015-08-13T00:57:17+00:00">00:57:17</abbr></a>] <span>* piney0 (piney0@unaffiliated/piney0) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<abbr title="2015-08-13T00:57:17+00:00">00:57:17</abbr>] <span>* jbdatko (~jbdatko@fsf/member/jbdatko) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T00:57:30" id="T00:57:30"><abbr title="2015-08-13T00:57:30+00:00">00:57:30</abbr></a>] <span>* steev_ (~steev@gentoo/developer/steev) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T00:57:31" id="T00:57:31"><abbr title="2015-08-13T00:57:31+00:00">00:57:31</abbr></a>] <span>* l4cr0ss (~l4cr0ss@unaffiliated/l4cr0ss) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<abbr title="2015-08-13T00:57:31+00:00">00:57:31</abbr>] <span>* samael (~earendil@multivac.valis-e.com) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<abbr title="2015-08-13T00:57:31+00:00">00:57:31</abbr>] <span>* ficode (~ficode@ip-64-250-227-228.lasvegas.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="join">[<a href="#T00:58:27" id="T00:58:27"><abbr title="2015-08-13T00:58:27+00:00">00:58:27</abbr></a>] <span>* souther (~souther@2605:6400:1:fed5:22:1ac:61c0:e24e) has joined #beaglebone</span></li>
+<li class="join">[<abbr title="2015-08-13T00:58:27+00:00">00:58:27</abbr>] <span>* souther (~souther@2605:6400:1:fed5:22:1ac:61c0:e24e) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T00:58:27+00:00">00:58:27</abbr>] <span>* souther (~souther@2605:6400:1:fed5:22:1ac:61c0:e24e) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:58:45" id="T00:58:45"><abbr title="2015-08-13T00:58:45+00:00">00:58:45</abbr></a>] <span>* pdp7 (~pdp7@asciipr0n.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:58:50" id="T00:58:50"><abbr title="2015-08-13T00:58:50+00:00">00:58:50</abbr></a>] <span>* W1N9Zr0 (~w1n9zr0@2605:6400:20:895b:22:0:1c4:4d6a) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="nick-change">[<a href="#T00:59:09" id="T00:59:09"><abbr title="2015-08-13T00:59:09+00:00">00:59:09</abbr></a>] <span>* pdp7 is now known as Guest53390</span></li>
+<li class="join">[<a href="#T00:59:33" id="T00:59:33"><abbr title="2015-08-13T00:59:33+00:00">00:59:33</abbr></a>] <span>* l4cr0ss (~l4cr0ss@unaffiliated/l4cr0ss) has joined #beagle</span></li>
+<li class="join">[<a href="#T00:59:35" id="T00:59:35"><abbr title="2015-08-13T00:59:35+00:00">00:59:35</abbr></a>] <span>* steev_ (~steev@gentoo/developer/steev) has joined #beagle</span></li>
+<li class="quit">[<a href="#T00:59:51" id="T00:59:51"><abbr title="2015-08-13T00:59:51+00:00">00:59:51</abbr></a>] <span>* behanw (~behanw@2001:470:b26c:0:90ec:e02b:40c9:4287) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="join">[<a href="#T00:59:57" id="T00:59:57"><abbr title="2015-08-13T00:59:57+00:00">00:59:57</abbr></a>] <span>* samael (~earendil@multivac.valis-e.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:00:53" id="T01:00:53"><abbr title="2015-08-13T01:00:53+00:00">01:00:53</abbr></a>] <span>* Unnr (~unnr@162.243.84.91) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T01:00:54" id="T01:00:54"><abbr title="2015-08-13T01:00:54+00:00">01:00:54</abbr></a>] <span>* treeherder (~hive_quee@64.188.52.101) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="join">[<a href="#T01:01:04" id="T01:01:04"><abbr title="2015-08-13T01:01:04+00:00">01:01:04</abbr></a>] <span>* W1N9Zr0 (~w1n9zr0@2605:6400:20:895b:22:0:1c4:4d6a) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:02:20" id="T01:02:20"><abbr title="2015-08-13T01:02:20+00:00">01:02:20</abbr></a>] <span>* jbdatko (~jbdatko@2604:a880:800:10::30e:d001) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2015-08-13T01:02:20+00:00">01:02:20</abbr>] <span>* jbdatko (~jbdatko@2604:a880:800:10::30e:d001) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2015-08-13T01:02:20+00:00">01:02:20</abbr>] <span>* jbdatko (~jbdatko@fsf/member/jbdatko) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:02:52" id="T01:02:52"><abbr title="2015-08-13T01:02:52+00:00">01:02:52</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:03:41" id="T01:03:41"><abbr title="2015-08-13T01:03:41+00:00">01:03:41</abbr></a>] <span>* piney0 (piney0@2600:3c03::f03c:91ff:fe93:ac9f) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:03:42" id="T01:03:42"><abbr title="2015-08-13T01:03:42+00:00">01:03:42</abbr></a>] <span>* behanw (~behanw@2001:470:b26c:0:90ec:e02b:40c9:4287) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:04:47" id="T01:04:47"><abbr title="2015-08-13T01:04:47+00:00">01:04:47</abbr></a>] <span>* treeherder (~hive_quee@64.188.52.101) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:04:49" id="T01:04:49"><abbr title="2015-08-13T01:04:49+00:00">01:04:49</abbr></a>] <span>* Unnr (~unnr@162.243.84.91) has joined #beagle</span></li>
+<li class="join">[<a href="#T01:05:23" id="T01:05:23"><abbr title="2015-08-13T01:05:23+00:00">01:05:23</abbr></a>] <span>* ficode (~ficode@ip-64-250-227-228.lasvegas.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:05:57" id="T01:05:57"><abbr title="2015-08-13T01:05:57+00:00">01:05:57</abbr></a>] <span>* Humpelst1lzchen (erik@f054249014.adsl.alicedsl.de) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="quit">[<a href="#T01:07:02" id="T01:07:02"><abbr title="2015-08-13T01:07:02+00:00">01:07:02</abbr></a>] <span>* webdaford (~daford@ool-457897a5.dyn.optonline.net) Quit (Quit: Leaving)</span></li>
+<li class="quit">[<a href="#T01:08:08" id="T01:08:08"><abbr title="2015-08-13T01:08:08+00:00">01:08:08</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="join">[<a href="#T01:09:36" id="T01:09:36"><abbr title="2015-08-13T01:09:36+00:00">01:09:36</abbr></a>] <span>* Humpelstilzchen (erik@x50abd1c9.dyn.telefonica.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:21:05" id="T01:21:05"><abbr title="2015-08-13T01:21:05+00:00">01:21:05</abbr></a>] <span>* idwer (~irc@unaffiliated/idwer) Quit (Remote host closed the connection)</span></li>
+<li class="quit">[<a href="#T01:28:11" id="T01:28:11"><abbr title="2015-08-13T01:28:11+00:00">01:28:11</abbr></a>] <span>* q_p (~quassel@75.93.226.226) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T01:38:41" id="T01:38:41"><abbr title="2015-08-13T01:38:41+00:00">01:38:41</abbr></a>] <span>* alexanderhiam (~ahiam@c-24-147-39-41.hsd1.nh.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T01:40:32" id="T01:40:32"><abbr title="2015-08-13T01:40:32+00:00">01:40:32</abbr></a>] <span>* Akex_ (uid58281@gateway/web/irccloud.com/x-teybmtuzonvohwzz) Quit (Quit: Connection closed for inactivity)</span></li>
+<li class="quit">[<a href="#T01:42:13" id="T01:42:13"><abbr title="2015-08-13T01:42:13+00:00">01:42:13</abbr></a>] <span>* alexanderhiam (~ahiam@c-24-147-39-41.hsd1.nh.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T01:48:44" id="T01:48:44"><abbr title="2015-08-13T01:48:44+00:00">01:48:44</abbr></a>] <span>* Devastator (~devas@186.214.92.175) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2015-08-13T01:48:44+00:00">01:48:44</abbr>] <span>* Devastator (~devas@unaffiliated/devastator) has joined #beagle</span></li>
+<li class="quit">[<a href="#T02:00:42" id="T02:00:42"><abbr title="2015-08-13T02:00:42+00:00">02:00:42</abbr></a>] <span>* Abhishek__ (uid26899@gateway/web/irccloud.com/x-typhhfpbjmydqtrs) Quit (Quit: Connection closed for inactivity)</span></li>
+<li class="join">[<a href="#T02:16:17" id="T02:16:17"><abbr title="2015-08-13T02:16:17+00:00">02:16:17</abbr></a>] <span>* vmayoral (~vmayoral@3.Red-81-35-162.dynamicIP.rima-tde.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T02:20:58" id="T02:20:58"><abbr title="2015-08-13T02:20:58+00:00">02:20:58</abbr></a>] <span>* vmayoral (~vmayoral@3.Red-81-35-162.dynamicIP.rima-tde.net) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="join">[<a href="#T02:30:27" id="T02:30:27"><abbr title="2015-08-13T02:30:27+00:00">02:30:27</abbr></a>] <span>* alexanderhiam (~ahiam@c-24-147-39-41.hsd1.nh.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T02:34:23" id="T02:34:23"><abbr title="2015-08-13T02:34:23+00:00">02:34:23</abbr></a>] <span>* mscleavite (60030f2b@gateway/web/freenode/ip.96.3.15.43) has joined #beagle</span></li>
+<li class="quit">[<a href="#T02:36:28" id="T02:36:28"><abbr title="2015-08-13T02:36:28+00:00">02:36:28</abbr></a>] <span>* alexanderhiam (~ahiam@c-24-147-39-41.hsd1.nh.comcast.net) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T02:36:54" id="T02:36:54"><abbr title="2015-08-13T02:36:54+00:00">02:36:54</abbr></a>] <span>* mscleavite (60030f2b@gateway/web/freenode/ip.96.3.15.43) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T02:38:34" id="T02:38:34"><abbr title="2015-08-13T02:38:34+00:00">02:38:34</abbr></a>] <span>* alexanderhiam (~ahiam@c-24-147-39-41.hsd1.nh.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T02:38:36" id="T02:38:36"><abbr title="2015-08-13T02:38:36+00:00">02:38:36</abbr></a>] <span>* alexanderhiam (~ahiam@c-24-147-39-41.hsd1.nh.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T02:44:17" id="T02:44:17"><abbr title="2015-08-13T02:44:17+00:00">02:44:17</abbr></a>] <span>* djerome (~djerome@ip68-2-89-23.ph.ph.cox.net) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T03:05:48" id="T03:05:48"><abbr title="2015-08-13T03:05:48+00:00">03:05:48</abbr></a>] <span>* fishey1 (~ydoc@vcr.einic.org) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="join">[<a href="#T03:09:17" id="T03:09:17"><abbr title="2015-08-13T03:09:17+00:00">03:09:17</abbr></a>] <span>* fishey1 (~ydoc@vcr.einic.org) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:11:45" id="T03:11:45"><abbr title="2015-08-13T03:11:45+00:00">03:11:45</abbr></a>] <span>* GeorgeHahn (~GeorgeHah@c-69-141-92-254.hsd1.nj.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T03:26:10" id="T03:26:10"><abbr title="2015-08-13T03:26:10+00:00">03:26:10</abbr></a>] <span>* manuel_ (~manuel@c-24-61-40-209.hsd1.ma.comcast.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:30:02" id="T03:30:02"><abbr title="2015-08-13T03:30:02+00:00">03:30:02</abbr></a>] <span>* manuel_ (~manuel@c-24-61-40-209.hsd1.ma.comcast.net) Quit (Client Quit)</span></li>
+<li class="join">[<a href="#T03:30:25" id="T03:30:25"><abbr title="2015-08-13T03:30:25+00:00">03:30:25</abbr></a>] <span>* imrehg__ (3d42f360@gateway/web/freenode/ip.61.66.243.96) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:31:56" id="T03:31:56"><abbr title="2015-08-13T03:31:56+00:00">03:31:56</abbr></a>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:35:30" id="T03:35:30"><abbr title="2015-08-13T03:35:30+00:00">03:35:30</abbr></a>] <span>* emeb (~ericb@ip68-2-68-52.ph.ph.cox.net) Quit (Quit: Leaving.)</span></li>
+<li class="join">[<a href="#T03:38:44" id="T03:38:44"><abbr title="2015-08-13T03:38:44+00:00">03:38:44</abbr></a>] <span>* Neemo_M (~neemo@140.207.23.141) has joined #beagle</span></li>
+<li class="join">[<a href="#T03:39:12" id="T03:39:12"><abbr title="2015-08-13T03:39:12+00:00">03:39:12</abbr></a>] <span>* tai271828 (~tai271828@175.41.48.77) has joined #beagle</span></li>
+<li class="quit">[<a href="#T03:41:03" id="T03:41:03"><abbr title="2015-08-13T03:41:03+00:00">03:41:03</abbr></a>] <span>* Neem0_M (~neemo@140.207.21.241) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="join">[<a href="#T03:50:33" id="T03:50:33"><abbr title="2015-08-13T03:50:33+00:00">03:50:33</abbr></a>] <span>* Vaizki (vaizki@arkki.vaizki.fi) has joined #beagle</span></li>
+<li class="join">[<a href="#T04:05:25" id="T04:05:25"><abbr title="2015-08-13T04:05:25+00:00">04:05:25</abbr></a>] <span>* vmayoral (~vmayoral@3.Red-81-35-162.dynamicIP.rima-tde.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T04:07:00" id="T04:07:00"><abbr title="2015-08-13T04:07:00+00:00">04:07:00</abbr></a>] <span>* imrehg__ (3d42f360@gateway/web/freenode/ip.61.66.243.96) Quit (Quit: Page closed)</span></li>
+<li class="quit">[<a href="#T04:09:28" id="T04:09:28"><abbr title="2015-08-13T04:09:28+00:00">04:09:28</abbr></a>] <span>* fishey1 (~ydoc@vcr.einic.org) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T04:10:00" id="T04:10:00"><abbr title="2015-08-13T04:10:00+00:00">04:10:00</abbr></a>] <span>* vmayoral (~vmayoral@3.Red-81-35-162.dynamicIP.rima-tde.net) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="join">[<a href="#T04:18:46" id="T04:18:46"><abbr title="2015-08-13T04:18:46+00:00">04:18:46</abbr></a>] <span>* fishey1 (~ydoc@vcr.einic.org) has joined #beagle</span></li>
+<li class="quit">[<a href="#T04:25:29" id="T04:25:29"><abbr title="2015-08-13T04:25:29+00:00">04:25:29</abbr></a>] <span>* arianepaola (~ariane@unaffiliated/arianepaola) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="join">[<a href="#T04:26:28" id="T04:26:28"><abbr title="2015-08-13T04:26:28+00:00">04:26:28</abbr></a>] <span>* arianepaola (~ariane@unaffiliated/arianepaola) has joined #beagle</span></li>
+<li class="join">[<a href="#T04:29:46" id="T04:29:46"><abbr title="2015-08-13T04:29:46+00:00">04:29:46</abbr></a>] <span>* mhaberler (~mhaberler@ns.stiwoll.mah.priv.at) has joined #beagle</span></li>
+<li class="join">[<abbr title="2015-08-13T04:29:46+00:00">04:29:46</abbr>] <span>* mhaberler (~mhaberler@ns.stiwoll.mah.priv.at) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T04:34:26" id="T04:34:26"><abbr title="2015-08-13T04:34:26+00:00">04:34:26</abbr></a>] <span>* Neemo_M (~neemo@140.207.23.141) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T04:34:45" id="T04:34:45"><abbr title="2015-08-13T04:34:45+00:00">04:34:45</abbr></a>] <span>* Neemo_M (~neemo@140.207.23.141) has joined #beagle</span></li>
+<li class="join">[<a href="#T04:38:45" id="T04:38:45"><abbr title="2015-08-13T04:38:45+00:00">04:38:45</abbr></a>] <span>* skhreze (~debian@ip-5-172-247-197.free.aero2.net.pl) has joined #beagle</span></li>
+<li class="quit">[<a href="#T04:51:06" id="T04:51:06"><abbr title="2015-08-13T04:51:06+00:00">04:51:06</abbr></a>] <span>* skhreze (~debian@ip-5-172-247-197.free.aero2.net.pl) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T04:59:58" id="T04:59:58"><abbr title="2015-08-13T04:59:58+00:00">04:59:58</abbr></a>] <span>* nofxx (~nofxx@177.106.18.43) has joined #beaglebone</span></li>
+<li class="quit">[<abbr title="2015-08-13T04:59:58+00:00">04:59:58</abbr>] <span>* nofxx (~nofxx@177.106.18.43) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2015-08-13T04:59:58+00:00">04:59:58</abbr>] <span>* nofxx (~nofxx@unaffiliated/nofxx) has joined #beaglebone</span></li>
+<li class="join">[<a href="#T05:04:33" id="T05:04:33"><abbr title="2015-08-13T05:04:33+00:00">05:04:33</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T05:09:37" id="T05:09:37"><abbr title="2015-08-13T05:09:37+00:00">05:09:37</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="join">[<a href="#T05:37:39" id="T05:37:39"><abbr title="2015-08-13T05:37:39+00:00">05:37:39</abbr></a>] <span>* CrazyEddy (crazyed@wrongplanet/CrazyEddy) has joined #beagle</span></li>
+<li class="join">[<a href="#T05:43:09" id="T05:43:09"><abbr title="2015-08-13T05:43:09+00:00">05:43:09</abbr></a>] <span>* sirkha (~jkha@ip68-99-14-48.om.om.cox.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T05:43:38" id="T05:43:38"><abbr title="2015-08-13T05:43:38+00:00">05:43:38</abbr></a>] <span>* Yotson (~Yotson@2001:980:6ac8:1:545f:e941:ba49:cc4) has joined #beagle</span></li>
+<li class="message">[<a href="#T05:45:09" id="T05:45:09"><abbr title="2015-08-13T05:45:09+00:00">05:45:09</abbr></a>] &lt;<cite>sirkha</cite>&gt; <q>hi, i am building a cape, and am going to make extensive use of i2c1 on pins 17 and 18. It seem silly to reserve the entire bus just for my cape, is there some convention to just reserve the addresses I want to use, check to see if i2c1 is already initialized and still initialize i2c1 if it hasn't been done already?</q></li>
+<li class="quit">[<a href="#T05:54:18" id="T05:54:18"><abbr title="2015-08-13T05:54:18+00:00">05:54:18</abbr></a>] <span>* djerome (~djerome@ip68-2-89-23.ph.ph.cox.net) Quit (Remote host closed the connection)</span></li>
+<li class="join">[<a href="#T05:54:19" id="T05:54:19"><abbr title="2015-08-13T05:54:19+00:00">05:54:19</abbr></a>] <span>* vmayoral (~vmayoral@3.Red-81-35-162.dynamicIP.rima-tde.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T05:58:29" id="T05:58:29"><abbr title="2015-08-13T05:58:29+00:00">05:58:29</abbr></a>] <span>* citylight2 (~me@84.111.153.0) Quit (Ping timeout: 244 seconds)</span></li>
+<li class="quit">[<a href="#T05:58:50" id="T05:58:50"><abbr title="2015-08-13T05:58:50+00:00">05:58:50</abbr></a>] <span>* vmayoral (~vmayoral@3.Red-81-35-162.dynamicIP.rima-tde.net) Quit (Ping timeout: 240 seconds)</span></li>
+<li class="join">[<a href="#T06:01:34" id="T06:01:34"><abbr title="2015-08-13T06:01:34+00:00">06:01:34</abbr></a>] <span>* vagrantc (~vagrant@unaffiliated/vagrantc) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:04:43" id="T06:04:43"><abbr title="2015-08-13T06:04:43+00:00">06:04:43</abbr></a>] <span>* jpirko (~jirka@ip-94-113-120-24.net.upcbroadband.cz) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:10:33" id="T06:10:33"><abbr title="2015-08-13T06:10:33+00:00">06:10:33</abbr></a>] <span>* ohama (ohama@cicolina.org) Quit (Ping timeout: 256 seconds)</span></li>
+<li class="join">[<a href="#T06:11:35" id="T06:11:35"><abbr title="2015-08-13T06:11:35+00:00">06:11:35</abbr></a>] <span>* ohama (ohama@cicolina.org) has joined #beaglebone</span></li>
+<li class="quit">[<a href="#T06:11:42" id="T06:11:42"><abbr title="2015-08-13T06:11:42+00:00">06:11:42</abbr></a>] <span>* Neemo_M (~neemo@140.207.23.141) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="join">[<a href="#T06:11:57" id="T06:11:57"><abbr title="2015-08-13T06:11:57+00:00">06:11:57</abbr></a>] <span>* Neemo_M (~neemo@119.81.253.237-static.reverse.softlayer.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:22:55" id="T06:22:55"><abbr title="2015-08-13T06:22:55+00:00">06:22:55</abbr></a>] <span>* NulL` (~bleh1@92.39.207.151) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:25:38" id="T06:25:38"><abbr title="2015-08-13T06:25:38+00:00">06:25:38</abbr></a>] <span>* Shadyman (~matthew@unaffiliated/shadyman) Quit (Ping timeout: 272 seconds)</span></li>
+<li class="join">[<a href="#T06:31:29" id="T06:31:29"><abbr title="2015-08-13T06:31:29+00:00">06:31:29</abbr></a>] <span>* Shadyman (~matthew@unaffiliated/shadyman) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:31:36" id="T06:31:36"><abbr title="2015-08-13T06:31:36+00:00">06:31:36</abbr></a>] <span>* Neemo_M (~neemo@119.81.253.237-static.reverse.softlayer.com) Quit (Ping timeout: 264 seconds)</span></li>
+<li class="join">[<a href="#T06:37:16" id="T06:37:16"><abbr title="2015-08-13T06:37:16+00:00">06:37:16</abbr></a>] <span>* Neemo_M (~neemo@119.81.253.237-static.reverse.softlayer.com) has joined #beagle</span></li>
+<li class="join">[<a href="#T06:41:10" id="T06:41:10"><abbr title="2015-08-13T06:41:10+00:00">06:41:10</abbr></a>] <span>* Neem0_M (~neemo@119.81.253.237-static.reverse.softlayer.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:41:40" id="T06:41:40"><abbr title="2015-08-13T06:41:40+00:00">06:41:40</abbr></a>] <span>* Neemo_M (~neemo@119.81.253.237-static.reverse.softlayer.com) Quit (Ping timeout: 250 seconds)</span></li>
+<li class="join">[<a href="#T06:49:12" id="T06:49:12"><abbr title="2015-08-13T06:49:12+00:00">06:49:12</abbr></a>] <span>* rob_w (~bob@93.104.205.194) has joined #beagle</span></li>
+<li class="quit">[<abbr title="2015-08-13T06:49:12+00:00">06:49:12</abbr>] <span>* rob_w (~bob@93.104.205.194) Quit (Changing host)</span></li>
+<li class="join">[<abbr title="2015-08-13T06:49:12+00:00">06:49:12</abbr>] <span>* rob_w (~bob@unaffiliated/rob-w/x-1112029) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:52:41" id="T06:52:41"><abbr title="2015-08-13T06:52:41+00:00">06:52:41</abbr></a>] <span>* tai271828 (~tai271828@175.41.48.77) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T06:57:51" id="T06:57:51"><abbr title="2015-08-13T06:57:51+00:00">06:57:51</abbr></a>] <span>* Neemo_M (~neemo@119.81.253.237-static.reverse.softlayer.com) has joined #beagle</span></li>
+<li class="quit">[<a href="#T06:57:55" id="T06:57:55"><abbr title="2015-08-13T06:57:55+00:00">06:57:55</abbr></a>] <span>* Neem0_M (~neemo@119.81.253.237-static.reverse.softlayer.com) Quit (Ping timeout: 245 seconds)</span></li>
+<li class="quit">[<a href="#T07:02:29" id="T07:02:29"><abbr title="2015-08-13T07:02:29+00:00">07:02:29</abbr></a>] <span>* Neemo_M (~neemo@119.81.253.237-static.reverse.softlayer.com) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="join">[<a href="#T07:04:34" id="T07:04:34"><abbr title="2015-08-13T07:04:34+00:00">07:04:34</abbr></a>] <span>* tai271828 (~tai271828@175.41.48.77) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:05:28" id="T07:05:28"><abbr title="2015-08-13T07:05:28+00:00">07:05:28</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) has joined #beagle</span></li>
+<li class="quit">[<a href="#T07:10:43" id="T07:10:43"><abbr title="2015-08-13T07:10:43+00:00">07:10:43</abbr></a>] <span>* Nico44 (~Nico44@crb44-1-82-67-127-241.fbx.proxad.net) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T07:12:40" id="T07:12:40"><abbr title="2015-08-13T07:12:40+00:00">07:12:40</abbr></a>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:12:40+00:00">07:12:40</abbr>] <span>* jkridner|desktop (~jkridner|@c-68-34-96-67.hsd1.mi.comcast.net) Quit (Read error: Connection reset by peer)</span></li>
+<li class="join">[<a href="#T07:13:26" id="T07:13:26"><abbr title="2015-08-13T07:13:26+00:00">07:13:26</abbr></a>] <span>* jkridner|desktop (~jkridner|@c-68-34-96-67.hsd1.mi.comcast.net) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:13:35" id="T07:13:35"><abbr title="2015-08-13T07:13:35+00:00">07:13:35</abbr></a>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) has joined #beagle</span></li>
+<li class="mode">[<abbr title="2015-08-13T07:13:35+00:00">07:13:35</abbr>] <span>* ChanServ sets mode +o jkridner</span></li>
+<li class="join">[<a href="#T07:14:28" id="T07:14:28"><abbr title="2015-08-13T07:14:28+00:00">07:14:28</abbr></a>] <span>* lyakh (~lyakh@xdsl-81-173-138-179.netcologne.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T07:21:10" id="T07:21:10"><abbr title="2015-08-13T07:21:10+00:00">07:21:10</abbr></a>] <span>* pheemo (5dc6cdf2@gateway/web/freenode/ip.93.198.205.242) Quit (Quit: Page closed)</span></li>
+<li class="join">[<a href="#T07:22:52" id="T07:22:52"><abbr title="2015-08-13T07:22:52+00:00">07:22:52</abbr></a>] <span>* intripoon (~quassel@p5B3F7C09.dip0.t-ipconnect.de) has joined #beagle</span></li>
+<li class="quit">[<a href="#T07:24:02" id="T07:24:02"><abbr title="2015-08-13T07:24:02+00:00">07:24:02</abbr></a>] <span>* carpman (~carpman@71.12.39.22) Quit (Ping timeout: 246 seconds)</span></li>
+<li class="quit">[<a href="#T07:24:30" id="T07:24:30"><abbr title="2015-08-13T07:24:30+00:00">07:24:30</abbr></a>] <span>* Ipsilon (~quassel@104.236.115.125) Quit (Read error: Connection reset by peer)</span></li>
+<li class="quit">[<a href="#T07:24:53" id="T07:24:53"><abbr title="2015-08-13T07:24:53+00:00">07:24:53</abbr></a>] <span>* NulL` (~bleh1@92.39.207.151) Quit (Ping timeout: 260 seconds)</span></li>
+<li class="quit">[<a href="#T07:25:09" id="T07:25:09"><abbr title="2015-08-13T07:25:09+00:00">07:25:09</abbr></a>] <span>* intripoon_ (~quassel@p5B3F7C09.dip0.t-ipconnect.de) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:25:09+00:00">07:25:09</abbr>] <span>* kd8wcr (~jtrip@li554-219.members.linode.com) Quit (Ping timeout: 255 seconds)</span></li>
+<li class="join">[<a href="#T07:25:39" id="T07:25:39"><abbr title="2015-08-13T07:25:39+00:00">07:25:39</abbr></a>] <span>* carpman (~carpman@71.12.39.22) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:26:16" id="T07:26:16"><abbr title="2015-08-13T07:26:16+00:00">07:26:16</abbr></a>] <span>* panto (~panto@195.97.110.117) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:26:37" id="T07:26:37"><abbr title="2015-08-13T07:26:37+00:00">07:26:37</abbr></a>] <span>* Ipsilon (~quassel@104.236.115.125) has joined #beagle</span></li>
+<li class="join">[<a href="#T07:28:59" id="T07:28:59"><abbr title="2015-08-13T07:28:59+00:00">07:28:59</abbr></a>] <span>* semicolon (~onurulu@78.189.161.112) has joined #beagle</span></li>
+<li class="quit">[<a href="#T07:41:27" id="T07:41:27"><abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr></a>] <span>* rob_w (~bob@unaffiliated/rob-w/x-1112029) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr>] <span>* semicolon (~onurulu@78.189.161.112) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr>] <span>* Ceriand|desktop (~Ceriand@unaffiliated/ceriand) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr>] <span>* veremit (~Michael@unaffiliated/veremit) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr>] <span>* azv4 (~kblake@static-acs-24-154-48-11.zoominternet.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr>] <span>* ruben-ikmaak (~sikko@541F7D85.cm-5-8b.dynamic.ziggo.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr>] <span>* gustavoz (~gustavoz@186.22.136.136) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr>] <span>* devtea (~tdreyer1@unaffiliated/tdreyer1) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:27+00:00">07:41:27</abbr>] <span>* edk (~edk@spy/edk0) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:28" id="T07:41:28"><abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr></a>] <span>* scrp3l (~scrp3l@xdevit.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr>] <span>* elopio (~quassel@33.93.189.91.lcy-02.canonistack.canonical.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr>] <span>* eyck (~eyck@u28n61.nowanet.pl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr>] <span>* rsalveti (~rsalveti@162.243.213.221) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr>] <span>* terinjokes (~terinjoke@wikinews/Terinjokes) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr>] <span>* mazzanet (~mazzanet@unaffiliated/mazzanet) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr>] <span>* XFaCE (~XFaCE@unaffiliated/xface) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr>] <span>* Gareth (~garethFre@znc.wiked.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:28+00:00">07:41:28</abbr>] <span>* MK_FG (~MK_FG@pdpc/supporter/active/mk-fg) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:29" id="T07:41:29"><abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr></a>] <span>* thuttu77 (~thuttu77@82-181-33-81.bb.dnainternet.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* nslu2-log (~nslu2-log@140.211.169.184) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* jj2baile (~jon@corn-syrup.csclub.uwaterloo.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* jonmasters (~jcm@edison.jonmasters.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* eballetbo (eballetbo@pasanda.collabora.co.uk) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* nate` (~west@unworkable-box.nb.kolo.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* russell-- (~russell@74.85.245.161) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* ricmm (~ricmm@li577-53.members.linode.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* nyt (nyt@countercultured.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* o`connor (~eric@192.34.80.167) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* tai271828 (~tai271828@175.41.48.77) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* Shadyman (~matthew@unaffiliated/shadyman) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* vagrantc (~vagrant@unaffiliated/vagrantc) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* l4cr0ss (~l4cr0ss@unaffiliated/l4cr0ss) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* pwillard_ (~pwillard@c-73-184-136-133.hsd1.ga.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:29+00:00">07:41:29</abbr>] <span>* SpeedEvil (~quassel@tor/regular/SpeedEvil) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:30" id="T07:41:30"><abbr title="2015-08-13T07:41:30+00:00">07:41:30</abbr></a>] <span>* neem0 (~nemo@180.159.222.179) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:30+00:00">07:41:30</abbr>] <span>* davbren (~remmer@starfighter.csh.rit.edu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:30+00:00">07:41:30</abbr>] <span>* kona_ (~kona@rrcs-24-153-134-93.sw.biz.rr.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:30+00:00">07:41:30</abbr>] <span>* carpman (~carpman@71.12.39.22) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:30+00:00">07:41:30</abbr>] <span>* jkridner|desktop (~jkridner|@c-68-34-96-67.hsd1.mi.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:30+00:00">07:41:30</abbr>] <span>* mhaberler (~mhaberler@ns.stiwoll.mah.priv.at) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:30+00:00">07:41:30</abbr>] <span>* Devastator (~devas@unaffiliated/devastator) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:30+00:00">07:41:30</abbr>] <span>* bfederau (~quassel@service.basyskom.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:31" id="T07:41:31"><abbr title="2015-08-13T07:41:31+00:00">07:41:31</abbr></a>] <span>* praneeth_ (praneeth@nat/ti/x-cpcfazmfiyuozmsf) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:31+00:00">07:41:31</abbr>] <span>* nyo (~nyo@host86-151-dynamic.49-82-r.retail.telecomitalia.it) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:31+00:00">07:41:31</abbr>] <span>* ketas (~ketas@229-211-191-90.dyn.estpak.ee) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:32" id="T07:41:32"><abbr title="2015-08-13T07:41:32+00:00">07:41:32</abbr></a>] <span>* thaytan (~thaytan@199.7.70.115.static.exetel.com.au) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:32+00:00">07:41:32</abbr>] <span>* LetoThe2nd (~jd@s15387740.onlinehome-server.info) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:32+00:00">07:41:32</abbr>] <span>* Tonisius (~anthony@216.69.255.55) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:32+00:00">07:41:32</abbr>] <span>* jannau (~janne@soltyk.jannau.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:32+00:00">07:41:32</abbr>] <span>* jkridner (~jkridner@pdpc/supporter/active/jkridner) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:32+00:00">07:41:32</abbr>] <span>* samael (~earendil@multivac.valis-e.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:32+00:00">07:41:32</abbr>] <span>* tlab (~tlab@173-30-228-162.client.mchsi.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:33" id="T07:41:33"><abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr></a>] <span>* Knaldgas (~pdj@dhcp-5-103-109-134.seas-nve.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* wednesday (~wednesday@c-67-183-82-182.hsd1.wa.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* Alynna (~alynna@c-174-51-45-219.hsd1.co.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* ficode (~ficode@ip-64-250-227-228.lasvegas.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* Guest53390 (~pdp7@asciipr0n.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* somazero (~somazero@ip72-198-86-61.ok.ok.cox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* ghoti (~paul@hq.experiencepoint.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* cbrake (~Thunderbi@cable-pool5-cs-161.doycomm.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* phantoneD (destroy@a89-152-21-144.cpe.netcabo.pt) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:33+00:00">07:41:33</abbr>] <span>* ds2 (noinf@rehut.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:34" id="T07:41:34"><abbr title="2015-08-13T07:41:34+00:00">07:41:34</abbr></a>] <span>* Daniele (~daniele@unaffiliated/daniele) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:34+00:00">07:41:34</abbr>] <span>* chainsawbike (~chainsawb@unaffiliated/chainsawbike) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:34+00:00">07:41:34</abbr>] <span>* riddle (riddle@us.yunix.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:34+00:00">07:41:34</abbr>] <span>* balrog (~balrog@unaffiliated/balrog) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:34+00:00">07:41:34</abbr>] <span>* schquid (~schquid@unaffiliated/schquid) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:34+00:00">07:41:34</abbr>] <span>* Yotson (~Yotson@2001:980:6ac8:1:545f:e941:ba49:cc4) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:34+00:00">07:41:34</abbr>] <span>* piney0 (piney0@2600:3c03::f03c:91ff:fe93:ac9f) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:34+00:00">07:41:34</abbr>] <span>* gusnan (~gusnan@unaffiliated/gusnan) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:35" id="T07:41:35"><abbr title="2015-08-13T07:41:35+00:00">07:41:35</abbr></a>] <span>* bhthompson (bhthompson@nat/google/x-zmtpqwmmeotmohqc) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:35+00:00">07:41:35</abbr>] <span>* Starduster (~guest@unaffiliated/starduster) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:35+00:00">07:41:35</abbr>] <span>* Russ (foobar@pool-100-9-139-246.lsanca.fios.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:35+00:00">07:41:35</abbr>] <span>* hewball (~hewball@203-59-97-212.perm.iinet.net.au) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:35+00:00">07:41:35</abbr>] <span>* kilroi (~kilroy@ip-84-118-180-123.unity-media.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:35+00:00">07:41:35</abbr>] <span>* grey_wolf (~greywolf@c-73-53-8-185.hsd1.wa.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:35+00:00">07:41:35</abbr>] <span>* sambuc (~sambuc@minix.labs.vu.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:35+00:00">07:41:35</abbr>] <span>* bzyx (~bzyx@ec2-54-93-193-241.eu-central-1.compute.amazonaws.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:36" id="T07:41:36"><abbr title="2015-08-13T07:41:36+00:00">07:41:36</abbr></a>] <span>* jsst (~jsst@kbl-mdb5926.zeelandnet.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:36+00:00">07:41:36</abbr>] <span>* Miklas (~Miklas@2001:41d0:52:300::c19) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:36+00:00">07:41:36</abbr>] <span>* RagBal (~RagBal@54694E34.cm-12-2b.dynamic.ziggo.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:36+00:00">07:41:36</abbr>] <span>* Catslab (~Thunderbi@205-237-53-37.static.cgocable.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:36+00:00">07:41:36</abbr>] <span>* xenoxaos (xenoxaos@2600:3c02::f03c:91ff:feae:2da1) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:36+00:00">07:41:36</abbr>] <span>* NishanthMenon (~nmenon@pool-71-170-163-35.dllstx.fios.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:37" id="T07:41:37"><abbr title="2015-08-13T07:41:37+00:00">07:41:37</abbr></a>] <span>* dogmatic69_ (~dogmatic6@cpc8-telf10-2-0-cust77.wolv.cable.virginm.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:37+00:00">07:41:37</abbr>] <span>* Kripton (~kripton-f@kripserver.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:37+00:00">07:41:37</abbr>] <span>* mykhailo (~mdanylov@192.194.199.35) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:37+00:00">07:41:37</abbr>] <span>* comboy (~quassel@tesuji.pl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:37+00:00">07:41:37</abbr>] <span>* Fleurety (~fleurety@178.18.241.185) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:37+00:00">07:41:37</abbr>] <span>* penth (~rachel@c-68-81-92-61.hsd1.pa.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:38" id="T07:41:38"><abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr></a>] <span>* ft (~ft@shell.chaostreff-dortmund.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr>] <span>* mag (~mgreer@ip68-99-91-150.ph.ph.cox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr>] <span>* Spirilis (~vmlinuz@c-73-39-106-168.hsd1.md.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr>] <span>* Vadtec (~Vadtec@unaffiliated/vadtec) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr>] <span>* tchan (~tchan@lunar-linux/developer/tchan) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr>] <span>* khem (~khem@unaffiliated/khem) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr>] <span>* ByronJohnson (~Byron@unaffiliated/bob0) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr>] <span>* mazzoo_ (~mazzoo@vps-1029065-10818.cp.united-hoster.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:38+00:00">07:41:38</abbr>] <span>* denix (~denix@pool-108-51-169-48.washdc.fios.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:39" id="T07:41:39"><abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr></a>] <span>* dlitz (~dwon@goedel.dlitz.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* honestly (~luke@unaffiliated/luketheduke) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* cc0_ (~cc0_@c-174-53-187-122.hsd1.mn.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* DarkSector (~DarkSecto@unaffiliated/darthsector) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* dlan_ (~dennis@gentoo/developer/dlan) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* PDogJr (~PurpleDog@unaffiliated/purpledog) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* Cats_home (~Thunderbi@dsl.198.58.168.109.ebox.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* megabitdragon (~mbit@c-75-66-14-77.hsd1.tn.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* KimK (~Kim__@ip68-102-188-176.ks.ok.cox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:39+00:00">07:41:39</abbr>] <span>* RzR (~RzR@unaffiliated/rzr) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:40" id="T07:41:40"><abbr title="2015-08-13T07:41:40+00:00">07:41:40</abbr></a>] <span>* creemj (~mjc@60-234-221-162.bitstream.orcon.net.nz) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:40+00:00">07:41:40</abbr>] <span>* Zygo (foobar@startkeylogger.hungrycats.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:40+00:00">07:41:40</abbr>] <span>* endrift (~endrift@endrift.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:40+00:00">07:41:40</abbr>] <span>* Chrille (~chrille@2001:6c8:130:500::81) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:40+00:00">07:41:40</abbr>] <span>* vvu (~vvu@unaffiliated/vvu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:40+00:00">07:41:40</abbr>] <span>* jacekowski (jacekowski@jacekowski.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:40+00:00">07:41:40</abbr>] <span>* ggherdov (sid11402@gateway/web/irccloud.com/x-ojjyqlsdosshqspl) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:41" id="T07:41:41"><abbr title="2015-08-13T07:41:41+00:00">07:41:41</abbr></a>] <span>* plars (sid81840@ubuntu/member/plars) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:41+00:00">07:41:41</abbr>] <span>* neersighted (sid5776@gateway/web/irccloud.com/x-ttccebtbxzthpxbi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:41+00:00">07:41:41</abbr>] <span>* nemunaire (~nemunaire@2a01:e35:8bb7:3c60:2ca2:67ff:fe35:cd43) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:41+00:00">07:41:41</abbr>] <span>* m1kesm1th (~m1kesm1th@unaffiliated/m1kesm1th) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:41+00:00">07:41:41</abbr>] <span>* kevinsan (~kevinsan@takahe.susa.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:41+00:00">07:41:41</abbr>] <span>* doppo (doppo@2604:180::e0fc:a07f) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:41+00:00">07:41:41</abbr>] <span>* tomba (tomba@taika.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:42" id="T07:41:42"><abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr></a>] <span>* jpirko (~jirka@ip-94-113-120-24.net.upcbroadband.cz) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* fishey1 (~ydoc@vcr.einic.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* treeherder (~hive_quee@64.188.52.101) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* behanw (~behanw@2001:470:b26c:0:90ec:e02b:40c9:4287) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* jbdatko (~jbdatko@fsf/member/jbdatko) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* W1N9Zr0 (~w1n9zr0@2605:6400:20:895b:22:0:1c4:4d6a) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* mrpackethead (~mrpacketh@147.200.109.203.static.cust.vf.net.nz) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* crypticgator (~crypticga@2602:306:32dd:83d0:1df4:e893:7d55:b50) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* [vaelen] (vaelen]@frobozzelectric.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:42+00:00">07:41:42</abbr>] <span>* ryan-c (~ryan@srv1.turboslow.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:43" id="T07:41:43"><abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr></a>] <span>* jcv (~jcv@zebes.netpurgatory.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* jzaw (~jzaw@loki.dzki.co.uk) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* dys (~dys@ip-109-41-166-220.web.vodafone.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* DevaamoBot (~supybot@2001:6f8:12e0::7) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* Electric_Monk (~colin@c-24-6-119-243.hsd1.ca.comcast.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* falstaff_ (~quassel@2001:8e0:2003:8e10:dc41:6d5e:9a29:e176) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* Posterdati (~kvirc@host58-197-dynamic.32-79-r.retail.telecomitalia.it) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* ddrown (quassel@vps3.drown.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* das (~das@135.5.80.79.rev.sfr.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* Turl (~Turl@cyanogenmod/maintainer/Turl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* manjo (~manjo@ubuntu/member/manjo) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:43+00:00">07:41:43</abbr>] <span>* Tartarus (sid72705@gateway/web/irccloud.com/x-lcmelidjdtmarvak) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:44" id="T07:41:44"><abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr></a>] <span>* amatecha (sid10006@gateway/web/irccloud.com/x-wgavwtcupduporys) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* piroux (sid26816@gateway/web/irccloud.com/x-wgszooccggmjbdgq) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* k3nt (sid19550@gateway/web/irccloud.com/x-gnrfjdyhjnpqfpfa) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* cjackson (sid13915@gateway/web/irccloud.com/x-ygxwhhwdumejpgez) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* dl9pf (~quassel@opensuse/member/dl9pf) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* Darek- (darek@work.sznajder.org) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* qjqqyy (Koffing@qjqqyy.is.b0ss.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* KotH (~attila@erica.kinali.ch) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* kalz (~kalz@2602:fff6:f:29c9::2c33) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:44+00:00">07:41:44</abbr>] <span>* mps (mp@aggr.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:45" id="T07:41:45"><abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr></a>] <span>* mcan (~m@178.62.169.8) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* Patater (Patater@patater.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* signal11 (esteban@abq.quaddro.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* bborg_builds (~bborg_bui@ec2-50-17-196-130.compute-1.amazonaws.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* Vaizki (vaizki@arkki.vaizki.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* souther (~souther@2605:6400:1:fed5:22:1ac:61c0:e24e) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* CrazyEddy (crazyed@wrongplanet/CrazyEddy) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* calculus (~calculus@gentoo/user/calculus) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* ecdhe (~ecdhe@173-22-126-166.client.mchsi.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:45+00:00">07:41:45</abbr>] <span>* nashpa (~nashpa@dliviu.plus.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:46" id="T07:41:46"><abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr></a>] <span>* stefanct (ameno@unaffiliated/stefanct) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* tenseiten (~quassel@unaffiliated/seitensei) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* divine (~divine@2001:470:8247:1::30) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* tbr (dm8tbr@cl-790.ham-01.de.sixxs.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* kayatwork (~kayfox@orca.zerda.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* Henry_Case (~Henry_Cas@71-208-39-35.hlrn.qwest.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* smurray (sid98062@gateway/web/irccloud.com/x-xxhvxqrdsnnwejad) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* mdp (sid49840@gateway/web/irccloud.com/x-jdndswhcvpvoqrgx) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* TheKiwi (sid3601@gateway/web/irccloud.com/x-bzqjzpthyubyyjxi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* steev (sid1383@gentoo/developer/steev) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:46+00:00">07:41:46</abbr>] <span>* bhthompson_cloud (sid20637@gateway/web/irccloud.com/x-ygdxviwxlizcetra) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:47" id="T07:41:47"><abbr title="2015-08-13T07:41:47+00:00">07:41:47</abbr></a>] <span>* n-st (~n-st@unaffiliated/n-st) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:47+00:00">07:41:47</abbr>] <span>* Moult (~quassel@static.88-198-98-200.clients.your-server.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:47+00:00">07:41:47</abbr>] <span>* philenotfound (~phil@zankapfel.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:47+00:00">07:41:47</abbr>] <span>* Derecho (~derecho@g35225.upc-g.chello.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:48" id="T07:41:48"><abbr title="2015-08-13T07:41:48+00:00">07:41:48</abbr></a>] <span>* arianepaola (~ariane@unaffiliated/arianepaola) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:48+00:00">07:41:48</abbr>] <span>* steev_ (~steev@gentoo/developer/steev) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:48+00:00">07:41:48</abbr>] <span>* julemand101 (~julemand1@pdpc/supporter/student/julemand101) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:48+00:00">07:41:48</abbr>] <span>* stt_michael (stt@unaffiliated/veremit) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:49" id="T07:41:49"><abbr title="2015-08-13T07:41:49+00:00">07:41:49</abbr></a>] <span>* Afterster (~Afterster@morkxy.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:49+00:00">07:41:49</abbr>] <span>* insurgent (~quassel@mx.hpcfactor.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:49+00:00">07:41:49</abbr>] <span>* MightyMu (~MightyMu@104.131.138.31) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:49+00:00">07:41:49</abbr>] <span>* ozzloy (~ozzloy@unaffiliated/ozzloy) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:49+00:00">07:41:49</abbr>] <span>* hef (~hef@arbitrarion.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:49+00:00">07:41:49</abbr>] <span>* wgrant (~wgrant@ubuntu/member/wgrant) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:49+00:00">07:41:49</abbr>] <span>* Vasco (vasco_O@LOOK.MOM.I.AM.ON.TEH.INTARD.NET) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:49+00:00">07:41:49</abbr>] <span>* buq2 (~buq2@dsl-trebrasgw2-54f9ad-174.dhcp.inet.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:50" id="T07:41:50"><abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr></a>] <span>* zmatt (~zmatt@gerbil.xs4all.nl) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* mjgardes (~mjgardes@ec2-54-187-81-171.us-west-2.compute.amazonaws.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* Gentooman (~cyber_ram@pool-108-39-146-142.pitbpa.fios.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* DJW|Home (~djwillis@cpc2-trow6-2-0-cust204.aztw.cable.virginm.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* bgamari (~bgamari@HSI-KBW-109-193-204-037.hsi7.kabel-badenwuerttemberg.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* jevin (~jevin@72.12.217.220) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* agmlego (~agmlego@agmlego.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* georgem (~georgem@mail.novatech-llc.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* uwe_ (~uwe_@ipservice-092-217-121-053.092.217.pools.vodafone-ip.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* nicksydney (~quassel@63.085.dsl.syd.iprimus.net.au) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:50+00:00">07:41:50</abbr>] <span>* foundatron (~foundatro@unaffiliated/foundatron) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:51" id="T07:41:51"><abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr></a>] <span>* PaulePanter (~paul@mail.gw90.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* yang (yang@freenode/sponsor/fsf.member.yang) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* docularxu (guodongxu@gateway/shell/linaro/x-qhhuuothneqxgeuu) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* sellout (~greg@ec2-54-186-124-17.us-west-2.compute.amazonaws.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* sh1v (~sh1v@104.131.4.142) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* PSanf (4a82756a@gateway/web/freenode/ip.74.130.117.106) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* paco___ (c1fcac97@gateway/web/freenode/ip.193.252.172.151) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* panto (~panto@195.97.110.117) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* WillAmes (~py@ool-1826eaa1.dyn.optonline.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* davis (~davis@rrcs-96-10-245-18.midsouth.biz.rr.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* nerdboy (~sarnold@gentoo/developer/nerdboy) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* qcricket (~qcricket@208.79.83.202) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:51+00:00">07:41:51</abbr>] <span>* Ragnorok (~Ragnorok@unaffiliated/ragnorok) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:52" id="T07:41:52"><abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr></a>] <span>* gferencz (~gferencz@173.225.52.242) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* ASEV (vsnikkil@gateway/shell/tkk.fi/x-hpoijyiljeuyogit) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* contempt (contempt@unaffiliated/contempt) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* plaw (~plaw@guifications/user/plaw) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* natsurou_ (~natsurou@201.240.246.205) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* vitprado (~Vitor@23.88.229.45) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* CareBear\ (peter@stuge.se) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* msantana (~darkstar@unaffiliated/darkstar) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* fgau (~fgau@webbox1220.server-home.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* ChanServ (ChanServ@services.) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* Ipsilon (~quassel@104.236.115.125) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* lyakh (~lyakh@xdsl-81-173-138-179.netcologne.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:52+00:00">07:41:52</abbr>] <span>* mythos (~mythos@unaffiliated/mythos) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:53" id="T07:41:53"><abbr title="2015-08-13T07:41:53+00:00">07:41:53</abbr></a>] <span>* dgilmore (~dgilmore@fedora/dgilmore) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:53+00:00">07:41:53</abbr>] <span>* sirkha (~jkha@ip68-99-14-48.om.om.cox.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:53+00:00">07:41:53</abbr>] <span>* xer0x (~X0@165.225.149.90) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:53+00:00">07:41:53</abbr>] <span>* moto-timo (~timo@fsf/member/moto-timo) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:53+00:00">07:41:53</abbr>] <span>* phragment (~blubb@jabber.htu.tu-graz.ac.at) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:53+00:00">07:41:53</abbr>] <span>* thow (~thow@97e011b9.skybroadband.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:53+00:00">07:41:53</abbr>] <span>* gurki (er48awup@ircbox.informatik.uni-erlangen.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:53+00:00">07:41:53</abbr>] <span>* mmattice (~mmattice@unaffiliated/mmattice) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:54" id="T07:41:54"><abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr></a>] <span>* _av500_ (~av500@lgf.archos.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* wmat (wmat@wallace.mixdown.ca) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* Gaston|Home (~quassel@rosie.office.tw.ly) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* Zorgon (ian@chaos.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* riotz (~riotz@unaffiliated/riotz) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* Barlow (~barlow@unaffiliated/barlow) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* SebastianFlyte (~sebf@pool-173-79-110-127.washdc.fios.verizon.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* ynezz (ynezz@ibawizard.net) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* notserpe (~notserpe@unaffiliated/notserpe) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* JamesJRH (~james@ps87731.dreamhost.com) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:54+00:00">07:41:54</abbr>] <span>* Vostok_ (vostok@kapsi.fi) Quit (*.net *.split)</span></li>
+<li class="quit">[<a href="#T07:41:55" id="T07:41:55"><abbr title="2015-08-13T07:41:55+00:00">07:41:55</abbr></a>] <span>* jomar (~jm@0xffffff.de) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:55+00:00">07:41:55</abbr>] <span>* j0rd__ (~j0rd_@unaffiliated/j0rd-/x-9112651) Quit (*.net *.split)</span></li>
+<li class="quit">[<abbr title="2015-08-13T07:41:55+00:00">07:41:55</abbr>] <span>* clonak (~clonak@118-92-141-40.dsl.dyn.ihug.co.nz) Quit (*.net *.split)</span></li>
+<li class="join">[<a href="#T07:43:53" id="T07:43:53"><abbr title="2015-08-13T07:43:53+00:00">07:43:53</abbr></a>] <span>* souther (~souther@2605:6400:1:fed5:22:1ac:61c0:e24e) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T07:43:53+00:00">07:43:53</abbr>] <span>* nashpa (~nashpa@dliviu.plus.com) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T07:43:53+00:00">07:43:53</abbr>] <span>* contempt (contempt@unaffiliated/contempt) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T07:43:53+00:00">07:43:53</abbr>] <span>* nslu2-log (~nslu2-log@140.211.169.184) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T07:43:53+00:00">07:43:53</abbr>] <span>* riddle (riddle@us.yunix.net) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T07:43:53+00:00">07:43:53</abbr>] <span>* PaulePanter (~paul@mail.gw90.de) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T07:43:53+00:00">07:43:53</abbr>] <span>* doppo (doppo@2604:180::e0fc:a07f) has joined #beagleboard</span></li>
+<li class="join">[<abbr title="2015-08-13T07:43:53+00:00">07:43:53</abbr>] <span>* Vostok_ (vostok@kapsi.fi) has joined #beagleboard</span></li>
